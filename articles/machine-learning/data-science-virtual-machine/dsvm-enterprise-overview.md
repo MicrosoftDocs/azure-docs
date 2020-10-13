@@ -36,7 +36,7 @@ This series provides guidance and pointers for each of the preceding topics. It 
 * [Network security](https://docs.microsoft.com/azure/security/fundamentals/network-security)
 * [Monitoring](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) and [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Logging and auditing](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
-* [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Policy setting and enforcement](../../governance/policy/overview.md)
 * [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)

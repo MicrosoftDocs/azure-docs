@@ -48,6 +48,22 @@
       href: tutorial-dr-drill-azure.md
     - name: Fail over to Azure
       href: vmware-azure-tutorial-failover-failback.md
+  - name: Azure VMware Solution disaster recovery to Azure
+    items:
+    - name: Prepare Azure
+      href: avs-tutorial-prepare-azure.md
+    - name: Prepare Azure VMware Solution
+      href: avs-tutorial-prepare-avs.md
+    - name: Set up replication
+      href: avs-tutorial-replication.md
+    - name: Run a disaster recovery drill
+      href: avs-tutorial-dr-drill-azure.md
+    - name: Fail over to Azure
+      href: avs-tutorial-failover.md
+    - name: Reprotect VMs
+      href: avs-tutorial-reprotect.md
+    - name: Fail back from Azure
+      href: avs-tutorial-failback.md
   - name: Hyper-V VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -62,6 +78,8 @@
       href: tutorial-dr-drill-azure.md
     - name: Fail over to Azure
       href: hyper-v-azure-failover-failback-tutorial.md
+    - name: Enable on-premises replication with private endpoints
+      href: ./hybrid-how-to-enable-replication-private-endpoints.md
   - name: Migrate to Azure
     items:
     - name: Prepare Azure for on-premises replication
@@ -186,6 +204,8 @@
         href: azure-to-azure-how-to-enable-replication-s2d-vms.md
       - name: Enable replication for an added disk
         href: azure-to-azure-enable-replication-added-disk.md
+      - name: Enable replication with private endpoints
+        href: ./azure-to-azure-how-to-enable-replication-private-endpoints.md
       - name: Exclude disks
         href: azure-to-azure-exclude-disks.md
       - name: Reprotect Azure VMs after failover
@@ -242,6 +262,8 @@
         href: vmware-azure-set-up-target.md
       - name: Configure replication settings
         href: vmware-azure-set-up-replication.md
+      - name: Enable on-premises replication with private endpoints
+        href: ./hybrid-how-to-enable-replication-private-endpoints.md
       - name: Deploy the Mobility service
         items:
         - name: Mobility service overview and installation
@@ -254,7 +276,7 @@
         href: vmware-azure-enable-replication.md
       - name: Exclude disks from replication
         href: vmware-azure-exclude-disk.md
-      - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMWare VMs
+      - name: Walkthrough-Set up replication with multi-tenancy and CSP for VMware VMs
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
     - name: Run failover and failback
       items:
@@ -308,6 +330,8 @@
         href: physical-azure-set-up-source.md
       - name: Set up the target environment
         href: vmware-azure-set-up-target.md
+      - name: Enable on-premises replication with private endpoints
+        href: ./hybrid-how-to-enable-replication-private-endpoints.md
       - name: Deploy the Mobility service
         items:
         - name: About Mobility service installation
@@ -458,6 +482,8 @@
     href: site-recovery-monitor-and-troubleshoot.md
   - name: Monitor Site Recovery with Azure Monitor Logs
     href: monitor-log-analytics.md
+  - name: Monitoring churn patterns on Virtual Machines
+    href: monitoring-high-churn.md
   - name: Monitor process servers
     href: vmware-physical-azure-monitor-process-server.md
 - name: Troubleshooting
@@ -509,7 +535,7 @@
 - name: Related
   items:
   - name: Azure Automation
-    href: /azure/automation/
+    href: ../automation/index.yml
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -517,7 +543,7 @@
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-site-recovery.html
+    href: /answers/topics/azure-site-recovery.html
   - name: Learning path
     href: /learn/azure/
   - name: Pricing

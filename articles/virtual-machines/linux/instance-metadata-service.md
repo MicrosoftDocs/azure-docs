@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service 
-description: RESTful interface to get information about VMs compute, network, and upcoming maintenance events.
+description: Learn about the Azure Instance Metadata Service and how it provides information about currently running virtual machine instances.
 services: virtual-machines
 author: KumariSupriya
 manager: paulmey
@@ -13,13 +13,15 @@ ms.author: sukumari
 ms.reviewer: azmetadatadev
 ---
 
-# Azure Instance Metadata service
+# Azure Instance Metadata Service (IMDS)
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
-Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/).
+Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All APIs support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
+the Attested and Network endpoints support Classic (non-ARM) VMs, and Attested does so only to a limited extent.
 
-Azure's Instance Metadata Service is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM.
+Azure's IMDS is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM. Communication between the VM and IMDS never leaves the Host.
+It is best practice to have your HTTP clients bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 
 ## Security
 
@@ -33,7 +35,7 @@ Requests must also contain a `Metadata: true` header to ensure that the actual r
 
 ### Accessing Azure Instance Metadata Service
 
-To access Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and follow the samples below.
+To access Instance Metadata Service, create a VM from [Azure Resource Manager](/rest/api/resources/) or the [Azure portal](https://portal.azure.com), and follow the samples below.
 More examples of how to query IMDS can be found at [Azure Instance Metadata Samples](https://github.com/microsoft/azureimds).
 
 Below is the sample code to retrieve all metadata for an instance, to access specific data source, see [Metadata API](#metadata-apis) section. 
@@ -41,7 +43,7 @@ Below is the sample code to retrieve all metadata for an instance, to access spe
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-06-01"
 ```
 
 **Response**
@@ -51,112 +53,97 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 
 ```json
 {
-  "compute": {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
-    },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
-    "storageProfile": {
-        "dataDisks": [
-          {
-            "caching": "None",
-            "createOption": "Empty",
-            "diskSizeGB": "1024",
-            "image": {
-              "uri": ""
-            },
-            "lun": "0",
-            "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
-            },
-            "name": "exampledatadiskname",
-            "vhd": {
-              "uri": ""
-            },
-            "writeAcceleratorEnabled": "false"
-          }
-        ],
-        "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
-        },
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
-        }
-    },
-    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
-  },
-  "network": {
-    "interface": [
-      {
-        "ipv4": {
-          "ipAddress": [
-            {
-              "privateIpAddress": "10.1.2.5",
-              "publicIpAddress": "X.X.X.X"
-            }
-          ],
-          "subnet": [
-            {
-              "address": "10.1.2.0",
-              "prefix": "24"
-            }
-          ]
-        },
-        "ipv6": {
-          "ipAddress": []
-        },
-        "macAddress": "000D3A36DDED"
-      }
-    ]
-  }
+	"compute": {
+		"azEnvironment": "AZUREPUBLICCLOUD",
+		"isHostCompatibilityLayerVm": "true",
+		"location": "westus",
+		"name": "examplevmname",
+		"offer": "Windows",
+		"osType": "linux",
+		"placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+		"plan": {
+			"name": "planName",
+			"product": "planProduct",
+			"publisher": "planPublisher"
+		},
+		"platformFaultDomain": "36",
+		"platformUpdateDomain": "42",
+		"publicKeys": [{
+				"keyData": "ssh-rsa 0",
+				"path": "/home/user/.ssh/authorized_keys0"
+			},
+			{
+				"keyData": "ssh-rsa 1",
+				"path": "/home/user/.ssh/authorized_keys1"
+			}
+		],
+		"publisher": "RDFE-Test-Microsoft-Windows-Server-Group",
+		"resourceGroupName": "macikgo-test-may-23",
+		"resourceId": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+		"securityProfile": {
+			"secureBootEnabled": "true",
+			"virtualTpmEnabled": "false"
+		},
+		"sku": "Windows-Server-2012-R2-Datacenter",
+		"storageProfile": {
+			"dataDisks": [{
+				"caching": "None",
+				"createOption": "Empty",
+				"diskSizeGB": "1024",
+				"image": {
+					"uri": ""
+				},
+				"lun": "0",
+				"managedDisk": {
+					"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+					"storageAccountType": "Standard_LRS"
+				},
+				"name": "exampledatadiskname",
+				"vhd": {
+					"uri": ""
+				},
+				"writeAcceleratorEnabled": "false"
+			}],
+			"imageReference": {
+				"id": "",
+				"offer": "UbuntuServer",
+				"publisher": "Canonical",
+				"sku": "16.04.0-LTS",
+				"version": "latest"
+			},
+			"osDisk": {
+				"caching": "ReadWrite",
+				"createOption": "FromImage",
+				"diskSizeGB": "30",
+				"diffDiskSettings": {
+					"option": "Local"
+				},
+				"encryptionSettings": {
+					"enabled": "false"
+				},
+				"image": {
+					"uri": ""
+				},
+				"managedDisk": {
+					"id": "/subscriptions/8d10da13-8125-4ba9-a717-bf7490507b3d/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+					"storageAccountType": "Standard_LRS"
+				},
+				"name": "exampleosdiskname",
+				"osType": "Linux",
+				"vhd": {
+					"uri": ""
+				},
+				"writeAcceleratorEnabled": "false"
+			}
+		},
+		"subscriptionId": "8d10da13-8125-4ba9-a717-bf7490507b3d",
+		"tags": "baz:bash;foo:bar",
+		"version": "15.05.22",
+		"vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+		"vmScaleSetName": "crpteste9vflji9",
+		"vmSize": "Standard_A3",
+		"zone": ""
+	}
 }
 ```
 
@@ -175,7 +162,7 @@ API | Default Data Format | Other Formats
 To access a non-default response format, specify the requested format as a query string parameter in the request. For example:
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
@@ -185,9 +172,26 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
 
-Follow are the supported service versions: 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15.
+The supported API versions are: 
+- 2017-03-01
+- 2017-04-02
+- 2017-08-01 
+- 2017-10-01
+- 2017-12-01 
+- 2018-02-01
+- 2018-04-02
+- 2018-10-01
+- 2019-02-01
+- 2019-03-11
+- 2019-04-30
+- 2019-06-01
+- 2019-06-04
+- 2019-08-01
+- 2019-08-15
+- 2019-11-01
+- 2020-06-01
 
-Note when new version is released, it will take a while to roll out to all regions. Currently version 2019-11-01 is still getting deployed and may not be available in all regions.
+Note when new version is released, it will take a while to roll out to all regions.
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -199,7 +203,7 @@ When no version is specified, an error is returned with a list of the newest sup
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance"
 ```
 
 **Response**
@@ -235,28 +239,31 @@ Data | Description | Version Introduced
 -----|-------------|-----------------------
 azEnvironment | Azure Environment where the VM is running in | 2018-10-01
 customData | This feature is currently disabled. We will update this documentation when it becomes available | 2019-02-01
+isHostCompatibilityLayerVm | Identifies if the VM runs on the Host Compatibility Layer | 2020-06-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
 offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
 osType | Linux or Windows | 2017-04-02
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
-platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
+plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
+platformUpdateDomain |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
+platformFaultDomain | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
 provider | Provider of the VM | 2018-10-01
-publicKeys | [Collection of Public Keys](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
+publicKeys | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 publisher | Publisher of the VM image | 2017-04-02
 resourceGroupName | [Resource group](../../azure-resource-manager/management/overview.md) for your Virtual Machine | 2017-08-01
-resourceId | The [fully qualified](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
+resourceId | The [fully qualified](/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 sku | Specific SKU for the VM image | 2017-04-02
+securityProfile.secureBootEnabled | Identifies if UEFI secure boot is enabled on the VM | 2020-06-01
+securityProfile.virtualTpmEnabled | Identifies if the virtual Trusted Platform Module (TPM) is enabled on the VM | 2020-06-01
 storageProfile | See [Storage Profile](#storage-metadata) | 2019-06-01
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/management/tag-resources.md) for your Virtual Machine  | 2017-08-01
 tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 version | Version of the VM image | 2017-04-02
 vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
-vmScaleSetName | [Virtual machine scale set Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
-vmSize | [VM size](sizes.md) | 2017-04-02
+vmScaleSetName | [Virtual machine scale set Name](../../virtual-machine-scale-sets/overview.md) of your virtual machine scale set | 2017-12-01
+vmSize | [VM size](../sizes.md) | 2017-04-02
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01
 
 ### Sample 1: Tracking VM running on Azure
@@ -266,7 +273,7 @@ As a service provider, you may require to track the number of VMs running your s
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 **Response**
@@ -285,7 +292,7 @@ You can query this data directly via the Instance Metadata Service.
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 **Response**
@@ -301,7 +308,7 @@ As a service provider, you may get a support call where you would like to know m
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute?api-version=2019-06-01"
 ```
 
 **Response**
@@ -401,7 +408,7 @@ Azure has various sovereign clouds like [Azure Government](https://azure.microso
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Response**
@@ -440,7 +447,7 @@ macAddress | VM mac address | 2017-04-02
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01"
 ```
 
 **Response**
@@ -479,7 +486,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network?api-vers
 #### Sample 2: Retrieving public IP address
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 ## Storage Metadata
@@ -535,7 +542,7 @@ The following example shows how to query the VM's storage information.
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/storageProfile?api-version=2019-06-01"
 ```
 
 **Response**
@@ -607,7 +614,7 @@ Tags may have been applied to your Azure VM to logically organize them into a ta
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
 ```
 
 **Response**
@@ -621,7 +628,7 @@ The `tags` field is a string with the tags delimited by semicolons. This output 
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04"
 ```
 
 **Response**
@@ -655,7 +662,7 @@ Part of the scenario served by Instance Metadata Service is to provide guarantee
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890"
 ```
 
 Api-version is a mandatory field. Refer to the [usage section](#usage) for supported API versions.
@@ -675,18 +682,21 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 }
 ```
 
-The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 The document contains the following fields:
 
 Data | Description
 -----|------------
 nonce | A string that can be optionally provided with the request. If no nonce was supplied, the current UTC timestamp is used
-plan | The [Azure Marketplace Image plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan id (name), product image or offer (product), and publisher id (publisher).
+plan | The [Azure Marketplace Image plan](/rest/api/compute/virtualmachines/createorupdate#plan). Contains the plan id (name), product image or offer (product), and publisher id (publisher).
 timestamp/createdOn | The UTC timestamp for when the signed document was created
 timestamp/expiresOn | The UTC timestamp for when the signed document expires
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
 subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
 sku | Specific SKU for the VM image, introduced in `2019-11-01`
+
+> [!NOTE]
+> For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
 
 ### Sample 2: Validating that the VM is running in Azure
 
@@ -699,7 +709,7 @@ Marketplace vendors want to ensure that their software is licensed to run only i
 
 ```bash
 # Get the signature
-curl --silent -H Metadata:True http://169.254.169.254/metadata/attested/document?api-version=2019-04-30 | jq -r '.["signature"]' > signature
+curl --silent -H Metadata:True --noproxy "*" "http://169.254.169.254/metadata/attested/document?api-version=2019-04-30" | jq -r '.["signature"]' > signature
 # Decode the signature
 base64 -d signature > decodedsignature
 # Get PKCS7 format
@@ -831,7 +841,7 @@ HTTP Status Code | Reason
 1. I am not seeing all data populated for new version
    * For any VMs created after Sep 2016, add a [Tag](../../azure-resource-manager/management/tag-resources.md) to start seeing compute metadata. For older VMs (created before Sep 2016), add/remove extensions or data disks to the VM instance(s) to refresh metadata.
 1. Why am I getting the error `500 Internal Server Error` or `410 Resource Gone`?
-   * Retry your request based on exponential back off system or other methods described in [Transient fault handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults). If the issue persists create a support issue in Azure portal for the VM.
+   * Retry your request based on exponential back off system or other methods described in [Transient fault handling](/azure/architecture/best-practices/transient-faults). If the issue persists create a support issue in Azure portal for the VM.
 1. Would this work for Virtual Machine Scale Set instances?
    * Yes Metadata service is available for Scale Set instances.
 1. I updated my tags in Virtual Machine Scale Sets but they don't appear in the instances unlike single instance VMs?
@@ -868,7 +878,7 @@ HTTP Status Code | Reason
             version: 2
             ```
         1. If you are using a dynamic IP, note the MAC address. If you are using a static IP, you may note the listed IP(s) and/or the MAC address.
-        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure Portal or by looking it up [with the Azure CLI](https://docs.microsoft.com/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the cli). PowerShell CLI example:
+        1. Confirm that the interface corresponds to the VM's primary NIC and primary IP. You can find the primary NIC/IP by looking at the network configuration in Azure Portal or by looking it up [with the Azure CLI](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-show). Note the public and private IPs (and the MAC address if using the cli). PowerShell CLI example:
             ```powershell
             $ResourceGroup = '<Resource_Group>'
             $VmName = '<VM_Name>'
@@ -897,4 +907,3 @@ Use the Problem Type of `Management` and select `Instance Metadata Service` as t
 Learn more about:
 1. [Acquire an access token for the VM](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 1. [Scheduled Events](scheduled-events.md)
-

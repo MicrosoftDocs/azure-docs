@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # System monitoring for security in Azure Australia
@@ -36,7 +36,7 @@ Azure Security Center provides Azure customers with the following features:
 
 The scope of resources monitored by Azure Security Center can be expanded to include supported on-premises resources in a hybrid-cloud environment. This includes on-premises resources currently being monitored by a supported version of System Center Operations Manager.
 
-The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application whitelisting and restriction of administrative privilege via just-in-time access.
+The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application filtering and restriction of administrative privilege via just-in-time access.
 
 ### Azure Monitor
 
@@ -111,7 +111,7 @@ Microsoft provides detailed information about Azure resource-specific logs and t
 
 Azure Storage Accounts used to store Azure Log events can be made geo-redundant and can be backed up using Azure Backup. Once captured by Azure Backup, any deletion of backups containing logs requires administrative approval and backups marked for deletion are still held for 14 days allowing for recovery. Azure Backup allows for 9999 copies of a protected instance, providing over 27 years of daily backups.
 
-Role-Based Access Control should be used to control access to resources used for Azure logging. Azure Monitor, Azure Storage accounts, and Azure Backups should be configured with role-based access controls to ensure the security of the data contained within the logs.
+Azure role-based access control (Azure RBAC) should be used to control access to resources used for Azure logging. Azure Monitor, Azure Storage accounts, and Azure Backups should be configured with Azure RBAC to ensure the security of the data contained within the logs.
 
 ### Log auditing
 

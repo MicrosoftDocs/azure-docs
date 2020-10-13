@@ -59,8 +59,8 @@ We define two rules:
 
 | Rule | Map frontend | To backend pool |
 | --- | --- | --- |
-| 1 |![green frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| 1 |![green frontend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 The complete mapping in Azure Load Balancer is now as follows:
 
@@ -97,20 +97,31 @@ For each VM in the backend pool, run the following commands at a Windows Command
 
 To get the list of interface names you have on your VM, type this command:
 
-    netsh interface show interface 
+```console
+netsh interface show interface 
+```
 
 For the VM NIC (Azure managed), type this command:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
-   (replace interfacename with the name of this interface)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled
+```
+
+(replace interfacename with the name of this interface)
 
 For each loopback interface you added, repeat these commands:
 
-    netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
-   (replace interfacename with the name of this loopback interface)
-     
-    netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
-   (replace interfacename with the name of this loopback interface)
+```console
+netsh interface ipv4 set interface “interfacename” weakhostreceive=enabled 
+```
+
+(replace interfacename with the name of this loopback interface)
+
+```console
+netsh interface ipv4 set interface “interfacename” weakhostsend=enabled 
+```
+
+(replace interfacename with the name of this loopback interface)
 
 > [!IMPORTANT]
 > The configuration of the loopback interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the loopback interface representing the DSR Frontend. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the loopback interface representing the DSR Frontend.
@@ -127,8 +138,8 @@ We define two rules:
 
 | Rule | Frontend | Map to backend pool |
 | --- | --- | --- |
-| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 and VM2) |
-| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 and VM2) |
+| 1 |![green rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 |![green backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) Frontend1:80 (in VM1 and VM2) |
+| 2 |![purple rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 |![purple backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) Frontend2:80 (in VM1 and VM2) |
 
 The following table shows the complete mapping in the load balancer:
 
@@ -147,6 +158,7 @@ The Floating IP rule type is the foundation of several load balancer configurati
 
 * Multiple frontend configurations are only supported with IaaS VMs.
 * With the Floating IP rule, your application must use the primary IP configuration for outbound SNAT flows. If your application binds to the frontend IP address configured on the loopback interface in the guest OS, Azure's outbound SNAT is not available to rewrite the outbound flow and the flow fails.  Review [outbound scenarios](load-balancer-outbound-connections.md).
+* Floating IP is not currently supported on secondary IP configurations for Internal Load Balancing scenarios.
 * Public IP addresses have an effect on billing. For more information, see [IP Address pricing](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Subscription limits apply. For more information, see [Service limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) for details.
 

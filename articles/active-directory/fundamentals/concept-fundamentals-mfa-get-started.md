@@ -31,10 +31,10 @@ Customers who are utilizing the free benefits of Azure AD can use [security defa
 
 ## Microsoft 365 Business, E3, or E5
 
-For customers with Office 365, there are two options:
+For customers with Microsoft 365, there are two options:
 
 * Azure Multi-Factor Authentication is either enabled or disabled for all users, for all sign-in events. There is no ability to only enable multi-factor authentication for a subset of users, or only under certain scenarios. Management is through the Office 365 portal. 
-* For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see secure Office 365 resources with multi-factor authentication.
+* For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see secure Microsoft 365 resources with multi-factor authentication.
 
 ## Azure AD Premium P1
 
@@ -50,7 +50,7 @@ Provides the strongest security position and improved user experience. Adds [ris
 
 ## Authentication methods
 
-|   | Security defaults | All other methods |
+| Method | Security defaults | All other methods |
 | --- | --- | --- |
 | Notification through mobile app | X | X |
 | Verification code from mobile app or hardware token |   | X |

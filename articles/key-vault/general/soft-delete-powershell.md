@@ -1,15 +1,16 @@
 ---
 title: Azure Key Vault - How to use soft-delete with PowerShell
-description: Use case examples of soft-delete with PowerShell code snips
+description: Learn how to use Azure PowerShell to use the soft-delete feature of Azure Key Vault that allows recovery of key vaults and key vault objects.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
+ms.topic: how-to
+ms.date: 08/11/2020
+ms.author: sudbalas 
+ms.custom: devx-track-azurepowershell
 ---
 
 # How to use Key Vault soft-delete with PowerShell
@@ -23,7 +24,7 @@ Azure Key Vault's soft-delete feature allows recovery of deleted vaults and vaul
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview). 
+- Azure PowerShell 1.0.0 or later - If you don't have this already setup, install Azure PowerShell and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/). 
 
 >[!NOTE]
 > There is an outdated version of our Key Vault PowerShell output formatting file that **may** be loaded into your environment instead of the correct version. We are anticipating an updated version of PowerShell to contain the needed correction for the output formatting and will update this topic at that time. 
@@ -43,7 +44,7 @@ Key Vault operations are separately managed via role-based access control (RBAC)
 |Recover|Restores a deleted key vault.|Microsoft.KeyVault/vaults/write|
 |Purge|Permanently removes a deleted key vault and all its contents.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-For more information on permissions and access control, see [Secure your key vault](secure-your-key-vault.md)).
+For more information on permissions and access control, see [Secure your key vault](secure-your-key-vault.md).
 
 ## Enabling soft-delete
 
@@ -64,11 +65,7 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ### New key vault
 
-Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
-
-```powershell
-New-AzKeyVault -Name "ContosoVault" -ResourceGroupName "ContosoRG" -Location "westus" -EnableSoftDelete
-```
+Soft delete is automatically on by default for all new key vaults. By December 31st 2020 it will no longer be possible to disable soft delete on any key vault. 
 
 ### Verify soft-delete enablement
 
@@ -203,7 +200,7 @@ Like keys, secrets are managed with their own commands:
 
 You can manage certificates using below commands:
 
-- Delete a Certificate named SQLPassword: 
+- Delete a Certificate: 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```
@@ -264,7 +261,7 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 
 When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed. The default retention period is 90 days but, during key vault creation, it is possible to set the retention policy interval to a value from 7 to 90 days. The purge protection retention policy uses the same interval. Once set, the retention policy interval cannot be changed.
 
-You can enable purge protection only if soft-delete is also enabled. 
+You can enable purge protection only if soft-delete is also enabled. Disabling purge protection isn't supported. 
 
 To turn on both soft-delete and purge protection when creating a vault, use the [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault?view=azps-1.5.0) cmdlet:
 
@@ -282,5 +279,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## Other resources
 
-- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](overview-soft-delete.md)).
-- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md)).
+- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md).

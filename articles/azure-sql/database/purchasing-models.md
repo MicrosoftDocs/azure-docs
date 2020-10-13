@@ -3,14 +3,14 @@ title: Purchasing models
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance 
 description: Learn about the purchasing models that are available for Azure SQL Database and Azure SQL Managed Instance.  
 services: sql-database
-ms.service: sql-database
-ms.subservice: service
+ms.service: sql-db-mi
+ms.subservice: features
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 05/28/2020
 ---
 # Choose between the vCore and DTU purchasing models - Azure SQL Database and SQL Managed Instance
@@ -35,6 +35,10 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 ||||  
 
 ![Pricing model comparison](./media/purchasing-models/pricing-model.png)
+
+Want to optimize and save on your cloud spending?
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Compute costs
 

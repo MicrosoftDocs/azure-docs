@@ -1,22 +1,10 @@
 ---
 title: Configure a shared image gallery in Azure DevTest Labs | Microsoft Docs
-description: Learn how to configure a shared image gallery in Azure DevTest Labs
-services: devtest-lab
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.assetid:
-ms.service: devtest-lab
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+description: Learn how to configure a shared image gallery in Azure DevTest Labs, which enables users to access images from a shared location while creating lab resources.
 ms.topic: article
-ms.date: 09/05/2019
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Configure a shared image gallery in Azure DevTest Labs
 DevTest Labs now supports the [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md) feature. It enables lab users to access images from a shared location while creating lab resources. It also helps you build structure and organization around your custom-managed VM images. The Shared Image Gallery feature supports:
 
@@ -34,7 +22,6 @@ If you have a large number of managed images that you need to maintain and would
 
 ## Considerations
 - You can only attach one shared image gallery to a lab at a time. If you would like to attach another gallery, you'll need to detach the existing one and attach another. 
-- DevTest Labs currently supports shared image gallery generalized images only.
 - DevTest Labs currently doesn't support uploading images to the gallery through the lab. 
 - While creating a virtual machine using a shared image gallery image, DevTest Labs always uses the latest published version of this image. However if an image has multiple versions, user can chose to create a machine from an earlier version by going to the Advanced settings tab during virtual machine creation.  
 - Although DevTest Labs automatically makes a best attempt to ensure shared image gallery replicates images to the region in which the Lab exists, it’s not always possible. To avoid users having issues creating VMs from these images, ensure the images are already replicated to the lab’s region.”
@@ -51,11 +38,14 @@ If you have a large number of managed images that you need to maintain and would
 1. Attach an existing shared image gallery to your lab by clicking on the **Attach** button and selecting your gallery in the dropdown.
 
     ![Attach](./media/configure-shared-image-gallery/attach-options.png)
-1. Go to the attached gallery and configure your gallery to **enable or disable** shared images for VM creation. Select an image gallery from the list to configure it. 
+1. After the image gallery is attached, select it to go to the attached gallery. Configure your gallery to **enable or disable** shared images for VM creation. Select an image gallery from the list to configure it. 
 
     By default, **Allow all images to be used as virtual machine bases** is set to **Yes**. It means that all images available in the attached shared image gallery will be available to a lab user when creating a new lab VM. If access to certain images needs to be restricted, change **Allow all images to be used as virtual machine bases** to **No**, and select the images that you want to allow when creating VMs, and then select the **Save** button.
 
-    ![Enable or disable](./media/configure-shared-image-gallery/enable-disable.png)
+    :::image type="content" source="./media/configure-shared-image-gallery/enable-disable.png" alt-text="Enable or disable images":::
+
+    > [!NOTE]
+    > Both generalized and specialized images in the shared image gallery are supported. 
 1. Lab users can then create a virtual machine using the enabled images by clicking on **+Add** and finding the image in the **choose your base** page.
 
     ![Lab users](./media/configure-shared-image-gallery/lab-users.png)

@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Manage a digital twin
+title: Manage digital twins
 titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -18,11 +17,9 @@ ROBOTS: NOINDEX, NOFOLLOW
 
 # Manage digital twins
 
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
-
 Entities in your environment are represented by [digital twins](concepts-twins-graph.md). Managing your digital twins may include creation, modification, and removal. To do these operations, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md), the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
-This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [How-to: Manage a twin graph with relationships](how-to-manage-graph.md).
+This article focuses on managing digital twins; to work with relationships and the [twin graph](concepts-twins-graph.md) as a whole, see [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md).
 
 > [!TIP]
 > All SDK functions come in synchronous and asynchronous versions.
@@ -41,18 +38,22 @@ To create a digital twin, you need to provide:
 
 Optionally, you can provide initial values for all properties of the digital twin. 
 
+The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
+
 > [!TIP]
-> Only properties that have been set at least once are returned when you retrieve a twin with GetDigitalTwin.  
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-created twins if you need an instant response. 
 
-The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data.
+### Initialize model and properties
 
-### Initialize properties
+The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
-The twin creation API accepts an object that can be serialized into a valid JSON description of the twin properties. See [Concepts: Digital twins and the twin graph](concepts-twins-graph.md) for a description of the JSON format for a twin.
+So first, you will create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this into the API call for the `initdata` parameter.
 
 You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
 #### Create twins using manually-created data
+
+Without the use of any custom helper classes, you can represent a twin's properties in a `Dictionary<string, object>`, where the `string` is the name of the property and the `object` is an object representing the property and its value.
 
 ```csharp
 // Define the model type for the twin to be created
@@ -72,6 +73,8 @@ client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<Dictionary<stri
 
 #### Create twins with the helper class
 
+The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object more directly. You may still want to build the list of properties using a `Dictionary<string, object>`, which can then be added to the twin object as its `CustomProperties` directly.
+
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
 twin.Metadata = new DigitalTwinMetadata();
@@ -85,6 +88,13 @@ twin.CustomProperties = props;
 client.CreateDigitalTwin("myNewRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 ```
 
+>[!NOTE]
+> `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateDigitalTwin` call. For the example above, this would look like:
+>
+>```csharp
+>twin.Id = "myNewRoomID";
+>```
+
 ## Get data for a digital twin
 
 You can access the full data of any digital twin by calling:
@@ -95,7 +105,12 @@ object result = await client.GetDigitalTwin(id);
 
 This call returns twin data as a JSON string. 
 
-To retrieve multiple twins using a single API call, see the query API examples in [How-to: Query the twin graph](how-to-query-graph.md).
+Only properties that have been set at least once are returned when you retrieve a twin with `GetDigitalTwin`.
+
+>[!TIP]
+>The `displayName` for a twin is part of its model metadata, so it will not show when getting data for the twin instance. To see this value, you can [retrieve it from the model](how-to-manage-model.md#retrieve-models).
+
+To retrieve multiple twins using a single API call, see the query API examples in [*How-to: Query the twin graph*](how-to-query-graph.md).
 
 Consider the following model (written in [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) that defines a *Moon*:
 
@@ -126,6 +141,7 @@ The result of calling `object result = await client.DigitalTwins.GetByIdAsync("m
 ```json
 {
   "$dtId": "myMoon-001",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "radius": 1737.1,
   "mass": 0.0734,
   "$metadata": {
@@ -150,7 +166,8 @@ The result of calling `object result = await client.DigitalTwins.GetByIdAsync("m
 
 The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that is not part of the DTDL definition is returned with a `$` prefix. Metadata properties include:
 * The ID of the digital twin in this Azure Digital Twins instance, as `$dtId`.
-* Other properties in a `$metadata` section. This includes:
+* `$etag`, a standard HTTP field assigned by the web server
+* Other properties in a `$metadata` section. These include:
     - The DTMI of the model of the digital twin.
     - Synchronization status for each writeable property. This is most useful for devices, where it's possible that the service and the device have diverging statuses (for example, when a device is offline). Currently, this property only applies to physical devices connected to IoT Hub. With the data in the metadata section, it is possible to understand the full status of a property, as well as the last modified timestamps. For more information about sync status, see [this IoT Hub tutorial](../iot-hub/tutorial-device-twins.md) on synchronizing device state.
     - Service-specific metadata, like from IoT Hub or Azure Digital Twins. 
@@ -170,13 +187,20 @@ foreach (string prop in twin.CustomProperties.Keys)
 }
 ```
 
-You can read more about the serialization helper classes in [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md).
+You can read more about the serialization helper classes in [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md).
 
 ## Update a digital twin
 
 To update properties a digital twin, you write the information you want to replace in [JSON Patch](http://jsonpatch.com/) format. In this way, you can replace multiple properties at once. You then pass the JSON Patch document into an `Update` method:
 
-`await client.UpdateDigitalTwin(id, patch);`.
+```csharp
+await client.UpdateDigitalTwin(id, patch);
+```
+
+A patch call can update as many properties on a single twin as you'd like (even all of them). If you need to update properties across multiple twins, you'll need a separate update call for each twin.
+
+> [!TIP]
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [earlier in this article](#get-data-for-a-digital-twin)) does not experience this delay, so use the API call instead of querying to see your newly-updated twins if you need an instant response. 
 
 Here is an example of JSON Patch code. This document replaces the *mass* and *radius* property values of the digital twin it is applied to.
 
@@ -198,6 +222,7 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
 You can create patches manually, or by using a serialization helper class in the [SDK](how-to-use-apis-sdks.md). Here is an example of each.
 
 #### Create patches manually
+
 ```csharp
 List<object> twinData = new List<object>();
 twinData.Add(new Dictionary<string, object>() {
@@ -273,6 +298,19 @@ The patch for this situation needs to update both the model and the twin's tempe
 ]
 ```
 
+### Handle conflicting update calls
+
+Azure Digital Twins ensures that all incoming requests are processed one after the other. This means that even if multiple functions try to update the same property on a twin at the same time, there's **no need** for you to write explicit locking code to handle the conflict.
+
+This behavior is on a per-twin basis. 
+
+As an example, imagine a scenario in which these three calls arrive at the same time: 
+*	Write property A on *Twin1*
+*	Write property B on *Twin1*
+*	Write property A on *Twin2*
+
+The two calls that modify *Twin1* are executed one after another, and change messages are generated for each change. The call to modify *Twin2* may be executed concurrently with no conflict, as soon as it arrives.
+
 ## Delete a digital twin
 
 You can delete twins using `DeleteDigitalTwin(ID)`. However, you can only delete a twin when it has no more relationships. You must delete all relationships first. 
@@ -339,13 +377,26 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
 
 ### Delete all digital twins
 
-For an example of how to delete all twins at once, download the sample app used in the [Tutorial: Explore the basics with a sample client app](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins` function.
+For an example of how to delete all twins at once, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins` function.
 
 ## Manage twins with CLI
 
-Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [How-to: Use the Azure Digital Twins CLI](how-to-use-cli.md).
+Twins can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
+## View all digital twins
+
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](how-to-use-apis-sdks.md) or the [CLI commands](how-to-use-cli.md).
+
+Here is the body of the basic query that will return a list of all digital twins in the instance:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
 
 ## Next steps
 
 See how to create and manage relationships between your digital twins:
-* [How-to: Manage a twin graph with relationships](how-to-manage-graph.md)
+* [*How-to: Manage the twin graph with relationships*](how-to-manage-graph.md)

@@ -78,7 +78,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
  
    The name of the Azure data factory must be **globally unique**. If you receive the following error, change the name of the data factory (for example, yournameMyAzureSsisDataFactory) and try creating again. See [Data Factory - Naming Rules](naming-rules.md) article for naming rules for Data Factory artifacts.
   
-       `Data factory name “MyAzureSsisDataFactory” is not available`
+    *Data factory name “MyAzureSsisDataFactory” is not available*
 3. Select your Azure **subscription** in which you want to create the data factory. 
 4. For the **Resource Group**, do one of the following steps:
      
@@ -228,7 +228,7 @@ Note the following points:
         ![Script arguments](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. To publish artifacts to Data Factory, click **Publish**.
 
-    ![Publish](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
+    ![Screenshot shows the option to publish to a Data Factory.](./media/tutorial-transform-data-using-hive-in-vnet-portal/publish.png)
 
 ## Trigger a pipeline run
 

@@ -3,9 +3,10 @@ title: Configure virtual network based access for an Azure Cosmos account
 description: This document describes the steps required to set up a virtual network service endpoint for Azure Cosmos DB. 
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/04/2020
-ms.author: mjbrown
+ms.author: mjbrown 
+ms.custom: devx-track-azurecli
 
 ---
 
@@ -38,11 +39,11 @@ The following sections describe how to configure a virtual network service endpo
 
 1. Select the **Subscription** from which you want to add an Azure virtual network. Select the Azure **Virtual networks** and **Subnets** that you want to provide access to your Azure Cosmos DB account. Next, select **Enable** to enable selected networks with service endpoints for "Microsoft.AzureCosmosDB". When it's complete, select **Add**.
 
-   ![Select virtual network and subnet](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png" alt-text="Select virtual network and subnet":::
 
 1. After the Azure Cosmos DB account is enabled for access from a virtual network, it will allow traffic from only this chosen subnet. The virtual network and subnet that you added should appear as shown in the following screenshot:
 
-   ![Virtual network and subnet configured successfully](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png" alt-text="Virtual network and subnet configured successfully":::
 
 > [!NOTE]
 > To enable virtual network service endpoints, you need the following subscription permissions:
@@ -62,7 +63,7 @@ Here are the directions for registering subscription with resource provider.
 
 1. Provide the details required to create a new virtual network, and then select **Create**. The subnet will be created with a service endpoint for "Microsoft.AzureCosmosDB" enabled.
 
-   ![Select a virtual network and subnet for a new virtual network](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet-new-vnet.png" alt-text="Select a virtual network and subnet for a new virtual network":::
 
 If your Azure Cosmos DB account is used by other Azure services like Azure Cognitive Search, or is accessed from Stream analytics or Power BI, you allow access by selecting **Accept connections from within global Azure datacenters**.
 
@@ -76,7 +77,7 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 1. To remove a virtual network or subnet rule, select **...** next to the virtual network or subnet, and select **Remove**.
 
-   ![Remove a virtual network](./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png)
+   :::image type="content" source="./media/how-to-configure-vnet-service-endpoint/remove-a-vnet.png" alt-text="Remove a virtual network":::
 
 1. Select **Save** to apply your changes.
 

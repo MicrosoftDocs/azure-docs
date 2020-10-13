@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 
 ---
@@ -18,7 +18,7 @@ This article shows you how to use Azure Virtual WAN to establish an IPsec/IKE VP
 
 The following diagram shows an example of VPN connectivity over ExpressRoute private peering:
 
-![VPN over ExpressRoute](./media/vpn-over-expressroute/vwan-vpn-over-er.png)
+:::image type="content" source="./media/vpn-over-expressroute/vwan-vpn-over-er.png" alt-text="VPN over ExpressRoute":::
 
 The diagram shows a network within the on-premises network connected to the Azure hub VPN gateway over ExpressRoute private peering. The connectivity establishment is straightforward:
 
@@ -72,7 +72,7 @@ The site resource is the same as the non-ExpressRoute VPN sites for a virtual WA
 >
 
 1. Go to the Azure portal in your browser. 
-1. Select the WAN that you created. On the WAN page, under **Connectivity**, select **VPN sites**.
+1. Select the hub that you created. On the virtual WAN hub page, under **Connectivity**, select **VPN sites**.
 1. On the **VPN sites** page, select **+Create site**.
 1. On the **Create site** page, fill in the following fields:
    * **Subscription**: Verify the subscription.
@@ -100,12 +100,17 @@ The site resource is the same as the non-ExpressRoute VPN sites for a virtual WA
 After you create the VPN site and connect to the hub, use the following steps to configure the connection to use ExpressRoute private peering:
 
 1. Go back to the virtual WAN resource page, and select the hub resource. Or navigate from the VPN site to the connected hub.
-1. Under **Connectivity**, select **VPN (Site-to-Site)**.
-1. Select the ellipsis (**...**) on the VPN site over ExpressRoute, and select **Edit VPN connection to this hub**.
-1. For **Use Azure Private IP Address**, select **Yes**. The setting configures the hub VPN gateway to use private IP addresses within the hub address range on the gateway for this connection, instead of the public IP addresses. This will ensure that the traffic from the on-premises network traverses the ExpressRoute private peering paths rather than using the public internet for this VPN connection. The following screenshot shows the setting.
 
-   ![Setting for using a private IP address for the VPN connection](./media/vpn-over-expressroute/vpn-link-configuration.png)
-   
+   :::image type="content" source="./media/vpn-over-expressroute/hub-selection.png" alt-text="Select a hub":::
+1. Under **Connectivity**, select **VPN (Site-to-Site)**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-select.png" alt-text="Select VPN (Site-to-Site)":::
+1. Select the ellipsis (**...**) on the VPN site over ExpressRoute, and select **Edit VPN connection to this hub**.
+
+   :::image type="content" source="./media/vpn-over-expressroute/config-menu.png" alt-text="Enter configuration menu":::
+1. For **Use Azure Private IP Address**, select **Yes**. The setting configures the hub VPN gateway to use private IP addresses within the hub address range on the gateway for this connection, instead of the public IP addresses. This will ensure that the traffic from the on-premises network traverses the ExpressRoute private peering paths rather than using the public internet for this VPN connection. The following screenshot shows the setting:
+
+   :::image type="content" source="./media/vpn-over-expressroute/vpn-link-configuration.png" alt-text="Setting for using a private IP address for the VPN connection" border="false":::
 1. Select **Save**.
 
 After you save your changes, the hub VPN gateway will use the private IP addresses on the VPN gateway to establish the IPsec/IKE connections with the on-premises VPN device over ExpressRoute.
@@ -221,11 +226,11 @@ If you need instructions to configure your device, you can use the instructions 
 1. On the **Overview** page, each point on the map represents a hub.
 1. In the **Hubs and connections** section, you can view hub, site, region, and VPN connection status. You can also view bytes in and out.
 
-## <a name="connectmon"></a>7. Monitor a connection
+## <a name="connectmon"></a>6. Monitor a connection
 
 Create a connection to monitor communication between an Azure virtual machine (VM) and a remote site. For information about how to set up a connection monitor, see [Monitor network communication](~/articles/network-watcher/connection-monitor.md). The source field is the VM IP in Azure, and the destination IP is the site IP.
 
-## <a name="cleanup"></a>8. Clean up resources
+## <a name="cleanup"></a>7. Clean up resources
 
 When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources that it contains. Run the following PowerShell command, and replace `myResourceGroup` with the name of your resource group:
 

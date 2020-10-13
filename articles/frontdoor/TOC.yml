@@ -1,16 +1,20 @@
-- name: Front Door Documentation
+- name: Front Door documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Front Door?
     href: front-door-overview.md 
-  - name: What's new in Azure Front Door 
-    href: front-door-whats-new.md  
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create a Front Door
+  - name: Create a Front Door - Portal
     href: quickstart-create-front-door.md
+  - name: Create a Front Door - PowerShell
+    href: quickstart-create-front-door-powershell.md
+  - name: Create a Front Door - CLI
+    href: quickstart-create-front-door-cli.md
+  - name: Create a Front Door - ARM Template
+    href: quickstart-create-front-door-template.md
 - name: Tutorials
   items:
   - name: Add a custom domain to your Front Door
@@ -21,6 +25,8 @@
     href: front-door-tutorial-geo-filtering.md
   - name: Set up a Rules Engine 
     href: front-door-tutorial-rules-engine.md
+  - name: Add Security headers with Rules Engine
+    href: front-door-security-headers.md
   - name: Web Application Firewall and Front Door
     href: front-door-waf.md
 - name: Samples

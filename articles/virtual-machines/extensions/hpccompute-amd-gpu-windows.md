@@ -15,9 +15,9 @@ ms.author: vikancha
 ---
 # AMD GPU driver extension for Windows
 
-This article provides an overview of the VM extension to deploy AMD GPU drivers on Windows [NVv4-series](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) VMs. When you install AMD drivers using this extension, you are accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM may reboot to complete the driver setup.
+This article provides an overview of the VM extension to deploy AMD GPU drivers on Windows [NVv4-series](../nvv4-series.md) VMs. When you install AMD drivers using this extension, you are accepting and agreeing to the terms of the [AMD End-User License Agreement](https://amd.com/radeonsoftwarems). During the installation process, the VM may reboot to complete the driver setup.
 
-Instructions on manual installation of the drivers and the current supported versions are available [here](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup).
+Instructions on manual installation of the drivers and the current supported versions are available [here](../windows/n-series-amd-driver-setup.md).
 
 ## Prerequisites
 
@@ -76,7 +76,7 @@ The following JSON shows the schema for the extension.
 
 Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
 
-The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 The following example assumes the extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 
@@ -167,4 +167,4 @@ If you need more help at any point in this article, you can contact the Azure ex
 ## Next steps
 For more information about extensions, see [Virtual machine extensions and features for Windows](features-windows.md).
 
-For more information about N-series VMs, see [GPU optimized virtual machine sizes](../windows/sizes-gpu.md).
+For more information about N-series VMs, see [GPU optimized virtual machine sizes](../sizes-gpu.md).

@@ -4,7 +4,7 @@ description: This article provides instructions on enabling Microsoft Azure Disk
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
@@ -142,6 +142,33 @@ The following table lists the Resource Manager template parameters for existing 
 | resizeOSDisk | Should the OS partition be resized to occupy full OS VHD before splitting system volume. |
 | location | Location for all resources. |
 
+## Enable encryption on NVMe disks for Lsv2 VMs
+
+This scenario describes enabling Azure Disk Encryption on NVMe disks for Lsv2 series VMs.  The Lsv2-series features local NVMe storage. Local NVMe Disks are temporary, and data will be lost on these disks if you stop/deallocate your VM (See: [Lsv2-series](../lsv2-series.md)).
+
+To enable encryption on NVMe disks:
+
+1. Initialize the NVMe disks and create NTFS volumes.
+1. Enable encryption on the VM with the VolumeType parameter set to All. This will enable encryption for all OS and data disks, including volumes backed by NVMe disks. For information, see [Enable encryption on an existing or running Windows VM](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+Encryption will persist on the NVMe disks in the following scenarios:
+- VM reboot
+- VMSS reimage
+- Swap OS
+
+NVMe disks will be uninitialized the following scenarios:
+
+- Start VM after deallocation
+- Service healing
+- Backup
+
+In these scenarios, the NVMe disks need to be initialized after the VM starts. To enable encryption on the NVMe disks, run command to enable Azure Disk Encryption again after the NVMe disks are initialized.
+
+In addition to the scenarios listed in the [Unsupported Scenarios](#unsupported-scenarios) section, encryption of NVMe disks is not supported for:
+
+- VMs encrypted with Azure Disk Encryption with AAD (previous release)
+- NVMe disks with storage spaces
+- Azure Site Recovery of SKUs with NVMe disks (see [Support matrix for Azure VM disaster recovery between Azure regions: Replicated machines - storage](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 
 ## New IaaS VMs created from customer-encrypted VHD and encryption keys
 
@@ -222,22 +249,7 @@ https://[keyvault-name].vault.azure.net/keys/[kekname]/[kek-unique-id]
 
 
 ## Disable encryption
-You can disable encryption using Azure PowerShell, the Azure CLI, or with a Resource Manager template. Disabling data disk encryption on Windows VM when both OS and data disks have been encrypted doesn't work as expected. Disable encryption on all disks instead.
-
-- **Disable disk encryption with Azure PowerShell:** To disable the encryption, use the [Disable-AzVMDiskEncryption](/powershell/module/az.compute/disable-azvmdiskencryption) cmdlet. 
-     ```azurepowershell-interactive
-     Disable-AzVMDiskEncryption -ResourceGroupName 'MyVirtualMachineResourceGroup' -VMName 'MySecureVM' -VolumeType "all"
-     ```
-
-- **Disable encryption with the Azure CLI:** To disable encryption, use the [az vm encryption disable](/cli/azure/vm/encryption#az-vm-encryption-disable) command. 
-     ```azurecli-interactive
-     az vm encryption disable --name "MySecureVM" --resource-group "MyVirtualMachineResourceGroup" --volume-type "all"
-     ```
-- **Disable encryption with a Resource Manager template:** 
-
-    1. Click **Deploy to Azure** from the [Disable disk encryption on running Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad) template.
-    2. Select the subscription, resource group, location, VM, volume type, legal terms, and agreement.
-    3.  Click **Purchase** to disable disk encryption on a running Windows VM. 
+[!INCLUDE [disk-encryption-disable-encryption-powershell](../../../includes/disk-encryption-disable-powershell.md)]
 
 ## Unsupported scenarios
 
@@ -253,9 +265,12 @@ Azure Disk Encryption does not work for the following scenarios, features, and t
 - Windows Server containers, which create dynamic volumes for each container.
 - Ephemeral OS disks.
 - Encryption of shared/distributed file systems like (but not limited to) DFS, GFS, DRDB, and CephFS.
-- Moving an encrypted VMs to another subscription.
-- Gen2 VMs (see: [Support for generation 2 VMs on Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- Lsv2 series VMs (see: [Lsv2-series](../lsv2-series.md))
+- Moving an encrypted VMs to another subscription or region.
+- Creating an image or snapshot of an encrypted VM and using it to deploy additional VMs.
+- Gen2 VMs (see: [Support for generation 2 VMs on Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
+- M-series VMs with Write Accelerator disks.
+- Applying ADE to a VM that has disks encrypted with [server-side encryption with customer-managed keys](disk-encryption.md) (SSE + CMK). Applying SSE + CMK to a data disk on a VM encrypted with ADE is an unsupported scenario as well.
+- Migrating a VM that is encrypted with ADE, or has **ever** been encrypted with ADE, to [server-side encryption with customer-managed keys](disk-encryption.md).
 
 ## Next steps
 

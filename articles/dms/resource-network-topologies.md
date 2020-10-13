@@ -10,7 +10,7 @@ ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.topic: reference
 ms.date: 01/08/2020
 ---
 
@@ -34,7 +34,7 @@ Use this topology if your Azure SQL Managed Instance is connected to your on-pre
 Use this network topology if your environment requires one or more of the following scenarios:
 
 - The SQL Managed Instance is isolated from on-premises connectivity, but your Azure Database Migration Service instance is connected to the on-premises network.
-- If Role Based Access Control (RBAC) policies are in place and you need to limit the users to accessing the same subscription that is hosting the SQL Managed Instance.
+- If Azure role-based access control (Azure RBAC) policies are in place and you need to limit the users to accessing the same subscription that is hosting the SQL Managed Instance.
 - The  virtual networks used for the SQL Managed Instance and Azure Database Migration Service are in different subscriptions.
 
 ![Network Topology for Managed Instance isolated from the on-premises network](media/resource-network-topologies/mi-isolated-workload.png)
@@ -59,7 +59,7 @@ Use this topology if the source SQL Server is hosted in an Azure VM and shares t
 Use this network topology if your environment requires one or more of the following scenarios:
 
 - The SQL Managed Instance is provisioned in an isolated virtual network.
-- If Role Based Access Control (RBAC) policies are in place and you need to limit the users to accessing the same subscription that is hosting SQL Managed Instance.
+- If Azure role-based access control (Azure RBAC) policies are in place and you need to limit the users to accessing the same subscription that is hosting SQL Managed Instance.
 - The virtual networks used for SQL Managed Instance and Azure Database Migration Service are in different subscriptions.
 
 ![Network Topology for Cloud-to-Cloud migrations with an isolated VNet](media/resource-network-topologies/cloud-to-cloud-isolated.png)

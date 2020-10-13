@@ -1,22 +1,24 @@
 ---
 title: Tutorial - Configure virtual networking for Azure AD Domain Services | Microsoft Docs
 description: In this tutorial, you learn how to create and configure an Azure virtual network subnet or network peering for an Azure Active Directory Domain Services managed domain using the Azure portal.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 
 #Customer intent: As an identity administrator, I want to create and configure a virtual network subnet or network peering for application workloads in an Azure Active Directory Domain Services managed domain
 ---
 
 # Tutorial: Configure virtual networking for an Azure Active Directory Domain Services managed domain
 
-To provide connectivity to users and applications, an Azure Active Directory Domain Services (Azure AD DS) managed domain is deployed into an Azure virtual network subnet. This virtual network subnet should only be used for the managed domain resources provided by the Azure platform. As you create your own VMs and applications, they shouldn't be deployed into the same virtual network subnet. Instead, you should create and deploy your applications into a separate virtual network subnet, or in a separate virtual network that's peered to the Azure AD DS virtual network.
+To provide connectivity to users and applications, an Azure Active Directory Domain Services (Azure AD DS) managed domain is deployed into an Azure virtual network subnet. This virtual network subnet should only be used for the managed domain resources provided by the Azure platform.
+
+When you create your own VMs and applications, they shouldn't be deployed into the same virtual network subnet. Instead, you should create and deploy your applications into a separate virtual network subnet, or in a separate virtual network that's peered to the Azure AD DS virtual network.
 
 This tutorial shows you how to create and configure a dedicated virtual network subnet or how to peer a different network to the Azure AD DS managed domain's virtual network.
 
@@ -37,7 +39,7 @@ To complete this tutorial, you need the following resources and privileges:
     * If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
-* You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
+* You need *global administrator* privileges in your Azure AD tenant to configure Azure AD DS.
 * You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, the first tutorial [creates and configures an Azure Active Directory Domain Services managed domain][create-azure-ad-ds-instance].
@@ -52,12 +54,16 @@ In the previous tutorial, a managed domain was created that used some default co
 
 When you create and run VMs that need to use the managed domain, network connectivity needs to be provided. This network connectivity can be provided in one of the following ways:
 
-* Create an additional virtual network subnet in the default managed domain's virtual network. This additional subnet is where you create and connect your VMs.
+* Create an additional virtual network subnet in the managed domain's virtual network. This additional subnet is where you create and connect your VMs.
     * As the VMs are part of the same virtual network, they can automatically perform name resolution and communicate with the Azure AD DS domain controllers.
 * Configure Azure virtual network peering from the managed domain's virtual network to one or more separate virtual networks. These separate virtual networks are where you create and connect your VMs.
-    * When you configure virtual network peering, your must also configure DNS settings to use name resolution back to the Azure AD DS domain controllers.
+    * When you configure virtual network peering, you must also configure DNS settings to use name resolution back to the Azure AD DS domain controllers.
 
-You usually only use one of these network connectivity options. The choice is often down to how you wish to manage separate your Azure resources. If you want to manage Azure AD DS and connected VMs as one group of resources, you can create an additional virtual network subnet for VMs. If you want to separate the management of Azure AD DS and then any connected VMs, you can use virtual network peering. You may also choose to use virtual network peering to provide connectivity to existing VMs in your Azure environment that are connected to an existing virtual network.
+Usually, you only use one of these network connectivity options. The choice is often down to how you wish to manage separate your Azure resources.
+
+* If you want to manage Azure AD DS and connected VMs as one group of resources, you can create an additional virtual network subnet for VMs.
+* If you want to separate the management of Azure AD DS and then any connected VMs, you can use virtual network peering.
+    * You may also choose to use virtual network peering to provide connectivity to existing VMs in your Azure environment that are connected to an existing virtual network.
 
 In this tutorial, you only need to configure one these virtual network connectivity options.
 
@@ -93,7 +99,9 @@ When you create a VM that needs to use the managed domain, make sure you select 
 
 You may have an existing Azure virtual network for VMs, or wish to keep your managed domain virtual network separate. To use the managed domain, VMs in other virtual networks need a way to communicate with the Azure AD DS domain controllers. This connectivity can be provided using Azure virtual network peering.
 
-With Azure virtual network peering, two virtual networks are connected together, without the need for a virtual private network (VPN) device. Network peering lets you quickly connect virtual networks and define traffic flows across your Azure environment. For more information on peering, see [Azure virtual network peering overview][peering-overview].
+With Azure virtual network peering, two virtual networks are connected together, without the need for a virtual private network (VPN) device. Network peering lets you quickly connect virtual networks and define traffic flows across your Azure environment.
+
+For more information on peering, see [Azure virtual network peering overview][peering-overview].
 
 To peer a virtual network to the managed domain virtual network, complete the followings steps:
 
@@ -119,7 +127,7 @@ Before VMs in the peered virtual network can use the managed domain, configure t
 
 ### Configure DNS servers in the peered virtual network
 
-For VMs and applications in the peered virtual network to successfully talk to the managed domain, the DNS settings must be updated. The IP addresses of the Azure AD DS domain controllers must configured as the DNS servers on the peered virtual network. There are two ways to configure the domain controllers as DNS servers for the peered virtual network:
+For VMs and applications in the peered virtual network to successfully talk to the managed domain, the DNS settings must be updated. The IP addresses of the Azure AD DS domain controllers must be configured as the DNS servers on the peered virtual network. There are two ways to configure the domain controllers as DNS servers for the peered virtual network:
 
 * Configure the Azure virtual network DNS servers to use the Azure AD DS domain controllers.
 * Configure the existing DNS server in use on the peered virtual network to use conditional DNS forwarding to direct queries to the managed domain. These steps vary depending on the existing DNS server in use.
@@ -157,3 +165,4 @@ To see this managed domain in action, create and join a virtual machine to the d
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [peering-overview]: ../virtual-network/virtual-network-peering-overview.md
+[network-considerations]: network-considerations.md

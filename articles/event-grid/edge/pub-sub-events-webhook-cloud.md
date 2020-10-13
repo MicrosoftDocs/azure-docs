@@ -5,10 +5,9 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/29/2019
+ms.date: 07/08/2020
 ms.topic: article
-ms.service: event-grid
-services: event-grid
+ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Publish, subscribe to events in cloud

@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: troubleshooting
+ms.date: 10/12/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -41,7 +42,7 @@ If you don't already have one, create an instance of Application Insights in you
 1. Open the relying party (RP) file, for example *SignUpOrSignin.xml*.
 1. Add the following attributes to the `<TrustFrameworkPolicy>` element:
 
-   ```XML
+   ```xml
    DeploymentMode="Development"
    UserJourneyRecorderEndpoint="urn:journeyrecorder:applicationinsights"
    ```
@@ -49,7 +50,7 @@ If you don't already have one, create an instance of Application Insights in you
 1. If it doesn't already exist, add a `<UserJourneyBehaviors>` child node to the `<RelyingParty>` node. It must be located immediately after `<DefaultUserJourney ReferenceId="UserJourney Id" from your extensions policy, or equivalent (for example:SignUpOrSigninWithAAD" />`.
 1. Add the following node as a child of the `<UserJourneyBehaviors>` element. Make sure to replace `{Your Application Insights Key}` with the Application Insights **Instrumentation Key** that you recorded earlier.
 
-    ```XML
+    ```xml
     <JourneyInsights TelemetryEngine="ApplicationInsights" InstrumentationKey="{Your Application Insights Key}" DeveloperMode="true" ClientEnabled="false" ServerEnabled="true" TelemetryVersion="1.0.0" />
     ```
 
@@ -59,7 +60,7 @@ If you don't already have one, create an instance of Application Insights in you
 
     For example:
 
-    ```XML
+    ```xml
     <TrustFrameworkPolicy
       ...
       TenantId="fabrikamb2c.onmicrosoft.com"
@@ -84,7 +85,7 @@ If you don't already have one, create an instance of Application Insights in you
 There is a short delay, typically less than five minutes, before you can see new logs in Application Insights.
 
 1. Open the Application Insights resource that you created in the [Azure portal](https://portal.azure.com).
-1. In the **Overview** menu, select **Analytics**.
+1. On the **Overview** page, select **Logs**.
 1. Open a new tab in Application Insights.
 
 Here is a list of queries you can use to see the logs:

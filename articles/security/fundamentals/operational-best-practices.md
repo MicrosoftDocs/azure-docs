@@ -53,7 +53,7 @@ In the Azure enrollment portal, you can ensure admin contact information include
 ## Organize Azure subscriptions into management groups
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](/azure/governance/management-groups/create) provide a level of scope that’s above subscriptions. You organize subscriptions into containers called management groups and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group.
 
-You can build a flexible structure of management groups and subscriptions into a directory. Each directory is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. The root management group allows global policies and RBAC assignments to be applied at the directory level.
+You can build a flexible structure of management groups and subscriptions into a directory. Each directory is given a single top-level management group called the root management group. This root management group is built into the hierarchy to have all management groups and subscriptions fold up to it. The root management group allows global policies and Azure role assignments to be applied at the directory level.
 
 Here are some best practices for using management groups:
 
@@ -114,7 +114,7 @@ The secure score, which is based on Center for Internet Security (CIS) controls,
 **Detail**: Follow the [security recommendations](../../security-center/security-center-recommendations.md) in Security Center starting, with the highest priority items.
 
 **Best practice**: Integrate Security Center alerts into your security information and event management (SIEM) solution.   
-**Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Export security alerts and recommendations](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) for instructions.. If you’re using Azure Sentinel, see [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
+**Detail**: Most organizations with a SIEM use it as a central clearinghouse for security alerts that require an analyst response. Processed events produced by Security Center are published to the Azure Activity Log, one of the logs available through Azure Monitor. Azure Monitor offers a consolidated pipeline for routing any of your monitoring data into a SIEM tool. See [Stream alerts to a SIEM, SOAR, or IT Service Management solution](../../security-center/export-to-siem.md) for instructions. If you’re using Azure Sentinel, see [Connect Azure Security Center](../../sentinel/connect-azure-security-center.md).
 
 **Best practice**: Integrate Azure logs with your SIEM.   
 **Detail**: Use [Azure Monitor to gather and export data](/azure/azure-monitor/overview#integrate-and-export-data). This practice is critical for enabling security incident investigation, and online log retention is limited. If you’re using Azure Sentinel, see [Connect data sources](../../sentinel/connect-data-sources.md).
@@ -180,10 +180,10 @@ Ensuring that an application is resilient enough to handle a denial of service t
 
 For Azure Cloud Services, configure each of your roles to use [multiple instances](../../cloud-services/cloud-services-choose-me.md).
 
-For [Azure Virtual Machines](/azure/virtual-machines/windows/overview), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](/azure/virtual-machines/virtual-machines-windows-manage-availability). We recommend using virtual machine scale sets for autoscaling capabilities.
+For [Azure Virtual Machines](../../virtual-machines/windows/overview.md), ensure that your VM architecture includes more than one VM and that each VM is included in an [availability set](../../virtual-machines/windows/tutorial-availability-sets.md). We recommend using virtual machine scale sets for autoscaling capabilities.
 
 **Best practice**: Layering security defenses in an application reduces the chance of a successful attack. Implement secure designs for your applications by using the built-in capabilities of the Azure platform.  
-**Detail**: The risk of attack increases with the size (surface area) of the application. You can reduce the surface area by using whitelisting to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) and [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
+**Detail**: The risk of attack increases with the size (surface area) of the application. You can reduce the surface area by using an approval list to close down the exposed IP address space and listening ports that are not needed on the load balancers ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) and [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).
 
 [Network security groups](../../virtual-network/security-overview.md) are another way to reduce the attack surface. You can use [service tags](../../virtual-network/security-overview.md#service-tags) and [application security groups](../../virtual-network/security-overview.md#application-security-groups) to minimize complexity for creating security rules and configuring network security, as a natural extension of an application’s structure.
 

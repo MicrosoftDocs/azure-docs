@@ -1,29 +1,30 @@
-- name: Load Balancer Documentation
+- name: Load Balancer documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Azure Load Balancer?
     href: load-balancer-overview.md
-  - name: Frequently asked questions
-    href: load-balancer-faqs.md
-- name: Quickstart
+- name: Quickstarts
   items:
-  - name: Create Load Balancer - Portal
+  - name: Create public load balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
-  - name: Create Load Balancer - Azure CLI
+  - name: Create public load balancer - PowerShell
+    href: quickstart-load-balancer-standard-public-powershell.md
+  - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
-  - name: Create Load Balancer - PowerShell
-    href: quickstart-create-standard-load-balancer-powershell.md
-  - name: Create Load Balancer - ARM template
-    displayName: Resource Manager
+  - name: Create public load balancer - ARM template
     href: quickstart-load-balancer-standard-public-template.md
+  - name: Create internal load balancer - Portal
+    href: quickstart-load-balancer-standard-internal-portal.md
+  - name: Create internal load balancer - PowerShell
+    href: quickstart-load-balancer-standard-internal-powershell.md
+  - name: Create internal load balancer - Azure CLI
+    href: quickstart-load-balancer-standard-internal-cli.md
+  - name: Create internal load balancer - ARM template
+    href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutorials
   items:
-  - name: Load balance internet traffic to VMs
-    href: tutorial-load-balancer-standard-manage-portal.md
-  - name: Load balance internal traffic to VMs
-    href: tutorial-load-balancer-standard-internal-portal.md
   - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
@@ -38,9 +39,13 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Cross-region load balancer
+    href: cross-region-overview.md
+  - name: What's new?
+    href: whats-new.md
   - name: Components
     href: components.md
-  - name: Concepts
+  - name: Load balancing algorithm
     href: concepts.md
   - name: SKUs
     href: skus.md
@@ -60,14 +65,24 @@
     href: load-balancer-multivip-overview.md
   - name: Outbound connections
     href: load-balancer-outbound-connections.md
-  - name: TCP reset on idle timeout
+  - name: TCP reset and TCP idle timeout
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
-  - name: Built-in security controls
-    href: load-balancer-security-controls.md
+  - name: Floating IP configuration
+    href: load-balancer-floating-ip.md
+  - name: Security
+    items: 
+    - name: Security baseline
+      href: security-baseline.md
+  - name: Backend Pool management
+    href: backend-pool-management.md
+  - name: Standard Load Balancer and Virtual Machine Scale Sets
+    href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: How to
   items:
+  - name: Portal settings
+    href: manage.md
   - name: Virtual machine scale sets
     items:
     - name: Use with an existing Azure Load Balancer - Portal
@@ -76,22 +91,14 @@
       href: configure-vm-scale-set-powershell.md
     - name: Use with an existing Azure Load Balancer - CLI
       href: configure-vm-scale-set-cli.md
-  - name: Upgrade a Basic Load Balancer to Standard Load Balancer
+  - name: Upgrade from Basic to Standard Load Balancer
     items:
     - name: Upgrade a Basic Public Load Balancer
       href: upgrade-basic-standard.md
-    - name: Upgrade a Basic Internal Load Balancer - No Outbound Connection Required
+    - name: Upgrade an Internal Load Balancer - No Outbound Connection Required
       href: upgrade-basicInternal-standard.md
-    - name: Upgrade a Basic Internal Load Balancer - Outbound Connection Required
+    - name: Upgrade an Internal Load Balancer - Outbound Connection Required
       href: upgrade-InternalBasic-To-PublicStandard.md
-  - name: Configure outbound rules
-    items:
-    - name: Azure portal
-      href: configure-load-balancer-outbound-portal.md
-    - name: Azure CLI
-      href: configure-load-balancer-outbound-cli.md
-    - name: Azure PowerShell
-      href: configure-load-balancer-outbound-powershell.md
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI
@@ -101,46 +108,40 @@
     - name: Azure Resource Manager template
       href: https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json
       displayName: ARM
-  - name: Configure internal Load Balancer
-    items:
-    - name: Azure CLI
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Azure Resource Manager template
-      href: load-balancer-get-started-ilb-arm-template.md
-      displayName: ARM
   - name: Configure TCP idle timeout for Load Balancer
     href: load-balancer-tcp-idle-timeout.md
   - name: Configure distribution mode for Load Balancer
     href: load-balancer-distribution-mode.md
   - name: Using multiple IP configurations
-    href: load-balancer-multiple-ip.md
     items:
+    - name: Portal
+      href: load-balancer-multiple-ip.md
     - name: Azure CLI
       href: load-balancer-multiple-ip-cli.md
     - name: Azure PowerShell
       href: load-balancer-multiple-ip-powershell.md
-  - name: Configure High Availability Ports for Internal Load Balancer
-    href: load-balancer-configure-ha-ports.md
   - name: Move across regions
     items:
-    - name: External load balancer - Portal
+    - name: Public Load Balancer - Portal
       href: move-across-regions-external-load-balancer-portal.md
-    - name: External load balancer - PowerShell
+    - name: Public Load Balancer - PowerShell
       href: move-across-regions-external-load-balancer-powershell.md
-    - name: Internal load balancer - Portal
+    - name: Public Load Balancer - Portal
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md
-- name: Troubleshoot
-  items:
-  - name: Troubleshoot Azure Load Balancer
-    href: load-balancer-troubleshoot.md
-  - name: Troubleshoot common deployment errors
-    href: load-balancer-common-deployment-errors.md
-  - name: Resolve common outbound connection issues
-    href: troubleshoot-outbound-connection.md
+  - name: Outbound-only load balancer configuration
+    href: egress-only.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot Azure Load Balancer
+      href: load-balancer-troubleshoot.md
+    - name: Troubleshoot common deployment errors
+      href: load-balancer-common-deployment-errors.md
+    - name: Troubleshoot common outbound connection issues
+      href: troubleshoot-outbound-connection.md
+    - name: Troubleshoot resource health and inbound availability issues
+      href: troubleshoot-rhc.md
 - name: Reference
   items:
   - name: Code samples
@@ -178,3 +179,5 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Product updates
     href: https://azure.microsoft.com/updates/?product=load-balancer
+  - name: FAQ
+    href: load-balancer-faqs.md

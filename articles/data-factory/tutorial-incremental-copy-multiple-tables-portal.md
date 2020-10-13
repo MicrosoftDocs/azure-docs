@@ -1,6 +1,6 @@
 ---
 title: Incrementally copy multiple tables using Azure portal
-description: In this tutorial, you create an Azure Data Factory pipeline that copies delta data incrementally from multiple tables in a SQL Server database to an Azure SQL database.
+description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.
 services: data-factory
 ms.author: yexu
 author: dearandyxu
@@ -13,11 +13,11 @@ ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 06/10/2020
 ---
 
-# Incrementally load data from multiple tables in SQL Server to an Azure SQL database using the Azure portal
+# Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to an Azure SQL database.    
+In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.    
 
 You perform the following steps in this tutorial:
 
@@ -64,7 +64,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 * **SQL Server**. You use a SQL Server database as the source data store in this tutorial. 
-* **Azure SQL Database**. You use a SQL database as the sink data store. If you don't have a SQL database, see [Create an Azure SQL database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
+* **Azure SQL Database**. You use a database in Azure SQL Database as the sink data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) for steps to create one. 
 
 ### Create source tables in your SQL Server database
 
@@ -106,12 +106,13 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create destination tables in your Azure SQL database
-1. Open SQL Server Management Studio, and connect to your Azure SQL database.
+### Create destination tables in your database
+
+1. Open SQL Server Management Studio, and connect to your database in Azure SQL Database.
 
 1. In **Server Explorer**, right-click the database and choose **New Query**.
 
-1. Run the following SQL command against your Azure SQL database to create tables named `customer_table` and `project_table`:  
+1. Run the following SQL command against your database to create tables named `customer_table` and `project_table`:  
     
     ```sql
     create table customer_table
@@ -129,8 +130,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 	```
 
-### Create another table in the Azure SQL database to store the high watermark value
-1. Run the following SQL command against your Azure SQL database to create a table named `watermarktable` to store the watermark value: 
+### Create another table in your database to store the high watermark value
+
+1. Run the following SQL command against your database to create a table named `watermarktable` to store the watermark value: 
     
     ```sql
     create table watermarktable
@@ -151,9 +153,9 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
     
     ```
 
-### Create a stored procedure in the Azure SQL database 
+### Create a stored procedure in your database
 
-Run the following command to create a stored procedure in your Azure SQL database. This stored procedure updates the watermark value after every pipeline run. 
+Run the following command to create a stored procedure in your database. This stored procedure updates the watermark value after every pipeline run. 
 
 ```sql
 CREATE PROCEDURE usp_write_watermark @LastModifiedtime datetime, @TableName varchar(50)
@@ -169,8 +171,9 @@ END
 
 ```
 
-### Create data types and additional stored procedures in Azure SQL database
-Run the following query to create two stored procedures and two data types in your Azure SQL database. 
+### Create data types and additional stored procedures in your database
+
+Run the following query to create two stored procedures and two data types in your database. 
 They're used to merge the data from source tables into destination tables.
 
 In order to make the journey easy to start with, we directly use these Stored Procedures passing the delta data in via a table variable and then merge them into destination store. Be cautious that it is not expecting a "large" number of delta rows (more than 100) to be stored in the table variable.  
@@ -281,7 +284,7 @@ As you are moving data from a data store in a private network (on-premises) to a
 1. Confirm that you see **MySelfHostedIR** in the list of integration runtimes.
 
 ## Create linked services
-You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your SQL Server database and Azure SQL database. 
+You create linked services in a data factory to link your data stores and compute services to the data factory. In this section, you create linked services to your SQL Server database and your database in Azure SQL Database. 
 
 ### Create the SQL Server linked service
 In this step, you link your SQL Server database to the data factory.
@@ -304,7 +307,7 @@ In this step, you link your SQL Server database to the data factory.
     1. To save the linked service, click **Finish**.
 
 ### Create the Azure SQL Database linked service
-In the last step, you create a linked service to link your source SQL Server database to the data factory. In this step, you link your destination/sink Azure SQL database to the data factory. 
+In the last step, you create a linked service to link your source SQL Server database to the data factory. In this step, you link your destination/sink database to the data factory. 
 
 1. In the **Connections** window, switch from **Integration Runtimes** tab to the **Linked Services** tab, and click **+ New**.
 1. In the **New Linked Service** window, select **Azure SQL Database**, and click **Continue**. 
@@ -312,8 +315,8 @@ In the last step, you create a linked service to link your source SQL Server dat
 
     1. Enter **AzureSqlDatabaseLinkedService** for **Name**. 
     1. For **Server name**, select the name of your server from the drop-down list. 
-    1. For **Database name**, select the Azure SQL database in which you created customer_table and project_table as part of the prerequisites. 
-    1. For **User name**, enter the name of user that has access to the Azure SQL database. 
+    1. For **Database name**, select the database in which you created customer_table and project_table as part of the prerequisites. 
+    1. For **User name**, enter the name of user that has access to the database. 
     1. For **Password**, enter the **password** for the user. 
     1. To test whether Data Factory can connect to your SQL Server database, click **Test connection**. Fix any errors until the connection succeeds. 
     1. To save the linked service, click **Finish**.

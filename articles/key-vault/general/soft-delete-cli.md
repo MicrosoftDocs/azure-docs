@@ -1,15 +1,15 @@
 ---
 title: Azure Key Vault - How to use soft-delete with CLI
-description: Use case examples of soft-delete with CLI code snips
+description: Learn how to use Azure CLI to use the soft-delete feature of Azure Key Vault that allows recovery of key vaults and key vault objects.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: ShaneBala-keyvault
+manager: ravijan
 
 ms.service: key-vault
 ms.subservice: general
-ms.topic: tutorial
-ms.date: 08/12/2019
-ms.author: mbaldwin
+ms.topic: how-to
+ms.date: 08/11/2020
+ms.author: sudbalas
 ---
 # How to use Key Vault soft-delete with CLI
 
@@ -20,7 +20,7 @@ Azure Key Vault's soft-delete feature allows recovery of deleted vaults and vaul
 
 ## Prerequisites
 
-- Azure CLI - If you don't have this setup for your environment, see [Manage Key Vault using Azure CLI](manage-with-cli2.md)).
+- Azure CLI - If you don't have this setup for your environment, see [Manage Key Vault using Azure CLI](manage-with-cli2.md).
 
 For Key Vault specific reference information for CLI, see [Azure CLI Key Vault reference](https://docs.microsoft.com/cli/azure/keyvault).
 
@@ -34,7 +34,7 @@ Key Vault operations are separately managed via role-based access control (RBAC)
 |Recover|Restores a deleted key vault.|Microsoft.KeyVault/vaults/write|
 |Purge|Permanently removes a deleted key vault and all its contents.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
-For more information on permissions and access control, see [Secure your key vault](secure-your-key-vault.md)).
+For more information on permissions and access control, see [Secure your key vault](secure-your-key-vault.md).
 
 ## Enabling soft-delete
 
@@ -53,11 +53,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### New key vault
 
-Enabling soft-delete for a new key vault is done at creation time by adding the soft-delete enable flag to your create command.
-
-```azurecli
-az keyvault create --name ContosoVault --resource-group ContosoRG --enable-soft-delete true --location westus
-```
+Soft delete is automatically enabled on all key vaults by default. From December 31st 2020, it will no longer be possible to create a new key vault without soft delete enabled.
 
 ### Verify soft-delete enablement
 
@@ -224,7 +220,7 @@ Listing deleted key vault objects also shows when they're scheduled to be purged
 
 When purge protection is turned on, a vault or an object in deleted state cannot be purged until the retention period of 90 days has passed. Such vault or object can still be recovered. This feature gives added assurance that a vault or an object can never be permanently deleted until the retention period has passed.
 
-You can enable purge protection only if soft-delete is also enabled. 
+You can enable purge protection only if soft-delete is also enabled. Disabling purge protection is not supported.
 
 To turn on both soft-delete and purge protection when creating a vault, use the [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) command:
 
@@ -240,6 +236,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## Other resources
 
-- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](overview-soft-delete.md)).
-- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md)).
+- For an overview of Key Vault's soft-delete feature, see [Azure Key Vault soft-delete overview](soft-delete-overview.md).
+- For a general overview of Azure Key Vault usage, see [What is Azure Key Vault?](overview.md)
 

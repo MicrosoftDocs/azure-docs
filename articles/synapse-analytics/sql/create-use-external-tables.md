@@ -1,14 +1,14 @@
 ---
 title: Create and use external tables in SQL on-demand (preview)
-description: In this section, you'll learn how to create and use external tables in SQL on-demand (preview). External tables are useful when you want to control access to external data in SQL On-demand and if you want to use tools, such as Power BI, in conjunction with SQL on-demand.
+description: In this section, you'll learn how to create and use external tables in SQL on-demand (preview).
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
 ms.topic: overview
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Create and use external tables in SQL on-demand (preview) using Azure Synapse Analytics
@@ -127,4 +127,4 @@ ORDER BY
 
 ## Next steps
 
-For information on how to store results of a query to the storage refer to the [Store query results to the storage](../sql/create-external-table-as-select.md).
+For information on how to store results of a query to the storage refer to the [Store query results to the storage](../sql/create-external-table-as-select.md) article.

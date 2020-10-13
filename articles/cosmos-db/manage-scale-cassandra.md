@@ -4,7 +4,7 @@ description: Learn about the options available to scale an Azure Cosmos DB Cassa
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 01/13/2020
+ms.date: 07/29/2020
 ms.author: thvankra
 ---
 
@@ -14,7 +14,7 @@ There are a variety of options to explore the elastic nature of the Azure Cosmos
 
 For the Cassandra API, you can retrieve the Request Unit charge for individual queries using the [.NET and Java SDKs](https://docs.microsoft.com/azure/cosmos-db/find-request-unit-charge#cassandra-api). This is helpful in determining the amount of RU/s you will need to provision in the service.
 
-![Database operations consume Request Units](./media/request-units/request-units.png)
+:::image type="content" source="./media/request-units/request-units.png" alt-text="Database operations consume Request Units" border="false":::
 
 ## Handling rate limiting (429 errors)
 
@@ -41,7 +41,7 @@ The advantage of this method is that it is a straightforward turnkey way to mana
 
 ## <a id="use-control-plane"></a>Use the control plane
 
-The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples-cassandra.md), and [Azure CLI](cli-samples-cassandra.md) articles for guidance and samples.
+The Azure Cosmos DB's API for Cassandra provides the capability to adjust throughput programmatically by using our various control-plane features. See the [Azure Resource Manager](manage-cassandra-with-resource-manager.md), [PowerShell](powershell-samples.md), and [Azure CLI](cli-samples.md) articles for guidance and samples.
 
 The advantage of this method is that you can automate the scaling up or down of resources based on a timer to account for peak activity, or periods of low activity. Take a look at our sample [here](https://github.com/Azure-Samples/azure-cosmos-throughput-scheduler) for how to accomplish this using Azure Functions and PowerShell.
 

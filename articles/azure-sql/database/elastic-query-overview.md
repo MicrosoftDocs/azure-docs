@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: overview
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
@@ -143,7 +143,7 @@ Elastic query is included in the cost of Azure SQL Database. Note that topologie
 * Column statistics over external tables are currently not supported. Table statistics are supported, but need to be created manually.
 * Elastic query works with Azure SQL Database only. You cannot use it for querying a SQL Server instance.
 
-## Feedback
+## Share your Feedback
 
 Share feedback on your experience with elastic queries with us below, on the MSDN forums, or on Stack Overflow. We are interested in all kinds of feedback about the service (defects, rough edges, feature gaps).
 

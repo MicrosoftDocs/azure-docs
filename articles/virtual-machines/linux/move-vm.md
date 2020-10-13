@@ -4,7 +4,7 @@ description: Move a VM to another Azure subscription or resource group using the
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
 

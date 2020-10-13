@@ -6,8 +6,9 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/11/2020
+ms.date: 09/22/2020
 ms.author: anfeldma
+ms.custom: devx-track-csharp
 
 ---
 # Quickstart: Build a todo app with Xamarin using Azure Cosmos DB SQL API account
@@ -16,6 +17,7 @@ ms.author: anfeldma
 > * [.NET V3](create-sql-api-dotnet.md)
 > * [.NET V4](create-sql-api-dotnet-V4.md)
 > * [Java SDK v4](create-sql-api-java.md)
+> * [Spring Data v3](create-sql-api-spring-data.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
@@ -27,7 +29,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 This quickstart demonstrates how to create an Azure Cosmos DB SQL API account, document database, and container using the Azure portal. You'll then build and deploy a todo list mobile app built on the [SQL .NET API](sql-api-sdk-dotnet.md) and [Xamarin](https://docs.microsoft.com/xamarin/) utilizing [Xamarin.Forms](https://docs.microsoft.com/xamarin/) and the [MVVM architectural pattern](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
-![Xamarin todo app running on iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png" alt-text="Xamarin todo app running on iOS":::
 
 ## Prerequisites
 
@@ -84,7 +86,7 @@ Go back to the Azure portal to get your API key information and copy it into the
 
 1. In the [Azure portal](https://portal.azure.com/), in your Azure Cosmos DB SQL API account, in the left navigation click **Keys**, and then click **Read-write Keys**. You'll use the copy buttons on the right side of the screen to copy the URI and Primary Key into the APIKeys.cs file in the next step.
 
-    ![View and copy an access key in the Azure portal, Keys blade](./media/create-sql-api-xamarin-dotnet/keys.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/keys.png" alt-text="View and copy an access key in the Azure portal, Keys blade":::
 
 2. In either Visual Studio 2019 or Visual Studio for Mac, open the APIKeys.cs file in the azure-cosmos-db-sql-xamarin-getting-started/src/ToDoItems.Core/Helpers folder.
 
@@ -102,7 +104,7 @@ Go back to the Azure portal to get your API key information and copy it into the
 
 This solution demonstrates how to create a ToDo app using the Azure Cosmos DB SQL API and Xamarin.Forms. The app has two tabs, the first tab contains a list view showing todo items that are not yet complete. The second tab displays todo items that have been completed. In addition to viewing not completed todo items in the first tab, you can also add new todo items, edit existing ones, and mark items as completed.
 
-![Copy in json data and click Save in Data Explorer in the Azure portal](./media/create-sql-api-xamarin-dotnet/android-todo-screen.png)
+:::image type="content" source="./media/create-sql-api-xamarin-dotnet/android-todo-screen.png" alt-text="Copy in json data and click Save in Data Explorer in the Azure portal":::
 
 The code in the ToDoItems solution contains:
 
@@ -165,27 +167,27 @@ The following steps will demonstrate how to run the app using the Visual Studio 
 
 1. First select the platform you wish to target by clicking on the dropdown highlighted and selecting either ToDoItems.iOS for iOS or ToDoItems.Android for Android.
 
-    ![Selecting a platform to debug in Visual Studio for Mac](./media/create-sql-api-xamarin-dotnet/ide-select-platform.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-select-platform.png" alt-text="Selecting a platform to debug in Visual Studio for Mac":::
 
 2. To start debugging the app, either press cmd+Enter or click the play button.
 
-    ![Starting to debug in Visual Studio for Mac](./media/create-sql-api-xamarin-dotnet/ide-start-debug.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ide-start-debug.png" alt-text="Starting to debug in Visual Studio for Mac":::
 
 3. When the iOS simulator or Android emulator finishes launching, the app will display 2 tabs at the bottom of the screen for iOS and the top of the screen for Android. The first shows todo items which are not completed, the second shows todo items which are completed.
 
-    ![Launch screen of ToDo app](./media/create-sql-api-xamarin-dotnet/ios-droid-started.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/ios-droid-started.png" alt-text="Launch screen of ToDo app":::
 
 4. To complete a todo item on iOS, slide it to the left > tap on the **Complete** button. To complete a todo item on Android, long press the item > then tap on the complete button.
 
-    ![Complete a todo item](./media/create-sql-api-xamarin-dotnet/simulator-complete.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-complete.png" alt-text="Complete a todo item":::
 
 5. To edit a todo item > tap on the item > a new screen appears letting you enter new values. Tapping the save button will persist the changes to Azure Cosmos DB.
 
-    ![Edit todo item](./media/create-sql-api-xamarin-dotnet/simulator-edit.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-edit.png" alt-text="Edit todo item":::
 
 6. To add a todo item > tap on the **Add** button on the upper right of the home screen > a new, blank, edit page will appear.
 
-    ![Add todo item](./media/create-sql-api-xamarin-dotnet/simulator-add.png)
+    :::image type="content" source="./media/create-sql-api-xamarin-dotnet/simulator-add.png" alt-text="Add todo item":::
 
 ## Review SLAs in the Azure portal
 

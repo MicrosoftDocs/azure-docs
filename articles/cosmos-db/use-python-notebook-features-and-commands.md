@@ -3,7 +3,7 @@ title: Use built-in notebook commands and features in Azure Cosmos DB Python not
 description: Learn how to use built-in commands and features to do common operations using Azure Cosmos DB's built-in Python notebooks.
 author: deborahc
 ms.service: cosmos-db
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
 
@@ -48,7 +48,7 @@ Run ```%%sql?``` in a cell to see the help documentation for the sql magic comma
 
 ## Run a SQL query and output to a Pandas DataFrame
 
-You can output the results of a ``%%sql`` query into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/getting_started/dsintro.html#dataframe). Use the syntax: 
+You can output the results of a ``%%sql`` query into a [Pandas DataFrame](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html#pandas.DataFrame). Use the syntax: 
 
 ```python
 %%sql --database {database_id} --container {container_id} --output {outputDataFrameVar}
@@ -138,7 +138,7 @@ pd.options.display.max_rows = None
 
 df_cosmos.groupby("Item").size()
 ```
-![nteract data explorer](media/use-notebook-features-and-commands/nteract-built-in-chart.png)
+:::image type="content" source="media/use-notebook-features-and-commands/nteract-built-in-chart.png" alt-text="nteract data explorer":::
 
 ## Use the built-in Python SDK
 Version 4 of the [Azure Cosmos DB Python SDK for SQL API](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos) is installed and included in the notebook environment for the Azure Cosmos account.
@@ -165,7 +165,7 @@ See [Python SDK samples](https://github.com/Azure/azure-sdk-for-python/tree/mast
 ## Create a custom instance of ``cosmos_client``
 For more flexibility, you can create a custom instance of ``cosmos_client`` in order to:
 
-- Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview)
+- Customize the [connection policy](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.documents.connectionpolicy?view=azure-python-preview&preserve-view=true)
 - Run operations against a different Azure Cosmos account than the one you are in
 
 You can access the connection string and primary key of the current account via the [environment variables](#access-the-account-endpoint-and-primary-key-env-variables). 
@@ -198,7 +198,7 @@ primary_key = COSMOS.KEY
 ## Reset notebooks workspace
 To reset the notebooks workspace to the default settings, select **Reset Workspace** on the command bar. This will remove any custom installed packages and restart the Jupyter server. Your notebooks, files, and Azure Cosmos resources will not be affected.  
 
-![Reset notebooks workspace](media/use-notebook-features-and-commands/reset-workspace.png)
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Reset notebooks workspace":::
 
 ## Next steps
 

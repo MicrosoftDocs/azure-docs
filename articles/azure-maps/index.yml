@@ -1,15 +1,15 @@
 ### YamlMime:Landing
 
 title: Azure Maps Documentation
-summary: Microsoft Azure Maps provides developers from all industries with powerful geospatial capabilities. Those geospatial capabilities are packed with the freshest mapping data. Azure Maps is available for both web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs. The following are only a high-level overview of the services which Azure Maps offers - Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, and Spatial Operations. The Web and Android SDKs make development easy, flexible, and portable across multiple platforms.
+summary: Microsoft Azure Maps provides developers from all industries with powerful geospatial capabilities. Those geospatial capabilities are packed with the freshest mapping data. Azure Maps is available for both web and mobile applications. Azure Maps is an Azure One API compliant set of REST APIs. The following are only a high-level overview of the services which Azure Maps offers - Maps, Search, Routing, Traffic, Mobility, Weather, Time Zones, Geolocation, Geofencing, Map Data, Creator, and Spatial Operations. The Web and Android SDKs make development easy, flexible, and portable across multiple platforms.
 
 metadata:
   title:  Azure Maps Documentation | Microsoft Docs
   description: Learn about Azure Maps and how to use it to provide geospatial services to your web or mobile application.
   ms.service: azure-maps
   ms.topic: landing-page
-  author: philmea
-  ms.author: philmea
+  author: anastasia-ms
+  ms.author: v-stharr
   ms.date: 1/15/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -80,6 +80,8 @@ landingContent:
             url: drawing-error-visualizer.md
           - text: Use the indoor map module
             url: how-to-use-indoor-module.md
+          - text: Use Azure Digital Twins to update indoor map
+            url: https://docs.microsoft.com/azure/digital-twins/how-to-integrate-maps
       - linkListType: reference
         links:
           - text: Conversion service
@@ -125,13 +127,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: Map control
-            url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-control/
           - text: Drawing tools module
-            url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
           - text: Service module
-            url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-rest/
           - text: Spatial IO module 
-            url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
   # Card
   - title: Developing with Android SDK
     linkLists:
@@ -187,7 +189,7 @@ landingContent:
         links:
           - text: Azure Maps Event Grid integration
             url: azure-maps-event-grid-integration.md
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
           - text: Set up a geofence using Azure Maps
             url: tutorial-geofence.md
@@ -199,6 +201,18 @@ landingContent:
             url: https://docs.microsoft.com/rest/api/maps/data
           - text: Spatial Service
             url: https://docs.microsoft.com/rest/api/maps/spatial
+
+  # Card
+  - title: Spatial analysis with Power BI
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Getting started
+            url: power-bi-visual-getting-started.md
+          - text: Understanding layers
+            url: power-bi-visual-understanding-layers.md
+          - text: Manage access
+            url: power-bi-visual-manage-access.md
 
   # Card
   - title: Developing with Mobility services
@@ -227,7 +241,7 @@ landingContent:
             url: weather-services-concepts.md
       - linkListType: tutorial
         links:
-          - text: Analyze weather data using Azure notebooks (Python)
+          - text: Analyze weather data using Azure Notebooks (Python)
             url: weather-service-tutorial.md
       - linkListType: reference
         links:

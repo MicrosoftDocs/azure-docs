@@ -2,13 +2,13 @@
 title: Use Azure Stream Analytics
 description: Tips for using Azure Stream Analytics with your data warehouse in Azure Synapse for developing real-time solutions.
 services: synapse-analytics
-author: mlee3gsd 
+author: kevinvngo 
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
-ms.date: 2/5/2020
-ms.author: martinle
+ms.subservice: sql-dw 
+ms.date: 9/25/2020
+ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
 ---
@@ -17,7 +17,7 @@ ms.custom: azure-synapse
 
 Azure Stream Analytics is a fully managed service providing low-latency, highly available, scalable complex event processing over streaming data in the cloud. You can learn the basics by reading [Introduction to Azure Stream Analytics](../../stream-analytics/stream-analytics-introduction.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). You can then learn how to create an end-to-end solution with Stream Analytics by following the [Get started using Azure Stream Analytics](../../stream-analytics/stream-analytics-real-time-fraud-detection.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) tutorial.
 
-In this article, you will learn how to use your data warehouse as an output sink for your Azure Stream Analytics jobs.
+In this article, you will learn how to use your data warehouse as an output sink for high throughput data ingestion with Azure Stream Analytics jobs.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ In this article, you will learn how to use your data warehouse as an output sink
     2. Configure and start event generator application
     3. Provision a Stream Analytics job
     4. Specify job input and query
-* Azure Synapse SQL pool data warehouse - To create a new data warehouse, follow the steps in the [Quickstart to create a new data warehouse](create-data-warehouse-portal.md).
+* Azure Synapse SQL pool for your data warehouse - To create a new data warehouse, follow the steps in the [Quickstart to create a new data warehouse](create-data-warehouse-portal.md).
 
 ## Specify streaming output to point to your data warehouse
 
@@ -37,9 +37,9 @@ From the Azure portal, go to your Stream Analytics job and click on **Outputs** 
 
 ### Step 2
 
-Click on the **Add** button and choose **SQL Database** from the drop down menu.
+Click on the **Add** button and choose **Azure Synapse Analytics** from the drop down menu.
 
-![Choose SQL Database](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutput.png)
+![Choose Azure Synapse Analytics](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output.png)
 
 ### Step 3
 
@@ -47,15 +47,15 @@ Enter the following values:
 
 * *Output Alias*: Enter a friendly name for this job output.
 * *Subscription*:
-  * If your data warehouse is in the same subscription as the Stream Analytics job, click on ***Select SQL Database from your subscriptions***.
-  * If your database is in a different subscription, click on Provide SQL Database settings manually.
+  * If your data warehouse is in the same subscription as the Stream Analytics job, click on ***Select Azure Synapse Analytics from your subscriptions***.
+  * If your data warehouse is in a different subscription, click on Provide Azure Synapse Analytics settings manually.
 * *Database*: Select the destination database from the drop down list.
 * *User Name*: Specify the user name of an account that has write permissions for the database.
 * *Password*: Provide the password for the specified user account.
 * *Table*: Specify the name of the target table in the database.
 * click on the **Save** button
 
-![Completed SQL Database form](./media/sql-data-warehouse-integrate-azure-stream-analytics/sqlpool-asaoutputdbsettings.png)
+![Completed Azure Synapse Analytics form](./media/sql-data-warehouse-integrate-azure-stream-analytics/sql-pool-azure-stream-analytics-output-db-settings.png)
 
 ### Step 4
 

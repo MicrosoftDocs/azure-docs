@@ -1,10 +1,10 @@
 ---
-title: Create an Elastic Job agent using PowerShell
+title: Create an Elastic Job agent using PowerShell (preview)
 description: Learn how to create an Elastic Job agent using PowerShell.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
 ms.topic: tutorial
 author: johnpaulkee
@@ -12,10 +12,10 @@ ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
 ---
-# Create an Elastic Job agent using PowerShell
+# Create an Elastic Job agent using PowerShell (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Elastic jobs](job-automation-overview.md#elastic-database-jobs-preview) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
+[Elastic jobs (preview)](job-automation-overview.md#elastic-database-jobs-preview) enable the running of one or more Transact-SQL (T-SQL) scripts in parallel across many databases.
 
 In this tutorial, you learn the steps required to run a query across multiple databases:
 
@@ -91,7 +91,7 @@ $agentServer | New-AzSqlServerFirewallRule -AllowAllAzureIPs
 $agentServer
 
 # create the job database
-Write-Output "Creating a blank SQL database to be used as the Job Database..."
+Write-Output "Creating a blank database to be used as the Job Database..."
 $jobDatabaseName = "JobDatabase"
 $jobDatabase = New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $agentServerName -DatabaseName $jobDatabaseName -RequestedServiceObjectiveName "S0"
 $jobDatabase

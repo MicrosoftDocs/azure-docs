@@ -9,12 +9,12 @@ ms.date: 03/14/2019
 # collectd: Linux performance metrics in Application Insights
 
 
-To explore Linux system performance metrics in [Application Insights](../../azure-monitor/app/app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
+To explore Linux system performance metrics in [Application Insights](./app-insights-overview.md), install [collectd](https://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 
 Typically you'll use collectd if you have already [instrumented your Java web service with Application Insights][java]. It gives you more data to help you to enhance your app's performance or diagnose problems. 
 
 ## Get your instrumentation key
-In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](../../azure-monitor/app/app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](../../azure-monitor/app/create-new-resource.md ).)
+In the [Microsoft Azure portal](https://portal.azure.com), open the [Application Insights](./app-insights-overview.md) resource where you want the data to appear. (Or [create a new resource](./create-new-resource.md).)
 
 Take a copy of the instrumentation key, which identifies the resource.
 
@@ -24,7 +24,7 @@ Take a copy of the instrumentation key, which identifies the resource.
 On your Linux server machines:
 
 1. Install [collectd](https://collectd.org/) version 5.4.0 or later.
-2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal). Note the version number.
+2. Download the [Application Insights collectd writer plugin](https://github.com/microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal). Note the version number.
 3. Copy the plugin JAR into `/usr/share/collectd/java`.
 4. Edit `/etc/collectd/collectd.conf`:
    * Ensure that [the Java plugin](https://collectd.org/wiki/index.php/Plugin:Java) is enabled.
@@ -101,7 +101,7 @@ Separate directives with a newline.
 *I don't see data in the portal*
 
 * Open [Search][diagnostic] to see if the raw events have arrived. Sometimes they take longer to appear in metrics explorer.
-* You might need to [set firewall exceptions for outgoing data](../../azure-monitor/app/ip-addresses.md)
+* You might need to [set firewall exceptions for outgoing data](./ip-addresses.md)
 * Enable tracing in the Application Insights plugin. Add this line within `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
 * Open a terminal and start collectd in verbose mode, to see any issues it is reporting:
@@ -117,13 +117,12 @@ Workaround: Exclude data collected by the problem Write plugins.
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-
+[metrics]: ../platform/metrics-charts.md
 

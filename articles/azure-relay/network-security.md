@@ -1,13 +1,8 @@
 ---
 title: Network security for Azure Relay
-description: This article describes how to configure access from private endpoints
-services: service-bus-relay
-author: spelluru
-
-ms.service: service-bus-relay
+description: This article describes how to use IP firewall rules and private endpoints with Azure Relay.
 ms.topic: conceptual
-ms.date: 05/07/2020
-ms.author: spelluru
+ms.date: 06/23/2020
 ---
 
 # Network security for Azure Relay 
@@ -23,7 +18,7 @@ This article describes how to use the following security features with Azure Rel
 ## IP firewall 
 By default, Relay namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
-This feature is helpful in scenarios in which Azure Relay should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Relay with [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services), you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
+This feature is helpful in scenarios in which Azure Relay should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Relay with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
 The IP firewall rules are applied at the Relay namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Relay namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 

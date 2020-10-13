@@ -28,11 +28,11 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- A Microsoft Azure account. [Start a free trial](https://azure.microsoft.com/free/) or [sign in](https://portal.azure.com/).
+- A Microsoft Azure account. [Create a free account](https://azure.microsoft.com/free/cognitive-services/) or [sign in](https://portal.azure.com/).
 - A Text Analytics resource. If you don't have one, you can [create one in the Azure portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) and use the free tier to complete this tutorial.
 - The [key and endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
 - A spreadsheet containing tenant issues. Example data is provided on GitHub
-- Office 365, with OneDrive for Business.
+- Microsoft 365, with OneDrive for business.
 
 ## Add the Excel file to OneDrive for Business
 
@@ -41,7 +41,7 @@ Download the example Excel file from [GitHub](https://github.com/Azure-Samples/c
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Examples from the Excel file.":::
 
-The issues are reported in raw text. We will use the Text Analytics API's Named Entity Recognition to extract the person name and phone number. Then the flow will look for the word “plumbing” in the description to categorize the issues. 
+The issues are reported in raw text. We will use the Text Analytics API's Named Entity Recognition to extract the person name and phone number. Then the flow will look for the word "plumbing" in the description to categorize the issues. 
 
 ## Create a new Power Automate workflow
 
@@ -105,7 +105,7 @@ Click on **Select an output from previous step**. In the Dynamic content box tha
 
 ## Send a request to the Text Analytics API
 
-If you haven’t already, you need to create a [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
+If you haven't already, you need to create a [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) in the Azure portal.
 
 ### Create a Text Analytics connection
 
@@ -132,7 +132,7 @@ After the connection is created, search for **Text Analytics** and select **Enti
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Add Text Analytics credentials to your flow.":::
 
-Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language. (Click Show advanced options if you don’t see Language)
+Click in the **Text** field and select **Description** from the Dynamic content windows that appears. Enter `en` for Language. (Click Show advanced options if you don't see Language)
 
 > [!div class="mx-imgBorder"] 
 > :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Add Text Analytics credentials to your flow.":::
@@ -196,7 +196,7 @@ Minimize **Apply to each 3** by clicking on the name. Then create another **Appl
 > :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Add Text Analytics credentials to your flow.":::
 
 
-Next, the flow will check if the issue description from the Excel table row contains the word “plumbing”. If yes, it will add “plumbing” in the IssueType column. If not, we will enter “other.”
+Next, the flow will check if the issue description from the Excel table row contains the word "plumbing". If yes, it will add "plumbing" in the IssueType column. If not, we will enter "other."
 
 Inside the **Apply to each 4** action, add a **Condition** Control. It will be named **Condition 3**. In the first text box, search for, and add **Description** from the Excel file, using the Dynamic content window. Be sure the center box says **contains**. Then, in the right text box, find and select `var_plumbing`. 
 
@@ -213,7 +213,7 @@ In the **If no** condition, click **Add an action**, and select **Update a row**
 
 ## Test the workflow
 
-In the top-right corner of the screen, click **Save**, then **Test**. Select  **I’ll perform the trigger action**. Click **Save & Test**, **Run flow**, then **Done**.
+In the top-right corner of the screen, click **Save**, then **Test**. Select  **I'll perform the trigger action**. Click **Save & Test**, **Run flow**, then **Done**.
 
 The Excel file will get updated in your OneDrive account. It will look like the below.
 

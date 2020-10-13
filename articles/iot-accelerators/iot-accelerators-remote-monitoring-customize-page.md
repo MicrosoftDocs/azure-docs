@@ -8,7 +8,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/02/2018
 ms.topic: conceptual
-
+ms.custom: devx-track-js
 # As a developer, I want to add a new page to the solution accelerator web UI in order to start customizing the user experience.
 ---
 

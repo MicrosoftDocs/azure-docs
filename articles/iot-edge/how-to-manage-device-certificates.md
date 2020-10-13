@@ -27,10 +27,13 @@ To learn more about the different types of certificates and their roles, see [Un
 
 ### Prerequisites
 
-* An IoT Edge device, running either on [Windows](how-to-install-iot-edge-windows.md) or [Linux](how-to-install-iot-edge-linux.md).
+* An IoT Edge device.
+
+  If you don't have an IoT Edge device set up, you can create one in an Azure virtual machine. Follow the steps in one of the quickstart articles to [Create a virtual Linux device](quickstart-linux.md) or [Create a virtual Windows device](quickstart.md).
+
 * Have a root certificate authority (CA) certificate, either self-signed or purchased from a trusted commercial certificate authority like Baltimore, Verisign, DigiCert, or GlobalSign.
 
-If you don't have a root certificate authority yet, but want to try out IoT Edge features that require production certificates (like gateway scenarios) you can [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
+  If you don't have a root certificate authority yet, but want to try out IoT Edge features that require production certificates (like gateway scenarios) you can [Create demo certificates to test IoT Edge device features](how-to-create-test-certificates.md).
 
 ### Create production certificates
 
@@ -41,6 +44,9 @@ You should use your own certificate authority to create the following files:
 * Device CA private key
 
 In this article, what we refer to as the *root CA* is not the topmost certificate authority for an organization. It's the topmost certificate authority for the IoT Edge scenario, which the IoT Edge hub module, user modules, and any downstream devices use to establish trust between each other.
+
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 To see an example of these certificates, review the scripts that create demo certificates in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -103,9 +109,11 @@ For more information about the function of the different certificates on an IoT 
 For these two automatically generated certificates, you have the option of setting the **auto_generated_ca_lifetime_days** flag in config.yaml to configure the number of days for the lifetime of the certificates.
 
 >[!NOTE]
->There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
+>There is a third auto-generated certificate that the IoT Edge security manager creates, the **IoT Edge hub server certificate**. This certificate always has a 90 day lifetime, but is automatically renewed before expiring. The **auto_generated_ca_lifetime_days** value doesn't affect this certificate.
 
-To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the config.yaml file.
+To configure the certificate expiration to something other than the default 90 days, add the value in days to the **certificates** section of the **config.yaml** file.
+
+Upon expiry after the specified number of days, the IoT Edge security daemon has to be restarted to regenerate the Device CA certificate, it won't be renewed automatically.
 
 ```yaml
 certificates:
@@ -115,9 +123,10 @@ certificates:
   auto_generated_ca_lifetime_days: <value>
 ```
 
-If you provided your own device CA certificates, then this value still applies to the workload CA certificate, provided the lifetime value you set is shorter than the lifetime of the device CA certificate.
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
-After you specify the flag in the config.yaml file, take the following steps:
+After you specify the value in the config.yaml file, take the following steps:
 
 1. Delete the contents of the `hsm` folder.
 

@@ -1,14 +1,15 @@
 ---
-title: Azure Synapse Analytics shared database 
+title: Shared database
 description: Azure Synapse Analytics provides a shared metadata model where creating a database in Apache Spark will make it accessible from its SQL on-demand (preview) and SQL pool engines. 
 services: synapse-analytics 
 author: MikeRys
 ms.service: synapse-analytics  
 ms.topic: overview
-ms.subservice: 
+ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys 
 ms.reviewer: jrasnick
+ms.custom: devx-track-csharp
 ---
 
 # Azure Synapse Analytics shared database
@@ -17,7 +18,7 @@ Azure Synapse Analytics allows the different computational workspace engines to 
 
 [!INCLUDE [synapse-analytics-preview-terms](../../../includes/synapse-analytics-preview-terms.md)]
 
-A database created with a Spark job will become visible with that same name to all current and future Spark pools (preview) in the workspace as well as the SQL on-demand engine.
+A database created with a Spark job will become visible with that same name to all current and future Spark pools (preview) in the workspace, including the SQL on-demand engine.
 
 The Spark default database, called `default`, will also be visible in the SQL on-demand context as a database called `default`.
 
@@ -29,7 +30,7 @@ Use Spark to manage Spark created databases. For example, delete it through a Sp
 
 If you create objects in a Spark created database using SQL on-demand, or try to drop the database, the operation will succeed. But, the original Spark database won't be changed.
 
-## Handling of name conflicts
+## How name conflicts are handled
 
 If the name of a Spark database conflicts with the name of an existing SQL on-demand database, a suffix is appended in SQL on-demand to the Spark database. The suffix in SQL on-demand is `_<workspace name>-ondemand-DefaultSparkConnector`.
 
@@ -52,9 +53,9 @@ If a security principal requires the ability to create objects or drop objects i
 
 ## Examples
 
-### Create & connect to Spark database - SQL on-demand
+### Create and connect to Spark database with SQL on-demand
 
-First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example,  using a Spark C# Notebook with the following .NET for Spark statement:
+First create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
 
 ```csharp
 spark.Sql("CREATE DATABASE mytestdb")

@@ -1,6 +1,8 @@
 ---
 title: Limits - LUIS
 description: This article contains the known limits of Azure Cognitive Services Language Understanding (LUIS). LUIS has several limits areas. Model limit controls intents, entities, and features in LUIS. Quota limits based on key type. Keyboard combination controls the LUIS website.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 06/04/2020
 ---
@@ -62,7 +64,7 @@ Do not use the following characters in the following names.
 
 ## Resource usage and limits
 
-Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-concept-keys.md).
+Language Understand has separate resources, one type for authoring, and one type for querying the prediction endpoint. To learn more about the differences between key types, see [Authoring and query prediction endpoint keys in LUIS](luis-how-to-azure-subscription.md).
 
 <a name="key-limits"></a>
 

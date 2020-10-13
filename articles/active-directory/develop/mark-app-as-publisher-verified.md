@@ -6,7 +6,7 @@ author: rwike77
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 05/08/2020
 ms.author: ryanwi
@@ -14,14 +14,14 @@ ms.custom: aaddev
 ms.reviewer: jesakowi
 ---
 
-# Mark your app as publisher verified (preview)
+# Mark your app as publisher verified
 
-When an application is marked as publisher verified, it means that the publisher has verified their identity using their Microsoft Partner Network (MPN) account and has associated this MPN account with their application registration. This article describes how to complete the [publisher verification (preview)](publisher-verification-overview.md) process.
+When an app registration has a verified publisher, it means that the publisher of the app has [verified](/partner-center/verification-responses) their identity using their Microsoft Partner Network (MPN) account and has associated this MPN account with their app registration. This article describes how to complete the [publisher verification](publisher-verification-overview.md) process.
 
 ## Quickstart
 If you are already enrolled in the Microsoft Partner Network (MPN) and have met the [pre-requisites](publisher-verification-overview.md#requirements), you can get started right away: 
 
-1. Navigate to the preview [App Registration portal](https://aka.ms/PublisherVerificationPreview).
+1. Sign into the [App Registration portal](https://aka.ms/PublisherVerificationPreview) using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md)
 
 1. Choose an app and click **Branding**. 
 
@@ -35,21 +35,19 @@ For more details on specific benefits, requirements, and frequently asked questi
 ## Mark your app as publisher verified
 Make sure you have met the [pre-requisites](publisher-verification-overview.md#requirements), then follow these steps to mark your app(s) as Publisher Verified.  
 
-1. Ensure you are signed in with an organizational (Azure AD) account that is authorized to make changes to the app(s) you want to mark as Publisher Verified and on the MPN Account in Partner Center. 
+1. Ensure you are signed in using [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) to an organizational (Azure AD) account that is authorized to make changes to the app(s) you want to mark as Publisher Verified and on the MPN Account in Partner Center.
 
-    - In Azure AD this user must either be the Owner of the app or have one of the following roles: Application Admin, Cloud Application Admin, Global Admin. 
+    - In Azure AD this user must be a member of one of the following [roles](../users-groups-roles/directory-assign-admin-roles.md): Application Admin, Cloud Application Admin, Global Admin. 
 
-    - In Partner Center this user must have of the following roles: MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD). 
+    - In Partner Center this user must have of the following [roles](/partner-center/permissions-overview): MPN Admin, Accounts Admin, or a Global Admin (this is a shared role mastered in Azure AD). 
 
-1. Navigate to the preview version of the App Registration portal:  
+1. Navigate to the App Registration portal:  
 
 1. Click on an app you would like to mark as Publisher Verified and open the Branding blade. 
 
-1. Ensure the app’s Publisher Domain is set appropriately. This domain must be: 
+1. Ensure the app’s [publisher domain](howto-configure-publisher-domain.md) is set. 
 
-    - Be added to the Azure AD tenant as a DNS-verified custom domain,  
-
-    - Match the domain of the email address used during the verification process for your MPN account. 
+1. Ensure that either the publisher domain or a DNS-verified [custom domain](../fundamentals/add-custom-domain.md) on the tenant matches the domain of the email address used during the verification process for your MPN account.
 
 1. Click **Add MPN ID to verify publisher** near the bottom of the page. 
 
@@ -67,7 +65,7 @@ Make sure you have met the [pre-requisites](publisher-verification-overview.md#r
 
 1. Users who get prompted to consent to your app will start seeing the badge soon after you have gone through the process successfully, although it may take some time for this to replicate throughout the system. 
 
-1. Test this functionality by signing into your application and ensuring the verified badge shows up on the consent screen. If you are signed in as a user who has already granted consent to the app, you can use the *prompt=consent* query parameter to force a consent prompt. 
+1. Test this functionality by signing into your application and ensuring the verified badge shows up on the consent screen. If you are signed in as a user who has already granted consent to the app, you can use the *prompt=consent* query parameter to force a consent prompt. This parameter should be used for testing only, and never hard-coded into your app's requests.
 
 1. Repeat this process as needed for any additional apps you would like the badge to be displayed for. You can use Microsoft Graph to do this more quickly in bulk, and PowerShell cmdlets will be available soon. See [Making Microsoft API Graph calls](troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls) for more info. 
 

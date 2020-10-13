@@ -3,14 +3,18 @@ title: Configure Azure Private Link for an Azure Cosmos account
 description: Learn how to set up Azure Private Link to access an Azure Cosmos account by using a private IP address in a virtual network. 
 author: ThomasWeiss
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 06/11/2020
-ms.author: thweiss
+ms.topic: how-to
+ms.date: 09/18/2020
+ms.author: thweiss 
+ms.custom: devx-track-azurecli
 ---
 
 # Configure Azure Private Link for an Azure Cosmos account
 
 By using Azure Private Link, you can connect to an Azure Cosmos account via a private endpoint. The private endpoint is a set of private IP addresses in a subnet within your virtual network. You can then limit access to an Azure Cosmos account over private IP addresses. When Private Link is combined with restricted NSG policies, it helps reduce the risk of data exfiltration. To learn more about private endpoints, see the [Azure Private Link](../private-link/private-link-overview.md) article.
+
+> [!NOTE]
+> Private Link doesn't prevent your Azure Cosmos endpoints from being resolved by public DNS. Filtering of incoming requests happens at application level, not transport or network level.
 
 Private Link allows users to access an Azure Cosmos account from within the virtual network or from any peered virtual network. Resources mapped to Private Link are also accessible on-premises over private peering through VPN or Azure ExpressRoute. 
 
@@ -26,7 +30,7 @@ Use the following steps to create a private endpoint for an existing Azure Cosmo
 
 1. Select **Private Endpoint Connections** from the list of settings, and then select **Private endpoint**:
 
-   ![Selections for create a private endpoint in the Azure portal](./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png)
+   :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Selections for create a private endpoint in the Azure portal":::
 
 1. In the **Create a private endpoint - Basics** pane, enter or select the following details:
 
@@ -89,7 +93,7 @@ After the private endpoint is provisioned, you can query the IP addresses. To vi
 1. Search for the private endpoint that you created earlier. In this case, it's **cdbPrivateEndpoint3**.
 1. Select the **Overview** tab to see the DNS settings and IP addresses.
 
-![Private IP addresses in the Azure portal](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Private IP addresses in the Azure portal":::
 
 Multiple IP addresses are created per private endpoint:
 
@@ -402,7 +406,7 @@ For those accounts, you must create one private endpoint for each API type. The 
 
 After the template is deployed successfully, you can see an output similar to what the following image shows. The `provisioningState` value is `Succeeded` if the private endpoints are set up correctly.
 
-![Deployment output for the Resource Manager template](./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png)
+:::image type="content" source="./media/how-to-configure-private-endpoints/resource-manager-template-deployment-output.png" alt-text="Deployment output for the Resource Manager template":::
 
 After the template is deployed, the private IP addresses are reserved within the subnet. The firewall rule of the Azure Cosmos account is configured to accept connections from the private endpoint only.
 
@@ -621,7 +625,18 @@ The following situations and outcomes are possible when you use Private Link in 
 
 ## Blocking public network access during account creation
 
-As described in the previous section, and unless specific firewall rules have been set, adding a private endpoint makes your Azure Cosmos account accessible through private endpoints only. This means that the Azure Cosmos account could be reached from public traffic after it is created and before a private endpoint gets added. To make sure that public network access is disabled even before the creation of private endpoints, you can set the `publicNetworkAccess` flag to `Disabled` during account creation. See [this Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) for an example showing how to use this flag.
+As described in the previous section, and unless specific firewall rules have been set, adding a private endpoint makes your Azure Cosmos account accessible through private endpoints only. This means that the Azure Cosmos account could be reached from public traffic after it is created and before a private endpoint gets added. To make sure that public network access is disabled even before the creation of private endpoints, you can set the `publicNetworkAccess` flag to `Disabled` during account creation. Note that this flag takes precedence over any IP or virtual network rule; all public and virtual network traffic is blocked when the flag is set to `Disabled`, even if the source IP or virtual network is allowed in the firewall configuration.
+
+See [this Azure Resource Manager template](https://azure.microsoft.com/resources/templates/101-cosmosdb-private-endpoint/) for an example showing how to use this flag.
+
+## Adding private endpoints to an existing Cosmos account with no downtime
+
+By default, adding a private endpoint to an existing account results in a short downtime of approximately 5 minutes. Follow the instructions below to avoid this downtime:
+
+1. Add IP or virtual network rules to your firewall configuration to explicitly allow your client connections.
+1. Wait for 10 minutes to ensure that the configuration update is applied.
+1. Configure your new private endpoint.
+1. Remove the firewall rules set at step 1.
 
 ## Port range when using direct mode
 
@@ -629,7 +644,7 @@ When you're using Private Link with an Azure Cosmos account through a direct mod
 
 ## Update a private endpoint when you add or remove a region
 
-Adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. After regions have been added or removed, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
+Unless you're using a private DNS zone group, adding or removing regions to an Azure Cosmos account requires you to add or remove DNS entries for that account. After regions have been added or removed, you can update the subnet's private DNS zone to reflect the added or removed DNS entries and their corresponding private IP addresses.
 
 For example, imagine that you deploy an Azure Cosmos account in three regions: "West US," "Central US," and "West Europe." When you create a private endpoint for your account, four private IPs are reserved in the subnet. There's one IP for each of the three regions, and there's one IP for the global/region-agnostic endpoint.
 
@@ -651,11 +666,9 @@ The following limitations apply when you're using Private Link with an Azure Cos
 
 * A network administrator should be granted at least the `Microsoft.DocumentDB/databaseAccounts/PrivateEndpointConnectionsApproval/action` permission at the Azure Cosmos account scope to create automatically approved private endpoints.
 
-* Direct mode isn't currently supported in China-based Azure regions.
-
 ### Limitations to private DNS zone integration
 
-DNS records in the private DNS zone are not removed automatically when you delete a private endpoint or you remove a region from the Azure Cosmos account. You must manually remove the DNS records before:
+Unless you're using a private DNS zone group, DNS records in the private DNS zone are not removed automatically when you delete a private endpoint or you remove a region from the Azure Cosmos account. You must manually remove the DNS records before:
 
 * Adding a new private endpoint linked to this private DNS zone.
 * Adding a new region to any database account that has private endpoints linked to this private DNS zone.

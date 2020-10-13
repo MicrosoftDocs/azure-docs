@@ -9,7 +9,7 @@ ms.date: 07/07/2019
 
 This article answers common questions about the Azure Backup service.
 
-## Recovery services vault
+## Recovery Services vault
 
 ### Is there any limit on the number of vaults that can be created in each Azure subscription?
 
@@ -17,12 +17,12 @@ Yes. You can create up to 500 Recovery Services vaults, per supported region of 
 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
 
-You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MARS agents per vault. And you can register 50 MABS servers/DPM servers to a vault.
+You can register up to 1000 Azure Virtual machines per vault. If you're using the Microsoft Azure Backup Agent, you can register up to 50 MARS agents per vault. And you can register 50 MABS servers/DPM servers to a vault.
 
 ### How many datasources/items can be protected in a vault?
 
-You can protect up to 2000 datasources/items across all workloads (IaaS VM, SQL, AFS, etc.) in a vault.
-For example, if you have already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
+You can protect up to 2000 datasources/items across all workloads (such as IaaS VM, SQL, AFS) in a vault.
+For example, if you've already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it.
 
 ### How many policies can I create per vault?
 
@@ -40,14 +40,18 @@ Yes. To move a Recovery Services vault, refer this [article](backup-azure-move-r
 
 No. Backup data stored in a vault can't be moved to a different vault.
 
-### Can I change from GRS to LRS after a backup?
+### Can I change the storage redundancy setting after a backup?
 
-No. A Recovery Services vault can only change storage options before any backups have been stored.
+The storage replication type by default is set to geo-redundant storage (GRS). Once you configure the backup, the option to modify is disabled and can't be changed.
+
+![Storage replication type](./media/backup-azure-backup-faq/storage-replication-type.png)
+
+If you've already configured the backup and must move from GRS to LRS, then see [How to change from GRS to LRS after configuring backup](backup-create-rs-vault.md#how-to-change-from-grs-to-lrs-after-configuring-backup).
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
 
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information, see [article](backup-azure-restore-files-from-vm.md)
-- ILR is not supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
+- ILR isn't supported for online recovery points of on-premises VMs backed up by Azure Backup Server (MABS) or System Center DPM.
 
 ## Azure Backup agent
 
@@ -102,7 +106,7 @@ Windows 8 or later | 54,400 GB
 Windows 7 |1700 GB
 Windows Server 2012 or later | 54,400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | See the [support matrix for Azure VM backup](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support)
+Azure VM | See the [support matrix for Azure VM backup](./backup-support-matrix-iaas.md#vm-storage-support)
 
 ### How is the data source size determined?
 
@@ -111,14 +115,14 @@ The following table explains how each data source size is determined.
 **Data source** | **Details**
 --- | ---
 Volume |The amount of data being backed up from single volume VM being backed up.
-SQL Server database |Size of single SQL database size being backed up.
+SQL Server database |Size of single database size being backed up.
 SharePoint | Sum of the content and configuration databases within a SharePoint farm being backed up.
 Exchange |Sum of all Exchange databases in an Exchange server being backed up.
 BMR/System state |Each individual copy of BMR or system state of the machine being backed up.
 
 ### Is there a limit on the amount of data backed up using a Recovery Services vault?
 
-There is no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+There's no limit on the total amount of data you can back up using a Recovery Services vault. The individual data sources (other than Azure VMs), can be a maximum of 54,400 GB in size. For more information about limits, see the [vault limits section in the support matrix](./backup-support-matrix.md#vault-support).
 
 ### Why is the size of the data transferred to the Recovery Services vault smaller than the data selected for backup?
 
@@ -175,7 +179,7 @@ You can create up to 9999 recovery points per protected instance. A protected in
 
 ### How many times can I recover data that's backed up to Azure?
 
-There is no limit on the number of recoveries from Azure Backup.
+There's no limit on the number of recoveries from Azure Backup.
 
 ### When restoring data, do I pay for the egress traffic from Azure?
 
@@ -187,6 +191,10 @@ When a new policy is applied, schedule and retention of the new policy is follow
 
 - If retention is extended, existing recovery points are marked to keep them according to new policy.
 - If retention is reduced, they are marked for pruning in the next cleanup job and subsequently deleted.
+
+### How long is data retained when stopping backups, but selecting the option to retain backup data?
+
+When backups are stopped and the data is retained, existing policy rules for data pruning will cease and data will be retained indefinitely until initiated by the administrator for deletion.
 
 ## Encryption
 
@@ -201,15 +209,15 @@ Yes. The data in Azure is encrypted-at-rest.
 - For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure.
 - For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE).
 
-Microsoft does not decrypt the backup data at any point.
+Microsoft doesn't decrypt the backup data at any point.
 
 ### What is the minimum length of the encryption key used to encrypt backup data?
 
-The encryption key should be at least 16 characters when you are using Azure backup agent. For Azure VMs, there is no limit to length of keys used by Azure KeyVault.
+The encryption key used by the Microsoft Azure Recovery Services (MARS) Agent is derived from a passphrase that should be at least 16 characters long. For Azure VMs, there's no limit to the length of keys used by Azure KeyVault.
 
 ### What happens if I misplace the encryption key? Can I recover the data? Can Microsoft recover the data?
 
-The key used to encrypt the backup data is present only on your site. Microsoft does not maintain a copy in Azure and does not have any access to the key. If you misplace the key, Microsoft can't recover the backup data.
+The key used to encrypt the backup data is present only on your site. Microsoft doesn't maintain a copy in Azure and doesn't have any access to the key. If you misplace the key, Microsoft can't recover the backup data.
 
 ## Next steps
 

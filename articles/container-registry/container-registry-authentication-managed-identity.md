@@ -74,6 +74,7 @@ ssh azureuser@publicIpAddress
 Run the following command to install Docker on the VM:
 
 ```bash
+sudo apt update
 sudo apt install docker.io -y
 ```
 
@@ -224,6 +225,8 @@ You should see a `Login succeeded` message. You can then run `docker` commands w
 ```
 docker pull mycontainerregistry.azurecr.io/aci-helloworld:v1
 ```
+> [!NOTE]
+> System-assigned managed service identities can be used to interact with ACRs and App Service can use system-assigned managed service identities. However, you cannot combine these, as App Service cannot use MSI to talk to an ACR. The only way is to enable admin on the ACR and use the admin username/password.
 
 ## Next steps
 
@@ -234,7 +237,7 @@ In this article, you learned about using managed identities with Azure Container
 > * Grant the identity access to an Azure container registry
 > * Use the managed identity to access the registry and pull a container image
 
-* Learn more about [managed identities for Azure resources](/azure/active-directory/managed-identities-azure-resources/).
+* Learn more about [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml).
 
 
 <!-- LINKS - external -->

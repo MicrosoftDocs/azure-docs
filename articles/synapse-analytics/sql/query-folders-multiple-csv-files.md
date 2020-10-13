@@ -5,10 +5,10 @@ services: synapse analytics
 author: azaricstefan 
 ms.service: synapse-analytics 
 ms.topic: how-to
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
-ms.reviewer: jrasnick, carlrab
+ms.reviewer: jrasnick 
 ---
 
 # Query folders and multiple files  
@@ -19,7 +19,7 @@ SQL on-demand supports reading multiple files/folders by using wildcards, which 
 
 ## Prerequisites
 
-Your first step is to **create a database** where you will execute the queries. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
+Your first step is to **create a database** where you'll execute the queries. Then initialize the objects by executing [setup script](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) on that database. This setup script will create the data sources, database scoped credentials, and external file formats that are used in these samples.
 
 You'll use the folder *csv/taxi* to follow the sample queries. It contains NYC Taxi - Yellow Taxi Trip Records data from July 2016 to June 2018. Files in *csv/taxi* are named after year and month using the following pattern: yellow_tripdata_<year>-<month>.csv
 
@@ -82,7 +82,7 @@ The path that you provide to OPENROWSET can also be a path to a folder. The foll
 
 ### Read all files from specific folder
 
-You can read all the files in a folder using the file level wildcard as shown in [Read all files in folder](#read-all-files-in-folder). But, there is a way to query a folder and consume all files within that folder.
+You can read all the files in a folder using the file level wildcard as shown in [Read all files in folder](#read-all-files-in-folder). But, there's a way to query a folder and consume all files within that folder.
 
 If the path provided in OPENROWSET points to a folder, all files in that folder will be used as a source for your query. The following query will read all files in the *csv/taxi* folder.
 
@@ -227,4 +227,4 @@ Since you have only one folder that matches the criteria, the query result is th
 
 ## Next steps
 
-More information can be found in the in [Query specific files](query-specific-files.md) article.
+More information can be found in the [Query specific files](query-specific-files.md) article.

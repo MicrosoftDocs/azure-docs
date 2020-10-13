@@ -25,9 +25,9 @@ There are two common reasons for why the Azure AD extension is not working for y
 
 Azure AD and Azure AD B2C are separate product offerings and cannot coexist in the same tenant. An Azure AD tenant represents an organization. An Azure AD B2C tenant represents a collection of identities to be used with relying party applications. By adding **New OpenID Connect provider** under **Azure AD B2C > Identity providers** or with custom policies, Azure AD B2C can federate to Azure AD allowing authentication of employees in an organization.
 
-### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Office 365?
+### Can I use Azure AD B2C to provide social login (Facebook and Google+) into Microsoft 365?
 
-Azure AD B2C can't be used to authenticate users for Microsoft Office 365. Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and Conditional Access. Azure AD B2C provides an identity and access management platform for building web and mobile applications. When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
+Azure AD B2C can't be used to authenticate users for Microsoft 365. Azure AD is Microsoft's solution for managing employee access to SaaS apps and it has features designed for this purpose such as licensing and Conditional Access. Azure AD B2C provides an identity and access management platform for building web and mobile applications. When Azure AD B2C is configured to federate to an Azure AD tenant, the Azure AD tenant manages employee access to applications that rely on Azure AD B2C.
 
 ### What are local accounts in Azure AD B2C? How are they different from work or school accounts in Azure AD?
 
@@ -150,7 +150,7 @@ You can use our new unified **App registrations** experience or our legacy  **Ap
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.
 1. Select **Azure Active Directory** on the left-hand menu.
-1. On the **Overview** page, select **Delete directory**. Follow the on-screen instructions to complete the process.
+1. On the **Overview** page, select **Delete tenant**. Follow the on-screen instructions to complete the process.
 
 #### [Applications (Legacy)](#tab/applications-legacy/)
 

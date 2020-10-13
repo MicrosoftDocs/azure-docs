@@ -10,7 +10,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/03/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
@@ -22,11 +22,11 @@ Notification Hubs is offered in three tiers: **free**, **basic**, and **standard
 
 ## Overview
 
-In Azure Notification Hubs, a hub is the smallest resource/entity. It generally maps to one application and can hold one certificate for each Platform Notification System (PNS) we support for the app. The application can be a hybrid, or a native and a cross-platform application.
+In Azure Notification Hubs, a *notification hub* is the smallest resource/entity. It generally maps to one application and can hold one certificate for each Platform Notification System (PNS) we support for the app. The application can be a hybrid, or a native and a cross-platform application.
 
-A **namespace** is a collection of notification hubs. Each namespace usually consists of hubs that are related and used for a specific purpose. For example, you can have three different namespaces for development, test, and production purposes, respectively.
+A *namespace* is a collection of notification hubs. Each namespace usually consists of hubs that are related and used for a specific purpose. For example, you can have three different namespaces for development, test, and production purposes, respectively.
 
-You can associate a namespace with the **free**, **basic**, or **standard** pricing tiers. You can use the tier for a namespace that suits your requirements. The following sections show you how to change the pricing tier of a Notification Hubs namespace.
+You can associate a namespace with the **free**, **basic**, or **standard** pricing tiers. For any namespace, you can use the tier that suits your requirements. The following sections show you how to change the pricing tier of a Notification Hubs namespace.
 
 ## Use Azure portal
 
@@ -38,7 +38,7 @@ The following procedure shows how to change the pricing tier for a namespace on 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** on the left menu.
-3. Select **Notification Hub Namespaces** in the **Internet of Things** section. If you select the asterisk (`*`) next to the text, it gets added to the left navigation bar under **FAVORITES**. It helps you access the namespaces page faster going forward. After you add it to FAVORITES, select **Notification Hub Namespaces**.
+3. Select **Notification Hub Namespaces** in the **Internet of Things** section. If you select the asterisk (`*`) next to the text, it's added to the left navigation bar under **FAVORITES**. This helps you access the namespaces page faster next time. After you add it to **FAVORITES**, select **Notification Hub Namespaces**.
 
     ![All services -> Notification Hub Namespaces](./media/change-pricing-tier/all-services-nhub.png)
 
@@ -47,7 +47,7 @@ The following procedure shows how to change the pricing tier for a namespace on 
 
     ![Current pricing tier on the namespace page](./media/change-pricing-tier/pricing-tier-before.png)
 
-6. On the **Notification Hub Namespace** page for your namespace, select **Pricing Tier** under **Manage** section.
+6. On the **Notification Hub Namespace** page for your namespace, select **Pricing Tier** in the **Manage** section.
 
     ![Select pricing tier on the namespace page](./media/change-pricing-tier/namespace-select-pricing-menu.png)
 
@@ -58,7 +58,7 @@ The following procedure shows how to change the pricing tier for a namespace on 
 
 ### Change tier on the hub page
 
-The following procedure shows how to change the pricing tier for a namespace on the hub page. Even though you do these steps starting from the hub page, you actually change the pricing tier for the namespace and all hubs in the namespace.
+Follow these steps to change the pricing tier of a namespace on the hub page. Even though you do these steps starting from the hub page, you actually change the pricing tier for the namespace and all hubs in the namespace:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All services** on the left menu.

@@ -1,22 +1,10 @@
 ---
 title: Track usage of a lab in Azure Lab Services | Microsoft Docs
 description: In this tutorial, you, as a lab creator/owner, track the usage of your lab. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 02/10/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Tutorial: Track usage of a lab in Azure Lab Service
 This tutorial shows you how a lab creator/owner can track usage of a lab.
 

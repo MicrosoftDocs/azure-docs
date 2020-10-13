@@ -3,7 +3,7 @@ title: Use Azure Automation to launch a job in StorSimple Data Manager
 description: Learn how to use Azure Automation for triggering StorSimple Data Manager jobs
 author: alkohli
 ms.service: storsimple
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/16/2018
 ms.author: alkohli
 ---
@@ -36,7 +36,7 @@ Before you begin, ensure that you have:
 
 2. To add a new automation account, click **+ Add**.
 
-    ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
+    ![Create Run as automation account 2](./media/storsimple-data-manager-job-using-automation/add-automation-account1.png)
 
 3. In the **Add Automation**:
 
@@ -47,7 +47,7 @@ Before you begin, ensure that you have:
    5. Leave the default **Create Run As account** option selected.
    6. To get a link for quick access on the dashboard, check **Pin to dashboard**. Click **Create**.
 
-      ![Create Run as automation account](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Create Run as automation account 3](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
       After the automation account is successfully created, you are notified.
     

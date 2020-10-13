@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: ETL operations with Interactive Query - Azure HDInsight'
-description: Tutorial - Learn how to extract data from a raw CSV dataset. Transform it using Interactive Query on HDInsight. Then load the transformed data into Azure SQL database by using Apache Sqoop.
+description: Tutorial - Learn how to extract data from a raw CSV dataset. Transform it using Interactive Query on HDInsight. Then load the transformed data into Azure SQL Database by using Apache Sqoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -13,7 +13,7 @@ ms.date: 07/02/2019
 
 # Tutorial: Extract, transform, and load data using Interactive Query in Azure HDInsight
 
-In this tutorial, you download a raw CSV data file of publicly available flight data. Import it into HDInsight cluster storage, and then transform the data using Interactive Query in Azure HDInsight. Once the data is transformed, you load that data into an Azure SQL database using [Apache Sqoop](https://sqoop.apache.org/).
+In this tutorial, you download a raw CSV data file of publicly available flight data. Import it into HDInsight cluster storage, and then transform the data using Interactive Query in Azure HDInsight. Once the data is transformed, you load that data into a database in Azure SQL Database using [Apache Sqoop](https://sqoop.apache.org/).
 
 This tutorial covers the following tasks:
 
@@ -21,14 +21,14 @@ This tutorial covers the following tasks:
 > * Download the sample flight data
 > * Upload data to an HDInsight cluster
 > * Transform the data using Interactive Query
-> * Create a table in an Azure SQL database
-> * Use Sqoop to export data to an Azure SQL database
+> * Create a table in a database in Azure SQL Database
+> * Use Sqoop to export data to a database in Azure SQL Database
 
 ## Prerequisites
 
 * An Interactive Query cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Interactive Query** for **Cluster type**.
 
-* An Azure SQL Database. You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](/azure/sql-database/sql-database-single-database-get-started).
+* A database in Azure SQL Database. You use the database as a destination data store. If you don't have a database in Azure SQL Database, see [Create a database in Azure SQL Database in the Azure portal](/azure/sql-database/sql-database-single-database-get-started).
 
 * An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -247,9 +247,9 @@ There are many ways to connect to SQL Database and create a table. The following
 
 4. Enter `exit` at the `1>` prompt to exit the tsql utility.
 
-## Export data to SQL database using Apache Sqoop
+## Export data to SQL Database using Apache Sqoop
 
-In the previous sections, you copied the transformed data at `/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `/tutorials/flightdelays/output` to the table you created in Azure SQL database.
+In the previous sections, you copied the transformed data at `/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `/tutorials/flightdelays/output` to the table you created in Azure SQL Database.
 
 1. Verify that Sqoop can see your SQL database by entering the command below:
 

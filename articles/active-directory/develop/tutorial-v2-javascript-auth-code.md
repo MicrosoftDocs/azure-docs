@@ -1,7 +1,7 @@
 ---
-title: JavaScript single-page app tutorial - auth code flow | Azure
+title: "Tutorial: Create a JavaScript single-page app that uses auth code flow | Azure"
 titleSuffix: Microsoft identity platform
-description: How JavaScript SPA applications can use the auth code flow to call an API that requires access tokens by Azure Active Directory v2.0 endpoint
+description: In this tutorial, you create a JavaScript SPA that can sign in users and use the auth code flow to obtain an access token from the Microsoft identity platform and call the Microsoft Graph API.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -9,15 +9,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 05/19/2020
+ms.date: 07/17/2020
 ms.author: hahamil
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-js
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript single-page app (SPA) using auth code flow
-
-> [!IMPORTANT]
-> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature might change before general availability (GA).
 
 This tutorial shows you how to create a JavaScript single-page application (SPA) that uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0 to:
 
@@ -29,6 +26,13 @@ This tutorial shows you how to create a JavaScript single-page application (SPA)
 
 MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.0 does **NOT** support the implicit flow.
 
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
+
+## Prerequisites
+
+* [Node.js](https://nodejs.org/en/download/) for running a local webserver
+* [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
+
 ## How the tutorial app works
 
 :::image type="content" source="media/tutorial-v2-javascript-auth-code/diagram-01-auth-code-flow.png" alt-text="Diagram showing the authorization code flow in a single-page application":::
@@ -37,10 +41,7 @@ The application you create in this tutorial enables a JavaScript SPA to query th
 
 This tutorial uses the following library:
 
-| | |
-|---|---|
-|[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)|Microsoft Authentication Library for JavaScript v2.0 browser package|
-| | |
+[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser) Microsoft Authentication Library for JavaScript v2.0 browser package
 
 ## Get the completed code sample
 
@@ -51,11 +52,6 @@ Prefer to download this tutorial's completed sample project instead? To run the 
 Then, to configure the code sample before you execute it, skip to the [configuration step](#register-your-application).
 
 To continue with the tutorial and build the application yourself, move on to the next section, [Prerequisites](#prerequisites).
-
-## Prerequisites
-
-* [Node.js](https://nodejs.org/en/download/) for running a local webserver
-* [Visual Studio Code](https://code.visualstudio.com/download) or another code editor
 
 ## Create your project
 
@@ -145,7 +141,7 @@ msal-spa-tutorial/
 
         <!-- IE support: add promises polyfill before msal.js  -->
         <script type="text/javascript" src="//cdn.jsdelivr.net/npm/bluebird@3.7.2/js/browser/bluebird.min.js"></script>
-        <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.0/js/msal-browser.js"></script>
+        <script type="text/javascript" src="https://alcdn.msauth.net/browser/2.0.0-beta.4/js/msal-browser.js" integrity="sha384-7sxY2tN3GMVE5jXH2RL9AdbO6s46vUh9lUid4yNCHJMUzDoj+0N4ve6rLOmR88yN" crossorigin="anonymous"></script>
 
         <!-- adding Bootstrap 4 for UI components  -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -222,14 +218,9 @@ msal-spa-tutorial/
     const profileDiv = document.getElementById("profile-div");
 
     function showWelcomeMessage(account) {
-
-        // Reconfiguring DOM elements
-        cardDiv.classList.remove('d-none');
-        welcomeDiv.innerHTML = `Welcome ${account.name}`;
-
         // Reconfiguring DOM elements
         cardDiv.style.display = 'initial';
-        welcomeDiv.innerHTML = `Welcome ${account.name}`;
+        welcomeDiv.innerHTML = `Welcome ${account.username}`;
         signInButton.setAttribute("onclick", "signOut();");
         signInButton.setAttribute('class', "btn btn-success")
         signInButton.innerHTML = "Sign Out";
@@ -373,65 +364,93 @@ In the *app* folder, create a file named *authPopup.js* and add the following au
 
 ```JavaScript
 // Create the main myMSALObj instance
-// configuration parameters are located in authConfig.js
+// configuration parameters are located at authConfig.js
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
-function signIn() {
-    myMSALObj.loginPopup(loginRequest)
-        .then(loginResponse => {
-            console.log('id_token acquired at: ' + new Date().toString());
+let username = "";
 
-            if (myMSALObj.getAccount()) {
-                showWelcomeMessage(myMSALObj.getAccount());
-            }
-        }).catch(error => {
-            console.error(error);
-        });
+function loadPage() {
+    /**
+     * See here for more info on account retrieval:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
+     */
+    const currentAccounts = myMSALObj.getAllAccounts();
+    if (currentAccounts === null) {
+        return;
+    } else if (currentAccounts.length > 1) {
+        // Add choose account code here
+        console.warn("Multiple accounts detected.");
+    } else if (currentAccounts.length === 1) {
+        username = currentAccounts[0].username;
+        showWelcomeMessage(currentAccounts[0]);
+    }
+}
+
+function handleResponse(resp) {
+    if (resp !== null) {
+        username = resp.account.username;
+        showWelcomeMessage(resp.account);
+    } else {
+        loadPage();
+    }
+}
+
+function signIn() {
+    myMSALObj.loginPopup(loginRequest).then(handleResponse).catch(error => {
+        console.error(error);
+    });
 }
 
 function signOut() {
-    myMSALObj.logout();
+    const logoutRequest = {
+        account: myMSALObj.getAccountByUsername(username)
+    };
+
+    myMSALObj.logout(logoutRequest);
 }
 
 function getTokenPopup(request) {
-    return myMSALObj.acquireTokenSilent(request)
-        .catch(error => {
-            console.warn(error);
-            console.warn("silent token acquisition fails. acquiring token using popup");
-
+    /**
+     * See here for more info on account retrieval:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
+     */
+    request.account = myMSALObj.getAccountByUsername(username);
+    return myMSALObj.acquireTokenSilent(request).catch(error => {
+        console.warn("silent token acquisition fails. acquiring token using redirect");
+        if (error instanceof msal.InteractionRequiredAuthError) {
             // fallback to interaction when silent call fails
-            return myMSALObj.acquireTokenPopup(request)
-                .then(tokenResponse => {
-                    return tokenResponse;
-                }).catch(error => {
-                    console.error(error);
-                });
-        });
+            return myMSALObj.acquireTokenPopup(request).then(tokenResponse => {
+                console.log(tokenResponse);
+
+                return tokenResponse;
+            }).catch(error => {
+                console.error(error);
+            });
+        } else {
+            console.warn(error);
+        }
+    });
 }
 
 function seeProfile() {
-    if (myMSALObj.getAccount()) {
-        getTokenPopup(loginRequest)
-            .then(response => {
-                callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
-                profileButton.classList.add('d-none');
-                mailButton.classList.remove('d-none');
-            }).catch(error => {
-                console.error(error);
-            });
-    }
+    getTokenPopup(loginRequest).then(response => {
+        callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
+        profileButton.classList.add('d-none');
+        mailButton.classList.remove('d-none');
+    }).catch(error => {
+        console.error(error);
+    });
 }
 
 function readMail() {
-    if (myMSALObj.getAccount()) {
-        getTokenPopup(tokenRequest)
-            .then(response => {
-                callMSGraph(graphConfig.graphMailEndpoint, response.accessToken, updateUI);
-            }).catch(error => {
-                console.error(error);
-            });
-    }
+    getTokenPopup(tokenRequest).then(response => {
+        callMSGraph(graphConfig.graphMailEndpoint, response.accessToken, updateUI);
+    }).catch(error => {
+        console.error(error);
+    });
 }
+
+loadPage();
 ```
 
 ### Redirect
@@ -444,29 +463,33 @@ Create a file named *authRedirect.js* in the *app* folder and add the following 
 const myMSALObj = new msal.PublicClientApplication(msalConfig);
 
 let accessToken;
-
-// Register Callbacks for Redirect flow
-myMSALObj.handleRedirectCallback(authRedirectCallBack);
-
-function authRedirectCallBack(error, response) {
-    if (error) {
-        console.error(error);
-    } else {
-        if (myMSALObj.getAccount()) {
-            console.log('id_token acquired at: ' + new Date().toString());
-            showWelcomeMessage(myMSALObj.getAccount());
-            getTokenRedirect(loginRequest);
-        } else if (response.tokenType === "Bearer") {
-            console.log('access_token acquired at: ' + new Date().toString());
-        } else {
-            console.log("token type is:" + response.tokenType);
-        }
-    }
-}
+let username = "";
 
 // Redirect: once login is successful and redirects with tokens, call Graph API
-if (myMSALObj.getAccount()) {
-    showWelcomeMessage(myMSALObj.getAccount());
+myMSALObj.handleRedirectPromise().then(handleResponse).catch(err => {
+    console.error(err);
+});
+
+function handleResponse(resp) {
+    if (resp !== null) {
+        username = resp.account.username;
+        showWelcomeMessage(resp.account);
+    } else {
+        /**
+         * See here for more info on account retrieval:
+         * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
+         */
+        const currentAccounts = myMSALObj.getAllAccounts();
+        if (currentAccounts === null) {
+            return;
+        } else if (currentAccounts.length > 1) {
+            // Add choose account code here
+            console.warn("Multiple accounts detected.");
+        } else if (currentAccounts.length === 1) {
+            username = currentAccounts[0].username;
+            showWelcomeMessage(currentAccounts[0]);
+        }
+    }
 }
 
 function signIn() {
@@ -474,36 +497,46 @@ function signIn() {
 }
 
 function signOut() {
-    myMSALObj.logout();
+    const logoutRequest = {
+        account: myMSALObj.getAccountByUsername(username)
+    };
+
+    myMSALObj.logout(logoutRequest);
 }
 
-// This function can be removed if you do not need to support IE
 function getTokenRedirect(request) {
-    return myMSALObj.acquireTokenSilent(request)
-        .then((response) => {
-            console.log(response);
-            if (response.accessToken) {
-                console.log('access_token acquired at: ' + new Date().toString());
-                accessToken = response.accessToken;
-
-                callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
-                profileButton.style.display = 'none';
-                mailButton.style.display = 'initial';
-            }
-        })
-        .catch(error => {
+    /**
+     * See here for more info on account retrieval:
+     * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-common/docs/Accounts.md
+     */
+    request.account = myMSALObj.getAccountByUsername(username);
+    return myMSALObj.acquireTokenSilent(request).catch(error => {
             console.warn("silent token acquisition fails. acquiring token using redirect");
-            // fallback to interaction when silent call fails
-            return myMSALObj.acquireTokenRedirect(request);
+            if (error instanceof msal.InteractionRequiredAuthError) {
+                // fallback to interaction when silent call fails
+                return myMSALObj.acquireTokenRedirect(request);
+            } else {
+                console.warn(error);
+            }
         });
 }
 
 function seeProfile() {
-    getTokenRedirect(loginRequest);
+    getTokenRedirect(loginRequest).then(response => {
+        callMSGraph(graphConfig.graphMeEndpoint, response.accessToken, updateUI);
+        profileButton.classList.add('d-none');
+        mailButton.classList.remove('d-none');
+    }).catch(error => {
+        console.error(error);
+    });
 }
 
 function readMail() {
-    getTokenRedirect(tokenRequest);
+    getTokenRedirect(tokenRequest).then(response => {
+        callMSGraph(graphConfig.graphMailEndpoint, response.accessToken, updateUI);
+    }).catch(error => {
+        console.error(error);
+    });
 }
 ```
 
@@ -513,7 +546,9 @@ When a user selects the **Sign In** button for the first time, the `signIn` meth
 
 At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received by your application and processed by *msal.js*, and the information contained in the tokens is cached.
 
-The ID token contains basic information about the user, like their display name. If you plan to use any data provided by the ID token, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application. The refresh token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens.
+The ID token contains basic information about the user, like their display name. If you plan to use any data provided by the ID token, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application.
+
+The access token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens.
 
 The SPA you've created in this tutorial calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, see the [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) sample application on GitHub. The sample uses an ASP.NET web API for token validation.
 
@@ -612,14 +647,7 @@ If a back-end API doesn't require a scope, which isn't recommended, you can use 
 
 ## Next steps
 
-In this tutorial, you created a JavaScript single-page application (SPA) that uses the Microsoft Authentication Library (MSAL) for JavaScript v2.0 to:
+If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, see our multi-part scenario series:
 
-> [!div class="checklist"]
-> * Perform the OAuth 2.0 authorization code flow with PKCE
-> * Sign in personal Microsoft accounts as well as work and school accounts
-> * Acquire an access token
-> * Call Microsoft Graph or your own API that requires access tokens obtained from the Microsoft identity platform endpoint
-
-To learn more about the authorization code flow, including the differences between the implicit and auth code flows, see [Microsoft identity platform and OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
-
-If you'd like to dive deeper into JavaScript single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.
+> [!div class="nextstepaction"]
+> [Scenario: Single-page application](scenario-spa-overview.md)

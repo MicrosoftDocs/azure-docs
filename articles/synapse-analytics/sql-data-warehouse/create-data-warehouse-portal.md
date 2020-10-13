@@ -1,12 +1,12 @@
 ---
-title: Create and query a Synapse SQL pool (Azure portal)
+title: 'Quickstart: Create and query a Synapse SQL pool (Azure portal)'
 description: Create and query a Synapse SQL pool using the Azure portal
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 05/28/2019
 ms.author: Kevin
 ms.reviewer: igorstan
@@ -73,7 +73,7 @@ Follow these steps to create a SQL pool that contains the **AdventureWorksDW** s
 
 7. On the toolbar, select **Notifications** to monitor the deployment process.
 
-   ![notification](./media/create-data-warehouse-portal/notification.png)
+   ![Screenshot shows Notifications with Deployment in progress.](./media/create-data-warehouse-portal/notification.png)
 
 ## Create a server-level firewall rule
 
@@ -150,7 +150,7 @@ This section uses [SQL Server Management Studio](/sql/ssms/download-sql-server-m
 
 It is not recommended to run large queries while being logged as the server admin, as it uses a [limited resource class](resource-classes-for-workload-management.md). Instead configure [Workload Isolation](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/quickstart-configure-workload-isolation-tsql) as [illustrated in the tutorials](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/load-data-wideworldimportersdw#create-a-user-for-loading-data).
 
-SQL Data Warehouse uses T-SQL as the query language. To open a query window and run some T-SQL queries, use the following steps:
+Azure Synapse Analytics uses T-SQL as the query language. To open a query window and run some T-SQL queries, use the following steps:
 
 1. Right-select **mySampleDataWarehouse** and select **New Query**. A new query window opens.
 
@@ -194,6 +194,10 @@ Follow these steps to clean up resources you no longer need.
 4. To remove the server you created, select **sqlpoolservername.database.windows.net** in the previous image, and then select **Delete**. Be careful with this deletion, since deleting the server also deletes all databases assigned to the server.
 
 5. To remove the resource group, select **myResourceGroup**, and then select **Delete resource group**.
+
+Want to optimize and save on your cloud spending?
+
+[!INCLUDE [cost-management-horizontal](../../../includes/cost-management-horizontal.md)]
 
 ## Next steps
 

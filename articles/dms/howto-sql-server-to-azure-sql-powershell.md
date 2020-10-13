@@ -1,7 +1,7 @@
 ---
 title: "PowerShell: Migrate SQL Server to SQL Database" 
 titleSuffix: Azure Database Migration Service
-description: Learn to migrate a datagbase from SQL Server to Azure SQL Database by using Azure PowerShell with the Azure Database Migration Service.
+description: Learn to migrate a database from SQL Server to Azure SQL Database by using Azure PowerShell with the Azure Database Migration Service.
 services: database-migration
 author: pochiraju
 ms.author: rajpo
@@ -9,14 +9,14 @@ manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
-ms.custom: "seo-lt-2019"
-ms.topic: article
+ms.custom: "seo-lt-2019, devx-track-azurepowershell"
+ms.topic: how-to
 ms.date: 02/20/2020
 ---
 
 # Migrate a SQL Server database to Azure SQL Database using Azure PowerShell
 
-In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to an Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from a SQL Server instance to Azure SQL Database by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
+In this article, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 or above to Azure SQL Database by using Microsoft Azure PowerShell. You can migrate databases from a SQL Server instance to Azure SQL Database by using the `Az.DataMigration` module in Microsoft Azure PowerShell.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ To complete these steps, you need:
 * [SQL Server 2016 or above](https://www.microsoft.com/sql-server/sql-server-downloads) (any edition)
 * To enable the TCP/IP protocol, which is disabled by default with SQL Server Express installation. Enable the TCP/IP protocol by following the article [Enable or Disable a Server Network Protocol](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure).
 * To configure your [Windows Firewall for database engine access](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create an Azure SQL database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
+* An Azure SQL Database instance. You can create an Azure SQL Database instance by following the detail in the article [Create a database in Azure SQL Database in the Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 * [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) v3.3 or later.
 * To have created a Microsoft Azure Virtual Network by using the Azure Resource Manager deployment model, which provides the Azure Database Migration Service with site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 * To have completed assessment of your on-premises database and schema migration using Data Migration Assistant as described in the article [Performing a SQL Server migration assessment](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)
@@ -92,7 +92,7 @@ After creating an Azure Database Migration Service instance, create a migration 
 You can create a Database Connection Info object by using the `New-AzDmsConnInfo` cmdlet. This cmdlet expects the following parameters:
 
 * *ServerType*. The type of database connection requested, for example, SQL, Oracle, or MySQL. Use SQL for SQL Server and Azure SQL.
-* *DataSource*. The name or IP of a SQL Server instance or Azure SQL database.
+* *DataSource*. The name or IP of a SQL Server instance or Azure SQL Database.
 * *AuthType*. The authentication type for connection, which can be either SqlAuthentication or WindowsAuthentication.
 * *TrustServerCertificate* parameter sets a value that indicates whether the channel is encrypted while bypassing walking the certificate chain to validate trust. Value can be true or false.
 

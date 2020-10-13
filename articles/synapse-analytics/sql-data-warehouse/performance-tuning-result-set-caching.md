@@ -6,7 +6,7 @@ author: XiaoyuMSFT
 manager: craigg 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
@@ -18,8 +18,6 @@ ms.custom: azure-synapse
 When result set caching is enabled, Synapse SQL automatically caches query results in the user database for repetitive use.  This allows subsequent query executions to get results directly from the persisted cache so recomputation is not needed.   Result set caching improves query performance and reduces compute resource usage.  In addition, queries using cached results set do not use any concurrency slots and thus do not count against existing concurrency limits. For security, users can only access the cached results if they have the same data access permissions as the users creating the cached results.  
 
 ## Key commands
-
-[Turn ON/OFF result set caching for a user database](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 [Turn ON/OFF result set caching for a user database](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
@@ -53,11 +51,11 @@ WHERE request_id  = <'request_id'>;
 
 Here is an example output for a query executed with result set caching disabled.
 
-![Query-steps-with-rsc-disabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
+![Screenshot shows query results, including location type and command.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-disabled.png)
 
 Here is an example output for a query executed with result set caching enabled.
 
-![Query-steps-with-rsc-enabled](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
+![Screenshot shows query results with the command selected * from [D W ResultCache D b] dot d b o called out.](./media/performance-tuning-result-set-caching/query-steps-with-rsc-enabled.png)
 
 ## When cached results are used
 

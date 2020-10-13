@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft (V5.2) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and JIRA SAML SSO by Microsoft (V5.2).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: d0c00408-f9b8-4a79-bccc-c346a7331845
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/22/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with JIRA SAML SSO by Microsoft (V5.2)
 
@@ -150,23 +143,23 @@ To configure Azure AD single sign-on with JIRA SAML SSO by Microsoft (V5.2), per
 
 2. Hover on cog and click the **Add-ons**.
 
-	![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon1.png)
+	![Screenshot shows Add-ons selected from the Settings menu.](./media/jira52microsoft-tutorial/addon1.png)
 
 3. Under Add-ons tab section, click **Manage add-ons**.
 
-	![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon7.png)
+	![Screenshot shows Manage add-ons selected in the Add-ons tab.](./media/jira52microsoft-tutorial/addon7.png)
 
 4. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56521). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/).
 
-	![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon12.png)
+	![Screenshot shows Manage add-ons with the Upload add-on link called out.](./media/jira52microsoft-tutorial/addon12.png)
 
 5. Once the plugin is installed, it appears in **User Installed** add-ons section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon13.png)
+	![Screenshot shows the Azure A D SAML Single Sign-on for Jira section with Configure selected.](./media/jira52microsoft-tutorial/addon13.png)
 
 6. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/jira52microsoft-tutorial/addon52.png)
+	![Screenshot shows the Microsoft Jira S S O Connector configuration page.](./media/jira52microsoft-tutorial/addon52.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, upon resolving the metadata, admin gets an error.
@@ -255,19 +248,19 @@ To enable Azure AD users to sign in to JIRA on-premises server, they must be pro
 
 2. Hover on cog and click the **User management**.
 
-    ![Add Employee](./media/jira52microsoft-tutorial/user1.png)
+    ![Screenshot shows User management selected from the Settings menu.](./media/jira52microsoft-tutorial/user1.png)
 
 3. You are redirected to Administrator Access page to enter **Password** and click **Confirm** button.
 
-	![Add Employee](./media/jira52microsoft-tutorial/user2.png)
+	![Screenshot shows Administrator Access page where you enter your credentials.](./media/jira52microsoft-tutorial/user2.png)
 
 4. Under **User management** tab section, click **create user**.
 
-	![Add Employee](./media/jira52microsoft-tutorial/user3.png) 
+	![Screenshot shows the User management tab where you can Create user.](./media/jira52microsoft-tutorial/user3.png) 
 
 5. On the **“Create new user”** dialog page, perform the following steps:
 
-	![Add Employee](./media/jira52microsoft-tutorial/user4.png)
+	![Screenshot shows the Create new user dialog box where you can enter the information in this step.](./media/jira52microsoft-tutorial/user4.png)
 
 	a. In the **Email address** textbox, type the email address of user like Brittasimon@contoso.com.
 

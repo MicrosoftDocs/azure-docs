@@ -5,12 +5,12 @@ author: philmea
 ms.author: phil
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
-ms.date: 1/23/2020
+ms.topic: conceptual
+ms.date: 6/10/2020
 
 ---
 
-# Azure IoT support and help options
+# What are the Azure IoT support and help options?
 
 Here are suggestions for where you can get help when developing your Azure IoT solutions.
 
@@ -59,7 +59,7 @@ If you do submit a new question to Stack Overflow, please use one or more of the
  - [Azure IoT SDKs](https://stackoverflow.com/questions/tagged/azure-iot-sdk)
  - [Azure Digital Twins](https://stackoverflow.com/questions/tagged/azure-digital-twins)
  - [Azure RTOS](https://stackoverflow.com/questions/tagged/azure-rtos)
- - [Azure Sphere](https://stackoverflow.com/questions/tagged/azuresphere)
+ - [Azure Sphere](https://stackoverflow.com/questions/tagged/azure-sphere)
  - [Azure Time Series Insights](https://stackoverflow.com/questions/tagged/azure-timeseries-insights)
  - [Azure Maps](https://stackoverflow.com/questions/tagged/azure-maps)
 
@@ -73,7 +73,7 @@ To request new features, post them on Azure Feedback. Share your ideas for makin
 
 | Service                       | Azure Feedback URL |
 |-------------------------------|---------------|
-| Azure IoT Hub                    | https://feedback.azure.com/forums/321918-azure-iot |
+| Azure IoT (Hub, DPS, SDKs)                    | https://feedback.azure.com/forums/321918-azure-iot |
 | Azure IoT Central             | https://feedback.azure.com/forums/911455-azure-iot-central |
 | Azure IoT Device Catalog      | https://feedback.azure.com/forums/916948-azure-iot-device-catalog |
 | Azure IoT Edge                | https://feedback.azure.com/forums/907045-azure-iot-edge |
@@ -97,5 +97,4 @@ Also, share your experiences, engage and learn from experts in the [Internet of 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [What is Azure IoT?](iot-introduction.md)
+[What is Azure IoT?](iot-introduction.md)

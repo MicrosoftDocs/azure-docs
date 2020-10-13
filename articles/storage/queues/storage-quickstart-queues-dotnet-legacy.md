@@ -4,16 +4,20 @@ description: In this quickstart, you learn how to use the Azure Storage client l
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 02/06/2018
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: dineshm
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue
 
 In this quickstart, you learn how to use the Azure Storage client library version 11 for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue. 
+
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Queue storage client library. To get started with the latest version, see [Quickstart: Azure Queue storage client library v12 for .NET](storage-quickstart-queues-dotnet.md).
 
 ## Prerequisites
 

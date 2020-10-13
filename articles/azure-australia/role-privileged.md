@@ -1,12 +1,12 @@
 ---
 title: Role-Based Access Control and Privileged Identity Management
 titleSuffix: Azure Australia
-description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
+description: Guidance on Implementing Azure role-based access control (Azure RBAC) and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Role-Based Access Control (RBAC) and Privileged Identity Management (PIM)
@@ -21,7 +21,7 @@ Role-Based Access Control is central to the management of access to all resource
 
 At a high level, implementing RBAC requires three components:
 
-![RBAC-Overview](media/rbac-overview.png)
+![Diagram shows the three components necessary for implementing R B A C, which are security principal, role definition, and scope, which all feed into role assigment.](media/rbac-overview.png)
 
 * **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals), or a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
 

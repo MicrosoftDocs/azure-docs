@@ -15,6 +15,9 @@ The Activity log is a [platform log](platform-logs-overview.md) in Azure that pr
 
 See [Create diagnostic settings to send platform logs and metrics to different destinations](diagnostic-settings.md) for details on creating a diagnostic setting.
 
+> [!NOTE]
+> Entries in the Activity Log are system generated and cannot be changed or deleted.
+
 ## View the Activity log
 You can access the Activity log from most menus in the Azure portal. The menu that you open it from determines its initial filter. If you open it from the **Monitor** menu, then the only filter will be on the subscription. If you open it from a resource's menu, then the filter will be set to that resource. You can always change the filter though to view all other entries. Click **Add Filter** to add additional properties to the filter.
 
@@ -36,9 +39,9 @@ If there are any associated changes with the event, you'll see a list of changes
 ### Other methods to retrieve Activity log events
 You can also access Activity log events using the following methods.
 
-- Use the [Get-AzLog](https://docs.microsoft.com/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the Activity Log from PowerShell. See [Azure Monitor PowerShell samples](../samples/powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](https://docs.microsoft.com/cli/azure/monitor/activity-log) to retrieve the Activity Log from CLI.  See [Azure Monitor CLI samples](../samples/cli-samples.md#view-activity-log).
-- Use the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) to retrieve the Activity Log from a REST client. 
+- Use the [Get-AzLog](/powershell/module/az.monitor/get-azlog) cmdlet to retrieve the Activity Log from PowerShell. See [Azure Monitor PowerShell samples](../samples/powershell-samples.md#retrieve-activity-log).
+- Use [az monitor activity-log](/cli/azure/monitor/activity-log) to retrieve the Activity Log from CLI.  See [Azure Monitor CLI samples](../samples/cli-samples.md#view-activity-log).
+- Use the [Azure Monitor REST API](/rest/api/monitor/) to retrieve the Activity Log from a REST client. 
 
 
 ## Send to Log Analytics workspace
@@ -51,22 +54,22 @@ You can also access Activity log events using the following methods.
 - Store Activity log entries for longer than 90 days.
 - No data ingestion or data retention charge for Activity log data stored in a Log Analytics workspace.
 
-[Create a diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](/azure/lighthouse).
+[Create a diagnostic setting](diagnostic-settings.md) to send the Activity log to a Log Analytics workspace. You can send the Activity log from any single subscription to up to five  workspaces. Collecting logs across tenants requires [Azure Lighthouse](../../lighthouse/index.yml).
 
-Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/get-started-portal.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azureactivity).
+Activity log data in a Log Analytics workspace is stored in a table called *AzureActivity* that you can retrieve with a [log query](../log-query/log-query-overview.md) in [Log Analytics](../log-query/get-started-portal.md). The structure of this table varies depending on the [category of the log entry](activity-log-schema.md). For a description of the table properties, see the [Azure Monitor data reference](/azure/azure-monitor/reference/tables/azureactivity).
 
 For example, to view a count of Activity log records for each category, use the following query.
 
 ```kusto
 AzureActivity
-| summarize count() by CategoryValue
+| summarize count() by Category
 ```
 
 To retrieve all records in the administrative category, use the following query.
 
 ```kusto
 AzureActivity
-| where CategoryValue == "Administrative"
+| where Category == "Administrative"
 ```
 
 
@@ -219,7 +222,7 @@ Following is a sample PowerShell script to create a log profile that writes the 
    # Build the storage account Id from the settings above
    $storageAccountId = "/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Storage/storageAccounts/$storageAccountName"
 
-   Add-AzLogProfile -Name $logProfileName -Location $locations -ServiceBusRuleId $serviceBusRuleId
+   Add-AzLogProfile -Name $logProfileName -Location $locations -StorageAccountId  $storageAccountId -ServiceBusRuleId $serviceBusRuleId
    ```
 
 
@@ -252,7 +255,7 @@ The legacy method for sending the Activity log into a Log Analytics workspace is
 1. In the **Workspace Data Sources** section of the workspace's menu, select **Azure Activity log**.
 1. Click the subscription you want to connect.
 
-    ![Workspaces](media/activity-log-collect/workspaces.png)
+    ![Screenshot shows Log Analytics workspace with an Azure Activity log selected.](media/activity-log-collect/workspaces.png)
 
 1. Click **Connect** to connect the Activity log in the subscription to the selected workspace. If the subscription is already connected to another workspace, click **Disconnect** first to disconnect it.
 
@@ -274,7 +277,7 @@ The columns in the following table have been deprecated in the updated schema. T
 | ResourceProvider  | ResourceProviderValue  |
 
 > [!IMPORTANT]
-> In some cases, the values in these columns may be in all uppercase. If you have a query that includes these columns, you should use the [=~ operator](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) to do a case insensitive comparison.
+> In some cases, the values in these columns may be in all uppercase. If you have a query that includes these columns, you should use the [=~ operator](/azure/kusto/query/datatypes-string-operators) to do a case insensitive comparison.
 
 The following column have been added to *AzureActivity* in the updated schema:
 
@@ -392,4 +395,5 @@ You will soon no longer be able to add the Activity Logs Analytics solution to y
 ## Next steps
 
 * [Read an overview of platform logs](platform-logs-overview.md)
+* [Review Activity log event schema](activity-log-schema.md)
 * [Create diagnostic setting to send Activity logs to other destinations](diagnostic-settings.md)

@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-js
 ---
 # Quickstart: Generate a thumbnail using the Computer Vision REST API and Node.js
 
@@ -56,7 +56,7 @@ const request = require('request').defaults({ encoding: null });
 let subscriptionKey = process.env['COMPUTER_VISION_SUBSCRIPTION_KEY'];
 let endpoint = process.env['COMPUTER_VISION_ENDPOINT']
 
-var uriBase = endpoint + 'vision/v3.0/generateThumbnail';
+var uriBase = endpoint + 'vision/v3.1/generateThumbnail';
 
 const imageUrl = 'https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg';
 

@@ -1,10 +1,10 @@
 ---
-title: Connect with Python - Azure Database for PostgreSQL - Single Server
+title: 'Quickstart: Connect with Python - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides Python code samples that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devcenter, tracking-python
+ms.custom: mvc, devcenter, devx-track-python
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/07/2019
@@ -13,6 +13,10 @@ ms.date: 11/07/2019
 # Quickstart: Use Python to connect and query data in Azure Database for PostgreSQL - Single Server
 
 In this quickstart, you work with an Azure Database for PostgreSQL using Python on macOS, Ubuntu Linux, or Windows. The quickstart shows how to connect to the database and use SQL statements to query, insert, update, and delete data. The article assumes that you're familiar with Python, but new to working with Azure Database for PostgreSQL.
+
+> [!TIP]
+> If you are looking to build a Django Application with PostgreSQL then checkout the tutorial, [Deploy a Django web app with PostgreSQL](../app-service/containers/tutorial-python-postgresql-app.md) tutorial.
+
 
 ## Prerequisites
 
@@ -37,7 +41,7 @@ Connecting to an Azure Database for PostgreSQL database requires the fully quali
    
    You also need your admin password. If you forget it, you can reset it from this page. 
    
-   ![Azure Database for PostgreSQL server name](./media/connect-python/1-connection-string.png)
+   :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Azure Database for PostgreSQL server name":::
 
 ## How to run the Python examples
 
@@ -96,7 +100,7 @@ conn.close()
 
 When the code runs successfully, it produces the following output:
 
-![Command-line output](media/connect-python/2-example-python-output.png)
+:::image type="content" source="media/connect-python/2-example-python-output.png" alt-text="Command-line output":::
 
 ## Read data
 The following code example connects to your Azure Database for PostgreSQL database and uses [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) with the SQL **SELECT** statement to read data. This function accepts a query and returns a result set to iterate over by using [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). 

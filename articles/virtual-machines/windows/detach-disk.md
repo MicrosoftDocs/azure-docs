@@ -15,7 +15,7 @@ ms.author: cynthn
 When you no longer need a data disk that's attached to a virtual machine, you can easily detach it. This removes the disk from the virtual machine, but doesn't remove it from storage.
 
 > [!WARNING]
-> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](disks-types.md#billing).
+> If you detach a disk it is not automatically deleted. If you have subscribed to Premium storage, you will continue to incur storage charges for the disk. For more information, see [Pricing and Billing when using Premium Storage](../disks-types.md#billing).
 
 If you want to use the existing data on the disk again, you can reattach it to the same virtual machine, or another one.
 
@@ -25,7 +25,7 @@ If you want to use the existing data on the disk again, you can reattach it to t
 
 You can *hot* remove a data disk using PowerShell, but make sure nothing is actively using the disk before detaching it from the VM.
 
-In this example, we remove the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzVMDataDisk](https://docs.microsoft.com/powershell/module/az.compute/remove-azvmdatadisk) cmdlet. Then, you update the state of the virtual machine, using the [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/update-azvm) cmdlet, to complete the process of removing the data disk.
+In this example, we remove the disk named **myDisk** from the VM **myVM** in the **myResourceGroup** resource group. First you remove the disk using the [Remove-AzVMDataDisk](/powershell/module/az.compute/remove-azvmdatadisk) cmdlet. Then, you update the state of the virtual machine, using the [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet, to complete the process of removing the data disk.
 
 ```azurepowershell-interactive
 $VirtualMachine = Get-AzVM `

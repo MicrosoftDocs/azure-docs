@@ -16,23 +16,25 @@ Adding the Application Insights Java SDK to your application is no longer requir
 
 You can still send custom telemetry from your application. The 3.0 agent will track and correlate it along with all of the autocollected telemetry.
 
+The 3.0 agent supports Java 8 and above.
+
 ## Quickstart
 
 **1. Download the agent**
 
-Download [applicationinsights-agent-3.0.0-PREVIEW.4.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.4/applicationinsights-agent-3.0.0-PREVIEW.4.jar)
+Download [applicationinsights-agent-3.0.0-PREVIEW.7.jar](https://github.com/microsoft/ApplicationInsights-Java/releases/download/3.0.0-PREVIEW.7/applicationinsights-agent-3.0.0-PREVIEW.7.jar)
 
 **2. Point the JVM to the agent**
 
-Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.4.jar` to your application's JVM args
+Add `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.7.jar` to your application's JVM args
 
 Typical JVM args include `-Xmx512m` and `-XX:+UseG1GC`. So if you know where to add these, then you already know where to add this.
 
-For additional help with configuring your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
+For additional help with configuring your application's JVM args, please see [3.0 Preview: Tips for updating your JVM args](./java-standalone-arguments.md).
 
 **3. Point the agent to your Application Insights resource**
 
-If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+If you do not already have an Application Insights resource, you can create a new one by following the steps in the [resource creation guide](./create-new-resource.md).
 
 Point the agent to your Application Insights resource, either by setting an environment variable:
 
@@ -40,7 +42,7 @@ Point the agent to your Application Insights resource, either by setting an envi
 APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
 ```
 
-Or by creating a configuration file named `ApplicationInsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.4.jar`, with the following content:
+Or by creating a configuration file named `ApplicationInsights.json`, and placing it in the same directory as `applicationinsights-agent-3.0.0-PREVIEW.7.jar`, with the following content:
 
 ```json
 {
@@ -76,7 +78,7 @@ In the `ApplicationInsights.json` file, you can additionally configure:
 * HTTP Proxy
 * Self diagnostics
 
-See details at [3.0 Public Preview: Configuration Options](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
+See details at [3.0 Public Preview: Configuration Options](./java-standalone-config.md).
 
 ## Autocollected requests, dependencies, logs, and metrics
 
@@ -122,7 +124,21 @@ Our goal in 3.0+ is to allow you to send your custom telemetry using standard AP
 
 We support Micrometer, OpenTelemetry API, and the popular logging frameworks. Application Insights Java 3.0 will automatically capture the telemetry, and correlate it along with all of the autocollected telemetry.
 
-For this reason, we're not planning to release an SDK with Application Insights 3.0 at this time.
+### Supported custom telemetry
+
+The table below represents currently supported custom telemetry types that you can enable to supplement the Java 3.0 agent. To summarize, custom metrics are supported through micrometer, custom exceptions and traces can be enabled through logging frameworks, and any type of the custom telemetry is supported through the [Application Insights Java 2.x SDK](#sending-custom-telemetry-using-application-insights-java-sdk-2x). 
+
+|                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
+|---------------------|------------|---------------------|---------|
+| **Custom Events**   |            |                     |  Yes    |
+| **Custom Metrics**  |  Yes       |                     |  Yes    |
+| **Dependencies**    |            |                     |  Yes    |
+| **Exceptions**      |            |  Yes                |  Yes    |
+| **Page Views**      |            |                     |  Yes    |
+| **Requests**        |            |                     |  Yes    |
+| **Traces**          |            |  Yes                |  Yes    |
+
+We're not planning to release an SDK with Application Insights 3.0 at this time.
 
 Application Insights Java 3.0 is already listening for telemetry that is sent to the Application Insights Java SDK 2.x. This functionality is an important part of the upgrade story for existing 2.x users, and it fills an important gap in our custom telemetry support until the OpenTelemetry API is GA.
 
@@ -207,6 +223,8 @@ Or you can also use Application Insights Java SDK 2.x:
 ## Upgrading from Application Insights Java SDK 2.x
 
 If you're already using Application Insights Java SDK 2.x in your application, there is no need to remove it. The Java 3.0 agent will detect it, and capture and correlate any custom telemetry you're sending via the Java SDK 2.x, while suppressing any autocollection performed by the Java SDK 2.x to prevent duplicate capture.
+
+If you were using Application Insights 2.x agent, you need to remove the `-javaagent:` JVM arg that was pointing to the 2.x agent.
 
 > [!NOTE]
 > Note: Java SDK 2.x TelemetryInitializers and TelemetryProcessors will not be run when using the 3.0 agent.

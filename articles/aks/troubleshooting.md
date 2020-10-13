@@ -3,7 +3,7 @@ title: Troubleshoot common Azure Kubernetes Service problems
 description: Learn how to troubleshoot and resolve common problems when using Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: troubleshooting
-ms.date: 05/16/2020
+ms.date: 06/20/2020
 ---
 
 # AKS troubleshooting
@@ -17,7 +17,7 @@ There's also a [troubleshooting guide](https://github.com/feiskyer/kubernetes-ha
 
 ## I'm getting a "quota exceeded" error during creation or upgrade. What should I do? 
 
- [Request more cores](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request).
+ [Request more cores](../azure-portal/supportability/resource-manager-core-quotas-request.md).
 
 ## What is the maximum pods-per-node setting for AKS?
 
@@ -26,11 +26,34 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-When using Azure CNI network plugin, AKS allocates IP addresses based on the "--max-pods" per node parameter. The subnet size must be greater than number of nodes times the max pods per node setting. The following equation outlines it:
+This error indicates a subnet in use for a cluster no longer has available IPs within its CIDR for successful resource assignment. For Kubenet clusters, the requirement is sufficient IP space for each node in the cluster. For Azure CNI clusters, the requirement is sufficient IP space for each node and pod in the cluster.
+Read more about the [design of Azure CNI to assign IPs to pods](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
-Subnet size > number of nodes in the cluster (taking into consideration the future scaling requirements) * max pods per node set.
+These errors are also surfaced in [AKS Diagnostics](./concepts-diagnostics.md) which proactively surfaces issues such as an insufficient subnet size.
 
-For more information, see [Plan IP addressing for your cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
+The following three (3) cases cause an insufficient subnet size error:
+
+1. AKS Scale or AKS Nodepool scale
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** the `number of new nodes requested`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
+
+1. AKS Upgrade or AKS Nodepool upgrade
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of buffer nodes needed to upgrade`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of buffer nodes needed to upgrade times (*) the node pool's --max-pod value`.
+   
+   By default AKS clusters set a max surge (upgrade buffer) value of one (1), but this upgrade behavior can be customized by setting the [max surge value of a node pool](upgrade-cluster.md#customize-node-surge-upgrade-preview) which will increase the number of available IPs needed to complete an upgrade.
+
+1. AKS create or AKS Nodepool add
+   1. If using Kubenet, this occurs when the `number of free IPs in the subnet` is **less than** than the `number of nodes requested for the node pool`.
+   1. If using Azure CNI, this occurs when the `number of free IPs in the subnet` is **less than** the `number of nodes requested times (*) the node pool's --max-pod value`.
+
+The following mitigation can be taken by creating new subnets. The permission to create a new subnet is required for mitigation due to the inability to update an existing subnet's CIDR range.
+
+1. Rebuild a new subnet with a larger CIDR range sufficient for operation goals:
+   1. Create a new subnet with a new desired non-overlapping range.
+   1. Create a new nodepool on the new subnet.
+   1. Drain pods from the old nodepool residing in the old subnet to be replaced.
+   1. Delete the old subnet and old nodepool.
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
@@ -41,6 +64,23 @@ There might be various reasons for the pod being stuck in that mode. You might l
 
 For more information on how to troubleshoot pod problems, see [Debug applications](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
+## I'm receiving `TCP timeouts` when using `kubectl` or other third-party tools connecting to the API server
+AKS has HA control planes that scale vertically according to the number of cores to ensure its Service Level Objectives (SLOs) and Service Level Agreements (SLAs). If you're experiencing connections timing out, check the below:
+
+- **Are all your API commands timing out consistently or only a few?** If it's only a few, your `tunnelfront` pod or `aks-link` pod, responsible for node -> control plane communication, might not be in a running state. Make sure the nodes hosting this pod aren't over-utilized or under stress. Consider moving them to their own [`system` node pool](use-system-pools.md).
+- **Have you opened all required ports, FQDNs, and IPs noted on the [AKS restrict egress traffic docs](limit-egress-traffic.md)?** Otherwise several commands calls can fail.
+- **Is your current IP covered by [API IP Authorized Ranges](api-server-authorized-ip-ranges.md)?** If you're using this feature and your IP is not included in the ranges your calls will be blocked. 
+- **Do you have a client or application leaking calls to the API server?** Make sure to use watches instead of frequent get calls and that your third-party applications aren't leaking such calls. For example, a bug in the Istio mixer causes a new API Server watch connection to be created every time a secret is read internally. Because this behavior happens at a regular interval, watch connections quickly accumulate, and eventually cause the API Server to become overloaded no matter the scaling pattern. https://github.com/istio/istio/issues/19481
+- **Do you have many releases in your helm deployments?** This scenario can cause both tiller to use too much memory on the nodes, as well as a large amount of `configmaps`, which can cause unnecessary spikes on the API server. Consider configuring `--history-max` at `helm init` and leverage the new Helm 3. More details on the following issues: 
+    - https://github.com/helm/helm/issues/4821
+    - https://github.com/helm/helm/issues/3500
+    - https://github.com/helm/helm/issues/4543
+- **[Is internal traffic between nodes being blocked?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
+
+## I'm receiving `TCP timeouts`, such as `dial tcp <Node_IP>:10250: i/o timeout`
+
+These timeouts may be related to internal traffic between nodes being blocked. Verify that this traffic is not being blocked, such as by [network security groups](concepts-security.md#azure-network-security-groups) on the subnet for your cluster's nodes.
+
 ## I'm trying to enable Role-Based Access Control (RBAC) on an existing cluster. How can I do that?
 
 Enabling role-based access control (RBAC) on existing clusters isn't supported at this time, it must be set when creating new clusters. RBAC is enabled by default when using CLI, Portal, or an API version later than `2020-03-01`.
@@ -49,15 +89,13 @@ Enabling role-based access control (RBAC) on existing clusters isn't supported a
 
 The reason for the warnings is the cluster has RBAC enabled and access to the dashboard is now restricted by default. In general, this approach is good practice because the default exposure of the dashboard to all users of the cluster can lead to security threats. If you still want to enable the dashboard, follow the steps in [this blog post](https://pascalnaber.wordpress.com/2018/06/17/access-dashboard-on-aks-with-rbac-enabled/).
 
-## I can't connect to the dashboard. What should I do?
-
-The easiest way to access your service outside the cluster is to run `kubectl proxy`, which proxies requests sent to your localhost port 8001 to the Kubernetes API server. From there, the API server can proxy to your service: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/`.
-
-If you don't see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
-
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
 Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whether the `tunnelfront` or `aks-link` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
+
+## I'm getting `"tls: client offered only unsupported versions"` from my client when connecting to AKS API. What should I do?
+
+The minimum supported TLS version in AKS is TLS 1.2.
 
 ## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
 
@@ -114,6 +152,7 @@ Naming restrictions are implemented by both the Azure platform and AKS. If a res
 * The AKS Node/*MC_* resource group name combines resource group name and resource name. The autogenerated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name. You may also [customize your node resource group name](cluster-configuration.md#custom-resource-group-name)
 * The *dnsPrefix* must start and end with alphanumeric values and must be between 1-54 characters. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
 * AKS Node Pool names must be all lowercase and be 1-11 characters for linux node pools and 1-6 characters for windows node pools. The name must start with a letter and the only allowed characters are letters and numbers.
+* The *admin-username*, which sets the administrator username for Linux nodes, must start with a letter, may only contain letters, numbers, hyphens, and underscores, and has a maximum length of 64 characters.
 
 ## I'm receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
 
@@ -136,15 +175,40 @@ Use the following workarounds for this issue:
 * If using automation scripts, add time delays between service principal creation and AKS cluster creation.
 * If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
 
+## I'm getting `"AADSTS7000215: Invalid client secret is provided."` when using AKS API. What should I do?
 
+This is generally due to expiry of service principal credentials. [Update the credentials for an AKS cluster.](update-credentials.md)
 
+## I can't access my cluster API from my automation/dev machine/tooling when using API server authorized IP ranges. How do I fix this problem?
 
+This requires `--api-server-authorized-ip-ranges` to include the IP(s) or IP range(s) of automation/dev/tooling systems being used. Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
+
+## I'm unable to view resources in Kubernetes resource viewer in Azure portal for my cluster configured with API server authorized IP ranges. How do I fix this problem?
+
+The [Kubernetes resource viewer](kubernetes-portal.md) requires `--api-server-authorized-ip-ranges` to include access for the local client computer or IP address range (from which the portal is being browsed). Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
 
 ## I'm receiving errors after restricting egress traffic
 
 When restricting egress traffic from an AKS cluster, there are [required and optional recommended](limit-egress-traffic.md) outbound ports / network rules and FQDN / application rules for AKS. If your settings are in conflict with any of these rules, certain `kubectl` commands won't work correctly. You may also see errors when creating an AKS cluster.
 
 Verify that your settings aren't conflicting with any of the required or optional recommended outbound ports / network rules and FQDN / application rules.
+
+## I'm receiving "429 - Too Many Requests" errors 
+
+When a kubernetes cluster on Azure (AKS or no) does a frequent scale up/down or uses the cluster autoscaler (CA), those operations can result in a large number of HTTP calls that in turn exceed the assigned subscription quota leading to failure. The errors will look like
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+These throttling errors are described in detail [here](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling) and [here](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshooting-throttling-errors)
+
+The recommandation from AKS Engineering Team is to ensure you are running version at least 1.18.x which contains many improvements. More details can be found on these improvements [here](https://github.com/Azure/AKS/issues/1413) and [here](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
+
+Given these throttling errors are measured at the subscription level, they might still happen if:
+- There are 3rd party applications making GET requests (eg. monitoring applications, etc...). The recommendation is to reduce the frequency of these calls.
+- There is a lot of AKS clusters / nodepools in the VMSS. The usual recommendation is to have less than 20-30 clusters in a given subscription.
+
 
 ## Azure Storage and AKS Troubleshooting
 
@@ -406,3 +470,15 @@ On Kubernetes versions **older than 1.15.0**, you may receive an error such as *
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
+
+As of Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [only a defined subset of labels with the kubernetes.io prefix](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
+
+As a result, to mitigate this you can:
+
+1. Upgrade your cluster control plane to 1.16 or higher
+2. Add a new nodepoool on 1.16 or higher without the unsupported kubernetes.io labels
+3. Delete the older nodepool
+
+AKS is investigating the capability to mutate active labels on a nodepool to improve this mitigation.

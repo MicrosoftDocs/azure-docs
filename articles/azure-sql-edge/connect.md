@@ -1,6 +1,6 @@
 ---
-title: Connect and query Azure SQL Edge (Preview)
-description: Learn how to connect to and query Azure SQL Edge (Preview).
+title: Connect and query Azure SQL Edge
+description: Learn how to connect to and query Azure SQL Edge.
 keywords: 
 services: sql-edge
 ms.service: sql-edge
@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
+ms.date: 07/25/2020
 ---
 
-# Connect and query Azure SQL Edge (Preview)
+# Connect and query Azure SQL Edge
 
-In Azure SQL Edge, after you deploy a container, you can connect to the SQL database engine from any of the following locations:
+In Azure SQL Edge, after you deploy a container, you can connect to the database engine from any of the following locations:
 
 - Inside the container
 - From another Docker container running on the same host
@@ -24,7 +24,7 @@ In Azure SQL Edge, after you deploy a container, you can connect to the SQL data
 
 You can connect to an instance of Azure SQL Edge instance from any of these common tools:
 
-* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): sqlcmd client tools are already included in the container image of Azure SQL Edge. If you attach to a running container with an interactive bash shell, you can run the tools locally.
+* [sqlcmd](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools): sqlcmd client tools are already included in the container image of Azure SQL Edge. If you attach to a running container with an interactive bash shell, you can run the tools locally. SQL client tools are NOT available on the ARM64 platform, as such they are not included in the ARM64 version of the SQL Edge containers. 
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)
 * [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio)
 * [Visual Studio Code](https://docs.microsoft.com/sql/visual-studio-code/sql-server-develop-use-vscode)
@@ -50,7 +50,7 @@ To connect to an Azure SQL Edge database engine from a network machine, you need
 
 ## Connect to the database engine from within the container
 
-The [SQL Server command-line tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) are included in the container image of Azure SQL Edge. If you attach to the container with an interactive command prompt, you can run the tools locally.
+The [SQL Server command-line tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) are included in the container image of Azure SQL Edge. If you attach to the container with an interactive command prompt, you can run the tools locally. SQL client tools are NOT available on the ARM64 platform, as such they are not included in the ARM64 version of the SQL Edge containers. 
 
 1. Use the `docker exec -it` command to start an interactive bash shell inside your running container. In the following example, `e69e056c702d` is the container ID.
 

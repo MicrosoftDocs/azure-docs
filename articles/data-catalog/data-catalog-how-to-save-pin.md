@@ -4,7 +4,7 @@ description: How-to article highlighting capabilities in Azure Data Catalog for 
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
 ---
 # Save searches and pin data assets in Azure Data Catalog

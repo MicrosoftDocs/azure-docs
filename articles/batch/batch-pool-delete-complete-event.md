@@ -26,4 +26,4 @@ ms.date: 04/20/2017
 |`endTime`|DateTime|The time the pool delete completed.|
 
 ## Remarks
-For more information about states and error codes for pool resize operation, see [Delete a pool from an account](https://docs.microsoft.com/rest/api/batchservice/delete-a-pool-from-an-account).
+For more information about states and error codes for pool resize operation, see [Delete a pool from an account](/rest/api/batchservice/delete-a-pool-from-an-account).

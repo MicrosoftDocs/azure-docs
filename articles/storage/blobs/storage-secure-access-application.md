@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: tamram
 ms.reviewer: ozgun
-ms.custom: mvc
+ms.custom: "mvc, devx-track-csharp"
 ---
 
 # Secure access to application data
@@ -35,7 +35,7 @@ To complete this tutorial you must have completed the previous Storage tutorial:
 
 In this part of the tutorial series, SAS tokens are used for accessing the thumbnails. In this step, you set the public access of the *thumbnails* container to `off`.
 
-```azurecli-interactive 
+```bash
 blobStorageAccount="<blob_storage_account>"
 
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
@@ -48,6 +48,19 @@ az storage container set-permission \
     --public-access off
 ```
 
+```powershell
+$blobStorageAccount="<blob_storage_account>"
+
+blobStorageAccountKey=$(az storage account keys list -g myResourceGroup `
+    --account-name $blobStorageAccount --query [0].value --output tsv) 
+
+az storage container set-permission `
+    --account-name $blobStorageAccount `
+    --account-key $blobStorageAccountKey `
+    --name thumbnails `
+    --public-access off
+```
+
 ## Configure SAS tokens for thumbnails
 
 In part one of this tutorial series, the web application was showing images from a public container. In this part of the series, you use shared access signatures (SAS) tokens to retrieve the thumbnail images. SAS tokens allow you to provide restricted access to a container or blob based on IP, protocol, time interval, or rights allowed. For more information about SAS, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md).
@@ -56,11 +69,19 @@ In this example, the source code repository uses the `sasTokens` branch, which h
 
 In the following command, `<web-app>` is the name of your web app.
 
-```azurecli-interactive 
+```bash
 az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
 
 az webapp deployment source config --name <web_app> \
     --resource-group myResourceGroup --branch sasTokens --manual-integration \
+    --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+```
+
+```powershell
+az webapp deployment source delete --name <web-app> --resource-group myResourceGroup
+
+az webapp deployment source config --name <web_app> `
+    --resource-group myResourceGroup --branch sasTokens --manual-integration `
     --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
 ```
 
@@ -135,7 +156,7 @@ The following classes, properties, and methods are used in the preceding task:
 
 [Azure Storage encryption](../common/storage-service-encryption.md) helps you protect and safeguard your data by encrypting data at rest and by handling encryption and decryption. All data is encrypted using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), one of the strongest block ciphers available.
 
-You can choose to have Microsoft manage encryption keys, or you can bring your own keys with customer-managed keys with Azure Key Vault. For more information, see [Use customer-managed keys with Azure Key Vault to manage Azure Storage encryption](../common/encryption-customer-managed-keys.md).
+You can choose to have Microsoft manage encryption keys, or you can bring your own keys with customer-managed keys stored in Azure Key Vault or Key Vault Managed Hardware Security Model (HSM) (preview). For more information, see [Customer-managed keys for Azure Storage encryption](../common/customer-managed-keys-overview.md).
 
 Azure Storage encryption automatically encrypts data in all performance tiers (Standard and Premium), all deployment models (Azure Resource Manager and Classic), and all of the Azure Storage services (Blob, Queue, Table, and File).
 

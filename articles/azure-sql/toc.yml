@@ -48,12 +48,15 @@
         displayName: compliance, fedramp, soc, fact, fisc, hitrust, pci, iso
       - name: Best practices
         href: database/security-best-practice.md
+      - name: Security controls by Azure Policy
+        displayName: regulatory, compliance, standards, domains
+        href: ./database/security-controls-policy.md
       - name: Security baseline
         href: database/security-baseline.md
       - name: Security attributes
         href: database/security-controls.md
-      - name: Advanced Data Security
-        href: database/advanced-data-security.md
+      - name: Azure Defender for SQL
+        href: database/azure-defender-for-sql.md
       - name: Advanced Threat Protection
         href: database/threat-detection-overview.md
       - name: Data discovery and classification
@@ -61,7 +64,13 @@
       - name: Dynamic data masking
         href: database/dynamic-data-masking-overview.md
       - name: SQL Vulnerability Assessment
-        href: database/sql-vulnerability-assessment.md
+        items:
+        - name: SQL Vulnerability Assessment
+          href: database/sql-vulnerability-assessment.md
+        - name: Vulnerability assessment rules
+          href: database/sql-database-vulnerability-assessment-rules.md
+        - name: Store vulnerability scans in storage
+          href: database/sql-database-vulnerability-assessment-storage.md
       - name: Logins, user accounts, roles, and permissions
         href: database/logins-create-manage.md
       - name: Azure AD Authentication
@@ -69,19 +78,25 @@
         items:
         - name: Configure Azure AD auth
           href: database/authentication-aad-configure.md
-        - name: Multi-factor AAD auth
+        - name: Multi-factor Azure AD auth
           href: database/authentication-mfa-ssms-overview.md
         - name: Configure multi-factor auth
           href: database/authentication-mfa-ssms-configure.md
         - name: Conditional Access
           href: database/conditional-access-configure.md
+        - name: Service principals (Applications)
+          href: database/authentication-aad-service-principal.md
+        - name: Directory Readers role
+          href: database/authentication-aad-directory-readers-role.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
           href: database/transparent-data-encryption-tde-overview.md
         - name: Bring Your Own Key (BYOK)
           href: database/transparent-data-encryption-byok-overview.md
-        
+      - name: Distributed transactions
+        href: database/elastic-transactions-overview.md
+      
     - name: Business continuity
       displayName: Backup, back up, restore, recovery
       items:
@@ -142,11 +157,15 @@
         href: database/long-term-backup-retention-configure.md
 
     - name: Security  
-      items: 
+      items:
+      - name: Azure AD Authentication
+        items:
+        - name: Create Azure AD guest users and set as an Azure AD admin
+          href: database/authentication-aad-guest-users.md
+        - name: Assign Directory Readers role to groups
+          href: database/authentication-aad-directory-readers-role-tutorial.md
       - name: Configure TDE with BYOK
         href: database/transparent-data-encryption-byok-configure.md 
-      - name: Store vulnerability scans in storage
-        href: database/sql-database-vulnerability-assessment-storage.md
       - name: Always Encrypted
         items: 
         - name: Use the Azure key vault
@@ -208,10 +227,14 @@
         href: https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-integration-overview?toc=/azure/azure-sql/toc.json
       - name: Java
         items:
+        - name: Use Java and JDBC
+          href: database/connect-query-java.md
         - name: Use Spring Data JDBC
-          href: /java/azure/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/sql-database/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Use Spring Data JPA
-          href: /java/azure/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/sql-database/toc.json
+          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
+        - name: Use Spring Data R2DBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
 
 - name: SQL Database (SQL DB)
   items:
@@ -221,14 +244,15 @@
     items:
     - name: What is SQL Database? 
       href: database/sql-database-paas-overview.md
+    - name: What's new?
+      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
     - name: Single databases
       href: database/single-database-overview.md
     - name: Elastic pools
       href: database/elastic-pool-overview.md
     - name: Logical SQL servers
       href: database/logical-servers.md
-    - name: Release notes
-      href: database/doc-changes-updates-release-notes.md?&tabs=single-database
+
     - name: Service Tiers
       items: 
       - name: Serverless
@@ -239,8 +263,6 @@
         href: database/service-tier-hyperscale.md
       - name: Hyperscale FAQ
         href: database/service-tier-hyperscale-frequently-asked-questions-faq.md
-      - name: Migrate from Premium RS
-        href: database/service-tiers-prs.md     
 
   - name: Quickstarts
     href: database/quickstart-content-reference-guide.md
@@ -285,6 +307,8 @@
         href: database/transparent-data-encryption-byok-key-rotation.md
       - name: Remove TDE protector
         href: database/transparent-data-encryption-byok-remove-tde-protector.md
+      - name: Create users using service principals
+        href: database/authentication-aad-service-principal-tutorial.md
     - name: Move data
       items: 
       - name: Migrate using DMS
@@ -364,46 +388,6 @@
         - name: Private Link
           href: database/private-endpoint-overview.md
 
-    - name: Machine Learning Services
-      items:
-      - name: Overview
-        href: database/machine-learning-services-overview.md
-      - name: Key differences
-        href: database/machine-learning-services-differences.md
-      - name: Quickstarts
-        items:
-        - name: Create R scripts
-          href: database/r-script-create-quickstart.md
-        - name: Train and score a model
-          href: database/r-train-score-model-create-quickstart.md
-      - name: Tutorials
-        items:
-        - name: Build a predictive model in R
-          items:
-          - name: 1 - Prepare the data
-            href: database/predictive-model-prepare-data-tutorial.md
-          - name: 2 - Create the model
-            href: database/predictive-model-build-compare-tutorial.md
-          - name: 3 - Deploy the model
-            href: database/predictive-model-deploy-tutorial.md
-        - name: Build a clustering model in R
-          items:
-          - name: 1 - Prepare the data
-            href: database/clustering-model-prepare-data-tutorial.md
-          - name: 2 - Create the model
-            href: database/clustering-model-build-tutorial.md
-          - name: 3 - Deploy the model
-            href: database/clustering-model-deploy-tutorial.md
-      - name: How to
-        items:
-          - name: Write advanced R functions
-            href: database/machine-learning-services-functions.md
-          - name: Work with R and SQL data
-            href: database/machine-learning-services-data-issues.md
-          - name: Add R packages
-            href: database/machine-learning-services-add-r-packages.md
-
-
     - name: Database sharding
       items:
       - name: Database sharding
@@ -432,7 +416,7 @@
       - name: Connect and run ad-hoc queries
         items:
         - name: Azure Data Studio
-          href: https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json
+          href: /sql/azure-data-studio/quickstart-sql-database?toc=%2Fazure%2Fazure-sql%2Ftoc.json
         - name: SSMS
           href: database/connect-query-ssms.md
         - name: Azure portal
@@ -451,6 +435,12 @@
           href: database/connect-query-go.md
         - name: Java
           href: database/connect-query-java.md
+        - name: Java with Spring Data JDBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
+        - name: Java with Spring Data JPA
+          href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
+        - name: Java with Spring Data R2DBC
+          href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-sql-server?toc=/azure/azure-sql/toc.json&bc=/azure/bread/toc.json
         - name: Node.js
           href: database/connect-query-nodejs.md
         - name: PHP
@@ -529,7 +519,7 @@
       items: 
       - name: Migrate to SQL Database
         href: database/migrate-to-database-from-sql-server.md
-      - name: Manage SQL database after migration
+      - name: Manage SQL Database after migration
         href: database/manage-data-after-migrating-to-database.md
       - name: Import/export (allow Azure services disabled)
         href: database/database-import-export-azure-services-off.md
@@ -539,12 +529,9 @@
         href: database/database-copy.md
       - name: Replicate to SQL Database
         href: database/replication-to-sql-database.md
-      - name: SQL Data Sync
-        items: 
-        - name: Replicate schema changes
-          href: database/sql-data-sync-update-sync-schema.md
-        - name: Monitor with OMS
-          href: database/sql-data-sync-monitor-sync.md
+      - name: Replicate schema changes (Data sync)
+        href: database/sql-data-sync-update-sync-schema.md
+
 
     - name: Database sharding
       items:
@@ -580,7 +567,7 @@
         href: database/elastic-query-horizontal-partitioning.md
       - name: Query across tables with different schemas
         href: database/elastic-query-vertical-partitioning.md
-    - name: Elastic jobs
+    - name: Elastic jobs (preview)
       items:
       - name: Configure jobs
         href: database/elastic-jobs-overview.md 
@@ -649,7 +636,7 @@
               items:
               - name: With SQL Database
                 href: database/saas-tenancy-tenant-analytics.md
-              - name: With SQL Data Warehouse
+              - name: With Azure Synapse Analytics (formerly SQL Data Warehouse)
                 href: database/saas-tenancy-tenant-analytics-adf.md
           - name: Disaster recovery using geo-restore
             href: database/saas-dbpertenant-dr-geo-restore.md
@@ -689,22 +676,26 @@
     items:
     - name: What is SQL Managed Instance? 
       href: managed-instance/sql-managed-instance-paas-overview.md
+    - name: What's new?
+      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
     - name: Instance pools
       href: managed-instance/instance-pools-overview.md
     - name: Frequently asked questions
       displayName: faq
       href: managed-instance/frequently-asked-questions-faq.md
-    - name: Release notes
-      href: database/doc-changes-updates-release-notes.md?&tabs=managed-instance
+
   - name: Quickstarts
     href: managed-instance/quickstart-content-reference-guide.md
     items:
-    - name: Create 
+    - name: Create SQL Managed Instance
       items:
-      - name: Using Azure portal
+      - name: Azure portal
         href: managed-instance/instance-create-quickstart.md
-      - name: Using PowerShell
+      - name: PowerShell
         href: managed-instance/scripts/create-configure-managed-instance-powershell.md
+      - name: ARM template
+        displayName: Resource Manager
+        href: managed-instance/create-template-quickstart.md
       - name: Create instance pools
         href: managed-instance/instance-pools-configure.md
     - name: Configure
@@ -745,17 +736,25 @@
 
   - name: Concepts
     items:
-    - name: Transactional replication
-      href: managed-instance/replication-transactional-overview.md
-    - name: Management API reference
-      href: managed-instance/api-references-create-manage-instance.md
     - name: Resource limits
       href: managed-instance/resource-limits.md
     - name: Connectivity architecture
       href: managed-instance/connectivity-architecture-overview.md
     - name: T-SQL differences
       href: managed-instance/transact-sql-tsql-differences-sql-server.md
+    - name: Transactional replication
+      href: managed-instance/replication-transactional-overview.md
 
+    - name: Management operations
+      items:
+      - name: Overview
+        href: managed-instance/management-operations-overview.md
+      - name: Monitor operations
+        href: managed-instance/management-operations-monitor.md
+      - name: Cancel operations
+        href: managed-instance/management-operations-cancel.md
+      - name: API reference
+        href: managed-instance/api-references-create-manage-instance.md
     - name: Machine Learning Services
       items:
       - name: Overview
@@ -767,23 +766,25 @@
         - name: Python
           items:
           - name: Run Python scripts
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
           - name: Data structures and objects
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-data-structures?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
           - name: Python functions
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
           - name: Train and score a model
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-python-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+          - name: Deploy ONNX models
+            href: /azure/azure-sql-edge/deploy-onnx?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
         - name: R
           items:
           - name: Run R scripts
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-create-script?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
           - name: Data types and objects
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-data-types-and-objects?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
           - name: R functions
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-functions?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
           - name: Train and score a model
-            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+            href: https://docs.microsoft.com/sql/machine-learning/tutorials/quickstart-r-train-score-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
       - name: Tutorials
         items:
         - name: Python
@@ -791,64 +792,103 @@
           - name: Ski rental (linear regression)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 2 - Prepare data
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 3 - Train model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 4 - Deploy model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-ski-rental-linear-regression-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
           - name: Categorize customers (k-means clustering)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 2 - Prepare the data
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 3 - Create the model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 4 - Deploy the model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+          - name: NYC taxi tips (classification)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: 2 - Data exploration
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: 3 - Feature engineering
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: 4 - Train and deploy
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: 5 - Predictions
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/python-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
         - name: R
           items:
           - name: Ski rental (decision tree)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 2 - Prepare data
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 3 - Train model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-train?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 4 - Deploy model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-predictive-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
           - name: Categorize customers (k-means clustering)
             items:
             - name: 1 - Introduction
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 2 - Prepare the data
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-prepare-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 3 - Create the model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-build?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: 4 - Deploy the model
-              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-      - name: Manage Python, R packages
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-clustering-model-deploy?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+          - name: NYC taxi tips (classification)
+            items:
+            - name: 1 - Introduction
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-introduction?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: 2 - Data exploration
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-explore-data?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: 3 - Feature engineering
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-create-features?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: 4 - Train and deploy
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-train-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: 5 - Predictions
+              href: https://docs.microsoft.com/sql/machine-learning/tutorials/r-taxi-classification-deploy-model?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+      - name: How to
         items:
-        - name: Python
+        - name: Data exploration and modeling
           items:
-          - name: Get Python package information
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Install with sqlmlutils
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-        - name: R
+          - name: Python
+            items:
+            - name: Plot Histogram in Python
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-plot-histogram?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Import data into pandas dataframe
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Insert dataframe into SQL
+              href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+        - name: Predictions
           items:
-          - name: Get R package information
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Install with sqlmlutils
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Create a miniCRAN repo
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-          - name: Tips for using R packages
-            href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current
-
+          - name: Native scoring with PREDICT T-SQL
+            href: https://docs.microsoft.com/sql/machine-learning/predictions/native-scoring-predict-transact-sql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+        - name: Package management
+          items:
+          - name: Install new Python packages
+            items:
+            - name: Get Python package information
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/python-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Install with sqlmlutils
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-python-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+          - name: Install new R packages
+            items:
+            - name: Get R package information
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/r-package-information?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Install with sqlmlutils
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/install-additional-r-packages-on-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Create a miniCRAN repo
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Tips for using R packages
+              href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
 
     - name: Features
       items:
@@ -864,6 +904,8 @@
         href: managed-instance/public-endpoint-overview.md
       - name: Auditing
         href: managed-instance/auditing-configure.md
+      - name: Server trust groups
+        href: managed-instance/server-trust-group-overview.md
 
   - name: How to
     items:
@@ -899,9 +941,11 @@
       href: managed-instance/threat-detection-configure.md
     - name: Connect applications
       href: managed-instance/connect-application-instance.md
-    - name: Create alerts
+    - name: Create alerts on managed instance
       href: managed-instance/alerts-create.md
-      
+    - name: Manually initiate a failover on managed instance
+      href: managed-instance/user-initiated-failover.md
+
   - name: Samples
     items:
     - name: Azure CLI
@@ -923,93 +967,111 @@
       items:
       - name: What is a SQL Server VM?
         href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
-      - name: Doc changes
+      - name: What's new?
         href: virtual-machines/windows/doc-changes-updates-release-notes.md
     - name: Quickstarts
       items:
-      - name: Create SQL VM - Portal
+      - name: Portal
         href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
-      - name: Create SQL VM - PowerShell
+      - name: PowerShell
         href: virtual-machines/windows/sql-vm-create-powershell-quickstart.md
+      - name: ARM template
+        displayName: Resource Manager
+        href: virtual-machines/windows/create-sql-vm-resource-manager-template.md
     - name: Concepts
       items:
-      - name: Best practices
+      - name: Business continuity
         items:
-        - name: Performance best practices
-          href: virtual-machines/windows/performance-guidelines-best-practices.md
-        - name: Security considerations
-          href: virtual-machines/windows/security-considerations-best-practices.md
-        - name: Application patterns
-          href: virtual-machines/windows/application-patterns-development-strategies.md
-      - name: Business Continuity
-        items:
-        - name: High availability options
+        - name: Overview
           href: virtual-machines/windows/business-continuity-high-availability-disaster-recovery-hadr-overview.md
-        - name: Always On availability group
-          href: virtual-machines/windows/availability-group-overview.md
         - name: Backup and restore
           href: virtual-machines/windows/backup-restore.md
-        - name: Automated backup for SQL Server 2014
-          href: virtual-machines/windows/automated-backup-sql-2014.md
-        - name: Automated backup for SQL Server 2016+
-          href: virtual-machines/windows/automated-backup.md
+        - name: Azure Storage for backup
+          href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
+        - name: Always On availability group
+          href: virtual-machines/windows/availability-group-overview.md
+        - name: Failover cluster instance
+          href: virtual-machines/windows/failover-cluster-instance-overview.md
+      - name: Best practices
+        items:
+        - name: Performance
+          href: virtual-machines/windows/performance-guidelines-best-practices.md
+        - name: Security 
+          href: virtual-machines/windows/security-considerations-best-practices.md
+        - name: Cluster configuration
+          href: virtual-machines/windows/hadr-cluster-best-practices.md
+        - name: Application patterns
+          href: virtual-machines/windows/application-patterns-development-strategies.md
       - name: Management
         items:
         - name: Dedicated host
           href: virtual-machines/windows/dedicated-host.md
-        - name: With the Azure portal
-          href: virtual-machines/windows/manage-sql-vm-portal.md
         - name: Extend support for SQL 2008 & R2
           href: virtual-machines/windows/sql-server-2008-extend-end-of-support.md
-        - name: Connect to a VM
-          href: virtual-machines/windows/ways-to-connect-to-sql.md
-        - name: Configure storage
+    - name: How-to guides
+      items:
+      - name: Connect to SQL Server VM
+        href: virtual-machines/windows/ways-to-connect-to-sql.md
+      - name: Create SQL Server VM
+        items:
+        - name: Use the portal
+          href: virtual-machines/windows/create-sql-vm-portal.md
+        - name: Use Azure PowerShell
+          href: virtual-machines/windows/create-sql-vm-powershell.md
+
+      - name: Manage
+        items: 
+        - name: With the Azure portal
+          href: virtual-machines/windows/manage-sql-vm-portal.md
+        - name: License model
+          displayName: ahb, ahub, payg, change, modify, update
+          href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
+        - name: Change edition
+          displayName: change, modify, update
+          href: virtual-machines/windows/change-sql-server-edition.md
+        - name: Change version
+          href: virtual-machines/windows/change-sql-server-version.md
+        - name: Storage
           href: virtual-machines/windows/storage-configuration.md
+        - name: Azure Key Vault Integration
+          href: virtual-machines/windows/azure-key-vault-integration-configure.md
+        - name: Migrate storage to UltraSSD
+          href: virtual-machines/windows/storage-migrate-to-ultradisk.md
+        - name: Register with SQL VM RP
+          displayName: resource provider, registration
+          items:
+          - name: Automatic registration
+            href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
+          - name: Single VM
+            href: virtual-machines/windows/sql-vm-resource-provider-register.md
+          - name: Bulk register multiple VMs
+            href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
         - name: Automate management tasks
           items:
           - name: Use the SQL Server IaaS Agent Extension
             href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
           - name: Automated Patching
             href: virtual-machines/windows/automated-patching.md
-          - name: Configure Azure Key Vault Integration
-            href: virtual-machines/windows/azure-key-vault-integration-configure.md
-    - name: How-to guides
-      items:
-      - name: Create SQL VM
-        items:
-        - name: Use the portal
-          href: virtual-machines/windows/create-sql-vm-portal.md
-        - name: Use Azure PowerShell
-          href: virtual-machines/windows/create-sql-vm-powershell.md
-      - name: Register with SQL VM RP
-        displayName: resource provider, registration
-        items:
-        - name: Single VM
-          href: virtual-machines/windows/sql-vm-resource-provider-register.md
-        - name: Bulk register multiple VMs
-          href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-      - name: Manage
-        items: 
-        - name: Licensing model
-          displayName: ahb, ahub, payg, change, modify, update
-          href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-        - name: Edition 
-          displayName: change, modify, update
-          href: virtual-machines/windows/change-sql-server-edition.md
-        - name: Azure Storage for backup & restore
-          href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
       - name: Migrate
         items:
         - name: SQL Server database to VM
           href: virtual-machines/windows/migrate-to-vm-from-sql-server.md
         - name: VM to a new region
           href: virtual-machines/windows/move-sql-vm-different-region.md
-      - name: Configure High Availability
+      - name: Business continuity
         items:
+        - name: Backup and restore
+          items:
+          - name: Automated backup (SQL 2016+)
+            href: virtual-machines/windows/automated-backup.md
+          - name: Automated backup (SQL 2014)
+            href: virtual-machines/windows/automated-backup-sql-2014.md
         - name: Always On availability group
           items:
-          - name: Azure SQL VM CLI
-            href: virtual-machines/windows/availability-group-az-cli-configure.md
+          - name: Azure portal
+            href: virtual-machines/windows/availability-group-azure-portal-configure.md
+          - name: PowerShell or Az CLI
+            href: virtual-machines/windows/availability-group-az-commandline-configure.md
           - name: Azure Quickstart templates
             href: virtual-machines/windows/availability-group-quickstart-template-configure.md
           - name: Multiple regions
@@ -1026,16 +1088,33 @@
               href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
             - name: Load balancer - Azure PowerShell
               href: virtual-machines/windows/availability-group-listener-powershell-configure.md
-        - name: Failover Cluster Instance
+        - name: Failover cluster instance (FCI)
           items:
-          - name: With Storage Spaces Direct
-            href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
-          - name: With Premium File Share
-            href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+          - name: Prepare VM for FCI 
+            href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
+          - name: Create FCI with
+            items: 
+            - name: Azure shared disks
+              href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
+            - name: Storage Spaces Direct (Win2016+)
+              href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
+            - name: Premium file share (Win2012+)
+              href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
+          - name: Distributed Network Name (DNN)
+            items: 
+            - name: Create DNN for FCI
+              href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
+            - name: FCI DNN & SQL Server features
+              href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
+        - name: Configure connectivity
+          items:
+          - name: Virtual Network Name (VNN)
+            href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
+
     - name: Reference
       items:
       - name: Azure PowerShell
-        href: /powershell/azure/overview
+        href: /powershell/azure/
       - name: Azure CLI
         href: /cli/azure/
       - name: T-SQL
@@ -1044,12 +1123,17 @@
         href: https://docs.microsoft.com/sql/connect/sql-connection-libraries
       - name: REST
         href: /rest/api/
+      - name: Azure Policy built-ins
+        displayName: samples, policies, definitions
+        href: ./database/policy-reference.md
     - name: Resources
       items:
       - name: FAQ
         href: virtual-machines/windows/frequently-asked-questions-faq.md
       - name: Pricing
         href: virtual-machines/windows/pricing-guidance.md
+      - name: Archived classic RM docs 
+        href: /previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-create
       - name: SQL Server Data Tools (SSDT)
         href: /https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt
       - name: SQL Server Management Studio (SSMS)
@@ -1131,7 +1215,7 @@
     href: /sql/connect/sql-server-drivers
     items:
     - name: ADO.NET
-      href: /sql/connect/ado-net/microsoft-ado-net-for-sql-server
+      href: /sql/connect/ado-net/microsoft-ado-net-sql-server?view=sql-server-ver15&preserve-view=true
     - name: JDBC
       href: /sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server
     - name: Node.js
@@ -1143,7 +1227,10 @@
     - name: Python
       href: /sql/connect/python/python-driver-for-sql-server
     - name: Ruby
-      href: /sql/connect/ruby/ruby-driver-for-sql-server 
+      href: /sql/connect/ruby/ruby-driver-for-sql-server
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./database/policy-reference.md
 
 - name: Resources
   items:
@@ -1173,6 +1260,8 @@
       href: database/database-import-export-hang.md
   - name: Service updates
     items:
+    - name: SSL root certificate expiring
+      href: updates/ssl-root-certificate-expiring.md
     - name: Gateway IP address updates
       href: database/gateway-migration.md
     - name: Periodic maintenance events

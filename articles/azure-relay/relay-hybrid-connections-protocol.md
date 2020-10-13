@@ -1,20 +1,8 @@
 ---
 title: Azure Relay Hybrid Connections protocol guide | Microsoft Docs
 description: This article describes the client-side interactions with the Hybrid Connections relay for connecting clients in listener and sender roles. 
-services: service-bus-relay
-documentationcenter: na
-author: clemensv
-manager: timlt
-editor: ''
-
-ms.assetid: 149f980c-3702-4805-8069-5321275bc3e8
-ms.service: service-bus-relay
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/21/2020
-ms.author: clemensv
+ms.date: 06/23/2020
 ---
 
 # Azure Relay Hybrid Connections protocol
@@ -113,7 +101,7 @@ the Hybrid Connection.
 
 Listeners that attach to Hybrid Connections with HTTP support MUST handle the
 `request` gesture. A listener that doesn't handle `request` and therefore
-causes repeated timeout errors while being connected MAY be blacklisted by the
+causes repeated timeout errors while being connected MAY be blocked by the
 service in the future.
 
 HTTP frame header metadata is translated into JSON for simpler handling by the
@@ -536,7 +524,7 @@ The JSON content for `request` is as follows:
 ##### Responding to requests
 
 The receiver MUST respond. Repeated failure to respond to requests while
-maintaining the connection might result in the listener getting blacklisted.
+maintaining the connection might result in the listener getting blocked.
 
 Responses may be sent in any order, but each request must be responded to
 within 60 seconds or the delivery will be reported as having failed. The
@@ -723,7 +711,7 @@ namespace that hosts the Hybrid Connection, typically of the form
 
 The request can contain arbitrary extra HTTP headers, including
 application-defined ones. All supplied headers, except those directly defined
-in RFC7230 (see [request message](#Request message)) flow to the listener and
+in RFC7230 (see [Request message](#request-message)) flow to the listener and
 can be found on the `requestHeader` object of the **request** message.
 
 The query string parameter options are as follows:

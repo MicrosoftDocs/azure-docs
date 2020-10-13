@@ -4,8 +4,9 @@ description: This article describes how you can configure storage auto-grow usin
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
-ms.topic: conceptual
-ms.date: 8/7/2019
+ms.topic: how-to
+ms.date: 8/7/2019 
+ms.custom: devx-track-azurecli
 ---
 # Auto-grow Azure Database for PostgreSQL storage - Single Server using the Azure CLI
 This article describes how you can configure an Azure Database for PostgreSQL server storage to grow without impacting the workload.

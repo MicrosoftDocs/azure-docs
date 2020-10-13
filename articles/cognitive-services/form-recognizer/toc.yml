@@ -34,16 +34,26 @@
         href: quickstarts/curl-receipts.md
       - name: Python
         href: quickstarts/python-receipts.md
+    - name: Use prebuilt business card model
+      items:
+      - name: Python
+        href: quickstarts/python-business-cards.md
     - name: Get text layout information
       items:
       - name: Python
         href: quickstarts/python-layout.md
 - name: Tutorials
   items:
-  - name: Use Form Recognizer with Logic Apps
-    href: tutorial-form-recognizer-with-logic-apps.md
   - name: Use Form Recognizer with Cognitive Search
     href: https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form
+  - name: Use Form Recognizer with AI Builder
+    href: tutorial-ai-builder.md
+- name: Concepts
+  items:
+  - name: Receipts
+    href: concept-receipts.md
+  - name: Business cards
+    href: concept-business-cards.md
 - name: How-to guides
   items:
   - name: Build a training data set
@@ -60,32 +70,32 @@
       displayName: docker, container, run, billing, apikey, logging
     - name: Use container instances
       href: deploy-form-recognizer-on-container-instances.md
-  - name: Copy models for disaster recovery
+  - name: Back up and recover models
     href: disaster-recovery.md
 - name: Reference
   items:
+  - name: Form Recognizer API v2.1 preview
+    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync
   - name: Form Recognizer API v2.0
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
-  - name: Form Recognizer API v1.0
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
+    href: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
   - name: SDKs
     items:
     - name: .NET
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/formrecognizer?view=azure-dotnet-preview
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
     - name: Python
-      href: https://docs.microsoft.com/python/api/overview/azure/formrecognizer?view=azure-python-preview
+      href: https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python
     - name: Java
-      href: https://docs.microsoft.com/java/api/overview/azure/formrecognizer?view=azure-java-preview
+      href: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
     - name: JavaScript
-      href: https://docs.microsoft.com/javascript/api/overview/azure/formrecognizer?view=azure-node-preview
+      href: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
 - name: Resources
   items:
   - name: Pricing and limits
-    href: https://go.microsoft.com/fwlink/?linkid=2087258
+    href: https://azure.microsoft.com/en-us/pricing/details/cognitive-services/form-recognizer/
   - name: UserVoice
     href: https://go.microsoft.com/fwlink/?linkid=2090535
   - name: Stack Overflow
-    href: https://go.microsoft.com/fwlink/?linkid=2087186
+    href: https://stackoverflow.com/questions/tagged/form-recognizer
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability

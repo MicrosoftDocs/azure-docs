@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Qlik Sense Enterprise | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Qlik Sense Enterprise.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 8c27e340-2b25-47b6-bf1f-438be4c14f93
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/03/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Qlik Sense Enterprise with Azure Active Directory
@@ -84,11 +78,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     b. In the **Identifier** textbox, type a URL using one of the following pattern:
 
-    | |
-    |--|
-    | `https://<Fully Qualified Domain Name>.qlikpoc.com`|
-    | `https://<Fully Qualified Domain Name>.qliksense.com`|
-    | |
+    ```http
+    https://<Fully Qualified Domain Name>.qlikpoc.com
+    https://<Fully Qualified Domain Name>.qliksense.com
+    ```
 
     c. In the **Reply URL** textbox, type a URL using the following pattern:
 

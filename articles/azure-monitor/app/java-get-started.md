@@ -3,6 +3,7 @@ title: 'Quickstart: Java web app analytics with Azure Application Insights'
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
 
@@ -10,7 +11,11 @@ ms.date: 05/24/2019
 
 # Quickstart: Get started with Application Insights in a Java web project
 
-In this quickstart, you use Application Insights to automatically instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
+
+> [!IMPORTANT]
+> The recommended approach to monitor Java applications is to use the auto-instrumentation without changing the code. Please follow the guidelines for [Application Insights Java 3.0 agent](./java-in-process-agent.md).
+
+In this quickstart, you use Application Insights SDK to instrument request, track dependencies, and collect performance counters, diagnose performance issues and exceptions, and write code to  track what users do with your app.
 
 Application Insights is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Application Insights supports Java apps running on Linux, Unix, or Windows.
 
@@ -129,7 +134,7 @@ Application Insights SDK looks for the key in this order:
 2. Environment variable: APPINSIGHTS_INSTRUMENTATIONKEY
 3. Configuration file: *ApplicationInsights.xml*
 
-You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
+You can also [set it in code](./api-custom-events-metrics.md#ikey):
 
 ```java
     String instrumentationKey = "00000000-0000-0000-0000-000000000000";
@@ -171,7 +176,7 @@ Click through a specific request type to see individual instances.
 ![Drill into a specific sample view](./media/java-get-started/007-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../../azure-monitor/app/analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../log-query/log-query-overview.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/java-get-started/0025.png)
 
@@ -191,22 +196,10 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
     (This component enables performance counters.)
 
-## Azure App Service config (Spring Boot)
+## Azure App Service, AKS, VMs config
 
-Spring Boot apps running on Windows require additional configuration to run on Azure App Services. Modify **web.config** and add the following configuration:
+The best and easiest approach to monitor your applications running on any of Azure resource providers is to use Application Insights auto-instrumentation via [Java 3.0 agent](./java-in-process-agent.md).
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <handlers>
-            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
-        </handlers>
-        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
-        </httpPlatform>
-    </system.webServer>
-</configuration>
-```
 
 ## Exceptions and request failures
 Unhandled exceptions and request failures are automatically collected by the Application Insights web filter.
@@ -263,7 +256,7 @@ You can specify additional performance counters to be collected.
   * `tabular`: the perf counter data is in the format of a table row
 
 #### Windows performance counters
-Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
+Each [Windows performance counter](/windows/win32/perfctrs/performance-counters-portal) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
 ```XML
     <PerformanceCounters>
@@ -306,16 +299,16 @@ Application Insights can test your website at regular intervals to check that it
 * [Monitor dependency calls](java-agent.md)
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
-* Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Use  [Analytics](../../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
+* Write [custom telemetry](./api-custom-events-metrics.md) to track usage in the browser or at the server.
+* Use  [Analytics](../log-query/log-query-overview.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#trackexception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
 [usage]: javascript.md

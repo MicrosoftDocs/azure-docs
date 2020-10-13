@@ -1,17 +1,12 @@
 ---
 title: Guide to setting up a Windows template machine | Microsoft Docs
 description: Generic steps to prepare a Windows template machine in Lab Services.  These steps include setting Windows Update schedule, installing OneDrive, and installing Office.
-services: lab-services
-documentationcenter: na
 author: EMaher
-manager: 
-editor: ''
-
-ms.service: lab-services
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 06/26/2020
 ms.author: enewman
 ---
+
 # Guide to setting up a Windows template machine in Azure Lab Services
 
 If you're setting up a Windows 10 template machine for Azure Lab Services, here are some best practices and tips to consider. The configuration steps below are all optional.  However, these preparatory steps could help make your students be more productive, minimize class time interruptions, and ensure that they're using the latest technologies.
@@ -61,7 +56,7 @@ If you are on a machine that is not using Active Directory, users can manually m
 
 If your virtual machine is connected to Active Directory, you can set the template machine to automatically prompt your students to move the known folders to OneDrive.  
 
-You'll need to retrieve your Office Tenant ID first.  For further instructions, see [find your Office 365 Tenant ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  You can also get the Office 365 Tenant ID by using the following PowerShell.
+You'll need to retrieve your organization ID first.  For further instructions, see [find your Microsoft 365 organization ID](https://docs.microsoft.com/onedrive/find-your-office-365-tenant-id).  You can also get the organization ID by using the following PowerShell.
 
 ```powershell
 Install-Module MSOnline -Confirm
@@ -71,7 +66,7 @@ $officeTenantID = Get-MSOLCompanyInformation |
     Select-Object -expand Guid
 ```
 
-Once you have your Office 365 Tenant ID, set OneDrive to prompt to move known folders to OneDrive using the following PowerShell.
+Once you have your organization ID, set OneDrive to prompt to move known folders to OneDrive using the following PowerShell.
 
 ```powershell
 if ($officeTenantID -eq $null)
@@ -95,7 +90,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### Silently sign in users to OneDrive
 
-OneDrive can be set to automatically sign in with the Windows credentials of the logged on user.  Automatic sign-in is useful for classes where the student signs in with their Office 365 school credentials.
+OneDrive can be set to automatically sign in with the Windows credentials of the logged on user.  Automatic sign-in is useful for classes where the student signs in with their school credentials.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -115,7 +110,7 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
 
 ### Set the maximum size of a file that to be download automatically
 
-This setting is used in conjunction with Silently sign in users to the OneDrive sync client with their Windows credentials on devices that don't have OneDrive Files On-Demand enabled. Any user who has a OneDrive that's larger than the specified threshold (in MB) will be prompted to choose the folders they want to sync before the OneDrive sync client (OneDrive.exe) downloads the files.  In our example, "1111-2222-3333-4444" is the Office 365 tenant ID and 0005000 sets a threshold of 5 GB.
+This setting is used in conjunction with Silently sign in users to the OneDrive sync client with their Windows credentials on devices that don't have OneDrive Files On-Demand enabled. Any user who has a OneDrive that's larger than the specified threshold (in MB) will be prompted to choose the folders they want to sync before the OneDrive sync client (OneDrive.exe) downloads the files.  In our example, "1111-2222-3333-4444" is the organization ID and 0005000 sets a threshold of 5 GB.
 
 ```powershell
 New-Item -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive"
@@ -124,23 +119,23 @@ New-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\OneDrive\DiskSpaceChec
     -Name "1111-2222-3333-4444" -Value "0005000" -PropertyType DWORD
 ```
 
-## Install and configure Microsoft Office 365
+## Install and configure Microsoft 365
 
-### Install Microsoft Office 365
+### Install Microsoft 365
 
-If your template machine needs Office, we recommend installation of Office through the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117 ). You will need to create a reusable configuration file using the [Office 365 Client Configuration Service](https://config.office.com/) to choose which architecture, what features you'll need from Office, and how often it updates.
+If your template machine needs Office, we recommend installation of Office through the [Office Deployment Tool (ODT)](https://www.microsoft.com/download/details.aspx?id=49117). You will need to create a reusable configuration file using the [Microsoft 365 Apps Admin Center](https://config.office.com/) to choose which architecture, what features you'll need from Office, and how often it updates.
 
-1. Go to [Office 365 Client Configuration Service](https://config.office.com/) and download your own configuration file.
+1. Go to [Microsoft 365 Apps Admin Center](https://config.office.com/) and download your own configuration file.
 2. Download [Office Deployment Tool](https://www.microsoft.com/download/details.aspx?id=49117).  Downloaded file will be `setup.exe`.
 3. Run `setup.exe /download configuration.xml` to download Office components.
 4. Run `setup.exe /configure configuration.xml` to install Office components.
 
-### Change the Microsoft Office 365 update channel
+### Change the Microsoft 365 update channel
 
-Using the Office Configuration Tool, you can set how often Office receives updates. However, if you need to modify how often Office receives updates after installation, you can change the update channel URL. Update channel URL addresses can be found at [Change the Office 365 ProPlus update channel for devices in your organization](https://docs.microsoft.com/deployoffice/change-update-channels). The example below shows how to set Office 365 to use the Monthly Update Channel.
+Using the Office Configuration Tool, you can set how often Office receives updates. However, if you need to modify how often Office receives updates after installation, you can change the update channel URL. Update channel URL addresses can be found at [Change the Microsoft 365 Apps update channel for devices in your organization](https://docs.microsoft.com/deployoffice/change-update-channels). The example below shows how to set Microsoft 365 to use the Monthly Update Channel.
 
 ```powershell
-# Update to the Office 365 Monthly Channel
+# Update to the Microsoft 365 Monthly Channel
 Set-ItemProperty
     -Path "HKLM:\SOFTWARE\Microsoft\Office\ClickToRun\Configuration\CDNBaseUrl"
     -Name "CDNBaseUrl"
@@ -228,7 +223,7 @@ Install other apps commonly used for teaching through the Windows Store app. Sug
 
 ## Conclusion
 
-This article has shown you optional steps to prepare your Windows template VM for an effective class.  Steps include installing OneDrive and installing Office 365, installing the updates for Windows and installing updates for Microsoft Store apps.  We also discussed how to set updates to a schedule that works best for your class.  
+This article has shown you optional steps to prepare your Windows template VM for an effective class.  Steps include installing OneDrive and installing Microsoft 365, installing the updates for Windows and installing updates for Microsoft Store apps.  We also discussed how to set updates to a schedule that works best for your class.  
 
 ## Next steps
 See the article on how to control Windows shutdown behavior to help with managing costs: [Guide to controlling Windows shutdown behavior](how-to-windows-shutdown.md)

@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang:
-ms.topic: conceptual
+ms.topic: how-to
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
@@ -24,22 +24,22 @@ This article shows you how to implement [dynamic data masking](dynamic-data-mask
 
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Navigate to the settings page of the database that includes the sensitive data you want to mask.
-3. Click the **Dynamic Data Masking** blade under the **Security** section of your SQL database.
+3. Click the **Dynamic Data Masking** blade under the **Security** section of your database.
 
-   ![Navigation pane](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
+   ![Screenshot that shows the Security section with Dynamic Data Masking highlighted.](./media/dynamic-data-masking-configure-portal/4_ddm_settings_tile.png)
 
 4. In the **Dynamic Data Masking** configuration page, you may see some database columns that the recommendations engine has flagged for masking. In order to accept the recommendations, just click **Add Mask** for one or more columns and a mask is created based on the default type for this column. You can change the masking function by clicking on the masking rule and editing the masking field format to a different format of your choice. Be sure to click **Save** to save your settings.
 
-    ![Navigation pane](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
+    ![Screenshot that shows the Dynamic Data Masking configuration page.](./media/dynamic-data-masking-configure-portal/5_ddm_recommendations.png)
 
 5. To add a mask for any column in your database, at the top of the **Dynamic Data Masking** configuration page, click **Add Mask** to open the **Add Masking Rule** configuration page.
 
-    ![Navigation pane](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
+    ![Screenshot that shows the Add Masking Rule configuration page.](./media/dynamic-data-masking-configure-portal/6_ddm_add_mask.png)
 
 6. Select the **Schema**, **Table** and **Column** to define the designated field for masking.
 7. **Select how to mask** from the list of sensitive data masking categories.
 
-    ![Navigation pane](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
+    ![Screenshot that shows the sensitive data masking categories under the Select how to mask section.](./media/dynamic-data-masking-configure-portal/7_ddm_mask_field_format.png)
 
 8. Click **Add** in the data masking rule page to update the set of masking rules in the dynamic data masking policy.
 9. Type the SQL users or Azure Active Directory (Azure AD) identities that should be excluded from masking, and have access to the unmasked sensitive data. This should be a semicolon-separated list of users. Users with administrator privileges always have access to the original unmasked data.

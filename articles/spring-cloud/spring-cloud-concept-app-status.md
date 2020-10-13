@@ -6,10 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/10/2020
 ms.author: brendm
-
+ms.custom: devx-track-java
 ---
 
 # Understanding app status in Azure Spring Cloud
+
+**This article applies to:** ✔️ Java ✔️ C#
 
 The Azure Spring Cloud UI delivers information about the status of running applications.  There is an **Apps** option for each resource group in a subscription that displays general status of application types.  For each application type, there is display of **Application instances**.
 
@@ -67,4 +69,4 @@ To view the status of a specific instance of a deployed app, click the **Name** 
 
 
 ## See also
-* [Prepare a Java Spring application for deployment in Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)
+* [Prepare a Spring or Steeltoe application for deployment in Azure Spring Cloud](spring-cloud-tutorial-prepare-app-deployment.md)

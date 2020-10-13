@@ -9,9 +9,9 @@ ms.reviewer: sergkanz
 
 # Event telemetry: Application Insights data model
 
-You can create event telemetry items (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) to represent an event that occurred in your application. Typically it is a user interaction such as button click or order checkout. It can also be an application life cycle event like initialization or configuration update. 
+You can create event telemetry items (in [Application Insights](./app-insights-overview.md)) to represent an event that occurred in your application. Typically it is a user interaction such as button click or order checkout. It can also be an application life cycle event like initialization or configuration update. 
 
-Semantically, events may or may not be correlated to requests. However, if used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be a subject to separate, less aggressive [sampling](../../azure-monitor/app/api-filtering-sampling.md).
+Semantically, events may or may not be correlated to requests. However, if used properly, event telemetry is more important than requests or traces. Events represent business telemetry and should be a subject to separate, less aggressive [sampling](./api-filtering-sampling.md).
 
 ## Name
 
@@ -30,5 +30,6 @@ Max length: 512 characters
 ## Next steps
 
 - See [data model](data-model.md) for Application Insights types and data model.
-- [Write custom event telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
-- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.
+- [Write custom event telemetry](./api-custom-events-metrics.md#trackevent)
+- Check out [platforms](./platforms.md) supported by Application Insights.
+

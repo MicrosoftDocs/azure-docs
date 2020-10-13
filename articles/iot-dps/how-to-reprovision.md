@@ -70,7 +70,7 @@ The following steps configure the allocation policy for a device's enrollment:
 
 4. Click **Save** to enable the reprovisioning of the device based on your changes.
 
-    ![Select enrollment allocation policy](./media/how-to-reprovision/reprovisioning-policy.png)
+    ![Screenshot that highlights the changes you've made and the Save button.](./media/how-to-reprovision/reprovisioning-policy.png)
 
 
 

@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
-ms.custom: cc996988-fb4f-47, tracking-python
+ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 ---
 
 # Azure Queue storage trigger for Azure Functions
@@ -159,7 +159,7 @@ A Storage queue trigger is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage`, which allows you to read the queue message in your function.
+The code *_\_init_\_.py* declares a parameter as `func.QueueMessage`, which allows you to read the queue message in your function.
 
 ```python
 import logging
@@ -347,17 +347,17 @@ The queue item payload is available via `context.bindings.<NAME>` where `<NAME>`
 
 # [Python](#tab/python)
 
-Access the queue message via the parameter typed as [QueueMessage](https://docs.microsoft.com/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
+Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
 
 # [Java](#tab/java)
 
-The [QueueTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) annotation gives you access to the queue message that triggered the function.
+The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) annotation gives you access to the queue message that triggered the function.
 
 ---
 
 ## Message metadata
 
-The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. The properties are members of the [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) class.
+The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. The properties are members of the [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) class.
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -384,7 +384,7 @@ The algorithm uses the following logic:
 - When a message is found, the runtime waits two seconds and then checks for another message
 - When no message is found, it waits about four seconds before trying again.
 - After subsequent failed attempts to get a queue message, the wait time continues to increase until it reaches the maximum wait time, which defaults to one minute.
-- The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json.md#queues).
+- The maximum wait time is configurable via the `maxPollingInterval` property in the [host.json file](functions-host-json-v1.md#queues).
 
 For local development the maximum polling interval defaults to two seconds.
 
@@ -396,7 +396,7 @@ When there are multiple queue messages waiting, the queue trigger retrieves a ba
 
 The batch size and the threshold for getting a new batch are configurable in the [host.json file](functions-host-json.md#queues). If you want to minimize parallel execution for queue-triggered functions in a function app, you can set the batch size to 1. This setting eliminates concurrency only so long as your function app runs on a single virtual machine (VM). 
 
-The queue trigger automatically prevents a function from processing a queue message multiple times; functions do not have to be written to be idempotent.
+The queue trigger automatically prevents a function from processing a queue message multiple times simultaneously.
 
 ## host.json properties
 
@@ -404,7 +404,7 @@ The [host.json](functions-host-json.md#queues) file contains settings that contr
 
 ## Next steps
 
-- [Write queue storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
+- [Write blob storage messages (Output binding)](./functions-bindings-storage-blob-output.md)
 
 <!-- LINKS -->
 

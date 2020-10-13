@@ -1,30 +1,21 @@
 ---
 title: Use Azure Service Bus queues in Node.js using azure-sb package
 description: Learn how to create Node.js applications to send messages to and receive messages from an Azure Service Bus queue using the azure-sb package.
-services: service-bus-messaging
-documentationcenter: nodejs
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: a87a00f9-9aba-4c49-a0df-f900a8b67b3f
-ms.service: service-bus-messaging
-ms.workload: tbd
-ms.tgt_pltfrm: na
+author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 01/27/2020
-ms.author: aschhab
-ms.custom: seo-javascript-september2019, seo-javascript-october2019
-
+ms.date: 06/23/2020
+ms.author: spelluru
+ms.custom: seo-javascript-september2019, seo-javascript-october2019, devx-track-js
 ---
+
 # Quickstart: Use Service Bus queues in Azure with Node.js and the azure-sb package
 In this tutorial, you learn how to create Node.js applications to send messages to and receive messages from an Azure Service Bus queue using the [azure-sb](https://www.npmjs.com/package/azure-sb) package. The samples are written in JavaScript and use the Node.js [Azure module](https://www.npmjs.com/package/azure) which internally uses the azure-sb package.
 
 > [!IMPORTANT]
 > The [azure-sb](https://www.npmjs.com/package/azure-sb) package uses [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). You can get a faster experience using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) which uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md). 
 > 
-> To learn more about the new package, see [How to use Service Bus queues with Node.js and @azure/service-bus package](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-nodejs-how-to-use-queues-new-package), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
+> To learn more about the new package, see [How to use Service Bus queues with Node.js and @azure/service-bus package](./service-bus-nodejs-how-to-use-queues-new-package.md), otherwise continue reading to see how to use the [azure](https://www.npmjs.com/package/azure) package.
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -199,6 +190,6 @@ To learn more about queues, see the following resources.
 
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
-[Create and deploy a Node.js application to an Azure Website]: ../app-service/app-service-web-get-started-nodejs.md
+[Create and deploy a Node.js application to an Azure Website]: ../app-service/quickstart-nodejs.md
 [Node.js Web Application with Storage]:../cosmos-db/table-storage-how-to-use-nodejs.md
 [Service Bus quotas]: service-bus-quotas.md

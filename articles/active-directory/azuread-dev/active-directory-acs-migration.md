@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: azuread-dev
 ms.custom: aaddev 
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
@@ -55,7 +55,7 @@ All communication with the STS and management operations are done at this URL. Y
 
 The exception to this is any traffic to `https://accounts.accesscontrol.windows.net`. Traffic to this URL is already handled by a different service and **is not** affected by the Access Control deprecation. 
 
-For more information about Access Control, see [Access Control Service 2.0 (archived)](https://msdn.microsoft.com/library/hh147631.aspx).
+For more information about Access Control, see [Access Control Service 2.0 (archived)](/previous-versions/azure/azure-services/hh147631(v=azure.100)).
 
 ## Find out which of your apps will be impacted
 
@@ -125,13 +125,13 @@ Each Microsoft cloud service that accepts tokens that are issued by Access Contr
 
 | Service | Guidance |
 | ------- | -------- |
-| Azure Service Bus | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
-| Azure Service Bus Relay | [Migrate to shared access signatures](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Migrate to Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [Migrate to the Cognitive Services APIs](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Service Bus | [Migrate to shared access signatures](../../service-bus-messaging/service-bus-migrate-acs-sas.md) |
+| Azure Service Bus Relay | [Migrate to shared access signatures](../../azure-relay/relay-migrate-acs-sas.md) |
+| Azure Managed Cache | [Migrate to Azure Cache for Redis](../../azure-cache-for-redis/cache-faq.md) |
+| Azure DataMarket | [Migrate to the Cognitive Services APIs](https://azure.microsoft.com/services/cognitive-services/) |
+| BizTalk Services | [Migrate to the Logic Apps feature of Azure App Service](https://azure.microsoft.com/services/cognitive-services/) |
 | Azure Media Services | [Migrate to Azure AD authentication](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
-| Azure Backup | [Upgrade the Azure Backup agent](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
+| Azure Backup | [Upgrade the Azure Backup agent](../../backup/backup-azure-file-folder-backup-faq.md) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
 <!-- Azure RemoteApp deprecated in favor of Citrix: https://www.zdnet.com/article/microsoft-to-drop-azure-remoteapp-in-favor-of-citrix-remoting-technologies/ -->
@@ -146,10 +146,10 @@ SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for au
 
 | Feature | Guidance |
 | ------- | -------- |
-| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatible with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using Azure AD App Gallery SharePoint on premises app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
-| [App authentication & server-to-server authentication in SharePoint on premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Not affected by ACS retirement; no changes necessary. | 
-| [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
-| [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Not affected by ACS retirement; no changes necessary. |
+| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatible with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using Azure AD App Gallery SharePoint on premises app](../saas-apps/sharepoint-on-premises-tutorial.md). |
+| [App authentication & server-to-server authentication in SharePoint on premises](/SharePoint/security-for-sharepoint-server/authentication-overview) | Not affected by ACS retirement; no changes necessary. | 
+| [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
+| [SharePoint cloud hybrid search](/archive/blogs/spses/cloud-hybrid-search-service-application) | Not affected by ACS retirement; no changes necessary. |
 
 ### Web applications that use passive authentication
 
@@ -169,7 +169,7 @@ Unfortunately, there isn't one service that offers all of these equivalent capab
 
 #### Migrate to Azure Active Directory
 
-A path to consider is integrating your apps and services directly with Azure AD. Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Office 365, Azure, and much more. It provides similar federated authentication capabilities to Access Control, but doesn't support all Access Control features. 
+A path to consider is integrating your apps and services directly with Azure AD. Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Microsoft 365, Azure, and much more. It provides similar federated authentication capabilities to Access Control, but doesn't support all Access Control features. 
 
 The primary example is federation with social identity providers, such as Facebook, Google, and Yahoo. If your users sign in with these types of credentials, Azure AD is not the solution for you. 
 
@@ -210,7 +210,7 @@ At a high level, *Azure Active Directory is probably the best choice for your mi
 
 If you decide that Azure AD is the best migration path for your applications and services, you should be aware of two ways to integrate your app with Azure AD.
 
-To use WS-Federation or WIF to integrate with Azure AD, we recommend following the approach described in [Configure federated single sign-on for a non-gallery application](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery). The article refers to configuring Azure AD for SAML-based single sign-on, but also works for configuring WS-Federation. Following this approach requires an Azure AD Premium license. This approach has two advantages:
+To use WS-Federation or WIF to integrate with Azure AD, we recommend following the approach described in [Configure federated single sign-on for a non-gallery application](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md). The article refers to configuring Azure AD for SAML-based single sign-on, but also works for configuring WS-Federation. Following this approach requires an Azure AD Premium license. This approach has two advantages:
 
 - You get the full flexibility of Azure AD token customization. You can customize the claims that are issued by Azure AD to match the claims that are issued by Access Control. This especially includes the user ID or Name Identifier claim. To continue to receive consistent user IDentifiers for your users after you change technologies, ensure that the user IDs issued by Azure AD match those issued by Access Control.
 - You can configure a token-signing certificate that is specific to your application, and with a lifetime that you control.
@@ -220,7 +220,7 @@ To use WS-Federation or WIF to integrate with Azure AD, we recommend following t
 
 An alternative approach is to follow [this code sample](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), which gives slightly different instructions for setting up WS-Federation. This code sample does not use WIF, but rather, the ASP.NET 4.5 OWIN middleware. However, the instructions for app registration are valid for apps using WIF, and don't require an Azure AD Premium license. 
 
-If you choose this approach, you need to understand [signing key rollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](https://msdn.microsoft.com/library/azure/dn641920.aspx).
+If you choose this approach, you need to understand [signing key rollover in Azure AD](../develop/active-directory-signing-key-rollover.md). This approach uses the Azure AD global signing key to issue tokens. By default, WIF does not automatically refresh signing keys. When Azure AD rotates its global signing keys, your WIF implementation needs to be prepared to accept the changes. For more information, see [Important information about signing key rollover in Azure AD](/previous-versions/azure/dn641920(v=azure.100)).
 
 If you can integrate with Azure AD via the OpenID Connect or OAuth protocols, we recommend doing so. We have extensive documentation and guidance about how to integrate Azure AD into your web application available in our [Azure AD developer guide](https://aka.ms/aaddev).
 
@@ -261,8 +261,8 @@ The following table compares the features of Access Control that are relevant to
 
 If you decide that Azure AD B2C is the best migration path for your applications and services, begin with the following resources:
 
-- [Azure AD B2C documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
-- [Azure AD B2C custom policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
+- [Azure AD B2C documentation](../../active-directory-b2c/overview.md)
+- [Azure AD B2C custom policies](../../active-directory-b2c/custom-policy-overview.md)
 - [Azure AD B2C pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 #### Migrate to Ping Identity or Auth0
@@ -277,10 +277,13 @@ In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient t
 
 In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-|     |     |
-| --- | --- |
-| ![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz-auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
-| ![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz-ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products. |
+![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz-auth0.png) 
+
+[Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does.
+
+![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz-ping.png)
+
+[Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products.
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 
@@ -309,7 +312,7 @@ Service identities in Access Control are typically used to implement server-to-s
 
 #### Migrate to Azure Active Directory
 
-Our recommendation for this type of authentication flow is to migrate to [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Office 365, Azure, and much more. 
+Our recommendation for this type of authentication flow is to migrate to [Azure Active Directory](https://azure.microsoft.com/develop/identity/signin/). Azure AD is the cloud-based identity provider for Microsoft work or school accounts. Azure AD is the identity provider for Microsoft 365, Azure, and much more. 
 
 You can also use Azure AD for server-to-server authentication by using the Azure AD implementation of the OAuth client credentials grant. The following table compares the capabilities of Access Control in server-to-server authentication with those that are available in Azure AD.
 
@@ -339,10 +342,12 @@ In some cases, you might find that the Azure AD client credentials and the OAuth
 
 In these cases, you might consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-|     |     |
-| --- | --- |
-| ![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz-auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
-| ![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz-ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products. |
+![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz-auth0.png)
+
+[Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does.
+
+![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz-ping.png)
+[Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products.
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 

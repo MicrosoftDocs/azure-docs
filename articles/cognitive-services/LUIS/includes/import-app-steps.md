@@ -1,12 +1,13 @@
 ---
 title: Import app steps
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: include
-ms.date: 05/07/2020
-ms.author: diberry
+ms.date: 06/22/2020
+
 ---
 
 1. In the [LUIS portal](https://www.luis.ai), on the **My apps** page, select **+ New app for conversation**, then **Import as JSON**. Find the saved JSON file from the previous step. You don't need to change the name of the app. Select **Done**

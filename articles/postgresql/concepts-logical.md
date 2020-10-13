@@ -1,18 +1,20 @@
 ---
 title: Logical decoding - Azure Database for PostgreSQL - Single Server
 description: Describes logical decoding and wal2json for change data capture in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 06/22/2020
 ---
 
 # Logical decoding
  
 [Logical decoding in PostgreSQL](https://www.postgresql.org/docs/current/logicaldecoding.html) allows you to stream data changes to external consumers. Logical decoding is popularly used for event streaming and change data capture scenarios.
 
-Logical decoding uses an output plugin to convert Postgres’s write ahead log (WAL) into a readable format. Azure Database for PostgreSQL provides two output plugins: [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) and [wal2json](https://github.com/eulerto/wal2json).
+Logical decoding uses an output plugin to convert Postgres’s write ahead log (WAL) into a readable format. Azure Database for PostgreSQL provides the output plugins [wal2json](https://github.com/eulerto/wal2json), [test_decoding](https://www.postgresql.org/docs/current/test-decoding.html) and pgoutput. pgoutput is made available by Postgres from Postgres version 10 and up.
+
+For an overview of how Postgres logical decoding works, [visit our blog](https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/change-data-capture-in-postgres-how-to-use-logical-decoding-and/ba-p/1396421). 
 
 > [!NOTE]
 > Logical decoding is in public preview on Azure Database for PostgreSQL - Single Server.
@@ -45,11 +47,11 @@ The server needs to be restarted after a change of this parameter. Internally, t
 
 1. Set Azure replication support to **logical**. Select **Save**.
 
-   ![Azure Database for PostgreSQL - Replication - Azure replication support](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL - Replication - Azure replication support":::
 
 2. Restart the server to apply the change by selecting **Yes**.
 
-   ![Azure Database for PostgreSQL - Replication - Confirm restart](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - Replication - Confirm restart":::
 
 
 ## Start logical decoding

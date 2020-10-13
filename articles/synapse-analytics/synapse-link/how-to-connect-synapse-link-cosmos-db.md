@@ -5,7 +5,7 @@ services: synapse-analytics
 author: ArnoMicrosoft
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: synapse-link
 ms.date: 04/21/2020
 ms.author: acomet
 ms.reviewer: jrasnick
@@ -17,7 +17,7 @@ This article describes how to access an Azure Cosmos DB database from Azure Syna
 
 ## Prerequisites
 
-Before you connect an Azure Cosmos DB database to your workspace, you'll need the following:
+Before you connect an Azure Cosmos DB database to your workspace, you'll need an:
 
 > [!IMPORTANT]
 > Azure Synapse Link for Azure Cosmos DB is currently supported for workspaces that do not have managed virtual network enabled. 
@@ -31,7 +31,7 @@ To run large-scale analytics into Azure Cosmos DB without impacting your operati
 
 ## Navigate to Synapse Studio
 
-From your Synapse workspace, select **Launch Synapse Studio**. On the Synapse Studio home page, select **Data, which will take you to the **Data Object Explorer**.
+From your Synapse workspace, select **Launch Synapse Studio**. On the Synapse Studio home page, select **Data**, which will take you to the **Data Object Explorer**.
 
 ## Connect an Azure Cosmos DB database to a Synapse workspace
 
@@ -45,7 +45,7 @@ From the Data Object Explorer, you can directly connect to an Azure Cosmos DB da
 4. Select ***Continue***
 5. Name the linked service. The name will be displayed in the Object Explorer and used by Synapse run-times to connect to the database and containers. We recommend using a friendly name.
 6. Select the **Azure Cosmos DB account name** and **database name**
-7. (Optional) If no region is specified, Synapse run-time operations will be routed toward the nearest region where the analytical store is enabled. However, you can set manually which region you want your users to access Azure Cosmos DB Analytical Store. Select **Additional connection properties** and then **New**. Under **Property Name**, write ***PreferredRegions*** and set the **Value** to the region you want (example: WestUS2, there is no space between words and number)
+7. (Optional) If no region is specified, Synapse run-time operations will be routed toward the nearest region where the analytical store is enabled. However, you can set manually which region you want your users to access Azure Cosmos DB Analytical Store. Select **Additional connection properties** and then **New**. Under **Property Name**, write ***PreferredRegions*** and set the **Value** to the region you want (example: WestUS2, there's no space between words and number)
 8. Select ***Create***
 
 Azure Cosmos DB databases are visible under the tab **Linked** in the Azure Cosmos DB section. With Azure Cosmos DB, you can differentiate an HTAP enabled container from an OLTP only container through the following icons:

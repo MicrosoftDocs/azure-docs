@@ -11,7 +11,8 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2020
-ms.author: mnayak
+ms.author: mnayak 
+ms.custom: devx-track-azurecli
 
 ---
 # Configure routing preference for a VM using Azure CLI

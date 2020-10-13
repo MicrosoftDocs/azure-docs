@@ -42,7 +42,7 @@ Over time, the predictive models in the Azure ML scoring experiments need to be 
 The following table describes the web services used in this example.  See [Retrain Machine Learning Studio (classic) models programmatically](../../machine-learning/studio/retrain-machine-learning-model.md) for details.
 
 - **Training web service** - Receives training data and produces trained models. The output of the retraining is an .ilearner file in an Azure Blob storage. The **default endpoint** is automatically created for you when you publish the training experiment as a web service. You can create more endpoints but the example uses only the default endpoint.
-- **Scoring web service** - Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in an Azure SQL database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. 
+- **Scoring web service** - Receives unlabeled data examples and makes predictions. The output of prediction could have various forms, such as a .csv file or rows in Azure SQL Database, depending on the configuration of the experiment. The default endpoint is automatically created for you when you publish the predictive experiment as a web service. 
 
 The following picture depicts the relationship between training and scoring endpoints in Azure ML.
 

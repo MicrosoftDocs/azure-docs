@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 11/08/2019
+ms.date: 08/13/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Naming policy for groups in Azure Active Directory
 
-In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) organization for user-created Office 365 groups, to help you sort and search your organization’s groups. For example, you could use the naming policy to:
+In this quickstart, you will set up naming policy in your Azure Active Directory (Azure AD) organization for user-created Microsoft 365 groups, to help you sort and search your organization’s groups. For example, you could use the naming policy to:
 
 * Communicate the function of a group, membership, geographic region, or who created the group.
 * Help categorize groups in the address book.
@@ -64,6 +64,6 @@ That's it. You've set your naming policy and added your custom blocked words.
 
 In this quickstart, you’ve learned how to set the naming policy for your Azure AD organization through the Azure portal.
 
-Advance to the next article for more information including the PowerShell cmdlets for naming policy, technical constraints, adding a list of custom blocked words, and the end user experiences across Office 365 apps.
+Advance to the next article for more information including the PowerShell cmdlets for naming policy, technical constraints, adding a list of custom blocked words, and the end user experiences across Microsoft 365 apps.
 > [!div class="nextstepaction"]
 > [Naming policy PowerShell](groups-naming-policy.md)

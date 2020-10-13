@@ -49,10 +49,6 @@ landingContent:
             url: quickstarts/client-library.md?pivots=programming-language-javascript
           - text: Using the REST API (cURL)
             url: quickstarts/curl-train-extract.md
-      - linkListType: tutorial
-        links:
-          - text: Use Form Recognizer with Logic Apps
-            url: tutorial-form-recognizer-with-logic-apps.md
 
   - title: Build a training data set
     linkLists:
@@ -90,6 +86,21 @@ landingContent:
             url: quickstarts/curl-train-extract.md
           - text: Using the REST API (cURL)
             url: quickstarts/curl-receipts.md
+      - linkListType: concept
+        links:
+          - text: Receipt concepts
+            url: concept-receipts.md?
+
+  - title: Extract data from business cards
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the REST API
+            url: quickstarts/python-business-cards.md?
+      - linkListType: concept
+        links:
+          - text: Business card concepts
+            url: concept-business-cards.md?
 
   - title: Get text layout information
     linkLists:
@@ -128,15 +139,19 @@ landingContent:
       - linkListType: reference
         links:
           - text: Form Recognizer API v2.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-preview/operations/AnalyzeWithCustomForm
-          - text: Form Recognizer API v1.0
-            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
+            url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
+          - text: Python SDK
+            url: https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python
+          - text: Java SDK
+            url: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
+          - text: JavaScript SDK
+            url: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
           - text: Azure PowerShell
             url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)
-            url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+            url: https://docs.microsoft.com/cli/azure/cognitiveservices#az-cognitiveservices-list
 
   - title: Help and feedback
     linkLists:

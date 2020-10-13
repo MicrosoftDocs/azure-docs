@@ -2,7 +2,7 @@
 title: Data Discovery & Classification 
 description: Data Discovery & Classification for Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=1
 titleSuffix: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse
@@ -11,7 +11,7 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 09/21/2020
 tags: azure-synapse
 ---
 # Data Discovery & Classification
@@ -24,8 +24,6 @@ Your most sensitive data might include business, financial, healthcare, or perso
 - Helping to meet standards for data privacy and requirements for regulatory compliance.
 - Various security scenarios, such as monitoring (auditing) and alerting on anomalous access to sensitive data.
 - Controlling access to and hardening the security of databases that contain highly sensitive data.
-
-Data Discovery & Classification is part of the [Advanced Data Security](advanced-data-security.md) offering, which is a unified package for advanced Azure SQL security capabilities. You can access and manage Data Discovery & Classification via the central **SQL Advanced Data Security** section of the Azure portal.
 
 > [!NOTE]
 > For information about SQL Server on-premises, see [SQL Data Discovery & Classification](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -73,31 +71,23 @@ After the organization-wide policy has been defined, you can continue classifyin
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
-2. Go to **Advanced Data Security** under the **Security** heading in your Azure SQL Database pane. Select **Advanced data security**, and then select the **Data Discovery & Classification** card.
+1. Go to **Data Discovery & Classification** under the Security heading in your Azure SQL Database pane. The Overview tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 4](#step-4).
 
-   ![Advanced Data Security pane in Azure portal](./media/data-discovery-and-classification-overview/data_classification.png)
+1. To download a report in Excel format, select **Export** in the top menu of the pane.
 
-3. On the **Data Discovery & Classification** page, the **Overview** tab includes a summary of the current classification state of the database. The summary includes a detailed list of all classified columns, which you can also filter to show only specific schema parts, information types, and labels. If you haven’t classified any columns yet, [skip to step 5](#step-5).
-
-   ![Summary of current classification state](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
-
-4. To download a report in Excel format, select **Export** in the top menu of the pane.
-
-5. <a id="step-5"></a>To begin classifying your data, select the **Classification** tab on the **Data Discovery & Classification** page.
+1. <a id="step-4"></a>To begin classifying your data, select the **Classification** tab on the **Data Discovery & Classification** page.
 
     The classification engine scans your database for columns containing potentially sensitive data and provides a list of recommended column classifications.
 
-6. View and apply classification recommendations:
+1. View and apply classification recommendations:
 
    - To view the list of recommended column classifications, select the recommendations panel at the bottom of the pane.
 
    - To accept a recommendation for a specific column, select the check box in the left column of the relevant row. To mark all recommendations as accepted, select the leftmost check box in the recommendations table header.
 
-       ![Review and select from list of classification recommendations](./media/data-discovery-and-classification-overview/6_data_classification_recommendations_list.png)
-
    - To apply the selected recommendations, select **Accept selected recommendations**.
 
-7. You can also classify columns manually, as an alternative or in addition to the recommendation-based classification:
+1. You can also classify columns manually, as an alternative or in addition to the recommendation-based classification:
 
    1. Select **Add classification** in the top menu of the pane.
 
@@ -105,9 +95,7 @@ After the organization-wide policy has been defined, you can continue classifyin
 
    1. Select **Add classification** at the bottom of the context window.
 
-      ![Select a column to classify](./media/data-discovery-and-classification-overview/9_data_classification_manual_classification.png)
-
-8. To complete your classification and persistently label (tag) the database columns with the new classification metadata, select **Save** in the top menu of the window.
+1. To complete your classification and persistently label (tag) the database columns with the new classification metadata, select **Save** in the top menu of the window.
 
 ## <a id="audit-sensitive-data"></a>Audit access to sensitive data
 
@@ -131,7 +119,7 @@ These built-in roles can modify the data classification of a database:
 - Contributor
 - SQL Security Manager
 
-Learn more about role-based permissions in [RBAC for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/overview).
+Learn more about role-based permissions in [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview).
 
 ## <a id="manage-classification"></a>Manage classifications
 
@@ -185,6 +173,5 @@ You can use the REST API to programmatically manage classifications and recommen
 
 ## <a id="next-steps"></a>Next steps
 
-- Learn more about [Advanced Data Security](advanced-data-security.md).
 - Consider configuring [Azure SQL Auditing](../../azure-sql/database/auditing-overview.md) for monitoring and auditing access to your classified sensitive data.
 - For a presentation that includes data Discovery & Classification, see [Discovering, classifying, labeling & protecting SQL data | Data Exposed](https://www.youtube.com/watch?v=itVi9bkJUNc).

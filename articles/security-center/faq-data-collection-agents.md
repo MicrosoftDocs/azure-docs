@@ -25,9 +25,9 @@ Security Center collects data from your Azure virtual machines (VMs), Virtual ma
 
 No. Workspaces created by Security Center, while configured for Azure Monitor logs per node billing, don't incur Azure Monitor logs charges. Security Center billing is always based on your Security Center security policy and the solutions installed on a workspace:
 
-- **Free tier** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You won't be billed for the Free tier.
+- **Azure Defender off** – Security Center enables the 'SecurityCenterFree' solution on the default workspace. You won't be billed if Azure Defender is off.
 
-- **Standard tier** – Security Center enables the 'Security' solution on the default workspace.
+- **Azure Defender on** – Security Center enables the 'Security' solution on the default workspace.
 
 For more information on pricing, see [Security Center pricing](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -35,6 +35,25 @@ For more information on pricing, see [Security Center pricing](https://azure.mic
 > The log analytics pricing tier of workspaces created by Security Center does not affect Security Center billing.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+## What is the Log Analytics agent?
+
+To monitor for security vulnerabilities and threats, Azure Security Center depends on the [Log Analytics Agent](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) - this is the same agent used by the Azure Monitor service. 
+
+The agent is sometimes referred to as the Microsoft Monitoring Agent (or "MMA"). 
+
+The agent collects various security-related configuration details and event logs from connected machines, and then copies the data to your Log Analytics workspace for further analysis. Examples of such data are: operating system type and version, operating system logs (Windows event logs), running processes, machine name, IP addresses, and logged in user.
+
+Ensure your machines are running one of the supported operating systems for the agent as described on the following pages:
+
+* [Log Analytics agent for Windows supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+
+* [Log Analytics agent for Linux supported operating systems](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+
+Learn more about the [data collected by the Log Analytics agent](security-center-enable-data-collection.md).
+
+
 
 
 ## What qualifies a VM for automatic provisioning of the Log Analytics agent installation?
@@ -141,9 +160,9 @@ If you remove the Microsoft Monitoring Extension, Security Center is not able to
 
 You can turn off automatic provisioning for your subscriptions in the security policy but this is not recommended. Turning off automatic provisioning limits Security Center recommendations and alerts. To disable automatic provisioning:
 
-1. If your subscription is configured for the Standard tier, open the security policy for that subscription and select the **Free** tier.
+1. If your subscription has Azure Defender enabled, open the security policy for that subscription and select **Azure Defender off**.
 
-   ![Pricing tier][1]
+    :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
 
 1. Next, turn off automatic provisioning by selecting **Off** on the **Security policy – Data collection** page.
    ![Data collection][2]
@@ -177,7 +196,7 @@ Manually install the Log Analytics agent extension so Security Center can collec
 
 You can connect the agent to any existing custom workspace or Security Center created workspace. If a custom workspace does not have the 'Security' or 'SecurityCenterFree' solutions enabled, then you will need to apply a solution. To apply, select the custom workspace or subscription and apply a pricing tier via the **Security policy – Pricing tier** page.
 
-   ![Pricing tier][1]
+:::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Enable or disable Azure Defender":::
 
 Security Center will enable the correct solution on the workspace based on the selected pricing tier.
 
@@ -248,7 +267,6 @@ The agent consumes a nominal amount of system resources and should have little i
 
 
 <!--Image references-->
-[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
 [2]: ./media/security-center-platform-migration-faq/data-collection.png
 [3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
 [4]: ./media/security-center-platform-migration-faq/use-another-workspace.png

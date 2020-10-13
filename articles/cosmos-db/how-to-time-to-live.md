@@ -3,14 +3,17 @@ title: Configure and manage Time to Live in Azure Cosmos DB
 description: Learn how to configure and manage time to live on a container and an item in Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.topic: conceptual
-ms.date: 03/27/2020
+ms.topic: how-to
+ms.date: 10/11/2020
 ms.author: anfeldma
+ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
 # Configure time to live in Azure Cosmos DB
 
 In Azure Cosmos DB, you can choose to configure Time to Live (TTL) at the container level, or you can override it at an item level after setting for the container. You can configure TTL for a container by using Azure portal or the language-specific SDKs. Item level TTL overrides can be configured by using the SDKs.
+
+> This content is related to Azure Cosmos DB transactional store TTL. If you are looking for analitycal store TTL, that enables NoETL HTAP scenarios through [Azure Synapse Link](https://docs.microsoft.com/azure/cosmos-db/synapse-link), please click [here](https://docs.microsoft.com/azure/cosmos-db/analytical-store-introduction#analytical-ttl).
 
 ## Enable time to live on a container using Azure portal
 
@@ -29,7 +32,7 @@ Use the following steps to enable time to live on a container with no expiration
    * Select **On (no default)** or select **On** and set a TTL value
    * Click **Save** to save the changes.
 
-   ![Configure Time to live in Azure portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
+   :::image type="content" source="./media/how-to-time-to-live/how-to-time-to-live-portal.png" alt-text="Configure Time to live in Azure portal":::
 
 * When DefaultTimeToLive is null then your Time to Live is Off
 * When DefaultTimeToLive is -1 then your Time to Live setting is On (No default)
@@ -108,7 +111,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 ## Set time to live on a container using SDK
 
-To set the time to live on a container, you need to provide a non-zero positive number that indicates the time period in seconds. Based on the configured TTL value, all items in the container after the last modified timestamp of the item `_ts` are deleted.
+To set the time to live on a container, you need to provide a non-zero positive number that indicates the time period in seconds. Based on the configured TTL value, all items in the container after the last modified timestamp of the item `_ts` are deleted. You can optionally set `TimeToLivePropertyPath`, which will use a different property instead of the system-generated `_ts` property to determine which items to delete based on TTL.
 
 ### <a id="dotnet-enable-withexpiry"></a> .NET SDK
 
@@ -138,7 +141,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 {
     Id = "container",
     PartitionKeyPath = "/myPartitionKey",
-    DefaultTimeToLive = 90 * 60 * 60 * 24; // expire all documents after 90 days
+    DefaultTimeToLive = 90 * 60 * 60 * 24 // expire all documents after 90 days
 });
 ```
 ---

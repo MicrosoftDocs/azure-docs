@@ -12,7 +12,7 @@ ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
 ---
-# Create, configure, and manage elastic jobs
+# Create, configure, and manage elastic jobs (preview)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 In this article, you will learn how to create, configure, and manage elastic jobs.
@@ -21,7 +21,7 @@ If you have not used Elastic jobs, [learn more about the job automation concepts
 
 ## Create and configure the agent
 
-1. Create or identify an empty S0 or higher SQL database. This database will be used as the *Job database* during Elastic Job agent creation.
+1. Create or identify an empty S0 or higher database. This database will be used as the *Job database* during Elastic Job agent creation.
 2. Create an Elastic Job agent in the [portal](https://portal.azure.com/#create/Microsoft.SQLElasticJobAgent) or with [PowerShell](elastic-jobs-powershell-create.md#create-the-elastic-job-agent).
 
    ![Creating Elastic Job agent](./media/elastic-jobs-overview/create-elastic-job-agent.png)

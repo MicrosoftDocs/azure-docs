@@ -31,8 +31,9 @@ The AD FS application activity data is available to users who are assigned any o
 
 * Your organization must be currently using AD FS to access applications.
 * Azure AD Connect Health must be enabled in your Azure AD tenant.
+* The Azure AD Connect Health for AD FS agent must be installed.
    * [Learn more about Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)
-   * [Get started setting up Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
+   * [Get started with setting up Azure AD Connect Health and install the AD FS agent](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install)
 
 ## Discover AD FS applications that can be migrated 
 

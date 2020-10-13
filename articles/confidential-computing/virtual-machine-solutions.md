@@ -14,7 +14,7 @@ ms.author: JenCook
 
 This article covers information about deploying Azure confidential computing virtual machines (VMs) running Intel processors backed by [Intel Software Guard Extension](https://software.intel.com/sgx) (Intel SGX). 
 
-## Azure confidential computing VM Sizes
+## Azure confidential computing VM sizes
 
 Azure confidential computing virtual machines are designed to protect the confidentiality and the integrity of your data and code while it's processed in the cloud 
 
@@ -27,43 +27,23 @@ Start deploying a DCsv2-Series VM via the Microsoft commercial marketplace by fo
 To get a list of all generally available confidential compute VM sizes in available regions and availability zones, run the following command in the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
-    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" 
-    --all 
+az vm list-skus `
+    --size dc `
+    --query "[?family=='standardDCSv2Family'].{name:name,locations:locationInfo[0].location,AZ_a:locationInfo[0].zones[0],AZ_b:locationInfo[0].zones[1],AZ_c:locationInfo[0].zones[2]}" `
+    --all `
     --output table
-```
-
-As of May 2020, these SKUs are available in the following regions and availability zones:
-
-```output
-Name              Locations      AZ_a
-----------------  -------------  ------
-Standard_DC8_v2   eastus         2
-Standard_DC1s_v2  eastus         2
-Standard_DC2s_v2  eastus         2
-Standard_DC4s_v2  eastus         2
-Standard_DC8_v2   CanadaCentral
-Standard_DC1s_v2  CanadaCentral
-Standard_DC2s_v2  CanadaCentral
-Standard_DC4s_v2  CanadaCentral
-Standard_DC8_v2   uksouth        3
-Standard_DC1s_v2  uksouth        3
-Standard_DC2s_v2  uksouth        3
-Standard_DC4s_v2  uksouth        3
-Standard_DC8_v2   CentralUSEUAP
-Standard_DC1s_v2  CentralUSEUAP
-Standard_DC2s_v2  CentralUSEUAP
-Standard_DC4s_v2  CentralUSEUAP
 ```
 
 For a more detailed view of the above sizes, run the following command:
 
 ```azurecli-interactive
-az vm list-skus 
-    --size dc 
+az vm list-skus `
+    --size dc `
     --query "[?family=='standardDCSv2Family']"
 ```
+### Dedicated host requirements
+Deploying a **Standard_DC8_v2** virtual machine size in the DCSv2-Series VM family will occupy the full host and will not be shared with other tenants or subscriptions. This VM SKU family provides the isolation you may need in order to meet compliance and security regulatory requirements that are normally met by having a dedicated host service. When you choose **Standard_DC8_v2** SKU, the physical host server will allocate all of the available hardware resources including EPC memory only to your virtual machine. Please note that this functionality exists by infrastructure design and all the features of the **Standard_DC8_v2** will be supported. This deployment is not the same as the [Azure Dedicated Host](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts) service that is provided by other Azure VM Families.
+
 
 ## Deployment considerations
 
@@ -93,17 +73,17 @@ When using virtual machines in Azure, you're responsible for implementing a high
 
 Azure confidential computing doesn't support zone-redundancy via Availability Zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
-## Deploying via an Azure Resource Manager Template 
+## Deployment with Azure Resource Manager (ARM) Template
 
 Azure Resource Manager is the deployment and management service for Azure. It provides a management layer that enables you to create, update, and delete resources in your Azure subscription. You can use management features, like access control, locks, and tags, to secure and organize your resources after deployment.
 
-To learn about Azure Resource Manager templates, see [Template deployment overview](../azure-resource-manager/templates/overview.md).
+To learn about ARM templates, see [Template deployment overview](../azure-resource-manager/templates/overview.md).
 
-To deploy a DCsv2-Series VM in an Azure Resource Manager template, you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description.md). Ensure you specify the correct properties for **vmSize** and for your **imageReference**.
+To deploy a DCsv2-Series VM in an ARM template, you will utilize the [Virtual Machine resource](../virtual-machines/windows/template-description.md). Ensure you specify the correct properties for **vmSize** and for your **imageReference**.
 
-### VM Size
+### VM size
 
-Specify one of the following sizes in your Azure Resource Manager template in the Virtual Machine resource. This string is put as **vmSize** in **properties**.
+Specify one of the following sizes in your ARM template in the Virtual Machine resource. This string is put as **vmSize** in **properties**.
 
 ```json
   [
@@ -114,7 +94,7 @@ Specify one of the following sizes in your Azure Resource Manager template in th
       ],
 ```
 
-### Gen2 OS Image
+### Gen2 OS image
 
 Under **properties**, you will also have to reference an image under **storageProfile**. Use *only one* of the following images for your **imageReference**.
 
@@ -145,7 +125,7 @@ Under **properties**, you will also have to reference an image under **storagePr
       }
 ```
 
-## Next Steps 
+## Next steps 
 
 In this article, you learned about the qualifications and configurations needed when creating confidential computing virtual machine. You can now head to the Microsoft Azure Marketplace to deploy a DCsv2-Series VM.
 

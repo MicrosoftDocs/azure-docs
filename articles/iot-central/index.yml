@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: philmea
   ms.author: philmea
-  ms.date: 10/25/2019
+  ms.date: 06/30/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
@@ -23,9 +23,9 @@ highlightedContent:
       itemType: concept 
       url: ./core/concepts-app-templates.md
       
-    - title: Azure IoT Central Architecture
-      itemType: architecture
-      url: ./core/concepts-architecture.md
+    - title: IoT Central device development overview
+      itemType: overview
+      url: ./core/overview-iot-central-developer.md
     - title: Create a new application 
       itemType: quickstart
       url: ./core/quick-deploy-iot-central.md
@@ -39,14 +39,20 @@ highlightedContent:
 conceptualContent: 
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
   items: 
-    - title: Get connected
+    - title: Connect and develop devices
       links: 
-        - url: ./core/howto-set-up-template.md
-          itemType: how-to-guide
-          text: Set up a device template 
-        - url: ./core/tutorial-connect-pnp-device.md
+        - url: ./core/tutorial-connect-device-nodejs.md
           itemType: tutorial
-          text: Connect an IoT Plug and Play (preview) device
+          text: Connect device
+        - url: ./core/concepts-get-connected.md
+          itemType: concept
+          text: Device connectivity
+        - url: ./core/concepts-device-templates.md
+          itemType: concept
+          text: Device templates
+        - url: ./core/troubleshoot-connection.md
+          itemType: how-to-guide
+          text: Troubleshoot device connectivity
       footerLink: 
         url: ./core/index.yml
         text: See more
@@ -76,7 +82,7 @@ conceptualContent:
           text: Create a telemetry rule 
         - url: ./core/howto-export-data.md
           itemType: how-to-guide
-          text: Export data to destinations in Azure
+          text: Export data to cloud destinations
       footerLink: 
         url: ./core/index.yml
         text: See more
@@ -101,6 +107,8 @@ productDirectory:
             url: ./retail/tutorial-iot-central-connected-logistics.md
           - text: Create a digital distribution center application
             url: ./retail/tutorial-iot-central-digital-distribution-center.md 
+          - text: Create a video analytics application
+            url: ./retail/tutorial-video-analytics-create-app-yolo-v3.md 
 
     # Card
     - title: Build for healthcare

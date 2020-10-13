@@ -1,6 +1,7 @@
 ---
-title: Sign users in/out & call Microsoft Graph (Android) - Microsoft identity platform | Azure 
-description: Get an access token and call Microsoft Graph or APIs that require access tokens from Microsoft identity platform (Android)
+title: "Tutorial: Create an Android app that uses the Microsoft identity platform for authentication | Azure"
+titleSuffix: Microsoft identity platform
+description: In this tutorial, you build an Android app that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
 author: mmacy
 manager: CelesteDG
@@ -10,28 +11,27 @@ ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
 ms.date: 11/26/2019
-ms.author: hahamil 
+ms.author: hahamil
 ms.reviewer: brandwe
-ms.custom: aaddev, identityplatformtop40 
+ms.custom: aaddev, identityplatformtop40
 ---
 
-# Tutorial: Sign in users and call the Microsoft Graph from an Android application 
+# Tutorial: Sign in users and call the Microsoft Graph API from an Android application
 
->[!NOTE]
->This tutorial demonstrates simplified examples of how to work with MSAL for Android. For simplicity, this tutorial only uses Single Account Mode. You can also view the repo and clone [the preconfigured sample app](https://github.com/Azure-Samples/ms-identity-android-java/) to explore more complex scenarios. View the [Quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-android) for more on the sample app, configuration, and registration. 
-
-In this tutorial, you'll learn how to integrate your android app with the Microsoft identity platform using the Microsoft Authentication Library for Android. You'll learn how to sign in and sign out a user, get an access token to call the Microsoft Graph API, and make a request to the Graph API. 
-
-> [!div class="checklist"]
-> * Integrate your Android App with the Microsoft Identity Platform 
-> * Sign in a user 
-> * Get an access token to call the Microsoft Graph API 
-> * Call the Microsoft Graph API 
-> * Sign out a user 
+In this tutorial, you learn how to integrate your Android app with the Microsoft identity platform using the Microsoft Authentication Library (MSAL) for Android. You'll learn how to sign in and sign out a user, get an access token, and make a request to the Microsoft Graph API.
 
 When you've completed this tutorial, your application will accept sign-ins of personal Microsoft accounts (including outlook.com, live.com, and others) as well as work or school accounts from any company or organization that uses Azure Active Directory.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+> [!div class="checklist"]
+> * Create an Android app project in *Android Studio*
+> * Register the app in the Azure portal
+> * Add code to support user sign-in and sign-out
+> * Add code to call the Microsoft Graph API
+> * Test the app
+
+## Prerequisites
+
+* Android Studio 3.5+
 
 ## How this tutorial works
 
@@ -47,16 +47,15 @@ More specifically:
 * The access token will be included in the HTTP request to the web API.
 * Process the Microsoft Graph response.
 
-This sample uses the Microsoft Authentication library for Android (MSAL) to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
+This sample uses the Microsoft Authentication Library for Android (MSAL) to implement Authentication: [com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal).
 
- MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
+MSAL will automatically renew tokens, deliver single sign-on (SSO) between other apps on the device, and manage the Account(s).
 
-### Prerequisites
+> [!NOTE]
+> This tutorial demonstrates simplified examples of working with MSAL for Android. For simplicity, it uses Single Account Mode only. To explore more complex scenarios, see a completed [working code sample](https://github.com/Azure-Samples/ms-identity-android-java/) on GitHub.
 
-* This tutorial requires Android Studio version 3.5+
-
-## Create a Project
-If you do not already have an Android application, follow these steps to set up a new project. 
+## Create a project
+If you do not already have an Android application, follow these steps to set up a new project.
 
 1. Open Android Studio, and select **Start a new Android Studio project**.
 2. Select **Basic Activity** and select **Next**.
@@ -66,7 +65,7 @@ If you do not already have an Android application, follow these steps to set up 
 6. Set the **Minimum API level** to **API 19** or higher, and click **Finish**.
 7. In the project view, choose **Project** in the dropdown to display source and non-source project files, open **app/build.gradle** and set `targetSdkVersion` to `28`.
 
-## Integrate with Microsoft Authentication Library 
+## Integrate with Microsoft Authentication Library
 
 ### Register your application
 
@@ -78,23 +77,23 @@ If you do not already have an Android application, follow these steps to set up 
 6. In the **Signature hash** section of the **Configure your Android app** page, click **Generating a development Signature Hash.** and copy the KeyTool command to use for your platform.
 
    > [!Note]
-   > KeyTool.exe is installed as part of the Java Development Kit (JDK). You must also install the OpenSSL tool to execute the KeyTool command. Refer to the [Android documentation on generating a key](https://developer.android.com/studio/publish/app-signing#generate-key) for more information. 
+   > KeyTool.exe is installed as part of the Java Development Kit (JDK). You must also install the OpenSSL tool to execute the KeyTool command. Refer to the [Android documentation on generating a key](https://developer.android.com/studio/publish/app-signing#generate-key) for more information.
 
 7. Enter the **Signature hash** generated by KeyTool.
 8. Click `Configure` and save the **MSAL Configuration** that appears in the **Android configuration** page so you can enter it when you configure your app later.  Click **Done**.
 
-### Configure your application 
+### Configure your application
 
 1. In Android Studio's project pane, navigate to **app\src\main\res**.
 2. Right-click **res** and choose **New** > **Directory**. Enter `raw` as the new directory name and click **OK**.
-3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_config_single_account.json` and paste the MSAL Configuration that you saved earlier. 
+3. In **app** > **src** > **main** > **res** > **raw**, create a new JSON file called `auth_config_single_account.json` and paste the MSAL Configuration that you saved earlier.
 
-    Below the redirect URI, paste: 
+    Below the redirect URI, paste:
     ```json
       "account_mode" : "SINGLE",
     ```
-    Your config file should resemble this example: 
-    ```json   
+    Your config file should resemble this example:
+    ```json
     {
       "client_id" : "0984a7b6-bc13-4141-8b0d-8f767e136bb7",
       "authorization_user_agent" : "DEFAULT",
@@ -111,10 +110,10 @@ If you do not already have an Android application, follow these steps to set up 
       ]
     }
    ```
-    
+
    >[!NOTE]
-   >This tutorial only demonstrates how to configure an app in Single Account mode. View the documentation for more information on [single vs. multiple account mode](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account) and [configuring your app](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration)
-   
+   >This tutorial only demonstrates how to configure an app in Single Account mode. View the documentation for more information on [single vs. multiple account mode](./single-multi-account.md) and [configuring your app](./msal-configuration.md)
+
 4. In **app** > **src** > **main** > **AndroidManifest.xml**, add the `BrowserTabActivity` activity below to the application body. This entry allows Microsoft to call back to your application after it completes the authentication:
 
     ```xml
@@ -133,35 +132,35 @@ If you do not already have an Android application, follow these steps to set up 
     ```
 
     Substitute the package name you registered in the Azure portal for the `android:host=` value.
-    Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL encoded. Ensure that there is a leading `/` at the beginning of your Signature Hash. 
+    Substitute the key hash you registered in the Azure portal for the `android:path=` value. The Signature Hash should **not** be URL encoded. Ensure that there is a leading `/` at the beginning of your Signature Hash.
     >[!NOTE]
     >The "Package Name" you will replace the `android:host` value with should look similar to: "com.azuresamples.msalandroidapp"
     >The "Signature Hash" you will replace your `android:path` value with should look similar to: "/1wIqXSqBj7w+h11ZifsnqwgyKrY="
-    >You will also be able to find these values in the Authentication blade of your app registration. Note that your redirect URI will look similar to: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". While the Signature Hash is URL encoded at the end of this value, the Signature Hash should **not** be URL encoded in your `android:path` value. 
+    >You will also be able to find these values in the Authentication blade of your app registration. Note that your redirect URI will look similar to: "msauth://com.azuresamples.msalandroidapp/1wIqXSqBj7w%2Bh11ZifsnqwgyKrY%3D". While the Signature Hash is URL encoded at the end of this value, the Signature Hash should **not** be URL encoded in your `android:path` value.
 
-## Use MSAL 
+## Use MSAL
 
 ### Add MSAL to your project
 
-1. In the Android Studio project window, navigate to **app** > **src** > **build.gradle** and add the following: 
+1. In the Android Studio project window, navigate to **app** > **src** > **build.gradle** and add the following:
 
     ```gradle
     repositories{
         jcenter()
-    }  
+    }
     dependencies{
         implementation 'com.microsoft.identity.client:msal:1.+'
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
     }
     packagingOptions{
-        exclude("META-INF/jersey-module-version") 
+        exclude("META-INF/jersey-module-version")
     }
     ```
     [More on the Microsoft Graph SDK](https://github.com/microsoftgraph/msgraph-sdk-java/)
 
-### Required Imports 
+### Required Imports
 
-Add the following to the top of **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java** 
+Add the following to the top of **app** > **src** > **main**> **java** > **com.example(yourapp)** > **MainActivity.java**
 
 ```java
 import android.os.Bundle;
@@ -186,7 +185,7 @@ import com.microsoft.identity.client.exception.*;
 ```
 
 ## Instantiate PublicClientApplication
-#### Initialize Variables 
+#### Initialize Variables
 ```java
 private final static String[] SCOPES = {"Files.Read"};
 /* Azure AD v2 Configs */
@@ -230,10 +229,10 @@ protected void onCreate(Bundle savedInstanceState) {
 }
 ```
 
-### loadAccount 
+### loadAccount
 
 ```java
-//When app comes to the foreground, load existing account to determine if user is signed in 
+//When app comes to the foreground, load existing account to determine if user is signed in
 private void loadAccount() {
     if (mSingleAccountApp == null) {
         return;
@@ -245,7 +244,7 @@ private void loadAccount() {
             // You can use the account data to update your UI or your app database.
             updateUI(activeAccount);
         }
-        
+
         @Override
         public void onAccountChanged(@Nullable IAccount priorAccount, @Nullable IAccount currentAccount) {
             if (currentAccount == null) {
@@ -263,7 +262,7 @@ private void loadAccount() {
 ```
 
 ### initializeUI
-Listen to buttons and call methods or log errors accordingly. 
+Listen to buttons and call methods or log errors accordingly.
 ```java
 private void initializeUI(){
         signInButton = findViewById(R.id.signIn);
@@ -272,8 +271,8 @@ private void initializeUI(){
         signOutButton = findViewById(R.id.clearCache);
         logTextView = findViewById(R.id.txt_log);
         currentUserTextView = findViewById(R.id.current_user);
-        
-        //Sign in user 
+
+        //Sign in user
         signInButton.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
                 if (mSingleAccountApp == null) {
@@ -282,7 +281,7 @@ private void initializeUI(){
                 mSingleAccountApp.signIn(MainActivity.this, null, SCOPES, getAuthInteractiveCallback());
             }
         });
-        
+
         //Sign out user
         signOutButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -303,8 +302,8 @@ private void initializeUI(){
                 });
             }
         });
-        
-        //Interactive 
+
+        //Interactive
         callGraphApiInteractiveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -329,12 +328,12 @@ private void initializeUI(){
 ```
 
 > [!Important]
-> Signing out with MSAL removes all known information about a user from the application, but the user will still have an active session on their device. If the user attempts to sign in again they may see sign-in UI, but may not need to reenter their credentials because the device session is still active. 
+> Signing out with MSAL removes all known information about a user from the application, but the user will still have an active session on their device. If the user attempts to sign in again they may see sign-in UI, but may not need to reenter their credentials because the device session is still active.
 
 ### getAuthInteractiveCallback
 Callback used for interactive requests.
 
-```java 
+```java
 private AuthenticationCallback getAuthInteractiveCallback() {
     return new AuthenticationCallback() {
         @Override
@@ -363,8 +362,8 @@ private AuthenticationCallback getAuthInteractiveCallback() {
 ```
 
 ### getAuthSilentCallback
-Callback used for silent requests 
-```java 
+Callback used for silent requests
+```java
 private SilentAuthenticationCallback getAuthSilentCallback() {
     return new SilentAuthenticationCallback() {
         @Override
@@ -381,11 +380,11 @@ private SilentAuthenticationCallback getAuthSilentCallback() {
 }
 ```
 
-## Call Microsoft Graph API 
+## Call Microsoft Graph API
 
-The following code demonstrates how to call the GraphAPI using the Graph SDK. 
+The following code demonstrates how to call the GraphAPI using the Graph SDK.
 
-### callGraphAPI 
+### callGraphAPI
 
 ```java
 private void callGraphAPI(IAuthenticationResult authenticationResult) {
@@ -423,12 +422,12 @@ private void callGraphAPI(IAuthenticationResult authenticationResult) {
 ```
 
 ## Add UI
-### Activity 
+### Activity
 If you would like to model your UI off this tutorial, the following methods provide a guide to updating text and listening to buttons.
 
 #### updateUI
-Enable/disable buttons based on sign-in state and set text.  
-```java 
+Enable/disable buttons based on sign-in state and set text.
+```java
 private void updateUI(@Nullable final IAccount account) {
     if (account != null) {
         signInButton.setEnabled(false);
@@ -447,7 +446,7 @@ private void updateUI(@Nullable final IAccount account) {
 }
 ```
 #### displayError
-```java 
+```java
 private void displayError(@NonNull final Exception exception) {
        logTextView.setText(exception.toString());
    }
@@ -461,7 +460,7 @@ private void displayGraphResult(@NonNull final JsonObject graphResponse) {
   }
 ```
 #### performOperationOnSignOut
-Method to update text in UI to reflect sign out. 
+Method to update text in UI to reflect sign out.
 
 ```java
 private void performOperationOnSignOut() {
@@ -471,11 +470,11 @@ private void performOperationOnSignOut() {
             .show();
 }
 ```
-### Layout 
+### Layout
 
-Sample `activity_main.xml` file to display buttons and text boxes. 
+Sample `activity_main.xml` file to display buttons and text boxes.
 
-```xml 
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -569,15 +568,20 @@ Sample `activity_main.xml` file to display buttons and text boxes.
 Build and deploy the app to a test device or emulator. You should be able to sign in and get tokens for Azure AD or personal Microsoft accounts.
 
 After you sign in, the app will display the data returned from the Microsoft Graph `/me` endpoint.
-
+PR 4
 ### Consent
 
-The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested. Some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, you will either need to create your own tenant or receive admin consent. 
+The first time any user signs into your app, they will be prompted by Microsoft identity to consent to the permissions requested. Some Azure AD tenants have disabled user consent which requires admins to consent on behalf of all users. To support this scenario, you will either need to create your own tenant or receive admin consent.
 
 ## Clean up resources
 
 When no longer needed, delete the app object that you created in the [Register your application](#register-your-application) step.
 
-## Get help
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-Visit [Help and support](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) if you have trouble with this tutorial or with the Microsoft identity platform.
+## Next steps
+
+Learn more about building mobile apps that call protected web APIs in our multi-part scenario series.
+
+> [!div class="nextstepaction"]
+> [Scenario: Mobile application that calls web APIs](scenario-mobile-overview.md)

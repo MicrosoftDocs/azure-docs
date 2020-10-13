@@ -57,7 +57,7 @@
   - name: VM startup is stuck
     href: troubleshoot-vm-boot-configure-update.md
   - name: VM lifecycle and states
-    href: ../windows/states-lifecycle.md
+    href: ../states-lifecycle.md
 - name: VM is not booting
   items:
   - name: Linux
@@ -84,6 +84,8 @@
       href: troubleshoot-critical-service-failed-boot-error.md
     - name: Troubleshoot boot error - Status not found
       href: boot-error-status-not-found.md
+    - name: Troubleshoot Windows could not finish configuring the system
+      href: windows-could-not-configure-system.md
     - name: Troubleshoot Windows Update installation capacity
       href: windows-update-installation-capacity.md
     - name: Not a bootable disk
@@ -92,16 +94,30 @@
       href: troubleshoot-reboot-loop.md
     - name: Stuck at Windows update
       href: troubleshoot-stuck-updating-boot-error.md
+    - name: Unexpected restart or error
+      href: troubleshoot-unexpected-restart-error-during-vm-boot.md
     - name: VM startup is stuck
       href: troubleshoot-vm-boot-configure-update.md
     - name: VM cannot boot due to windows boot manager
       href: troubleshoot-guide-windows-boot-manager-menu.md
     - name: VM is unresponsive due to updating
       href: unresponsive-vm-apply-windows-update.md
+    - name: VM is unresponsive while applying audit configuration policy
+      href: vm-unresponsive-applying-audit-configuration-policy.md
+    - name: VM is unresponsive while applying default domain controllers policy
+      href: vm-unresponsive-domain-controllers-policy.md
     - name: VM is unresponsive when applying group policy
       href: unresponsive-vm-apply-group-policy.md
     - name: VM is unresponsive when applying security policy
       href: unresponsive-vm-apply-security-policy.md
+    - name: Windows boot manager error - Status Invalid Image Hash
+      href: windows-boot-error-invalid-image-hash.md
+    - name: Windows stop error - Bad System Config Info
+      href: windows-stop-error-bad-system-config-info.md
+    - name: Windows stop error - Status No Memory
+      href: troubleshoot-windows-stop-error.md
+    - name: Windows stop error - System Process Terminated
+      href: windows-stop-error-system-process-terminated.md
 - name: Cannot connect to my VM
   items:
   - name: RDP
@@ -190,13 +206,15 @@
 - name: Virtual Disk Management issues
   items:
   - name: Overview
-    href: ../windows/managed-disks-overview.md
+    href: ../managed-disks-overview.md
   - name: FAQ
-    href: ../windows/faq-for-disks.md
+    href: ../faq-for-disks.md
   - name: Errors when deleting storage resources
     href: storage-resource-deletion-errors.md
   - name: Errors when deleting classic storage resources
     href: storage-classic-cannot-delete-storage-account-container-vhd.md
+  - name: VHD is not supported when you create a VM in Azure
+    href: vhd-not-supported-vm-azure.md
   - name: Use nested virtualization
     href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: VM Performance issues
@@ -207,6 +225,8 @@
       href: troubleshoot-performance-virtual-machine-linux-windows.md
     - name: Performance diagnostics
       href: performance-diagnostics.md
+    - name: Troubleshoot high CPU issues for Azure Windows Virtual Machine
+      href: troubleshoot-high-cpu-issues-azure-windows-vm.md
   - name: PerfInsights
     items:
     - name: Windows
@@ -219,6 +239,12 @@
       items:
       - name: How to use PerfInsights
         href: how-to-use-perfinsights-linux.md
+- name: Troubleshoot Shared Image Galleries
+  items:
+  - name: Troubleshoot Shared Image Gallery - Windows
+    href: ../troubleshooting-shared-images.md
+  - name: Troubleshoot Shared Image Gallery - Linux
+    href: ../troubleshooting-shared-images.md
 - name: VM extension issues
   items:
   - name: Azure extension overview
@@ -227,6 +253,8 @@
     href: ../extensions/troubleshoot.md
   - name: Install Windows VM agent offline
     href: install-vm-agent-offline.md
+  - name: Troubleshoot Windows VM agent
+    href: windows-azure-guest-agent.md
 - name: Backup and restore
   items:
   - name: Troubleshoot backup failures on Azure VM
@@ -321,4 +349,3 @@
   items:
   - name: Support for 32-bit operating systems
     href: support-32-bit-operating-systems-virtual-machines.md
-    

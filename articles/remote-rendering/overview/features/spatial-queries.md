@@ -5,6 +5,7 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/07/2020
 ms.topic: article
+ms.custom: devx-track-csharp
 ---
 
 # Spatial queries
@@ -64,19 +65,19 @@ void CastRay(ApiHandle<AzureSession> session)
     ApiHandle<RaycastQueryAsync> castQuery = *session->Actions()->RayCastQueryAsync(rayCast);
 
     castQuery->Completed([](const ApiHandle<RaycastQueryAsync>& async)
-    {
-        std::vector<RayCastHit> hits = *async->Result();
-
-        if (hits.size() > 0)
         {
-            auto hitObject = hits[0].HitObject;
-            auto hitPosition = hits[0].HitPosition;
-            auto hitNormal = hits[0].HitNormal;
+            std::vector<RayCastHit> hits;
+            async->GetResult(hits);
 
-            // do something with the hit information
-        }
-    });
+            if (hits.size() > 0)
+            {
+                auto hitObject = hits[0].HitObject;
+                auto hitPosition = hits[0].HitPosition;
+                auto hitNormal = hits[0].HitNormal;
 
+                // do something with the hit information
+            }
+        });
 }
 ```
 
@@ -106,6 +107,11 @@ A Hit has the following properties:
 * **`HitPosition`:** The world space position where the ray intersected the object.
 * **`HitNormal`:** The world space surface normal of the mesh at the position of the intersection.
 * **`DistanceToHit`:** The distance from the ray starting position to the hit.
+
+## API documentation
+
+* [C# RemoteManager.RayCastQueryAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.raycastqueryasync)
+* [C++ RemoteManager::RayCastQueryAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#raycastqueryasync)
 
 ## Next steps
 

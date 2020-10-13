@@ -7,6 +7,10 @@ ms.author: glenga
 ---
 Functions lets you use keys to make it harder to access your HTTP function endpoints during development. Unless the HTTP access level on an HTTP triggered function is set to `anonymous`, requests must include an API access key in the request. 
 
+While keys provide a default security mechanism, you may want to consider additional options to secure an HTTP endpoint in production. For example, it's generally not a good practice to distribute shared secret in public apps. If your function is being called from a public client, you may want to consider implementing another security mechanism. To learn more, see [Secure an HTTP endpoint in production](../articles/azure-functions/functions-bindings-http-webhook-trigger.md#secure-an-http-endpoint-in-production).
+
+When you renew your function key values, you must manually redistribute the updated key values to all clients that call your function.  
+
 #### Authorization scopes (function-level)
 
 There are two access scopes for function-level keys:

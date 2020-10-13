@@ -12,15 +12,15 @@ ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 06/12/2020
+ms.topic: overview
+ms.date: 07/02/2020
 ms.author: memildin
 
 ---
 
 # Permissions in Azure Security Center
 
-Azure Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Azure Security Center uses [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
 
@@ -40,8 +40,9 @@ The following table displays roles and allowed actions in Security Center.
 |Action|Security Reader / <br> Reader |Security Admin  |Resource Group Contributor / <br> Resource Group Owner  |Subscription Contributor  |Subscription Owner  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Edit security policy|-|✔|-|-|✔|
-|Change subscription pricing tier|-|✔|-|-|✔|
-|Enable / disable auto-provisioning|-|✔|✔|-|✔|
+|Add/assign initiatives (including) regulatory compliance standards)|-|-|-|-|✔|
+|Enable / disable Azure Defender|-|✔|-|-|✔|
+|Enable / disable auto-provisioning|-|✔|-|✔|✔|
 |Apply security recommendations for a resource</br> (and use [Quick Fix!](security-center-remediate-recommendations.md#quick-fix-remediation))|-|-|✔|✔|✔|
 |Dismiss alerts|-|✔|-|✔|✔|
 |View alerts and recommendations|✔|✔|✔|✔|✔|

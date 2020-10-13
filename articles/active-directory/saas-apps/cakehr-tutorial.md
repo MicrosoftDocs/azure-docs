@@ -1,23 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CakeHR | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and CakeHR.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1c9bbdb1-ac47-4fb8-a1cc-1e647b0323a7
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with CakeHR
@@ -146,11 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the top-right corner of the page, click on **Profile** and then navigate to **Settings**.
 
-    ![CakeHR configuration](./media/cakehr-tutorial/config01.png)
+    ![Screenshot shows Profile with Settings selected.](./media/cakehr-tutorial/config01.png)
 
 1. From the left side of the menu bar, click on **INTEGRATIONS** > **SAML SSO** and perform the following steps:
 
-    ![CakeHR configuration](./media/cakehr-tutorial/config02.png)
+    ![Screenshot shows the Setting pane where you perform these steps.](./media/cakehr-tutorial/config02.png)
 
     a. In the **Entity ID** text box, type `cake.hr`.
 
@@ -172,11 +165,11 @@ To enable Azure AD users to sign in to CakeHR, they must be provisioned into Cak
 
 2. From the left side of the menu bar, click on **COMPANY** > **ADD**.
 
-    ![CakeHR configuration](./media/cakehr-tutorial/config03.png)
+    ![Screenshot shows CakeHR with COMPANY and ADD selected.](./media/cakehr-tutorial/config03.png)
 
 3. On the **Add new employee** pop-up, perform the following steps:
 
-     ![CakeHR configuration](./media/cakehr-tutorial/config04.png)
+     ![Screenshot shows Add new employee where you perform these steps.](./media/cakehr-tutorial/config04.png)
 
     a. In **Full name** text box, enter the name of user like B.Simon.
 

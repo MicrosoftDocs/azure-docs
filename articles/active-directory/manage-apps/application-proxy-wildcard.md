@@ -57,7 +57,7 @@ While [custom domains](application-proxy-configure-custom-domain.md) are optiona
 1. Create a verified domain within Azure.
 1. Upload a TLS/SSL certificate in the PFX format to your application proxy.
 
-You should consider using a wildcard certificate to match the application you plan to create. Alternatively, you can also use a certificate that only lists specific applications. In this case, only the applications listed in the certificate will be accessible through this wildcard application.
+You should consider using a wildcard certificate to match the application you plan to create. 
 
 For security reasons, this is a hard requirement and we will not support wildcards for applications that cannot use a custom domain for the external URL.
 

@@ -2,12 +2,11 @@
 title: Firewall settings for Azure Lab Services
 description: Learn how to determine the public IP address and port number range of virtual machines in a lab so information can be added to firewall rules.
 author: emaher
-
 ms.author: enewman
-ms.date: 05/15/2020
+ms.date: 06/26/2020
 ms.topic: article
-ms.service: lab-services
 ---
+
 # Firewall settings for Azure Lab Services
 
 Each organization or school will set up their own network in a way that best fits their needs.  Sometimes that includes setting firewall rules that block Remote Desktop Protocol (rdp) or Secure Shell (ssh) connections to machines outside their own network.  Because Azure Lab Services runs in the public cloud, some extra configuration maybe needed to allow students to access their VM when connecting from the campus network.

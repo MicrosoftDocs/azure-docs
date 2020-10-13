@@ -77,6 +77,8 @@
       href: ./afds/waf-front-door-geo-filtering.md
     - name: FAQ
       href: ./afds/waf-faq.md
+  - name: WAF and Azure Policy
+    href: ./shared/waf-azure-policy.md
 - name: How-to guides
   items:
   - name: Application Gateway
@@ -129,6 +131,8 @@
       href: ./afds/waf-front-door-tutorial-geo-filtering.md
     - name: Monitor and logging
       href: ./afds/waf-front-door-monitor.md
+  - name: Using Azure Sentinel with Web Application Firewall
+    href: waf-sentinel.md
   - name: Troubleshoot
     items:
      - name: Application Gateway
@@ -162,7 +166,7 @@
     - name: Front Door
       href: https://docs.microsoft.com/rest/api/frontdoorservice/webapplicationfirewall/policies
     - name: Application Gateway
-      href: https://docs.microsoft.com/rest/api/virtualnetwork/webapplicationfirewallpolicies
+      href: https://docs.microsoft.com/azure/web-application-firewall/ag/ag-overview#waf-policy
   - name: .NET
     href: /dotnet/api
   - name: Java

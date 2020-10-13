@@ -81,7 +81,7 @@ Real Madrid uses the Power BI module to view their telemetry.
 ![Power BI view of Application Insights telemetry](./media/devops/080.png)
 
 ## Smart detection
-[Proactive diagnostics](../../azure-monitor/app/proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights automatically detects and alerts you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
+[Proactive diagnostics](./proactive-diagnostics.md) is a recent feature. Without any special configuration by you, Application Insights automatically detects and alerts you about unusual rises in failure rates in your app. It's smart enough to ignore a background of occasional failures, and also rises that are simply proportionate to a rise in requests. So for example, if there's a failure in one of the services you depend on, or if the new build you just deployed isn't working so well, then you'll know about it as soon as you look at your email. (And there are webhooks so that you can trigger other apps.)
 
 Another aspect of this feature performs a daily in-depth analysis of your telemetry, looking for unusual patterns of performance that are hard to discover. For example, it can find slow performance associated with a particular geographical area, or with a particular browser version.
 
@@ -106,7 +106,7 @@ Application Map automatically discovers your application topology, laying the pe
 ![Application Map](./media/devops/0050.png)
 
 ## Application Insights Analytics
-With [Analytics](../../azure-monitor/app/analytics.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
+With [Analytics](../log-query/log-query-overview.md), you can write arbitrary queries in a powerful SQL-like language.  Diagnosing across the entire app stack becomes easy as various perspectives get connected and you can ask the right questions to correlate Service Performance with Business Metrics and Customer Experience. 
 
 You can query all your telemetry instance and metric raw data stored in the portal. The language includes filter, join, aggregation, and other operations. You can calculate fields and perform statistical analysis. There are both tabular and graphical visualizations.
 
@@ -141,9 +141,9 @@ During debugging, you have the option to keep the telemetry in your development 
 When an alert is raised, Application Insights can automatically create a work item in your work tracking system.
 
 ## But what about...?
-* [Privacy and storage](../../azure-monitor/app/data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
+* [Privacy and storage](./data-retention-privacy.md) - Your telemetry is kept on Azure secure servers.
 * Performance - the impact is very low. Telemetry is batched.
-* [Pricing](../../azure-monitor/app/pricing.md) - You can get started for free, and that continues while you're in low volume.
+* [Pricing](./pricing.md) - You can get started for free, and that continues while you're in low volume.
 
 
 ## Video
@@ -153,7 +153,7 @@ When an alert is raised, Application Insights can automatically create a work it
 ## Next steps
 Getting started with Application Insights is easy. The main options are:
 
-* [IIS servers](../../azure-monitor/app/monitor-performance-live-website-now.md), and also for [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
-* Instrument your project during development. You can do this for [ASP.NET](../../azure-monitor/app/asp-net.md) or [Java](../../azure-monitor/app/java-get-started.md) apps, as well as [Node.js](../../azure-monitor/app/nodejs.md) and a host of [other types](../../azure-monitor/app/platforms.md). 
-* Instrument [any web page](../../azure-monitor/app/javascript.md) by adding a short code snippet.
+* [IIS servers](./monitor-performance-live-website-now.md), and also for [Azure App Service](./app-insights-overview.md).
+* Instrument your project during development. You can do this for [ASP.NET](./asp-net.md) or [Java](./java-get-started.md) apps, as well as [Node.js](./nodejs.md) and a host of [other types](./platforms.md). 
+* Instrument [any web page](./javascript.md) by adding a short code snippet.
 

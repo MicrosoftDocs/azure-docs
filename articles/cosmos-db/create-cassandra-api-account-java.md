@@ -8,8 +8,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.custom: seodec18
-#Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-master, and other capabilities offered by Azure Cosmos DB.
+ms.custom: seodec18, devx-track-java
+#Customer intent: As a developer, I want to build a Java application to access and manage Azure Cosmos DB resources so that customers can store key/value data and utilize the global distribution, elastic scaling, multi-region writes, and other capabilities offered by Azure Cosmos DB.
 ---
 
 # Tutorial: Create a Cassandra API account in Azure Cosmos DB by using a Java application to store key/value data
@@ -29,7 +29,7 @@ This tutorial covers the following tasks:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. 
 
-* Get the latest version of [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable). 
+* Get the latest version of [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true). 
 
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) the [Maven](https://maven.apache.org/) binary archive. 
   - On Ubuntu, you can run `apt-get install maven` to install Maven. 
@@ -50,7 +50,7 @@ This tutorial covers the following tasks:
    |Resource Group   | Enter a name    |  Select **Create New**, and then enter a new resource-group name for your account. For simplicity, you can use the same name as your ID.    |
    |Location    |  Select the region closest to your users    |  Select the geographic location in which to host your Azure Cosmos account. Use the location that's closest to your users, to give them the fastest access to the data.    |
 
-   ![Create account with portal](./media/create-cassandra-api-account-java/create-account.png)
+   :::image type="content" source="./media/create-cassandra-api-account-java/create-account.png" alt-text="Create account with portal":::
 
 4. Select **Create**. <br/>The account creation takes a few minutes. After the resource is created, you can see the **Deployment succeeded** notification on the right side of the portal.
 

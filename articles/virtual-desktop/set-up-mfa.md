@@ -1,16 +1,16 @@
 ---
 title: Set up Azure Multi-Factor Authentication for Windows Virtual Desktop - Azure
 description: How to set up Azure Multi-Factor Authentication for increased security in Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-
-ms.service: virtual-desktop
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
 ---
 # Enable Azure Multi-Factor Authentication for Windows Virtual Desktop
+
+>[!IMPORTANT]
+> If you're visiting this page from the Windows Virtual Desktop (classic) documentation, make sure to [return to the Windows Virtual Desktop (classic) documentation](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md) once you're finished.
 
 The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client, there are certain measures you'll need to take to keep yourself and your users safe.
 
@@ -31,27 +31,55 @@ Here's what you'll need to get started:
 
 ## Create a Conditional Access policy
 
-This section will show you how to create a Conditional Access policy that requires multi-factor authentication when connecting to Windows Virtual Desktop.
+Here's how to create a Conditional Access policy that requires multi-factor authentication when connecting to Windows Virtual Desktop:
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 2. Browse to **Azure Active Directory** > **Security** > **Conditional Access**.
 3. Select **New policy**.
 4. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 5. Under **Assignments**, select **Users and groups**.
-   - Under **Include**, select **Select users and groups** > **Users and groups** > Choose the group created in the prerequisites stage.
-   - Select **Done**.
-6. Under **Cloud apps or actions** > **Include**, select **Select apps**.
-   - Choose **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07), then **Select**, and then then **Done**.
+6. Under **Include**, select **Select users and groups** > **Users and groups** > Choose the group you created in the [prerequisites](#prerequisites) stage.
+7. Select **Done**.
+8. Under **Cloud apps or actions** > **Include**, select **Select apps**.
+9. Select one of the following apps based on which version of Windows Virtual Desktop you're using.
    
-     ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
+   - If you're using Windows Virtual Desktop (classic), choose these apps:
+       
+       - **Windows Virtual Desktop** (App ID 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Windows Virtual Desktop Client** (App ID fa4345a4-a730-4230-84a8-7d9651b86739), which will let you set policies on the web client
+       
+        After that, skip ahead to step 11.
 
-     >[!NOTE]
-     >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
+   - If you're using Windows Virtual Desktop, choose this app instead:
+       
+       -  **Windows Virtual Desktop** (App ID 9cdead84-a844-4324-93f2-b2e6bb768d07)
+       
+        After that, go to step 10.
 
-7. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
-8. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then select **Select**.
-9. Confirm your settings and set **Enable policy** to **On**.
-10. Select **Create** to enable your policy.
+   >[!IMPORTANT]
+   > Don't select the app called Windows Virtual Desktop Azure Resource Manager Provider (50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have MFA.
+
+10. Go to **Conditions** > **Client apps**, then select where you want to apply the policy to:
+    
+    - Select **Browser** if you want the policy to apply to the web client.
+    - Select **Mobile apps and desktop clients** if you want to apply the policy to other clients.
+    - Select both check boxes if you want to apply the policy to all clients.
+   
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Client apps page. The user has selected the mobile apps and desktop clients check box.](media/select-apply.png)
+
+11. Once you've selected your app, choose **Select**, and then select **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![A screenshot of the Cloud apps or actions page. The Windows Virtual Desktop and Windows Virtual Desktop Client apps are highlighted in red.](media/cloud-apps-enterprise.png)
+
+    >[!NOTE]
+    >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
+
+12. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
+13. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then select **Select**.
+14. Confirm your settings and set **Enable policy** to **On**.
+15. Select **Create** to enable your policy.
 
 ## Next steps
 

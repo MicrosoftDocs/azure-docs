@@ -5,8 +5,8 @@ description: Get answers to frequently asked questions about Conditional Access 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 05/28/2020
+ms.topic: troubleshooting
+ms.date: 06/22/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -28,11 +28,11 @@ Policies are enforced for business-to-business (B2B) collaboration users. Howeve
 
 ## Does a SharePoint Online policy also apply to OneDrive for Business?
 
-Yes. A SharePoint Online policy also applies to OneDrive for Business. For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365-preview) instead.
+Yes. A SharePoint Online policy also applies to OneDrive for Business. For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365) instead.
 
 ## Why can’t I set a policy directly on client apps, like Word or Outlook?
 
-A Conditional Access policy sets requirements for accessing a service. It's enforced when authentication to that service occurs. The policy is not set directly on a client application. Instead, it is applied when a client calls a service. For example, a policy set on SharePoint applies to clients calling SharePoint. A policy set on Exchange applies to Outlook. For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365-preview) instead.
+A Conditional Access policy sets requirements for accessing a service. It's enforced when authentication to that service occurs. The policy is not set directly on a client application. Instead, it is applied when a client calls a service. For example, a policy set on SharePoint applies to clients calling SharePoint. A policy set on Exchange applies to Outlook. For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365) instead.
 
 ## Does a Conditional Access policy apply to service accounts?
 
@@ -50,7 +50,13 @@ Microsoft Teams also is supported separately as a cloud app in Conditional Acces
 
 Microsoft Teams desktop clients for Windows and Mac support modern authentication. Modern authentication brings sign-in based on the Azure Active Directory Authentication Library (ADAL) to Microsoft Office client applications across platforms.
 
-For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365-preview) instead.
+For more information, see the article, [Conditional Access service dependencies](service-dependencies.md) and consider targeting policies to the [Office 365 app](concept-conditional-access-cloud-apps.md#office-365) instead.
+
+## Why are some tabs not working in Microsoft Teams after enabling Conditional Access policies?
+
+After enabling some Conditional Access policies on the tenant in Microsoft Teams, certain tabs may no longer function in the desktop client as expected. However, the affected tabs function when using the Microsoft Teams web client. The tabs affected may include Power BI, Forms, VSTS, PowerApps, and SharePoint List.
+
+To see the affected tabs you must use the Teams web client in Edge, Internet Explorer, or Chrome with the Windows 10 Accounts extension installed. Some tabs depend on web authentication, which doesn't work in the Microsoft Teams desktop client when Conditional Access is enabled. Microsoft is working with partners to enable these scenarios. To date, we have enabled scenarios involving Planner, OneNote, and Stream.
 
 ## Next steps
 

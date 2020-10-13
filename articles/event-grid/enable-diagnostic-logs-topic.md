@@ -1,13 +1,8 @@
 ---
 title: Azure Event Grid - Enable diagnostic logs for topics or domains
 description: This article provides step-by-step instructions on how to enable diagnostic logs for an Azure event grid topic.
-services: event-grid
-author: spelluru
-
-ms.service: event-grid
 ms.topic: how-to
-ms.date: 06/10/2020
-ms.author: spelluru
+ms.date: 07/07/2020
 ---
 
 #  Enable Diagnostic logs for Azure event grid topics or domains
@@ -37,19 +32,19 @@ Diagnostic settings allow Event Grid users to capture and view **publish and del
     
     ![Add diagnostic setting button](./media/enable-diagnostic-logs-topic/diagnostic-settings-add.png)
 5. Specify a **name** for the diagnostic setting. 
-7. Select the **DeliveryFailures** and **PublishFailures** options in the **Log** section. 
+6. Select the **DeliveryFailures** and **PublishFailures** options in the **Log** section. 
     ![Select the failures](./media/enable-diagnostic-logs-topic/log-failures.png)
-6. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource. 
+7. Enable one or more of the capture destinations for the logs, and then configure them by selecting a previous created capture resource. 
     - If you select **Archive to a storage account**, select **Storage account - Configure**, and then select the storage account in your Azure subscription. 
 
-        ![Archive to an Azure storage account](./media/enable-diagnostic-logs-topic/archive-storage.png)
+        ![Screenshot that shows the "Diagnostic settings" page with "Archive to an Azure storage account" checked and a storage account selected.](./media/enable-diagnostic-logs-topic/archive-storage.png)
     - If you select **Stream to an event hub**, select **Event hub - Configure**, and then select the Event Hubs namespace, event hub, and the access policy. 
-        ![Stream to an event hub](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
+        ![Screenshot that shows the "Diagnostic settings" page with "Stream to an event hub" checked.](./media/enable-diagnostic-logs-topic/archive-event-hub.png)
     - If you select **Send to Log Analytics**, select the Log Analytics workspace.
-        ![Send to Log Analytics](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
+        ![Screenshot that shows the "Diagnostic settings" page with "Send to Log Analytics" checked.](./media/enable-diagnostic-logs-topic/send-log-analytics.png)
 8. Select **Save**. Then, select **X** in the right-corner to close the page. 
 9. Now, back on the **Diagnostic settings** page, confirm that you see a new entry in the **Diagnostics Settings** table. 
-    ![Diagnostic setting in the list](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
+    ![Screenshot that shows the "Diagnostic settings" page with a new entry highlighted in the "Diagnostics settings" table.](./media/enable-diagnostic-logs-topic/diagnostic-setting-list.png)
 
 	 You can also enable collection of all metrics for the topic. 
 

@@ -112,9 +112,9 @@ Many PCs are portable but not always within customer reach. They may be briefly 
 
 Therefore, assistants should follow the guidance in this section to help keep experience secure. Interaction above lock occurs when the Windows user is unauthenticated. This means that, in general, **input to the assistant should also be treated as unauthenticated**.
 
-- Assistants should **implement a skill whitelist to identify skills that are confirmed secure and safe** to be accessed above lock.
+- Assistants should **implement a skill allowed list to identify skills that are confirmed secure and safe** to be accessed above lock.
 - Speaker ID technologies can play a role in alleviating some risks, but Speaker ID is not a suitable replacement for Windows authentication.
-- The skill whitelist should consider three classes of actions or skills:
+- The skill allowed list should consider three classes of actions or skills:
 
 | **Action class** | **Description** | **Examples (not a complete list)** |
 | --- | --- | --- |
@@ -124,7 +124,7 @@ Therefore, assistants should follow the guidance in this section to help keep ex
 
 For the case of Contoso, general information around public stock information is safe without authentication. Customer-specific information such as number of shares owned is likely safe with Speaker ID. However, buying or selling stocks should never be allowed without Windows authentication.
 
-To further secure the experience, **weblinks, or other app-to-app launches will always be blocked by Windows until the customer signs in.** As a last resort mitigation, Microsoft reserves the right to remove an application from the whitelist of enabled assistants if a serious security issue is not addressed in a timely manner.
+To further secure the experience, **weblinks, or other app-to-app launches will always be blocked by Windows until the customer signs in.** As a last resort mitigation, Microsoft reserves the right to remove an application from the allowed list of enabled assistants if a serious security issue is not addressed in a timely manner.
 
 ## Design guidance for voice activation preview
 

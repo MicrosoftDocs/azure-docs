@@ -6,7 +6,7 @@ author: kevinvngo
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: 
+ms.subservice: sql-dw 
 ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
@@ -78,7 +78,7 @@ Follow these steps to create a blank SQL pool.
 
 1. Select **Review + create** to review your settings, and then select **Create** to create your data warehouse. You can monitor your progress by opening the **deployment in progress** page from the **Notifications** menu.
 
-     ![notification](./media/load-data-wideworldimportersdw/notification.png)
+     ![Screenshot shows Notifications with Deployment in progress.](./media/load-data-wideworldimportersdw/notification.png)
 
 ## Create a server-level firewall rule
 

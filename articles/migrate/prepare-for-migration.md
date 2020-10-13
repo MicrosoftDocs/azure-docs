@@ -28,9 +28,9 @@ The table summarizes discovery, assessment, and migration limits for Azure Migra
 
 **Scenario** | **Project** | **Discovery/Assessment** | **Migration**
 --- | --- | --- | ---
-**VMware VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. | **Agentless migration**: you can simultaneously replicate a maximum of 300 VMs. For best performance, we recommend creating multiple batches of VMs if you  have more than 50.<br/><br/> **Agent-based migration**: you can [scale out](/agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**VMware VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 10,000 VMware VMs with a single [Azure Migrate appliance](common-questions-appliance.md) for VMware. | **Agentless migration**: you can simultaneously replicate a maximum of 300 VMs. For best performance, we recommend creating multiple batches of VMs if you  have more than 50.<br/><br/> **Agent-based migration**: you can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of VMs.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 **Hyper-V VMs** | Discover and assess up to 35,000 VMs in a single Azure Migrate project. | Discover up to 5,000 Hyper-V VMs with a single Azure Migrate appliance | An appliance isn't used for Hyper-V migration. Instead, the Hyper-V Replication Provider runs on each Hyper-V host.<br/><br/> Replication capacity is influenced by performance factors such as VM churn, and upload bandwidth for replication data.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
-**Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 250 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](/agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
+**Physical machines** | Discover and assess up to 35,000 machines in a single Azure Migrate project. | Discover up to 250 physical servers with a single Azure Migrate appliance for physical servers. | You can [scale out](./agent-based-migration-architecture.md#performance-and-scaling) the [replication appliance](migrate-replication-appliance.md) to replicate large numbers of servers.<br/><br/> In the portal, you can select up to 10 machines at once for replication. To replicate more machines, add in batches of 10.
 
 ## Select a VMware migration method
 
@@ -89,7 +89,7 @@ By default, Azure VMs are assigned drive D to use as temporary storage.
 
 - This drive assignment causes all other attached storage drive assignments to increment by one letter.
 - For example, if your on-premises installation uses a data disk that is assigned to drive D for application installations, the assignment for this drive increments to drive E after you migrate the VM to Azure. 
-- To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to **OnlineAll:
+- To prevent this automatic assignment, and to ensure that Azure assigns the next free drive letter to its temporary volume, set the storage area network (SAN) policy to **OnlineAll**:
 
 Configure this setting manually as follows:
 
@@ -104,11 +104,13 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux 7.0+, 6.5+
-- CentOS 7.0+, 6.5+
+- Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
+- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x
 - SUSE Linux Enterprise Server 12 SP1+
-- Ubuntu 18.04LTS, 16.04LTS, 14.04LTS
+- SUSE Linux Enterprise Server 15 SP1
+- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
 - Debian 8, 7
+- Oracle Linux 7.7, 7.7-CI
 
 For other versions, prepare machines as summarized in the table.  
 
@@ -117,11 +119,24 @@ For other versions, prepare machines as summarized in the table.
 --- | --- | ---
 **Install Hyper-V Linux Integration Services** | Rebuild the Linux init image so it contains the necessary Hyper-V drivers. Rebuilding the init image ensures that the VM will boot in Azure. | Most new versions of Linux distributions have this included by default.<br/><br/> If not included, install manually for all versions except those called out above.
 **Enable Azure Serial Console logging** | Enabling console logging helps you troubleshoot. You don't need to reboot the VM. The Azure VM will boot by using the disk image. The disk image boot is equivalent to a reboot for the new VM.<br/><br/> Follow [these instructions](../virtual-machines/troubleshooting/serial-console-linux.md) to enable.
-**Update device map file** | Update the device map file with the device name-to-volume associations, so you use persistent device identifiers. | Install manually for all versions except those called out above.
+**Update device map file** | Update the device map file with the device name-to-volume associations, so you use persistent device identifiers. | Install manually for all versions except those called out above. (Only applicable in agent-based VMware scenario)
 **Update fstab entries** |	Update entries to use persistent volume identifiers.	| Update manually for all versions except those called out above.
 **Remove udev rule** | Remove any udev rules that reserves interface names based on mac address etc. | Remove manually for all versions except those called out above.
 **Update network interfaces** | Update network interfaces to receive IP address based on DHCP.nst | Update manually for all versions except those called out above.
 **Enable ssh** | Ensure ssh is enabled and the sshd service is set to start automatically on reboot.<br/><br/> Ensure that incoming ssh connection requests are not blocked by the OS firewall or scriptable rules.| Enable manually for all versions except those called out above.
+
+The following table summarizes the steps performed automatically for the operating systems listed above.
+
+
+| Action                                      | Agent\-Based VMware Migration | Agentless VMware Migration | Hyper\-V   |
+|---------------------------------------------|-------------------------------|----------------------------|------------|
+| Install Hyper\-V Linux Integration Services | Yes                           | Yes                        | Not needed |
+| Enable Azure Serial Console logging         | Yes                           | Yes                        | No         |
+| Update device map file                      | Yes                           | No                         | No         |
+| Update fstab entries                        | Yes                           | Yes                        | No         |
+| Remove udev rule                            | Yes                           | Yes                        | No         |
+| Update network interfaces                   | Yes                           | Yes                        | No         |
+| Enable ssh                                  | No                            | No                         | No         |
 
 Learn more about steps for [running a Linux VM on Azure](../virtual-machines/linux/create-upload-generic.md), and get instructions for some of the popular Linux distributions.
 
