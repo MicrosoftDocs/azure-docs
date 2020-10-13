@@ -22,7 +22,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Microsoft identity platform (v2.0)
-            url: ../develop/v2-overview.md
+            url: ../develop/index.yml
       - linkListType: get-started
         links:
           - text: Migrate ADAL apps to MSAL
