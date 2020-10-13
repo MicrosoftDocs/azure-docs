@@ -37,8 +37,7 @@ only for specific scenarios:
 -   Multi-layer applications that need to separate access control
     between layers
 
--   Shared key vault with common secrets, when applications need access
-    to subsets of secrets in that key vault
+-   Sharing individual secret between multiple applications
 
 More about Azure Key Vault management guidelines, see:
 
