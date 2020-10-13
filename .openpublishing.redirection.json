@@ -3687,6 +3687,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/how-to-backup-and-restore.md",
+      "redirect_url": "/azure/cosmos-db/online-backup-and-restore",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/databases-containers-items.md",
       "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
       "redirect_document_id": false
