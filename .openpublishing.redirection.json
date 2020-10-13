@@ -2,7 +2,7 @@
   "redirections": [
     {
       "source_path": "articles/healthcare-apis/bring-your-own-key.md",
-      "redirect_url": "azure/healthcare-apis/customer-managed-key",
+      "redirect_url": "/azure/healthcare-apis/customer-managed-key",
       "redirect_document_id": false
     },
     {
