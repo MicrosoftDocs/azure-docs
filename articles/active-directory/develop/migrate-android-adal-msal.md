@@ -11,7 +11,7 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
-ms.date: 10/13/2020
+ms.date: 10/14/2020
 ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
@@ -29,7 +29,7 @@ ADAL works with the Azure Active Directory v1.0 endpoint. The Microsoft Authenti
 Supports:
   - Organizational Identity (Azure Active Directory)
   - Non-organizational identities such as Outlook.com, Xbox Live, and so on
-  - (B2C Only) Federated login with Google, Facebook, Twitter, and Amazon
+  - (Azure AD B2C only) Federated login with Google, Facebook, Twitter, and Amazon
 
 - Is standards compatible with:
   - OAuth v2.0
@@ -247,90 +247,16 @@ In MSAL, there's a hierarchy of exceptions, and each has its own set of associat
 
 ### ADALError to MsalException translation
 
-:::row:::
-    :::column:::
-    **If you're catching these errors in ADAL...**
-    :::column-end:::
-    :::column:::
-    **...catch these MSAL exceptions:**
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    `MsalArgumentException`
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    - `ADALError.ANDROIDKEYSTORE_FAILED`
-    - `ADALError.AUTH_FAILED_USER_MISMATCH`
-    - `ADALError.DECRYPTION_FAILED`
-    - `ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`
-    - `ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`
-    - `ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`
-    - `ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`
-    - `ADALError.DEVICE_NO_SUCH_ALGORITHM`
-    - `ADALError.ENCODING_IS_NOT_SUPPORTED`
-    - `ADALError.ENCRYPTION_ERROR`
-    - `ADALError.IO_EXCEPTION`
-    - `ADALError.JSON_PARSE_ERROR`
-    - `ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`
-    - `ADALError.SOCKET_TIMEOUT_EXCEPTION`
-    :::column-end:::
-    :::column:::
-    `MsalClientException`
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    `MsalDeclinedScopeException`
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    - `ADALError.APP_PACKAGE_NAME_NOT_FOUND`
-    - `ADALError.BROKER_APP_VERIFICATION_FAILED`
-    - `ADALError.PACKAGE_NAME_NOT_FOUND`
-    :::column-end:::
-    :::column:::
-    `MsalException`
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    `MsalIntuneAppProtectionPolicyRequiredException`
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    - `ADALError.AUTH_REFRESH_FAILED_PROMPT_NOT_ALLOWED`
-    - `ADALError.SERVER_ERROR`
-    - `ADALError.SERVER_INVALID_REQUEST`
-    :::column-end:::
-    :::column:::
-    `MsalServiceException`
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    `MsalUiRequiredException`
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column:::
-    :::column-end:::
-    :::column:::
-    `MsalUserCancelException`
-    :::column-end:::
-:::row-end:::
+| If you're catching these errors in ADAL...  | ...catch these MSAL exceptions:                                                         |
+|--------------------------------------------------|---------------------------------------------------------------------|
+| *No equivalent ADALError* | `MsalArgumentException`                          |
+| <ul><li>`ADALError.ANDROIDKEYSTORE_FAILED`<li>`ADALError.AUTH_FAILED_USER_MISMATCH`<li>`ADALError.DECRYPTION_FAILED`<li>`ADALError.DEVELOPER_AUTHORITY_CAN_NOT_BE_VALIDED`<li>`ADALError.EVELOPER_AUTHORITY_IS_NOT_VALID_INSTANCE`<li>`ADALError.DEVELOPER_AUTHORITY_IS_NOT_VALID_URL`<li>`ADALError.DEVICE_CONNECTION_IS_NOT_AVAILABLE`<li>`ADALError.DEVICE_NO_SUCH_ALGORITHM`<li>`ADALError.NCODING_IS_NOT_SUPPORTED`<li>`ADALError.ENCRYPTION_ERROR`<li>`ADALError.IO_EXCEPTION`<li>`ADALError.JSON_PARSE_ERROR`<li>`ADALError.NO_NETWORK_CONNECTION_POWER_OPTIMIZATION`<li>`ADALError.SOCKET_TIMEOUT_EXCEPTION`</ul> | `MsalClientException`                            |
+| *No equivalent ADALError* | `MsalDeclinedScopeException`                     |
+| <ul><li>`ADALError.APP_PACKAGE_NAME_NOT_FOUND`<li>`ADALError.BROKER_APP_VERIFICATION_FAILED`<li>`ADALError.PACKAGE_NAME_NOT_FOUND`</ul> | `MsalException`                                  |
+| *No equivalent ADALError* | `MsalIntuneAppProtectionPolicyRequiredException` |
+| <ul><li>`ADALError.AUTH_REFRESH_FAILED_PROMPT_NOT_ALLOWED`<li>`ADALError.SERVER_ERROR`<li>`ADALError.SERVER_INVALID_REQUEST`</ul> | `MsalServiceException`                           |
+| *No equivalent ADALError* | `MsalUiRequiredException`                        |
+| *No equivalent ADALError* | `MsalUserCancelException`                        |
 
 ### ADAL Logging to MSAL Logging
 
