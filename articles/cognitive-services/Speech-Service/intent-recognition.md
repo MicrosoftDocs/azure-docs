@@ -28,7 +28,7 @@ Using intent recognition, your applications, tools, and devices can determine wh
 
 ## Get started
 
-See the [quickstart](quickstarts/intent-recognition.md) to get started with speech translation.
+See the [quickstart](quickstarts/intent-recognition.md) to get started with intent recognition.
 
 ## Sample code
 
@@ -47,7 +47,6 @@ Sample code for intent recognition:
 ## Reference docs
 
 * [Speech SDK](speech-sdk-reference.md)
-* [REST API: Intent recognition]()
 
 ## Next steps
 
