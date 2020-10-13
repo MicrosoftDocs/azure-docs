@@ -41,6 +41,15 @@ The following Edge storage accounts are supported with REST interface of the dev
 
 *Page blobs and Azure Files are currently not supported.
 
+## Supported local Azure Resource Manager storage accounts
+
+These storage accounts are created via the device local APIs when you are connecting to local Azure Resource Manager. The following storage accounts are supported:
+
+|Type  |Storage account  |Comments  |
+|---------|---------|---------|
+|Standard     |GPv1: Block Blob, Page Blob        | SKU type is Standard_LRS       |
+|Premium     |GPv1: Block Blob, Page Blob        | SKU type is Premium_LRS        |
+
 
 ## Supported storage types
 
