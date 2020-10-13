@@ -30,10 +30,12 @@ landingContent:
           - text: Evolution of Microsoft identity platform
             url: about-microsoft-identity-platform.md
           - text: Why update to v2.0?
-            url: ../develop/msal-migration.md
+            url: azure-ad-endpoint-comparison.md
   - title: Microsoft identity platform
     linkLists:
       - linkListType: overview
         links:
           - text: What is the Microsoft identity platform?
-            url: ../developer/v2-overview.md
+            url: ../develop/v2-overview.md
+          - text: Migrate apps from ADAL to MSAL
+            url: ../develop/msal-migration.md
