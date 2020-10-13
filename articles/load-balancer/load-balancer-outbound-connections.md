@@ -109,7 +109,7 @@ For more information about Azure Virtual Network NAT, see [What is Azure Virtual
   *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
 *	SNAT exhaustion occurs when a backend instance runs out of given SNAT Ports. A load balancer can still have unused SNAT ports. If a backend instance’s used SNAT ports exceed its given SNAT ports, it will be unable to establish new outbound connections.
 
-## Next Steps
+## Next steps
 
 *	[Troubleshoot outbound connection failures because of SNAT exhaustion](https://docs.microsoft.com/azure/load-balancer/troubleshoot-outbound-connection)
 *	[Review SNAT metrics](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-diagnostics#how-do-i-check-my-snat-port-usage-and-allocation) and familiarize yourself with the correct way to filter, split, and view them.
