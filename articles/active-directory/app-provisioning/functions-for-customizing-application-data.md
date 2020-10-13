@@ -170,7 +170,7 @@ The CStr function converts a value to a string data type.
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **value** |Required | numeric, reference or boolean | Can be a numeric value, reference attribute, or Boolean. |
+| **value** |Required | numeric, reference, or boolean | Can be a numeric value, reference attribute, or Boolean. |
 
 **Example:**<br>
 CStr([dn])                                                            
@@ -193,7 +193,7 @@ The DateFromNum function converts a value in AD’s date format to a DateTime ty
 **Example:**<br>
 DateFromNum([lastLogonTimestamp])                                                                                                   
 DateFromNum(129699324000000000)                                                            
-Returns a DateTime representing 2012-01-01 23:00:00
+Returns a DateTime representing January 1, 2012 at 11:00PM.
 
 ---
 ### FormatDateTime
@@ -241,7 +241,7 @@ IIF([country]="USA",[country],[department])
 ---
 ### InStr
 **Function:**<br> 
-InStr(value1,value2,start,compareType)
+InStr(value1, value2, start, compareType)
 
 **Description:**<br> 
 The InStr function finds the first occurrence of a substring in a string
@@ -257,9 +257,9 @@ The InStr function finds the first occurrence of a substring in a string
 
 **Example:**<br>
 InStr("The quick brown fox","quick")                                                                             
-Evalues to 5
+Evaluates to 5
 
-InStr("repEated","e",3,vbBinaryCompare)                                                                                  
+InStr("repEated","e",3,                 vbBinaryCompare)                                                                                  
 Evaluates to 7
 
 ---

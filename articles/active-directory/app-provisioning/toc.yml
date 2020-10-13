@@ -82,14 +82,12 @@
         href: sap-successfactors-attribute-reference.md
       - name: Workday attribute reference
         href: workday-attribute-reference.md
-    - name: Azure AD Connect Provisioning Agent
-      items:
       - name: Provisioning Agent version history
         href: provisioning-agent-release-version-history.md
   - name: Resources
     items:
     - name: Support and help options for developers
-        href: ../develop/developer-support-help-options.md
+      href: ../develop/developer-support-help-options.md
     - name: Azure feedback forum
       href: https://feedback.azure.com/forums/169401-azure-active-directory
     - name: Microsoft Q&A question page
