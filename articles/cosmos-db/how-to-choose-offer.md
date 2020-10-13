@@ -83,7 +83,7 @@ Note that in hour 1, when there is 0 usage, autoscale will bill RU/s for 10% of 
 
 This workload has steady traffic, with normalized RU consumption ranging from 72% to 100%. With 30,000 RU/s provisioned, this means that we are consuming between 21,600 to 30,000 RU/s.
 
-:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="":::
+:::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Workload with steady traffic - normalized RU consumption between 72% and 100% for all hours":::
 
 Let's compare the cost of provisioning 30,000 RU/s manual throughput, versus setting autoscale max RU/s to 30,000 (scales between 3000 - 30,000 RU/s). Suppose we have the utilization history as described in the table. Our average utilization across these three hours is Because the normalized RU consumption is consistently high, we will save cost by using manual throughput. 
 
@@ -107,7 +107,7 @@ Over time, after you've chosen the throughput type, you should monitor your appl
 
 When using autoscale, use Azure Monitor to see the provisioned autoscale max RU/s (**Autoscale Max Throughput**) and the RU/s the system is currently scaled to (**Provisioned Throughput**). Below is an example of a variable or unpredictable workload using autoscale. Note when there isn't any traffic, the system scales the RU/s to the minimum of 10% of the max RU/s, which in this case is 5000 RU/s and 50,000 RU/s, respectively. 
 
-:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Example of workload using autoscale":::
+:::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Example of workload using autoscale, with autoscale max RU/s of 50,000 RU/s and throughput ranging from 5000 - 50,000 RU/s":::
 
 > [!NOTE]
 > When you use standard (manual) provisioned throughput, the **Provisioned Throughput** metric refers to what you as a user have set. When you use autoscale throughput, this metric refers to the RU/s the system is currently scaled to.
