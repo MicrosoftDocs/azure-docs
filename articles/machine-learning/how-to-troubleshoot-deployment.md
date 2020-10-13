@@ -10,7 +10,7 @@ ms.author:  clauren
 ms.reviewer: jmartens
 ms.date: 08/06/2020
 ms.topic: conceptual
-ms.custom: troubleshooting, contperfq4, devx-track-python
+ms.custom: troubleshooting, contperfq4, devx-track-python, deploy
 ---
 
 # Troubleshoot Docker deployment of models with Azure Kubernetes Service and Azure Container Instances 
