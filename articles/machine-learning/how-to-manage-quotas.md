@@ -95,14 +95,14 @@ For more information, see [Container Instances limits](https://docs.microsoft.co
 ### Storage
 There's a limit of 250 storage accounts per region, per subscription. This includes both Standard and Premium Storage accounts.
 
-If you need more storage accounts, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/).The Azure Storage team will review your case and may approve up to 250 storage accounts for a region.
+To increase the limit, make a request through [Azure Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/).The Azure Storage team will review your case and may approve up to 250 storage accounts for a region.
 
 
 ## Workspace level quota
 
 Use workspace level quotas to manage Azure Machine Learning Compute target allocation between multiple [workspaces](concept-workspace.md) in the same subscription.
 
-By default, all workspaces have the same quota as the subscription level quota for VM families. However, you set a maximum quota for individual VM families on individual workspaces in a shared subscription. This lets you share capacity and avoid resource contention issues:
+By default, all workspaces share the same quota as the subscription level quota for VM families. However, you can set a maximum quota for individual VM families on individual workspaces in a shared subscription. This lets you share capacity and avoid resource contention issues:
 
 1. Navigate to any workspace in your subscription.
 1. In the left pane, select **Usages + quotas**.
