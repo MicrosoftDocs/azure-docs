@@ -45,7 +45,7 @@ You can use DevOps Starter to:
 
 You choose several configuration options as part of the initial setup. These options include:
 
-* Selecting your favouring CI/CD provider
+* Selecting your favoring CI/CD provider
 * Using the provided sample app, or bringing your own code(only for Azure DevOps)
 * Selecting an app language
 * Choosing an app framework based on language
@@ -67,7 +67,7 @@ After you use DevOps Starter, you can also delete all of the resources from a si
 
 DevOps Starter now supports GitHub actions as a CI/CD provider. It automates all of the work that's needed in GitHub to set up a CI/CD workflow using GitHub Actions. It creates a GitHub repository in an existing GitHub organization, and then commits a sample application to the new GitHub repository.  
 
-The automation also establishes a trigger for the workflow so that every new code commit initiates a build and deploy job withing the workflow. The application is deployed to the Azure service of your choice. The GitHub workflow can be customized for additional scenarios. 
+The automation also establishes a trigger for the workflow so that every new code commit initiates a build and deploy job within the workflow. The application is deployed to the Azure service of your choice. The GitHub workflow can be customized for additional scenarios. 
 
 ## DevOps Starter and Azure DevOps integration
 
