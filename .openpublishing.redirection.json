@@ -3727,6 +3727,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/firewall-support.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
       "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
       "redirect_document_id": true

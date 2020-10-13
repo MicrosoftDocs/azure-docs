@@ -570,8 +570,6 @@
         - name: Secure access to data
           displayName: primary key, resource token, users, roles
           href: secure-access-to-data.md
-        - name: IP firewall
-          href: firewall-support.md
         - name: Access from virtual networks
           displayName: service endpoint
           href: vnet-service-endpoint.md
