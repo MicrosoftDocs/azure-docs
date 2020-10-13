@@ -89,7 +89,7 @@ A claim provides temporary storage of data during an Azure AD B2C policy executi
 </ClaimType>
 ```
 
-## Configure the RESTful API technical profile 
+## Add the RESTful API technical profile 
 
 A [Restful technical profile](restful-technical-profile.md) provides support for interfacing to your own RESTful service. Azure AD B2C sends data to the RESTful service in an `InputClaims` collection and receives data back in an `OutputClaims` collection. Find the **ClaimsProviders** element and add a new claims provider as follows:
 
@@ -126,6 +126,17 @@ A [Restful technical profile](restful-technical-profile.md) provides support for
 ```
 
 In this example, the `userLanguage` will be sent to the REST service as `lang` within the JSON payload. The value of the `userLanguage` claim contains the current user language ID. For more information, see [claim resolver](claim-resolver-overview.md).
+
+### Configure the RESTful API metedata
+
+After you deploy your REST API, set the metadata of the `REST-ValidateProfile` technical profile to accommodate with your own REST API, including:
+
+- **ServiceUrl**, Set the URL of the REST API endpoint.
+- **SendClaimsIn**, Specify how the input claims are sent to the RESTful claims provider.
+- **AuthenticationType**, Set the type of authentication being performed by the RESTful claims provider. 
+- **AllowInsecureAuthInProduction**, in production environment, make sure to set this metadata to `true`
+	
+See the [RESTful technical profile metadata](restful-technical-profile.md#metadata) for more configurations.
 
 The comments above `AuthenticationType` and `AllowInsecureAuthInProduction` specify changes you should make when you move to a production environment. To learn how to secure your RESTful APIs for production, see [Secure RESTful API](secure-rest-api.md).
 
