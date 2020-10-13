@@ -789,7 +789,7 @@ Pass the optional *resellerId* copied from the second step in the `az account al
 
 ## Create subscriptions using ARM templates
 
-You can create subscriptions on your ARM template allowing you to automate your production/test deployment processes. In the following example, you use an ARM template to create an Azure subscription and an Azure resource group.
+You can create subscriptions on your Azure Resource Manager template (ARM template), allowing you to automate your production/test deployment processes. In the following example, you use an ARM template to create an Azure subscription and an Azure resource group.
 
 ### Prerequisites
 
@@ -953,7 +953,7 @@ we're still working on enabling CLI SDK for billing APIs. Check back soon.
 
 ### Create a subscription and resource group with a template
 
-The following Azure Resource Manager template creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription is billed to the *Contoso Billing Profile* billing profile and appear on the *Development* section of its invoice. You use the copied billing scope from previous step: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
+The following ARM template creates a subscription named *Dev Team subscription* for the *Development* invoice section. The subscription is billed to the *Contoso Billing Profile* billing profile and appear on the *Development* section of its invoice. You use the copied billing scope from previous step: `/providers/Microsoft.Billing/billingAccounts/5e98e158-xxxx-xxxx-xxxx-xxxxxxxxxxxx:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx_xxxx-xx-xx/billingProfiles/AW4F-xxxx-xxx-xxx/invoiceSections/SH3V-xxxx-xxx-xxx`. 
 
 #### Request
 
