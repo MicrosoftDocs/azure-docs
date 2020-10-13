@@ -85,7 +85,7 @@ This workload has steady traffic, with normalized RU consumption ranging from 72
 
 :::image type="content" source="media/how-to-choose-offer/steady_workload_use_manual_throughput.png" alt-text="Workload with steady traffic - normalized RU consumption between 72% and 100% for all hours":::
 
-Let's compare the cost of provisioning 30,000 RU/s manual throughput, versus setting autoscale max RU/s to 30,000 (scales between 3000 - 30,000 RU/s). Suppose we have the utilization history as described in the table. Our average utilization across these three hours is Because the normalized RU consumption is consistently high, we will save cost by using manual throughput. 
+Let's compare the cost of provisioning 30,000 RU/s manual throughput, versus setting autoscale max RU/s to 30,000 (scales between 3000 - 30,000 RU/s).
 
 Suppose we have the utilization history as described in the table. Our average utilization across these three hours is 88%. Because the normalized RU consumption averages to greater than 66%, we save by using manual throughput.
 
