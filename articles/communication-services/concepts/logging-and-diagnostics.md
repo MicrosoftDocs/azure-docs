@@ -34,7 +34,7 @@ Next, select the archive target you want. Currently, we support Archive to a sto
  
 New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the Logs pane.
 
-:::image type="content" source="./media/Diagnostic%20Settings.png" alt-text="ACS Diagnostic Settings Options.":::
+:::image type="content" source="./media/Diagnostic0Settings.png" alt-text="ACS Diagnostic Settings Options.":::
 
 For more information about configuring diagnostics, see the overview of [Azure resource logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
 
