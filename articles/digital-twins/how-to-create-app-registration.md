@@ -79,7 +79,7 @@ Hit *Add permissions* when finished.
 
 ### Verify success
 
-Back on the *API permissions* page, verify that there is now an entry for Azure Digital Twins reflecting Read/Write permissions:
+On the *API permissions* page, verify that there is now an entry for Azure Digital Twins reflecting Read/Write permissions:
 
 :::image type="content" source="media/how-to-create-app-registration/verify-api-permissions.png" alt-text="Portal view of the API permissions for the Azure AD app registration, showing 'Read/Write Access' for Azure Digital Twins":::
 
