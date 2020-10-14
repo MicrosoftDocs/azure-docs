@@ -17,7 +17,7 @@ The control plane or API server is in an Azure Kubernetes Service (AKS)-managed 
 
 Private cluster is available in public regions where [AKS is supported](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
 
-* US Gov Texas isn't currently supported because of missing Private Link support.
+US Gov Texas isn't currently supported because of missing Private Link support.
 
 ## Prerequisites
 
