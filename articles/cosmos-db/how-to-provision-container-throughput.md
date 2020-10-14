@@ -3,13 +3,14 @@ title: Provision container throughput in Azure Cosmos DB
 description: Learn how to provision throughput at the container level in Azure Cosmos DB using Azure portal, CLI, PowerShell and various other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 12/13/2019
+ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
-# Provision standard (manual) throughput on an Azure Cosmos container
+# Provision standard (manual) throughput on an Azure Cosmos container - SQL API
 
 This article explains how to provision standard (manual) throughput on a container (collection, graph, or table) in Azure Cosmos DB. You can provision throughput on a single container, or [provision throughput on a database](how-to-provision-database-throughput.md) and share it among the containers within the database. You can provision throughput on a container using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
@@ -93,27 +94,6 @@ offer.content.offerThroughput = 2000;
 
 // Replace the offer.
 await client.offer(offer.id).replace(offer);
-```
-
-### <a id="dotnet-mongodb"></a>MongoDB API
-
-```csharp
-// refer to MongoDB .NET Driver
-// https://docs.mongodb.com/drivers/csharp
-
-// Create a new Client
-String mongoConnectionString = "mongodb://DBAccountName:Password@DBAccountName.documents.azure.com:10255/?ssl=true&replicaSet=globaldb";
-mongoUrl = new MongoUrl(mongoConnectionString);
-mongoClientSettings = MongoClientSettings.FromUrl(mongoUrl);
-mongoClient = new MongoClient(mongoClientSettings);
-
-// Change the database name
-mongoDatabase = mongoClient.GetDatabase("testdb");
-
-// Change the collection name, throughput value then update via MongoDB extension commands
-// https://docs.microsoft.com/en-us/azure/cosmos-db/mongodb-custom-commands#update-collection
-
-var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
