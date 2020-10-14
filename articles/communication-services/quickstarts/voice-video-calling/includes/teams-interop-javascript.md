@@ -75,7 +75,7 @@ meetingButton.addEventListener("click", () => {
 
      // join with meeting coordinates
      call = callAgent.join({
-        threadId: 'CHAT_THREAD_ID,
+        threadId: 'CHAT_THREAD_ID',
         organizerId: 'ORGANIZER_ID',
         tenantId: 'TENANT_ID',
         messageId: 'MESSAGE_ID'
