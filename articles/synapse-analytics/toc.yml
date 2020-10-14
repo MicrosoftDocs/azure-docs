@@ -1,6 +1,6 @@
-- name: "**Azure Synapse (workspaces preview)**""
+- name: Azure Synapse (workspaces preview)
   href: sql-data-warehouse/index.yml
-- name: "**Switch to Azure Synapse (SQL DW)**""
+- name: "**Switch to Azure Synapse (SQL DW)**"
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md 
 - name: Overview
   items:
@@ -40,37 +40,6 @@
       displayName: get, started
   - name: Use Synapse Studio 
     href: quickstart-synapse-studio.md
-<<<<<<< HEAD
-=======
-  - name: Link a Power BI workspace
-    href: quickstart-power-bi.md
-  - name: Create pools
-    items:
-    - name: Create Apache Spark notebook using web tools
-      href: quickstart-apache-spark-notebook.md
-    - name: Create Apache Spark pool using Azure portal
-      href: quickstart-create-apache-spark-pool-portal.md
-    - name: Create Apache Spark pool using Synapse Studio
-      href: quickstart-create-apache-spark-pool-studio.md
-    - name: Create SQL pool using Azure portal
-      href: quickstart-create-sql-pool-portal.md
-    - name: Create SQL pool using Synapse Studio
-      href: quickstart-create-sql-pool-studio.md
-  - name: Load data with SQL pools
-    items:
-    - name: COPY statement
-      href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: COPY statement examples
-      href: ./sql-data-warehouse/quickstart-bulk-load-copy-tsql-examples.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-    - name: Synapse Studio
-      href: quickstart-load-studio-sql-pool.md
-  - name: Use SQL on-demand
-    href: quickstart-sql-on-demand.md
-  - name: Connect to Synapse Link for Cosmos DB
-    href: quickstart-connect-synapse-link-cosmos-db.md
-  - name: Connect to Azure Data Explorer
-    href: quickstart-connect-azure-data-explorer.md
->>>>>>> 110c7565309b634e0a7767d5826f08a05c40fbdc
 - name: Tutorials
   items:
   # - name: Data Scientist
