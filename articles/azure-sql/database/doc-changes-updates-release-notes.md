@@ -92,6 +92,8 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-Managed-Instance-from-server-trust-group)|Sep 2020|Has Workaround||
+|[Distributed transactions cannot be executed after Managed Instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Sep 2020|Has Workaround||
 |[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
 |[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Resolved|June 2020|
@@ -120,6 +122,14 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
+
+### Distributed transactions can be executed after removing Managed Instance from Server Trust Group
+
+[Server Trust Groups](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) are used to establish trust between Managed Instances that is prerequisite for executing [distributed transactions](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). After removing Managed Instance from Server Trust Group or deleting the group you still might be able to execute distributed transactions. There is a workaround you can apply to be sure that distributed transactions are disabled and that is [user-initiated manual failover](https://docs.microsoft.com/azure/azure-sql/managed-instance/user-initiated-failover) on Managed Instance.
+
+### Distributed transactions cannot be executed after Managed Instance scaling operation
+
+Managed Instance scaling operations that include changing service tier or number of vCores will reset Server Trust Group settings on the backend and disable running [distributed transactions](https://docs.microsoft.com/azure/azure-sql/database/elastic-transactions-overview). As a workaround, delete and create new [Server Trust Group](https://docs.microsoft.com/azure/azure-sql/managed-instance/server-trust-group-overview) on Azure portal.
 
 ### BULK INSERT and BACKUP/RESTORE statements cannot use Managed Identity to access Azure storage
 
