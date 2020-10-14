@@ -59,7 +59,7 @@ Here's how to create a Conditional Access policy that requires multi-factor auth
    >[!IMPORTANT]
    > Don't select the app called Windows Virtual Desktop Azure Resource Manager Provider (50e95039-b200-4007-bc97-8d5790743a63). This app is only used for retrieving the user feed and shouldn't have MFA.
 
-10. Go to **Conditions** > **Client apps**, then select where you want to apply the policy to:
+10. Go to **Conditions** > **Client apps**, then in **Configure** select **Yes** then select where you want to apply the policy to:
     
     - Select **Browser** if you want the policy to apply to the web client.
     - Select **Mobile apps and desktop clients** if you want to apply the policy to other clients.
