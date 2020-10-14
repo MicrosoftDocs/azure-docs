@@ -63,4 +63,4 @@ Depending on the configuration method you use, you should update the new version
 
 ## Next steps
 
-- See the [reference for the OperationalInsights API](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/allversions).
+- See the [reference for the OperationalInsights workspace API](https://docs.microsoft.com/rest/api/loganalytics/workspaces).
