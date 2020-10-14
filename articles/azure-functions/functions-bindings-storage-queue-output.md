@@ -454,7 +454,7 @@ There are two options for outputting an Queue message from a function:
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Queue storage message.
 
-- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as a Queue storage message.
+- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true) type. The value passed to `set` is persisted as a Queue storage message.
 
 ---
 
