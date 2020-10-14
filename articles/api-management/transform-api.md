@@ -56,7 +56,7 @@ The original response should look similar to the following:
 
 :::image type="content" source="media/transform-api/original-response.png" alt-text="Original API response":::
 
-As you can see, the response includes the **X-AspNet-Version**and **X-Powered-By** headers.
+As you can see, the response includes the **X-AspNet-Version** and **X-Powered-By** headers.
 
 ### Set the transformation policy
 
