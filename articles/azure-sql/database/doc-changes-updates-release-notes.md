@@ -58,6 +58,7 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
+| <a href="/azure/sql-database/elastic-transactions-overview.md">Distributed transactions</a> | Distributed transactions accross Managed Instances. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create instance-level logins using a <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
