@@ -46,4 +46,4 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/).
+For more information on the Azure PowerShell, see [Azure PowerShell documentation](/powershell/)
