@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Onboard sensors in Azure Defender for IoT
+title: "Quickstart: Onboard sensors in Azure Defender for IoT"
 description: Learn how to onboard sensors for Azure Defender for IoT deployment.
 services: defender-for-iot
 ms.service: defender-for-iot
