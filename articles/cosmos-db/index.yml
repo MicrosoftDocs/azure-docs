@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Cosmos DB documentation # < 60 chars
-summary: Azure Cosmos DB is Microsoft’s globally distributed, multi-model database service for operational and analytics workloads. It offers multi-mastering feature by automatically scaling throughput, compute, and storage.  # < 160 chars
+summary: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open source APIs for MongoDB and Cassandra.  # < 160 chars
 
 metadata:
   title: Azure Cosmos DB # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Cosmos DB is Microsoft’s globally distributed, multi-model database service for operational and analytics workloads. It offers multi-mastering feature by automatically scaling throughput, compute, and storage. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Cosmos DB - Fast NoSQL database with SLA-backed speed and availability, automatic and instant scalability, and open source APIs for MongoDB and Cassandra. # Required; article description that is displayed in search results. < 160 chars.
   services: service
   ms.service: cosmos-db #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required

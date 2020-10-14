@@ -20,7 +20,7 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 
 * **Procedural logic:** JavaScript as a high-level programming language that provides rich and familiar interface to express business logic. You can perform a sequence of complex operations on the data.
 
-* **Atomic transactions:** Azure Cosmos DB guarantees that the database operations that are performed within a single stored procedure or a trigger are atomic. This atomic functionality lets an application combine related operations into a single batch, so that either all of the operations succeed or none of them succeed.
+* **Atomic transactions:** Azure Cosmos DB database operations that are performed within a single stored procedure or a trigger are atomic. This atomic functionality lets an application combine related operations into a single batch, so that either all of the operations succeed or none of them succeed.
 
 * **Performance:** The JSON data is intrinsically mapped to the JavaScript language type system. This mapping allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are other performance benefits associated with shipping business logic to the database, which includes:
 
