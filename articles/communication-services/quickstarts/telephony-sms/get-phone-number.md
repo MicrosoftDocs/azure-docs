@@ -41,18 +41,18 @@ You will first need to choose the `Country/region` where you would like to provi
 
 :::image type="content" source="../media/manage-phone-azure-portal-get-numbers.png" alt-text="Screenshot showing the Get phone numbers view.":::
 
-### Select your phone number capabilities
+### Select your phone number features
 
 Configuring your phone number is broken down into two steps: 
 
 1. The selection of the [number type](../../concepts/telephony-sms/plan-solution.md#phone-number-types-in-azure-communication-services)
-2. The selection of the [number capabilities](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
+2. The selection of the [number features](../../concepts/telephony-sms/plan-solution.md#phone-number-plans-in-azure-communication-services)
 
-You can select from two phone number types: `Geographic`, and `Toll-free`. When you've selected a number type, you can then choose the capability.
+You can select from two phone number types: `Geographic`, and `Toll-free`. When you've selected a number type, you can then choose the feature.
 
-In our example, we've selected a `Toll-free` number type with the `Outbound calling` and `Inbound and Outbound SMS` capabilities.
+In our example, we've selected a `Toll-free` number type with the `Outbound calling` and `Inbound and Outbound SMS` features.
 
-:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot showing the Select capabilities view.":::
+:::image type="content" source="../media/manage-phone-azure-portal-select-plans.png" alt-text="Screenshot showing the Select features view.":::
 
 From here, click the `Next: Numbers` button at the bottom of the page to customize the phone number(s) you would like to provision.
 
@@ -70,7 +70,7 @@ Choose the `Area code` from the list of available Area codes and enter the quant
 :::image type="content" source="../media/manage-phone-azure-portal-found-numbers.png" alt-text="Screenshot showing the Numbers selection page with reserved numbers.":::
 
 > [!NOTE]
-> Availability depends on the Number type, location, and the capability that you have selected.
+> Availability depends on the Number type, location, and the features that you have selected.
 > Numbers are reserved for a short time before the transaction expires. If the transaction expires, you will need to re-select the numbers.
 
 To view the purchase summary and place your order, click the `Next: Summary` button at the bottom of the page.
@@ -103,9 +103,9 @@ Select the Phone Numbers blade in the menu to manage your phone numbers.
 
 On the `Numbers` page, you can select a phone number to configure it.
 
-:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update capabilities page.":::
+:::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update features page.":::
 
-Select the capabilities from the available options, then click `Confirm` to apply your selection.
+Select the features from the available options, then click `Confirm` to apply your selection.
 
 ## Troubleshooting
 

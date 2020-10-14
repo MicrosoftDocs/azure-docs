@@ -48,9 +48,9 @@ The table below summarizes these phone number types:
 
 ## Phone number configuration in Azure Communication Services 
 
-For most phone numbers, we allow you to configure an "a la carte" set of capabilities. These capabilities can be selected as you lease your telephone numbers within Azure Communication Services.
+For most phone numbers, we allow you to configure an "a la carte" set of features. These features can be selected as you lease your telephone numbers within Azure Communication Services.
 
-The capabilities that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These capabilities vary by country due to regulatory requirements. Azure Communication Services offers the following phone number capabilities:
+The features that are available to you depend on the country that you're operating within, your use case, and the phone number type that you've selected. These features vary by country due to regulatory requirements. Azure Communication Services offers the following phone number features:
 
 - **One-way outbound SMS** This option allows you to send SMS messages to your users. This can be useful in notification and two-factor authentication scenarios. 
 - **Two-way inbound and outbound SMS** This option allows you to send and receive messages from your users using phone numbers. This can be useful in customer service scenarios.
@@ -58,7 +58,7 @@ The capabilities that are available to you depend on the country that you're ope
 
 ## Country/region availability
 
-The following table shows you where you can acquire different types of phone numbers along with the inbound and outbound calling and SMS capabilities associated with these phone number types.
+The following table shows you where you can acquire different types of phone numbers along with the inbound and outbound calling and SMS features associated with these phone number types.
 
 |Number Type| Acquire Numbers In | Make Calls To                                        | Receive Calls From                                    |Send Messages To       | Receive Messages From |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|
