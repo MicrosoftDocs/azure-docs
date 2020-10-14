@@ -37,7 +37,7 @@ OPENROWSET(
 The Azure Cosmos DB connection string specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to `OPENROWSET` function. 
 
 > [!IMPORTANT]
-> Make sure that you use alias after `OPENROWSET`. There is a [known issue](#known-issues) that cause cause temporal conneciton issue to Synapse serverless SQL endpoint if you don't specify the alias asfter `OPENROWSET` function.
+> Make sure that you use alias after `OPENROWSET`. There is a [known issue](#known-issues) that cause connection issue to Synapse serverless SQL endpoint if you don't specify the alias after `OPENROWSET` function.
 
 The connection string has the following format:
 ```sql
@@ -259,7 +259,7 @@ For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more a
 
 ## Known issues
 
-- Alias MUST be specified after `OPENROWSET` function. Omitting alias might cause temporal connection issue to Synapse serverless SQL and Cosmos DB analytical storage. This issue will be resolved in Nov 2020.
+- Alias **MUST** be specified after `OPENROWSET` function (for example, `OPENROWSET (...) AS function_alias`). Omitting alias might cause connection issue and Synapse serverless SQL endpoint might be temporarily unavailable. This issue will be resolved in Nov 2020.
 - Synapse serverless SQL currently don't support [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use Synapse serverless SQL only to access Cosmos DB well-defined schema.
 
 You can report suggestions and issues on [Azure Synapse feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
