@@ -6,16 +6,14 @@ author: cherylmc
 
 ms.service: bastion
 ms.topic: tutorial
-ms.date: 10/09/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
 
 ---
 
-# Tutorial: Create an Azure Bastion host and connect to a Windows VM
+# Tutorial: Create an Azure Bastion host and connect to a Windows VM through a browser
 
-You can connect to a Windows virtual machine (VM) through a browser via the Azure portal. Connect to your VM directly through the browser over TLS using a private IP address. You don't need to install and configure client software locally.
-
-To connect to a VM using Bastion, you need to provision the Azure Bastion service in your virtual network (VNet). Once the service is provisioned, this type of connection is available to all of the VMs that are in the VNet, depending on the security configuration of the VM. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine.
+This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, you deploy Bastion to your virtual network. After deploying Bastion, you connect to a VM via its private IP address using the Azure portal. Your VM does not need a public IP address or special software. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
 In this tutorial, you'll learn how to:
 

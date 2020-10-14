@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -145,7 +145,6 @@ You can use our new unified **App registrations** experience or our legacy  **Ap
 1. Select each user in turn (exclude the *Subscription Administrator* user you are currently signed in as). Select **Delete** at the bottom of the page and select **Yes** when prompted.
 1. Select **Azure Active Directory** on the left-hand menu.
 1. Under **Manage**, select **User settings**.
-1. If present, under **LinkedIn account connections**, select **No**, then select **Save**.
 1. Under **Manage**, select **Properties**
 1. Under **Access management for Azure resources**, select **Yes**, and then select **Save**.
 1. Sign out of the Azure portal and then sign back in to refresh your access.
