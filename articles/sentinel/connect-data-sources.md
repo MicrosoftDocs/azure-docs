@@ -137,7 +137,7 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 | SecurityAlert | | | |
 | Sysmon (Event) | [Connect Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connect Windows Events](../azure-monitor/platform/data-sources-windows-events.md) <br> [Get the Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | Sysmon collection is not installed by default on virtual machines. For more information on how to install the Sysmon Agent, see [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |
 | ConfigurationData  | [Automate VM inventory](../automation/automation-vm-inventory.md)| &#10007; | |
-| ConfigurationChange  | [Automate VM tracking](../automation/change-tracking.md) | &#10007; | |
+| ConfigurationChange  | [Automate VM tracking](../automation/change-tracking/overview.md) | &#10007; | |
 | F5 BIG-IP | [Connect F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
 | McasShadowItReporting  |  | &#10007; | |
 | Barracuda_CL | [Connect Barracuda](connect-barracuda.md) | &#10003; | |
