@@ -139,14 +139,14 @@ The following sample Transact-SQL code uses [BEGIN DISTRIBUTED TRANSACTION](http
     -- Configure the Linked Server
     -- Add one Azure SQL Managed Instance as Linked Server
     EXEC sp_addlinkedserver
-        @server='managedinstance02', -- Linked server name
+        @server='RemoteServer', -- Linked server name
         @srvproduct='',
         @provider='sqlncli', -- SQL Server Native Client
-        @datasrc='sql-managed-instance-02.48ea8fd5ac90.database.windows.net' -- Managed Instance endpoint
+        @datasrc='managed-instance-server.46e7afd5bc81.database.windows.net' -- Managed Instance endpoint
 
     -- Add credentials and options to this Linked Server
     EXEC sp_addlinkedsrvlogin
-        @rmtsrvname = 'managedinstance02', -- Linked server name
+        @rmtsrvname = 'RemoteServer', -- Linked server name
         @useself = 'false',
         @rmtuser = '<login_name>',         -- login
         @rmtpassword = '<secure_password>' -- password
