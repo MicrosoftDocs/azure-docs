@@ -154,14 +154,14 @@ You can set up an Azure key vault by using either the Azure portal or the Azure 
 
 **Use the Azure portal**
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. [Create a new key vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault).
-1. [Add the secrets to the key vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
-1. [Register an application with Azure AD](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#create-an-azure-active-directory-application).
-1. [Authorize an application to use a secret](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault).
+1. [Create a new key vault](../../key-vault/secrets/quick-create-portal.md#create-a-vault).
+1. [Add the secrets to the key vault](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+1. [Register an application with Azure AD](../develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
+1. [Authorize an application to use a secret](../../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
 
 **Use the Azure CLI**
 
-1. Open the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), and then enter the following command:
+1. Open the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and then enter the following command:
 
     ```shell
     az login
