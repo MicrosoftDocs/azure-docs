@@ -1,6 +1,6 @@
 ---
-title: Find request unit (RU) charge for SQL queries in Azure Cosmos DB
-description: Learn how to find the request unit (RU) charge for MongoDB queries executed against an Azure Cosmos container. You can use the Azure portal, .NET, Java, Python, and Node.js languages to find the RU charge. 
+title: Find request unit (RU) charge for a SQL queries in Azure Cosmos DB
+description: Learn how to find the request unit (RU) charge for SQL queries executed against an Azure Cosmos container. You can use the Azure portal, .NET, Java, Python, and Node.js languages to find the RU charge. 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
@@ -8,15 +8,17 @@ ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
 ---
-# Find the request unit charge for SQL queries in Azure Cosmos DB
+# Find the request unit charge for operations executed in Azure Cosmos DB SQL API
 
-This article presents the different ways you can find the [request unit](request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB. Currently, you can measure this consumption only by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDKs.
+Azure Cosmos DB supports many APIs, such as SQL, MongoDB, Cassandra, Gremlin, and Table. Each API has its own set of database operations. These operations range from simple point reads and writes to complex queries. Each database operation consumes system resources based on the complexity of the operation.
 
-If you're using the SQL API, you have multiple options for finding the RU consumption for an operation against an Azure Cosmos container.
+The cost of all database operations is normalized by Azure Cosmos DB and is expressed by Request Units (or RUs, for short). You can think of RUs as a performance currency abstracting the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Azure Cosmos DB. No matter which API you use to interact with your Azure Cosmos container, costs are always measured by RUs. Whether the database operation is a write, point read, or query, costs are always measured in RUs. To learn more, see the [request units and it's considerations](request-units.md) article.
+
+This article presents the different ways you can find the [request unit](request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB SQL API. If you are using a different API, see [API for MongoDB](find-request-unit-charge-mongodb.md), [Cassandra API](), [Gremlin API](find-request-unit-charge-gremlin.md), and [Table API]() articles to find the RU/s charge.
+
+Currently, you can measure this consumption only by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDKs. If you're using the SQL API, you have multiple options for finding the RU consumption for an operation against an Azure Cosmos container.
 
 ## Use the Azure portal
-
-Currently, you can find the request charge in the Azure portal only for a SQL query.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -186,35 +188,7 @@ Double requestCharge = resultSet.getExecutionInfo().getIncomingPayload().get("Re
 
 For more information, see [Quickstart: Build a Cassandra app by using the Java SDK and Azure Cosmos DB](create-cassandra-java.md).
 
-## Gremlin API
 
-When you use the Gremlin API, you have multiple options for finding the RU consumption for an operation against an Azure Cosmos container. 
-
-### Use drivers and SDK
-
-Headers returned by the Gremlin API are mapped to custom status attributes, which currently are surfaced by the Gremlin .NET and Java SDK. The request charge is available under the `x-ms-request-charge` key.
-
-### Use the .NET SDK
-
-When you use the [Gremlin.NET SDK](https://www.nuget.org/packages/Gremlin.Net/), status attributes are available under the `StatusAttributes` property of the `ResultSet<>` object:
-
-```csharp
-ResultSet<dynamic> results = client.SubmitAsync<dynamic>("g.V().count()").Result;
-double requestCharge = (double)results.StatusAttributes["x-ms-request-charge"];
-```
-
-For more information, see [Quickstart: Build a .NET Framework or Core application by using an Azure Cosmos DB Gremlin API account](create-graph-dotnet.md).
-
-### Use the Java SDK
-
-When you use the [Gremlin Java SDK](https://mvnrepository.com/artifact/org.apache.tinkerpop/gremlin-driver), you can retrieve status attributes by calling the `statusAttributes()` method on the `ResultSet` object:
-
-```java
-ResultSet results = client.submit("g.V().count()");
-Double requestCharge = (Double)results.statusAttributes().get().get("x-ms-request-charge");
-```
-
-For more information, see [Quickstart: Create a graph database in Azure Cosmos DB by using the Java SDK](create-graph-java.md).
 
 ## Table API
 

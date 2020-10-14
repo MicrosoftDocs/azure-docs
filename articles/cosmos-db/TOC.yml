@@ -774,6 +774,9 @@
           href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge-mongodb.md
         - name: Troubleshoot query performance
           href: mongodb-troubleshoot-query.md
         - name: Store and manage Spring Data
@@ -835,6 +838,9 @@
           href: bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph-execution-profile.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge-gremlin.md
         - name: Use resource tokens
           href: how-to-use-resource-tokens-gremlin.md
         - name: Use regional endpoints
