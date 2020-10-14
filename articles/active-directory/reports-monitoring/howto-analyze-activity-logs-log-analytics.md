@@ -103,7 +103,7 @@ You can also set up alerts on your query. For example, to configure an alert whe
 The workbooks provide several reports related to common scenarios involving audit, sign-in, and provisioning events. You can also alert on any of the data provided in the reports, using the steps described in the previous section.
 
 * **Provisioning analysis**: This [workbook](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) shows reports related to auditing provisioning activity, such as the number of new users provisioned and provisioning failures, number of users updated and update failures and the number of users de-provisioned and corresponding failures.    
-* **Sign-ins Events**: This workboook shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, as well as a summary view tracking the number of sign-ins over time.
+* **Sign-ins Events**: This workbook shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, as well as a summary view tracking the number of sign-ins over time.
 * **Conditional access insights**: The Conditional Access insights and reporting [workbook](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) enables you to understand the impact of Conditional Access policies in your organization over time. 
 
 ## Next steps
