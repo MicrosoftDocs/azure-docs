@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
+ms.date: 10/14/2020
 ---
 
 # Copy data from Amazon Simple Storage Service by using Azure Data Factory
@@ -42,10 +42,9 @@ Specifically, this Amazon S3 connector supports copying files as is or parsing f
 
 ## Required permissions
 
-To copy data from Amazon S3, make sure you've been granted the following permissions:
+To copy data from Amazon S3, make sure you've been granted the following permissions for Amazon S3 object operations: `s3:GetObject` and `s3:GetObjectVersion`.
 
-- **For Copy activity execution**: `s3:GetObject` and `s3:GetObjectVersion` for Amazon S3 object operations.
-- **For Data Factory GUI authoring**: `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` for Amazon S3 bucket operations. Permissions are also required for operations like testing connections and browsing to file paths. If you don't want to grant these permissions, skip the test connection on the linked service creation page and specify the path directly in dataset settings.
+If you use Data Factory UI to author, additional `s3:ListAllMyBuckets` and `s3:ListBucket`/`s3:GetBucketLocation` permissions are required for operations like testing connection to linked service and browsing from root. If you don't want to grant these permissions, you can choose "Test connection to file path" or "Browse from specified path" options from the UI.
 
 For the full list of Amazon S3 permissions, see [Specifying Permissions in a Policy](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html) on the AWS site.
 
