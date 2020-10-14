@@ -35,15 +35,13 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-To complete this tutorial, you must have the following prerequisites:
-
-* An account created on [GitHub](https://github.com/)
-* [Git](https://git-scm.com/)
-* [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell configured](https://docs.microsoft.com/azure/cloud-shell/quickstart)
-* Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
+ -  An account created on [GitHub](https://github.com/)
+ - [Git](https://git-scm.com/)
+ - [.NET Core SDK](https://www.microsoft.com/net/download/windows)
+ - [Azure Cloud Shell configured](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+ - Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
 
 ## Create an OAuth app
 
@@ -377,8 +375,6 @@ In this section, you will turn on real authentication by adding the `Authorize` 
     ![Account identified](media/signalr-concept-authenticate-oauth/signalr-oauth-account-identified.png)
 
     Now that the chat app performs authentication with GitHub and stores the authentication information as cookies, you should deploy it to Azure so other users can authenticate with their accounts and communicate from other workstations.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Deploy the app to Azure
 
