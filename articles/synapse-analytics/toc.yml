@@ -1,5 +1,7 @@
-- name: Azure Synapse Analytics
+- name: "**Azure Synapse (workspaces preview)**""
   href: sql-data-warehouse/index.yml
+- name: "**Switch to Azure Synapse (SQL DW)**""
+  href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md 
 - name: Overview
   items:
   - name: What is Azure Synapse?
