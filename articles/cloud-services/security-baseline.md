@@ -95,12 +95,14 @@ Microsoft uses the Transport Layer Security (TLS) protocol v1.2 to protect data 
 
 **Guidance**: Azure Cloud implements a multilayer network security to protect its platform services against distributed denial-of-service (DDoS) attacks. The Azure DDoS defense system is part of Azure's continuous monitoring process, which is continually improved through penetration testing. This DDoS defense system is designed to withstand not only attacks from the outside but also from other Azure tenants. 
 
-Besides platform level protection, within Cloud service (Classic), there are a few different ways to block or deny communication:  
-You can create a startup task to selectively block some specific IP addresses. or restrict an Azure web role access to a set of specified IP addresses by modifying your IIS web.config file
+Besides platform level protection within Cloud service (Classic), there are a few different ways to block or deny communication:  
 
-You can also prevent incoming traffic to the default URL/name of your Cloud service (Classic) (for example, *.cloudapp.net). Set the host header to a custom DNS name (for example, www.MyCloudService.com) under site binding configuration in the Cloud service (Classic) definition (*.csdef) file
+-  Create a startup task to selectively block some specific IP addresses
+-  Restrict an Azure web role access to a set of specified IP addresses by modifying your IIS web.config file
 
-You can also perform a DENY Apply to classic subscription administrator assignments. By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a NetworkTrafficRules element to the ServiceDefinition element in the service definition file.
+Prevent incoming traffic to the default URL or name of your Cloud service (Classic) (for example, *.cloudapp.net). Set the host header to a custom DNS name (for example, www.MyCloudService.com) under site binding configuration in the Cloud service (Classic) definition (*.csdef) file.
+
+Configure a DENY Apply to classic subscription administrator assignments. By default, after an internal endpoint is defined, communication can flow from any role to the internal endpoint of a role without any restrictions. To restrict communication, you must add a NetworkTrafficRules element to the ServiceDefinition element in the service definition file.
 
 - [How can I block/disable incoming traffic to the default URL of my cloud service](https://docs.microsoft.com/azure/cloud-services/cloud-services-connectivity-and-networking-faq?view=vs-2019#how-can-i-blockdisable-incoming-traffic-to-the-default-url-of-my-cloud-service)
 
@@ -120,15 +122,9 @@ You can also perform a DENY Apply to classic subscription administrator assignme
 **Guidance**: Use Azure Network Watcher,  network performance monitoring, diagnostic, and analytics service, that allows monitoring of Azure networks. The Network Watcher Agent virtual machine 
 extension is a requirement for capturing network traffic on demand, and other advanced functionality on Azure virtual machines. Install the Network Watcher Agent virtual machine extension, and turn on NSG flow logs.
 
-Configure flow logging on a network security group with "az network watcher flow-log configure" on Linux Virtual Machines, 
+Configure flow logging on a network security group on Linux Virtual Machines. Review details on how to deploy the Network Watcher VM extension to an existing VM deployed through the classic deployment model:
 
-The following example deploys the Network Watcher Agent VM extension to an existing VM deployed through the classic deployment model:
-
-azure config mode asm
-
-azure vm extension set myVM1 NetworkWatcherAgentLinux Microsoft.Azure.NetworkWatcher 1.4
-
-- [Configure flow logging on a network security group - "az network watcher flow-log configure" on Linux Virtual Machines](../virtual-machines/extensions/network-watcher-linux.md)
+- [Configure flow logging on a network security group](../virtual-machines/extensions/network-watcher-linux.md)
 
 For more information about configuring flow logs visit
 
@@ -193,11 +189,11 @@ Generally, to protect web applications and to secure them against attacks such a
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32181.).
 
-**Guidance**: Harden your Cloud service configuration, and monitor any changes to it. The service
+**Guidance**: Harden your Cloud service configuration, and monitor any changes to it. The service configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. 
 
-configuration file specifies the number of role instances to deploy for each role in the service, the values of any configuration settings, and the thumbprints for any certificates associated with a role. If the service is part of a Virtual Network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg.
+If the service is part of a Virtual Network, configuration information for the network must be provided in the service configuration file, as well as in the virtual networking configuration file. The default extension for the service configuration file is .cscfg.
 
-Note that Azure Policy is not supported Cloud service (Classic) for configuration enforcement.
+Note that Azure Policy is not supported for Cloud service (Classic) for configuration enforcement.
 
 - [Cloud Services Config file](/azure/cloudservices/schema-cscfg-file)
 
@@ -263,20 +259,26 @@ Create a diagnostic setting to send the Activity log to Azure Monitor Logs, to A
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32185.).
 
-**Guidance**: Choose among basic and advanced monitoring modes for Cloud service (Classic). Advanced monitoring requires installation of the Windows Azure Diagnostics (WAD) extension on your classic VM or Cloud service (Classic).,Optionally install the Application Insights SDK. The diagnostics extension uses a config file (per role) named diagnostics.wadcfgx to configure the monitored diagnostics metrics . The Azure Diagnostic extension collects and stores data in an Azure Storage account.
-
-Consume streaming data programmatically with Azure Event Hubs. Integrate and send all this data to Azure Sentinel to monitor and review your logs, or use  a third-party SIEM. To configure central security log management, you should configure continuous export of your chosen Security Center data to Azure Event Hubs and set up the appropriate connector for your SIEM. Here are some options for Azure Sentinel including third party tools:
+**Guidance**: Consume streaming data programmatically with Azure Event Hubs. Integrate and send all this data to Azure Sentinel to monitor and review your logs, or use  a third-party SIEM. To configure central security log management, you should configure continuous export of your chosen Security Center data to Azure Event Hubs and set up the appropriate connector for your SIEM. Here are some options for Azure Sentinel including third party tools:
 
 - Azure Sentinel - Use the native Security Center alerts data connector
-- Splunk - Use the Azure Monitor add-on for Splunk
-- IBM QRadar - Use a manually configured log source
-- ArcSight – Use SmartConnector
 
-- [Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
+- Splunk - Use the Azure Monitor add-on for Splunk
+
+-  IBM QRadar - Use a manually configured log source
+
+-  ArcSight – Use SmartConnector
+
+Review the Azure Sentinel documentation for additional details on available connectors with Azure Sentinel. 
+
+- [Connect data sources](../sentinel/connect-data-sources.md)
+
+- [Integrate with a SIEM](/azure/security-center/continuous-)
+export#to-integrate-with-a-siem
 
 - [Store diagnostic data](diagnostics-extension-to-storage.md)
 
-- [Configuring SIEM integration via Azure Event Hubs](../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs)
+- [Configuring SIEM integration via Azure Event Hubs](/azure/security-center/continuous-export#configuring-siem-integration-via-azure-event-hubs)
 
 **Azure Security Center monitoring**: Yes
 
@@ -287,7 +289,7 @@ Consume streaming data programmatically with Azure Event Hubs. Integrate and sen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32186.).
 
-**Guidance**: Use Visual Studio to set up Azure Diagnostics for troubleshooting Cloud service (Classic). The diagnostics capture system and logging data on the virtual machines and virtual machine instances running your Cloud service (Classic). The Diagnostics data is transferred to a storage account of your choice. Turn on diagnostics in Cloud service (Classic) projects before their deployment.
+**Guidance**: Use Visual Studio to set up Azure Diagnostics for troubleshooting Cloud service (Classic) which captures system and logging data on the virtual machines and virtual machine instances running your Cloud service (Classic). The Diagnostics data is transferred to a storage account of your choice. Turn on diagnostics in Cloud service (Classic) projects before their deployment.
 
  
 View the Change history for some events in the activity log within Azure Monitor. Audit  what changes happened during an event time period. Choose an event from the Activity Log for deeper inspection with Change history (Preview) tab. Send the diagnostic data to Application Insights when you publish a Cloud service (Classic) from Visual Studio. Create the Application Insights Azure resource at that time or send the data to an existing Azure resource. 
@@ -345,7 +347,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 - [Introduction to Cloud Service Monitoring](cloud-services-how-to-monitor.md)
 
-- [How to Enable Diagnostics in a Worker Role - Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
+- [How to Enable Diagnostics in a Worker Role - Integrate with a SIEM](/azure/security-center/continuous-export#to-integrate-with-a-siem)
 
 - [Enable diagnostics in Azure Cloud Services using PowerShell](cloud-services-diagnostics-powershell.md)
 
@@ -362,7 +364,7 @@ The Azure Diagnostic extension collects and stores data in an Azure Storage acco
 
 **Guidance**: You can monitor all Cloud service (Classic) log data by integration with Azure Sentinel, or use  a third-party SIEM and enable alerts for anomalous activities.
 
-- [Integrate with a SIEM](../security-center/continuous-export.md#to-integrate-with-a-siem)
+- [Integrate with a SIEM](/azure/security-center/continuous-export#to-integrate-with-a-siem)
 
 **Azure Security Center monitoring**: Yes
 
@@ -418,9 +420,10 @@ However, Cloud service (Classic) doesn't support the role-based access control (
 By default, Account Administrator, Service Administrator, and Co-Administrator are the three classic subscription administrator roles in Azure. 
 Classic subscription administrators have full access to the Azure subscription. They can manage resources using the Azure portal, Azure Resource Manager APIs, and the classic deployment model APIs. The account that is used to sign up for Azure is automatically set as both the Account Administrator and Service Administrator. Additional Co-Administrators can be added later. 
 
-The Service Administrator and the Co-Administrators have equivalent access of users who have been assigned the Owner role (an Azure role) at the subscription scope. You can manage Co-Administrators or view the Service Administrator by using the Classic administrators tab at the Azure portal. 
+The Service Administrator and the Co-Administrators have equivalent access of users who have been assigned the Owner role (an Azure role) at the subscription scope. Manage Co-Administrators or view the Service Administrator by using the Classic administrators tab at the Azure portal. 
 
-You can also list role assignments for classic service administrator and coadministrators with PowerShell with this command:
+List role assignments for classic service administrator and coadministrators with PowerShell with this command:
+
 Get-AzRoleAssignment -IncludeClassicAdministrators
 
 - [For additional information, you can reference this table describes the differences between these three classic subscription administrative roles](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles)
@@ -1420,7 +1423,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Export your Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Security Center data connector to stream the alerts Sentinel. 
 
-- [How to configure continuous export](../security-center/continuous-export.md) 
+- [How to configure continuous export](/azure/security-center/continuous-export) 
 
 - [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
