@@ -68,13 +68,13 @@ Enter **NAME** and **VALUE** information for **Tags** if you want to create cust
 
 Once done, select **Create**. You can monitor the status of the lab creation process by watching the **Notifications** area at the top-right of the portal page. 
 
-![Create tab](./media/devtest-lab-create-lab/create1.png)
+![Create tab](./media/devtest-lab-create-lab/create-1.png)
 
 ## Completed the creation
 
 Once completed, the **Go to resource** button appears at the bottom of the page and in the notification window. Alternatively, refresh the **DevTest Labs** page to see the newly created lab in the list of labs.  
 
-![Creating the service](./media/devtest-lab-create-lab/create2.png)
+![Creating the service](./media/devtest-lab-create-lab/create-2.png)
 
 Press **Go to resource** button and you will be brought to the home page of your new DevTest Labs account.
 
