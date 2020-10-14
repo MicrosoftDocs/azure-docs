@@ -177,6 +177,13 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
 	![Check the Turn On Maintenance Mode for HBase checkbox, then confirm](./media/apache-hbase-migrate-new-version/turn-on-maintenance-mode.png)
 
+1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
+
+   Backup the WAL dir under HDFS by running below commands from an ssh session on any of the zookeeper nodes or worker nodes of the original cluster.
+   
+  	**>hdfs dfs -mkdir /hbase-wal-backup**
+  	**>hdfs dfs -cp hdfs://mycluster/hbasewal /hbase-wal-backup**
+	
 1. Sign in to Ambari on the new HDInsight cluster. Change the `fs.defaultFS` HDFS setting to point to the container name used by the original cluster. This setting is under **HDFS > Configs > Advanced > Advanced core-site**.
 
 	![In Ambari, click Services > HDFS > Configs > Advanced](./media/apache-hbase-migrate-new-version/hdfs-advanced-settings.png)
@@ -188,6 +195,22 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    Change the `hbase.rootdir` path to point to the container of the original cluster.
 
 	![In Ambari, change the container name for HBase rootdir](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+	
+1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature, and only in cases where your original cluster was an HBase cluster with Enhanced Writes feature .
+
+   Clean the zookeeper and WAL FS data for this new cluster. Issue below commands in any of the zookeeper nodes or worker nodes 
+  
+   **>hbase zkcli**
+     **rmr /hbase-unsecure**
+     **quit**
+     
+   **>hdfs dfs -rm -r hdfs://mycluster/hbasewal**
+
+1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
+   
+   Restore the WAL dir to the new cluster's HDFS from an ssh session on  any of the zookeeper nodes or worker nodes of the new cluster.
+  
+   **>hdfs dfs -cp /hbase-wal-backup/hbasewal hdfs://mycluster/**
 
 1. If you're upgrading HDInsight 3.6 to 4.0, follow the steps below, otherwise skip to step 10:
     1. Restart all required services in Ambari by selecting	**Services** > **Restart All Required**.
