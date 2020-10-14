@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 10/14/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Gateway so I can use it to transfer data to Azure.  
 ---
@@ -84,40 +84,62 @@ If you have an existing Data Box Gateway resource to manage your virtual devices
 
 To create a Data Box Gateway resource, take the following steps in the Azure portal.
 
-1. Use your Microsoft Azure credentials to sign in to:
+1. Use your Microsoft Azure credentials to sign in to either of these portals:
 
     - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
-    - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
-2. In the left-pane, select **+ Create a resource**. Search for **Azure Stack Edge / Data Box Gateway**. Select Azure Stack Edge / Data Box Gateway. Select **Create**.
-3. Pick the subscription that you want to use for Data Box Gateway device. Select the region where you want to deploy the Data Box Gateway resource. For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Choose a location closest to the geographical region where you want to deploy your device. In the **Data Box Gateway** option, select **Create**.
+    - The Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For details, go to [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal).
+    
+2. In the left pane, select **Create a resource**. 
 
-    ![Search Data Box Gateway service](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
+1. Type **Data Box Gateway** in the search box, and press Enter.
 
-4. On the **Basics** tab, enter or select the following **Project details**.
+    ![Search for the Data Box Gateway service](media/data-box-gateway-deploy-prep/data-box-gateway-search-box.png)
+
+
+    Then select **Azure Data Box Gateway**.
+
+    ![Select the Data Box Gateway SKU](media/data-box-gateway-deploy-prep/data-box-gateway-sku.png)
+
+
+1. Select **Create**.
+
+    ![Click Create to create the Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-create.png)
+
+1. In **Basics**, ent:
+   1. Pick the subscription that you want to use for your Data Box Gateway device.
+   1. Select the region where you want to deploy the Data Box Gateway resource. For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Choose a location closest to the geographical region where you want to deploy your device. In the **Data Box Gateway** option, select **Create**.
+
+4. On the **Basics** tab:
+
+    a. Enter or select the following **Project details**.
     
     |Setting  |Value  |
     |---------|---------|
-    |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
-    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).     |
+    |Subscription    |Pick the subscription that you want to use for your Data Box Gateway device. The subscription is linked to your billing account.|
+    |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/management/overview.md).|
 
-5. Enter or select the following **Instance details**.
+   b. Enter or select the following **Instance details**.
 
     |Setting  |Value  |
     |---------|---------|
-    |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |   
-    |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). For the Azure Government, all the government regions listed in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) are available. <br> Choose a location closest to the geographical region where you want to deploy your device.|
+    |Name   |A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letters, numbers, and hyphens. <br> The name must start and end with a letter or a number. |
+    |Region  |Select the region where you want to deploy your resource. Choose a location close to the geographic region where you want to deploy your device. <br> For a list of all regions where Data Base Gateway/Azure Stack Edge resources are available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). <br> For the Azure Government, all the government regions listed in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) are available.|
     
-    ![Create Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
-    
-6. Select **Review + create**.
+     ![Project and instance detail entry for a Data Box Gateway order](media/data-box-gateway-deploy-prep/data-box-gateway-enter-details.png)
+
+   c. If you want to use tags to manage your resource, select **Next: Tags**. Or select **Review + create** to review your order.continue without adding tags.
+
+1. On the **Tags** tab, enter **Name** and **Value** pairs that you can use to categorize resources and view consolidated billings. For more about tags, see [Use tags to organize your Azure resources and management hierarchy](/azure/azure-resource-manager/management/tag-resources). Then select **Review + Create** to review your order.
  
+   ![Tags tab for a new Data Box Gateway resource](media/data-box-gateway-deploy-prep/data-box-gateway-tags.png)
+
 7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select **Create**.
 
-    ![Review Data Box Gateway resource details](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
+    ![Data Box Gateway resource details displayed for review](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
 
 The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
 
-![Review Data Box Gateway resource details 2](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
+![A completed Data Box Gateway order](media/data-box-gateway-deploy-prep/data-box-gateway-completed-order.png)
 
 ## Download the virtual device image
 
