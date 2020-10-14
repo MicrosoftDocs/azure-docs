@@ -38,7 +38,7 @@
   - name: Security for Azure Digital Twins solutions
     href: concepts-security.md
   - name: High availability and disaster recovery
-    href: concepts-ha-dr.md   
+    href: concepts-high-availability-disaster-recovery.md   
 - name: How-to guides
   items:
   - name: Deploy
