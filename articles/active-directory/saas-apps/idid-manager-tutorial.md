@@ -93,11 +93,11 @@ To configure Azure AD single sign-on with iDiD Manager, perform the following st
 
 4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    ![iDiD Manager Domain and URLs single sign-on information](common/preintegrated.png)
+    ![Screenshot shows Basic SAML Configuration.](common/preintegrated.png)
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![iDiD Manager Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://idid2.fi/saml/login/<domain>`

@@ -132,7 +132,7 @@ To configure Azure AD single sign-on with IdeaScale, perform the following steps
 
 3. Go to **Security \> Single Signon Settings**.
 
-    ![Single Signon Settings](./media/ideascale-tutorial/ic790848.png "Single Signon Settings")
+    ![Screenshot shows Single Signon Settings selected from the Security menu.](./media/ideascale-tutorial/ic790848.png "Single Signon Settings")
 
 4. As **Single-Signon Type**, select **SAML 2.0**.
 
@@ -140,7 +140,7 @@ To configure Azure AD single sign-on with IdeaScale, perform the following steps
 
 5. On the **Single Signon Settings** dialog, perform the following steps:
 
-    ![Single Signon Settings](./media/ideascale-tutorial/ic790850.png "Single Signon Settings")
+    ![Screenshot shows the Single Signon Settings dialog box.](./media/ideascale-tutorial/ic790850.png "Single Signon Settings")
 
     a. In **SAML IdP Entity ID** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
 

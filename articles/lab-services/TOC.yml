@@ -54,6 +54,22 @@
         href: class-type-matlab.md
       - name: SolidWorks computer-aided design (CAD)
         href: class-type-solidworks.md
+    - name: Use Azure Lab Services within Teams
+      items:
+        - name: Overview 
+          href: lab-services-within-teams-overview.md
+        - name: Create a lab from Teams
+          href: how-to-get-started-create-lab-within-teams.md
+        - name: Manage user lists
+          href: how-to-manage-user-lists-within-teams.md
+        - name: Manage VM pool
+          href: how-to-manage-vm-pool-within-teams.md
+        - name: Delete labs
+          href: how-to-get-started-create-lab-within-teams.md#deleting-classroom-labs
+        - name: Schedules and settings
+          href: how-to-create-schedules-within-teams.md
+        - name: Access a VM (student view)
+          href: how-to-access-vm-for-students-within-teams.md
 - name: How-to guides
   items:
   - name: Administrator guide
@@ -88,6 +104,8 @@
       href: specify-marketplace-images.md
     - name: Specify support information (lab account owner)
       href: lab-account-owner-support-information.md
+    - name: Upload a custom image to Shared Image Gallery
+      href: upload-custom-image-shared-image-gallery.md
   - name: Create and configure classroom labs (educator)
     items:        
     - name: Create and manage classroom labs

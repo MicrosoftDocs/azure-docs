@@ -14,16 +14,19 @@ This overview describes the capabilities that Azure Database for PostgreSQL prov
 
 ## Features that you can use to provide business continuity
 
-Azure Database for PostgreSQL provides business continuity features that include automated backups and the ability for users to initiate geo-restore. Each has different characteristics for Estimated Recovery Time (ERT) and potential data loss. Estimated Recovery Time (ERT) is estimated duration for the database to be fully functional after a restore/failover request. Once you understand these options, you can choose among them, and use them together for different scenarios. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your Recovery Time Objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your Recovery Point Objective (RPO).
+As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after the disruptive event - this is your Recovery Time Objective (RTO). You also need to understand the maximum amount of recent data updates (time interval) the application can tolerate losing when recovering after the disruptive event - this is your Recovery Point Objective (RPO).
 
-The following table compares the ERT and RPO for the available features:
+Azure Database for PostgreSQL provides business continuity features that include geo-redundant backups with the ability to initiate geo-restore, and deploying read replicas in a different region. Each has different characteristics for the recovery time and the potential data loss. With [Geo-restore](concepts-backup.md) feature, a new server is created using the backup data that is replicated from another region. The overall time it takes to restore and recover depends on the size of the database and the amount of logs to recover. The overall time to establish the server varies from few minutes to few hours. With [read replicas](concepts-read-replicas.md), transaction logs from the primary are asynchronously streamed to the replica. The lag between the primary and the replica depends on the latency between the sites and also the amount of data to be transmitted. In the event of a primary site failure such as availability zone fault, promoting the replica provides a shorter RTO and reduced data loss. 
+
+The following table compares RTO and RPO in a typical scenario:
 
 | **Capability** | **Basic** | **General Purpose** | **Memory optimized** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Point in Time Restore from backup | Any restore point within the retention period | Any restore point within the retention period | Any restore point within the retention period |
-| Geo-restore from geo-replicated backups | Not supported | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
+| Geo-restore from geo-replicated backups | Not supported | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
+| Read replicas | RTO - Minutes <br/>RPO < 5 min* | RTO - Minutes <br/>RPO < 5 min*| RTO - Minutes <br/>RPO < 5 min*|
 
-You can also consider using [read replicas](concepts-read-replicas.md).
+\* RPO can be higher in some cases depending on various factors including primary database workload and latency between regions. 
 
 ## Recover a server after a user or application error
 

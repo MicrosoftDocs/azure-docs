@@ -518,7 +518,7 @@ productDirectory:
         - web
       url: spring-cloud/index.yml
     # Card
-    - title: Azure VMware Solution (Preview)
+    - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
       imageSrc: ./media/index/azure-vmware.svg
       azureCategories:

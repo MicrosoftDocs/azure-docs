@@ -172,7 +172,7 @@ The service SDKs let you retrieve the model ID of connected IoT Plug and Play de
 
     | Name | Value |
     | ---- | ----- |
-    | DEVICE_ID | my-module-device |
+    | IOTHUB_DEVICE_ID | my-module-device |
     | IOTHUB_CONNECTION_STRING | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
 
     > [!TIP]

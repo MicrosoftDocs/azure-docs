@@ -1,6 +1,8 @@
 ---
 title: Integrate with other applications - QnA Maker
 description: QnA Maker integrates into client applications such as chat bots as well as with other natural language processing services such as Language Understanding (LUIS).
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 01/27/2020
 ---

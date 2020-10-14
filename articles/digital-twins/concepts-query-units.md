@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Query Units in Azure Digital Twins 
 
-An Azure Digital Twins **Query Unit (QU)** is a unit of on-demand computation that's used to execute your [Azure Digital Twins queries](how-to-query-graph.md) using the [Query API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query). 
+An Azure Digital Twins **Query Unit (QU)** is a unit of on-demand computation that's used to execute your [Azure Digital Twins queries](how-to-query-graph.md) using the [Query API](/rest/api/digital-twins/dataplane/query). 
 
 It abstracts away the system resources like CPU, IOPS and memory that are required to perform query operations supported by Azure Digital Twins, allowing you to track usage in Query Units instead.
 
@@ -29,7 +29,7 @@ This article explains how to understand Query Units and track Query Unit consump
 
 ## Find the Query Unit consumption in Azure Digital Twins 
 
-When you run a query using the Azure Digital Twins [Query API](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query), you can examine the response header to track the number of QUs that the query consumed. Look for "query-charge" in the response sent back from Azure Digital Twins. 
+When you run a query using the Azure Digital Twins [Query API](/rest/api/digital-twins/dataplane/query), you can examine the response header to track the number of QUs that the query consumed. Look for "query-charge" in the response sent back from Azure Digital Twins. 
 
 The Azure Digital Twins [SDKs](how-to-use-apis-sdks.md) allow you to extract the query-charge header from the pageable response. This section shows how to query for digital twins and how to iterate over the pageable response to extract the query-charge header. 
 
@@ -69,6 +69,6 @@ await foreach (Page<string> page in asyncPageableResponseWithCharge.AsPages())
 To learn more about querying Azure Digital Twins, visit:
 * [*Concepts: Query language*](concepts-query-language.md)
 * [*How-to: Query the twin graph*](how-to-query-graph.md)
-* [Query API reference documentation](https://docs.microsoft.com/rest/api/digital-twins/dataplane/query/querytwins)
+* [Query API reference documentation](/rest/api/digital-twins/dataplane/query/querytwins)
 
 You can find Azure Digital Twins query-related limits in [*Reference: Service limits in public preview*](reference-service-limits.md).

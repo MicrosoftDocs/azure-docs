@@ -14,18 +14,29 @@ Azure Database for MySQL automatically creates server backups and stores them in
 
 ## Backups
 
-Azure Database for MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4-TB max storage servers) or snapshot backups (up to 16-TB max storage servers). These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can [optionally configure it](howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted using AES 256-bit encryption.
+Azure Database for MySQL takes backups of the data files and the transaction log. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days. You can [optionally configure it](howto-restore-server-portal.md#set-backup-configuration) up to 35 days. All backups are encrypted using AES 256-bit encryption.
 
 These backup files are not user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](concepts-migrate-dump-restore.md) to copy a database.
 
-### Backup frequency
+The backup type and frequency is depending on the backend storage for the servers.
 
-#### Servers with up to 4-TB storage
+### Backup type and frequency
 
-For servers which support up to 4-TB maximum storage, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.
+#### Basic storage servers
 
-#### Servers with up to 16-TB storage
-In a subset of [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support up to 16-TB storage. Backups on these large storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
+The Basic storage servers are the backend storage for [Basic SKU servers](concepts-pricing-tiers.md). Backups on Basic storage servers are snapshot-based. A full database snapshot is performed daily. There are no differential backups performed for basic storage servers and all snapshot backups are full database backups only. 
+
+Transaction log backups occur every five minutes. 
+
+#### General purpose storage servers with up to 4-TB storage
+
+For servers which support up to 4-TB maximum general purpose storage, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.The backups on general purpose storage up to 4-TB storage are not snapshot based and consumes IO bandwidth at the time of backup. For large databases (> 1TB) on 4-TB storage, we recommend you consider 
+
+- Provisioning more IOPs to account for backup IOs  
+- Alternatively, migrate to general purpose storage that supports up to 16-TB storage if the storage is available in your preferred [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). There is no additional cost for general purpose storage that supports up to 16-TB storage. For assistance with migration to 16-TB storage, please open a support ticket from Azure portal. 
+
+#### General purpose storage servers with up to 16-TB storage
+In a subset of [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
 
 Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the transaction log (binlog in MySQL) exceeds 50-GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed. 
 
@@ -66,7 +77,7 @@ There are two types of restore available:
 The estimated time of recovery depends on several factors including the database sizes, the transaction log size, the network bandwidth, and the total number of databases recovering in the same region at the same time. The recovery time is usually less than 12 hours.
 
 > [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
+> Deleted servers can be restored only within **five days** of deletion after which the backups are deleted. The database backup can be accessed and restored only from the Azure subscription hosting the server. To restore a dropped server, refer [documented steps](howto-restore-dropped-server.md). To protect server resources, post deployment, from accidental deletion or unexpected changes, administrators can leverage [management locks](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources).
 
 ### Point-in-time restore
 

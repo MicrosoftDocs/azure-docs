@@ -102,6 +102,6 @@ For information about when recommendations are generated for each of these prote
 
 ## Next steps
 
-- Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md).
+- Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
 - Review the [platforms that support security center](security-center-os-coverage.md).

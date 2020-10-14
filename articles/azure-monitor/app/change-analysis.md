@@ -120,13 +120,13 @@ Go to Diagnose and Solve Problems tool for a Virtual Machine.  Go to **Troublesh
 ![Change analyzer in troubleshooting tools](./media/change-analysis/analyze-recent-changes.png)
 
 ### Activity Log Change History
-The [View change history](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log#view-change-history) feature in Activity Log calls Application Change Analysis service backend to get changes associated with an operation. **Change history** used to call [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview) directly, but swapped the backend to call Application Change Analysis so changes returned will include resource level changes from [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), resource properties from [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview), and in-guest changes from PaaS services such as App Services web app. 
+The [View change history](../platform/activity-log.md#view-change-history) feature in Activity Log calls Application Change Analysis service backend to get changes associated with an operation. **Change history** used to call [Azure Resource Graph](../../governance/resource-graph/overview.md) directly, but swapped the backend to call Application Change Analysis so changes returned will include resource level changes from [Azure Resource Graph](../../governance/resource-graph/overview.md), resource properties from [Azure Resource Manager](../../azure-resource-manager/management/overview.md), and in-guest changes from PaaS services such as App Services web app. 
 In order for the Application Change Analysis service to be able to scan for changes in users' subscriptions, a resource provider needs to be registered. The first time entering **Change History** tab, the tool will automatically start to register **Microsoft.ChangeAnalysis** resource provider. After registered, changes from **Azure Resource Graph** will be available immediately and cover the past 14 days. Changes from other sources will be available after ~4 hours after subscription is onboard.
 
 ![Activity Log change history integration](./media/change-analysis/activity-log-change-history.png)
 
 ### VM Insights integration
-Users having [VM Insights](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview) enabled can view what changed in their virtual machines that might caused any spikes in a metrics chart such as CPU or Memory and wonder what caused it. Change data is integrated in the VM Insights side navigation bar. User can view if any changes happened in the VM and click **Investigate Changes** to view change details in Application Change Analysis standalone UI.
+Users having [VM Insights](../insights/vminsights-overview.md) enabled can view what changed in their virtual machines that might caused any spikes in a metrics chart such as CPU or Memory and wonder what caused it. Change data is integrated in the VM Insights side navigation bar. User can view if any changes happened in the VM and click **Investigate Changes** to view change details in Application Change Analysis standalone UI.
 
 [![VM insights integration](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 
@@ -138,7 +138,7 @@ If your subscription includes numerous web apps, enabling the service at the lev
 
 Pre-requisites:
 
-- PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-2.6.0)
+- PowerShell Az Module. Follow instructions at [Install the Azure PowerShell module](/powershell/azure/install-az-ps)
 
 Run the following script:
 
