@@ -15,7 +15,7 @@ This article describes how to test and submit a virtual machine (VM) image in th
 
 Complete these steps before submitting your VM offer:
 
-- Deploy an Azure VM using your generalized image; see [Create a virtual machine from an approved base](azure-vm-create-using-approved-base.md).
+- Deploy an Azure VM using your generalized image; see [Prepare VM technical assets](azure-vm-create-technical-assets.md).
 - Run validations.
 
 ## Deploy an Azure VM using your generalized image

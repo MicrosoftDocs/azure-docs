@@ -22,7 +22,7 @@ Generating SAS URIs for your VHDs has these requirements:
 
 ## Generate the SAS address
 
-There are two common tools used to create an SAS address (URL):
+There are two common tools used to create a SAS address (URL):
 
 1. **Azure Storage Explorer** – Available on the Azure portal.
 2. **Azure CLI** – Recommended for non-Windows operating systems and automated or continuous integration environments.
@@ -30,11 +30,13 @@ There are two common tools used to create an SAS address (URL):
 ### Using Tool 1: Azure Storage Explorer
 
 1. Go to your **Storage Account**.
-2. Open the explorer and in the left menu, select **Add Account**.
-3. In the **Connect to Azure Storage** dialog box, select **Add an Azure Account** and sign in to your Azure account.
-4. In the left-Explorer pane, expand the **Storage Accounts** node.
-5. Right-click your VHD and select **Get Share Access Signature**.
-6. In the **Shared Access Signature** dialog box, complete the following fields:
+1. Open **Storage Explorer**.
+
+    :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Storage account window.":::
+
+1. Go to your **Container** and select your **VHD file**.
+1. Right-click your VHD and select **Get Share Access Signature**.
+1. In the **Shared Access Signature** dialog box, complete the following fields:
 
     1. Start time – Permission start date for VHD access. Provide a date that is one day before the current date.
     2. Expiry time – Permission expiration date for VHD access. Provide a date at least three weeks beyond the current date.
@@ -43,19 +45,19 @@ There are two common tools used to create an SAS address (URL):
 
     ![Shared access signature dialog box.](media/vm/create-sas-uri-storage-explorer.png)
 
-7. To create the associated SAS URI for this VHD, select **Create**. The dialog box refreshes and shows details about this operation.
+6. To create the associated SAS URI for this VHD, select **Create**.
 
-8. Copy the URI and save it to a text file in a secure location.
+7. Copy the URI and save it to a text file in a secure location.
 
     ![Copying the URI.](media/vm/create-sas-uri-shared-access-signature-details.png)
 
     This generated SAS URI is for container-level access. To make it specific, edit the text file to add the VHD name.
 
-9. Insert your VHD name after the vhds string in the SAS URI (include a forward slash). The final SAS URI should look like this:
+8. Insert your VHD name after the vhds string in the SAS URI (include a forward slash). The final SAS URI should look like this:
 
     `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
 
-1. Repeat these steps for each VHD in the plans you will publish.
+9. Repeat these steps for each VHD in the plans you will publish.
 
 ### Using Tool 2: Azure CLI
 
@@ -105,6 +107,7 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 - When `sr=c` appears, this means that container-level access is specified.
 - Copy and paste the URI into a browser to test-download the blob (you can cancel the operation before the download completes).
 
-## Next step
+## Next steps
 
-- Read [Virtual machine SAS failure messages](azure-vm-sas-failure-messages.md).
+- If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md).
+- After you have the SAS URIs, [Configure VM offer properties](azure-vm-create-properties.md).
