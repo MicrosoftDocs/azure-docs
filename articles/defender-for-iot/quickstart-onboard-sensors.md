@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: onboard sensors"
+title: Quickstart: Onboard sensors in Azure Defender for IoT
 description: Learn how to onboard sensors for Azure Defender for IoT deployment.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -119,8 +119,6 @@ This article describes how to upload an activation file to the sensor. You shoul
 **Locally managed activation files**
 
 Locally Managed sensors are associated with an Azure subscription.  The activation file for your locally managed sensors contains an expiration date. One month before this date, a warning message appears at the top of the sensor console. The warning remains until after you have updated the activation file.
-
-![Azure Defender for IoT Systems Settings view](media/updates/image10.png)
 
 You can continue working with Azure Defender for IoT features after activation file expires.
 

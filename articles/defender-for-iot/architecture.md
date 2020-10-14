@@ -24,7 +24,7 @@ This article describes the functional system architecture of the Defender for Io
 
 Defender for IoT connects both to the Azure cloud as well as to on-premises components. The solution is designed for scalability in large and geographically distributed environments with multiple remote locations. This solution enables a multi-layered distributed architecture by country, region, business unit, or zone. 
 
-The components include: 
+Azure Defender for IoT includes the following components: 
 - Azure Defender for IoT sensors
 - Management consoles:
     - Sensor console

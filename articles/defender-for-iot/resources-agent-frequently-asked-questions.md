@@ -1,5 +1,5 @@
 ---
-title: Defender for IoT agent frequently asked questions
+title: Azure Defender for IoT agent frequently asked questions
 description: Find answers to the most frequently asked questions about Azure Defender for IoT agent.
 services: defender-for-iot
 ms.service: defender-for-iot

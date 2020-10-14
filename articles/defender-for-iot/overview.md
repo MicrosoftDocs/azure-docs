@@ -20,7 +20,7 @@ ms.author: rkarlin
 # Introducing Azure Defender for IoT Preview
 
 > [!IMPORTANT]
-> <Azure Defender for IoT is currently in public preview.
+> Azure Defender for IoT is currently in public preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -41,15 +41,15 @@ This holistic solution addresses key use cases that include:
 
 Azure Defender for IoT is a unified solution for IoT and OT security across all your devices. It gives you the tools to build security into new IoT and OT devices managed via Azure IoT Hub, as well as the agentless network-layer monitoring capabilities you need to protect unmanaged IoT and OT assets.
 
-### Unified visibility and control
+## Unified visibility and control
 
 Get a unified view of security across all of your on-premises and cloud workloads, including your Azure IoT solution. Onboard new devices, and apply security policies across your workloads (Leaf devices, Microsoft Edge devices, IoT Hub) to ensure compliance with security standards and improved security posture.
 
-### Adaptive threat prevention
+## Adaptive threat prevention
 
 Use Defender for IoT to continuously monitor the security of machines, networks, and Azure services. Choose from hundreds of built-in security assessments or create your own in the central Defender for IoT Hub dashboard. Optimize your security settings and improve your security score with actionable recommendations across virtual machines, networks, apps, and data. With newly added IoT capabilities, you can now reduce the attack surface for your Azure IoT solution and remediate issues before they can be exploited.
 
-### Intelligent threat detection and response
+## Intelligent threat detection and response
 
 Use advanced analytics and the Microsoft Intelligent Security Graph to get an edge over evolving cyber-attacks. Built-in behavioral analytics and machine learning identify attacks and zero-day exploits. Monitor your IoT solution for incoming attacks and post-breach activity. Streamline device investigation and remediation with interactive tools and contextual threat intelligence.
 

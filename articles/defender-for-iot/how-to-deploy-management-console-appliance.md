@@ -1,6 +1,6 @@
 ---
-title: Deploy management console
-description: Learn about how to deploy the management console in Defender for IoT.
+title: Deploy management console in Azure Defender for IoT
+description: Learn about how to deploy the management console in Azure Defender for IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
