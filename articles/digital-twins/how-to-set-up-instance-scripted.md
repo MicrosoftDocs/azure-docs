@@ -142,7 +142,7 @@ Switch to the *All applications* tab to see all the app registrations that have 
 
 You should see the app registration you named while running the script in the list. Select it to open up its details.
 
-:::image type="content" source="../articles/digital-twins/media/how-to-set-up-instance/portal/app-registrations.png" alt-text="App registrations page in the Azure portal":::
+:::image type="content" source="media/how-to-set-up-instance/portal/app-registrations.png" alt-text="App registrations page in the Azure portal":::
 
 For instructions on how to verify that the app registration has the correct permissions, see the [*Verify success*](how-to-create-app-registration.md#verify-success) section of *How-to: Create an app registration*.
 
