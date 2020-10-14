@@ -256,7 +256,7 @@ We need a way to access the application via a web browser. Our gateway applicati
 1. Clone the Git repository by running the following command:
 
     ```
-    git clone https://github.com/Azure-Samples/PiggyMetrics
+    git clone https://github.com/Azure-Samples/piggymetrics
     ```
   
 1. Change directory and build the project by running the following command:
