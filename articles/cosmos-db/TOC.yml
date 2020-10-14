@@ -548,12 +548,11 @@
         - name: Optimize provisioned throughput cost
           displayName: request units, RUs, RU
           href: optimize-cost-throughput.md
-        - name: Optimize query cost
-          href: optimize-cost-queries.md
+        - name: Optimize request cost
+          displayName: request, cost, read, write, query, queries, RUs, RU
+          href: optimize-cost-reads-writes.md
         - name: Optimize storage cost
           href: optimize-cost-storage.md
-        - name: Optimize reads and writes cost
-          href: optimize-cost-reads-writes.md
         - name: Optimize multi-region cost
           href: optimize-cost-regions.md
         - name: Optimize development/testing cost
