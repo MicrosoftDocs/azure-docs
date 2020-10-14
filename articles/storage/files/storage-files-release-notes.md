@@ -47,7 +47,27 @@ The following Azure File Sync agent versions have expired and are no longer supp
 The following release notes are for version 11.0.0.0 of the Azure File Sync agent (released October 14, 2020).
 
 ### Improvements and issues that are fixed
+- New cloud tiering modes to control initial download and proactive recall
+	- Initial download mode: you can now choose how you want your files to be initially downloaded onto your new server endpoint. Want all your files tiered or as many files as possible downloaded onto your server by last modified timestamp? You can do that! Can't use cloud tiering? You can now opt to avoid tiered files on your system.
+	- Proactive recall mode: whenever a file is created or modified, you can proactively recall it to servers that you specify within the same sync group. This makes the file readily available for consumption in each server you specified. Have teams across the globe working on the same data? Enable proactive recalling so that when the team arrives the next morning, all the files updated by a team in a different time zone are downloaded and ready to go!
 
+- Exclude applications from cloud tiering last access time tracking
+	You can now exclude applications from last access time tracking. When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time which impacts when files are tiered.
+
+	To exclude applications from last access time tracking, add the process name to the HeatTrackingProcessNameExclusionList registry setting which is located under HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync.
+
+	Example: reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v HeatTrackingProcessNameExclusionList /t REG_MULTI_SZ /d "SampleApp.exe\0AnotherApp.exe" /f
+
+    > [!Note]  
+    > Data Deduplication and File Server Resource Manager (FSRM) processes are excluded by default (hard coded) and the process exclusion list is refreshed every 5 minutes.
+
+- Miscellaneous performance and reliability improvements
+	- Improved change detection performance to detect files that have changed in the Azure file share.
+	- Improved sync upload performance.
+	- Initial upload is now performed from a VSS snapshot which reduces per-item errors and sync session failures.
+	- Sync reliability improvements for certain I/O patterns.
+	- Fixed a bug to prevent the sync database from going back-in-time on failover clusters when a failover occurs.
+	- Improved recall performance when accessing a tiered file.
 
 
 ### Evaluation Tool
@@ -59,7 +79,7 @@ For more information on how to install and configure the Azure File Sync agent w
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent is not supported on Nano Server deployment option.
 - The agent is supported only on Windows Server 2019, Windows Server 2016, and Windows Server 2012 R2.
-- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory.
+- The agent requires at least 2 GiB of memory. If the server is running in a virtual machine with dynamic memory enabled, the VM should be configured with a minimum 2048 MiB of memory. See [Recommended system resources](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#recommended-system-resources) for more information.
 - The Storage Sync Agent (FileSyncSvc) service does not support server endpoints located on a volume that has the system volume information (SVI) directory compressed. This configuration will lead to unexpected results.
 
 ### Interoperability
