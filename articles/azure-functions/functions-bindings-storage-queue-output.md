@@ -167,7 +167,7 @@ module.exports = function(context) {
 
 # [PowerShell](#tab/powershell)
 
-The following code examples demonstrate how to output a queue message from an HTTP-triggered function. The configuration section with the `name` of `queue` defines the output binding.
+The following code examples demonstrate how to output a queue message from an HTTP-triggered function. The configuration section with the `type` of `queue` defines the output binding.
 
 ```json
 {
