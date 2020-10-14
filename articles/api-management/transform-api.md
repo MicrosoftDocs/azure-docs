@@ -66,7 +66,7 @@ As you can see, the response includes the **X-AspNet-Version** and **X-Powered-B
    :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Outbound.png" alt-text="Navigate to outbound policy" border="false":::
 
 1. Position the cursor inside the **&lt;outbound&gt;** element and select **Show snippets** at the top right corner.
-1. In the right window, under **Transformation policies**, select ** Set HTTP header** twice (to insert two policy snippets).
+1. In the right window, under **Transformation policies**, select **Set HTTP header** twice (to insert two policy snippets).
 
    :::image type="content" source="media/transform-api/transform-api.png" alt-text="Set HTTP header policy":::
 
