@@ -104,7 +104,7 @@ On a Mac OS console, save the appId and tenant values with this example:
    export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
    export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
 
-   #Example (using Linux):
+   #Example (using macOS):
    export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
    export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
    export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
@@ -122,7 +122,7 @@ On a console, save the appId and tenant values with this example:
    export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
    export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
 
-   #Example (using Linux):
+   #Example:
    export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
    export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
    export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
