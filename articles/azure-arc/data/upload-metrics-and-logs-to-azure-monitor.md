@@ -9,20 +9,23 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
+zone_pivot_groups: client-operating-system
 ---
 
 # Upload usage data, metrics, and logs to Azure Monitor
 
-Periodically you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure.  The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure. The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
 > During the preview period, there is no cost for using Azure Arc enabled data services.
 
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
 ## Prerequisites
 
-You will need the Azure CLI (az) and the Azure Data CLI (azdata) installed.  [Install tools](./install-client-tools.md).
+You will need the Azure CLI (az) and the Azure Data CLI (azdata) installed. [Install tools](./install-client-tools.md).
 
-Prior to uploading data to Azure, you need to ensure that your Azure subscription has the Microsoft.AzureData resource provider registered.
+Prior to uploading data to Azure, you need to ensure that your Azure subscription has the `Microsoft.AzureData` resource provider registered.
 
 You can verify this by running the following command:
 
@@ -30,23 +33,97 @@ You can verify this by running the following command:
 az provider show -n Microsoft.AzureData -o table
 ```
 
-If the resource provider is not currently registered in your subscription, you can register it by running the following command.  This command make take a minute or two to complete.
+If the resource provider is not currently registered in your subscription, you can register it by running the following command. This command make take a minute or two to complete.
 
 ```console
 az provider register -n Microsoft.AzureData --wait
 ```
 
+## Create service principal and assign roles
+
+Follow these commands to create your metrics upload service principal:
+
+To create a service principal, run this command:
+
+> [!NOTE]
+> Creating a service principal requires [certain permissions in Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+
+```console
+az ad sp create-for-rbac --name <a name you choose>
+
+#Example:
+#az ad sp create-for-rbac --name azure-arc-metrics
+```
+
+Example output:
+
+```output
+"appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
+"displayName": "azure-arc-metrics",
+"name": "http://azure-arc-metrics",
+"password": "5039d676-23f9-416c-9534-3bd6afc78123",
+"tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
+```
+
+Save the appId and tenant values in an environment variable for use later. 
+
+::: zone pivot="client-operating-system-windows"
+
+To save the appId and tenant values with PowerShell, follow this example:
+
+```powershell
+$Env:SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
+$Env:SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
+$Env:SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
+```
+
+::: zone-end
+
+::: zone pivot="client-operating-system-linux"
+
+Save the appId and tenant values with this example:
+
+   ```console
+   export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
+
+   #Example (using Linux):
+   export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
+   export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
+   export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
+   ```
+::: zone-end
+
+::: zone pivot="client-operating-system-macos"
+
+Save the appId and tenant values with this example:
+
+   ```console
+   export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
+   export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
+
+   #Example (using Linux):
+   export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
+   export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
+   export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
+   ```
+
+::: zone-end
 ## Upload usage data
 
 Usage information such as inventory and resource usage can be uploaded to Azure in the following two-step way:
 
-1. Export the usage data using ```azdata export``` command, as follows:
+1. Log in to the data controller. Enter the values at the prompt. 
 
    ```console
-   #login to the data controller and enter the values at the prompt
    azdata login
+   ```
 
-   #run the export command
+1. Export the usage data using `azdata arc dc export` command, as follows:
+
+   ```console
    azdata arc dc export --type usage --path usage.json
    ```
    This command creates a `usage.json` file with all the Azure Arc enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
@@ -83,54 +160,8 @@ The first item is required to upload metrics and the second one is required to u
 
 Follow these commands to create your metrics upload service principal and assign it to the 'Monitoring Metrics Publisher' and 'Contributor' roles so that the service principal can upload metrics and perform create and upload operations.
 
-## Create service principal and assign roles
 
-Follow these commands to create your metrics upload service principal and assign it to the 'Monitoring Metrics Publisher' role:
-
-To create a service principal, run this command:
-
-> [!NOTE]
-> Creating a service principal requires [certain permissions in Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
-
-```console
-az ad sp create-for-rbac --name <a name you choose>
-
-#Example:
-#az ad sp create-for-rbac --name azure-arc-metrics
-```
-
-Example output:
-
-```output
-"appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
-"displayName": "azure-arc-metrics",
-"name": "http://azure-arc-metrics",
-"password": "5039d676-23f9-416c-9534-3bd6afc78123",
-"tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
-```
-
-Save the appId and tenant values in an environment variable for use later. 
-
-To save the appId and tenant values with PowerShell, follow this example:
-
-```powershell
-$Env:SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-$Env:SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-$Env:SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-```
-
-Alternatively, on Linux or macOS, you can save the appId and tenant values with this example:
-
-   ```console
-   export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-   export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-   export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-   #Example (using Linux):
-   export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
-   export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
-   export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
-   ```
+## Assign service principal to monitoring metrics publisher
 
 Run this command to assign the service principal to the 'Monitoring Metrics Publisher' role on the subscription where your database instance resources are located:
 
