@@ -20,7 +20,7 @@
     - name: Access the API
       href: access-api-howto.md
     - name: Set up Azure Cloud Shell
-      href: https://docs.microsoft.com/azure/cloud-shell/overview
+      href: ../../cloud-shell/overview.md
     - name: Develop with REST
       items:
       - name: Connect with Postman
@@ -60,7 +60,9 @@
     - name: Encrypt dynamically with AES-128
       href: protect-with-aes128.md
     - name: Encrypt dynamically with DRM
-      href: protect-with-drm.md 
+      href: protect-with-drm.md
+    - name: Content protection with Azure AD
+      href: azure-ad-content-protection.md
   - name: REST
     items:
     - name: Encode and stream a remote file REST
@@ -187,9 +189,7 @@
     - name: Streaming policies 
       href: streaming-policy-concept.md          
     - name: Content key policies 
-      href: content-key-policy-concept.md
-    - name: Content protection with Azure AD
-      href: azure-ad-content-protection.md                    
+      href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
     - name: Events with Event Grid
@@ -374,15 +374,15 @@
   - name: REST
     href: /rest/api/media/
   - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref    
+    href: /cli/azure/ams
   - name: SDKs
     items:
     - name: .NET
-      href: https://aka.ms/ams-v3-dotnet-ref
+      href: /dotnet/api/overview/azure/mediaservices/management
     - name: Java
-      href: https://aka.ms/ams-v3-java-ref
+      href: /java/api/overview/azure/mediaservices/management
     - name: Python
-      href: https://aka.ms/ams-v3-python-ref
+      href: /python/api/overview/azure/mediaservices/management
     - name: Node.js
       href: /javascript/api/overview/azure/mediaservices/management
     - name: Go
@@ -411,7 +411,7 @@
   - name: SDKs/Tools
     items:
     - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli
+      href: /cli/azure/install-azure-cli
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-sdk
     - name: Java
