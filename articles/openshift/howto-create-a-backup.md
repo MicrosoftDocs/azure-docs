@@ -86,7 +86,7 @@ EOF
 
 ## Install Velero on Azure Red Hat OpenShift 4 cluster
 
-This step will install velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you are successfully logged in to an Azure Red Hat OpenShift v4 cluster.
+This step will install Velero into its own project and the [custom resource definitions](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/) necessary to do backups and restores with Velero. Make sure you are successfully logged in to an Azure Red Hat OpenShift v4 cluster.
 
 
 ```bash
