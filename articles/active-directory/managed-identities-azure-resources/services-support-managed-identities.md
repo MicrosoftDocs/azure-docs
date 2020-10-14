@@ -37,6 +37,18 @@ Refer to the following list to configure managed identity for Azure API Manageme
 - [Azure Resource Manager template](../../api-management/api-management-howto-use-managed-service-identity.md)
 
 
+### Azure App Configuration
+
+| Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| System assigned | ![Available][check] | ![Available][check] | Not Available | Not Available |
+| User assigned | ![Available][check] | ![Available][check]  | Not Available  | Not Available |
+
+Refer to the following list to configure managed identity for Azure App Configuration
+
+- [Azure CLI](../../azure-app-configuration/overview-managed-identity.md)
+
+
 ### Azure App Service
 
 | Managed identity type | All Generally Available<br>Global Azure Regions | Azure Government | Azure Germany | Azure China 21Vianet |
