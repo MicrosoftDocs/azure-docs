@@ -45,17 +45,31 @@ For more information about Key Vault management plane, see [Key Vault Management
 
 Key Vault is using Azure AD authentication that requires Azure AD security principal to grant access. An Azure AD security principal may be a user, an application service principal, a [managed identity for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md), or a group of any type of security principals.
 
-For secure applications, it is recommended to use managed identity for applications deployed to Azure. If Azure services, which do not support managed identity or applications deployed on premise, [service principal with a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) is a possible alternative. Certificate should be stored in Key Vault and rotated often. 
+### Authentication best practices
 
-Service principal with secret can be used for development and testing environments, and locally or in Cloud Shell user principal is recommended.
+It is recommended to use managed identity for applications deployed to Azure. If you use Azure services, which do not support managed identity or if applications are deployed on premise, [service principal with a certificate](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) is a possible alternative. In that scenario, certificate should be stored in Key Vault and rotated often. Service principal with secret can be used for development and testing environments, and locally or in Cloud Shell using user principal is recommended.
 
-For application development, you can use Azure Identity SDK across different environments and platforms without changing code. Azure Identity is integrated with Azure CLI, Visual Studio, Visual Studio Code, and others. 
+Recommended security principals per environment:
+- **Production environment**:
+  - Managed identity or service principal with a certificate
+- **Test and development environments**:
+  - Managed identity, service principal with certificate or service principal with secret
+- **Local development**:
+  - User principal or service principal with secret
 
-For more information, see: 
+Above authentications scenarios are supported by **Azure Identity client library** and integrated with Key Vault SDKs. Azure Identity library can be used across different environments and platforms without changing your code. Azure Identity would also automatically retrieve authentication token from logged in to Azure user with Azure CLI, Visual Studio, Visual Studio Code, and others. 
 
+For more information about Azure Identity client libarary, see:
+
+### Azure Identity client libraries
 | .NET | Python | Java | JavaScript |
 |--|--|--|--|
 |[Azure Identity SDK .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme)|[Azure Identity SDK Python](https://docs.microsoft.com/python/api/overview/azure/identity-readme)|[Azure Identity SDK Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme)|[Azure Identity SDK JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)|     
+
+For tutorials on how to authenticate to Key Vault in applications, see:
+- [Authenticate to Key Vault in application hosted in VM in .NET](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-virtual-machine)
+- [Authenticate to Key Vault in application hosted in VM in Python](https://docs.microsoft.com/azure/key-vault/general/tutorial-python-virtual-machine)
+- [Authenticate to Key Vault with App Service](https://docs.microsoft.com/azure/key-vault/general/tutorial-net-create-vault-azure-web-app)
 
 ## Manage keys, certificates, and secrets
 
@@ -107,9 +121,13 @@ The following articles and scenarios provide task-specific guidance for working 
 
 These articles are about other scenarios and services that use or integrate with Key Vault.
 
-- [Encryption at REST with Key Vault](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
-
+- [Encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) allows the encoding (encryption) of data when it is persisted. Data encryption keys are often encrypted with a key encryption key in Azure Key Vault to further limit access.
 - [Azure Information Protection](/azure/information-protection/plan-implement-tenant-key) allows you to manager your own tenant key. For example, instead of Microsoft managing your tenant key (the default), you can manage your own tenant key to comply with specific regulations that apply to your organization. Managing your own tenant key is also referred to as bring your own key, or BYOK.
+- [Azure Private Link Service](private-link-service.md) enables you to access Azure Services (for example, Azure Key Vault, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a Private Endpoint in your virtual network.
+- Key Vault integration with [Event Grid](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)  allows users to be notified when the status of a secret  stored in key vault has changed. You can distribute new version of secrets to applications or rotate near expiry secrets to prevent outages.
+- You can protect your [Azure Devops](https://docs.microsoft.com/azure/devops/pipelines/release/azure-key-vault) secrets from unwanted access in Key Vault.
+- [Use secret stored in Key Vault in DataBricks to connect to Azure Storage](https://docs.microsoft.com/azure/key-vault/general/integrate-databricks-blob-storage)
+- Configure and run the Azure Key Vault provider for the [Secrets Store CSI driver](https://docs.microsoft.com/azure/key-vault/general/key-vault-integrate-kubernetes) on Kubernetes
 
 ## Key Vault overviews and concepts
 

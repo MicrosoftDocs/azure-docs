@@ -3,7 +3,7 @@ title: Create an Azure Batch pool without public IP addresses
 description: Learn how to create a pool without public IP addresses
 author: pkshultz
 ms.topic: how-to
-ms.date: 09/28/2020
+ms.date: 10/08/2020
 ms.author: peshultz
 ms.custom: references_regions
 
@@ -32,9 +32,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
   - The VNet must be in the same subscription and region as the Batch account you use to create your pool.
   - The subnet specified for the pool must have enough unassigned IP addresses to accommodate the number of VMs targeted for the pool; that is, the sum of the `targetDedicatedNodes` and `targetLowPriorityNodes` properties of the pool. If the subnet doesn't have enough unassigned IP addresses, the pool partially allocates the compute nodes, and a resize error occurs.
   - You must to disable private link service and endpoint network policies. This can be done by using Azure CLI:
-    ```azurecli
-    az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies
-    ```
+    ```az network vnet subnet update --vnet-name <vnetname> -n <subnetname> --disable-private-endpoint-network-policies --disable-private-link-service-network-policies```
 
 > [!IMPORTANT]
 > For each 100 dedicated or low-priority nodes, Batch allocates one private link service and one load balancer. These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). For large pools, you might need to [request a quota increase](batch-quota-limit.md#increase-a-quota) for one or more of these resources. Additionally, no resource locks should be applied to any resource created by Batch, since this prevent cleanup of resources as a result of user-initiated actions such as deleting a pool or resizing to zero.
@@ -47,7 +45,7 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
 ## Create a pool without public IP addresses in the Azure portal
 
-1. Navigate to your Batch account in the Azure portal. 
+1. Navigate to your Batch account in the Azure portal.
 1. In the **Settings** window on the left, select **Pools**.
 1. In the **Pools** window, select **Add**.
 1. On the **Add Pool** window, select the option you intend to use from the **Image Type** dropdown.
@@ -92,7 +90,7 @@ client-request-id: 00000000-0000-0000-0000-000000000000
      "resizeTimeout": "PT15M",
      "targetDedicatedNodes": 5,
      "targetLowPriorityNodes": 0,
-     "maxTasksPerNode": 3,
+     "taskSlotsPerNode": 3,
      "taskSchedulingPolicy": {
           "nodeFillType": "spread"
      },

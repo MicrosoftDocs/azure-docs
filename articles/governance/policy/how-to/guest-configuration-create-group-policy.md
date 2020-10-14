@@ -103,7 +103,7 @@ Guest Configuration and Baseline Management modules.
 
 ## Create Azure Policy Guest Configuration
 
-The next step is to publish the file to blob storage. 
+The next step is to publish the file to Azure Blob Storage. 
 
 1. The script below contains a function you can use to automate this task. Note, the commands used
    in the `publish` function require the `Az.Storage` module.
@@ -163,7 +163,7 @@ The next step is to publish the file to blob storage.
     ```
 
 1. Use the publish function with the assigned parameters to publish the Guest Configuration package
-   to public blob storage.
+   to public Blob Storage.
 
 
    ```azurepowershell-interactive

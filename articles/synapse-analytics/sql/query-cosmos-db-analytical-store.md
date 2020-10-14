@@ -16,9 +16,9 @@ ms.reviewer: jrasnick
 Synapse SQL serverless (previously SQL on-demand) allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in near real time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface.
 
 > [!NOTE]
-> Support for querying Azure Cosmos DB analytical store with SQL serverless is currently in gated preview. 
+> Support for querying Azure Cosmos DB analytical store with SQL serverless is currently in gated preview. Open public preview will be announced on [Azure service updates](https://azure.microsoft.com/updates/?status=nowavailable&category=databases) page.
 
-For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql.md?view=sql-server-ver15&preserve-view=true) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, including the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). You can't currently store SQL serverless query results to Azure Cosmos DB using [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
+For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, including the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). You can't currently store SQL serverless query results to Azure Cosmos DB using [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 In this article, you'll learn how to write a query using SQL serverless that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building SQL serverless views over Azure Cosmos DB containers and connecting them to Power BI models in [this](./tutorial-data-analyst.md) tutorial. 
 
@@ -31,10 +31,15 @@ OPENROWSET(
        'CosmosDB',
        '<Azure Cosmos DB connection string>',
        <Container name>
-    )  [ < with clause > ]
+    )  [ < with clause > ] AS alias
 ```
 
-The Azure Cosmos DB connection string specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to `OPENROWSET` function. The connection string has the following format:
+The Azure Cosmos DB connection string specifies the Azure Cosmos DB account name, database name, database account master key, and an optional region name to `OPENROWSET` function. 
+
+> [!IMPORTANT]
+> Make sure that you use alias after `OPENROWSET`. There is a [known issue](#known-issues) that cause connection issue to Synapse serverless SQL endpoint if you don't specify the alias after `OPENROWSET` function.
+
+The connection string has the following format:
 ```sql
 'account=<database account name>;database=<database name>;region=<region name>;key=<database account master key>'
 ```
@@ -251,6 +256,13 @@ choose SQL types that match these JSON types if you are using `WITH` clause in `
 | Nested object or array | varchar(max) (UTF8 database collation), serialized as JSON text |
 
 For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more about the full fidelity schema representation in the analytical store and the extended property names to be used [here](../../cosmos-db/analytical-store-introduction.md#analytical-schema).
+
+## Known issues
+
+- Alias **MUST** be specified after `OPENROWSET` function (for example, `OPENROWSET (...) AS function_alias`). Omitting alias might cause connection issue and Synapse serverless SQL endpoint might be temporarily unavailable. This issue will be resolved in Nov 2020.
+- Synapse serverless SQL currently don't support [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use Synapse serverless SQL only to access Cosmos DB well-defined schema.
+
+You can report suggestions and issues on [Azure Synapse feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
 ## Next steps
 

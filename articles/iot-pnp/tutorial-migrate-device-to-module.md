@@ -15,7 +15,7 @@ services: iot-pnp
 
 This tutorial shows you how to convert IoT Plug and Play device code to run as a generic module.
 
-A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](concepts-developer-guide.md). Modules use model IDs and DTDL models in the same way.
+A device is an IoT Plug and Play device if it publishes its model ID when it connects to an IoT hub and implements the properties and methods described in the Digital Twins Definition Language (DTDL) model identified by the model ID. To learn more about how devices use a DTDL and model ID, see [IoT Plug and Play developer guide](./concepts-developer-guide-device-csharp.md). Modules use model IDs and DTDL models in the same way.
 
 To demonstrate how to implement an IoT Plug and Play module, this tutorial shows you how to convert the thermostat C# device sample into a generic module.
 
@@ -172,7 +172,7 @@ The service SDKs let you retrieve the model ID of connected IoT Plug and Play de
 
     | Name | Value |
     | ---- | ----- |
-    | DEVICE_ID | my-module-device |
+    | IOTHUB_DEVICE_ID | my-module-device |
     | IOTHUB_CONNECTION_STRING | The value you made a note of when you completed [Set up your environment](set-up-environment.md) |
 
     > [!TIP]
@@ -221,7 +221,7 @@ To convert this sample to work as an IoT Plug and Play IoT Edge module, you must
 To learn how to deploy your containerized module, see:
 
 * [Run Azure IoT Edge on Ubuntu Virtual Machines](../iot-edge/how-to-install-iot-edge-ubuntuvm.md).
-* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge-linux.md).
+* [Install the Azure IoT Edge runtime on Debian-based Linux systems](../iot-edge/how-to-install-iot-edge.md).
 
 You can use the Azure IoT Explorer tool to see:
 
@@ -235,4 +235,4 @@ You can use the Azure IoT Explorer tool to see:
 In this tutorial, you've learned how to connect an IoT Plug and Play device with modules to an IoT hub. To learn more about IoT Plug and Play device models, see:
 
 > [!div class="nextstepaction"]
-> [IoT Plug and Play modeling developer guide](concepts-developer-guide.md)
+> [IoT Plug and Play modeling developer guide](./concepts-developer-guide-device-csharp.md)

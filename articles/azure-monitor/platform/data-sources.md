@@ -5,7 +5,7 @@ ms.subservice:
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/19/2019
+ms.date: 10/06/2020
 
 ---
 
@@ -82,7 +82,7 @@ The [Azure Activity log](platform-logs-overview.md) includes service health reco
 ## Azure resources
 Metrics and resource logs provide information about the _internal_ operation of Azure resources. These are available for most Azure services, and monitoring solutions and insights collect additional data for particular services.
 
-![Azure resource collection](media/data-sources/azure-resources.png)
+![Azure resource collection](media/data-sources/data-source-azure-resources.svg)
 
 
 ### Platform metrics 

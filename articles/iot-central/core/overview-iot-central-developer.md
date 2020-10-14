@@ -1,6 +1,6 @@
 ---
 title: Device development for Azure IoT Central | Microsoft Docs
-description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of developing devices to connect to your IoT Central application.
+description: Azure IoT Central is an IoT application platform that simplifies the creation of IoT solutions. This article provides an overview of developing devices to connect to your IoT Central application. Devices use telemetry to send streaming data and properties to report device state. Iot Central can set device state using writable properties and call commands on a device.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/05/2020
@@ -19,7 +19,7 @@ An IoT Central application lets you monitor and manage millions of devices throu
 Devices interact with an IoT Central application using the following primitives:
 
 - _Telemetry_ is data that a device sends to IoT Central. For example, a stream of temperature values from an onboard sensor.
-- _Properties_ are state values that a device reports to IoT Central. For example, the current firmware version of the device. You can also have writable properties that IoT Central can update on the device.
+- _Properties_ are state values that a device reports to IoT Central. For example, the current firmware version of the device. You can also have writable properties that IoT Central can update on the device such as a target temperature.
 - _Commands_ are called from IoT Central to control the behavior a device. For example, your IoT Central application might call a command to reboot a device.
 
 A solution builder is responsible for configuring dashboards and views in the IoT Central web UI to visualize telemetry, manage properties, and call commands.
