@@ -11,6 +11,9 @@ Azure Lab Services owners/creators are now able to create labs within Microsoft 
 
 This article outlines the benefits of Teams integration and provides links to other articles for instructions on how to manage the Azure Lab Services within Teams. 
 
+> [!NOTE]
+>**Azure Lab Services** Teams App can be added only to a team, it cannot be added to individual chats or group chats.
+
 ## Benefits
 
 Azure Lab Services integration with Microsoft Teams will help educators set up a classroom environment and provide virtual lab environments within the team(class): 
