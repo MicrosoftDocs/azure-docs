@@ -11,7 +11,7 @@ When a lab is created within Teams, users can view and access all the VMs provis
 
 ## View labs
 
-If the lab has been published, students will see the following and will be able to connect to the lab:
+If the lab is yet to be published or a sync is yet to be triggered after they are added to the team, similar messaging will be shown to the students.’ To ‘If the lab is yet to be published or a sync is yet to be triggered after they are added to the team, similar messaging will be shown to the team members.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Azure Lab Services lab":::
@@ -26,7 +26,7 @@ If the lab is yet to be published or a sync is yet to be triggered after they ar
 See the following articles:
 
 - [Use Azure Lab Services within Teams overview](lab-services-within-teams-overview.md)
-- [Get started and create a lab within a Team](how-to-get-started-create-lab-within-teams.md)
-- [Manage user lists](how-to-manage-user-lists-within-teams.md)
-- [Manage VM pool](how-to-manage-vm-pool-within-teams.md)
-- [Create schedules](how-to-create-schedules-within-teams.md)
+- [Get started and create a lab within Teams](how-to-get-started-create-lab-within-teams.md)
+- [Manage lab user lists within Teams](how-to-manage-user-lists-within-teams.md)
+- [Manage lab's VM pool within Teams](how-to-manage-vm-pool-within-teams.md)
+- [Create and manage lab schedules within Teams](how-to-create-schedules-within-teams.md)

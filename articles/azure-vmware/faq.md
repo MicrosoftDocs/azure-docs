@@ -72,6 +72,9 @@ No, use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-
 #### Is VMware HCX supported on VPNs?
 No.
 
+#### Can Azure Bastion be used for connecting to AVS VMs?
+Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You cannot use Azure Bastion to connect to Azure VMware Solution VMs since they are not Azure IaaS objects.
+
 
 ## Compute, network, storage, and backup
 
