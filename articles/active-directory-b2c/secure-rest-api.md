@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/20/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -307,6 +307,8 @@ After you add the above snippets, your technical profile should look like the fo
 ## Using a static OAuth2 bearer 
 
 ### Add the OAuth2 bearer token policy key
+
+To configure a REST API technical profile with an OAuth2 bearer token, obtain an access token from the REST API owner, then create the following cryptographic key to store the bearer token. 
 
 Create a policy key to store the bearer token value.
 
