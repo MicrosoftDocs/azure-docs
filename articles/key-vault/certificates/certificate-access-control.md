@@ -41,6 +41,10 @@ ms.author: sebansal
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
+## Troubleshoot
+You may see error due to missing access policy. For example ```Error type : Access denied or user is unauthorized to create certificate```
+To resolve this error, you would need to add certificates/create permission.
+
 ## Next steps
 
 - [About Key Vault](../general/overview.md)
