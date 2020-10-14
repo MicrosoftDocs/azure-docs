@@ -286,6 +286,7 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 ```
 
 ::: zone-end
+
 ::: zone pivot="client-operating-system-linux"
 
 ```console
@@ -295,7 +296,7 @@ export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' c
 #export WORKSPACE_ID='d6abb435-2626-4df1-b887-445fe44a4123'
 ```
 
-::: zone end
+::: zone-end
 
 This command returns the access keys required to connect to your log analytics workspace:
 
@@ -335,6 +336,7 @@ export WORKSPACE_SHARED_KEY='JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXq
 ```
 
 ::: zone-end
+
 ::: zone pivot="client-operating-system-linux"
 
 ```console
@@ -344,7 +346,7 @@ export WORKSPACE_SHARED_KEY='<the primarySharedKey value from the 'get-shared-ke
 export WORKSPACE_SHARED_KEY='JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXqaydpaj1ByWGvKoCghL8hL4BRoypXxkLr123=='
 ```
 
-::: zone end
+::: zone-end
 
 ## Set final environment variables and confirm
 
@@ -393,6 +395,7 @@ $Env:SPN_AUTHORITY
 
 
 ::: zone-end
+
 ::: zone pivot="client-operating-system-macos"
 
 ```console
@@ -405,6 +408,7 @@ echo $SPN_AUTHORITY
 ```
 
 ::: zone-end
+
 ::: zone pivot="client-operating-system-linux"
 
 ```console
