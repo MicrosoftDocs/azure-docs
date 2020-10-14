@@ -123,7 +123,7 @@ Depending on the goal of the business problem, the ideal precision-recall curve 
 ![A classification model with low precision and low recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
 ##### Example 2: A classification model with ~100% precision and ~100% recall 
-![A classification model high precision and recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall3.png)
+![A classification model high precision and recall](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
 
 <a name="roc"></a>
 
@@ -136,12 +136,12 @@ You can visualize the area under the ROC chart as the proportion of correctly cl
 ### What does a good model look like?
 An ROC curve that approaches the top left corner with 100% true positive rate and 0% false positive rate will be the best model. A random model would display as a flat line from the bottom left to the top right corner. Worse than random would dip below the y=x line.
 
-#### Example 1: A classification model with low true labels and high false labels**
+#### Example 1: A classification model with low true labels and high false labels
 ![Classification model with low true labels and high false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
 
 #### Example 2: A classification model with high true labels and low false labels
 
-![a classification model with high true labels and low false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-4.png)
+![a classification model with high true labels and low false labels](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
 
 
 <a name="lift-curve"></a>
@@ -156,7 +156,7 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 
 A higher lift curve, that is the higher your model is above the baseline, indicates a better performing model. 
 
-#### Example 1: A classification model that does worse than a random selection model
+#### Example 1: A classification model that has poor lift 
 ![A classification model that does worse than a random selection model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
 
 #### Example 2: A classification model that performs better than a random selection model
@@ -195,10 +195,10 @@ For all classification problems, you can review the calibration line for micro-a
 A well-calibrated model aligns with the y=x line, where it correctly predicts the probability that samples belong to each class. An over-confident model will over-predict probabilities close to zero and one, rarely being uncertain about the class of each sample.
 
 #### Example 1: A well-calibrated model
-![ more well-calibrated model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve3.png)
+![ more well-calibrated model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
 
 #### Example 2: An over-confident model
-![An over-confident model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve4.png)
+![An over-confident model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
 
 <a name="regression"></a> 
