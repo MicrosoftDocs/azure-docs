@@ -378,6 +378,65 @@ Publishers must reach out to the support at [Marketplace Publisher Support](http
    7. Timeline - Date till which this exception has been requested
    8. Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
 
+## Address a vulnerability or exploit in a VM offer
+
+This section describes how to provide a new VM image when a vulnerability or exploit is discovered with one of your VM images. This only applies to VM offers  published to the Azure Marketplace.
+
+> [!NOTE]
+> You can't remove the last VM image from a plan or stop-sell the last plan for an offer.
+
+Do one of the following:
+
+- If you have a new VM image to replace the vulnerable VM image, see [Provide a fixed VM image](#provide-a-fixed-vm-image) below.
+- If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [stop selling the plan](partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan).
+- If you don't plan to replace the only VM image in the offer, [stop selling the offer](partner-center-portal/update-existing-offer#stop-selling-an-offer-or-plan).
+
+### Provide a fixed VM image
+
+To replace a VM image with a vulnerability or exploit with a new fixed VM image:
+
+1. Provide a new VM image to address the security vulnerability or exploit.
+2. Remove the VM image with the security vulnerability or exploit.
+3. Republish the offer.
+
+#### Provide a new VM image to address the security vulnerability or exploit
+
+To complete these steps you'll need [prepare the technical assets](azure-vm-create-technical-assets.md) for the VM image you want to add. You'll also need to [generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+3. In the **Offer alias** column, select the offer.
+4. On the **Plan overview** tab, in the **Name** column, select the plan you want to add the VM to.
+5. On the **Technical configuration** tab, under **VM Images** , select **+ Add VM Image**.
+
+> [!NOTE]
+> You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one and wait until it reaches the Publisher sign-off stage, then add the next VM image.
+
+6. In the boxes that appear, provide a new disk version and the virtual machine image.
+2. Select **Save draft**.
+
+Continue with the next section below to remove the VM image with the security vulnerability.
+
+#### Remove the VM image with the security vulnerability or exploit
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+3. In the **Offer alias** column, select the offer.
+4. On the **Plan overview** tab, in the **Name** column, select the plan with the VM you want to remove.
+5. On the **Technical configuration** tab, under **VM Images** , next to the VM image you want to remove, select **Remove VM Image**.
+6. In the dialog box that appears, select **Continue**.
+7. Select **Save draft**.
+
+Continue with the next section below to republish the offer.
+
+#### Republish the offer
+
+1. Select **Review and publish**.
+2. If you need to provide any information to the certification team, add it to the **Notes for certification** box.
+3. Select **Publish**.
+
+For more information, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md).
+
 ## Next steps
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
