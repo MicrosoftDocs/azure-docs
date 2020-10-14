@@ -100,7 +100,7 @@ To learn more about dead-lettering, see [Concepts: Event Routes](./concepts-rout
 
 #### Configuring the endpoint
 
-When creating an endpoint, add a `deadLetterSecret` to the `properties` object in the body of the request which contains a container URL and SAS token for your storage account.
+When creating an endpoint, add a `deadLetterSecret` to the `properties` object in the body of the request, which contains a container URL and SAS token for your storage account.
 
 ```json
 {
