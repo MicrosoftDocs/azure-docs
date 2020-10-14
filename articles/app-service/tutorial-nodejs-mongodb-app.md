@@ -39,15 +39,13 @@ What you'll learn:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-To complete this tutorial:
-
-1. [Install Git](https://git-scm.com/)
-2. [Install Node.js and NPM](https://nodejs.org/)
-3. [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-4. [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
-5. [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
+ - [Install Git](https://git-scm.com/)
+ - [Install Node.js and NPM](https://nodejs.org/)
+ - [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+ - [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+ - [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## Test local MongoDB
 
@@ -112,8 +110,6 @@ The MEAN.js sample application stores user data in the database. If you are succ
 Select **Admin > Manage Articles** to add some articles.
 
 To stop Node.js at any time, press `Ctrl+C` in the terminal. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create production MongoDB
 

@@ -38,15 +38,13 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-To complete this tutorial:
-
-* [Install Git](https://git-scm.com/)
-* [Install PHP 5.6.4 or above](https://php.net/downloads.php)
-* [Install Composer](https://getcomposer.org/doc/00-intro.md)
-* Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
-* [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+ - [Install Git](https://git-scm.com/)
+ - [Install PHP 5.6.4 or above](https://php.net/downloads.php)
+ - [Install Composer](https://getcomposer.org/doc/00-intro.md)
+ - Enable the following PHP extensions Laravel needs: OpenSSL, PDO-MySQL, Mbstring, Tokenizer, XML
+ - [Install and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## Prepare local MySQL
 
@@ -144,8 +142,6 @@ Navigate to `http://localhost:8000` in a browser. Add a few tasks in the page.
 ![PHP connects successfully to MySQL](./media/tutorial-php-mysql-app/mysql-connect-success.png)
 
 To stop PHP, type `Ctrl + C` in the terminal.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Create MySQL in Azure
 

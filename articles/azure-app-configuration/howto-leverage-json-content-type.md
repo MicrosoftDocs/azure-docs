@@ -61,13 +61,11 @@ In this tutorial, you'll learn how to:
 > * Consume JSON key-values in your applications.
 
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/).
-- Latest version of Azure CLI (2.10.0 or later). To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli). If you are using Azure CLI, you must first sign in using `az login`. You can optionally use the Azure Cloud Shell.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
+- This tutorial requires version 2.10.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 ## Create an App Configuration store
 

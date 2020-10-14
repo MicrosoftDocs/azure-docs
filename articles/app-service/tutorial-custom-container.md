@@ -17,9 +17,7 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 ![Shows the web app running in a Windows container.](media/tutorial-custom-container/app-running.png)
 
-## Prerequisites
-
-To complete this tutorial:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
@@ -37,7 +35,7 @@ In this step, you set up the local .NET project.
 - [Download the sample project](https://github.com/Azure-Samples/custom-font-win-container/archive/master.zip).
 - Extract (unzip) the  *custom-font-win-container.zip* file.
 
-The sample project contains a simple ASP.NET application that uses a custom font that is installed into the Windows font library. It's not necessary to install fonts, but it's an example of an app that is integrated with the underlying OS. To migrate such an app to App Service, you either rearchitect your code to remove the integration, or migrate it as-is in a custom Windows container.
+The sample project contains a simple ASP.NET application that uses a custom font that is installed into the Windows font library. It's not necessary to install fonts, but it's an example of an app that is integrated with the underlying OS. To migrate such an app to App Service, you either re-architect your code to remove the integration, or migrate it as-is in a custom Windows container.
 
 ### Install the font
 
@@ -334,8 +332,6 @@ ENTRYPOINT ["init.sh"]
 1. Browse to `http://localhost:8000` to verify the web app and container are functioning correctly.
 
     ![Test web app locally](./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-local.png)
-
-[!INCLUDE [Try Cloud Shell](../../includes/cloud-shell-try-it.md)]
 
 ## Create a resource group
 
