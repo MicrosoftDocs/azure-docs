@@ -12,7 +12,7 @@ ms.service: azure-communication-services
 - A working [Communication Services calling app](../getting-started-with-calling.md).
 - A [Teams deployment](https://docs.microsoft.com/en-us/deployoffice/teams-install).
 
-## Enable Teams
+## Enable Teams Interoperability
 
 The Teams interoperability feature is currently in private preview. To enable this feature for your Communication Services resource, please email [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) with:
 
