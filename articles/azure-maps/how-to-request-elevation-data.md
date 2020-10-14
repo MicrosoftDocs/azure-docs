@@ -65,7 +65,7 @@ In this example, we'll use the [Get Data For Points API](https://docs.microsoft.
 3. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/elevation/point?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672, 40.714728|150.644,-34.397&format=JSON
+    https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&points=-73.998672,40.714728|150.644,-34.397
     ```
 
 4. Click the **Send** button.  You'll receive the following JSON response:
@@ -105,7 +105,7 @@ Then, we'll use the Get Data for Polyline to request three equally spaced sample
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/elevation/line?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=40.714728,-73.998672|-34.397,150.644&samples=5&format=JSON
+    https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&lines=40.714728,-73.998672|-34.397,150.644&samples=5
     ```
 
 3. Click the **Send** button.  You'll receive the following JSON response:
@@ -205,7 +205,7 @@ In this example, we'll specify rows=3 and columns=6. Eighteen elevation values a
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/elevation/lattice?subscription-key=DsPCGIGfua7ti-MljBYsItsT1u9mCjjeloOLKMHrBpo&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3&format=JSON
+    https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
 3. Click the blue **Send** button. You'll receive the following JSON response. Notice that there are 18 elevation data samples, one for each vertex of the grid.
