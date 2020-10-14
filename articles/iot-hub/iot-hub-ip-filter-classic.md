@@ -11,16 +11,17 @@ ms.author: jlian
 
 # IoT Hub classic IP filter and how to upgrade 
 
-The upgraded IP filter for IoT Hub protects the built-in endpoint, blocks all IP ranges by default, and is easier to configure. With the new enhancement, we announce the retirement of classic IP Filter. To learn more about the new upgraded IP filter, see [IoT hub IP filters](iot-hub-ip-filtering.md)
+The upgraded IP filter for IoT Hub protects the built-in endpoint, blocks all IP ranges by default, and is easier to configure. With the new enhancement, we announce the retirement of classic IP Filter. To learn more about the new upgraded IP filter, see [IoT hub IP filters](iot-hub-ip-filtering.md).
 
-To avoid service disruption, you must perform the guided upgrade before the migration deadline, at which point the upgrade will be performed automatically. To learn more about the migration timeline, see [Azure update]().
+To avoid service disruption, you must perform the guided upgrade before the migration deadline, at which point the upgrade will be performed automatically. To learn more about the migration timeline, see [Azure update](https://aka.ms/ipfilterv2azupdate).
 
 ## How to upgrade
 
 1.	Visit Azure portal
 2.	Navigate to your IoT hub.
 3.	Select **Networking** from the left-side menu.
-4.	You should see a banner prompting you to upgrade your IP Filter to the new model. Click the banner to continue.
+4.	You should see a banner prompting you to upgrade your IP Filter to the new model. Select **Yes** to continue.
+    :::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-upgrade-banner.png" alt-text="Image showing the banner prompt to upgrade from classic IP filter":::
 5.	Since the new IP Filter blocks all IP by default, the upgrade removes your individual deny rules but gives you a chance to review them before saving. Carefully review the rules to make sure they work for you.
 6.	Follow prompts to finish upgrading.
 
@@ -28,21 +29,26 @@ To avoid service disruption, you must perform the guided upgrade before the migr
 
 ### Secure by default
 
-Classic IP filter implicitly allows all IP addresses to connect to the IoT Hub by default, which doesn't align well with the most common network security scenarios. Typically, you would want only trusted IP addresses to be able to connect to your IoT hub and nothing else. To achieve this goal with classic IP filter, it's a multi-step process. For example, if you want to only accept traffic from `192.168.100.0/22`, you must
+Classic IP filter implicitly allows all IP addresses to connect to the IoT Hub by default, which doesn't align well with the most common network security scenarios. Typically, you would want only trusted IP addresses to be able to connect to your IoT hub and reject everything else. To achieve this goal with classic IP filter, it's a multi-step process. For example, if you want to only accept traffic from `192.168.100.0/22`, you must
 
 1. Configure a single *allow* rule for `192.168.100.0/22`.
 1. Configure a different *block* rule for `0.0.0.0/0` (the "block all" rule)
-1. Make sure that they are ordered correctly, with the allow rule ordered above the block rule.
+1. Make sure the rules are ordered correctly, with the allow rule ordered above the block rule.
 
-In practice, this multi-step process causes confusion. Many users did not configure the "block all" rule or didn't order the rules correctly, resulting in unintended exposure. 
+In practice, this multi-step process causes confusion. Users didn't configure the "block all" rule or didn't order the rules correctly, resulting in unintended exposure. 
 
 The new IP filter blocks all IP addresses by default. Only the addresses that you explicitly add are allowed to connect to IoT Hub. In the above example, steps 2 and 3 aren't needed anymore. This new behavior simplifies configuration and abides by the [secure by default principle](https://wikipedia.org/wiki/Secure_by_default).
 
 ### Protect the built-in Event Hub compatible endpoint
 
-Classic IP filter cannot be applied to the built-in endpoint. This means that, event with a block all rule (block `0.0.0.0/0`) configured, the built-in endpoint can still be accessed from any IP address.
+Classic IP filter cannot be applied to the built-in endpoint. This limitation means that, event with a block all rule (block `0.0.0.0/0`) configured, the built-in endpoint is still accessible from any IP address.
 
 The new IP filter provides an option to apply rules to the built-in endpoint, which reduces exposure to network security threats.
+
+:::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-built-in-endpoint.png" alt-text="Image showing the toggle to apply to the built-in endpoint or not":::
+
+> [!NOTE]
+> This option isn't available to free (F1) IoT hubs. To apply IP filter rules to the built-in endpoint, use a paid IoT hub.
 
 ## Tip: try the changes before they apply
 
@@ -52,17 +58,20 @@ To try to the change in with classic IP filter:
 
 1. Visit the **Networking** tab in your IoT hub
 1. Note down your existing IP filter (classic) configuration, in case you want to roll back
-1. Next to rules with **Block**, click the trash icon to remove them
+1. Next to rules with **Block**, Select the trash icon to remove them
 1. Add another rule at the bottom with `0.0.0.0/0`, and choose **Block**
-1. Click **Save**
+1. Select **Save**
 
-This configuration essentially mimics how the new IP filter will behave after upgrading from classic. One exception is the built-in endpoint protection: that is not possible to try using classic IP filter. However, that feature is optional, so you don't have to use it if you think it might break something.
+This configuration mimics how the new IP filter behaves after upgrading from classic. One exception is the built-in endpoint protection, which is not possible to try using classic IP filter. However, that feature is optional, so you don't have to use it if you think it might break something.
 
 ## Tip: check diagnostic logs for all IP connections to your IoT hub
 
-To ensure a smooth transition, check your diagnostic logs under the Connections category. Look for the `maskedIpAddress` property to see if he ranges are as you expect. Remember: the new IP filter will block all IP addresses that haven't been explicitly added.
+To ensure a smooth transition, check your diagnostic logs under the Connections category. Look for the `maskedIpAddress` property to see if the ranges are as you expect. Remember: the new IP filter will block all IP addresses that haven't been explicitly added.
 
 ## IoT Hub classic IP filter documentation (retired)
+
+> [!IMPORTANT]
+> Below is the original documentation for classic IP filter, which is being retired.
 
 Security is an important aspect of any IoT solution based on Azure IoT Hub. Sometimes you need to explicitly specify the IP addresses from which devices can connect as part of your security configuration. The *IP filter* feature enables you to configure rules for rejecting or accepting traffic from specific IPv4 addresses.
 
@@ -89,17 +98,17 @@ By default, the **IP Filter** grid in the portal for an IoT hub is empty. This d
 
 To get to the IP Filter settings page, select **Networking**, **Public access**, then choose **Selected IP Ranges**:
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub default IP filter settings":::
+:::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-default.png" alt-text="IoT Hub default IP filter settings":::
 
 ### Add or edit an IP filter rule
 
 To add an IP filter rule, select **+ Add IP Filter Rule**.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Add an IP filter rule to an IoT hub":::
+:::image type="content" source="./media/iot-hub-ip-filter-classic/ip-filter-add-rule.png" alt-text="Add an IP filter rule to an IoT hub":::
 
 After selecting **Add IP Filter Rule**, fill in the fields.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule":::
+:::image type="content" source="./media/iot-hub-ip-filter-classic/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule":::
 
 * Provide a **name** for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
 
@@ -109,7 +118,7 @@ After selecting **Add IP Filter Rule**, fill in the fields.
 
 After filling in the fields, select **Save** to save the rule. You see an alert notifying you that the update is in progress.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Notification about saving an IP filter rule":::
+:::image type="content" source="./media/iot-hub-ip-filter-classic/ip-filter-save-new-rule.png" alt-text="Notification about saving an IP filter rule":::
 
 The **Add** option is disabled when you reach the maximum of 10 IP filter rules.
 
@@ -119,7 +128,7 @@ To edit an existing rule, select the data you want to change, make the change, t
 
 To delete an IP filter rule, select the trash can icon on that row and then select **Save**. The rule is removed and the change is saved.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Delete an IoT Hub IP filter rule":::
+:::image type="content" source="./media/iot-hub-ip-filter-classic/ip-filter-delete-rule.png" alt-text="Delete an IoT Hub IP filter rule":::
 
 ### Retrieve and update IP filters using Azure CLI
 
@@ -209,7 +218,7 @@ You can change the order of your IP filter rules in the grid by clicking the thr
 
 To save your new IP filter rule order, click **Save**.
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-rule-order.png" alt-text="Change the order of your IoT HUb IP filter rules":::
+:::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-rule-order.png" alt-text="Change the order of your IoT HUb IP filter rules":::
 
 ## Next steps
 

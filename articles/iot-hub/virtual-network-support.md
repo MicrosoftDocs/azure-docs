@@ -60,17 +60,13 @@ Private endpoint works for IoT Hub device APIs (like device-to-cloud messages) a
 
 1. Click **Review + create** to create your private link resource.
 
-### Built-in Event Hub compatible endpoint doesn't support access over private endpoint
+### Built-in Event Hub compatible endpoint 
 
-The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) doesn't support access over private endpoint. When configured, an IoT hub's private endpoint is for ingress connectivity only. Consuming data from built-in Event Hub compatible endpoint can only be done over the public internet. 
+The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) can also be accessed over private endpoint. When private link is configured, you should see an additional private endpoint connection for the built-in endpoint.
 
-IoT Hub's [IP filter](iot-hub-ip-filtering.md) also doesn't control public access to the built-in endpoint. To completely block public network access to your IoT hub, you must: 
+IoT Hub's [IP filter](iot-hub-ip-filtering.md) can optionally control public access to the built-in endpoint. 
 
-1. Configure private endpoint access for IoT Hub
-1. [Turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP
-1. Stop using the built-in Event Hub endpoint by [setting up routing to not send data to it](iot-hub-devguide-messages-d2c.md)
-1. Turn off the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route)
-1. Configure egress to other Azure resources using [trusted Microsoft service](#egress-connectivity-from-iot-hub-to-other-azure-resources)
+To completely block public network access to your IoT hub, [turn off public network access](iot-hub-public-network-access.md) or use IP filter to block all IP and select the option to apply rules to the built-in endpoint.
 
 ### Pricing for Private Link
 

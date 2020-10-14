@@ -5,7 +5,7 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/16/2020
+ms.date: 10/19/2020
 ms.author: jlian
 ---
 
@@ -15,20 +15,7 @@ Security is an important aspect of any IoT solution based on Azure IoT Hub. Some
 
 ## When to use
 
-There are two specific use-cases when it is useful to block the IoT Hub endpoints for certain IP addresses:
-
-* Your IoT hub should receive traffic only from a specified range of IP addresses and reject everything else. For example, you are using your IoT hub with [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
-
-* You need to reject traffic from IP addresses that have been identified as suspicious by the IoT hub administrator.
-
-## How filter rules are applied
-
-The IP filter rules are applied at the IoT Hub service level. Therefore, the IP filter rules apply to all connections from devices and back-end apps using any supported protocol. Also, you can configure if the the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) (not via the IoT Hub connection string) are bound to these rules. 
-
-Any connection attempt from an IP address that isn't explicitly allowed receives an unauthorized 401 status code and description. The response message does not mention the IP rule. Rejecting IP addresses can prevent other Azure services such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in Azure portal from interacting with the IoT hub.
-
-> [!NOTE]
-> If you must use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filter enabled, turn off **Apply IP filters to the built-in endpoint**, and then use the event hub-compatible name and endpoint of your IoT hub to manually add an [Event Hubs stream input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) in the ASA.
+Use IP filter to receive traffic only from a specified range of IP addresses and reject everything else. For example, you're using your IoT hub with [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
 
 ## Default setting
 
@@ -48,7 +35,7 @@ After selecting **Add IP Filter Rule**, fill in the fields.
 
 :::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule":::
 
-* Provide a **name** for the IP Filter rule. This must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
+* Provide a **name** for the IP Filter rule. This name must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
 
 * Provide a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 192.168.100.0/22 represents the 1024 IPv4 addresses from 192.168.100.0 to 192.168.103.255.
 
@@ -68,11 +55,33 @@ To delete an IP filter rule, select the trash can icon on that row and then sele
 
 ## Apply IP filter rules to the built-in Event Hub compatible endpoint
 
-To apply the IP filter rules to the built-in Event Hub compatible endpoint, check the box next to **Apply IP filters to the built-in endpoint?**, then click **Save**.
+To apply the IP filter rules to the built-in Event Hub compatible endpoint, check the box next to **Apply IP filters to the built-in endpoint?**, then select **Save**.
 
-If you apply this option, the built-in endpoint is accessible to all IP addresses. This behavior may be useful if you want to read from the endpoint with services with changing IP addresses like Azure Stream Analytics. 
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-built-in-endpoint.png" alt-text="Image showing the toggle for the built-in endpoint and save":::
 
-## TODO Retrieve and update IP filters using Azure CLI
+> [!NOTE]
+> This option isn't available to free (F1) IoT hubs. To apply IP filter rules to the built-in endpoint, use a paid IoT hub.
+
+By enabling this option, your IP filter rules are replicated to the built-in endpoint, so only trusted IP ranges can access it.
+
+If you disable this option, the built-in endpoint is accessible to all IP addresses. This behavior may be useful if you want to read from the endpoint with services with changing IP addresses like Azure Stream Analytics. 
+
+## How filter rules are applied
+
+The IP filter rules are applied at the IoT Hub service level. Therefore, the IP filter rules apply to all connections from devices and back-end apps using any supported protocol. Also, you can choose if the [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) (not via the IoT Hub connection string) are bound to these rules. 
+
+Any connection attempt from an IP address that isn't explicitly allowed receives an unauthorized 401 status code and description. The response message does not mention the IP rule. Rejecting IP addresses can prevent other Azure services such as Azure Stream Analytics, Azure Virtual Machines, or the Device Explorer in Azure portal from interacting with the IoT hub.
+
+> [!NOTE]
+> If you must use Azure Stream Analytics (ASA) to read messages from an IoT hub with IP filter enabled, **disable** the **Apply IP filters to the built-in endpoint** option, and then use the event hub-compatible name and endpoint of your IoT hub to manually add an [Event Hubs stream input](../stream-analytics/stream-analytics-define-inputs.md#stream-data-from-event-hubs) in the ASA.
+
+### Ordering
+
+IP filter rules are *allow* rules and applied without ordering. Only IP addresses that you add are allowed to connect to IoT Hub. 
+
+For example, if you want to accept addresses in the range `192.168.100.0/22` and reject everything else, you only need to add one rule in the grid with address range `192.168.100.0/22`.
+
+## Retrieve and update IP filters using Azure CLI
 
 Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -82,45 +91,46 @@ To retrieve current IP filters of your IoT Hub, run:
 az resource show -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs
 ```
 
-This will return a JSON object where your existing IP filters are listed under the `properties.ipFilterRules` key:
+This will return a JSON object where your existing IP filters are listed under the `properties.networkRuleSets` key:
 
 ```json
 {
 ...
     "properties": {
-        "ipFilterRules": [
-        {
-            "action": "Reject",
-            "filterName": "MaliciousIP",
-            "ipMask": "6.6.6.6/6"
-        },
-        {
-            "action": "Allow",
-            "filterName": "GoodIP",
-            "ipMask": "131.107.160.200"
-        },
-        ...
-        ],
-    },
-...
+        "networkRuleSets": {
+            "defaultAction": "Deny",
+            "applyToBuiltInEventHubEndpoint": true,
+            "ipRules": [{
+                    "filterName": "TrustedFactories",
+                    "action": "Allow",
+                    "ipMask": "1.2.3.4/5"
+                },
+                {
+                    "filterName": "TrustedDevices",
+                    "action": "Allow",
+                    "ipMask": "1.1.1.1/1"
+                }
+            ]
+        }
+    }
 }
 ```
 
 To add a new IP filter for your IoT Hub, run:
 
 ```azurecli-interactive
-az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules "{\"action\":\"Reject\",\"filterName\":\"MaliciousIP\",\"ipMask\":\"6.6.6.6/6\"}"
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.networkRuleSets.ipRules "{\"action\":\"Allow\",\"filterName\":\"TrustedIP\",\"ipMask\":\"192.168.0.1\"}"
 ```
 
 To remove an existing IP filter in your IoT Hub, run:
 
 ```azurecli-interactive
-az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.ipFilterRules <ipFilterIndexToRemove>
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --add properties.networkRuleSets.ipRules <ipFilterIndexToRemove>
 ```
 
-Note that `<ipFilterIndexToRemove>` must correspond to the ordering of IP filters in your IoT Hub's `properties.ipFilterRules`.
+Here, `<ipFilterIndexToRemove>` must correspond to the ordering of IP filters in your IoT Hub's `properties.networkRuleSets.ipRules`.
 
-## TODO Retrieve and update IP filters using Azure PowerShell
+## Retrieve and update IP filters using Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -131,16 +141,16 @@ Your IoT Hub's IP filters can be retrieved and set through [Azure PowerShell](/p
 $iothubResource = Get-AzResource -ResourceGroupName <resourceGroupNmae> -ResourceName <iotHubName> -ExpandProperties
 
 # Access existing IP filter rules
-$iothubResource.Properties.ipFilterRules |% { Write-host $_ }
+$iothubResource.Properties.networkRuleSets.ipRules |% { Write-host $_ }
 
 # Construct a new IP filter
-$filter = @{'filterName'='MaliciousIP'; 'action'='Reject'; 'ipMask'='6.6.6.6/6'}
+$filter = @{'filterName'='TrustedIP'; 'action'='Allow'; 'ipMask'='192.168.0.1'}
 
 # Add your new IP filter rule
-$iothubResource.Properties.ipFilterRules += $filter
+$iothubResource.Properties.networkRuleSets.ipRules += $filter
 
 # Remove an existing IP filter rule using its name, e.g., 'GoodIP'
-$iothubResource.Properties.ipFilterRules = @($iothubResource.Properties.ipFilterRules | Where 'filterName' -ne 'GoodIP')
+$iothubResource.Properties.networkRuleSets.ipRules = @($iothubResource.Properties.networkRuleSets.ipRules | Where 'filterName' -ne 'GoodIP')
 
 # Update your IoT Hub resource with your updated IP filters
 $iothubResource | Set-AzResource -Force
@@ -148,17 +158,11 @@ $iothubResource | Set-AzResource -Force
 
 ## Update IP filter rules using REST
 
-You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.ipFilterRules` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
 
-## IP filter rule evaluation
+## IP filter (classic) retirement
 
-IP filter rules are allow rules and applied without ordering. Only IP addresses that you add are allowed to connect to IoT Hub. 
-
-For example, if you want to accept addresses in the range `192.168.100.0/22` and reject everything else, you only need to add one rule in the grid with address range `192.168.100.0/22`.
-
-## IP filter (classic) deprecation
-
-Classic IP filter, with both allow and block , has been retired. To learn more, see 
+Classic IP filter has been retired. To learn more, see [IoT Hub classic IP filter and how to upgrade](iot-hub-ip-filter-classic.md).
 
 ## Next steps
 
