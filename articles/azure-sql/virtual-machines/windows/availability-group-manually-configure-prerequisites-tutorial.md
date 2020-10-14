@@ -436,16 +436,6 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 7. Select **OK** to close the **Administrator Properties** dialog.
 8. Repeat the previous steps on **sqlserver-1** and **cluster-fsw**.
 
-### <a name="setServiceAccount"></a>Set the SQL Server service accounts
-
-On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
-
-1. Open **SQL Server Configuration Manager**.
-2. Right-click the SQL Server service, and then select **Properties**.
-3. Set the account and password.
-4. Repeat these steps on the other SQL Server VM.  
-
-For SQL Server availability groups, each SQL Server VM needs to run as a domain account.
 
 ### Create a sign-in on each SQL Server VM for the installation account
 
@@ -465,13 +455,24 @@ Use the installation account (CORP\install) to configure the availability group.
 
 1. Enter the domain administrator network credentials.
 
-1. Use the installation account.
+1. Use the installation account (CORP\install).
 
 1. Set the sign-in to be a member of the **sysadmin** fixed server role.
 
 1. Select **OK**.
 
 Repeat the preceding steps on the other SQL Server VM.
+
+### <a name="setServiceAccount"></a>Set the SQL Server service accounts
+
+On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
+
+1. Open **SQL Server Configuration Manager**.
+2. Right-click the SQL Server service, and then select **Properties**.
+3. Set the account and password.
+4. Repeat these steps on the other SQL Server VM.  
+
+For SQL Server availability groups, each SQL Server VM needs to run as a domain account.
 
 ## Add Failover Clustering features to both SQL Server VMs
 
