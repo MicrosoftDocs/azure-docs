@@ -12,7 +12,7 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-# Joining Teams meetings
+# Teams interoperability
 
 [!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
