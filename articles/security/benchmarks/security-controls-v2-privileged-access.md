@@ -124,7 +124,7 @@ You should ensure that the credentials (such as password, certificate, or smart 
 
 - [Security Compliance Management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Security Operations (SecOps)](//azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Security Operations (SecOps)](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 ## PA-5: Automate entitlement management
 

@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: troubleshooting
 ms.date: 05/06/2020
-ms.author: diberry
+
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
 

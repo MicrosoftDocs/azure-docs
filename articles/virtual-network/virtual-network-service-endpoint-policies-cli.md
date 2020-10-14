@@ -248,7 +248,7 @@ az storage account network-rule add \
 
 Azure Service Endpoint policies are only available for Azure Storage. So, we'll be enabling Service Endpoint for *Microsoft.Storage* on this subnet for this example setup.
 
-Service endpoint policies are applied over service endpoints. We will start by creating a service endpoint policy. We will then create the policy definitions under this policy for Azure Storage accounts to be whitelisted for this subnet
+Service endpoint policies are applied over service endpoints. We will start by creating a service endpoint policy. We will then create the policy definitions under this policy for Azure Storage accounts to be approved for this subnet
 
 Create a service endpoint policy
 

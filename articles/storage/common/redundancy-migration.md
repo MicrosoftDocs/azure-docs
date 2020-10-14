@@ -11,7 +11,7 @@ ms.date: 09/24/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Change how a storage account is replicated
@@ -119,8 +119,11 @@ You must perform a manual migration if:
 
 You can request live migration through the [Azure Support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). From the portal, select the storage account you want to convert to ZRS.
 
-1. Select **New Support Request**
-2. Complete the **Basics** based on your account information. In the **Service** section, select **Storage Account Management** and the resource you want to convert to ZRS.
+1. Select **New Support Request**.
+2. Complete the **Basics** based on your account information: 
+    - **Issue type**: Select **Technical**.
+    - **Service**: Select **My Services** and **Storage Account Management**.
+    - **Resource**: Select the resource you want to convert to ZRS.
 3. Select **Next**.
 4. Specify the following values the **Problem** section:
     - **Severity**: Leave the default value as-is.

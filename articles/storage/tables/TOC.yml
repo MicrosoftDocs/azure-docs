@@ -79,6 +79,8 @@
     href: table-storage-design-modeling.md
   - name: Table design patterns
     href: table-storage-design-patterns.md
+  - name: Monitoring Table storage
+    href: monitor-table-storage.md
 - name: How-to
   items:
   - name: Create a storage account
@@ -164,16 +166,18 @@
   items:
   - name: Azure updates
     href: https://azure.microsoft.com/updates/?product=storage
-  - name: Azure Storage on Microsoft Q&A
+  - name: Table storage on Microsoft Q&A
     href: https://docs.microsoft.com/answers/topics/azure-table-storage.html
-  - name: Azure Storage on Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Table storage on Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-table-storage
   - name: Pricing for Table storage
     href: https://azure.microsoft.com/en-us/pricing/details/storage/tables/
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
 - name: Reference
   items:
+  - name: Monitoring Azure Table storage reference
+    href: monitor-table-storage-reference.md
   - name: Scalability and performance targets
     items:
     - name: Table storage

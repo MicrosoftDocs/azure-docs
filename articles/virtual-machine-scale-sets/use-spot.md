@@ -160,8 +160,7 @@ To delete the instance after it has been evicted, change the `evictionPolicy` pa
 
 **Q:**  Does autoscale work with both eviction policies (deallocate and delete)?
 
-**A:** It is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. 
-
+**A:** Yes, however it is recommended that you set your eviction policy to delete when using autoscale. This is because deallocated instances are counted against your capacity count on the scale set. When using autoscale, you will likely hit your target instance count quickly due to the deallocated, evicted instances. Also, your scaling operations could be impacted by spot evictions. For example, VMSS instances could fall below the set min count due to multiple spot evictions during scaling operations. 
 
 **Q:** What channels support Spot VMs?
 

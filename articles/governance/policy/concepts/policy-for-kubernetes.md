@@ -1,7 +1,7 @@
 ---
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
-ms.date: 09/22/2020
+ms.date: 09/29/2020
 ms.topic: conceptual
 ---
 # Understand Azure Policy for Kubernetes clusters
@@ -65,7 +65,10 @@ The following general limitations apply to the Azure Policy Add-on for Kubernete
   Add-on.
 - [Reasons for non-compliance](../how-to/determine-non-compliance.md#compliance-reasons) aren't
   available for the `Microsoft.Kubernetes.Data`
-  [Resource Provider mode](./definition-structure.md#resource-provider-modes)
+  [Resource Provider mode](./definition-structure.md#resource-provider-modes). Use
+  [Component details](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
+- [Exemptions](./exemption-structure.md) aren't supported for
+  [Resource Provider modes](./definition-structure.md#resource-provider-modes).
 
 The following limitations apply only to the Azure Policy Add-on for AKS:
 
@@ -477,9 +480,9 @@ compliance reporting experience. For more information, see
 ## Assign a built-in policy definition
 
 To assign a policy definition to your Kubernetes cluster, you must be assigned the appropriate
-role-based access control (RBAC) policy assignment operations. The Azure built-in roles **Resource
+Azure role-based access control (Azure RBAC) policy assignment operations. The Azure built-in roles **Resource
 Policy Contributor** and **Owner** have these operations. To learn more, see
-[RBAC permissions in Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+[Azure RBAC permissions in Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy).
 
 Find the built-in policy definitions for managing your cluster using the Azure portal with the
 following steps:
@@ -559,7 +562,7 @@ add-on reports the results back to Azure Policy for inclusion in
 results for active policy assignments are returned during the audit cycle. Audit results can also be
 seen as [violations](https://github.com/open-policy-agent/gatekeeper#audit) listed in the status
 field of the failed constraint. For details on _Non-compliant_ resources, see
-[Compliance details for Resource Provider modes](../how-to/determine-non-compliance.md#compliance-details-for-resource-provider-modes).
+[Component details for Resource Provider modes](../how-to/determine-non-compliance.md#component-details-for-resource-provider-modes).
 
 > [!NOTE]
 > Each compliance report in Azure Policy for your Kubernetes clusters include all violations within

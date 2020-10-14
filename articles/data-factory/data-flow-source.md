@@ -52,7 +52,9 @@ Azure Data Factory has access to over [90 native connectors](connector-overview.
 
 ## Source settings
 
-Once you have added a source, configure via the **Source Settings** tab. Here you can pick or create the dataset your source points at. You can also select schema and sampling options for your data.
+Once you have added a source, configure via the **Source Settings** tab. Here you can pick or create the dataset your source points at. You can also select schema and sampling options for your data. 
+
+Development values for dataset parameters can be configured in [Debug settings](concepts-data-flow-debug-mode.md) (requires Debug mode to be turned on).
 
 ![Source settings tab](media/data-flow/source1.png "Source settings tab")
 

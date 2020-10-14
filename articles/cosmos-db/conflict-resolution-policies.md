@@ -45,6 +45,6 @@ Azure Cosmos DB offers a flexible policy-driven mechanism to resolve write confl
 
 Learn how to configure conflict resolution policies:
 
-* [How to configure multi-master in your applications](how-to-multi-master.md)
+* [How to configure multiple write regions for your applications](how-to-multi-master.md)
 * [How to manage conflict resolution policies](how-to-manage-conflicts.md)
 * [How to read from the conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed)

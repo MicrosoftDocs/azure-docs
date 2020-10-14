@@ -22,7 +22,7 @@ Azure Digital twins uses **event routes** to send data to consumers outside the 
 During preview, there are two major cases for sending Azure Digital Twins data:
 * Sending data from one twin in the Azure Digital Twins graph to another. For instance, when a property on one digital twin changes, you may want to notify and update another digital twin accordingly.
 * Sending data to downstream data services for additional storage or processing (also known as *data egress*). For instance,
-  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
+  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), to record time series data of handwashing-related events for bulk analytics.
   - A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
 
 Event routes are used for both of these scenarios.
@@ -56,7 +56,9 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Event Hub
 * Service Bus
 
-Endpoints are set up using control plane APIs (supported by the [Azure Digital Twins CLI](how-to-use-cli.md), or via the Azure portal. An endpoint definition gives:
+To create an endpoint, you can use the Azure Digital Twins [**control plane APIs**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+
+When defining an endpoint, you'll need to provide:
 * The endpoint's name
 * The endpoint type (Event Grid, Event Hub, or Service Bus)
 * The primary connection string and secondary connection string to authenticate 
@@ -70,7 +72,9 @@ The endpoint APIs that are available in control plane are:
 
 ## Create an event route
  
-Event routes are created in a client application. One way to do this is with the `CreateEventRoute` [.NET (C#) SDK](how-to-use-apis-sdks.md) call: 
+To create an event route, you can use the Azure Digital Twins [**data plane APIs**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-event-route). 
+
+Here is an example of creating an event route within a client application, using the `CreateEventRoute` [.NET (C#) SDK](how-to-use-apis-sdks.md) call: 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
