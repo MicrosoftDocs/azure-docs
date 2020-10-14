@@ -39,7 +39,7 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | Go| [GitHub location](https://github.com/Azure/azure-service-bus-go/) |
 
 ## Management samples
-You can find management samples on GitHib at [this location](https://github.com/Azure/azure-service-bus/tree/master/samples/Management).
+You can find management samples on GitHub at [this location](https://github.com/Azure/azure-service-bus/tree/master/samples/Management).
 
 ## Next steps
 
