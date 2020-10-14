@@ -41,10 +41,10 @@ You also need to complete the following items as part of prerequisite setup. The
 To connect an Azure Digital Twins instance to Logic Apps in this article, you'll need to have the **Azure Digital Twins instance** already set up. 
 
 First, **set up an Azure Digital Twins instance** and the required authentication to be able to work with it. To do this, follow the instructions in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Depending on your preferred experience, the setup article is offered for the [Azure portal](how-to-set-up-instance-portal.md), [CLI](how-to-set-up-instance-cli.md), or [automated Cloud Shell deployment script sample](how-to-set-up-instance-scripted.md). All versions of the instructions also contain steps to verify that you have completed each step successfully and are ready to move on to using your new instance.
-* After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+* After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in the Azure portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
 To authenticate the ADT Explorer application, you'll also need to set up an **app registration**. Follow the instructions in [*How-to: Create an app registration*](how-to-create-app-registration.md) to set this up. 
-* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find these in the portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
+* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find in the Azure portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### Get app registration client secret
 
