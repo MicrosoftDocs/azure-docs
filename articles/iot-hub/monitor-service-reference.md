@@ -1,30 +1,26 @@
 ---
-title: Monitoring [TODO-replace-with-service-name] data reference #Required; *your official service name*  
-description: Important reference material needed when you monitor [TODO-replace-with-service-name] 
-author: #Required; your GitHub user alias, with correct capitalization.
-ms.author: #Required; Microsoft alias of author; optional team alias.
+title: Monitoring Azure IoT Hub data reference #Required; *your official service name*  
+description: Important reference material needed when you monitor Azure IoT Hub 
+author: robinsh
+ms.author: robinsh
 ms.topic: subject-monitoring
-ms.service: #Required; service you are monitoring
-ms.date: #Required; mm/dd/yyyy format.
+ms.service: iot-hub
+ms.date: 10/13/2020
 ---
-<!-- VERSION 2
-Template for monitoring data reference article for Azure services. This article is support for the main "Monitor [servicename]" article for the service. -->
 
-<!-- IMPORTANT STEP 1.  Do a search and replace of [TODO-replace-with-service-name] with the name of your service. That will make the template easier to read -->
+# Monitoring Azure IoT Hub data reference
 
-# Monitoring [TODO-replace-with-service-name] data reference
-
-See [Monitor [TODO-replace-with-service-name]](monitor-service.md) for details on collecting and analyzing monitoring data for [TODO-replace-with-service-name].
+See [Monitor Azure IoT Hub](monitor-service.md) for details on collecting and analyzing monitoring data for Azure IoT Hub.
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics collected for Azure IoT Hub. The resource provider namespace for IoT Hub metrics is Microsoft.Devices and the type Namespace is IoTHubs. The following sub-sections provide important information specific to IoT Hub metrics, break them out by general category, and list them by the display name that they appear in the Azure portal with. You can also find a listing of the IoT Hub metrics by metric name, see [Microsoft.Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs). To learn about metrics supported by other Azure services, you can see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+This section lists all the automatically collected platform metrics for Azure IoT Hub. The resource provider namespace for IoT Hub metrics is **Microsoft.Devices** and the type Namespace is **IoTHubs**. The following sub-sections provide important information specific to IoT Hub metrics, break them out by general category, and list them by the display name that they appear in the Azure portal with. You can also find a listing of the IoT Hub metrics by metric name, see [Microsoft.Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs). To learn about metrics supported by other Azure services, you can see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
 ### Supported aggregations
 
 The **Aggregation Type** column in each table corresponds to the default aggregation that is used when the metric is selected for a chart or alert.
 
-   ![Screenshot showing aggregation for metrics](./media/iot-hub-metrics-reference/aggregation-type.png)
+   ![Screenshot showing aggregation for metrics](./media/monitor-service-reference/aggregation-type.png)
 
 For most metrics, all aggregation types are valid; however, for count metrics, those with a **Unit** column value of **Count**, only some aggregations are valid. Count metrics can be one of two types:
 
@@ -202,145 +198,461 @@ Azure IoT Hub has the following dimensions associated with some of its routing m
 To learn more about metric dimensions, see [Multi-dimensional metrics](/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
 ## Resource logs
-<!-- REQUIRED. Please  keep headings in this order -->
 
-This section lists the types of resource logs you can collect for [TODO-replace-with-service-name]. 
+This section lists all the resource log category types and schemas collected for Azure IoT Hub. The resource provider and type for all IoT Hub logs is [Microsoft.Devices/IotHubs](/azure/azure-monitor/platform/resource-logs-categories#microsoftdevicesiothubs).
 
-<!-- List all the resource log types you can have and what they are for -->  
+### Connections
 
-For reference, see a list of [all resource logs category types supported in Azure Monitor](/azure/azure-monitor/platform/resource-logs-schema).
+The connections category tracks device connect and disconnect events from an IoT hub as well as errors. This category is useful for identifying unauthorized connection attempts and or alerting when you lose connection to devices.
 
-------------**OPTION 1 EXAMPLE** ---------------------
+> [!NOTE]
+> For reliable connection status of devices check [Device heartbeat](iot-hub-devguide-identity-registry.md#device-heartbeat).
 
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-categories, which is auto generated from the REST API.  Not all resource log types metrics are published depending on whether your product group wants them to be.  If the resource log is published, but category display names are wrong or missing, contact your PM and tell them to update them in the Azure Monitor "shoebox" manifest.  If this article is missing resource logs that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
+```json
+{
+   "records":
+   [
+        {
+            "time": " UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "deviceConnect",
+            "category": "Connections",
+            "level": "Information",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
 
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
+### Cloud-to-device commands
 
-This section lists all the resource log category types collected for [TODO-replace-with-service-name].  
+The cloud-to-device commands category tracks errors that occur at the IoT hub and are related to the cloud-to-device message pipeline. This category includes errors that occur from:
 
-|Resource Log Type | Resource Provider / Type Namespace<br/> and link to individual metrics |
-|-------|-----|
-| Web Sites | [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites) |
-| Web Site Slots | [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots) 
+* Sending cloud-to-device messages (like unauthorized sender errors),
+* Receiving cloud-to-device messages (like delivery count exceeded errors), and
+* Receiving cloud-to-device message feedback (like feedback expired errors).
 
---------------**OPTION 2 EXAMPLE** -------------
+This category does not catch errors when the cloud-to-device message is delivered successfully but then improperly handled by the device.
 
-<!--  OPTION 2 -  Link to the resource logs as above, but work in extra information not found in the automated metric-supported reference article.  NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the resource-log-categories link. You can group these sections however you want provided you include the proper links back to resource-log-categories article. 
--->
+```json
+{
+    "records":
+    [
+        {
+            "time": " UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "messageExpired",
+            "category": "C2DCommands",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"messageId\":\"<messageId>\",\"messageSizeInBytes\":\"<messageSize>\",\"protocol\":\"Amqp\",\"deliveryAcknowledgement\":\"<None, NegativeOnly, PositiveOnly, Full>\",\"deliveryCount\":\"0\",\"expiryTime\":\"<timestamp>\",\"timeInSystem\":\"<timeInSystem>\",\"ttl\":<ttl>, \"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\", \"maskedIpAddress\": \"<maskedIpAddress>\", \"statusCode\": \"4XX\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
 
-<!-- Example format. Add extra information -->
+### Device identity operations
 
-### Web Sites
+The device identity operations category tracks errors that occur when you attempt to create, update, or delete an entry in your IoT hub's identity registry. Tracking this category is useful for provisioning scenarios.
 
-Resource Provider and Type: [Microsoft.web/sites](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsites)
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "get",
+            "category": "DeviceIdentityOperations",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"maskedIpAddress\":\"<maskedIpAddress>\",\"deviceId\":\"<deviceId>\", \"statusCode\":\"4XX\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
 
-| Category | Display Name | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| AppServiceAppLogs   | App Service Application Logs | *TODO other important information about this type* |
-| AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
-|  etc.               |                              |                                                   |  
+### Routes
 
-### Web Site Slots
+The [message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as:
 
-Resource Provider and Type: [Microsoft.web/sites/slots](/azure/azure-monitor/platform/resource-logs-categories#microsoftwebsitesslots)
+* A rule evaluates to "undefined",
+* IoT Hub marks an endpoint as dead, or
+* Any errors received from an endpoint.
 
-| Category | Display Name | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| AppServiceAppLogs   | App Service Application Logs | *TODO other important information about this type* |
-| AppServiceAuditLogs | Access Audit Logs            | *TODO other important information about this type* |
-|  etc.               |                              |                                                   |  
+This category does not include specific errors about the messages themselves (like device throttling errors), which are reported under the "device telemetry" category.
 
---------------**END Examples** -------------
+```json
+{
+    "records":
+    [
+        {
+            "time":"2019-12-12T03:25:14Z",
+            "resourceId":"/SUBSCRIPTIONS/91R34780-3DEC-123A-BE2A-213B5500DFF0/RESOURCEGROUPS/ANON-TEST/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/ANONHUB1",
+            "operationName":"endpointUnhealthy",
+            "category":"Routes",
+            "level":"Error",
+            "resultType":"403004",
+            "resultDescription":"DeviceMaximumQueueDepthExceeded",
+            "properties":"{\"deviceId\":null,\"endpointName\":\"anon-sb-1\",\"messageId\":null,\"details\":\"DeviceMaximumQueueDepthExceeded\",\"routeName\":null,\"statusCode\":\"403\"}",
+            "location":"westus"
+        }
+    ]
+}
+```
+
+Here are more details on routing diagnostic logs:
+
+* [List of routing diagnostic log error codes](troubleshoot-message-routing.md#diagnostics-error-codes)
+* [List of routing diagnostic logs operationNames](troubleshoot-message-routing.md#diagnostics-operation-names)
+
+### Device telemetry
+
+The device telemetry category tracks errors that occur at the IoT hub and are related to the telemetry pipeline. This category includes errors that occur when sending telemetry events (such as throttling) and receiving telemetry events (such as unauthorized reader). This category cannot catch errors caused by code running on the device itself.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "DeviceTelemetry",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"batching\":\"0\",\"messageSizeInBytes\":\"<messageSizeInBytes>\",\"EventProcessedUtcTime\":\"<UTC timestamp>\",\"EventEnqueuedUtcTime\":\"<UTC timestamp>\",\"partitionId\":\"1\"}", 
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+### File upload operations
+
+The file upload category tracks errors that occur at the IoT hub and are related to file upload functionality. This category includes:
+
+* Errors that occur with the SAS URI, such as when it expires before a device notifies the hub of a completed upload.
+
+* Failed uploads reported by the device.
+
+* Errors that occur when a file is not found in storage during IoT Hub notification message creation.
+
+This category cannot catch errors that directly occur while the device is uploading a file to storage.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "ingress",
+            "category": "FileUploadOperations",
+            "level": "Error",
+            "resultType": "Event status",
+            "resultDescription": "MessageDescription",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"blobUri\":\"http//bloburi.com\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+### Cloud-to-device twin operations
+
+The cloud-to-device twin operations category tracks service-initiated events on device twins. These operations can include get twin, update or replace tags, and update or replace desired properties.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "read",
+            "category": "C2DTwinOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+### Device-to-cloud twin operations
+
+The device-to-cloud twin operations category tracks device-initiated events on device twins. These operations can include get twin, update reported properties, and subscribe to desired properties.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "update",
+            "category": "D2CTwinOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authenticationType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+### Twin queries
+
+The twin queries category reports on query requests for device twins that are initiated in the cloud.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "query",
+            "category": "TwinQueries",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"query\":\"<twin query>\",\"sdkVersion\":\"<sdkVersion>\",\"messageSize\":\"<messageSize>\",\"pageSize\":\"<pageSize>\", \"continuation\":\"<true, false>\", \"resultSize\":\"<resultSize>\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+### Jobs operations
+
+The jobs operations category reports on job requests to update device twins or invoke direct methods on multiple devices. These requests are initiated in the cloud.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "jobCompleted",
+            "category": "JobsOperations",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"jobId\":\"<jobId>\", \"sdkVersion\": \"<sdkVersion>\",\"messageSize\": <messageSize>,\"filter\":\"DeviceId IN ['1414ded9-b445-414d-89b9-e48e8c6285d5']\",\"startTimeUtc\":\"Wednesday, September 13, 2017\",\"duration\":\"0\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+### Direct Methods
+
+The direct methods category tracks request-response interactions sent to individual devices. These requests are initiated in the cloud.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "send",
+            "category": "DirectMethods",
+            "level": "Information",
+            "durationMs": "1",
+            "properties": "{\"deviceId\":<messageSize>, \"RequestSize\": 1, \"ResponseSize\": 1, \"sdkVersion\": \"2017-07-11\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+### Distributed Tracing (Preview)
+
+The distributed tracing category tracks the correlation IDs for messages that carry the trace context header. To fully enable these logs, client-side code must be updated by following [Analyze and diagnose IoT applications end-to-end with IoT Hub distributed tracing (preview)](iot-hub-distributed-tracing.md).
+
+Note that `correlationId` conforms to the [W3C Trace Context](https://github.com/w3c/trace-context) proposal, where it contains a `trace-id` as well as a `span-id`.
+
+#### IoT Hub D2C (device-to-cloud) logs
+
+IoT Hub records this log when a message containing valid trace properties arrives at IoT Hub.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubD2C",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Receive message success",
+            "durationMs": "",
+            "properties": "{\"messageSize\": 1, \"deviceId\":\"<deviceId>\", \"callerLocalTimeUtc\": : \"2017-02-22T03:27:28.633Z\", \"calleeLocalTimeUtc\": \"2017-02-22T03:27:28.687Z\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+Here, `durationMs` is not calculated as IoT Hub's clock might not be in sync with the device clock, and thus a duration calculation can be misleading. We recommend writing logic using the timestamps in the `properties` section to capture spikes in device-to-cloud latency.
+
+| Property | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **messageSize** | Integer | The size of device-to-cloud message in bytes |
+| **deviceId** | String of ASCII 7-bit alphanumeric characters | The identity of the device |
+| **callerLocalTimeUtc** | UTC timestamp | The creation time of the message as reported by the device local clock |
+| **calleeLocalTimeUtc** | UTC timestamp | The time of message arrival at the IoT Hub's gateway as reported by IoT Hub service side clock |
+
+#### IoT Hub ingress logs
+
+IoT Hub records this log when message containing valid trace properties writes to internal or built-in Event Hub.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubIngress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Ingress message success",
+            "durationMs": "10",
+            "properties": "{\"isRoutingEnabled\": \"true\", \"parentSpanId\":\"0144d2590aacd909\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+In the `properties` section, this log contains additional information about message ingress.
+
+| Property | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **isRoutingEnabled** | String | Either true or false, indicates whether or not message routing is enabled in the IoT Hub |
+| **parentSpanId** | String | The [span-id](https://w3c.github.io/trace-context/#parent-id) of the parent message, which would be the D2C message trace in this case |
+
+#### IoT Hub egress logs
+
+IoT Hub records this log when [routing](iot-hub-devguide-messages-d2c.md) is enabled and the message is written to an [endpoint](iot-hub-devguide-endpoints.md). If routing is not enabled, IoT Hub doesn't record this log.
+
+```json
+{
+    "records":
+    [
+        {
+            "time": "UTC timestamp",
+            "resourceId": "Resource Id",
+            "operationName": "DiagnosticIoTHubEgress",
+            "category": "DistributedTracing",
+            "correlationId": "00-8cd869a412459a25f5b4f31311223344-98ac3578922acd26-01",
+            "level": "Information",
+            "resultType": "Success",
+            "resultDescription":"Egress message success",
+            "durationMs": "10",
+            "properties": "{\"endpointType\": \"EventHub\", \"endpointName\": \"myEventHub\", \"parentSpanId\":\"349810a9bbd28730\"}",
+            "location": "Resource location"
+        }
+    ]
+}
+```
+
+In the `properties` section, this log contains additional information about message ingress.
+
+| Property | Type | Description |
+|--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
+| **endpointName** | String | The name of the routing endpoint |
+| **endpointType** | String | The type of the routing endpoint |
+| **parentSpanId** | String | The [span-id](https://w3c.github.io/trace-context/#parent-id) of the parent message, which would be the IoT Hub ingress message trace in this case |
+
+### Configurations
+
+IoT Hub configuration logs track events and error for the Automatic Device Management feature set.
+
+```json
+{
+    "records":
+    [
+         {
+             "time": "2019-09-24T17:21:52Z",
+             "resourceId": "Resource Id",
+             "operationName": "ReadManyConfigurations",
+             "category": "Configurations",
+             "resultType": "",
+             "resultDescription": "",
+             "level": "Information",
+             "durationMs": "17",
+             "properties": "{\"configurationId\":\"\",\"sdkVersion\":\"2018-06-30\",\"messageSize\":\"0\",\"statusCode\":null}",
+             "location": "southcentralus"
+         }
+    ]
+}
+```
+
+### Device Streams (Preview)
+
+The device streams category tracks request-response interactions sent to individual devices.
+
+```json
+{
+    "records":
+    [
+         {
+             "time": "2019-09-19T11:12:04Z",
+             "resourceId": "Resource Id",
+             "operationName": "invoke",
+             "category": "DeviceStreams",
+             "resultType": "",
+             "resultDescription": "",    
+             "level": "Information",
+             "durationMs": "74",
+             "properties": "{\"deviceId\":\"myDevice\",\"moduleId\":\"myModule\",\"sdkVersion\":\"2019-05-01-preview\",\"requestSize\":\"3\",\"responseSize\":\"5\",\"statusCode\":null,\"requestName\":\"myRequest\",\"direction\":\"c2d\"}",
+             "location": "Central US"
+         }
+    ]
+}
+```
 
 ## Azure Monitor Logs tables
 <!-- REQUIRED. Please keep heading in this order -->
 
-This section refers to all of the Azure Monitor Logs Kusto tables relevant to [TODO-replace-with-service-name] and available for query by Log Analytics. 
-
-------------**OPTION 1 EXAMPLE** ---------------------
-
-<!-- OPTION 1 - Minimum -  Link to relevant bookmarks in https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-resourcetype where your service tables are listed. These files are auto generated from the REST API.   If this article is missing tables that you and the PM know are available, both of you contact azmondocs@microsoft.com.  
--->
-
-<!-- Example format. There should be AT LEAST one Resource Provider/Resource Type here. -->
-
-|Resource Type | Notes |
-|-------|-----|
-| [Virtual Machines](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machines) | |
-| [Virtual machine scale sets](/azure/azure-monitor/reference/tables/tables-resourcetype#virtual-machine-scale-sets) | |
-
---------------**OPTION 2 EXAMPLE** -------------
-
-<!--  OPTION 2 -  List out your tables adding additional information on what each table is for. Individually link to each table using the table name.  For example, link to [AzureMetrics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azuremetrics).  
-
-NOTE: YOU WILL NOW HAVE TO MANUALLY MAINTAIN THIS SECTION to make sure it stays in sync with the automatically generated list. You can group these sections however you want provided you include the proper links back to the proper tables. 
--->
-
-### Virtual Machines
-
-| Table |  Description | *TODO replace this label with proper title for your additional information*  |
-|:---------|:-------------|------------------|
-| [AzureActivity](/azure/azure-monitor/reference/tables/azureactivity)   | <!-- description copied from previous link --> Entries from the Azure Activity log that provides insight into any subscription-level or management group level events that have occurred in Azure. | *TODO other important information about this type |
-| [AzureMetrics](/azure/azure-monitor/reference/tables/azuremetrics) | <!-- description copied from previous link --> Metric data emitted by Azure services that measure their health and performance.    | *TODO other important information about this type |
-|  etc.               |                              |                                                   |  
-
-### Virtual Machine Scale Sets
-
-| Table |  Description | *TODO replace this label with other information*  |
-|:---------|:-------------|------------------|
-| [ADAssessmentRecommendation](/azure/azure-monitor/reference/tables/adassessmentrecommendation)   | <!-- description copied from previous link --> Recommendations generated by AD assessments that are started through a scheduled task. When you schedule the assessment it runs by default every 7 days and upload the data into Azure Log Analytics | *TODO other important information about this type |
-| [ADReplicationResult](/azure/azure-monitor/reference/tables/adreplicationresult) | <!-- description copied from previous link --> The AD Replication Status solution regularly monitors your Active Directory environment for any replication failures.    | *TODO other important information about this type |
-|  etc.               |                              |                                                   |  
-
-<!-- Add extra information if required -->
+This section refers to all of the Azure Monitor Logs Kusto tables relevant to Azure IoT Hub and available for query by Log Analytics. For a  list of these tables and links to more information for the IoT Hub resource type, see [IoT Hub](/azure/azure-monitor/reference/tables/tables-resourcetype#iot-hub) in the Azure Monitor Logs table reference.
 
 For a reference of all Azure Monitor Logs / Log Analytics tables, see the [Azure Monitor Log Table Reference](/azure/azure-monitor/reference/tables/tables-resourcetype).
-
---------------**END EXAMPLES** -------------
-
-### Diagnostics tables
-<!-- REQUIRED. Please keep heading in this order -->
-<!-- If your service uses the AzureDiagnostics table in Azure Monitor Logs / Log Analytics, list what fields you use and what they are for. Azure Diagnostics is over 500 columns wide with all services using the fields that are consistent across Azure Monitor and then adding extra ones just for themselves.  If it uses service specific diagnostic table, refers to that table. If it uses both, put both types of information in. Most services in the future will have their own specific table. If you have questions, contact azmondocs@microsoft.com -->
-
-[TODO-replace-with-service-name] uses the [Azure Diagnostics](https://docs.microsoft.com/azure/azure-monitor/reference/tables/azurediagnostics) table and the [TODO whatever additional] table to store resource log information. The following columns are relevant.
-
-**Azure Diagnostics**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
-
-**[TODO Service-specific table]**
-
-| Property | Description |
-|:--- |:---|
-|  |  |
-|  |  |
 
 ## Activity log
 <!-- REQUIRED. Please keep heading in this order -->
 
-The following table lists the operations related to [TODO-replace-with-service-name] that may be created in the Activity log.
+The following table lists the operations related to Azure IoT Hub that may be created in the Activity log.
 
 <!-- Fill in the table with the operations that can be created in the Activity log for the service. -->
 | Operation | Description |
 |:---|:---|
-| | |
-| | |
-
-<!-- NOTE: This information may be hard to find or not listed anywhere.  Please ask your PM for at least an incomplete list of what type of messages could be written here. If you can't locate this, contact azmondocs@microsoft.com for help -->
-
-## Schemas
-<!-- REQUIRED. Please keep heading in this order -->
-
-The following schemas are in use by [TODO-replace-with-service-name]
-
-<!-- List the schema and their usage. This can be for resource logs, alerts, event hub formats, etc depending on what you think is important. -->
+| All administrative operations | |
+| Create or update IoTHub resources (Microsoft.Devices/IoTHubs) | |
+| Delete IoTHub resources (Microsoft.Devices/IoTHubs) | |
+| Get all IoTHub keys (Microsoft.Devices/IoTHubs) | |
+| Export devices (Microsoft.Devices/IoTHubs) | |
+| Import devices (Microsoft.Devices/IoTHubs) | |
+| Approve private endpoint connection (Microsoft.Devices/IoTHubs) | |
 
 ## See Also
 
-<!-- replace below with the proper link to your main monitoring service article -->
-- See [Monitor Azure [TODO-replace-with-service-name]](monitor-service-name.md) for a description of monitoring Azure [TODO-replace-with-service-name].
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.
+* See [Monitor Azure IoT Hub](monitor-service-name.md) for a description of monitoring Azure IoT Hub.
+* See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.

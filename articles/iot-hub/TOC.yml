@@ -337,6 +337,14 @@
               href: iot-hub-automatic-device-management-cli.md
         - name: Bulk import and export IoT devices
           href: iot-hub-bulk-identity-mgmt.md
+    - name: Monitor
+      items:
+        - name: Monitor IoT Hub
+          href: monitor-iot-hub.md
+        - name: IoT Hub service and resource health
+          href: iot-hub-service-health-integration.md
+        - name: Monitoring data reference
+          href: monitor-service-reference.md
     - name: Use real devices
       items:
         - name: Use an online simulator
