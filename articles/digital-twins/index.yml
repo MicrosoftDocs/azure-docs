@@ -112,5 +112,5 @@ landingContent:
             url:  https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
       - linkListType: sample
         links:
-          - text: Custom Swagger for Logic Apps connector
+          - text: Custom Swaggers for Logic Apps connector
             url: https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
