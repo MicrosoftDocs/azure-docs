@@ -112,8 +112,7 @@ On a Mac OS console, save the appId and tenant values with this example:
 
 ::: zone-end
 
-::: zone pivot="client-operating-system-macos"
-::: zone pivot="client-operating-system-linux"
+::: zone pivot="client-operating-system-macos" | "client-operating-system-linux"
 
 On a console, save the appId and tenant values with this example:
 
@@ -127,7 +126,6 @@ On a console, save the appId and tenant values with this example:
    export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
    export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
    ```
-::: zone-end
 ::: zone-end
 
 
