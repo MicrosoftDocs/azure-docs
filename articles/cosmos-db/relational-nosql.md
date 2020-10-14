@@ -93,6 +93,6 @@ Learn how to manage your Azure Cosmos account and other concepts:
 * [Consistency levels](consistency-levels.md)
 * [Working with Azure Cosmos containers and items](account-databases-containers-items.md)
 * [VNET service endpoint for your Azure Cosmos account](how-to-configure-vnet-service-endpoint.md)
-* [IP-firewall for your Azure Cosmos account](firewall-support.md)
+* [IP-firewall for your Azure Cosmos account](how-to-configure-firewall.md)
 * [How-to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md)
 * [Azure Cosmos DB SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

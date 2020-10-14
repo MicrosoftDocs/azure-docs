@@ -101,16 +101,11 @@
         href: consistency-levels.md
       - name: High availability
         href: high-availability.md
-      - name: Globally scale provisioned throughput
-        displayName: request units, RUs, RU
-        href: scaling-throughput.md
       - name: Conflict types and resolution policies
         displayName: last write wins, custom, multi-region writes, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
-      - name: Regional presence
-        href: regional-presence.md
     - name: Partitioning
       items:
       - name: Partitioning and horizontal scaling
@@ -575,8 +570,6 @@
         - name: Secure access to data
           displayName: primary key, resource token, users, roles
           href: secure-access-to-data.md
-        - name: IP firewall
-          href: firewall-support.md
         - name: Service tags
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Role-based access control
@@ -826,6 +819,10 @@
         items:
         - name: FAQ
           href: gremlin-api-faq.md
+        - name: Response headers
+          href: gremlin-headers.md
+        - name: Limits
+          href: gremlin-limits.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -853,14 +850,6 @@
           href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
-      - name: Reference
-        items:
-        - name: Response Headers
-          href: gremlin-headers.md
-        - name: Limits
-          href: gremlin-limits.md
-        - name: Compatibility
-          href: gremlin-compatibility.md
     - name: Table API
       items:
       - name: Overview

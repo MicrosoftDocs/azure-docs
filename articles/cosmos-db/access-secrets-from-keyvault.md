@@ -89,5 +89,5 @@ Similarly, you can add a user to access the key Vault. You need to add yourself 
 
 ## Next steps
 
-* To configure a firewall for Azure Cosmos DB see [firewall support](firewall-support.md) article.
+* To configure a firewall for Azure Cosmos DB see [firewall support](how-to-configure-firewall.md) article.
 * To configure virtual network service endpoint, see [secure access by using VNet service endpoint](how-to-configure-vnet-service-endpoint.md) article.

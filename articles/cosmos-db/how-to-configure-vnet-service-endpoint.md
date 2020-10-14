@@ -357,4 +357,4 @@ This is required only when you want your Azure Cosmos DB account to be accessed 
 
 ## Next steps
 
-* To configure a firewall for Azure Cosmos DB, see the [Firewall support](firewall-support.md) article.
+* To configure a firewall for Azure Cosmos DB, see the [Firewall support](how-to-configure-firewall.md) article.
