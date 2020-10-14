@@ -33,7 +33,7 @@ As an organization grows, it can be difficult to keep track of which users have 
 * In larger deployments with more machines, applications, and desktops, more delegation is needed. Several administrators might have more specific functional responsibilities (roles). For example, some might be Privileged Identity Administrators, and others might be Application Administrators. Additionally, an administrator might manage only certain groups of objects such as devices.
 * Even larger deployments might require even more granular permissions, plus possibly administrators with unconventional or hybrid roles.
 
-In the Azure AD portal, you can [view all the members of any role](directory-manage-roles-portal.md), which can help you quickly check your deployment and delegate permissions.
+In the Azure AD portal, you can [view all the members of any role](../roles/manage-roles-portal.md), which can help you quickly check your deployment and delegate permissions.
 
 If you’re interested in delegating access to Azure resources instead of administrative access in Azure AD, see [Assign an Azure role](../../role-based-access-control/role-assignments-portal.md).
 
@@ -52,7 +52,7 @@ It's work to develop a delegation model that fits your needs. Developing a deleg
 
 ## Define roles
 
-Determine the Active Directory tasks that are carried out by administrators and how they map to roles. You can [view detailed role descriptions](directory-manage-roles-portal.md) in the Azure portal.
+Determine the Active Directory tasks that are carried out by administrators and how they map to roles. You can [view detailed role descriptions](../roles/manage-roles-portal.md) in the Azure portal.
 
 Each task should be evaluated for frequency, importance, and difficulty. These criteria are vital aspects of task definition because they govern whether a permission should be delegated:
 
@@ -89,11 +89,11 @@ For even finer-grained app access delegation, you can assign ownership to indivi
 
 ## Develop a security plan
 
-Azure AD provides an extensive guide to planning and executing a security plan on your Azure AD admin roles, [Securing privileged access for hybrid and cloud deployments](directory-admin-roles-secure.md).
+Azure AD provides an extensive guide to planning and executing a security plan on your Azure AD admin roles, [Securing privileged access for hybrid and cloud deployments](../roles/security-planning.md).
 
 ## Establish emergency accounts
 
-To maintain access to your identity management store when issue arises, prepare emergency access accounts according to [Create emergency-access administrative accounts](directory-emergency-access.md).
+To maintain access to your identity management store when issue arises, prepare emergency access accounts according to [Create emergency-access administrative accounts](../roles/security-emergency-access.md).
 
 ## Secure your administrator roles
 
@@ -111,4 +111,4 @@ For most day-to-day activities, not all users need global administrator rights, 
 
 ## Next steps
 
-For a reference to the Azure AD role descriptions, see [Assign admin roles in Azure AD](directory-assign-admin-roles.md)
+For a reference to the Azure AD role descriptions, see [Assign admin roles in Azure AD](../roles/permissions-reference.md)

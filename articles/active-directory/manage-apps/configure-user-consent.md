@@ -42,7 +42,7 @@ By choosing which app consent policies apply for all users, you can set limits o
 
 To configure user consent settings through the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../users-groups-roles/directory-assign-admin-roles.md#global-administrator--company-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator--company-administrator).
 1. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **User consent settings**.
 1. Under **User consent for applications**, select which consent setting you'd like to configure for all users.
 1. Select **Save** to save your settings.

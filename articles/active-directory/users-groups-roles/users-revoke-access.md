@@ -114,5 +114,5 @@ Once admins have taken the above steps, the user can't gain new tokens for any a
 
 ## Next steps
 
-- [Secure access practices for Azure AD administrators](directory-admin-roles-secure.md)
+- [Secure access practices for Azure AD administrators](../roles/security-planning.md)
 - [Add or update user profile information](../fundamentals/active-directory-users-profile-azure-portal.md)

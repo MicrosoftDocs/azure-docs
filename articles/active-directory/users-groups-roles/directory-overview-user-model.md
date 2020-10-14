@@ -52,7 +52,7 @@ Many large organizations want options for their users to obtain sufficient permi
  **Cloud Application Administrator** | Can add and manage enterprise applications and enterprise app registrations. This role has all of the permissions of the Application Administrator, except it can't manage application proxy settings.
 **Application Developer** | Can add and update application registrations, but can't manage enterprise applications or configure an application proxy.
 
-New Azure AD administrator roles are being added. Check the Azure portal or the [administrator role permission reference](directory-assign-admin-roles.md) for current available roles.
+New Azure AD administrator roles are being added. Check the Azure portal or the [administrator role permission reference](../roles/permissions-reference.md) for current available roles.
 
 ## Assign app access
 
@@ -70,4 +70,4 @@ Azure AD also gives you granular control of the data that flows between the app 
 
 If you're a beginning Azure AD administrator, get the basics down in [Azure Active Directory Fundamentals](../fundamentals/index.yml).
 
-Or you can start [creating groups](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning licenses](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning app access](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) or [assigning administrator roles](directory-assign-admin-roles.md).
+Or you can start [creating groups](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning licenses](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning app access](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) or [assigning administrator roles](../roles/permissions-reference.md).

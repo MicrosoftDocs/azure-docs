@@ -95,7 +95,7 @@ If you have any feedback about Identity Governance features, click **Got feedbac
 While there is no perfect solution or recommendation for every customer, the following configuration guides also provide the baseline policies Microsoft recommends you follow to ensure a more secure and productive workforce.
 
 - [Identity and device access configurations](/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Securing privileged access](../users-groups-roles/directory-admin-roles-secure.md)
+- [Securing privileged access](../roles/security-planning.md)
 
 ## Appendix - least privileged roles for managing in Identity Governance features
 

@@ -36,7 +36,7 @@ You can get to **Help + support** in the Azure portal. It's available from the A
 
 ### Role-based access control
 
-To create a support request, you must be an [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+To create a support request, you must be an [Owner](../../role-based-access-control/built-in-roles.md#owner), [Contributor](../../role-based-access-control/built-in-roles.md#contributor) or be assigned to the [Support Request Contributor](../../role-based-access-control/built-in-roles.md#support-request-contributor) role at the subscription level. To create a support request without a subscription, for example an Azure Active Directory scenario, you must be an [Admin](../../active-directory/roles/permissions-reference.md).
 
 ### Go to Help + support from the global header
 

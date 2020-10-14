@@ -40,8 +40,8 @@ In this phase, administrators enable baseline security features to create a more
 
 | Task | Detail | Required license |
 | ---- | ------ | ---------------- |
-| [Designate more than one global administrator](../users-groups-roles/directory-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use if there is an emergency. These accounts are not be used daily and should have long and complex passwords. | Azure AD Free |
-| [Use non-global administrative roles where possible](../users-groups-roles/directory-assign-admin-roles.md) | Give your administrators only the access they need to only the areas they need access to. Not all administrators need to be global administrators. | Azure AD Free |
+| [Designate more than one global administrator](../roles/security-emergency-access.md) | Assign at least two cloud-only permanent global administrator accounts for use if there is an emergency. These accounts are not be used daily and should have long and complex passwords. | Azure AD Free |
+| [Use non-global administrative roles where possible](../roles/permissions-reference.md) | Give your administrators only the access they need to only the areas they need access to. Not all administrators need to be global administrators. | Azure AD Free |
 | [Enable Privileged Identity Management for tracking admin role use](../privileged-identity-management/pim-getting-started.md) | Enable Privileged Identity Management to start tracking administrative role usage. | Azure AD Premium P2 |
 | [Roll out self-service password reset](../authentication/howto-sspr-deployment.md) | Reduce helpdesk calls for password resets by allowing staff to reset their own passwords using policies you as an administrator control. | |
 | [Create an organization specific custom banned password list](../authentication/tutorial-configure-custom-password-protection.md) | Prevent users from creating passwords that include common words or phrases from your organization or area. | |

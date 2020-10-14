@@ -185,7 +185,7 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 </div>
 
 ### Azure AD Global Admin Role Needed
-User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../users-groups-roles/directory-assign-admin-roles.md) to the user.
+User was authenticated successfully. However user is not assigned global admin role. This is [how you can assign global admin role](../roles/permissions-reference.md) to the user.
 
 <div id="privileged-identity-management">
 <!--

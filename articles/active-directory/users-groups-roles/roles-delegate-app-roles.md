@@ -1,4 +1,4 @@
-﻿---
+---
 title: Delegate application management administrator permissions - Azure AD | Microsoft Docs
 description: Grant permissions for application access management in Azure Active Directory
 services: active-directory
@@ -74,7 +74,7 @@ Azure AD has a set of built-in admin roles for granting access to manage configu
 - Application Administrator: Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. This role also grants the ability to consent to delegated permissions, and application permissions excluding Microsoft Graph. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 - Cloud Application Administrator: Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-For more information and to view the description for these roles, see [Available roles](directory-assign-admin-roles.md#available-roles).
+For more information and to view the description for these roles, see [Available roles](../roles/permissions-reference.md#available-roles).
 
 Follow the instructions in the [Assign roles to users with Azure Active Directory](../fundamentals/active-directory-users-assign-role-azure-portal.md) how-to guide to assign the Application Administrator or Cloud Application Administrator roles.
 
@@ -101,4 +101,4 @@ For more information on the basics of custom roles, see the [custom roles overvi
 ## Next steps
 
 - [Application registration subtypes and permissions](roles-custom-available-permissions.md)
-- [Azure AD administrator role reference](directory-assign-admin-roles.md)
+- [Azure AD administrator role reference](../roles/permissions-reference.md)

@@ -197,7 +197,7 @@ The administrative role required to create, manage, or read an Access Review dep
 | Access package| Global Administrator<p>Creator of Access Package| Global Administrator only |
 
 
-For more information, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+For more information, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).
 
 ### Who will review the access to the resource?
 
@@ -388,7 +388,7 @@ Access reviews can be for the members of a group or for users who were assigned 
 
 ## Plan review of Azure AD and Azure resource roles
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller and increases the overall security of the directory.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../roles/permissions-reference.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller and increases the overall security of the directory.
 
 Access Reviews allows reviewers to attest whether users still need to be in a role. Just like Access Reviews for Access Packages, reviews for Azure AD roles and Azure resource are integrated into the PIM admin user experience. We recommend you review the following role assignments regularly:
 

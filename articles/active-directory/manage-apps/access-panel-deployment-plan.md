@@ -294,7 +294,7 @@ It’s important to plan what to do if your deployment doesn’t go as planned. 
 
 ## Manage your implementation
 
-Use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](../users-groups-roles/directory-assign-admin-roles.md) and choose the right one to solve your needs for each persona for this application. Some roles might need to be applied temporarily and removed after the deployment is completed.
+Use the least privileged role to accomplish a required task within Azure Active Directory. [Review the different roles that are available](../roles/permissions-reference.md) and choose the right one to solve your needs for each persona for this application. Some roles might need to be applied temporarily and removed after the deployment is completed.
 
 | Personas| Roles| Azure AD role  |
 | - | -| -|

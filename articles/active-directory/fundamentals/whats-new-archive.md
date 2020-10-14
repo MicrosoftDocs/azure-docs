@@ -927,7 +927,7 @@ The Global Reader role works with the new Microsoft 365 Admin Center, Exchange A
 >[!NOTE]
 > At the start of public preview, the Global Reader role won't work with: SharePoint, Privileged Access Management, Customer Lockbox, sensitivity labels, Teams Lifecycle, Teams Reporting & Call Analytics, Teams IP Phone Device Management, and Teams App Catalog.
 
-For more information, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+For more information, see [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md).
 
 ---
 
@@ -2350,7 +2350,7 @@ For more information about using the Microsoft Authenticator app to reset passwo
 
 Administrators can assign users to the new Cloud Device Administrator role to perform cloud device administrator tasks. Users assigned the Cloud Device Administrators role can enable, disable, and delete devices in Azure AD, along with being able to read Windows 10 BitLocker keys (if present) in the Azure portal.
 
-For more information about roles and permissions, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+For more information about roles and permissions, see [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
 
 ---
 
@@ -3166,7 +3166,7 @@ Admins can now delegate app management tasks without assigning the Global Admini
 
     - **Enterprise App Owner.** Grants the ability to manage many aspects of owned enterprise apps, including SSO settings, app assignments, and consent (except to Azure AD resources).
 
-For more information about public preview, see the [Azure AD delegated application management roles are in public preview!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. For more information about roles and permissions, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+For more information about public preview, see the [Azure AD delegated application management roles are in public preview!](https://cloudblogs.microsoft.com/enterprisemobility/2018/06/13/hallelujah-azure-ad-delegated-application-management-roles-are-in-public-preview/) blog. For more information about roles and permissions, see [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md).
 
 ---
 

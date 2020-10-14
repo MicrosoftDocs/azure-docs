@@ -39,7 +39,7 @@ To create a shared device mode app, developers and cloud device admins work toge
 
 1. **Device administrators** prepare the device to be shared by using a mobile device management (MDM) provider like Microsoft Intune to manage the devices in their organization. The MDM pushes the Microsoft Authenticator app to the devices and turns on "Shared Mode" for each device through a profile update to the device. This Shared Mode setting is what changes the behavior of the supported apps on the device. This configuration from the MDM provider sets the shared device mode for the device and enables the [Microsoft Enterprise SSO plug-in for Apple devices](apple-sso-plugin.md) which is required for shared device mode.
 
-1. [**Required during Public Preview only**] A user with [Cloud Device Administrator](../users-groups-roles/directory-assign-admin-roles.md#cloud-device-administrator) role must then launch the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) and join their device to the organization.
+1. [**Required during Public Preview only**] A user with [Cloud Device Administrator](../roles/permissions-reference.md#cloud-device-administrator) role must then launch the [Microsoft Authenticator app](../user-help/user-help-auth-app-overview.md) and join their device to the organization.
 
     To configure the membership of your organizational roles in the Azure portal: **Azure Active Directory** > **Roles and Administrators** > **Cloud Device Administrator**
 

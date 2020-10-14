@@ -130,7 +130,7 @@ Another impact of "assume breach" is the need to minimize the likelihood a compr
 
 Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure when they need to gain access to those privileged roles, they can do so securely, with the necessary change control.
 
-As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) to make sure you still have access to Azure AD if you lock yourself out.
+As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](../../active-directory/roles/security-planning.md) to make sure you still have access to Azure AD if you lock yourself out.
 
 ## Step 3 - Automate threat response
 

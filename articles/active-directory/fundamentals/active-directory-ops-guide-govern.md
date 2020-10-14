@@ -44,7 +44,7 @@ As you review your list, you may find you need to either assign an owner for tas
 
 #### Owner recommended reading
 
-- [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ### Configuration changes testing
@@ -89,7 +89,7 @@ It is crucial to keep access to external identities constrained only to resource
 
 Hackers often target admin accounts and other elements of privileged access to rapidly gain access to sensitive data and systems. Since users with privileged roles tend to accumulate over time, it is important to review and manage admin access on a regular basis and provide just-in-time privileged access to Azure AD and Azure resources.
 
-If no process exists in your organization to manage privileged accounts, or you currently have admins who use their regular user accounts to manage services and resources, you should immediately begin using separate accounts, for example one for regular day-to-day activities; the other for privileged access and configured with MFA. Better yet, if your organization has an Azure AD Premium P2 subscription, then you should immediately deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). In the same token, you should also review those privileged accounts and [assign less privileged roles](../users-groups-roles/directory-admin-roles-secure.md) if applicable.
+If no process exists in your organization to manage privileged accounts, or you currently have admins who use their regular user accounts to manage services and resources, you should immediately begin using separate accounts, for example one for regular day-to-day activities; the other for privileged access and configured with MFA. Better yet, if your organization has an Azure AD Premium P2 subscription, then you should immediately deploy [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md#license-requirements) (PIM). In the same token, you should also review those privileged accounts and [assign less privileged roles](../roles/security-planning.md) if applicable.
 
 Another aspect of privileged account management that should be implemented is in defining [access reviews](../governance/access-reviews-overview.md) for those accounts, either manually or [automated through PIM](../privileged-identity-management/pim-how-to-perform-security-review.md).
 
@@ -99,12 +99,12 @@ Another aspect of privileged account management that should be implemented is in
 
 ### Emergency access accounts
 
-Organizations must create [emergency accounts](../users-groups-roles/directory-emergency-access.md) to be prepared to manage Azure AD for cases such as authentication outages like:
+Organizations must create [emergency accounts](../roles/security-emergency-access.md) to be prepared to manage Azure AD for cases such as authentication outages like:
 
 - Outage components of authentication infrastructures (AD FS, On-premises AD, MFA service)
 - Administrative staff turnover
 
-To prevent being inadvertently locked out of your tenant because you can't sign in or activate an existing individual user's account as an administrator, you should create two or more emergency accounts and ensure they are implemented and aligned with [Microsoft’s best practices](../users-groups-roles/directory-admin-roles-secure.md) and [break glass procedures](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency).
+To prevent being inadvertently locked out of your tenant because you can't sign in or activate an existing individual user's account as an administrator, you should create two or more emergency accounts and ensure they are implemented and aligned with [Microsoft’s best practices](../roles/security-planning.md) and [break glass procedures](../roles/security-planning.md#break-glass-what-to-do-in-an-emergency).
 
 ### Privileged access to Azure EA portal
 
@@ -114,7 +114,7 @@ To be clear, if the EA portal authorization level is currently set to "mixed mod
 
 #### Privileged access recommended reading
 
-- [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md)
 
 ## Entitlement management
 

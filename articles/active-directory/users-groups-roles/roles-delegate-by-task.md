@@ -358,5 +358,5 @@ Submit support ticket | Service Administrator | Application Administrator, Azure
 
 ## Next steps
 
-* [How to assign or remove azure AD administrator roles](directory-manage-roles-portal.md)
-* [Azure AD administrator roles reference](directory-assign-admin-roles.md)
+* [How to assign or remove azure AD administrator roles](../roles/manage-roles-portal.md)
+* [Azure AD administrator roles reference](../roles/permissions-reference.md)

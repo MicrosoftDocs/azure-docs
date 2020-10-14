@@ -44,7 +44,7 @@ Familiarize yourself with these articles:
 
 - [How to integrate activity logs with Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Manage emergency access account in Azure AD](../users-groups-roles/directory-emergency-access.md)
+- [Manage emergency access account in Azure AD](../roles/security-emergency-access.md)
 
 - [KQL quick reference](/azure/data-explorer/kql-quick-reference)
 

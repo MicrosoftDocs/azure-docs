@@ -18,7 +18,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how to create a role assignment at organization-wide scope in Azure Active Directory (Azure AD). Assigning a role at organization-wide scope grants access across the Azure AD organization. To create a role assignment with a scope of a single Azure AD resource, see [How to create a custom role and assign it at resource scope](roles-create-custom.md).This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module.
 
-For more information about Azure AD admin roles, see [Assigning administrator roles in Azure Active Directory](directory-assign-admin-roles.md).
+For more information about Azure AD admin roles, see [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md).
 
 ## Required permissions
 
@@ -157,5 +157,5 @@ Remove-AzureADMSRoleAssignment -Id 'qiho4WOb9UKKgng_LbPV7tvKaKRCD61PkJeKMh7Y458-
 ## Next steps
 
 - Share with us on the [Azure AD administrative roles forum](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=166032).
-- For more about roles and azure AD administrator role assignments, see [Assign administrator roles](directory-assign-admin-roles.md).
+- For more about roles and azure AD administrator role assignments, see [Assign administrator roles](../roles/permissions-reference.md).
 - For default user permissions, see a [comparison of default guest and member user permissions](../fundamentals/users-default-permissions.md).

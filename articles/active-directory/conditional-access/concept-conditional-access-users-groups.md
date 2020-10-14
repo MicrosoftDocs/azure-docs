@@ -49,7 +49,7 @@ The following options are available to include when creating a Conditional Acces
 
 When organizations both include and exclude a user or group the user or group is excluded from the policy, as an exclude action overrides an include in policy. Exclusions are commonly used for emergency access or break-glass accounts. More information about emergency access accounts and why they are important can be found in the following articles: 
 
-* [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Manage emergency access accounts in Azure AD](../roles/security-emergency-access.md)
 * [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 The following options are available to exclude when creating a Conditional Access policy.

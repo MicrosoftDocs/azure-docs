@@ -69,12 +69,12 @@ To enable an Azure AD object creation in SQL Database and Azure Synapse on behal
     > [!NOTE]
     > Server identity can be assigned using CLI commands as well. For more information, see [az sql server create](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create) and [az sql server update](https://docs.microsoft.com/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-update).
 
-2. Grant the Azure AD [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission to the server identity created or assigned to the server.
+2. Grant the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission to the server identity created or assigned to the server.
     - To grant this permission, follow the description used for SQL Managed Instance that is available in the following article: [Provision Azure AD admin (SQL Managed Instance)](authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-managed-instance)
     - The Azure AD user who is granting this permission must be part of the Azure AD **Global Administrator** or **Privileged Roles Administrator** role.
 
 > [!IMPORTANT]
-> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application. For step by step instructions to create an Azure AD user on behalf of an Azure AD application, see [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
+> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application. For step by step instructions to create an Azure AD user on behalf of an Azure AD application, see [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
 >
 > In **public preview**, you can assign the **Directory Readers** role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a **Global Administrator** or **Privileged Roles Administrator** to grant the **Directory Readers** role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 

@@ -51,7 +51,7 @@ There are some limitations to Security Center's identity and access protections:
 
 ## Multi-factor authentication (MFA) and Azure Active Directory 
 
-Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Enabling MFA requires [Azure Active Directory (AD) tenant permissions](../active-directory/roles/permissions-reference.md).
 
 - If you have a premium edition of AD, enable MFA using [Conditional Access](../active-directory/conditional-access/concept-conditional-access-policy-common.md).
 - If you're using AD free edition, enable **security defaults** as described in [Azure Active Directory documentation](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).

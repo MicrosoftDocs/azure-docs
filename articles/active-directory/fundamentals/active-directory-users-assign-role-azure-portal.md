@@ -20,14 +20,14 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), if one of your users needs permission to manage Azure AD resources, you must assign them to a role that provides the permissions they need. For info on which roles manage Azure resources and which roles manage Azure AD resources, see [Classic subscription administrator roles, Azure roles, and Azure AD roles](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
-For more information about the available Azure AD roles, see [Assigning administrator roles in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). To add users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
+For more information about the available Azure AD roles, see [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md). To add users, see [Add new users to Azure Active Directory](add-users-azure-active-directory.md).
 
 ## Assign roles
 
 A common way to assign Azure AD roles to a user is on the **Assigned roles** page for a user. You can also configure the user eligibility to be elevated just-in-time into a role using Privileged Identity Management (PIM). For more information about how to use PIM, see [Privileged Identity Management](../privileged-identity-management/index.yml).
 
 > [!Note]
-> If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../users-groups-roles/directory-manage-roles-portal.md). This feature is currently limited to assigning only one role at a time. You can't currently select multiple roles and assign them to a user all at once.
+> If you have an Azure AD Premium P2 license plan and already use PIM, all role management tasks are performed in the [Privileged Identity Management experience](../roles/manage-roles-portal.md). This feature is currently limited to assigning only one role at a time. You can't currently select multiple roles and assign them to a user all at once.
 >
 > ![Azure AD roles managed in PIM for users who already use PIM and have a Premium P2 license](./media/active-directory-users-assign-role-azure-portal/pim-manages-roles-for-p2.png)
 

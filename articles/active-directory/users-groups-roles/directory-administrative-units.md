@@ -21,7 +21,7 @@ This article describes administrative units in Azure Active Directory (Azure AD)
 
 Administrative units allow you to grant admin permissions that are restricted to a department, region, or other segment of your organization that you define. You can use administrative units to delegate permissions to regional administrators or to set policy at a granular level. For example, a User account admin could update profile information, reset passwords, and assign licenses for users only in their administrative unit.
 
-For example, delegating to regional support specialists the [Helpdesk Administrator](directory-assign-admin-roles.md#helpdesk-administrator) role restricted to managing just the users in the region they support.
+For example, delegating to regional support specialists the [Helpdesk Administrator](../roles/permissions-reference.md#helpdesk-administrator) role restricted to managing just the users in the region they support.
 
 ## Deployment scenario
 

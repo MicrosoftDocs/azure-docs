@@ -53,7 +53,7 @@ This section provides a review for planning purposes of the relevant portions of
 
 ## Roles that can be managed by PIM
 
-**Azure AD roles** are all in Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For help with determining which roles to assign your administrators, see [least privileged roles by task](../users-groups-roles/roles-delegate-by-task.md).
+**Azure AD roles** are all in Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in [Administrator role permissions in Azure Active Directory](../roles/permissions-reference.md). For help with determining which roles to assign your administrators, see [least privileged roles by task](../users-groups-roles/roles-delegate-by-task.md).
 
 **Azure roles** are roles that are linked to an Azure resource, resource group, subscription, or management group. You can use PIM to provide just-in-time access to built-in Azure roles like Owner, User Access Administrator, and Contributor, and also to [custom roles](../../role-based-access-control/custom-roles.md). For more information about Azure roles, see [Azure role-based access control](../../role-based-access-control/overview.md).
 
@@ -106,7 +106,7 @@ For Azure AD roles, it's common for organizations to assign the Global Administr
 
 Follow these steps to implement the principle of least privilege for your Azure AD roles.
 
-1. Understand the granularity of the roles by reading and understanding the [available Azure AD administrator roles](../users-groups-roles/directory-assign-admin-roles.md#available-roles). You and your team should also reference [administrator roles by identity task in Azure AD](../users-groups-roles/roles-delegate-by-task.md), which explains the least privileged role for specific tasks.
+1. Understand the granularity of the roles by reading and understanding the [available Azure AD administrator roles](../roles/permissions-reference.md#available-roles). You and your team should also reference [administrator roles by identity task in Azure AD](../users-groups-roles/roles-delegate-by-task.md), which explains the least privileged role for specific tasks.
 
 1. List who has privileged roles in your organization. You can use the Privileged Identity Management [Discovery and insights (preview)](pim-security-wizard.md) to get to reduce your exposure.
 
@@ -209,7 +209,7 @@ A group owner can manage membership for a group. For Azure AD role-assignable gr
 Once you have decided the list of roles to be managed by Privileged Identity Management, you must decide which users should get the eligible role versus the permanently active role. Permanently active roles are the normal roles assigned through Azure Active Directory and Azure resources while eligible roles can only be assigned in Privileged Identity Management.
 
 > [!TIP]
-> :heavy_check_mark: **Microsoft recommends** you have zero permanently active assignments for both Azure AD roles and Azure roles other than the recommended [two break-glass emergency access accounts](../users-groups-roles/directory-emergency-access.md), which should have the permanent Global Administrator role.
+> :heavy_check_mark: **Microsoft recommends** you have zero permanently active assignments for both Azure AD roles and Azure roles other than the recommended [two break-glass emergency access accounts](../roles/security-emergency-access.md), which should have the permanent Global Administrator role.
 
 Even though we recommend zero standing administrator, it is sometimes difficult for organizations to achieve this right away. Here are things to consider when making this decision:
 
