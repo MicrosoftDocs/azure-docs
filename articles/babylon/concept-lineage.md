@@ -1,8 +1,8 @@
 ---
 title: concept document for Data lineage
 description: Describes the concepts for Data lineage. 
-author: ChandruSugunan
-ms.author: chanuengg
+author: chanuengg
+ms.author: csugunan
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
