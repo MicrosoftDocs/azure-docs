@@ -15,7 +15,7 @@ In this tutorial you set up a lab with virtual machines for your team. To set up
 
 Here is the typical workflow when using Azure Lab Services within Teams
 
-1. User [creates a Lab Account](tutorial-setup-lab-account.md#create-a-lab-account) on the Azure Portal.
+1. User [creates a Lab Account](tutorial-setup-lab-account.md#create-a-lab-account) on the Azure portal.
 1. A [lab account creator adds other users](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) to the **Lab Creator** role. For example, the lab account creator/admin adds educators to the **Lab Creator** role so that they can create labs for their classes.
 1. Then, the educators create labs, pre-configures the template VM and publishes the lab to provision VM's to everyone on the team.
 1. Once the lab is published, a VM is assigned to everyone on the team membership list on their first login to Azure Lab Services, either by clicking on the tab containing **Azure Lab Services** App within Teams(SSO) or by accessing the [labs website](https://labs.azure.com). Users can then use the VM to do the class work and homework.
