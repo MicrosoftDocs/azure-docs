@@ -3,7 +3,6 @@ title: Azure Quickstart - Create an Azure key vault and a key by using Azure Res
 description: Quickstart showing how to create Azure key vaults, and add key to the vaults by using Azure Resource Manager template.
 services: key-vault
 author: sebansal
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
