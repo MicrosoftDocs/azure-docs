@@ -154,19 +154,19 @@ The objective of this section is to create a test user in the Azure portal calle
 
 1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
 
-	![Creating an Azure AD test user](./media/printix-tutorial/create_aaduser_01.png) 
+	![Screenshot shows a name and user name to be created.](./media/printix-tutorial/create_aaduser_01.png) 
 
 1. To display the list of users, go to **Users and groups** and click **All users**.
 	
-	![Creating an Azure AD test user](./media/printix-tutorial/create_aaduser_02.png) 
+	![Screenshot shows the Azure A D icon in the Azure portal.](./media/printix-tutorial/create_aaduser_02.png) 
 
 1. To open the **User** dialog, click **Add** on the top of the dialog.
  
-	![Creating an Azure AD test user](./media/printix-tutorial/create_aaduser_03.png) 
+	![Screenshot shows Users and groups selected from the Manage menu, with All users selected.](./media/printix-tutorial/create_aaduser_03.png) 
 
 1. On the **User** dialog page, perform the following steps:
  
-	![Creating an Azure AD test user](./media/printix-tutorial/create_aaduser_04.png) 
+	![Screenshot shows the User dialog box where you can enter the values described.](./media/printix-tutorial/create_aaduser_04.png) 
 
     a. In the **Name** textbox, type **BrittaSimon**.
 
@@ -196,7 +196,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
 
-	![Screenshot shows the Azure portal Enterprise Applications selected under Manage, with All applications selected.][201] 
+	![Screenshot shows Enterprise Applications selected under Manage, with All applications selected.][201] 
 
 1. In the applications list, select **Printix**.
 

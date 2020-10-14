@@ -115,11 +115,11 @@ To configure Azure AD single sign-on with Procore SSO, perform the following ste
 
 2. From the toolbox drop down, click on **Admin** to open the SSO settings page.
 
-	![Configure Single Sign-On](./media/procoresso-tutorial/procore_tool_admin.png)
+	![Screenshot shows the Procore company site with Directory selected.](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. Paste the values in the boxes as described below-
 
-	![Configure Single Sign-On](./media/procoresso-tutorial/procore_setting_admin.png)	
+	![Screenshot shows the Add a Person dialog box.](./media/procoresso-tutorial/procore_setting_admin.png)	
 
 	a. In the **Single Sign On Issuer URL** text box, paste the value of **Azure AD Identifier** which you have copied from the Azure portal.
 
