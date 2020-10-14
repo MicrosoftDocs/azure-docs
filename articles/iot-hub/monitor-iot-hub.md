@@ -68,7 +68,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
-For a list of the platform metrics collected for Azure IoT Hub, see [Monitoring Azure IoT Hub data reference metrics](monitor-service-reference#metrics)  For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For a list of the platform metrics collected for Azure IoT Hub, see [Monitoring Azure IoT Hub data reference metrics](monitor-service-reference.md#metrics)  For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 In Azure portal, IoT Hub provides a metrics explorer experience scoped, by default, to the platform metrics emitted by an your IoT hub:
 
