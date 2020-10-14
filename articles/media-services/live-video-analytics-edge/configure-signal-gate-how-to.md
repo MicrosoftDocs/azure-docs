@@ -113,16 +113,17 @@ Example:
 * Duration of Event = [E1, E1+minimumActivationTime]
 
 Example Diagram:
- 
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/configure-signal-gate-how-to/normAct.svg" alt-text="Normal Activation":::
+
 
 **2 Events from 1 Source (*Retriggered Activation*)**
 * Duration of Recording = -offset + (arrival of 2nd event - arrival of 1st event) + minimumActivationTime
 * Duration of Events = [E1, E2] , [E2, E2+minimumActivationEvent]
 
 Example Diagram:
- 
-
-
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/configure-signal-gate-how-to/retrigAct.svg" alt-text="Retriggered Activation":::
 
 
 **N Events from 1 Source (*Maximum Activation*)**
@@ -130,10 +131,9 @@ Example Diagram:
 * Duration of Events = [E1…n-1 , E1…n-1 +minimumActivationTime], [En, E1+maximumActivationTime]
 
 Example Diagram:
-
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/configure-signal-gate-how-to/maxAct.svg" alt-text="Max Activation":::
  
-
-
 
 > [!IMPORTANT]
 > Diagrams assume every event arrives at the same instance in physical and media time. (No late arrivals)
