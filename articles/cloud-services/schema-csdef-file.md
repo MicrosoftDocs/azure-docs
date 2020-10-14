@@ -1,16 +1,16 @@
 ---
-title: Azure Cloud Services Definition Schema (.csdef File) | Microsoft Docs
+title: Azure Cloud Services (classic) Definition Schema (.csdef File) | Microsoft Docs
 description: A service definition (.csdef) file defines a service model for an application, containing available roles, endpoints, and configuration values for the service.
-ms.custom: 
-ms.date: 04/14/2015
-services: cloud-services
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 42
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Azure Cloud Services Definition Schema (.csdef File)
+
+# Azure Cloud Services (classic) Definition Schema (.csdef File)
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

@@ -1,15 +1,16 @@
 ---
-title: Auto scale a cloud service in the portal | Microsoft Docs
+title: Auto scale a cloud service (classic) in the portal | Microsoft Docs
 description: Learn how to use the portal to configure auto scale rules for a cloud service web role or worker role in Azure.
-services: cloud-services
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# How to configure auto scaling for a Cloud Service in the portal
+# How to configure auto scaling for a Cloud Service (classic) in the portal
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

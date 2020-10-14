@@ -1,19 +1,16 @@
 ---
-title: Install .NET on Azure Cloud Services roles | Microsoft Docs
+title: Install .NET on Azure Cloud Services (classic) roles | Microsoft Docs
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-manager: carmonm
-ms.service: cloud-services
-ms.devlang: dotnet
-ms.custom: devx-track-dotnet
 ms.topic: article
-ms.date: 06/22/2018
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Install .NET on Azure Cloud Services roles
+# Install .NET on Azure Cloud Services (classic) roles
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

@@ -1,16 +1,16 @@
 ---
-title: Cloud Services and management certificates | Microsoft Docs
+title: Cloud Services (classic) and management certificates | Microsoft Docs
 description: Learn about how to create and deploy certificates for cloud services and for authenticating with the management API in Azure.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 04/19/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Certificates overview for Azure Cloud Services
+
+# Certificates overview for Azure Cloud Services (classic)
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

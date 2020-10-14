@@ -1,19 +1,16 @@
 ---
-title: Create a cloud service container with PowerShell | Microsoft Docs
+title: Create a cloud service (classic) container with PowerShell | Microsoft Docs
 description: This article explains how to create a cloud service container with PowerShell. The container hosts web and worker roles.
-services: cloud-services
-documentationcenter: .net
-author: cawaMS
-ms.service: cloud-services
-ms.devlang: dotnet
 ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: na
-ms.date: 11/18/2016
-ms.author: cawa
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Use an Azure PowerShell command to create an empty cloud service container
+
+# Use an Azure PowerShell command to create an empty cloud service (classic) container
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

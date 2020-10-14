@@ -1,16 +1,16 @@
 ---
-title: How to create and deploy a cloud service | Microsoft Docs
+title: How to create and deploy a cloud service (classic) | Microsoft Docs
 description: Learn how to use the Quick Create method to create a cloud service and use Upload to upload and deploy a cloud service package in Azure.
-services: cloud-services
-documentationcenter: ''
-author: tgore03
-ms.service: cloud-services
 ms.topic: article
-ms.date: 05/18/2017
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# How to create and deploy a cloud service
+
+# How to create and deploy an Azure Cloud Service (classic)
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

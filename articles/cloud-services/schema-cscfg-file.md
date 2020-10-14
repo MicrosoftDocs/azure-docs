@@ -1,17 +1,16 @@
 ---
-title: Azure Cloud Services Definition Schema (.cscfg File) | Microsoft Docs
+title: Azure Cloud Services (classic) Definition Schema (.cscfg File) | Microsoft Docs
 description: A service configuration (.cscfg) file specifies how many role instances to deploy for each role, configuration values, and certificate thumbprints for a role.
-services: cloud-services
-ms.custom: 
-ms.date: 12/07/2016
+ms.topic: article
 ms.service: cloud-services
-ms.topic: reference
-caps.latest.revision: 35
-author: tgore03
+ms.date: 10/14/2020
 ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
 
-# Azure Cloud Services Config Schema (.cscfg File)
+# Azure Cloud Services (classic) Config Schema (.cscfg File)
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

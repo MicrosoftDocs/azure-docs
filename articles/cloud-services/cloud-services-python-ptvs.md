@@ -1,17 +1,15 @@
 ---
-title: Get started with Python and Azure Cloud Services | Microsoft Docs
+title: Get started with Python and Azure Cloud Services (classic)| Microsoft Docs
 description: Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.
-services: cloud-services
-documentationcenter: python
-author: tgore03
+ms.topic: article
 ms.service: cloud-services
-ms.devlang: python
-ms.topic: conceptual
-ms.date: 07/18/2017
+ms.date: 10/14/2020
 ms.author: tagore
-ms.custom: devx-track-python
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
+
 # Python web and worker roles with Python Tools for Visual Studio
 
 > [!IMPORTANT]

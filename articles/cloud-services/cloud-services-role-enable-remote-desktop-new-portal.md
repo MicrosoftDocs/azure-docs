@@ -1,17 +1,16 @@
 ---
 title: Use the portal to enable Remote Desktop for a Role
-titleSuffix: Azure Cloud Services
 description: How to configure your azure cloud service application to allow remote desktop connections
-services: cloud-services
-documentationcenter: ''
-author: mmccrory
-ms.service: cloud-services
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: memccror
-
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Enable Remote Desktop Connection for a Role in Azure Cloud Services
+
+# Enable Remote Desktop Connection for a Role in Azure Cloud Services (classic)
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

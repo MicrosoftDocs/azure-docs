@@ -1,17 +1,16 @@
 ---
-title: Enable diagnostics in Azure Cloud Services using PowerShell | Microsoft Docs
+title: Enable diagnostics in Azure Cloud Services (classic) using PowerShell | Microsoft Docs
 description: Learn how to use PowerShell to enable collecting diagnostic data from an Azure Cloud Service with the Azure Diagnostics extension.
-services: cloud-services
-documentationcenter: .net
-author: tgore03
-ms.service: cloud-services
-ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/06/2016
+ms.service: cloud-services
+ms.date: 10/14/2020
 ms.author: tagore
-
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Enable diagnostics in Azure Cloud Services using PowerShell
+
+# Enable diagnostics in Azure Cloud Services (classic) using PowerShell
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).

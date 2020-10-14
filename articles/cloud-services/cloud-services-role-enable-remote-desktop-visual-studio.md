@@ -1,20 +1,16 @@
 ---
-title: Using Visual Studio, enable Remote Desktop for a Role (Azure Cloud Services)
+title: Using Visual Studio, enable Remote Desktop for a Role (Azure Cloud Services classic)
 description: How to configure your Azure cloud service application to allow remote desktop connections
-services: cloud-services
-author: ghogen
-manager: jillfra
-ms.assetid: f5727ebe-9f57-4d7d-aff1-58761e8de8c1
-ms.prod: visual-studio-dev15
-ms.technology: vs-azure
-ms.custom: vs-azure
-ms.topic: conceptual
-ms.workload: azure-vs
-ms.date: 03/06/2018
-ms.author: ghogen
-
+ms.topic: article
+ms.service: cloud-services
+ms.date: 10/14/2020
+ms.author: tagore
+author: tanmaygore
+ms.reviewer: mimckitt
+ms.custom: 
 ---
-# Enable Remote Desktop Connection for a Role in Azure Cloud Services using Visual Studio
+
+# Enable Remote Desktop Connection for a Role in Azure Cloud Services (classic) using Visual Studio
 
 > [!IMPORTANT]
 > [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
