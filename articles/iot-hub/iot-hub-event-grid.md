@@ -159,7 +159,8 @@ The following example shows the schema of a device created event:
 ```
 
 
-> **WARNING**: **Twin data** associated with device creation event is a default configuration and **shouldn't** be relied upon for actual authenticationType and other device properties that newly created device currently has. For that Register Manager API can be used which are provided in Azure IoT SDKs.
+> [!WARNING]
+> *Twin data* associated with a device creation event is a default configuration and *shouldn't* be relied on for actual `authenticationType` and other device properties in a newly created device. For `authenticationType` and other device properties in a newly created device, use the Register Manager API provided in Azure IoT SDKs.
 
 For a detailed description of each property, see [Azure Event Grid event schema for IoT Hub](../event-grid/event-schema-iot-hub.md).
 
