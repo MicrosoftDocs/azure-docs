@@ -3982,27 +3982,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cosmos-db/powershell-samples-cassandra.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cosmos-db/powershell-samples-sql.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-table.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
@@ -4124,6 +4104,31 @@
     {
       "source_path": "articles/cosmos-db/sql-api-sql-query.md",
       "redirect_url": "/azure/cosmos-db/sql-query-getting-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-cassandra-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-cassandra",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-mongodb-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-gremlin-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-gremlin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-sql-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/manage-with-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/resource-manager-samples.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-sql",
       "redirect_document_id": false
     },
     {
