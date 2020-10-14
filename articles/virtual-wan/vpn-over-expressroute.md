@@ -1,6 +1,6 @@
 ---
 title: 'Configure ExpressRoute encryption: IPsec over ExpressRoute for Azure Virtual WAN'
-description: In this tutorial, learn how to use Azure Virtual WAN to create a site-to-site VPN connection over ExpressRoute private peering.
+description: Learn how to use Azure Virtual WAN to create a site-to-site VPN connection over ExpressRoute private peering.
 services: virtual-wan
 author: cherylmc
 
