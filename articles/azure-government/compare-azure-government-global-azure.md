@@ -188,8 +188,7 @@ The following Virtual Machines **features are not currently available** in Azure
     - Ubuntu Advantage support plan
 
 ### [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)
-The following Azure Functions **features are not currently available** in Azure Government:
-- [Monitoring via Application Insights](https://docs.microsoft.com/azure/azure-functions/functions-monitoring).
+When connecting your function app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 ## Databases
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
