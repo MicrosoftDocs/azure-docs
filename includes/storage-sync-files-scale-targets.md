@@ -21,7 +21,7 @@
 | Maximum number of file system objects (directories and files) in a directory | 5 million objects | Yes |
 | Maximum object (directories and files) security descriptor size | 64 KiB | Yes |
 | File size | 100 GiB | No |
-| Minimum file size for a file to be tiered | V9: Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4kb, the minimum file size will be 8kb.<br> V8 and older: 64 KiB  | Yes |
+| Minimum file size for a file to be tiered | V9 and newer: Based on file system cluster size (double file system cluster size). For example, if the file system cluster size is 4kb, the minimum file size will be 8kb.<br> V8 and older: 64 KiB  | Yes |
 
 > [!Note]  
 > An Azure File Sync endpoint can scale up to the size of an Azure file share. If the Azure file share size limit is reached, sync will not be able to operate.
