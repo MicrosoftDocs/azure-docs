@@ -13,7 +13,7 @@ ms.date: 10/14/2020
 
 # Indexer connections through a private endpoint (Azure Cognitive Search)
 
-Many Azure resources (such as Azure Storage accounts) can be configured to accept connections from a specific list of virtual networks, and refuse outside connections that originate from a public network. If are using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an (outbound) [private endpoint connection](../private-link/private-endpoint-overview.md) to securely access that data.
+Many Azure resources (such as Azure Storage accounts) can be configured to accept connections from a specific list of virtual networks, and refuse outside connections that originate from a public network. If you are using an indexer to index data in Azure Cognitive Search, and your data source is on a private network, you can create an (outbound) [private endpoint connection](../private-link/private-endpoint-overview.md) to reach the data.
 
 To use this indexer connection method, there are two requirements:
 
@@ -23,9 +23,9 @@ To use this indexer connection method, there are two requirements:
 
 ## Shared Private Link Resources Management APIs
 
-Private endpoints to secured resources that are created through Azure Cognitive Search APIs are referred to as *shared private link resources* because you are "sharing" access to a resource (such as a storage account) that has been on-boarded to the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
+Private endpoints of secured resources that are created through Azure Cognitive Search APIs are referred to as *shared private link resources* because you are "sharing" access to a resource (such as a storage account) that has been on-boarded to the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
 
-Through its Management REST API, Azure Cognitive Search provides a [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) operation that can use to configure access from an Azure Cognitive Search indexer.
+Through its Management REST API, Azure Cognitive Search provides a [CreateOrUpdate](/rest/api/searchmanagement/sharedprivatelinkresources/createorupdate) operation that you can use to configure access from an Azure Cognitive Search indexer.
 
 Private endpoint connections to some resources can only be created with the preview version of the search management API (`2020-08-01-Preview` or later), indicated with the "preview" tag in the table below. Resources without "preview" tag can be created using either the preview or generally available API version (`2020-08-01` or later).
 

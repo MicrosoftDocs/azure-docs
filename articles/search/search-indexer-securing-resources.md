@@ -1,5 +1,5 @@
 ---
-title: Access Indexer resources securely
+title: Indexer access to protected resources
 titleSuffix: Azure Cognitive Search
 description: Conceptual overview of the network-level security options for Azure data access by indexers in Azure Cognitive Search.
 
@@ -11,9 +11,9 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ---
 
-# Indexer access to other resources using Azure network security features (Azure Cognitive Search)
+# Indexer access to content protected by Azure network security features (Azure Cognitive Search)
 
-Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. This article explains the concepts behind indexer access to resources when those resources are protected by IP firewalls, private endpoints, and other network-level security mechanisms. An indexer makes outbound calls in two cases: connecting to data sources, and connecting to encapsulated code through a skillset. An exhaustive list of all possible resource types that an indexer might access in a typical run are listed in the table below.
+Azure Cognitive Search indexers can make outbound calls to various Azure resources during execution. This article explains the concepts behind indexer access to content that is protected by IP firewalls, private endpoints, or other Azure network-level security mechanisms. An indexer makes outbound calls in two situations: connecting to data sources during indexing, and connecting to encapsulated code through a skillset. A list of all possible resource types that an indexer might access in a typical run are listed in the table below.
 
 | Resource | Purpose within indexer run |
 | --- | --- |
@@ -57,7 +57,7 @@ Azure Cognitive Search indexers are capable of efficiently extracting content fr
 - An environment private to a specific search service. Indexers running in such environments share resources with other workloads (such as other customer-initiated indexing or querying workloads). Typically, only indexers that perform text-based indexing (for example, do not use a skillset) run in this environment.
 - A multi-tenant environment hosting indexers that are resource intensive, such as those with skillsets. This environment is used to offload computationally intensive processing, leaving service-specific resources available for routine operations. This multi-tenant environment is managed and secured by Microsoft, at no extra cost to the customer.
 
-For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. Although the system assigns the execution environment, some configurations will require that you take these environments into account, starting with IP ranges.
+For any given indexer run, Azure Cognitive Search determines the best environment in which to run the indexer. If you are using an IP firewall to control access to Azure resources, knowing about execution environments will help you set up an IP range that is inclusive of both.
 
 ## Granting access to indexer IP ranges
 

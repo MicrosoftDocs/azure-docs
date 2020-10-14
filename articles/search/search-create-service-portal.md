@@ -100,7 +100,7 @@ If you are using multiple Azure services, choose a region that is also hosting y
 
 ## Choose a pricing tier
 
-[Azure Cognitive Search is currently offered in multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). See [Choose a pricing tier](search-sku-tier.md) for guidance.
+Azure Cognitive Search is currently offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). See [Choose a pricing tier](search-sku-tier.md) for guidance.
 
 Basic and Standard are the most common choices for production workloads, but most customers start with the Free service. Key differences among tiers are partition size and speed, and limits on the number of objects you can create.
 
