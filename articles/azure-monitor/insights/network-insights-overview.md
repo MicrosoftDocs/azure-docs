@@ -10,7 +10,7 @@ ms.date: 09/24/2020
 ---
 
 # Azure Monitor for Networks Preview
-Azure Monitor for Networks provides a comprehensive view of [health](https://docs.microsoft.com/azure/service-health/resource-health-checks-resource-types) and [metrics](../platform/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-preview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
+Azure Monitor for Networks provides a comprehensive view of [health](../../service-health/resource-health-checks-resource-types.md) and [metrics](../platform/metrics-supported.md) for all deployed network resources, without requiring  any configuration. It also provides access to network monitoring capabilities like [Connection Monitor](../../network-watcher/connection-monitor-preview.md), [flow logging for network security groups (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md), and [Traffic Analytics](../../network-watcher/traffic-analytics.md). And it provides other network [diagnostic](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) features.
 
 Azure Monitor for Networks is structured around these key components of monitoring:
 - [Network health and metrics](#networkhealth)

@@ -2,27 +2,27 @@
 title: 'Create a Bastion host using Azure CLI | Azure Bastion'
 description: In this article, learn how to create and delete a Bastion host
 services: bastion
-author: mialdrid
+author: cherylmc
 
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/26/2020
-ms.author: mialdrid
+ms.date: 10/13/2020
+ms.author: cherylmc
 # Customer intent: As someone with a networking background, I want to create an Azure Bastion host.
 
 ---
 
 # Create an Azure Bastion host using Azure CLI
 
-This article shows you how to create an Azure Bastion host using Azure CLI. Once you provision the Azure Bastion service in your virtual network, the seamless RDP/SSH experience is available to all of the VMs in the same virtual network. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine.
+This article shows you how to create an Azure Bastion host using Azure CLI. After deploying Bastion, you can connect to a VM via its private IP address through your browser using the Azure portal. Your VM does not need a public IP address, an additional client, or special software. Azure Bastion deployment is per virtual network, not per subscription/account or virtual machine. The seamless RDP/SSH experience is available to all of the VMs in the same virtual network.
 
-Optionally, you can create an Azure Bastion host by using the [Azure portal](bastion-create-host-portal.md), or using [Azure PowerShell](bastion-create-host-powershell.md).
+Optionally, you can create an Azure Bastion host by using the [Azure portal](tutorial-create-host-portal.md), or using [Azure PowerShell](bastion-create-host-powershell.md).
 
 ## Before you begin
 
 Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
-[!INCLUDE [cloudshell cli](../../includes/vpn-gateway-cloud-shell-cli.md)]
+[!INCLUDE [Cloud Shell CLI](../../includes/vpn-gateway-cloud-shell-cli.md)]
 
 ## <a name="createhost"></a>Create a bastion host
 
@@ -51,6 +51,7 @@ This section helps you create a new Azure Bastion resource using Azure CLI.
 
 ## Next steps
 
-* Read the [Bastion FAQ](bastion-faq.md) for additional information.
+* Connect to a virtual machine.
+   * [Linux VM](bastion-connect-vm-ssh.md)
+   * [Windows VM](bastion-connect-vm-rdp.md)
 
-* To use Network Security Groups with the Azure Bastion subnet, see [Work with NSGs](bastion-nsg.md).

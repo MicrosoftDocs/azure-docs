@@ -125,15 +125,15 @@ To configure Azure AD single sign-on with Mixpanel, perform the following steps:
 
 3. Click the **Access security** tab, and then click **Change settings**.
    
-    ![Mixpanel Settings](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
+    ![Screenshot shows the Access security tab where you can change settings.](./media/mixpanel-tutorial/tutorial_mixpanel_08.png) 
 
 4. On the **Change your certificate** dialog page, click **Choose file** to upload your downloaded certificate, and then click **NEXT**.
    
-    ![Mixpanel Settings](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
+    ![Screenshot shows the Change your certificate dialog box where you can choose a certificate file.](./media/mixpanel-tutorial/tutorial_mixpanel_09.png) 
 
 5.  In the authentication URL textbox on the **Change your authentication  URL** dialog page, paste the value of **Login URL** which you have copied from Azure portal, and then click **NEXT**.
    
-	![Mixpanel Settings](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
+	![Screenshot shows the Change your authentication U R L pane where you can copy your Login U R L.](./media/mixpanel-tutorial/tutorial_mixpanel_10.png) 
 
 6. Click **Done**.
 
@@ -200,7 +200,7 @@ The objective of this section is to create a user called Britta Simon in Mixpane
 
 4. In the **team member** textbox, type Britta's email address in the Azure.
    
-    ![Mixpanel Settings](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
+    ![Screenshot shows the Team tab where you add an address to Invite.](./media/mixpanel-tutorial/tutorial_mixpanel_11.png) 
 
 5. Click **Invite**. 
 
