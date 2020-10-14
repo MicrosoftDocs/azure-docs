@@ -93,24 +93,24 @@ landingContent:
       - linkListType: sample
         links:
           - text: End-to-end samples
-            url: https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/   
+            url: /samples/azure-samples/digital-twins-samples/digital-twins-samples/   
       - linkListType: sample
         links:
           - text: Azure Digital Twins explorer (sample)
-            url: https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explore
+            url: /samples/azure-samples/digital-twins-explorer/digital-twins-explore
       - linkListType: sample
         links:
           - text: DTDL validator (sample)
-            url:  https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
+            url:  /samples/azure-samples/dtdl-validator/dtdl-validator/
       - linkListType: sample
         links:
           - text: DPS and IoT Hub integration sample
-            url:  https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
+            url:  /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
       - linkListType: sample
         links:
           - text: SignalR integration sample
-            url:  https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
+            url:  /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
       - linkListType: sample
         links:
           - text: Custom Swaggers for Logic Apps connector
-            url: https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
+            url: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
