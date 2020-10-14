@@ -152,7 +152,7 @@
       href: concept-onnx.md
     - name: ML pipelines
       href: concept-ml-pipelines.md
-    - name: Enterprise readiness & security
+    - name: Security
       items: 
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
