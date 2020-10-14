@@ -1,7 +1,7 @@
 ---
 title: Deploy a Cloud Service (extended support) - Visual Studio
 description: Deploy a Cloud Service (extended support) using Visual Studio
-ms.topic: Quickstart
+ms.topic: quickstart
 ms.service: cloud-services-extended-support
 author: mimckitt
 ms.author: mimckitt
