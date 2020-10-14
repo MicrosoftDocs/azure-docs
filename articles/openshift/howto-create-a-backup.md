@@ -117,9 +117,6 @@ oc get backups -n velero <name of backup> -o yaml
 A successful backup will output `phase:Completed` and the objects will live in the container in the storage account.
 
 ## Create a backup with Velero to include snapshots
->[!NOTE]
->This feature in Azure Red Hat OpenShift is currently in preview.
->
 
 To create an application backup with Velero to include the persistent volumes of your application, you'll need to include the namespace that the application is in as well as to include the `snapshot-volumes=true` flag when creating the backup
 

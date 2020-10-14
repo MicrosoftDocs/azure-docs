@@ -55,9 +55,7 @@ When the phase says `Completed`, your Azure Red Hat 4 application should be rest
 
 ## Restore an Azure Red Hat OpenShift 4 Application with included snapshots
 
->[!NOTE]
->This feature in Azure Red Hat OpenShift is currently in preview.
->
+
 To create a restore of an Azure Red Hat OpenShift 4 application with persistent volumes using Velero, you'll need to perform the restore with the following command:
 
 ```bash
