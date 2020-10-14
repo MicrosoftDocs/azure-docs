@@ -22,6 +22,9 @@ Inferencing over large datasets or with complicated models can be time-consuming
 
 With `ParallelRunStep`, it's straightforward to scale batch inferences to large clusters of machines. Such clusters can handle terabytes of structured or unstructured data with improved productivity and optimized cost.
 
+> [!NOTE]
+> ParallelRunStep is designed for embarrassingly parallel workloads, it can also be used to train many models concurrently, or process large data.
+
 In this article, you learn the following tasks:
 
 > 1. Set up machine learning resources.
