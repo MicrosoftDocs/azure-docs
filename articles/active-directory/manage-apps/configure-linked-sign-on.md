@@ -30,7 +30,7 @@ Some common scenarios where the link option is valuable include:
 
 To ramp knowledge quickly, walk through the [quickstart series](view-applications-portal.md) on application management. On the quickstart, where you configure single sign-on, you'll also find the **Linked** option. 
 
-The **Linked** option doesn't provide sign-on functionality through Azure AD. The option simply sets the location users will be sent to when they select the app on [My Apps](https://myapps.microsoft.com/) or the Microsoft 365 app launcher.  Because the sign-in doesn't procide sign-on functionality through Azure AD, Conditional Access is not available for applications configured with Linked single sign on.
+The **Linked** option doesn't provide sign-on functionality through Azure AD. The option simply sets the location users will be sent to when they select the app on [My Apps](https://myapps.microsoft.com/) or the Microsoft 365 app launcher.  Because the sign-in doesn't provide sign-on functionality through Azure AD, Conditional Access is not available for applications configured with Linked single sign on.
 
 > [!IMPORTANT] 
 > There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**. 
