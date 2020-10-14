@@ -93,6 +93,22 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
 
+# [Java](#tab/java)
+
+The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
+
+ ```java
+ @FunctionName("queueprocessor")
+ public void run(
+    @QueueTrigger(name = "msg",
+                   queueName = "myqueuename",
+                   connection = "myconnvarname") String message,
+     final ExecutionContext context
+ ) {
+     context.getLogger().info(message);
+ }
+ ```
+
 # [JavaScript](#tab/javascript)
 
 The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
@@ -137,6 +153,10 @@ module.exports = async function (context, message) {
 ```
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
+
+# [PowerShell](#tab/powershell)
+
+**TODO**
 
 # [Python](#tab/python)
 
@@ -185,22 +205,6 @@ def main(msg: func.QueueMessage):
 
     logging.info(result)
 ```
-
-# [Java](#tab/java)
-
-The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
-
- ```java
- @FunctionName("queueprocessor")
- public void run(
-    @QueueTrigger(name = "msg",
-                   queueName = "myqueuename",
-                   connection = "myconnvarname") String message,
-     final ExecutionContext context
- ) {
-     context.getLogger().info(message);
- }
- ```
 
  ---
 
@@ -266,14 +270,6 @@ The storage account to use is determined in the following order:
 
 Attributes are not supported by C# Script.
 
-# [JavaScript](#tab/javascript)
-
-Attributes are not supported by JavaScript.
-
-# [Python](#tab/python)
-
-Attributes are not supported by Python.
-
 # [Java](#tab/java)
 
 The `QueueTrigger` annotation gives you access to the queue that triggers the function. The following example makes the queue message available to the function via the `message` parameter.
@@ -300,6 +296,18 @@ public class QueueTriggerDemo {
 |`name`       | Declares the parameter name in the function signature. When the function is triggered, this parameter's value has the contents of the queue message. |
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
+
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
 
 ---
 
@@ -341,17 +349,21 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+# [Java](#tab/java)
+
+The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) annotation gives you access to the queue message that triggered the function.
+
 # [JavaScript](#tab/javascript)
 
 The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
 
+# [PowerShell](#tab/powershell)
+
+**TODO**
+
 # [Python](#tab/python)
 
 Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python).
-
-# [Java](#tab/java)
-
-The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable) annotation gives you access to the queue message that triggered the function.
 
 ---
 
