@@ -3,13 +3,13 @@ title: What is the Metrics Advisor service?
 titleSuffix: Azure Cognitive Services
 description: What is Metrics Advisor?
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: overview
 ms.date: 09/14/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # What is Metrics Advisor (preview)? 

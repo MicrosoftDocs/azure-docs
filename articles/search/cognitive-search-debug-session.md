@@ -4,8 +4,8 @@ titleSuffix: Azure Cognitive Search
 description: Debug sessions, accessed through the Azure portal, provides an IDE like environment where you can identify and fix errors, validate changes, and push changes to skillsets in the AI enrichment pipeline. Debug sessions is in preview.
 
 manager: nitinme
-author: tchristiani
-ms.author: terrychr
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/05/2020
