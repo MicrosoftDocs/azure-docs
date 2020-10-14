@@ -14,14 +14,6 @@ ms.service: azure-communication-services
 ---
 # Communication Service Logs
 
-> [!NOTE} TODO: add descriptions for logs
-<!--[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]-->
-
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed: 
-> - Reference: https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema 
-
-
 https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema
 
 ## Enable diagnostic logs in your resource
@@ -41,7 +33,7 @@ For more information about configuring diagnostics, see the overview of [Azure r
 ## Resource Log categories
 
 Communication Services has three types of logs you can enable:
-* **Usage logs** - shows the usage for each service offering
+* **Usage logs** - shows the usage for each billed service offering
 * **Chat operational logs** - shows basic information related to the chat service
 * **SMS operational logs** - shows basic information related to the SMS service
 
