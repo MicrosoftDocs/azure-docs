@@ -83,7 +83,7 @@ To do this, select *Manifest* from the menu to view the app registration's manif
 
 :::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration. Nested under 'requiredResourceAccess', there's a 'resourceAppId' value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a 'resourceAccess > id' value of 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
-### Collect Client ID and tenant ID
+### Collect client ID and tenant ID
 
 Next, select *Overview* from the menu bar to see the details of the app registration:
 
