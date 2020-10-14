@@ -211,7 +211,7 @@ az role assignment create --assignee <appId value from output above> --role 'Con
 
 Example output:
 
-```console
+```output
 {
   "canDelegate": null,
   "id": "/subscriptions/<Subscription ID>/providers/Microsoft.Authorization/roleAssignments/f82b7dc6-17bd-4e78-93a1-3fb733b912d",
