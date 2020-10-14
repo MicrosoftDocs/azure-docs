@@ -30,9 +30,9 @@
         href: service-bus-dotnet-get-started-with-queues.md
       - name: Java (azure-messaging-servicebus)
         href: service-bus-java-how-to-use-queues.md
-      - name: Python (azure-servicebus version 7.0.0)
+      - name: Python (azure-servicebus)
         href: service-bus-python-how-to-use-queues.md
-      - name: JavaScript (@azure/service-bus 7.0.0-preview)
+      - name: JavaScript (@azure/service-bus)
         href: service-bus-nodejs-how-to-use-queues-new-package.md
       - name: PHP
         href: service-bus-php-how-to-use-queues.md
@@ -44,10 +44,6 @@
         href: service-bus-dotnet-get-started-with-queues-legacy.md
       - name: Java (azure-servicebus)
         href: service-bus-java-how-to-use-queues-legacy.md 
-      - name: Python (azure-servicebus version 0.50.3)
-        href: service-bus-python-how-to-use-queues-legacy.md    
-      - name: JavaScript (@azure/service-bus 1.1.10)
-        href: service-bus-nodejs-how-to-use-queues-new-package-legacy.md                  
   - name: Services Bus topics and subscriptions
     items:
     - name: Create topics and subscriptions
@@ -64,9 +60,9 @@
         href: service-bus-dotnet-how-to-use-topics-subscriptions.md
       - name: Java (azure-messaging-servicebus)
         href: service-bus-java-how-to-use-topics-subscriptions.md
-      - name: Python (azure-servicebus version 7.0.0)
+      - name: Python (azure-servicebus)
         href: service-bus-python-how-to-use-topics-subscriptions.md
-      - name: JavaScript (@azure/service-bus 7.0.0-preview)
+      - name: JavaScript (@azure/service-bus)
         href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
@@ -78,10 +74,6 @@
         href: service-bus-dotnet-how-to-use-topics-subscriptions-legacy.md        
       - name: Java (azure-servicebus)
         href: service-bus-java-how-to-use-topics-subscriptions-legacy.md        
-      - name: Python (azure-servicebus version 0.50.3)
-        href: service-bus-python-how-to-use-topics-subscriptions-legacy.md              
-      - name: JavaScript (@azure/service-bus 1.1.10)
-        href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package-legacy.md               
 - name: Tutorials
   items:
   - name: Update inventory

@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 ---
 
 # Quickstart: Service Bus topics and subscriptions with Node.js and the preview azure/service-bus package
-In this tutorial, you learn how to write a JavaScript program to send messages to and receive messages from a Service Bus queue. This quickstart uses the latest preview version of [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. To see a list of all versions of the package, see the **Versions** tab. For a quickstart that uses the latest generally available version (1.1.10) of this package, see [Send and receive messages using the azure/service-bus package](service-bus-nodejs-how-to-use-topics-subscriptions-new-package-legacy.md) 
+In this tutorial, you learn how to use the [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package in a JavaScript program to send messages to and receive messages from a Service Bus queue.
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
