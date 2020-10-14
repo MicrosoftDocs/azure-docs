@@ -86,7 +86,7 @@
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
-      href: resource-manager-samples.md
+      href: templates-samples-sql.md
   - name: Concepts
     items:
     - name: NoSQL vs. relational databases
@@ -696,12 +696,12 @@
           - name: Copy table data
             href: cassandra-spark-table-copy-ops.md
         - name: Manage using Resource Manager templates
-          href: manage-cassandra-with-resource-manager.md
+          href: templates-samples-cassandra.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples.md
+          href: powershell-samples-cassandra.md
         - name: Manage using Azure CLI
-          href: cli-samples.md
+          href: cli-samples-cassandra.md
     - name: MongoDB API
       items:
       - name: Overview
@@ -795,12 +795,12 @@
           href: mongodb-custom-commands.md
           displayName: custom commands
         - name: Manage using Resource Manager templates
-          href: manage-mongodb-with-resource-manager.md
+          href: templates-samples-mongodb.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples.md
+          href: powershell-samples-mongodb.md
         - name: Manage using Azure CLI
-          href: cli-samples.md
+          href: cli-samples-mongodb.md
         - name: Troubleshoot common issues
           href: mongodb-troubleshoot.md
     - name: Gremlin API
@@ -855,12 +855,12 @@
         - name: Store and manage Spring Data
           href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: Manage using Resource Manager templates
-          href: manage-gremlin-with-resource-manager.md
+          href: templates-samples-gremlin.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples.md
+          href: powershell-samples-gremlin.md
         - name: Manage using Azure CLI
-          href: cli-samples.md
+          href: cli-samples-gremlin.md
       - name: Reference
         items:
         - name: Response Headers
@@ -926,12 +926,12 @@
         - name: Table storage design guide
           href: table-storage-design-guide.md
         - name: Manage using Resource Manager templates
-          href: manage-table-with-resource-manager.md
+          href: templates-samples-table.md
           displayName: ARM
         - name: Manage using PowerShell
-          href: powershell-samples.md
+          href: powershell-samples-table.md
         - name: Manage using Azure CLI
-          href: cli-samples.md
+          href: cli-samples-table.md
       - name: Reference
         items:
           - name: .NET
@@ -967,7 +967,7 @@
       - name: Using Azure CLI
         href: manage-with-cli.md
       - name: Using Resource Manager templates
-        href: manage-sql-with-resource-manager.md
+        href: manage-with-templates.md
         displayName: ARM
       - name: Move between regions
         href: how-to-move-regions.md
