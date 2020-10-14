@@ -7,23 +7,23 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how your Azure application can join a Teams meeting
-
 ## Prerequisites
 
-- A working Azure Communication Services Calling app. This quickstart picks off immediately after the [basic Calling quickstart](./getting-started-with-calling.md)
-- A Teams deployment
+- A working [Communication Services calling app](../getting-started-with-calling.md).
+- A [Teams deployment](https://docs.microsoft.com/en-us/deployoffice/teams-install).
 
 ## Enable Teams
-The Teams interoperability feature is currently in private preview. To enable, please email [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) with:
 
-1. Applicable Azure subscription id
-2. Teams tenant id. The easiest way to obtain this is to [obtain and share a link to the Team](https://support.microsoft.com/en-us/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team.).
+The Teams interoperability feature is currently in private preview. To enable this feature for your Communication Services resource, please email [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) with:
+
+1. The Subscription ID of the Azure subscription that contains your Communication Services resource.
+2. Your Teams tenant ID. The easiest way to obtain this is to [obtain and share a link to the Team](https://support.microsoft.com/en-us/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team).
 
 You must be the owning organization of both entities to use this feature.
 
-## Add join Teams meeting input and button
-Add a new text box for entering the Teams meeting context in `index.html` and a **Join Meeting** button:
+## Add the Teams UI controls
+
+Add a new text box and button within your HTML. The text box will be used to enter the Teams meeting context and the button will be used to join the specified meeting:
 
 ```html
 <!DOCTYPE html>
@@ -63,16 +63,9 @@ Add a new text box for entering the Teams meeting context in `index.html` and a 
 </html>
 ```
 
-## Schedule the Teams meeting
-Schedule a meeting in Teams as [you normally would](https://support.microsoft.com/office/schedule-a-meeting-in-teams-943507a9-8583-4c58-b5d2-8ec8265e04e5). Note that in order for Azure Communication users to join, anonymous joins must be allowed in the [meeting settings](https://docs.microsoft.com/en-us/microsoftteams/meeting-settings-in-teams).
+## Enable the Teams UI controls
 
-## Get the meeting context using Graph APIs
-Programmatically you can get the Teams context using Graph APIs, this is detailed in [Graph documentation](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
-
-You can also get the required meeting information from the **Join Meeting** URL in the meeting invite itself.
-
-## Add the join meeting code
-Now we bind the **Join Teams Meeting** button to code that will join the provided Teams meeting:
+We can now bind the **Join Teams Meeting** button to the code that joins the provided Teams meeting:
 
 ```javascript
 meetingButton.addEventListener("click", () => {
@@ -95,9 +88,15 @@ meetingButton.addEventListener("click", () => {
 });
 ```
 
+## Get the meeting context
+
+The Teams context can be retrieved using Graph APIs. This is detailed in [Graph documentation](https://docs.microsoft.com/graph/api/onlinemeeting-createorget?view=graph-rest-beta&tabs=http).
+
+You can also get the required meeting information from the **Join Meeting** URL in the meeting invite itself.
+
 ## Run the code
 
-Use the `webpack-dev-server` to build and run your app. Run the following command to bundle application host in on a local webserver:
+Webpack users can use the `webpack-dev-server` to build and run your app. Run the following command to bundle your application host on a local webserver:
 
 ```console
 npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
@@ -107,4 +106,12 @@ Open your browser and navigate to http://localhost:8080/. You should see the fol
 
 :::image type="content" source="../media/javascript/calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
-Inserting the Teams context into the applicable text box and pressing *Join Teams Meeting* will start a call to the meeting. 
+Insert the Teams context into the text box and press *Join Teams Meeting* to join the Teams meeting from within your Communication Services application.
+
+
+## Schedule the Teams meeting
+
+Schedule a meeting in Teams as [you normally would](https://support.microsoft.com/office/schedule-a-meeting-in-teams-943507a9-8583-4c58-b5d2-8ec8265e04e5). Note that in order for Azure Communication users to join, anonymous joins must be allowed in the [meeting settings](https://docs.microsoft.com/en-us/microsoftteams/meeting-settings-in-teams).
+
+
+
