@@ -90,7 +90,7 @@ The following example localizes the Facebook identity provider to Arabic:
 | **UserMessageIfUserAccountLocked** | Your account is temporarily locked to prevent unauthorized use. Try again later. |
 | **AADRequestsThrottled** | There are too many requests at this moment. Please wait for some time and try again. |
 
-### Sign-up or sign-in page example
+### Sign-up or sign-in example
 
 ```xml
 <LocalizedResources Id="api.signuporsignin.en">
@@ -189,7 +189,7 @@ The following example shows the use of some of the user interface elements in th
 
 ![Sign-up page email verification UX elements](./media/localization-string-ids/localization-email-verification.png)
 
-## Sign-up and self-asserted pages user sample
+## Sign-up and self-asserted pages example
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
