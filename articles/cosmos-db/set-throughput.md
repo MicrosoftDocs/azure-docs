@@ -10,7 +10,7 @@ ms.date: 08/19/2020
 
 # Introduction to provisioned throughput in Azure Cosmos DB
 
-Azure Cosmos DB allows you to set provisioned throughput on your databases and containers. There are two types of provisioned throughput, standard (manual) or autoscale. This articles gives an overview of how provisioned throughput works. 
+Azure Cosmos DB allows you to set provisioned throughput on your databases and containers. There are two types of provisioned throughput, standard (manual) or autoscale. This article gives an overview of how provisioned throughput works. 
 
 An Azure Cosmos database is a unit of management for a set of containers. A database consists of a set of schema-agnostic containers. An Azure Cosmos container is the unit of scalability for both throughput and storage. A container is horizontally partitioned across a set of machines within an Azure region and is distributed across all Azure regions associated with your Azure Cosmos account.
 
@@ -77,7 +77,7 @@ If your workloads involve deleting and recreating all the collections in a datab
 You can combine the two models. Provisioning throughput on both the database and the container is allowed. The following example shows how to provision standard (manual) provisioned throughput on an Azure Cosmos database and a container:
 
 * You can create an Azure Cosmos database named *Z* with standard (manual) provisioned throughput of *"K"* RUs. 
-* Next, create five containers named *A*, *B*, *C*, *D*, and *E* within the database. When creating container B, make sure to enable **Provision dedicated throughput for this container** option and explicitly configure *"P"* RUs of provisioned throughput on this container. Note that you can configure shared and dedicated throughput only when creating the database and container. 
+* Next, create five containers named *A*, *B*, *C*, *D*, and *E* within the database. When creating container B, make sure to enable **Provision dedicated throughput for this container** option and explicitly configure *"P"* RUs of provisioned throughput on this container. You can configure shared and dedicated throughput only when creating the database and container. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Setting the throughput at the container-level":::
 
@@ -89,22 +89,47 @@ You can combine the two models. Provisioning throughput on both the database and
 
 ## Update throughput on a database or a container
 
-After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container. 
+After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container.
 
-To estimate the [minimum provisioned throughput](concepts-limits.md#storage-and-database-operations) of a database or container, find the maximum of:
+### Current provisioned throughput
+
+You can retrieve the provisioned throughput of a container or a database in the Azure portal or by using the SDKs:
+
+* [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) on the .NET SDK.
+* [CosmosContainer.readThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.readthroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+
+The response of those methods also contains the [minimum provisioned throughput](concepts-limits.md#storage-and-database-operations) for the container or database:
+
+* [ThroughputResponse.MinThroughput](/dotnet/api/microsoft.azure.cosmos.throughputresponse.minthroughput?view=azure-dotnet&preserve-view=true) on the .NET SDK.
+* [ThroughputResponse.getMinThroughput()](/java/api/com.azure.cosmos.models.throughputresponse.getminthroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
+
+The actual minimum RU/s may vary depending on your account configuration. But generally it's the maximum of:
 
 * 400 RU/s 
 * Current storage in GB * 10 RU/s
 * Highest RU/s provisioned on the database or container / 100
 * Container count * 100 RU/s (shared throughput database only)
 
-The actual minimum RU/s may vary depending on your account configuration. You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
+### Changing the provisioned throughput
 
-You can retrieve the minimum throughput of a container or a database programmatically by using the SDKs or view the value in the Azure portal. When using the .NET SDK, the [container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) method allows you to scale the provisioned throughput value. When using the Java SDK, the [CosmosContainer.replaceProvisionedThroughput](sql-api-java-sdk-samples.md) method allows you to scale the provisioned throughput value.
+You can scale the provisioned throughput of a container or a database through the Azure portal or by using the SDKs:
 
-When using the .NET SDK, the [Container.ReadThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.readthroughputasync?view=azure-dotnet&preserve-view=true) method allows you to retrieve the minimum throughput of a container or a database. 
+* [Container.ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) on the .NET SDK.
+* [CosmosContainer.replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) on the Java SDK.
 
-You can scale the provisioned throughput of a container or a database at any time. When a scale operation is performed to increase the throughput, it can take longer time due to the system tasks to provision the required resources. You can check the status of the scale operation in Azure portal or programmatically using the SDKs. When using the .NET SDK, you can get the status of the scale operation by using the `Container.ReadThroughputAsync` method.
+If you are **reducing the provisioned throughput**, you will be able to do it up to the [minimum](#current-provisioned-throughput).
+
+If you are **increasing the provisioned throughput**, most of the time, the operation is instantaneous. There are however, cases where the operation can take longer time due to the system tasks to provision the required resources. In this case, an attempt to modify the provisioned throughput while this operation is in progress will yield an [HTTP error 423](rest/api/cosmos-db/http-status-codes-for-cosmosdb) with an error message explaining that another scaling operation is in progress.
+
+> [!NOTE]
+> If you are planning for a very large ingestion workload that will require a big increase in provisioned throughput, keep in mind that the scaling operation has no SLA and, as mentioned in the previous paragraph, it can take a long time when the increase is large. You might want to plan ahead and start the scaling before the workload starts and use the below methods to check progress.
+
+You can programmatically check the scaling progress by reading the [current provisioned throughput](#current-provisioned-throughput) and using:
+
+* [ThroughputResponse.IsReplacePending](/dotnet/api/microsoft.azure.cosmos.throughputresponse.isreplacepending?view=azure-dotnet&preserve-view=true) on the .NET SDK.
+* [ThroughputResponse.isReplacePending()](/java/api/com.azure.cosmos.models.throughputresponse.isreplacepending?view=azure-java-stable&preserve-view=true) on the Java SDK.
+
+You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
 ## Comparison of models
 This table shows a comparison between provisioning standard (manual) throughput on a database vs. on a container. 
