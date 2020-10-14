@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: how-to
-ms.date: 06/03/2019
+ms.date: 10/14/2020
 ms.author: alkohli
 ---
 
@@ -53,16 +53,16 @@ The reset workflow does not require the user to recall the old password and is u
 
 ## Manage resource access
 
-To create your Azure Stack Edge Pro/Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to Azure Active Directory Graph API are also required. These are described in the following sections.
+To create your Azure Data Box Gateway, IoT Hub, and Azure Storage resource, you need permissions as a contributor or higher at a resource group level. You also need the corresponding resource providers to be registered. For any operations that involve activation key and credentials, permissions to Azure Active Directory Graph API are also required. These are described in the following sections.
 
 ### Manage Microsoft Graph API permissions
 
-When generating the activation key for the Azure Stack Edge Pro device, or performing any operations that require credentials, you need permissions to Microsoft Graph API. The operations that need credentials could be:
+When generating the activation key for the device, or performing any operations that require credentials, you need permissions to Microsoft Graph API. The operations that need credentials could be:
 
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
-You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your Azure Stack Edge Pro device, creation of a user will all fail.
+You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your device, creation of a user will all fail.
 
 For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -72,9 +72,9 @@ To provision a resource in Azure (in the Azure Resource Manager model), you need
  
 Resource providers are registered on the level of the subscription. By default, any new Azure subscription is pre-registered with a list of commonly used resource providers. The resource provider for 'Microsoft.DataBoxEdge' is not included in this list.
 
-You don't need to grant access permissions to the subscription level for users to be able to create resources like 'Microsoft.DataBoxEdge' within their resource groups that they have owner rights on, as long as the resource providers for these resources is already registered.
+You don't need to grant access permissions to the subscription level for users to be able to create resources like 'Microsoft.DataBoxEdge' within the resource groups that they have owner rights on, as long as the resource providers for these resources are already registered.
 
-Before you attempt to create any resource, make sure that the resource provider is registered in the subscription. If the resource provider is not registered, you'll need to make sure that the user creating the new resource has enough rights to register the required resource provider on the subscription level. If you haven't done this as well, then you'll see the following error:
+Before you attempt to create any resource, make sure that the resource provider is registered in the subscription. If the resource provider is not registered, you'll need to make sure that the user creating the new resource has enough rights to register the required resource provider at the subscription level. If you haven't done this as well, then you'll see the following error:
 
 *The subscription \<Subscription name> doesn't have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
@@ -85,7 +85,7 @@ To get a list of registered resource providers in the current subscription, run 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-For Azure Stack Edge Pro device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, subscription admin should run the following command:
+For an Azure Stack Edge device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, the subscription admin should run the following command:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
@@ -95,17 +95,17 @@ For more information on how to register a resource provider, see [Resolve errors
 
 ## Manage connectivity mode
 
-Apart from the default normal mode, your device can also run in partially disconnected, or disconnected mode. Each of these modes is described as below:
+Apart from the default normal mode, your device can also run in partially disconnected or disconnected mode:
 
-- **Partially disconnected** – In this mode, the device cannot upload any data to the shares however can be managed via the Azure portal.
+- **Partially disconnected** – In this mode, the device cannot upload any data to the shares. However, it can be managed via the Azure portal.
 
-    This mode is typically used when on a metered satellite network and the goal is to minimize network bandwidth consumption. Minimal network consumption may still occur for device monitoring operations.
+    This mode is typically used to minimize network bandwidth consumption when on a metered satellite network. Minimal network consumption may still occur for device monitoring operations.
 
-- **Disconnected** – In this mode, the device is fully disconnected from the cloud and both the cloud uploads and downloads are disabled. The device can only be managed via the local web UI.
+- **Disconnected** – In this mode, the device is fully disconnected from the cloud, and both cloud uploads and downloads are disabled. The device can only be managed via the local web UI.
 
     This mode is typically used when you want to take your device offline.
 
-To change device mode, follow these steps:
+To change the device mode, follow these steps:
 
 1. In the local web UI of your device, go to **Configuration > Cloud settings**.
 2. Disable the **Cloud upload and download**.
@@ -119,7 +119,7 @@ To change device mode, follow these steps:
 
 ## Manage power
 
-You can shut down or restart your virtual device using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. This action minimizes any possibility of data corruption.
+You can shut down or restart your virtual device using the local web UI. We recommend that before you restart, you take the shares offline on the host and then the device. This action minimizes any possibility of data corruption.
 
 1. In the local web UI, go to **Maintenance > Power settings**.
 2. Click **Shutdown** or **Restart** depending on what you intend to do.

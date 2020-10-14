@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: how-to
-ms.date: 03/25/2019
+ms.date: 10/14/2020
 ms.author: alkohli
 ---
 # Use the Azure portal to manage bandwidth schedules on your Azure Data Box Gateway  
