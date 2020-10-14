@@ -92,7 +92,7 @@ landingContent:
     linkLists:
       - linkListType: sample
         links:
-          - text: End-to-end sample
+          - text: End-to-end samples
             url: https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/   
       - linkListType: sample
         links:
