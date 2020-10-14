@@ -81,21 +81,21 @@ A route filter can have only one rule, and the rule must be of type 'Allow'. Thi
 
 1. To add and update rules, select the manage rule tab for your route filter.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Screenshot that shows the Overview page with the "Manage rule" action highlighted":::
+    :::image type="content" source="./media/how-to-routefilter-portal/manage-route-filter.png" alt-text="Screenshot that shows the Overview page with the Manage rule action highlighted":::
 
 1. Select the services you want to connect to from the drop-down list and save the rule when done.
 
-    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot that shows the Manage rule window with services selected in the "Allowed service communities" drop-down list":::
+    :::image type="content" source="./media/how-to-routefilter-portal/add-route-filter-rule.png" alt-text="Screenshot that shows the Manage rule window with services selected in the Allowed service communities drop-down list":::
 
 ## <a name="attach"></a>Attach the route filter to an ExpressRoute circuit
 
 Attach the route filter to a circuit by selecting the **+ Add Circuit** button and selecting the ExpressRoute circuit from the drop-down list.
 
-:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Screenshot that shows the Overview page with the "Add circuit" action selected":::
+:::image type="content" source="./media/how-to-routefilter-portal/add-circuit-to-route-filter.png" alt-text="Screenshot that shows the Overview page with the Add circuit action selected":::
 
 If the connectivity provider configures peering for your ExpressRoute circuit, refresh the circuit from the ExpressRoute circuit page before you select the **+ Add Circuit** button.
 
-:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Screenshot that shows the Overview page with the "Refresh" action selected.":::
+:::image type="content" source="./media/how-to-routefilter-portal/refresh-express-route-circuit.png" alt-text="Screenshot that shows the Overview page with the Refresh action selected.":::
 
 ## <a name="tasks"></a>Common tasks
 
