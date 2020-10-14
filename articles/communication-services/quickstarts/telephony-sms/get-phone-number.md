@@ -99,6 +99,7 @@ Select the Phone Numbers blade in the menu to manage your phone numbers.
 > [!NOTE]
 > It may take a few minutes for the provisioned numbers to be shown on this page.
 
+
 ### Customizing phone numbers
 
 On the `Numbers` page, you can select a phone number to configure it.

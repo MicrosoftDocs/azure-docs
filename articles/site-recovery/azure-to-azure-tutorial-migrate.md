@@ -95,8 +95,8 @@ The following steps shows how to prepare the virtual machine for the move using 
 1. In **Name**, specify the friendly name **ContosoVMVault**. If you have more than one subscription, select the appropriate one.
 1. Create the resource group **ContosoRG**.
 1. Specify an Azure region. To check supported regions, see geographic availability in [Azure Site Recovery pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. In **Recovery Services vaults**, select **Overview** > **ContosoVMVault** > **Replicated items** > **+Replicate**.
-1. In **Source**, select **Azure**.
+1. In **Recovery Services vaults**, select **ContosoVMVault** > **Replicated items** > **+Replicate**.
+1. In the dropdown, select **Azure Virtual Machines**.
 1. In **Source location**, select the source Azure region where your VMs are currently running.
 1. Select the Resource Manager deployment model. Then select the **Source subscription** and **Source resource group**.
 1. Select **OK** to save the settings.
