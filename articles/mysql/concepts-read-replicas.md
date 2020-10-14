@@ -125,7 +125,7 @@ Once your application is successfully processing reads and writes, you have comp
 
 ## Global transaction identifier (GTID)
 
-Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL. GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation for more information. 
+Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL. GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation.
 
 MySQL supports two types of transactions: GTID transactions (identified with GTID) and anonymous transactions (don't have a GTID allocated)
 
@@ -133,7 +133,7 @@ The following server parameters are available for configuring GTID:
 
 |**Server parameter**|**Description**|**Default Value**|**Values**|
 |--|--|--|--|
-|`gtid_mode`|Indicates if global transaction identifiers (GTIDs) are used to identify transactions. Changes between modes can only be done one step at a time in ascending order (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Both new and replication transactions must be anonymous <br> `OFF_PERMISSIVE`: New transactions are anonymous. Replicated transactions can either be anonymous or GTID transactions. <br> `ON_PERMISSIVE`: New transactions are GTID transactions. Replicated transactions can either be anonymous or GTID transactions. <br> `ON`: Both new and replicated transactions must be GTID transactions.|
+|`gtid_mode`|Indicates if GTIDs are used to identify transactions. Changes between modes can only be done one step at a time in ascending order (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Both new and replication transactions must be anonymous <br> `OFF_PERMISSIVE`: New transactions are anonymous. Replicated transactions can either be anonymous or GTID transactions. <br> `ON_PERMISSIVE`: New transactions are GTID transactions. Replicated transactions can either be anonymous or GTID transactions. <br> `ON`: Both new and replicated transactions must be GTID transactions.|
 |`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
 
 To enable GTID and configure the behavior consistency, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
