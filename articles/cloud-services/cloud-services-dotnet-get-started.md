@@ -26,7 +26,7 @@ The tutorial shows you how to build and run the application locally, how to depl
 ## Contoso Ads application
 The application is an advertising bulletin board. Users create an ad by entering text and uploading an image. They can see a list of ads with thumbnail images, and they can see the full-size image when they select an ad to see the details.
 
-![Ad list](./media/cloud-services-dotnet-get-started/list.png)
+![Image shows Ad list](./media/cloud-services-dotnet-get-started/list.png)
 
 The application uses the [queue-centric work pattern](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
@@ -58,7 +58,7 @@ If you don't have one of these, Visual Studio may be installed automatically whe
 ## Application architecture
 The app stores ads in a SQL database, using Entity Framework Code First to create the tables and access the data. For each ad, the database stores two URLs, one for the full-size image and one for the thumbnail.
 
-![Ad table](./media/cloud-services-dotnet-get-started/adtable.png)
+![This is an image of an Ad table](./media/cloud-services-dotnet-get-started/adtable.png)
 
 When a user uploads an image, the front-end running in a web role stores the image in an [Azure blob](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage), and it stores the ad information in the database with a URL that points to the blob. At the same time, it writes a message to an Azure queue. A back-end process running in a worker role periodically polls the queue for new messages. When a new message appears, the worker role creates a thumbnail for that image and updates the thumbnail URL database field for that ad. The following diagram shows how the parts of the application interact.
 
@@ -81,11 +81,11 @@ When a user uploads an image, the front-end running in a web role stores the ima
 
     The first time you run a cloud service project, it takes a minute or so for the emulators to start up. When emulator startup is finished, the default browser opens to the application home page.
 
-    ![Contoso Ads architecture](./media/cloud-services-dotnet-get-started/home.png)
+    ![Contoso Ads architecture 1](./media/cloud-services-dotnet-get-started/home.png)
 8. Click  **Create an Ad**.
 9. Enter some test data and select a *.jpg* image to upload, and then click **Create**.
 
-    ![Create page](./media/cloud-services-dotnet-get-started/create.png)
+    ![Image shows Create page](./media/cloud-services-dotnet-get-started/create.png)
 
     The app goes to the Index page, but it doesn't show a thumbnail for the new ad because that processing hasn't happened yet.
 10. Wait a moment and then refresh the Index page to see the thumbnail.
@@ -127,7 +127,7 @@ An Azure cloud service is the environment the application will run in.
 
     In the following image, a cloud service is created with the URL CSvccontosoads.cloudapp.net.
 
-    ![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
+    ![Image shows New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
 ### Create a database in Azure SQL Database
 When the app runs in the cloud, it will use a cloud-based database.

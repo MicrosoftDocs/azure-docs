@@ -51,7 +51,7 @@ You can configure scale settings for a role with either two modes **manual** or 
 
 Set the **Scale by** option to **schedule and performance rules**.
 
-![Cloud services scale settings with profile and rule](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
+![image Cloud services scale settings with profile and rule](./media/cloud-services-how-to-scale-portal/schedule-basics.png)
 
 1. An existing profile.
 2. Add a rule for the parent profile.
