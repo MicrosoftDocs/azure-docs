@@ -28,7 +28,7 @@ The two available connectivity modes are:
 
     Direct mode supports connectivity through TCP protocol and offers better performance because there are fewer network hops. The application connects directly to the backend replicas. Direct mode is currently only supported on .NET and Java SDK platforms.
      
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="The Azure Cosmos DB connectivity modes" border="false":::
 
 These connectivity modes essentially condition the route that data plane requests - document reads and writes - take from your client machine to partitions in the Azure Cosmos DB back-end. Direct mode is the preferred option for best performance - it allows your client to open TCP connections directly to partitions in the Azure Cosmos DB back-end and send requests *direct*ly with no intermediary. By contrast, in Gateway mode, requests made by your client are routed to a so-called "Gateway" server in the Azure Cosmos DB front end, which in turn fans out your requests to the appropriate partition(s) in the Azure Cosmos DB back-end.
 
