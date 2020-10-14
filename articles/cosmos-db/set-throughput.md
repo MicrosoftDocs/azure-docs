@@ -5,7 +5,7 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 10/14/2020
 ---
 
 # Introduction to provisioned throughput in Azure Cosmos DB
