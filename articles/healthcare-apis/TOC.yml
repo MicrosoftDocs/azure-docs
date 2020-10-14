@@ -15,12 +15,6 @@
     href: fhir-paas-powershell-quickstart.md
   - name: Deploy Azure API for FHIR - CLI
     href: fhir-paas-cli-quickstart.md
-  - name: Deploy FHIR Server for Azure - Portal
-    href: fhir-oss-portal-quickstart.md
-  - name: Deploy FHIR Server for Azure - PowerShell
-    href: fhir-oss-powershell-quickstart.md
-  - name: Deploy FHIR Server for Azure - CLI
-    href: fhir-oss-cli-quickstart.md
   - name: Deploy Azure IoT Connector for FHIR (preview) - Portal
     href: iot-fhir-portal-quickstart.md
 - name: Tutorials
