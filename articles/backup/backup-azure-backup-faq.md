@@ -169,7 +169,7 @@ Typical long-term retention point products store backup data as full points.
 - The full points are storage *inefficient* but are easier and faster to restore.
 - Incremental copies are storage *efficient* but require you to restore a chain of data, which impacts your recovery time
 
-Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](https://azure.microsoft.com/blog/microsoft-azure-backup-save-on-long-term-storage/).
+Azure Backup storage architecture gives you the best of both worlds by optimally storing data for fast restores and incurring low storage costs. This ensures that your ingress and egress bandwidth is used efficiently. The amount of data storage, and the time needed to recover the data, is kept to a minimum. Learn more about [incremental backups](backup-architecture.md#backup-types).
 
 ### Is there a limit on the number of recovery points that can be created?
 
