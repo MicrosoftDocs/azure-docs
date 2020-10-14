@@ -34,5 +34,6 @@ ms.author: victorh
 | WAF body size limit, without files|128 KB||
 | Maximum WAF custom rules|100||
 | Maximum WAF exclusions|100||
+| IP address prefixes per WAF custom rule|450||
 
 <sup>1</sup> In case of WAF-enabled SKUs, you must limit the number of resources to 40.
