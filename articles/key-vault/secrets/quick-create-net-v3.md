@@ -122,12 +122,14 @@ using Microsoft.Azure.Services.AppAuthentication;
 
 ### Authenticate to your key vault
 
-Authenticate your application with currently logged user using [KeyVaultClient class](/dotnet/api/microsoft.azure.keyvault.keyvaultclient):
+Configure authentication to your application in [KeyVaultClient class](/dotnet/api/microsoft.azure.keyvault.keyvaultclient). In our example, it will use token provided by `AzureServiceTokenProvider` from currently logged in user:
 
 ```csharp
 var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
 var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 ```
+
+For more information about `AzureServiceTokenProvider`, see [Authenticating to Azure Services](https://docs.microsoft.com/azure/key-vault/general/service-to-service-authentication#authenticating-to-azure-services)
 
 ### Save a secret
 
