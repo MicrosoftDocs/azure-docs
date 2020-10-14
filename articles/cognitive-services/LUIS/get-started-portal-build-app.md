@@ -15,21 +15,22 @@ In this quickstart, you build a new app in the LUIS portal. First, create the ba
 
 ## Create an app
 
-1. Select **+ New app for conversation** from the context toolbar, then select **+ New app for conversation** again.
+To create an application, click  **+ New app**. 
 
-    > [!div class="mx-imgBorder"]
-    > [![Screenshot of creating new app in LUIS portal](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
+In the window that appears, enter the following information:
 
-1. In the pop-up window, configure the app with the following settings and then select **Done**.
+|Name  |Description  |
+|---------|---------|
+|AName     | A name for the your app. For example "home automation".        |
+|Culture     | The language that your app understands and speaks.   |
+|Description | A description for your app.
+|Prediction resource | The prediction resource that will receive queries. |
 
-   |Setting name| Value | Purpose|
-   |--|--|--|
-   |Name|`myEnglishApp`|Unique LUIS app name<br>required|
-   |Culture|**English**|Language of utterances from users, **en-us**<br>required|
-   |Description (Optional)|`App made with LUIS Portal`|Description of app<br>optional|
-   |Prediction resource (Optional) |-  |Do not select. LUIS gives you a Starter key to use for free for authoring and 1,000 prediction endpoint requests. |
+Select **Done**.
 
-   ![Screenshot of entering new app settings](./media/get-started-portal-build-app/create-new-app-settings.png)
+>[!NOTE]
+>The culture cannot be changed once the application is created.
+
 
 ## Create intents
 

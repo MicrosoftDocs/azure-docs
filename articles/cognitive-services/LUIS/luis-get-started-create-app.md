@@ -4,7 +4,7 @@ description:  This quickstart shows how to create a LUIS app that uses the prebu
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 05/05/2020
+ms.date: 10/13/2020
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
 ---
 
@@ -19,20 +19,23 @@ In this quickstart, create a LUIS app that uses the prebuilt domain `HomeAutomat
 ## Create a new app
 You can create and manage your applications on **My Apps**.
 
-1. On the My apps list, select **+ New app for conversation**, then in the list of options, select **+ New app for conversation** again.
+### Create an application
 
-1. In the dialog box, name your application `Home Automation`.
-1. Select **English** as the culture.
-1. Enter an optional description.
-1. Don't select a prediction resource if you haven't already created the resource. To use your app's prediction endpoint (staging or production), you need assign a prediction resource.
-1. Select **Done**.
+To create an application, click  **+ New app**. 
 
-    LUIS creates the app.
+In the window that appears, enter the following information:
 
-    ![In the dialog box, name your application `Home Automation`](./media/create-new-app-details.png)
+|Name  |Description  |
+|---------|---------|
+|AName     | A name for the your app. For example "home automation".        |
+|Culture     | The language that your app understands and speaks.   |
+|Description | A description for your app.
+|Prediction resource | The prediction resource that will receive queries. |
 
-    >[!NOTE]
-    >The culture cannot be changed once the application is created.
+Select **Done**.
+
+>[!NOTE]
+>The culture cannot be changed once the application is created.
 
 ## Add prebuilt domain
 
@@ -47,10 +50,7 @@ You can create and manage your applications on **My Apps**.
 
 ## Intents and entities
 
-1. Select **Intents** to review the HomeAutomation domain intents. The prebuilt domain intents have example utterances.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of HomeAutomation intents list](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")
+1. Select **Intents** in the left navigation menue to see the HomeAutomation domain intents. It has example utterances, such as `HomeAutomation.QueryState` and     `HomeAutomation.SetDevice`.
 
     > [!NOTE]
     > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides.
@@ -69,11 +69,7 @@ Once you've trained your app, you can test it.
 
 1. Select **Test** from the top-right navigation.
 
-1. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter.
-
-    ```
-    Turn off the lights
-    ```
+1. Type a test utterance like `Turn off the lights` into the interactive test pane, and press Enter. For example, *Turn off the lights*.
 
     In this example, `Turn off the lights` is correctly identified as the top scoring intent of **HomeAutomation.TurnOff**.
 
