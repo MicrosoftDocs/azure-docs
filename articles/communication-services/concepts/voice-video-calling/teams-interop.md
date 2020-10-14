@@ -3,10 +3,10 @@ title: Teams meeting interoperability
 titleSuffix: An Azure Communication Services concept document
 description: Join Teams meetings
 author: chpalm
-manager: mikben
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: chpalm
 ms.date: 10/10/2020
 ms.topic: overview
 ms.service: azure-communication-services
