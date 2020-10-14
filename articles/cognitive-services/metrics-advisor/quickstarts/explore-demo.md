@@ -3,13 +3,13 @@ title: Start exploring the Metrics Advisor demo
 titleSuffix: Azure Cognitive Services
 description: Learn about the Metrics Advisor web interface using the demo we provide
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: quickstart
 ms.date: 09/14/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Quickstart: Explore the Metrics Advisor demo with example data
