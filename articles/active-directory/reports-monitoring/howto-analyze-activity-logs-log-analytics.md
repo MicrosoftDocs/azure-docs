@@ -98,16 +98,13 @@ You can also set up alerts on your query. For example, to configure an alert whe
 
 5. Once you have configured the alert, select **Create alert** to enable it. 
 
-## Install and use pre-built views for Azure AD activity logs
+## Use pre-built workbooks for Azure AD activity logs
 
-You can also download the pre-built log analytics views for Azure AD activity logs. The views provide several reports related to common scenarios involving audit and sign-in events. You can also alert on any of the data provided in the reports, using the steps described in the previous section.
+The workbooks provide several reports related to common scenarios involving audit, sign-in, and provisioning events. You can also alert on any of the data provided in the reports, using the steps described in the previous section.
 
-* **Azure AD Account Provisioning Events**: This view shows reports related to auditing provisioning activity, such as the number of new users provisioned and provisioning failures, number of users updated and update failures and the number of users de-provisioned and corresponding failures.    
-* **Sign-ins Events**: This view shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, as well as a summary view tracking the number of sign-ins over time.
-* **Users Performing Consent**: This view shows reports related to user consent, such as the consent grants by user, sign-ins by users who granted consent as well as sign-ins by application for all consent-based applications. 
-
-Learn how to [install and use log analytics views for Azure AD activity logs](howto-install-use-log-analytics-views.md). 
-
+* **Provisioning analysis**: This [workbook](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) shows reports related to auditing provisioning activity, such as the number of new users provisioned and provisioning failures, number of users updated and update failures and the number of users de-provisioned and corresponding failures.    
+* **Sign-ins Events**: This workboook shows the most relevant reports related to monitoring sign-in activity, such as sign-ins by application, user, device, as well as a summary view tracking the number of sign-ins over time.
+* **Conditional access insights**: The Conditional Access insights and reporting [workbook](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-insights-reporting) enables you to understand the impact of Conditional Access policies in your organization over time. 
 
 ## Next steps
 
