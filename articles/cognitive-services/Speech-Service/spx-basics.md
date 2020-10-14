@@ -67,7 +67,7 @@ In this command, you specify both the source (language to translate **from**), a
 
 ### Configuration files in the datastore
 
-Speech CLI's behavior can rely on settings in configuration files, which you can name within Speech CLI calls using a @ symbol.
+Speech CLI's behavior can rely on settings in configuration files, which you can refer to within Speech CLI calls using a @ symbol.
 Speech CLI saves a new setting in a new `./spx/data` subdirectory it creates in the current working directory.
 When seeking a configuration value, Speech CLI looks in your current working directory, then in the datastore at `./spx/data`, and then in other datastores, including a final read-only datastore in the `spx` binary.
 Previously, you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each command line call.
