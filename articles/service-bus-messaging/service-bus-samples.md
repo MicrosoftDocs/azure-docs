@@ -12,31 +12,33 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 
 ## .NET samples
 
-| Version | Samples location | 
+| Package | Samples location | 
 | ------- | ---------------- | 
 | Azure.Messaging.ServiceBus (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples) | 
 | Microsoft.Azure.ServiceBus (legacy) |  [GitHub location](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus) |
 
 ## Java samples
-| Version | Samples location | 
+| Package | Samples location | 
 | ------- | ---------------- | 
 | azure-messaging-servicebus (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples) |
 | azure-servicebus (legacy) | [GitHub location](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) |
 
 ## Python samples
-| Version | Samples location |
+| Package version | Samples location |
 | -------------------- | ----------------------- |
 | azure.servicebus version 7.0 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples) |
 | azure.servicebus version  0.50.3 (legacy) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus) |
 
 ## JavaScript samples
-| Version | Samples location | 
+| Package version | Samples location | 
 | ------- | ---------------- | 
 | azure/service-bus version 7.0 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples) | 
 | azure/service-bus version 1.1.10 | [GitHub location](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/event-hubs_2.1.0/sdk/servicebus/service-bus/samples) |
 
 ## Go samples
-| Go| [GitHub location](https://github.com/Azure/azure-service-bus-go/) |
+| Package | Samples location | 
+| ------- | ---------------- | 
+| azure-service-bus-go | [GitHub location](https://github.com/Azure/azure-service-bus-go/) |
 
 ## Management samples
 You can find management samples on GitHub at [this location](https://github.com/Azure/azure-service-bus/tree/master/samples/Management).
