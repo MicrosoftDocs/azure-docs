@@ -319,7 +319,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 * [How to enable diagnostic settings for Azure API Management](./api-management-howto-use-azure-monitor.md#activity-logs)
 
-* [How to configure an alert rule for unauthorized request](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule-for-unauthorized-request)
+* [How to configure an alert rule for Azure API Management](./api-management-howto-use-azure-monitor.md#set-up-an-alert-rule)
 
 * [How to view capacity metrics of an Azure API management instance](./api-management-capacity.md)
 
@@ -371,11 +371,11 @@ Follow recommendations from Azure Security Center for the management and mainten
 
 * [How to use Role-Based Access Control in Azure API Management](./api-management-role-based-access-control.md)
 
-* [How to get list of users under an Azure API Management Instance](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [How to get list of users under an Azure API Management Instance](/powershell/module/az.apimanagement/get-azapimanagementuser)
 
-* [How to get a list of users assigned to a directory role in Azure AD with PowerShell](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0)
+* [How to get a list of users assigned to a directory role in Azure AD with PowerShell](/powershell/module/az.resources/get-azroleassignment)
 
-* [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition?view=azps-3.7.0)
+* [How to get a directory role definition in Azure AD with PowerShell](/powershell/module/az.resources/get-azroledefinition)
 
 * [Understand identity and access recommendations from Azure Security Center](../security-center/recommendations-reference.md#recs-identity)
 
@@ -502,7 +502,7 @@ Administrators can create custom groups or leverage external groups in associate
 
 * [How to manage user accounts in Azure API Management](./api-management-howto-create-or-invite-developers.md)
 
-* [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuser?view=azps-3.1.0)
+* [How to get list of API Management users](/powershell/module/az.apimanagement/get-azapimanagementuse)
 
 * [How to create and use groups to manage developer accounts in Azure API Management](./api-management-howto-create-groups.md)
 
@@ -742,7 +742,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 * [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription)
 
 * [Understand Azure RBAC](../role-based-access-control/overview.md)
 
@@ -884,7 +884,7 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: Define and implement standard security configurations for your Azure API Management service with Azure Policy. Use Azure Policy aliases in the "Microsoft.ApiManagement" namespace to create custom policies to audit or enforce the configuration of your Azure API Management services.
 
-* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias)
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -924,9 +924,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 
 **Guidance**: If using custom Azure policy definitions, use Azure DevOps or Azure Repos to securely store and manage your Azure API Management service configuration.
 
-* [How to store files in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [How to store files in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-* [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
+* [Azure Repos Documentation](/azure/devops/repos/index)
 
 * [Understand the Azure API Management DevOps Resource Kit](./api-management-security-controls.md#configuration-management)
 
@@ -1082,7 +1082,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 * [How to implement disaster recovery using service backup and restore in Azure API Management](./api-management-howto-disaster-recovery-backup-restore.md#calling-the-backup-and-restore-operations)
 
-* [How to backup Azure Key Vault certificates](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [How to backup Azure Key Vault certificates](/powershell/module/azurerm.keyvault/backup-azurekeyvaultcertificate)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1094,7 +1094,7 @@ Managed identities can be used to obtain certificates from Azure Key Vault for A
 
 * [How to call the API Management restore operation](/rest/api/apimanagement/2019-12-01/apimanagementservice/restore)
 
-* [How to restore Azure Key Vault certificates](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate?view=azurermps-6.13.0)
+* [How to restore Azure Key Vault certificates](/powershell/module/azurerm.keyvault/restore-azurekeyvaultcertificate)
 
 **Azure Security Center monitoring**: Not applicable
 
