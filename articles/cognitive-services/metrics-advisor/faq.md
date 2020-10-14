@@ -3,13 +3,13 @@ title: Metrics Advisor frequently asked questions
 titleSuffix: Azure Cognitive Services
 description: Frequently asked questions about the Metrics Advisor service.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 
