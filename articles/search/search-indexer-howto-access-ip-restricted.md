@@ -1,21 +1,21 @@
 ---
 title: Allow access to indexer IP ranges
 titleSuffix: Azure Cognitive Search
-description: How to guide that describes how to set up IP firewall rules so that indexers can have access.
+description: Configure IP firewall rules to allow data access by an Azure Cognitive Search indexer.
 
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 10/14/2020
 ---
 
-# Setting up IP firewall rules to enable indexer access
+# Configure IP firewall rules to allow indexer connections (Azure Cognitive Search)
 
 IP firewall rules on Azure resources such as storage accounts, Cosmos DB accounts, and Azure SQL servers only permit traffic originating from specific IP ranges to access data.
 
-This article will describe how to configure the IP rules, via Azure portal, for a storage account so that Azure Cognitive Search indexers can access the data securely. While specific to storage, this guide can be directly translated to other Azure resources that also offer IP firewall rules for securing access to data.
+This article describes how to configure the IP rules, via Azure portal, for a storage account so that Azure Cognitive Search indexers can access the data securely. While specific to Azure Storage, the approach also works for other Azure resources that use IP firewall rules for securing access to data.
 
 > [!NOTE]
 > IP firewall rules for storage account are only effective if the storage account and the search service are in different regions. If your setup does not permit this, we recommend utilizing the [trusted service exception option](search-indexer-howto-access-trusted-service-exception.md).
