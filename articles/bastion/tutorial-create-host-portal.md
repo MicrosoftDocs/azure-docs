@@ -1,5 +1,5 @@
 ---
-title: 'Create an Azure Bastion host: Windows VM: portal'
+title: 'Tutorial: Create an Azure Bastion host: Windows VM: portal'
 description: In this article, you learn how to create an Azure Bastion host and connect to a Windows VM.
 services: bastion
 author: cherylmc
@@ -85,4 +85,7 @@ your resources using the following steps:
 
 ## Next steps
 
-In this tutorial, you created a Bastion Host and associated it to a virtual network, and connected to a Windows VM. You may choose to use Network Security Groups with your Azure Bastion subnet. To do so, see [Work with NSGs](bastion-nsg.md).
+In this tutorial, you created a Bastion host and associated it to a virtual network, then connected to a Windows VM. You may choose to use Network Security Groups with your Azure Bastion subnet. To do so, see:
+
+> [!div class="nextstepaction"]
+> [Work with NSGs](bastion-nsg.md)
