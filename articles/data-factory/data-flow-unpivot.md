@@ -1,5 +1,5 @@
 ---
-title: Mapping data flow Unpivot Transformation
+title: Unpivot transformation in mapping data flow
 description: Azure Data Factory mapping data flow Unpivot Transformation
 author: kromerm
 ms.author: makromer
@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019
 ms.date: 07/14/2020
 ---
 
-# Azure Data Factory Unpivot Transformation
+# Unpivot transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

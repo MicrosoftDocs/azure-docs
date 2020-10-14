@@ -28,11 +28,6 @@ If you configured [backup long-term retention](long-term-retention-overview.md),
 > [!IMPORTANT]
 > You can't overwrite an existing database during restore.
 
-By default, Azure SQL Database and Azure SQL Managed Instance backups are stored in geo-replicated blob storage (RA-GRS storage type). In addition, SQL Managed Instance supports locally-redundant (LRS) and zone-redundant (ZRS) backup storage as well. Redundancy ensures that your data is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Zone-redundant storage (ZRS) is available only in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage).
-
-> [!IMPORTANT]
-> Configuring storage redundancy for backups is available for managed instance only and allowed during create process. Once the resource is provisioned, you cannot change the backup storage redundancy option.
-
 When you're using the Standard or Premium service tier, your database restore might incur an extra storage cost. The extra cost is incurred when the maximum size of the restored database is greater than the amount of storage included with the target database's service tier and performance level. For pricing details of extra storage, see the [SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/). If the actual amount of used space is less than the amount of storage included, you can avoid this extra cost by setting the maximum database size to the included amount.
 
 ## Recovery time
@@ -137,7 +132,7 @@ For a sample PowerShell script showing how to restore a deleted instance databas
 ## Geo-restore
 
 > [!IMPORTANT]
-> Geo-restore is only available for managed instances configured with geo-redundant (RA-GRS) backup storage type. Managed instances configured with with locally-redundant or zone-redundant backup storage types do not support geo-restore.
+> Geo-restore is available only for SQL databases or managed instances configured with geo-redundant [backup storage](automated-backups-overview.md#backup-storage-redundancy).
 
 You can restore a database on any SQL Database server or an instance database on any managed instance in any Azure region from the most recent geo-replicated backups. Geo-restore uses a geo-replicated backup as its source. You can request geo-restore even if the database or datacenter is inaccessible due to an outage.
 
@@ -190,7 +185,7 @@ For a PowerShell script that shows how to perform geo-restore for a managed inst
 You can't perform a point-in-time restore on a geo-secondary database. You can do so only on a primary database. For detailed information about using geo-restore to recover from an outage, see [Recover from an outage](../../key-vault/general/disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> Geo-restore is the most basic disaster-recovery solution available in SQL Database and SQL Managed Instance. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) equal to 1 hour and an estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster-recovery solution. 
+> Geo-restore is the most basic disaster-recovery solution available in SQL Database and SQL Managed Instance. It relies on automatically created geo-replicated backups with a recovery point objective (RPO) up to 1 hour and an estimated recovery time of up to 12 hours. It doesn't guarantee that the target region will have the capacity to restore your databases after a regional outage, because a sharp increase of demand is likely. If your application uses relatively small databases and is not critical to the business, geo-restore is an appropriate disaster-recovery solution. 
 >
 > For business-critical applications that require large databases and must ensure business continuity, use [Auto-failover groups](auto-failover-group-overview.md). It offers a much lower RPO and recovery time objective, and the capacity is always guaranteed. 
 >

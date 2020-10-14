@@ -1,6 +1,6 @@
 ---
 title: Understand IoT Plug and Play digital twins
-description: Understand how IoT Plug and Play Preview uses digital twins
+description: Understand how IoT Plug and Play uses digital twins
 author: prashmo
 ms.author: prashmo
 ms.date: 07/17/2020
@@ -29,7 +29,7 @@ Digital Twin APIs operate on high-level constructs in the Digital Twins Definiti
 
 In a device twin, the state of a writable property is split across the desired and reported sections. All read-only properties are available within the reported section.
 
-In a digital twin, there's a unified view of the current and desired state of the property. The synchronization state for a given property is stored in the corresponding root-level or component `$metadata` section.
+In a digital twin, there's a unified view of the current and desired state of the property. The synchronization state for a given property is stored in the corresponding default component `$metadata` section.
 
 ### Digital twin JSON format
 
@@ -46,9 +46,9 @@ When represented as a JSON object, a digital twin includes the following fields:
 | `$metadata.{propertyName}.ackCode` | [Required, only for writable properties] The `ack` code returned by the device app implementing the digital twin |
 | `$metadata.{propertyName}.ackDescription` | [Optional, only for writable properties] The `ack` description returned by the device app implementing the digital twin |
 | `$metadata.{propertyName}.lastUpdateTime` | IoT Hub maintains the timestamp of the last update of the property by the device. The timestamps are in UTC and encoded in the ISO8601 format YYYY-MM-DDTHH:MM:SS.mmmZ |
-| `{componentName}` | A JSON object containing the component's property values and metadata, similar to a root object. |
+| `{componentName}` | A JSON object containing the component's property values and metadata. |
 | `{componentName}.{propertyName}` | The value of the component's property in JSON |
-| `{componentName}.$metadata` | The metadata information for the component, similar to the root-level `$metadata` |
+| `{componentName}.$metadata` | The metadata information for the component. |
 
 #### Device Twin sample
 
@@ -166,7 +166,7 @@ The following snippets show the side-by-side JSON representation of the `serialN
 
 #### Writable Property
 
-Let's say device also had the following writable property at root-level:
+Let's say device also had the following writable property in the default component:
 
 ```json
 {
@@ -302,7 +302,7 @@ The following snippets show the side-by-side JSON representation of the `thermos
 
 ## Digital twin APIs
 
-Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** for managing device digital twin. You can either use the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
+Azure Digital Twins comes equipped with **Get Digital Twin**, **Update Digital Twin**, **Invoke Component Command** and **Invoke Command** for managing device digital twin. You can either use the [REST APIs](/rest/api/iothub/service/digitaltwin) directly or through a [Service SDK](../iot-pnp/libraries-sdks.md).
 
 ## Digital twin change events
 
@@ -369,11 +369,14 @@ content-encoding:utf-8
 ]
 ```
 
+> [!NOTE]
+> Twin change notification messages are doubled when turned on in both device and digital twin change notification.
+
 ## Next steps
 
 Now that you've learned about digital twins, here are some additional resources:
 
 - [How to use IoT Plug and Play digital twin APIs](howto-manage-digital-twin.md)
 - [Interact with a device from your solution](quickstart-service-node.md)
-- [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)

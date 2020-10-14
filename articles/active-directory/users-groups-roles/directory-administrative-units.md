@@ -42,7 +42,7 @@ You can manage administrative units using the Azure portal, PowerShell cmdlets a
 
 - [Create, remove, populate, and add roles to administrative units](roles-admin-units-manage.md): Complete how-to procedures
 - [Working with Admin Units](/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0&preserve-view=true): How to work with administrative units using PowerShell
-- [Administrative Unit Graph support](/graph/api/resources/administrativeunit?view=graph-rest-beta&preserve-view=true): Detailed documentation on Microsoft Graph for administrative units.
+- [Administrative Unit Graph support](/graph/api/resources/administrativeunit?view=graph-rest-1.0&preserve-view=true): Detailed documentation on Microsoft Graph for administrative units.
 
 ### Planning your administrative units
 
@@ -89,9 +89,6 @@ Permissions |   MS Graph/PowerShell   | Azure AD portal | Microsoft 365 admin ce
 administrative unit-scoped management of group properties and members     |  Supported   |    Supported    |  Not supported
 administrative unit-scoped management of group licensing   |    Supported  |    Supported   |   Not supported
 
-> [!NOTE]
->
-> Administrators with an administrative unit scope can't manage dynamic group membership rules.
 
 Administrative units apply scope only to management permissions. They don't prevent members or administrators from using their [default user permissions](../fundamentals/users-default-permissions.md) to browse other users, groups, or resources outside of the administrative unit. In the Microsoft 365 admin center, users outside of a scoped admin's administrative units are filtered out, but you can browse other users in the Azure AD portal, PowerShell, and other Microsoft services.
 

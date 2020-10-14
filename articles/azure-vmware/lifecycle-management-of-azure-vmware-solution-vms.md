@@ -33,7 +33,7 @@ Microsoft Azure native tools allow you to monitor and manage your virtual machin
 
 The following diagram shows the integrated monitoring architecture for Azure VMware Solution VMs.
 
-![Integrated Azure monitoring architecture](media/lifecycle-mgmt-avs-vms/integrated-azure-monitoring-architecture.png)
+![Integrated Azure monitoring architecture](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
 ## Integrating and deploying Azure native services
 
@@ -53,7 +53,7 @@ Azure VMware Solution VMs can be monitored through MMA (also referred to as Log 
 
 **Azure Security Center** provides advanced threat protection across your hybrid workloads in the cloud and on premises. It will assess the vulnerability of Azure VMware Solution VMs and raise alerts as needed. These security alerts can be forwarded to Azure Monitor for resolution.
 - Azure Security Center does not require deployment. For more information, see a list of [Supported features for virtual machines](../security-center/security-center-services.md).
-- To add Azure VMware Solution VMs and non-Azure VMs to Azure Security Center, see [Onboard Windows computers to Azure Security Center](../security-center/quick-onboard-windows-computer.md) and [Onboard Linux computers to Azure Security Center](../security-center/quick-onboard-linux-computer.md).
+- To add Azure VMware Solution VMs and non-Azure VMs to Azure Security Center, see [Onboard Windows computers to Azure Security Center](../security-center/quickstart-onboard-machines.md) and [Onboard Linux computers to Azure Security Center](../security-center/quickstart-onboard-machines.md).
 - After adding VMs, Azure Security Center analyzes the security state of the resources to identify potential vulnerabilities. It also provides recommendations in the Overview tab. For more information, see [Security recommendations in Azure Security Center](../security-center/security-center-recommendations.md).
 - You can define security policies in Azure Security Center. For information on configuring your security policies, see [Working with security policies](../security-center/tutorial-security-policy.md).
 

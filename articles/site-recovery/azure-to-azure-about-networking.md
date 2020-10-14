@@ -41,7 +41,7 @@ Typically, networks are protected using firewalls and network security groups (N
 If you are using a URL-based firewall proxy to control outbound connectivity, allow these Site Recovery URLs:
 
 >[!NOTE]
-> IP address based whitelisting should not be performed to control outbound connectivity.
+> IP address based filtering should not be performed to control outbound connectivity.
 
 **URL** | **Details**
 --- | ---

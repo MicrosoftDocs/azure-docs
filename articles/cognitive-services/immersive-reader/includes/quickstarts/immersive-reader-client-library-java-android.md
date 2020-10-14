@@ -59,7 +59,7 @@ CLIENT_ID=<YOUR_CLIENT_ID>
 CLIENT_SECRET=<YOUR_CLIENT_SECRET>
 SUBDOMAIN=<YOUR_SUBDOMAIN>
 ```
-![Environment variables in Android Studio](../../media/android/java/android-studio-assets-and-env-file.png)
+![Screenshot that shows environment variables in Android Studio.](../../media/android/java/android-studio-assets-and-env-file.png)
 
 ## Add dependencies
 

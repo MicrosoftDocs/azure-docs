@@ -126,11 +126,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Admin Settings Icon** and select **Security**.
 
-    ![Britive Configuration](./media/britive-tutorial/configure1.png)
+    ![Screenshot shows the Britive website with Settings and Security selected.](./media/britive-tutorial/configure1.png)
 
 1. Select **SSO Configuration** and perform the following steps:
 
-    ![Britive Configuration](./media/britive-tutorial/configure2.png)
+    ![Screenshot shows S S O Configuration where you enter the information in this step.](./media/britive-tutorial/configure2.png)
 
     a. Copy **Audience/Entity ID** value and paste it into the **Identifier (Entity ID)** text box in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -144,15 +144,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Admin Settings Icon** and select **User Administration**.
 
-    ![Britive Configuration](./media/britive-tutorial/user1.png)
+    ![Screenshot shows the Britive website with Settings and User Administration selected.](./media/britive-tutorial/user1.png)
 
 1. Click on **ADD USER**.
 
-    ![Britive Configuration](./media/britive-tutorial/user2.png)
+    ![Screenshot shows the ADD USER button.](./media/britive-tutorial/user2.png)
 
 1. Fill all the necessary details of the user according your organization requirement and click **ADD USER**.
 
-    ![Britive Configuration](./media/britive-tutorial/user3.png)
+    ![Screenshot shows the Ad a User page where you enter user information.](./media/britive-tutorial/user3.png)
 
 ## Test SSO
 

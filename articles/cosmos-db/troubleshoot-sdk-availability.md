@@ -3,7 +3,7 @@ title: Diagnose and troubleshoot the availability of Azure Cosmos SDKs in multir
 description: Learn all about the Azure Cosmos SDK availability behavior when operating in multi regional environments.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 09/24/2020
+ms.date: 10/05/2020
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
@@ -18,7 +18,7 @@ All the Azure Cosmos SDKs give you an option to customize the regional preferenc
 * The [ConnectionPolicy.PreferredLocations](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations) property in .NET V2 SDK.
 * The [CosmosClientOptions.ApplicationRegion](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationregion) or [CosmosClientOptions.ApplicationPreferredRegions](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.applicationpreferredregions) properties in .NET V3 SDK.
 * The [CosmosClientBuilder.preferredRegions](/java/api/com.azure.cosmos.cosmosclientbuilder.preferredregions) method in Java V4 SDK.
-* The [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Node SDK.
+* The [CosmosClient.preferred_locations](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parameter in Python SDK.
 * The [CosmosClientOptions.ConnectionPolicy.preferredLocations](/javascript/api/@azure/cosmos/connectionpolicy#preferredlocations) parameter in JS SDK.
 
 When you set the regional preference, the client will connect to a region as mentioned in the following table:
@@ -43,6 +43,8 @@ When any of the following scenarios occur, the client using the Azure Cosmos SDK
 * The *RequestDiagnosticsString* property on responses in .NET V2 SDK.
 * The *Diagnostics* property on responses and exceptions in .NET V3 SDK.
 * The *getDiagnostics()* method on responses and exceptions in Java V4 SDK.
+
+When determining the next region in order of preference, the SDK client will use the account region list, prioritizing the preferred regions (if any).
 
 For a comprehensive detail on SLA guarantees during these events, see the [SLAs for availability](high-availability.md#slas-for-availability).
 

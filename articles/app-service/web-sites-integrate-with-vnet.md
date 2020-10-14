@@ -139,11 +139,15 @@ The regional VNet Integration feature has no additional charge for use beyond th
 
 Three charges are related to the use of the gateway-required VNet Integration feature:
 
-* **App Service plan pricing tier charges**: Your apps need to be in a Standard, Premium, or PremiumV2 App Service plan. For more information on those costs, see [App Service pricing][ASPricing].
+* **App Service plan pricing tier charges**: Your apps need to be in a Standard, Premium, PremiumV2, or PremiumV3 App Service plan. For more information on those costs, see [App Service pricing][ASPricing].
 * **Data transfer costs**: There's a charge for data egress, even if the VNet is in the same datacenter. Those charges are described in [Data Transfer pricing details][DataPricing].
 * **VPN gateway costs**: There's a cost to the virtual network gateway that's required for the point-to-site VPN. For more information, see [VPN gateway pricing][VNETPricing].
 
 ## Troubleshooting
+
+> [!NOTE]
+> VNET integration is not supported for Docker Compose scenarios in App Service.
+>
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 

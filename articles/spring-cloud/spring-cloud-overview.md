@@ -28,7 +28,7 @@ This introduction describes the following capabilities of Azure Spring Cloud:
 
 ## Spring Cloud Config Server
 
-Azure Spring Cloud Config Server provides externalized configuration in a distributed system with both server and client-side support.  Azure Spring Cloud Config Server is a central location to manage application properties across all environments. For more information see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config.md). 
+Azure Spring Cloud Config Server provides externalized configuration in a distributed system with both server and client-side support.  Azure Spring Cloud Config Server is a central location to manage application properties across all environments. For more information see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config). 
 
 ## Blue/green deployments
 

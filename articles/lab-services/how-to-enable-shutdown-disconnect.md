@@ -2,7 +2,7 @@
 title: Configure automatic shutdown of VMs for a lab in Azure Lab Services 
 description: Learn how to enable or disable automatic shutdown of VMs when a remote desktop connection is disconnected.  
 ms.topic: article
-ms.date: 08/17/2020
+ms.date: 10/01/2020
 ---
 
 # Configure automatic shutdown of VMs for a lab
@@ -11,8 +11,8 @@ This article shows you how you can configure automatic shutdown of VMs for a lab
 
 You can enable several auto-shutdown cost control features to proactively prevent additional costs when the virtual machines are not being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
  
-* Automatically disconnect users from virtual machines that the OS deems idle (Windows-only).
-* Automatically shut down virtual machines when users disconnect (Windows & Linux).
+* Automatically disconnect users from virtual machines that the OS deems idle.
+* Automatically shut down virtual machines when users disconnect.
 * Automatically shut down virtual machines that are started but users don't connect.
 
 Review more details about the auto-shutdown features in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
@@ -32,8 +32,7 @@ You can configure the auto-shutdown setting in the [Azure Lab Services](https://
 Make sure to review details about the auto-shutdown in the [Maximize cost control with auto-shutdown settings](cost-management-guide.md#automatic-shutdown-settings-for-cost-control) section.
 
 > [!WARNING]
-> If you shutdown the Windows operating system (OS) on a VM before disconnecting an RDP session to the VM, the autoshutdown feature will not work properly.  
-
+> If you shutdown the Linux or Windows operating system (OS) on a VM before disconnecting an RDP session to the VM, the autoshutdown feature will not work properly.  
 ## Next steps
 
 [Dashboard for classroom labs](use-dashboard.md)

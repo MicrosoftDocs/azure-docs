@@ -2,7 +2,7 @@
 title: Introduction to Azure Advisor
 description: Use Azure Advisor to optimize your Azure deployments.
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 09/27/2020
 ---
 
 # Introduction to Azure Advisor
@@ -63,7 +63,9 @@ To postpone or dismiss a recommendation, click the **Postpone** link. You can sp
 To learn more about Advisor recommendations, see:
 
 * [Get started with Advisor](advisor-get-started.md)
+* [Advisor score](azure-advisor-score.md)
 * [Advisor Reliability recommendations](advisor-high-availability-recommendations.md)
 * [Advisor Security recommendations](advisor-security-recommendations.md)
 * [Advisor Performance recommendations](advisor-performance-recommendations.md)
 * [Advisor Cost recommendations](advisor-cost-recommendations.md)
+* [Advisor operational excellence recommendations](advisor-operational-excellence-recommendations.md)

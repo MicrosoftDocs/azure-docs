@@ -28,7 +28,8 @@ Azure SQL Edge exposes several different environment variables that can be used 
 The following new environment variables were added to Azure SQL Edge. 
 
 | Environment variable | Description | Values |     
-|-----|-----| ---------- |   
+|-----|-----| ---------- | 
+| **PlanId** | Specifies the Azure SQL Edge SKU to be used during initialization. This environment variable is only required when deploying Azure SQL Edge using Azure IoT Edge. | **asde-developer-on-iot-edge** or **asde-premium-on-iot-edge** | 
 | **MSSQL_TELEMETRY_ENABLED** | Enable or disable usage and diagnostics data collection. | TRUE or FALSE |  
 | **MSSQL_TELEMETRY_DIR** | Sets the target directory for the usage and diagnostics data collection audit files. | Folder location within SQL Edge container. This folder can be mapped to a host volume using either mount points or data volumes. | 
 | **MSSQL_PACKAGE** | Specifies the location of the dacpac or bacpac package to be deployed. | Folder, file, or SAS URL containing the dacpac or bacpac packages. For more information, refer [Deploy SQL Database DACPAC and BACPAC packages in SQL Edge](deploy-dacpac.md). |

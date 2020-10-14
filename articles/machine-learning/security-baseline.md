@@ -721,7 +721,7 @@ You can implement your own process for removing unauthorized software. You can a
 
 Remove Azure resources when they are no longer needed.
 
-- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md#using-file-integrity-monitoring)
+- [How to use File Integrity Monitoring](../security-center/security-center-file-integrity-monitoring.md)
 
 - [Understand Azure Automation Change Tracking and Inventory](../automation/change-tracking/overview.md)
 
