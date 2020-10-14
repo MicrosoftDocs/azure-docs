@@ -20,7 +20,7 @@ In this tutorial, you learn how to integrate Workspot Control with Azure Active 
 * Enable users to automatically sign in to Workspot Control (single sign-on [SSO]) by using their Azure AD accounts.
 * Manage your accounts in one central location: the Azure portal.
 
-For more information about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+For more information about SaaS app integration with Azure AD, see [Single sign-on to applications in Azure AD](../manage-apps/what-is-single-sign-on.md).
 
 ## Prerequisites
 
@@ -230,12 +230,12 @@ To enable Azure AD users to sign in to Workspot Control, they must be provisione
 
 In this section, we test our Azure AD single sign-on configuration through *Access Panel*.
 
-When you click the **Workspot Control** tile in Access Panel, you should be automatically signed in to the Workspot Control for which you set up SSO. For more information, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access).
+When you click the **Workspot Control** tile in Access Panel, you should be automatically signed in to the Workspot Control for which you set up SSO. For more information, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
 
 ## Additional resources
 
-- [Tutorials for integrating SaaS applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)
+- [Tutorials for integrating SaaS applications with Azure Active Directory](./tutorial-list.md)
 
-- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Single sign-on to applications in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](../conditional-access/overview.md)
