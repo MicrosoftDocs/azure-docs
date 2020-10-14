@@ -52,6 +52,7 @@ Do the following steps to edit a bandwidth schedule.
 
 1. In the Azure portal, go to your Data Box Gateway resource and then go to Bandwidth. 
 2. From the list of bandwidth schedules, select and click a schedule that you want to modify.
+
     ![Modify user](media/data-box-gateway-manage-bandwidth-schedules/modify-schedule-1.png)
 
 3. Make the desired changes and save the changes.
