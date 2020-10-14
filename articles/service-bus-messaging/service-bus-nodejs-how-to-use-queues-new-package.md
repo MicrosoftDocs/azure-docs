@@ -1,126 +1,155 @@
 ---
-title: How to use azure/service-bus queues in Node.js
-description: Learn how to write a Nodejs program to send messages to and receive messages from a Service Bus queue using the new @azure/service-bus package.
+title: How to use azure/service-bus queues in JavaScript (Preview)
+description: Learn how to write a JavaScript program that uses the latest preview version of @azure/service-bus package to send messages to and receive messages from a Service Bus queue.
 author: spelluru
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 10/13/2020
 ms.author: spelluru
 ms.custom: devx-track-js
 ---
 
-# Quickstart: How to use Service Bus queues with Node.js and the azure/service-bus package
-In this tutorial, you learn how to write a Nodejs program to send messages to and receive messages from a Service Bus queue using the new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. This package uses the faster [AMQP 1.0 protocol](service-bus-amqp-overview.md) whereas the older [azure-sb](https://www.npmjs.com/package/azure-sb) package used [Service Bus REST run-time APIs](/rest/api/servicebus/service-bus-runtime-rest). The samples are written in JavaScript.
+# Quickstart: How to use Service Bus queues with JavaScript and the azure/service-bus (preview) package 
+In this tutorial, you learn how to write a JavaScript program to send messages to and receive messages from a Service Bus queue. This quickstart uses the latest preview version of [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. To see a list of all versions of the package, see the **Versions** tab. For a quickstart that uses the latest generally available version (1.1.10) of this package, see [Send and receive messages using the azure/service-bus package](service-bus-nodejs-how-to-use-queues-new-package-legacy.md) 
 
 ## Prerequisites
-- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+- An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 - If you don't have a queue to work with, follow steps in the [Use Azure portal to create a Service Bus queue](service-bus-quickstart-portal.md) article to create a queue. Note down the connection string for your Service Bus instance and the name of the queue you created. We'll use these values in the samples.
 
 > [!NOTE]
 > - This tutorial works with samples that you can copy and run using [Nodejs](https://nodejs.org/). For instructions on how to create a Node.js application, see [Create and deploy a Node.js application to an Azure Website](../app-service/quickstart-nodejs.md), or [Node.js cloud service using Windows PowerShell](../cloud-services/cloud-services-nodejs-develop-deploy-app.md).
-> - The new [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package does not support creation of queues yet. Please use the [@azure/arm-servicebus](https://www.npmjs.com/package/@azure/arm-servicebus) package if you want to programmatically create them.
 
 ### Use Node Package Manager (NPM) to install the package
 To install the npm package for Service Bus, open a command prompt that has `npm` in its path, change the directory to the folder where you want to have your samples and then run this command.
 
 ```bash
-npm install @azure/service-bus
+npm install @azure/service-bus@next
 ```
 
 ## Send messages to a queue
-Interacting with a Service Bus queue starts with instantiating the [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [QueueClient](/javascript/api/@azure/service-bus/queueclient) class. Once you have the queue client, you can create a sender and use  either [send](/javascript/api/@azure/service-bus/sender#send-sendablemessageinfo-) or [sendBatch](/javascript/api/@azure/service-bus/sender#sendbatch-sendablemessageinfo---) method on it to send messages.
+The following sample code shows you how to send a message to a queue. See the code comments for details. 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `send.js` and paste the below code into it. This code will send 10 messages to your queue.
+2. Create a file called `send.ts` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
 
-    ```javascript
-    const { ServiceBusClient } = require("@azure/service-bus"); 
+    ```typescript
+    import { ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";
     
-    // Define connection string and related Service Bus entity names here
-    const connectionString = "";
-    const queueName = ""; 
+    // connection string to your Service Bus namespace
+    const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
+
+    // name of the queue
+    const queueName = "<QUEUE NAME>"
     
-    async function main(){
-      const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
-      const queueClient = sbClient.createQueueClient(queueName);
-      const sender = queueClient.createSender();
-      
-      try {
-        for (let i = 0; i < 10; i++) {
-          const message= {
-            body: `Hello world! ${i}`,
-            label: `test`,
-            userProperties: {
-                myCustomPropertyName: `my custom property value ${i}`
-           }
-          };
-          console.log(`Sending message: ${message.body}`);
-          await sender.send(message);
-        }
+    export async function main() {
         
-        await queueClient.close();
-      } finally {
-        await sbClient.close();
-      }
+        // create Service Bus client using the Service Bus namespace
+        const sbClient = new ServiceBusClient(connectionString);
+    
+        // create a sender for the queue to send messages to the queue
+        const sender = sbClient.createSender(queueName);
+    
+        // prepare a message to send to the queue
+        const message: ServiceBusMessage = {
+            body: `Einstein`,
+            label: "Scientist"
+        };
+    
+        // send the message to the queue
+        console.log(`Sending message: ${message.body} - ${message.label}`);
+        await sender.sendMessages(message);
+
+        // dispose sender    
+        await sender.close();	
+   
+        // dispose Service Bus client
+        await sbClient.close();    
     }
     
     main().catch((err) => {
       console.log("Error occurred: ", err);
     });
     ```
-3. Enter the connection string and name of your queue in the above code.
-4. Then run the command `node send.js` in a command prompt to execute this file.
+3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
+1. Replace `<QUEUE NAME>` with the name of the queue. 
+1. Compile the TypeScript file to generate a JavaScript file. 
 
-Congratulations! You just sent messages to a Service Bus queue.
+    ```console
+    tsc send.ts
+    ```
+1. Then run the command in a command prompt to execute this file.
 
-Messages have some standard properties like `label` and `messageId` that you can set when sending. If you want to set any custom properties, use the `userProperties`, which is a json object that can hold key-value pairs of your custom data.
+    ```console
+    node send.js 
+    ```
+1. You should see the following output.
 
-Service Bus queues support a maximum message size of 256 KB in the [Standard tier](service-bus-premium-messaging.md) and 1 MB in the [Premium tier](service-bus-premium-messaging.md). There's no limit on the number of messages held in a queue but there's a cap on the total size of the messages held by a queue. This queue size is defined at creation time, with an upper limit of 5 GB. For more information about quotas, see [Service Bus quotas](service-bus-quotas.md).
+    ```console
+    Sending message: Einstein - Scientist
+    ```
 
 ## Receive messages from a queue
-Interacting with a Service Bus queue starts with instantiating the [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) class and using it to instantiate the [QueueClient](/javascript/api/@azure/service-bus/queueclient) class. Once you have the queue client, you can create a receiver and use  either [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) or [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) method on it to receive messages.
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called `recieve.js` and paste the below code into it. This code will attempt to receive 10 messages from your queue. The actual count you receive depends on the number of messages in the queue and network latency.
+2. Create a file called `receive.ts` and paste the following code into it.
 
-    ```javascript
-    const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
+    ```typescript
+    import { delay, ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";
     
-    // Define connection string and related Service Bus entity names here
-    const connectionString = "";
-    const queueName = ""; 
+    // connection string to your Service Bus namespace
+    const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
+
+    // name of the queue
+    const queueName = "<QUEUE NAME>"
+        
+    export async function main() {
+        // create a Service Bus client using the connection string to the Service Bus namespace
+        const sbClient = new ServiceBusClient(connectionString);  
+   
+        // create a receiver for your queue
+        const receiver = sbClient.createReceiver(queueName);
     
-    async function main(){
-      const sbClient = ServiceBusClient.createFromConnectionString(connectionString); 
-      const queueClient = sbClient.createQueueClient(queueName);
-      const receiver = queueClient.createReceiver(ReceiveMode.receiveAndDelete);
-      try {
-        const messages = await receiver.receiveMessages(10)
-        console.log("Received messages:");
-        console.log(messages.map(message => message.body));
-         
-        await queueClient.close();
-      } finally {
-        await sbClient.close();
-      }
+        // create a handler to handle the received message
+        const myMessageHandler = async (messageReceived) => {
+            console.log(`Received message: ${messageReceived.body}`);
+            await messageReceived.complete();
+        };
+        
+        // create a handler to handle any error messages
+        const myErrorHandler = async (error) => {
+            console.log(error);
+        };
+    
+        // subscribe for messages using the handlers
+        receiver.subscribe({
+            processMessage: myMessageHandler,
+            processError: myErrorHandler
+        });
+    
+        // Waiting long enough before closing the sender to send messages
+        await delay(5000);
+    
+        await receiver.close();	
+        await sbClient.close();    
     }
-    
-    main().catch((err) => {
-      console.log("Error occurred: ", err);
-    });
     ```
-3. Enter the connection string and name of your queue in the above code.
-4. Then run the command `node receiveMessages.js` in a command prompt to execute this file.
+3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
+1. Replace `<QUEUE NAME>` with the name of the queue. 
+1. Compile the TypeScript file to generate a JavaScript file. 
 
-Congratulations! You just received messages from a Service Bus queue.
+    ```console
+    tsc receive.ts
+    ```
+1. Then run the command in a command prompt to execute this file.
 
-The [createReceiver](/javascript/api/@azure/service-bus/queueclient#createreceiver-receivemode-) method takes in a `ReceiveMode` which is an enum with values [ReceiveAndDelete](message-transfers-locks-settlement.md#settling-receive-operations) and [PeekLock](message-transfers-locks-settlement.md#settling-receive-operations). Remember to [settle your messages](message-transfers-locks-settlement.md#settling-receive-operations) if you use the `PeekLock` mode by using any of `complete()`, `abandon()`, `defer()`, or `deadletter()` methods on the message.
+    ```console
+    node receive.js
+    ```
+1. You should see the following output.
 
-> [!NOTE]
-> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
+    ```console
+    Received message: Einstein
+    ```
 
 ## Next steps
-To learn more, see the following resources.
-- [Queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-- Checkout other [Nodejs samples for Service Bus on GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples/javascript)
-- [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/)
+Check out our [GitHub repository with samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples). 
