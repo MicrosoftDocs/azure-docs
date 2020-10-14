@@ -48,7 +48,7 @@
   - name: Use MQTT to connect a device
     href: tutorial-use-mqtt.md
   - name: Interact with an MXChip device (Sample)
-    href: https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
+    href: /samples/azure-samples/mxchip-iot-devkit-pnp-get-started/sample/
   - name: Migrate a device to a module
     href: tutorial-migrate-device-to-module.md
 - name: Concepts
@@ -95,8 +95,6 @@
     href: howto-use-iot-explorer.md
   - name: Install and use IoT Plug and Play bridge
     href: howto-use-iot-pnp-bridge.md
-  - name: Install and use Azure IoT CLI extension
-    href: howto-use-iot-pnp-cli.md
   - name: Install and use DTDL authoring tools
     href: howto-use-dtdl-authoring-tools.md
   - name: Use embedded C
@@ -110,34 +108,34 @@
   - name: Libraries and SDKs
     href: libraries-sdks.md
   - name: Digital Twin REST API
-    href: https://docs.microsoft.com/rest/api/iothub/service/digitaltwin
+    href: /rest/api/iothub/service/digitaltwin
   - name: Azure CLI
     href: /cli/azure/azure-cli-reference-for-IoT
 - name: Resources
   items:
   - name: Support and help options
-    href: /azure/iot-fundamentals/iot-support-help
+    href: ../iot-fundamentals/iot-support-help.md
   - name: Azure IoT services
     items:
     - name: IoT Hub
-      href: /azure/iot-hub
+      href: ../iot-hub/index.yml
     - name: IoT Hub Device Provisioning Service
-      href: /azure/iot-dps
+      href: ../iot-dps/index.yml
     - name: IoT Central
-      href: https://docs.microsoft.com/microsoft-iot-central/
+      href: /microsoft-iot-central/
     - name: IoT Edge
-      href: /azure/iot-edge
+      href: ../iot-edge/index.yml
     - name: IoT solution accelerators
-      href: /azure/iot-accelerators
+      href: ../iot-accelerators/index.yml
     - name: IoT Plug and Play
-      href: /azure/iot-pnp
+      href: ./index.yml
     - name: Azure Maps
-      href: /azure/azure-maps
+      href: ../azure-maps/index.yml
     - name: Time Series Insights
-      href: /azure/time-series-insights
+      href: ../time-series-insights/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
     - name: IoT Device SDKs
-      href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+      href: ../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks

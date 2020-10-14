@@ -63,7 +63,7 @@ To avoid this situation, create separate resources for each build configuration 
 
 To send the telemetry to the appropriate resources, you can set up the Application Insights SDK so that it picks up a different instrumentation key, depending on the build configuration. 
 
-Learn how to [dynamically set the instrumentation key](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) for different stages. 
+Learn how to [dynamically set the instrumentation key](./separate-resources.md#dynamic-ikey) for different stages. 
 
 ## Create an Application Insights resource for each role
 
@@ -286,4 +286,3 @@ Did you build for .NET 4.6? .NET 4.6 is not automatically supported in Azure clo
 [qna]: ../faq.md
 [redfield]: ./monitor-performance-live-website-now.md
 [start]: ./app-insights-overview.md
-

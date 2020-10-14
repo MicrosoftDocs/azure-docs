@@ -2,14 +2,12 @@
 title: Azure Monitor workbooks with custom parameters 
 description: Simplify complex reporting with prebuilt and custom parameterized workbooks
 services: azure-monitor
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.author: mbullwin
 ---
 
 # Interactive Workbooks

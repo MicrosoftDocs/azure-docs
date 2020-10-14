@@ -1,17 +1,17 @@
 ---
-title: 'Migrate an Android app |Microsoft Azure Maps'
-description: 'How to migrate an Android app from Google Maps to Microsoft Azure Maps'
+title: 'Tutorial - Migrate an Android app |Microsoft Azure Maps'
+description: 'Tutorial on how to migrate an Android app from Google Maps to Microsoft Azure Maps'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: 
 ---
 
-# Migrate an Android app from Google Maps
+# Tutorial - Migrate an Android app from Google Maps
 
 The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply.
 
