@@ -129,7 +129,7 @@ Yes. A linked partner ID can be changed, added, or removed.
 
 The link between the partner ID and the account is done for each customer tenant. Link the partner ID in each customer tenant.
 
-However, if you are managing customer resources through Azure Lighthouse, you should create the link in your service provider tenant, using an account that has access to the customer resources. For more information, see [Link your partner ID to enable partner earned credit on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
+However, if you are managing customer resources through Azure Lighthouse, you should create the link in your service provider tenant, using an account that has access to the customer resources. For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Can other partners or customers edit or remove the link to the partner ID?**
 
@@ -159,7 +159,7 @@ Yes, You can link your partner ID for Azure Stack.
 
 If you onboard customers to Azure delegated resource management by [publishing a managed services offer to Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), your MPN ID will automatically be associated.
 
-If you [onboard customers by deploying Azure Resource Manager templates](../../lighthouse/how-to/onboard-customer.md), you'll need to associate your MPN ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your MPN ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to enable partner earned credit on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
+If you [onboard customers by deploying Azure Resource Manager templates](../../lighthouse/how-to/onboard-customer.md), you'll need to associate your MPN ID with at least one user account that has access to each of your onboarded subscriptions. Note that you'll need to do this in your service provider tenant rather than in each customer tenant. For simplicity, we recommend creating a service principal account in your tenant, associating it with your MPN ID, then granting it access to every customer you onboard with an [Azure built-in role that is eligible for partner earned credit](/partner-center/azure-roles-perms-pec). For more information, see [Link your partner ID to track your impact on delegated resources](../../lighthouse/how-to/partner-earned-credit.md).
 
 **How do I explain Partner Admin Link (PAL) to my Customer?**
 
