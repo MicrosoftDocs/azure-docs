@@ -136,7 +136,10 @@ The following server parameters are available for configuring GTID:
 |`gtid_mode`|Indicates if GTIDs are used to identify transactions. Changes between modes can only be done one step at a time in ascending order (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Both new and replication transactions must be anonymous <br> `OFF_PERMISSIVE`: New transactions are anonymous. Replicated transactions can either be anonymous or GTID transactions. <br> `ON_PERMISSIVE`: New transactions are GTID transactions. Replicated transactions can either be anonymous or GTID transactions. <br> `ON`: Both new and replicated transactions must be GTID transactions.|
 |`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
 
-To enable GTID and configure the behavior consistency, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
+> [!NOTE]
+> Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support.
+
+To enable GTID and configure the  consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
 
 ## Considerations and limitations
 
@@ -192,9 +195,9 @@ To update one of the above parameters on the source server, please delete replic
 
 GTID is supported on:
 - MySQL versions 5.7 and 8.0 
-- Servers that support storage up to 16 TB. Refer to the [pricing tier](concepts-pricing-tiers.md#storage) article for the full list. 
+- Servers that support storage up to 16 TB. Refer to the [pricing tier](concepts-pricing-tiers.md#storage) article for the full list of regions that support 16 TB storage. 
 
-GTID is OFF by default. Once GTID is enabled, you cannot turn it back off. If you need to turn GTID back off, please contact support. 
+GTID is OFF by default. Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
 
 ### Other
 
