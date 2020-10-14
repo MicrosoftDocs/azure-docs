@@ -34,7 +34,7 @@ If your pool is using a deprecated internal component, delete and re-create the 
 ## Repair invalid log alert rules
 
 Azure Advisor detects alert rules that have invalid queries specified in their condition section. 
-You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](https://aka.ms/aa_logalerts_queryrepair)
+You can create log alert rules in Azure Monitor and use them to run analytics queries at specified intervals. The results of the query determine if an alert needs to be triggered. Analytics queries can become invalid over time because of changes in referenced resources, tables, or commands. Advisor recommends that you correct the query in the alert rule to prevent it from being automatically disabled and ensure monitoring coverage of your resources in Azure. [Learn more about troubleshooting alert rules.](../azure-monitor/platform/alerts-troubleshoot-log.md)
 
 ## Use Azure Policy recommendations
 
@@ -51,7 +51,7 @@ Azure Policy is a service in Azure that you can use to create, assign, and manag
 **Enable *Inherit a tag from resource groups*.** This policy adds or replaces the specified tag and value from the parent resource group when any resource is created or updated. You can remediate existing resources by triggering a remediation task.
 
 ## No validation environment enabled
-Azure Advisor determines that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected \"No\" for \"Validation environment\" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Windows Virtual Desktop service deployments with early detection of potential issues. [Learn more](https://docs.microsoft.com/azure/virtual-desktop/create-validation-host-pool)
+Azure Advisor determines that you do not have a validation environment enabled in current subscription. When creating your host pools, you have selected \"No\" for \"Validation environment\" in the properties tab. Having at least one host pool with a validation environment enabled ensures the business continuity through Windows Virtual Desktop service deployments with early detection of potential issues. [Learn more](../virtual-desktop/create-validation-host-pool.md)
 
 ## Ensure production (non-validation) environment to benefit from stable functionality
 Azure Advisor detects that too many of your host pools have validation environment enabled. In order for validation environments to best serve their purpose, you should have at least one, but never more than half of your host pools in validation environment. By having a healthy balance between your host pools with validation environment enabled and those with it disabled, you will best be able to utilize the benefits of the multistage deployments that Windows Virtual Desktop offers with certain updates. To fix this issue, open your host pool's properties and select \"No\" next to the \"Validation Environment\" setting.
