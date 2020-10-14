@@ -10,7 +10,7 @@ ms.custom: devx-track-js
 ---
 
 # Quickstart: Service Bus topics and subscriptions with Node.js and the preview azure/service-bus package
-In this tutorial, you learn how to write a JavaScript program to send messages to and receive messages from a Service Bus queue. This quickstart uses the latest preview version of [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. To see a list of all versions of the package, see the **Versions** tab. For a quickstart that uses the latest generally available version (1.1.10) of this package, see [Send and receive messages using the azure/service-bus package](service-bus-nodejs-how-to-use-toopics-subscriptions-new-package-legacy.md) 
+In this tutorial, you learn how to write a JavaScript program to send messages to and receive messages from a Service Bus queue. This quickstart uses the latest preview version of [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) package. To see a list of all versions of the package, see the **Versions** tab. For a quickstart that uses the latest generally available version (1.1.10) of this package, see [Send and receive messages using the azure/service-bus package](service-bus-nodejs-how-to-use-topics-subscriptions-new-package-legacy.md) 
 
 ## Prerequisites
 - An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
@@ -28,12 +28,7 @@ npm install @azure/service-bus
 ```
 
 ## Send messages to a topic
-The following sample code shows you how to send a batch of messages to a queue. The main steps are:
-
-1. Creates a `ServiceBusClient` using the connection string to the Service Bus namespace.
-1. Gets a sender object that can be used to send messages to the specified queue. 
-1. Prepares a message of type `ServiceBusMessage`. 
-1. Uses the sender object to send the batch of messages to the queue. 
+The following sample code shows you how to send a batch of messages to a queue. See code comments for details. 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a file called `sendtotopic.ts` and paste the below code into it. This code will send a message to your topic.
@@ -98,7 +93,7 @@ The following sample code shows you how to send a batch of messages to a queue. 
 
 ## Receive messages from a subscription
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
-2. Create a file called **receivefromsubscription.ts** and paste the following code into it. 
+2. Create a file called **receivefromsubscription.ts** and paste the following code into it. See code comments for details. 
 
     ```typescript
     import { delay, ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";

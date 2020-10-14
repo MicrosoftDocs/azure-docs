@@ -66,7 +66,7 @@
         href: service-bus-java-how-to-use-topics-subscriptions.md
       - name: Python (azure-servicebus version 7.0.0)
         href: service-bus-python-how-to-use-topics-subscriptions.md
-      - name: JavaScript
+      - name: JavaScript (@azure/service-bus 7.0.0-preview)
         href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package.md
       - name: PHP
         href: service-bus-php-how-to-use-topics-subscriptions.md
@@ -80,6 +80,8 @@
         href: service-bus-java-how-to-use-topics-subscriptions-legacy.md        
       - name: Python (azure-servicebus version 0.50.3)
         href: service-bus-python-how-to-use-topics-subscriptions-legacy.md              
+      - name: JavaScript (@azure/service-bus 1.1.10)
+        href: service-bus-nodejs-how-to-use-topics-subscriptions-new-package-legacy.md               
 - name: Tutorials
   items:
   - name: Update inventory

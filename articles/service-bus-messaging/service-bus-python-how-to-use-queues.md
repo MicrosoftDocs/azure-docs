@@ -22,17 +22,8 @@ This article shows you how to use Python to send messages to, and receive messag
 - Python 3.5x or higher, with the [Python Azure Service Bus][Python Azure Service Bus package] package installed. For more information, see the [Python Installation Guide](/azure/developer/python/azure-sdk-install). 
 
 ## Send messages to a queue
-The following sample code shows you how to send a batch of messages to a queue. The main steps are:
-
-1. Creates a `ServiceBusClient` using the connection string to the Service Bus namespace.
-1. Gets a `ServiceBusSender` object that can be used to send messages to the specified queue. 
-1. Prepares a batch of three messages.
-1. Uses the `ServiceBusSender` object to send the batch of messages to the queue. 
-
-> [!IMPORTANT]
-> - Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
-> - Replace `<QUEUE NAME>` with the name of the queue.
-
+The following sample code shows you how to send a batch of messages to a queue. See code comments for details. 
+    
 ```python
 import os
 import asyncio
@@ -61,15 +52,14 @@ async def main():
 
 loop = asyncio.get_event_loop()
 loop.run_until_complete(main())
-
-
 ```
 
+> [!IMPORTANT]
+> - Replace `<CONNECTION STRING TO SERVICE BUS NAMESPACE>` with the connection string to your Service Bus namespace.
+> - Replace `<QUEUE NAME>` with the name of the queue.
+    
 ## Receive messages from a queue
-Add the following code after the print statement in the main method to receive messages from the queue. The main steps are: 
-
-1. Gets a `ServiceBusReceiver` object that can be used to receive messages from the specified queue. 
-1. Use the object to receive messages
+Add the following code after the print statement in the main method to receive messages from the queue. 
 
 ```python
         # create a Queue Receiver for the queue

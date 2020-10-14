@@ -27,12 +27,7 @@ npm install @azure/service-bus@next
 ```
 
 ## Send messages to a queue
-The following sample code shows you how to send a message to a queue. The main steps are:
-
-1. Creates a `ServiceBusClient` using the connection string to the Service Bus namespace.
-1. Gets a sender object that can be used to send messages to the specified queue. 
-1. Prepares a message of type `ServiceBusMessage`. 
-1. Uses the sender object to send the message to the queue. 
+The following sample code shows you how to send a message to a queue. See the code comments for details. 
 
 1. Open your favorite editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 2. Create a file called `send.ts` and paste the below code into it. This code will send a message to your queue. The message has a label (Scientist) and body (Einstein).
@@ -41,7 +36,7 @@ The following sample code shows you how to send a message to a queue. The main s
     import { ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";
     
     // connection string to your Service Bus namespace
-    const connectionString = "<SERVICE BUS NAMESPACE CONNECTION STRING>"
+    const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
 
     // name of the queue
     const queueName = "<QUEUE NAME>"
@@ -102,7 +97,7 @@ The following sample code shows you how to send a message to a queue. The main s
     import { delay, ServiceBusClient, ServiceBusMessage } from "@azure/service-bus";
     
     // connection string to your Service Bus namespace
-    const connectionString = "<SERVICE BUS NAMESPACE CONNECTION STRING>"
+    const connectionString = "<CONNECTION STRING TO SERVICE BUS NAMESPACE>"
 
     // name of the queue
     const queueName = "<QUEUE NAME>"
@@ -138,7 +133,8 @@ The following sample code shows you how to send a message to a queue. The main s
         await sbClient.close();    
     }
     ```
-3. Enter the connection string and name of your queue in the above code.
+3. Replace `<SERVICE BUS NAMESPACE CONNECTION STRING>` with the connection string to your Service Bus namespace.
+1. Replace `<QUEUE NAME>` with the name of the queue. 
 1. Compile the TypeScript file to generate a JavaScript file. 
 
     ```console
