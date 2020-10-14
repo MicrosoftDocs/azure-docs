@@ -80,6 +80,28 @@ The following steps explain how to add a package to monitor your compliance with
 
     [![Regulatory compliance dashboard showing old and new Azure CIS](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark-small.png)](media/update-regulatory-compliance-packages/regulatory-compliance-dashboard-with-benchmark.png#lightbox)
 
+
+## Removing a standard from your dashboard
+
+If any of the supplied regulatory standards isn't relevant to your organization, it's a simple process to simply remove them from the UI. This lets you further customize the regulatory compliance dashboard, and focus only on the standards that are applicable to you.
+
+To remove a standard:
+
+1. From Security Center's menu, select **Security policy**.
+
+1. Select the relevant subscription from which you want to remove a standard.
+
+    The security policy page opens. For the selected subscription, it shows the default policy, the industry and regulatory standards, and any custom initiatives you've created.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Removing a regulatory standard from your regulatory compliance dashboard in Azure Security Center":::
+
+1. For the standard you want to remove, select **Disable**. A confirmation window appears.
+
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confirm that you really want to remove the regulatory standard you selected":::
+
+1. Select **Yes**. The standard will be removed. 
+
+
 ## Next steps
 
 In this article, you learned how to **add compliance packages** to monitor your compliance with additional standards. 
