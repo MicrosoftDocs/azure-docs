@@ -189,7 +189,7 @@ Please follow the below steps to create a Procore test user on Procore SSO side.
 
 2. From the toolbox drop down, click on **Directory** to open the company directory page.
 
-	![Screenshot shows the Procore company site with Directory selected.](./media/procoresso-tutorial/Procore_sso_directory.png)
+	![Screenshot shows the Procore company site with Directory selected from the toolbox.](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Click on **Add a Person** option to open the form and enter perform following options -
 

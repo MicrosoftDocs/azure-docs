@@ -204,7 +204,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. In the menu on the left, click **Users and groups**.
 
-	![Screenshot shows Users and groups selected from the Manage menu, with All users selected.][202] 
+	![Screenshot shows Users and groups selected from the Manage menu.][202] 
 
 1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
 
