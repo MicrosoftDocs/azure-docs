@@ -1,71 +1,59 @@
-### YamlMime:Hub
+### YamlMime:Landing
 
-title: Azure Cloud Services documentation
+title: Azure Cloud Services (extended support) documentation
 summary: Learn how to use Cloud Services to host and run highly available, scalable cloud applications and APIs. Shows how to manage virtual machine hosts and configure, patch, and install software.
 
 metadata:
-  title: Azure Cloud Services documentation
+  title: Azure Cloud Services (extended support) documentation
   description: Describes how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
-  ms.service: cloud-services
-  service: cloud-services
+  ms.service: cloud-services-extended-support
+  service: cloud-services-extended-support
   ms.topic: landing-page
-  author: tgore03
-  ms.author: tagore
+  author: mimckitt
+  ms.author: mimckitt
   ms.date: 03/06/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
   # Card
-  - title: About Cloud Services
+  - title: About Cloud Services (extended support)
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Cloud Services?
-            url: cloud-services-choose-me.md
-      - linkListType: video
-        links:
-          - text: Cloud Services video library
-            url: https://azure.microsoft.com/documentation/videos/index/?services=cloud-services
+          - text: What is Cloud Services (extended support)?
+            url: overview.md
 
   # Card
-  - title: Get started
+  - title: Quickstart Guides
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Deploy using the Azure Portal
+            url: deploy-portal.md
+          - text: Deploy using PowerShell
+            url: deploy-powershell.md
+          - text: Deploy using Visual Studio
+            url: deploy-visual-studio.md
+
+  # Card
+  - title: Concepts
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Extensions
+            url: extensions.md
+          - text: Available sizes
+            url: sizes.md
+
+  # Card
+  - title: How-to Guides
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: ASP.NET
-            url: cloud-services-dotnet-get-started.md
-          - text: Python for Visual Studio
-            url: cloud-services-python-ptvs.md
-
-  # Card
-  - title: Develop
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create PHP web and worker roles
-            url: ../cloud-services-php-create-web-role.md
-          - text: Build and deploy a Node.js application
-            url: cloud-services-nodejs-develop-deploy-app.md
-          - text: Build and deploy a Node.js web application using Express
-            url: cloud-services-nodejs-develop-deploy-express-app.md
-
-  # Card
-  - title: Deploy
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Create and deploy a cloud service in portal
-            url: cloud-services-how-to-create-deploy-portal.md
-          - text: Create an empty cloud service container in PowerShell
-            url: cloud-services-powershell-create-cloud-container.md
-
-  # Card
-  - title: Manage
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Common management tasks
-            url: cloud-services-how-to-manage-portal.md
-          - text: Configure Cloud Service
-            url: cloud-services-how-to-configure-portal.md
+          - text: Enable Remote Desktop
+            url: enable-rdp.md
+          - text: Enable Diagnostics
+            url: enable-diagnostics.md
+          - text: Enable Antimalware
+            url: enable-antimalware.md
