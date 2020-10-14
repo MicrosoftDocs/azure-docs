@@ -294,7 +294,7 @@ Likewise, you can set the `status_code` and `headers` for the response message i
 
 It's important to understand how your functions perform and how that performance affects the way your function app gets scaled. This is particularly important when designing highly performant apps. The following are several factors to consider when designing, writing and configuring your functions apps.
 
-### Horizontal Scaling
+### Horizontal scaling
 By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
 ### Improving Throughput Performance
