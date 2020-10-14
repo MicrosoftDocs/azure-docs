@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/healthcare-apis/bring-your-own-key.md",
+      "redirect_url": "/azure/healthcare-apis/customer-managed-key",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/sa-upload-vhd.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/sa-upload-vhd",
       "redirect_document_id": false
@@ -3687,6 +3692,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/how-to-backup-and-restore.md",
+      "redirect_url": "/azure/cosmos-db/online-backup-and-restore",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/databases-containers-items.md",
       "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
       "redirect_document_id": false
@@ -3694,6 +3704,11 @@
     {
       "source_path": "articles/cosmos-db/partition-data.md",
       "redirect_url": "/azure/cosmos-db/partitioning-overview",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/gremlin-compatibility.md",
+      "redirect_url": "/azure/cosmos-db/gremlin-support",
       "redirect_document_id": true
     },
     {
@@ -3712,8 +3727,18 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/firewall-support.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
       "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/vnet-service-endpoint.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-vnet-service-endpoint",
       "redirect_document_id": true
     },
     {
@@ -4139,7 +4164,12 @@
     {
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scaling-throughput.md",
+      "redirect_url": "/azure/cosmos-db/request-units",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/create-mongodb-golang.md",
@@ -15184,7 +15214,22 @@
     },
     {
       "source_path": "articles/cosmos-db/multi-master-oss-nosql.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels-across-apis",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-choosing.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-across-apis.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-tradeoffs.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
       "redirect_document_id": false
     },
     {
@@ -16785,6 +16830,11 @@
     {
       "source_path": "articles/documentdb/documentdb-regional-failovers.md",
       "redirect_url": "/azure/cosmos-db/regional-failover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/documentdb/regional-presence.md",
+      "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": false
     },
     {
@@ -38413,12 +38463,17 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
       "redirect_document_id": false
     },
     {
