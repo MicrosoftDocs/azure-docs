@@ -130,7 +130,7 @@ await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
 
 ### Update your Azure function code
 
-Now that you understand the code from the earlier samples, open your Azure function from the [*Prerequisites*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) section in Visual Studio. (If you don't have an Azure function, visit the link in the prerequisites to create one now).
+Now that you understand the code from the earlier samples, open your Azure function from the [*Prerequisites*](#prerequisites) section in Visual Studio. (If you don't have an Azure function, visit the link in the prerequisites to create one now).
 
 Replace your Azure function's code with this sample code.
 
@@ -195,7 +195,7 @@ namespace IotHubtoTwins
 }
 ```
 Save your function code and publish the function App to Azure. 
-You can do this by referring to [*Publish the Function App*](https://docs.microsoft.com/azure/digital-twins/how-to-create-azure-function#publish-the-function-app-to-azure) section of [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
+You can do this by referring to [*Publish the Function App*](./how-to-create-azure-function.md#publish-the-function-app-to-azure) section of [*How-to: Set up an Azure function for processing data*](how-to-create-azure-function.md).
 
 After a successful publish, you will see the output in the Visual Studio command window as shown below:
 
@@ -216,7 +216,7 @@ You can also verify your status of the publish process in the [Azure portal](htt
 ## Connect your function to IoT Hub
 
 Set up an event destination for hub data.
-In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [*Prerequisites*](https://docs.microsoft.com/azure/digital-twins/how-to-ingest-iot-hub-data#prerequisites) section. Under **Events**, create a subscription for your Azure function.
+In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [*Prerequisites*](#prerequisites) section. Under **Events**, create a subscription for your Azure function.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Screenshot of the Azure portal that shows Adding an event subscription.":::
 
@@ -244,7 +244,7 @@ Select _Create_ button to create event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins samples](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
 1. [*Register the simulated device with IoT Hub*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

@@ -99,7 +99,7 @@ Select the Phone Numbers blade in the menu to manage your phone numbers.
 > [!NOTE]
 > It may take a few minutes for the provisioned numbers to be shown on this page.
 
-### Customizing phone number plans
+### Customizing phone number features
 On the `Numbers` page, you can select the phone number by clicking on the number for which you'd like to customize the plan.
 
 :::image type="content" source="../media/manage-phone-azure-portal-capability-update.png" alt-text="Screenshot showing the update capabilities page.":::
