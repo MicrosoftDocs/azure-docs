@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/1/2020
+ms.date: 10/14/2020
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -123,6 +123,21 @@ Once you have decided you want to failover to a replica,
 	
 Once your application is successfully processing reads and writes, you have completed the failover. The amount of downtime your application experiences will depend on when you detect an issue and complete steps 1 and 2 above.
 
+## Global transaction identifier (GTID)
+
+Global transaction identifier (GTID) is a unique identifier created with each committed transaction on a source server and is OFF by default in Azure Database for MySQL. GTID is supported on versions 5.7 and 8.0 and only on servers that support storage up to 16 TB. To learn more about GTID and how it's used in replication, refer to MySQL's [replication with GTID](https://dev.mysql.com/doc/refman/5.7/en/replication-gtids.html) documentation for more information. 
+
+MySQL supports two types of transactions: GTID transactions (identified with GTID) and anonymous transactions (don't have a GTID allocated)
+
+The following server parameters are available for configuring GTID: 
+
+|**Server parameter**|**Description**|**Default Value**|**Values**|
+|--|--|--|--|
+|`gtid_mode`|Indicates if global transaction identifiers (GTIDs) are used to identify transactions. Changes between modes can only be done one step at a time in ascending order (ex. `OFF` -> `OFF_PERMISSIVE` -> `ON_PERMISSIVE` -> `ON`)|`OFF`|`OFF`: Both new and replication transactions must be anonymous <br> `OFF_PERMISSIVE`: New transactions are anonymous. Replicated transactions can either be anonymous or GTID transactions. <br> `ON_PERMISSIVE`: New transactions are GTID transactions. Replicated transactions can either be anonymous or GTID transactions. <br> `ON`: Both new and replicated transactions must be GTID transactions.|
+|`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
+
+To enable GTID and configure the behavior consistency, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
+
 ## Considerations and limitations
 
 ### Pricing tiers
@@ -173,9 +188,16 @@ The [`event_scheduler`](https://dev.mysql.com/doc/refman/5.7/en/server-system-va
 
 To update one of the above parameters on the source server, please delete replica servers, update the parameter value on the master, and recreate replicas.
 
+### GTID
+
+GTID is supported on:
+- MySQL versions 5.7 and 8.0 
+- Servers that support storage up to 16 TB. Refer to the [pricing tier](concepts-pricing-tiers.md#storage) article for the full list. 
+
+GTID is OFF by default. Once GTID is enabled, you cannot turn it back off. If you need to turn GTID back off, please contact support. 
+
 ### Other
 
-- Global transaction identifiers (GTID) are not supported.
 - Creating a replica of a replica is not supported.
 - In-memory tables may cause replicas to become out of sync. This is a limitation of the MySQL replication technology. Read more in the [MySQL reference documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-features-memory.html) for more information.
 - Ensure the source server tables have primary keys. Lack of primary keys may result in replication latency between the source and replicas.
