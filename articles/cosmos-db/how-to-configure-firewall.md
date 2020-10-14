@@ -230,5 +230,5 @@ Creating or updating an Azure Cosmos account with a list of allowed addresses co
 
 To configure a virtual network service endpoint for your Azure Cosmos DB account, see the following articles:
 
-* [Virtual network and subnet access control for your Azure Cosmos DB account](vnet-service-endpoint.md)
+* [Virtual network and subnet access control for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md)
 * [Configure virtual network and subnet-based access for your Azure Cosmos DB account](how-to-configure-vnet-service-endpoint.md)
