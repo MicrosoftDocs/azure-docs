@@ -16,7 +16,7 @@ The SDK wasn't able to connect to Azure Cosmos DB.
 The following list contains known causes and solutions for service unavailable exceptions.
 
 ### The required ports are being blocked
-Verify that all the [required ports](sql-sdk-connectionmodes.md#service-port-ranges) are enabled.
+Verify that all the [required ports](sql-sdk-connection-modes.md#service-port-ranges) are enabled.
 
 ### Client-side transient connectivity issues
 Service unavailable exceptions can surface when there are transient connectivity problems that are causing timeouts. Typically, the stack trace related to this scenario will contain a `TransportException` error. For example:

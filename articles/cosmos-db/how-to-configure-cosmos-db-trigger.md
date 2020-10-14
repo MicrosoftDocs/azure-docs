@@ -47,7 +47,7 @@ traces
 
 ## Configuring the connection policy
 
-There are two connection modes - Direct mode and Gateway mode. To learn more about these connection modes, see the [connection modes](sql-sdk-connectionmodes.md) article. By default, **Gateway** is used to establish all connections on the Azure Functions trigger for Cosmos DB. However, it might not be the best option for performance-driven scenarios.
+There are two connection modes - Direct mode and Gateway mode. To learn more about these connection modes, see the [connection modes](sql-sdk-connection-modes.md) article. By default, **Gateway** is used to establish all connections on the Azure Functions trigger for Cosmos DB. However, it might not be the best option for performance-driven scenarios.
 
 ### Changing the connection mode and protocol
 

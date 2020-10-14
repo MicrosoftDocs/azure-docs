@@ -1037,7 +1037,7 @@
     - name: Performance
       items:
       - name: Connection modes
-        href: sql-sdk-connectionmodes.md
+        href: sql-sdk-connection-modes.md
       - name: Query
         items: 
         - name: Get query execution metrics
