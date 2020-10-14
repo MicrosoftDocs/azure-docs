@@ -11,10 +11,7 @@ ms.custom: seo-python-october2019, devx-track-python
 ---
 
 # Quickstart: Use Azure Service Bus queues with Python (azure-servicebus version 7.0.0)
-This article shows you how to use Python to send messages to, and receive messages from Azure Service Bus queues. 
-
-> [!NOTE]
-> This quickstart uses the 7.0.0 version of the azure-servicebus package. For a quickstart that uses the old 0.50.3 version of the package, see [Send and receive events using azure-sevicebus (0.50.3 version)](service-bus-python-how-to-use-queues-legacy.md). For information about different versions of the azure-servicebus package, See the [Release history](https://pypi.org/project/azure-servicebus/7.0.0b7/#history).
+This article shows you how to use the [azure-servicebus](https://pypi.org/project/azure-servicebus) Python package to send messages to, and receive messages from Azure Service Bus queues. 
 
 ## Prerequisites
 - An Azure subscription. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
