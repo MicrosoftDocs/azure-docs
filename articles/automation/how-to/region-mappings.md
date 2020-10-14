@@ -81,5 +81,5 @@ Alternatively, you can unlink your workspace from your Automation account within
 ## Next steps
 
 * Learn about Update Management in [Update Management overview](../update-management/update-mgmt-overview.md).
-* Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking.md).
+* Learn about Change Tracking and Inventory in [Change Tracking and Inventory overview](../change-tracking/overview.md).
 * Learn about Start/Stop VMs during off-hours in [Start/Stop VMs during off-hours overview](../automation-solution-vm-management.md).
