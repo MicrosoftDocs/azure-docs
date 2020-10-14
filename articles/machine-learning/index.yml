@@ -93,7 +93,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Studio (classic) landing
-            url: classic/
+            url: classic/index.yml
           - text: Studio (classic) vs studio
             url: overview-what-is-machine-learning-studio.md
 
