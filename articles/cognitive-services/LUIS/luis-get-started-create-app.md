@@ -86,7 +86,18 @@ Once you've trained your app, you can test it.
 
 ## Publish the app to get the endpoint URL
 
-[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
+In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the prediction endpoint.
+
+1. Select **Publish** in the top-right corner of the window.
+
+1. Select the **Production** slot, then select **Done**.
+
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of LUIS publish to endpoint](media/howto-publish/publish-app-popup.png)
+
+1. Select the **Access your endpoint URLs** link in the notification to go to the **Azure Resources** page. The endpoint URLs are listed as the **Example Query**.
+
+<!-- [!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)] -->
 
 <a name="query-the-v2-api-prediction-endpoint"></a>
 

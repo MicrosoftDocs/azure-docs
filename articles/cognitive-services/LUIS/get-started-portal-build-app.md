@@ -48,7 +48,7 @@ The app's two different _intentions_ align to the following intents:
 
 To create intents, complete the following steps:
 
-1. After the app is created, you are on the **Intents** page of the **Build** section. Select **Create**.
+1. After the app is created, make sure you are on the **Intents** page of the **Build** section. Select **Create**.
 
    [![Screenshot of selecting 'Create' to create new intent](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
@@ -56,14 +56,9 @@ To create intents, complete the following steps:
 
 ## Add an example utterance
 
-You add example utterances after you create intents. Example utterances are text that a user enters in a chat bot or other client application. They map the intention of the user's text to a LUIS intent.
+You add example utterances after you create intents. Example utterances are text that a user enters in a chat bot or other client application. They map the intention of the user's text to a LUIS intent. For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
 
-For this example application's `FindForm` intent, example utterances will include the form number. The client application needs the form number to fulfill the user's request, so it's important to include it in the utterance.
-
-> [!div class="mx-imgBorder"]
-> [![Screenshot of entering example utterances for the FindForm intent](./media/get-started-portal-build-app/add-example-utterance.png)](./media/get-started-portal-build-app/add-example-utterance.png#lightbox)
-
-Add the following 15 example utterances to the `FindForm` intent.
+On the **Intents** page for `FindForm`, add the following example utterances under **Example Utterance**, 
 
 |#|Example utterances|
 |--|--|
