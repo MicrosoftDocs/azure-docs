@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/29/2020
+ms.date: 10/06/2020
 ms.author: bwren
 ms.subservice: 
 ---
@@ -98,7 +98,7 @@ Subscriptions who had a Log Analytics workspace or Application Insights resource
 
 Usage on the Standalone pricing tier is billed by the ingested data volume. It is reported in the **Log Analytics** service and the meter is named "Data Analyzed". 
 
-The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that is not billed. This allocation is aggregated at the workspace level. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Usage is reported on three meters:
+The Per Node pricing tier charges per monitored VM (node) on an hour granularity. For each monitored node, the workspace is allocated 500 MB of data per day that is not billed. This allocation is calculated with hourly granularity and is aggregated at the workspace level each day. Data ingested above the aggregate daily data allocation is billed per GB as data overage. Note that on your bill, the service will be **Insight and Analytics** for Log Analytics usage if the workspace is in the Per Node pricing tier. Usage is reported on three meters:
 
 1. Node: this is usage for the number of monitored nodes (VMs) in units of node*months.
 2. Data Overage per Node: this is the number of GB of data ingested in excess of the aggregated data allocation.
@@ -121,6 +121,10 @@ None of the legacy pricing tiers has regional-based pricing.
 
 > [!NOTE]
 > To use the entitlements that come from purchasing OMS E1 Suite, OMS E2 Suite or OMS Add-On for System Center, choose the Log Analytics *Per Node* pricing tier.
+
+## Log Analytics and Security Center
+
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/) billing is closely tied to Log Analytics billing. Security Center provides 500 MB/node/day allocation against a set of [security data types](https://docs.microsoft.com/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) and the Update and UpdateSummary data types when the Update Management solution is not running on the workspace or solution targeting is enabled. If the workspace is in the legacy Per Node pricing tier, the Security Center and Log Analytics allocations are combined and applied jointly to all billable ingested data.  
 
 ## Change the data retention period
 
@@ -280,6 +284,25 @@ find where TimeGenerated > ago(24h) project _BilledSize, Computer
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
+### Nodes billed by the legacy Per Node pricing tier
+
+The [legacy Per Node pricing tier](#legacy-pricing-tiers) bills for nodes with hourly granularity and also doesn't count nodes only sending a set of security data types. Its daily count of nodes would be close to the following query:
+
+```kusto
+find where TimeGenerated >= startofday(ago(7d)) and TimeGenerated < startofday(now()) project Computer, _IsBillable, Type, TimeGenerated
+| where Type !in ("SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent")
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| where _IsBillable == true
+| summarize billableNodesPerHour=dcount(computerName) by bin(TimeGenerated, 1h)
+| summarize billableNodesPerDay = sum(billableNodesPerHour)/24., billableNodeMonthsPerDay = sum(billableNodesPerHour)/24./31.  by day=bin(TimeGenerated, 1d)
+| sort by day asc
+```
+
+The number of units on your bill is in units of node*months which is represented by `billableNodeMonthsPerDay` in the query. 
+If the workspace has the Update Management solution installed, add the Update and UpdateSummary data types to the list in the where clause in the above query. Finally, there is some additional complexity in the actual billing algorithm when solution targeting is used that is not represented in the above query. 
+
+
 > [!TIP]
 > Use these `find` queries sparingly as scans across data types are [resource intensive](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization#query-performance-pane) to execute. If you do not need results **per computer** then query on the Usage data type (see below).
 
@@ -334,7 +357,7 @@ Usage
 | where TimeGenerated > ago(32d)
 | where StartTime >= startofday(ago(31d)) and EndTime < startofday(now())
 | where IsBillable == true
-| summarize BillableDataGB = sum(Quantity) / 1000 by Solution, DataType
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
 | sort by Solution asc, DataType asc
 ```
 
