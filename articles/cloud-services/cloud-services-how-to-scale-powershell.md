@@ -12,6 +12,9 @@ ms.custom: devx-track-azurepowershell
 ---
 # How to scale a cloud service in PowerShell
 
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 You can use Windows PowerShell to scale a web role or worker role in or out by adding or removing instances.  
 
 ## Log in to Azure

@@ -12,6 +12,9 @@ ms.date: 06/20/2016
 ms.author: timlt
 ---
 # Managing Azure Cloud Services using Azure Automation
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 This guide will introduce you to the Azure Automation service, and how it can be used to simplify management of your Azure cloud services.
 
 ## What is Azure Automation?

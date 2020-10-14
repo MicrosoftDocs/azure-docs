@@ -15,6 +15,9 @@ ms.author: cawa
 ---
 # Use an Azure PowerShell command to create an empty cloud service container
 
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article explains how to quickly create a Cloud Services container using Azure PowerShell cmdlets. Please follow the steps below:
 
 1. Install the Microsoft Azure PowerShell cmdlet from the [Azure PowerShell downloads](https://aka.ms/webpi-azps) page.

@@ -14,6 +14,10 @@ ms.author: tagore
 ---
 
 # Install .NET on Azure Cloud Services roles
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article describes how to install versions of .NET Framework that don't come with the Azure Guest OS. You can use .NET on the Guest OS to configure your cloud service web and worker roles.
 
 For example, you can install .NET Framework 4.6.2 on the Guest OS family 4, which doesn't come with any release of .NET Framework 4.6. (The Guest OS family 5 does come with .NET Framework 4.6.) For the latest information on the Azure Guest OS releases, see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md). 

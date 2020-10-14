@@ -10,6 +10,10 @@ ms.author: tagore
 ---
 
 # Resource Health Check (RHC) Support for Azure Cloud Services (Classic)
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article  talks about Resource Health Check (RHC) Support for [Microsoft Azure Cloud Services (Classic)](https://azure.microsoft.com/services/cloud-services)
 
 [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview) for cloud services helps you diagnose and get support for service problems that affect your Cloud Service deployment, Roles & Role Instances. It reports on the current and past health of your cloud services at Deployment, Role & Role Instance level.

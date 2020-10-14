@@ -12,6 +12,8 @@ ms.author: tagore
 ---
 # Configuring TLS for an application in Azure
 
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 Transport Layer Security (TLS), previously known as Secure Socket Layer (SSL) encryption, is the most commonly used method of securing data sent across the internet. This common task discusses how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application.
 
 > [!NOTE]

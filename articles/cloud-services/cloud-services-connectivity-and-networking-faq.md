@@ -18,6 +18,8 @@ ms.author: genli
 ---
 # Connectivity and networking issues for Azure Cloud Services: Frequently asked questions (FAQs)
 
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
 This article includes frequently asked questions about connectivity and networking issues for [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services). For size information, see the [Cloud Services VM size page](cloud-services-sizes-specs.md).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

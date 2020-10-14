@@ -16,6 +16,10 @@ ms.date: 04/08/2019
 ms.author: kwill
 ---
 #    Workflow of Windows Azure classic VM Architecture 
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 This article provides an overview of the workflow processes that occur when you deploy or update an Azure resource such as a virtual machine. 
 
 > [!NOTE]

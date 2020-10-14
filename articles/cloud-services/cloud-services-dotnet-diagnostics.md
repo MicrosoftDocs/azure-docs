@@ -14,6 +14,10 @@ ms.author: tagore
 
 ---
 # Enabling Azure Diagnostics in Azure Cloud Services
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 See [Azure Diagnostics Overview](../azure-diagnostics.md) for a background on Azure Diagnostics.
 
 ## How to Enable Diagnostics in a Worker Role

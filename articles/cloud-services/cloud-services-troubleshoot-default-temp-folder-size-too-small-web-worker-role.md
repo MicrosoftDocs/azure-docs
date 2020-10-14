@@ -16,6 +16,10 @@ ms.date: 06/15/2018
 ms.author: v-six
 ---
 # Default TEMP folder size is too small on a cloud service web/worker role
+
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 The default temporary directory of a cloud service worker or web role has a maximum size of 100 MB, which may become full at some point. This article describes how to avoid running out of space for the temporary directory.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]

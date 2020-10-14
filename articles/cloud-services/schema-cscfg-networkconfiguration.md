@@ -13,6 +13,9 @@ ms.author: tagore
 
 # Azure Cloud Services Config NetworkConfiguration Schema
 
+> [!IMPORTANT]
+> [Azure Cloud Services (extended support)](../cloud-services-extended-support/overview.md) is a new Azure Resource Manager (ARM) based deployment model for the Azure Cloud Services product. With this change, Azure Cloud Services running on the Azure Service Manager (ASM) based deployment model have been renamed as Cloud Services (classic) and all new deployments should use [Cloud Services (extended support)](../cloud-services-extended-support/overview.md).
+
 The `NetworkConfiguration` element of the service configuration file specifies Virtual Network and DNS values. These settings are optional for cloud services.
 
 You can use the following resource to learn more about Virtual Networks and the associated schemas:
