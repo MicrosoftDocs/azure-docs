@@ -18,7 +18,7 @@ Azure Remote Rendering provides the following two REST APIs:
 The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) contains sample scripts in the *Scripts* folder for interacting with the REST APIs of the service. This article describes their usage.
 
 > [!CAUTION]
-Calling REST API functions too frequently will cause the server to throttle and return failure eventually. The http failure code id in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
+> Calling REST API functions too frequently will cause the server to throttle and return failure eventually. The http failure code id in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
 ## Prerequisites
 
