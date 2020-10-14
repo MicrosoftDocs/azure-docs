@@ -94,6 +94,8 @@ For *Total devices (deprecated)* and *Connected devices (deprecated)* only total
 
 For *Total devices (preview)* and *Connected devices (preview)* only minimum, maximum, and average aggregations are valid. For more information, see [Supported aggregations](#supported-aggregations).
 
+*Connected devices (preview)* and *Total devices (preview)* are not exportable via diagnostic settings.
+
 ### Device telemetry metrics
 
 |Metric Display Name|Metric|Unit|Aggregation Type|Description|Dimensions|
