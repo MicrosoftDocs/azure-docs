@@ -3982,11 +3982,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cosmos-db/powershell-samples-cassandra.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cosmos-db/powershell-samples-sql.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
