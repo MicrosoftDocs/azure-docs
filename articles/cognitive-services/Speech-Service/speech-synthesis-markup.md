@@ -191,6 +191,8 @@ By default, the text-to-speech service synthesizes text using a neutral speaking
 
 Currently, speaking style adjustments are supported for these neural voices:
 * `en-US-AriaNeural`
+* `en-US-JennyNeural`
+* `en-US-GuyNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
@@ -223,6 +225,10 @@ Use this table to determine which speaking styles are supported for each neural 
 |                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
 |                         | `style="cheerful"`        | Expresses a positive and happy tone                         |
 |                         | `style="empathetic"`      | Expresses a sense of caring and understanding               |
+| `en-US-JennyNeural`     | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
+|                         | `style="chat"`            | Expresses a casual and relaxed tone                         |
+|                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
+| `en-US-GuyNeural`       | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Expresses a formal and professional tone for narrating news |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
 |                         | `style="assistant"`       | Expresses a warm and relaxed tone for digital assistants    |
@@ -527,7 +533,7 @@ Because prosodic attribute values can vary over a wide range, the speech recogni
 | `contour` |Contour now supports both neural and standard voices. Contour represents changes in pitch. These changes are represented as an array of targets at specified time positions in the speech output. Each target is defined by sets of parameter pairs. For example: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>The first value in each set of parameters specifies the location of the pitch change as a percentage of the duration of the text. The second value specifies the amount to raise or lower the pitch, using a relative value or an enumeration value for pitch (see `pitch`). | Optional |
 | `range` | A value that represents the range of pitch for the text. You may express `range` using the same absolute values, relative values, or enumeration values used to describe `pitch`. | Optional |
 | `rate` | Indicates the speaking rate of the text. You may express `rate` as:<ul><li>A relative value, expressed as a number that acts as a multiplier of the default. For example, a value of *1* results in no change in the rate. A value of *0.5* results in a halving of the rate. A value of *3* results in a tripling of the rate.</li><li>A constant value:<ul><li>x-slow</li><li>slow</li><li>medium</li><li>fast</li><li>x-fast</li><li>default</li></ul></li></ul> | Optional |
-| `duration` | The period of time that should elapse while the speech synthesis (TTS) service reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*. | Optional |
+| `duration` | The period of time that should elapse while the speech synthesis (TTS) service reads the text, in seconds or milliseconds. For example, *2s* or *1800ms*. Duration  supports standard voices only.| Optional |
 | `volume` | Indicates the volume level of the speaking voice. You may express the volume as:<ul><li>An absolute value, expressed as a number in the range of 0.0 to 100.0, from *quietest* to *loudest*. For example, 75. The default is 100.0.</li><li>A relative value, expressed as a number preceded by "+" or "-" that specifies an amount to change the volume. For example, +10 or -5.5.</li><li>A constant value:<ul><li>silent</li><li>x-soft</li><li>soft</li><li>medium</li><li>loud</li><li>x-loud</li><li>default</li></ul></li></ul> | Optional |
 
 ### Change speaking rate
