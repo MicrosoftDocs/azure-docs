@@ -115,7 +115,7 @@
         href: azure-vm-create.md
       - name: Create VM technical assets
         items:
-        - name: Create VM technical assets
+        - name: Prepare VM technical assets
           href: azure-vm-create-technical-assets.md
         - name: Create VM from an approved base
           href: azure-vm-create-using-approved-base.md
@@ -139,8 +139,8 @@
         href: azure-vm-create-plans.md
       - name: Add a preview audience
         href: azure-vm-create-preview.md
-    - name: Test and publish a VM offer
-      href: azure-vm-create-test-publish.md
+    - name: Review and publish a VM offer
+      href: azure-vm-create-review-publish.md
   - name: Consulting services
     items: 
     - name: Plan a consulting services offer

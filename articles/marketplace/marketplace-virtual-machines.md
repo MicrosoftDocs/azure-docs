@@ -76,5 +76,5 @@ For more information, see [**Private Offers on Azure Marketplace**](https://azur
 
 - Learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- Get started at [How to create a VM offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer).
+- Get started at [Create a VM offer on Azure Marketplace](https://docs.microsoft.com/azure/marketplace/azure-vm-create).
  

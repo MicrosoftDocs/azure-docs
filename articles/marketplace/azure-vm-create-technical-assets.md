@@ -1,6 +1,6 @@
 ---
-title: Create virtual machine technical assets for Azure Marketplace
-description: Learn how to create virtual machine technical assets for Azure Marketplace.
+title: Prepare virtual machine technical assets for Azure Marketplace
+description: Learn how to prepare virtual machine technical assets for Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,9 +9,9 @@ ms.author: krsh
 ms.date: 10/15/2020
 ---
 
-# Create virtual machine technical assets
+# Prepare virtual machine technical assets
 
-This article describes how to create and configure a virtual machine (VM) for Azure Marketplace. A VM contains two components:
+This article describes how to prepare and configure a virtual machine (VM) for Azure Marketplace. A VM contains two components:
 
 1. **Operating system virtual hard disk (VHD)** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-, Windows-, or custom-based VM.
 2. **Data disk VHDs** (optional) – Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information.

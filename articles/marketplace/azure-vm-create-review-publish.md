@@ -1,6 +1,6 @@
 ---
-title: Test and publish a virtual machine offer on Azure Marketplace
-description: Learn how to test and publish a virtual machine offer on Azure Marketplace.
+title: Review and publish a virtual machine offer on Azure Marketplace
+description: Learn how to review and publish a virtual machine offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.author: mingshen
 ms.date: 10/15/2020
 ---
 
-# Test and publish a virtual machine offer
+# Review and publish a virtual machine offer
 
 After you've completed all the required sections of the offer, you can submit it for review and publication.
 

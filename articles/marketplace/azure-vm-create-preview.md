@@ -27,4 +27,4 @@ Select **Save draft** before you proceed to the next section.
 
 ## Next steps
 
-- [Test a VM image](azure-vm-image-test.md)
+- [Review and publish a VM offer](azure-vm-create-review-publish.md)
