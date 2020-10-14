@@ -1,27 +1,27 @@
 ---
 title: Azure Stack Edge Pro R security | Microsoft Docs
-description: Describes the security and privacy features that protect your Azure Stack Edge Pro R device, service, and data on-premises and in the cloud.
+description: Describes the security and privacy features that protect your Azure Stack Edge Pro R and Azure Stack Edge Mini R devices, service, and data on-premises and in the cloud.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 10/14/2020
 ms.author: alkohli
 ---
-# Security and data protection for Azure Stack Edge Pro R
+# Security and data protection for Azure Stack Edge Pro R and Azure Stack Edge Mini R
 
-[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]
+[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
 
-Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge Pro R helps you ensure that only authorized entities can view, modify, or delete your data.
+Security is a major concern when you're adopting a new technology, especially if the technology is used with confidential or proprietary data. Azure Stack Edge Pro R and Azure Stack Edge Mini R help you ensure that only authorized entities can view, modify, or delete your data.
 
-This article describes the Azure Stack Edge Pro R security features that help protect each of the solution components and the data stored in them.
+This article describes the Azure Stack Edge Pro R and Azure Stack Edge Mini R security features that help protect each of the solution components and the data stored in them.
 
-Azure Stack Edge Pro R consists of four main components that interact with each other:
+The solution consists of four main components that interact with each other:
 
 - **Azure Stack Edge service, hosted in Azure public or Azure Government cloud**. The management resource that you use to create the device order, configure the device, and then track the order to completion.
-- **Azure Stack Edge Pro R device**. The rugged, physical device that's shipped to you so you can import your on-premises data into Azure public or Azure Government cloud.
+- **Azure Stack Edge rugged device**. The rugged, physical device that's shipped to you so you can import your on-premises data into Azure public or Azure Government cloud. The device could be Azure Stack Edge Pro R or Azure Stack Edge Mini R.
 - **Clients/hosts connected to the device**. The clients in your infrastructure that connect to the device and contain data that needs to be protected.
 - **Cloud storage**. The location in the Azure cloud platform where data is stored. This location is typically the storage account linked to the Azure Stack Edge resource that you create.
 
@@ -33,7 +33,7 @@ The Azure Stack Edge service is a management service that's hosted in Azure. The
 
 ## Device protection
 
-The Azure Stack Edge Pro R device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
+The rugged device is an on-premises device that helps transform your data by processing it locally and then sending it to Azure. Your device:
 
 - Needs an activation key to access the Azure Stack Edge service.
 - Is protected at all times by a device password.
@@ -41,7 +41,7 @@ The Azure Stack Edge Pro R device is an on-premises device that helps transform 
 - Has secure boot enabled that ensures the device boots up only using the trusted software provided by Microsoft.
 - Runs Windows Defender Application Control (WDAC). WDAC lets you run only trusted applications that you define in your code-integrity policies.
 - Has a Trusted Platform Module (TPM) that performs hardware-based, security-related functions. Specifically, the TPM manages and protects secrets and data that needs to be persisted on the device.
-- Only the required ports are opened on the device and all the other ports are blocked. For more information, see the list of [Port requirements for Azure Stack Edge Pro R device](azure-stack-edge-pro-r-system-requirements.md) .
+- Only the required ports are opened on the device and all the other ports are blocked. For more information, see the list of [Port requirements for device](azure-stack-edge-pro-r-system-requirements.md) .
 - All the access to the device hardware as well as software is logged. 
     - For the device software, default firewall logs are collected for inbound and outbound traffic from the device. These logs are bundled in the support package.
     - For the device hardware, all the device chassis events such as opening and closing of the device chassis, are logged in the device.
@@ -51,11 +51,11 @@ The Azure Stack Edge Pro R device is an on-premises device that helps transform 
 
 ### Protect the device via activation key
 
-Only an authorized Azure Stack Edge Pro R device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge service.
+Only an authorized Azure Stack Edge Pro R or Azure Stack Edge Mini R device is allowed to join the Azure Stack Edge service that you create in your Azure subscription. To authorize a device, you need to use an activation key to activate the device with the Azure Stack Edge service.
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-activation-key.md)]
 
-For more information, see [Get an activation key](azure-stack-edge-gpu-deploy-prep.md).
+For more information, see [Get an activation key](azure-stack-edge-placeholder.md).
 
 ### Protect the device via password
 
@@ -64,21 +64,21 @@ Passwords ensure that only authorized users can access your data. Azure Stack Ed
 You can:
 
 - Connect to the local web UI of the device via a browser and then provide a password to sign in to the device.
-- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. Remote management is also configured to use Just Enough Administration (JEA) to limit what the users can do. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your Azure Stack Edge Pro R device](azure-stack-edge-gpu-connect-powershell-interface.md).
+- Remotely connect to the device PowerShell interface over HTTP. Remote management is turned on by default. Remote management is also configured to use Just Enough Administration (JEA) to limit what the users can do. You can then provide the device password to sign in to the device. For more information, see [Connect remotely to your device](azure-stack-edge-gpu-connect-powershell-interface.md).
 - The local Edge user on the device has limited access to the device for initial configuration, and troubleshooting. The compute workloads running on the device, data transfer, and the storage can all be accessed from the Azure public or government portal for the resource in the cloud.
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-password-best-practices.md)]
-- Use the local web UI to change the password <!--insert link-->. If you change the password, be sure to notify all remote access users so they don't have problems signing in.
+- Use the local web UI to [Change the password](azure-stack-edge-placeholder.md). If you change the password, be sure to notify all remote access users so they don't have problems signing in.
 
 ### Establish trust with the device via certificates
 
-Azure Stack Edge Pro R device lets you Bring Your Own Certificates and install those to be used for all public endpoints. For more information, go to [Upload your certificate](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your Azure Stack Edge Pro R device](azure-stack-edge-j-series-manage-certificates.md).
+Azure Stack Edge rugged device lets you bring your own certificates and install those to be used for all public endpoints. For more information, go to [Upload your certificate](azure-stack-edge-j-series-manage-certificates.md#upload-certificates). For a list of all the certificates that can be installed on your device, go to [Manage certificates on your device](azure-stack-edge-j-series-manage-certificates.md).
 
-- When you configure compute on your Azure Stack Edge Pro R device, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
+- When you configure compute on your device, an IoT device and an IoT Edge device are created. These devices are automatically assigned symmetric access keys. As a security best practice, these keys are rotated regularly via the IoT Hub service.
 
 ## Protect your data
 
-This section describes the Azure Stack Edge Pro R security features that protect in-transit and stored data.
+This section describes the security features that protect in-transit and stored data.
 
 ### Protect data at rest
 
@@ -132,11 +132,11 @@ When the device undergoes a hard reset, a secure wipe is performed on the device
 
 ## Manage personal information
 
-The Azure Stack Edge Pro R service collects personal information in the following scenarios:
+The Azure Stack Edge service collects personal information in the following scenarios:
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge Pro R](azure-stack-edge-j-series-manage-shares.md).
+To view the list of users who can access or delete a share, follow the steps in [Manage shares on the Azure Stack Edge](azure-stack-edge-j-series-manage-shares.md).
 
 For more information, review the Microsoft privacy policy on the [Trust Center](https://www.microsoft.com/trustcenter).
 
