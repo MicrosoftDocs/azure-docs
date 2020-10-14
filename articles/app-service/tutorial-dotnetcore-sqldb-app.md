@@ -40,6 +40,7 @@ In this tutorial, you learn how to:
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
  - <a href="https://git-scm.com/" target="_blank">Install Git</a>
+
  - <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
 
 ## Create local .NET Core app

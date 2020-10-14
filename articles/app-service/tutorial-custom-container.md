@@ -17,14 +17,16 @@ zone_pivot_groups: app-service-containers-windows-linux
 
 ![Shows the web app running in a Windows container.](media/tutorial-custom-container/app-running.png)
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+## Prerequisites
 
-- <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
-- <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
-- <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
-    - Install the latest updates in Visual Studio by clicking **Help** > **Check for Updates**.
-    - Add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
+To complete this tutorial:
+
+ - <a href="https://hub.docker.com/" target="_blank">Sign up for a Docker Hub account</a>
+ - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Install Docker for Windows</a>.
+ - <a href="https://docs.microsoft.com/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Switch Docker to run Windows containers</a>.
+ - <a href="https://www.visualstudio.com/downloads/" target="_blank">Install Visual Studio 2019</a> with the **ASP.NET and web development** and **Azure development** workloads. If you've installed Visual Studio 2019 already:
+     - Install the latest updates in Visual Studio by clicking **Help** > **Check for Updates**.
+     - Add the workloads in Visual Studio by clicking **Tools** > **Get Tools and Features**.
 
 ## Set up the app locally
 
@@ -219,11 +221,13 @@ In this tutorial, you learn how to:
 
 Completing this tutorial incurs a small charge in your Azure account for the container registry and can incur additional costs for hosting the container for longer than a month.
 
-## Set up your initial environment
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-* Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
-* Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.0.80 or higher, with which you run commands in any shell to provision and configure Azure resources.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
+
+ - Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
+
+ - his tutorial requires version 2.0.80 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 After installing Docker and the Azure CLI, open a terminal window and verify that docker is installed:
 

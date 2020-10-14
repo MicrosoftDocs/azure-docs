@@ -42,9 +42,13 @@ What you'll learn:
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
  - [Install Git](https://git-scm.com/)
+
  - [Install Node.js and NPM](https://nodejs.org/)
+
  - [Install Bower](https://bower.io/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+
  - [Install Gulp.js](https://gulpjs.com/) (required by [MEAN.js](https://meanjs.org/docs/0.5.x/#getting-started))
+
  - [Install and run MongoDB Community Edition](https://docs.mongodb.com/manual/administration/install-community/) 
 
 ## Test local MongoDB

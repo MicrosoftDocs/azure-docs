@@ -28,8 +28,11 @@ In this tutorial, you learn how to:
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
  - [Install Git](https://git-scm.com/)
+
  - [Install Ruby 2.6](https://www.ruby-lang.org/en/documentation/installation/)
+
  - [Install Ruby on Rails 5.1](https://guides.rubyonrails.org/v5.1/getting_started.html)
+
  - [Install and run PostgreSQL](https://www.postgresql.org/download/)
 
 ## Prepare local Postgres

@@ -40,7 +40,9 @@ In this tutorial, you'll create a secondary store in the `centralus` region and 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs) with the Azure development workload.
+
 - [.NET Core SDK](https://dotnet.microsoft.com/download).
+
 - This tutorial requires version 2.3.1 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 ## Create a resource group
