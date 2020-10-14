@@ -16,8 +16,8 @@ ms.author: makromer
 
 [!INCLUDE [appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-By using code snippets in mapping data flows, you can easily perform common tasks, such as data deduplication and null filtering. This article explains how to easily add those functions to your pipelines by using data flow script snippets.
-
+By using code snippets in mapping data flows, you can easily perform common tasks such as data deduplication and null filtering. This article explains how to easily add those functions to your pipelines by using data flow script snippets.
+<br>
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
 
 ## Create a pipeline
@@ -50,11 +50,11 @@ By using code snippets in mapping data flows, you can easily perform common task
 
    Now your data flow will remove duplicate rows from your source by using the aggregate transformation, which groups by all rows by using a general hash across all column values.
     
-1. Add a code snippet for splitting your data into a stream that contains rows with nulls and a stream that has no nulls by doing the following:
+1. Add a code snippet for splitting your data into one stream that contains rows with nulls and another stream without nulls. To do so:
 
    a. Go back to the [snippet library](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns), and then copy the code for the null checks.
 
-   b. In your data flow designer, again select **Script**, and then paste this new transformation code at the bottom. This action connects the script to your previous transformation by placing the name of that transformation in front of the pasted snippet.
+   b. In your data flow designer, select **Script** again, and then paste this new transformation code at the bottom. This action connects the script to your previous transformation by placing the name of that transformation in front of the pasted snippet.
 
    Your data flow graph should now look similar to this:
 
