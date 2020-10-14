@@ -58,6 +58,10 @@ Resource Logs are not collected and stored until you create a diagnostic setting
 
 <!-- Include any additional information on collecting logs.  The number of things that diagnostics settings control is expanding -->
 
+In Azure portal, you can create diagnostic settings scoped to the logs and platform metrics emitted by your IoT hub by selecting **Diagnostic settings** under **Monitoring** on the left-pane of your IoT hub:
+
+![Screenshot showing the metrics page for IoT Hub](./media/monitor-iot-hub/diagnostic-settings-from-portal.png)
+
 See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure IoT Hub are listed in [Azure IoT Hub monitoring data reference](monitor-service-reference.md#resource-logs).
 
 <!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
@@ -70,20 +74,13 @@ You can analyze metrics for Azure IoT Hub with metrics from other Azure services
 
 For a list of the platform metrics collected for Azure IoT Hub, see [Monitoring Azure IoT Hub data reference metrics](monitor-service-reference.md#metrics)  For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
-In Azure portal, IoT Hub provides a metrics explorer experience scoped, by default, to the platform metrics emitted by an your IoT hub:
+In Azure portal, IoT Hub provides a metrics explorer experience scoped, by default, to the platform metrics emitted by an your IoT hub. You can access this experience by selecting **Metrics** under **Monitoring** on the left-pane of your IoT hub:
 
-1. In Azure portal, navigate to your IoT hub
+![Screenshot showing the metrics page for IoT Hub](./media/monitor-iot-hub/metric-explorer-from-portal.png)
 
-1. On the left pane of your IoT hub, under **Monitoring**, select **Metrics** to open metrics explorer.
+In metrics explorer, you can view the metrics for your IoT hub and create custom views of your metrics.
 
-    ![Screenshot showing where the metrics option is in IoT Hub resource page](./media/monitor-iot-hub/select-metrics.png)
-
-1. In metrics explorer, you can view the metrics for your IoT hub and create custom views of your metrics.
-
-    ![Screenshot showing the metrics page for IoT Hub](./media/monitor-iot-hub/select-a-metric.png)
-
-    >[!IMPORTANT]
-    > For metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [IoT Hub metrics supported aggregations](monitor-service-reference.md#supported-aggregations).
+For platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [IoT Hub metrics supported aggregations](monitor-service-reference.md#supported-aggregations).
 
 Some IoT Hub metrics, like [routing metrics](monitor-service-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) and [splitting](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) to your charts based on a dimension.
 
