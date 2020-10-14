@@ -233,18 +233,18 @@ Also note the **object ID** shown on the _Identity_ page, as it will be used in 
 
 ### Assign access roles using Azure portal
 
-Select _Azure role assignments_ button, that opens up to Azure role assignments page. Then, select _+Add role assignment(Preview)_.
+Select the _Azure role assignments_ button, which will open up the *Azure role assignments* page. Then, select _+ Add role assignment (Preview)_.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Azure portal: add role assignment":::
 
-On the _Add role assignment (Preview)_ window that opens up, select
+On the _Add role assignment (Preview)_ page that opens up, select:
 
 * _Scope_: Resource group
 * _Subscription_: select your Azure subscription
 * _Resource group_: select your resource group from the dropdown
 * _Role_: select _Azure Digital Twins Data Owner_ from the dropdown
 
-Save your details by selecting _Save_ button.
+Then, save your details by hitting the _Save_ button.
 
 :::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Azure portal: add role assignment (Preview) ":::
 

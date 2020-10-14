@@ -51,7 +51,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 3. Navigate to **Tokens** and create a new token.
 
-4. Enter a unique name, select https://api.cinode.app/scim/v2 as Audience, and set an expiry date appropriately.
+4. Enter a unique name, select **'https://api.cinode.app/scim/v2'** as Audience, and set an expiry date appropriately.
 
 5. Click **Create token**.
 

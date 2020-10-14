@@ -201,7 +201,7 @@ ADT Explorer will now use the uploaded file to create the requested twins and re
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 49 twins imported. 50 relationships imported.'" lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Dialog box indicating graph import success. It reads 'Import successful. 4 twins imported. 2 relationships imported.'" lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -209,7 +209,7 @@ ADT Explorer will now use the uploaded file to create the requested twins and re
     :::column-end:::
 :::row-end:::
 
-The graph has now been uploaded to ADT Explorer. To see see the graph, hit the *Run Query* button in the *GRAPH EXPLORER* box, near the top of the ADT Explorer window. 
+The graph has now been uploaded to ADT Explorer. To see the graph, hit the *Run Query* button in the *GRAPH EXPLORER* box, near the top of the ADT Explorer window. 
 
 :::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="A button reading 'Run Query' near the top of the window is highlighted" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
@@ -311,7 +311,7 @@ In this quickstart, you created an Azure Digital Twins instance, connected it to
 You then explored the graph, by...
 1. Using a query to answer a question about the scenario.
 2. Editing a property on a digital twin.
-    * Running the query again to see how the answer changed as a result of your update.
+3. Running the query again to see how the answer changed as a result of your update.
 
 The intent of this exercise is to demonstrate how you can use the Azure Digital Twins graph to answer questions about your environment, even as the environment continues to change. 
 

@@ -390,6 +390,8 @@
             displayName: single sign-on
       - name: UserJourneys
         href: userjourneys.md
+      - name: SubJourneys
+        href: subjourneys.md
       - name: RelyingParty
         href: relyingparty.md
       - name: Claim resolvers

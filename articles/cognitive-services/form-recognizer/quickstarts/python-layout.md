@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A form document. You can download an image from the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart.
+- A form document. You can download an image from the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart.
 
 > [!NOTE]
 > This quickstart uses a locally stored document. To use learn how to use remote files accessed by URL, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeLayoutAsync).
