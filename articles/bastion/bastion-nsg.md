@@ -2,12 +2,12 @@
 title: Working with VMs and NSGs in Azure Bastion
 description: You can use network security groups with Azure Bastion. Learn about the subnets required for this configuration.
 services: bastion
-author: charwen
+author: cherylmc
 
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.author: charwen
+ms.author: cherylmc
 ---
 # Working with NSG access and Azure Bastion
 
