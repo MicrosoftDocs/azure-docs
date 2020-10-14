@@ -83,7 +83,7 @@ The Azure SQL Database data source supports the following functionality:
 
 ## Creating and running a scan
 
-1. Navigate to the management center and select **Data sources** under the **Sources and scanning** section click
+1. Navigate to the management center and select **Data sources** under the **Sources and scanning** section
 
 1. Select the Azure SQL Database data source that you registered.
 
@@ -118,25 +118,27 @@ The Azure SQL Database data source supports the following functionality:
 
     ![SRS](media/register-scan-on-prem-sql-server/image9.png)
 
-1. Review your scan and click on **Save and run**.
+1. Review your scan and select **Save and run**.
 
 ## Viewing your scans and scan runs
 
-1. Navigate to the management center. Click on **Data sources** under the Sources and scanning section click on the Azure SQL Database data source.
+1. Navigate to the management center. Select **Data sources** under the Sources and scanning section 
 
-2. Click on the scan whose results you are interested to view.
+1. Select the Azure SQL Database data source.
+
+2. Select the scan whose results you are interested to view.
 
 3. You can view all the scan runs along with metrics and status for each scan run.
 
 ## Manage your scans
 
-1. Navigate to the management center. Click on **Data sources** under the Sources and scanning section click on the Azure SQL Database data source.
+1. Navigate to the management center. Select **Data sources** under the Sources and scanning section then select on the Azure SQL Database data source.
 
-2. Select the scan you would like to manage. You can edit the scan by clicking on the edit.
+2. Select the scan you would like to manage. You can edit the scan by selecting on the edit.
 
     ![edit scan](media/register-scan-on-prem-sql-server/image11.png)
 
-3. You can delete your scan by clicking on delete.
+3. You can delete your scan by selecting on delete.
 
 > [!NOTE]
 > Deleting your scan does not delete your assets from previous Azure SQL Database scans.
