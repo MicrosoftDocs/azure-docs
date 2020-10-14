@@ -146,6 +146,23 @@ To edit the rules for a group of machines:
 1. To apply the changes, select **Save**.
 
 
+## Review and edit a group's settings
+
+1. To view the details and settings of your group, select **Group settings**
+
+    This pane shows the name of the group (which can be modified), the OS type, the location, and other relevant details.
+
+    :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
+
+    > [!IMPORTANT]
+    > The **Enforce** option, in the file type protection mode settings, is greyed out in **all** scenarios. No enforcement options are available at this time. 
+    >
+    > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="The enforce mode for file protection is permanently grayed out. No enforcement options are available.":::
+
+1. Optionally, modify the group's name or file type protection modes.
+
+1. Select **Apply** and **Save**.
+
 
 
 ## Respond to the "Allowlist rules in your adaptive application control policy should be updated" recommendation

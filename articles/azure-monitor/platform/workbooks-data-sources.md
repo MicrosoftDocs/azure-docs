@@ -3,14 +3,12 @@ title: Azure Monitor workbooks data sources | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks built from multiple data sources 
 services: azure-monitor
 documentationcenter: ''
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: mbullwin
 ---
 
 # Azure Monitor workbooks data sources

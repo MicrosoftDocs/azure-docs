@@ -3,13 +3,13 @@ title: How to configure a container for Anomaly Detector API
 titleSuffix: Azure Cognitive Services
 description: The Anomaly Detector API container runtime environment is configured using the `docker run` command arguments. This container has several required settings, along with a few optional settings. 
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Configure Anomaly Detector containers

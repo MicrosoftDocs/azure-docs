@@ -142,6 +142,9 @@ additionalContent:
               url: /rest/api/resources/policydefinitions
               note: (Definitions)
             - text: REST
+              url: /rest/api/resources/policyexemptions
+              note: (Exemptions)
+            - text: REST
               url: /rest/api/resources/policysetdefinitions
               note: (Initiatives)
             - text: REST

@@ -112,10 +112,7 @@ Once the app consent policy has been created, you can [allow user consent](confi
 1. The following shows how you can delete a custom app consent policy. **This action cannot be undone.**
 
    ```powershell
-   New-AzureADMSPermissionGrantPolicy `
-       -Id "my-custom-policy" `
-       -DisplayName "My first custom consent policy" `
-       -Description "This is a sample custom app consent policy."
+   Remove-AzureADMSPermissionGrantPolicy -Id "my-custom-policy"
    ```
 
 > [!WARNING]

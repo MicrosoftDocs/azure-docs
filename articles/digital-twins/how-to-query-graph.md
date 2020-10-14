@@ -46,6 +46,96 @@ FROM DIGITALTWINS
 WHERE ...
 ```
 
+### Count items
+
+You can count the number of items in a result set using the `Select COUNT` clause:
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS
+``` 
+
+Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [*Query by model*](#query-by-model) below):
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') 
+SELECT COUNT() 
+FROM DIGITALTWINS c 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
+```
+
+You can also use `COUNT` along with the `JOIN` clause. Here is a query that counts all the light bulbs contained in the light panels of rooms 1 and 2:
+
+```sql
+SELECT COUNT()  
+FROM DIGITALTWINS Room  
+JOIN LightPanel RELATED Room.contains  
+JOIN LightBulb RELATED LightPanel.contains  
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
+AND Room.$dtId IN ['room1', 'room2'] 
+```
+
+### Specify return set with projections
+
+Using projections, you can choose which columns a query will return. 
+
+>[!NOTE]
+>At this time, complex properties are not supported. To make sure that projection properties are valid, combine the projections with an `IS_PRIMITIVE` check. 
+
+Here is an example of a query that uses projection to return twins and relationships. The following query projects the *Consumer*, *Factory* and *Edge* from a scenario where a *Factory* with an ID of *ABC* is related to the *Consumer* through a relationship of *Factory.customer*, and that relationship is presented as the *Edge*.
+
+```sql
+SELECT Consumer, Factory, Edge 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+```
+
+You can also use projection to return a property of a twin. The following query projects the *Name* property of the *Consumers* that are related to the *Factory* with an ID of *ABC* through a relationship of *Factory.customer*. 
+
+```sql
+SELECT Consumer.name 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Consumer.name)
+```
+
+You can also use projection to return a property of a relationship. Like in the previous example, the following query projects the *Name* property of the *Consumers* related to the *Factory* with an ID of *ABC* through a relationship of *Factory.customer*; but now it also returns two properties of that relationship, *prop1* and *prop2*. It does this by naming the relationship *Edge* and gathering its properties.  
+
+```sql
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
+```
+
+You can also use aliases to simplify queries with projection.
+
+The following query does the same operations as the previous example, but it aliases the property names to `consumerName`, `first`, `second` and `factoryArea`. 
+ 
+```sql
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)" 
+```
+
+Here is a similar query that queries the same set as above, but projects only the *Consumer.name* property as `consumerName`, and projects the complete *Factory* as a twin. 
+
+```sql
+SELECT Consumer.name AS consumerName, Factory 
+FROM DIGITALTWINS Factory 
+JOIN Consumer RELATED Factory.customer Edge 
+WHERE Factory.$dtId = 'ABC' 
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) 
+```
+
 ### Query by property
 
 Get digital twins by **properties** (including ID and metadata):

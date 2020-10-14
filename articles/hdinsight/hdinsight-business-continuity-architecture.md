@@ -201,8 +201,6 @@ Replicating Ranger policies between primary and secondary can cause the secondar
 
 To learn more about the items discussed in this article, see:
 
-* [Apache Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
-* [Install and configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)
-* [Install and configure Azure PowerShell module Az](/powershell/azure/)
-* [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
-* [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
+* [Azure HDInsight business continuity](./hdinsight-business-continuity.md)
+* [Azure HDInsight highly available solution architecture case study](./hdinsight-high-availability-case-study.md)
+* [What is Apache Hive and HiveQL on Azure HDInsight?](./hadoop/hdinsight-use-hive.md)
