@@ -238,7 +238,7 @@ Use the following PowerShell cmdlets to manage cross-server communication relati
 
 ## Transactions across multiple servers for Azure SQL Managed Instance
 
-Distributed transactions are supported across different servers in Azure SQL Managed Instance. When transactions cross Managed Instance boundaries, the participating instances first need to be entered into a mutual security and communication relationship. This is done by setting up [Server Trust Group](https://aka.ms/mitrusted-groups), which can be done on Azure portal.
+Distributed transactions are supported across different servers in Azure SQL Managed Instance. When transactions cross Managed Instance boundaries, the participating instances first need to be entered into a mutual security and communication relationship. This is done by creating a [Server Trust Group](https://aka.ms/mitrusted-groups), which can be done on Azure portal. If Managed Instances are not on the same Virtual network then [Virtual network peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) needs to be set up and Network security group inbound and outbound rules need to allow ports 5024 and 11000-12000 on all participating Virtual networks.
 
   ![Server Trust Groups on Azure Portal][3]
 
