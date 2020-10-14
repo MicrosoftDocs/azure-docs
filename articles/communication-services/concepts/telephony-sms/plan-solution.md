@@ -69,7 +69,7 @@ The following table shows you where you can acquire different types of phone num
 
 ## Azure Subscriptions eligibility
 
-To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts. 
+To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired on trial accounts or by Azure free credits. 
 
 Currently, phone number availability is restricted to Azure subscriptions that have a billing address in the United States.
 
