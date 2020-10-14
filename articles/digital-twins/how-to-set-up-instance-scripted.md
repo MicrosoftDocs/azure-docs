@@ -29,7 +29,7 @@ This version of this article completes these steps by running an [**automated de
 
 ## Prerequisites: Download the script
 
-The sample script is written in PowerShell. It is part of the [**Azure Digital Twins samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
+The sample script is written in PowerShell. It is part of the [**Azure Digital Twins end-to-end samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
 
 This will download the sample project to your machine as _**Azure_Digital_Twins_samples.zip**_. Navigate to the folder on your machine and unzip it to extract the files.
 
