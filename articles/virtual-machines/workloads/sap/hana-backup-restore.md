@@ -419,11 +419,11 @@ For additional references, see NetApp TR-4614 and TR-4646 on SnapCenter.
 
 To run SnapCenter on Azure HLI, system requirements include:
 * SnapCenter Server on Azure Windows 2016 or newer with 4-vCPU, 16 GB RAM and a minimum of 650 GB managed premium SSD storage.
-* A minimum of two SAP HANA Large Instances systems with 1.5 TB – 24 TB RAM.
+* SAP HANA Large Instances system with 1.5 TB – 24 TB RAM. It's recommended to use two SAP HANA Large Instance systems for cloning operations and tests.
 
 The steps to integrate SnapCenter in SAP HANA are: 
 
-1. Raise a support ticket request to communicate the user-generated public key to the Microsoft Ops team. This is required to setup the SnapCenter user role to access the storage system.
+1. Raise a support ticket request to communicate the user-generated public key to the Microsoft Ops team. This is required to setup the SnapCenter user to access the storage system.
 1. Create a VM in your VNET that has access to HLI; this VM is used for SnapCenter. 
 1. Download and install SnapCenter. 
 1. Backup and recovery operations. 
@@ -432,7 +432,7 @@ The steps to integrate SnapCenter in SAP HANA are:
 
 1. Open the Azure portal and navigate to the **Subscriptions** page. Once on the “Subscriptions” page, select your SAP HANA subscription, outlined in red below.
 
-   :::image type="content" source="./media/snapcenter/create-support-case-for-user-role-storage-setup.png" alt-text="Create support case for user role storage setup":::
+   :::image type="content" source="./media/snapcenter/create-support-case-for-user-role-storage-setup.png" alt-text="Create support case for user  storage setup":::
 
 1. On your SAP HANA subscription page, select the **Resource Groups** subpage.
 
@@ -490,7 +490,7 @@ The steps to integrate SnapCenter in SAP HANA are:
 
 1. Attach the snapcenter.pem file to the support ticket and then select **Create**
 
-   Once the public key certificate is submitted, Microsoft sets up the *snapcenter* user role for your tenant along with SVM IP address.   
+   Once the public key certificate is submitted, Microsoft sets up the *snapcenter* user  for your tenant along with SVM IP address.   
 
 1. After you receive the SVM IP, set a password to access SVM, which you control.
 
@@ -502,7 +502,7 @@ The steps to integrate SnapCenter in SAP HANA are:
 
 
 ### Download and install SnapCenter
-Now that the user role is setup for SnapCenter access to the storage system, you'll use the *snapcenter* user to configure the SnapCenter once it's installed. 
+Now that the user  is setup for SnapCenter access to the storage system, you'll use the *snapcenter* user to configure the SnapCenter once it's installed. 
 
 Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf) to define your backup strategy. 
 
@@ -556,13 +556,6 @@ Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](
 
 1. Review the host details and select **Submit** to install the plug-in on the SnapCenter server.
 
-1. Ensure that there is no proxy variable active on the HANA DB system.
-
-   ```bash
-   sollabsjct31:/tmp # unset http_proxy
-   sollabsjct31:/tmp # unset https_proxy
-   ```
-
 1. After the plug-in is installed, in SnapCenter, select **Hosts** and then select **+Add** to add a HANA node.
 
    :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Add a HANA node" lightbox="media/snapcenter/add-hana-node.png":::
@@ -583,70 +576,11 @@ Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](
 
    :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Create the SnapCenter user in HANA (system db)":::
 
-1. Run the command to create the user store for HANA DB H31 (ID=00).
-
-   ```powershell
-   cd c:\Program File\sap\hdbclient
-   hdbuserstore.exe -u system set SCH31 10.0.40.31:30013 SNAPCENTER <pwd>
-   ```
+1. Ensure that there is no proxy variable active on the HANA DB system.
 
    ```bash
-   hdbuserstore set SCH31 sollabsjct31:30013 SNAPCENTER <pwd>
-   hdbsql -U SCH31
-   ```
-
-   >[!IMPORTANT]
-   >* The user store key must be installed on the host. It will call the plug-in to initiate the backup.
-   >* There must be a hdbuserkey for every HANA system that you manage.
-
-1. Run the command to create the user store for HANA DB H32 (ID=10).
-
-   ```powershell
-   cd c:\Program File\sap\hdbclient
-   hdbuserstore.exe -u system set SCH31 10.0.40.32:32013 SNAPCENTER <pwd>
-   ```
-
-1. To change the user password, in the interactive terminal, select the **user_name** from users, and then enter:
-   
-   ```sql
-   alter user SNAPCENTER password "new-password"
-   ```
-
-   ```
-   hdbsql=> select user_name from users
-   * 414: user is forced to change password: alter password required for user SNAPCENTER SQLSTATE: HY000
-   hdbsql=> alter user SNAPCENTER password "new-password"
-   0 rows affected (overall time 44.592 msec; server time 39.637 msec)
-   hdbsql SYSTEMDB=>
-   ```
-
-1. To list the hdbuserstore keys for the OS user system, run:
-
-   ```powershell
-   cd c:\Program File\sap\hdbclient
-   hdbuserstore.exe -u system list
-   ```
-
-   ```
-   DATA FILE       : C:\ProgramData\.hdb\sollabPOCWest1\S-1-5-21-3775851897-2292786
-   814-32070572-1001\SSFS_HDB.DAT
-   KEY FILE        : C:\ProgramData\.hdb\sollabPOCWest1\S-1-5-21-3775851897-2292786
-   814-32070572-1001\SSFS_HDB.KEY
-
-   KEY SCH31
-     ENV : 10.0.40.31:30013
-     USER: SNAPCENTER
-   KEY SCH32
-     ENV : 10.0.40.32:31013
-     USER: SNAPCENTER
-
-   ```
-
-1. To test the connection with the SNAPCENTER user, create a key for the administrator user and test the credentials. 
-
-   ```powershell
-   hdbuserstore.exe -u system set SCH31 10.0.40.31:30013 SNAPCENTER NetApp123
-   hdbsql -U SCH31
+   sollabsjct31:/tmp # unset http_proxy
+   sollabsjct31:/tmp # unset https_proxy
    ```
 
 ### Auto discovery
@@ -705,7 +639,7 @@ Before you use SnapCenter to back up SAP HANA database resources, you must creat
 
    :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Configure the Hourly retention settings.":::
 
-1. If a SnapMirror is required, select **Update SnapMirror after creating a local Snaphot copy**.
+1. If a SnapMirror setup is configured, select **Update SnapMirror after creating a local SnapShot copy**.
 
    :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="If a SnapMirror is required, select Update SnapMirror after creating a local Snapshot copy.":::
 
