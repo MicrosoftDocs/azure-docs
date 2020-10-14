@@ -276,6 +276,8 @@
       - name: Azure Policy built-ins
         displayName: samples, policies, definitions
         href: ./policy-reference.md
+      - name: Resource log schema
+        href: gateway-log-schema-reference.md
 - name: Resources
   items:
       - name: FAQ
