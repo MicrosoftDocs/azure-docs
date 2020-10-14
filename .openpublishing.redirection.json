@@ -3987,22 +3987,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cosmos-db/powershell-samples-sql.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-table.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
@@ -4149,11 +4134,6 @@
     {
       "source_path": "articles/cosmos-db/resource-manager-samples.md",
       "redirect_url": "/azure/cosmos-db/templates-samples-sql",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/manage-gremlin-with-resource-manager.md",
-      "redirect_url": "/azure/cosmos-db/templates-samples-gremlin",
       "redirect_document_id": false
     },
     {
