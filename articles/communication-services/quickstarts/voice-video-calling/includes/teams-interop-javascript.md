@@ -10,14 +10,14 @@ ms.service: azure-communication-services
 ## Prerequisites
 
 - A working [Communication Services calling app](../getting-started-with-calling.md).
-- A [Teams deployment](https://docs.microsoft.com/en-us/deployoffice/teams-install).
+- A [Teams deployment](https://docs.microsoft.com/deployoffice/teams-install).
 
 ## Enable Teams Interoperability
 
 The Teams interoperability feature is currently in private preview. To enable this feature for your Communication Services resource, please email [acsfeedback@microsoft.com](mailto:acsfeedback@microsoft.com) with:
 
 1. The Subscription ID of the Azure subscription that contains your Communication Services resource.
-2. Your Teams tenant ID. The easiest way to obtain this is to [obtain and share a link to the Team](https://support.microsoft.com/en-us/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team).
+2. Your Teams tenant ID. The easiest way to obtain this is to [obtain and share a link to the Team](https://support.microsoft.com/office/create-a-link-or-a-code-for-joining-a-team-11b0de3b-9288-4cb4-bc49-795e7028296f#:~:text=Create%20a%20link%20If%20you%E2%80%99re%20a%20team%20owner%2C,link%20into%20any%20browser%20to%20join%20the%20team).
 
 You must be the owning organization of both entities to use this feature.
 
