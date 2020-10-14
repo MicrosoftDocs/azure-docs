@@ -207,7 +207,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 ## What you should know
 
-- The Azure portal stores reported provisioning data for 30 days if you have a premium edition and 7 days if you have a free edition.The provisioning logs can be published to log analytics for retention beyond 30 days. 
+- The Azure portal stores reported provisioning data for 30 days if you have a premium edition and 7 days if you have a free edition.The provisioning logs can be published to [log analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics#custom-queries) for retention beyond 30 days. 
 
 - You can use the Change ID attribute as unique identifier. This is, for example, helpful when interacting with product support.
 
