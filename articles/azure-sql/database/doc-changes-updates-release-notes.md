@@ -92,7 +92,7 @@ The following features are enabled in the SQL Managed Instance deployment model 
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
-|[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-Managed-Instance-from-server-trust-group)|Sep 2020|Has Workaround||
+|[Distributed transactions can be executed after removing Managed Instance from Server Trust Group](#distributed-transactions-can-be-executed-after-removing-managed-instance-from-server-trust-group)|Sep 2020|Has Workaround||
 |[Distributed transactions cannot be executed after Managed Instance scaling operation](#distributed-transactions-cannot-be-executed-after-managed-instance-scaling-operation)|Sep 2020|Has Workaround||
 |[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
