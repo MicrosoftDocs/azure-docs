@@ -117,7 +117,7 @@
         items:
         - name: Prepare VM technical assets
           href: azure-vm-create-technical-assets.md
-        - name: Create VM from an approved base
+        - name: Create VM using an approved base
           href: azure-vm-create-using-approved-base.md
         - name: Create VM using your own image
           href: azure-vm-create-using-own-image.md

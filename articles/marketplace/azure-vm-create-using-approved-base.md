@@ -9,7 +9,7 @@ ms.author: krsh
 ms.date: 10/15/2020
 ---
 
-# Create a virtual machine from an approved base
+# Create a virtual machine using an approved base
 
 This article describes how to use Azure to create a virtual machine (VM) containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to [create and configure an on-premises VM](azure-vm-create-using-own-image.md) using an approved operating system, then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
