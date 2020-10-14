@@ -104,7 +104,7 @@ In general, if the average utilization across all 730 hours in one month is grea
 > With standard (manual) throughput, you can use the normalized utilization metric to estimate the actual RU/s you may use if you switch to autoscale. Multiply the normalized utilization at a point in time by the currently provisioned standard (manual) RU/s. For example, if you have provisioned 5000 RU/s, and the normalized utilization is 90%, the RU/s usage is 0.9 * 5000 = 4500 RU/s. 
 If you see that your traffic pattern is variable, but you are over or under provisioned, you may want to enable autoscale and then change the autoscale max RU/s setting accordingly.
 
-#### How to calculate the average utilization
+#### How to calculate average utilization
 Autoscale bills for the highest RU/s scaled to in an hour. When analyzing the normalized RU consumption over time, it is important to use the highest utilization per hour when calculating the average. 
 
 To calculate the average of the highest utilization across all hours:
