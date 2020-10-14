@@ -1,22 +1,20 @@
 ---
-title: Find the request unit (RU) charge in Azure Cosmos DB
-description: Learn how to find the request unit (RU) charge for any operation executed against an Azure Cosmos container.
+title: Find request unit (RU) charge for SQL queries in Azure Cosmos DB
+description: Learn how to find the request unit (RU) charge for MongoDB queries executed against an Azure Cosmos container. You can use the Azure portal, .NET, Java, Python, and Node.js languages to find the RU charge. 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 09/01/2019
+ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
 ---
-# Find the request unit charge in Azure Cosmos DB
+# Find the request unit charge for SQL queries in Azure Cosmos DB
 
 This article presents the different ways you can find the [request unit](request-units.md) (RU) consumption for any operation executed against a container in Azure Cosmos DB. Currently, you can measure this consumption only by using the Azure portal or by inspecting the response sent back from Azure Cosmos DB through one of the SDKs.
 
-## SQL (Core) API
-
 If you're using the SQL API, you have multiple options for finding the RU consumption for an operation against an Azure Cosmos container.
 
-### Use the Azure portal
+## Use the Azure portal
 
 Currently, you can find the request charge in the Azure portal only for a SQL query.
 
@@ -34,7 +32,7 @@ Currently, you can find the request charge in the Azure portal only for a SQL qu
 
 :::image type="content" source="./media/find-request-unit-charge/portal-sql-query.png" alt-text="Screenshot of a SQL query request charge in the Azure portal":::
 
-### Use the .NET SDK
+## Use the .NET SDK
 
 # [.NET SDK V2](#tab/dotnetv2)
 
@@ -81,7 +79,7 @@ For more information, see [Quickstart: Build a .NET web app by using a SQL API a
 
 ---
 
-### Use the Java SDK
+## Use the Java SDK
 
 Objects that are returned from the [Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb) expose a `getRequestCharge()` method:
 
@@ -111,7 +109,7 @@ feedResponse.forEach(result -> {
 
 For more information, see [Quickstart: Build a Java application by using an Azure Cosmos DB SQL API account](create-sql-api-java.md).
 
-### Use the Node.js SDK
+## Use the Node.js SDK
 
 Objects that are returned from the [Node.js SDK](https://www.npmjs.com/package/@azure/cosmos) expose a `headers` subobject that maps all the headers returned by the underlying HTTP API. The request charge is available under the `x-ms-request-charge` key:
 
@@ -146,7 +144,7 @@ while (query.hasMoreResults()) {
 
 For more information, see [Quickstart: Build a Node.js app by using an Azure Cosmos DB SQL API account](create-sql-api-nodejs.md). 
 
-### Use the Python SDK
+## Use the Python SDK
 
 The `CosmosClient` object from the [Python SDK](https://pypi.org/project/azure-cosmos/) exposes a `last_response_headers` dictionary that maps all the headers returned by the underlying HTTP API for the last operation executed. The request charge is available under the `x-ms-request-charge` key:
 
@@ -161,72 +159,6 @@ request_charge = client.last_response_headers['x-ms-request-charge']
 ```
 
 For more information, see [Quickstart: Build a Python app by using an Azure Cosmos DB SQL API account](create-sql-api-python.md). 
-
-## Azure Cosmos DB API for MongoDB
-
-The RU charge is exposed by a custom [database command](https://docs.mongodb.com/manual/reference/command/) named `getLastRequestStatistics`. The command returns a document that contains the name of the last operation executed, its request charge, and its duration. If you use the Azure Cosmos DB API for MongoDB, you have multiple options for retrieving the RU charge.
-
-### Use the Azure portal
-
-Currently, you can find the request charge in the Azure portal only for a query.
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account) and feed it with data, or select an existing account that already contains data.
-
-1. Go to the **Data Explorer** pane, and then select the container you want to work on.
-
-1. Select **New Query**.
-
-1. Enter a valid query, and then select **Execute Query**.
-
-1. Select **Query Stats** to display the actual request charge for the request you executed.
-
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Screenshot of a MongoDB query request charge in the Azure portal":::
-
-### Use the MongoDB .NET driver
-
-When you use the [official MongoDB .NET driver](https://docs.mongodb.com/ecosystem/drivers/csharp/), you can execute commands by calling the `RunCommand` method on a `IMongoDatabase` object. This method requires an implementation of the `Command<>` abstract class:
-
-```csharp
-class GetLastRequestStatisticsCommand : Command<Dictionary<string, object>>
-{
-    public override RenderedCommand<Dictionary<string, object>> Render(IBsonSerializerRegistry serializerRegistry)
-    {
-        return new RenderedCommand<Dictionary<string, object>>(new BsonDocument("getLastRequestStatistics", 1), serializerRegistry.GetSerializer<Dictionary<string, object>>());
-    }
-}
-
-Dictionary<string, object> stats = database.RunCommand(new GetLastRequestStatisticsCommand());
-double requestCharge = (double)stats["RequestCharge"];
-```
-
-For more information, see [Quickstart: Build a .NET web app by using an Azure Cosmos DB API for MongoDB](create-mongodb-dotnet.md).
-
-### Use the MongoDB Java driver
-
-
-When you use the [official MongoDB Java driver](https://mongodb.github.io/mongo-java-driver/), you can execute commands by calling the `runCommand` method on a `MongoDatabase` object:
-
-```java
-Document stats = database.runCommand(new Document("getLastRequestStatistics", 1));
-Double requestCharge = stats.getDouble("RequestCharge");
-```
-
-For more information, see [Quickstart: Build a web app by using the Azure Cosmos DB API for MongoDB and the Java SDK](create-mongodb-java.md).
-
-### Use the MongoDB Node.js driver
-
-When you use the [official MongoDB Node.js driver](https://mongodb.github.io/node-mongodb-native/), you can execute commands by calling the `command` method on a `db` object:
-
-```javascript
-db.command({ getLastRequestStatistics: 1 }, function(err, result) {
-    assert.equal(err, null);
-    const requestCharge = result['RequestCharge'];
-});
-```
-
-For more information, see [Quickstart: Migrate an existing MongoDB Node.js web app to Azure Cosmos DB](create-mongodb-nodejs.md).
 
 ## Cassandra API
 
