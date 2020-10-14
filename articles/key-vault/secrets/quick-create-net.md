@@ -106,7 +106,7 @@ $Env:KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
 macOS or Linux
-```cmd
+```bash
 export KEY_VAULT_NAME=<your-key-vault-name>
 ```
 
@@ -132,7 +132,7 @@ In below example, the name of your key vault is expanded to the key vault URI, i
 
 ### Save a secret
 
-Now that the console app is authenticated, add a secret to the key vault. For this task, use the [client.SetSecret](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync) method. The method's first parameter accepts a name for the secret&mdash;"mySecret" in this sample.
+Now that the console app is authenticated, add a secret to the key vault. For this task, use the [SetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.setsecretasync) method. The method's first parameter accepts a name for the secret&mdash;"mySecret" in this sample.
 
 ```csharp
 await client.SetSecretAsync(secretName, secretValue);
@@ -150,20 +150,20 @@ az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
 
 ### Retrieve a secret
 
-You can now retrieve the previously set value with the [client.GetSecret](/dotnet/api/azure.security.keyvault.secrets.secretclient.getsecretasync) method.
+You can now retrieve the previously set value with the [GetSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.getsecretasync) method.
 
 ```csharp
-KeyVaultSecret secret = await client.GetSecretAsync(secretName);
+var secret = await client.GetSecretAsync(secretName);
 ``````
 
 Your secret is now saved as `secret.Value`.
 
 ### Delete a secret
 
-Finally, let's delete the secret from your key vault with the [client.DeleteSecret](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) method.
+Finally, let's delete the secret from your key vault with the [StartDeleteSecretAsync](/dotnet/api/azure.security.keyvault.secrets.secretclient.startdeletesecretasync) method.
 
 ```csharp
-await client.StartDeleteSecret(secretName);
+await client.StartDeleteSecretAsync(secretName);
 ``````
 
 You can verify that the secret is gone with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show&preserve-view=true) command:
@@ -245,7 +245,7 @@ Modify the .NET Core console app to interact with the Key Vault by completing th
                 Console.WriteLine($"Your secret is '{secretValue}'.");
     
                 Console.WriteLine($"Retrieving your secret from {keyVaultName}.");
-                KeyVaultSecret secret = await client.GetSecretAsync(secretName);
+                var secret = await client.GetSecretAsync(secretName);
                 Console.WriteLine($"Your secret is '{secret.Value}'.");
     
                 Console.Write($"Deleting your secret from {keyVaultName} ...");
