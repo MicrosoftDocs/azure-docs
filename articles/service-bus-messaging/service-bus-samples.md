@@ -14,38 +14,30 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 
 | Package | Samples location | 
 | ------- | ---------------- | 
-| Azure.Messaging.ServiceBus (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples) | 
-| Microsoft.Azure.ServiceBus (legacy) |  [GitHub location](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus) |
+| Azure.Messaging.ServiceBus (latest) | https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/ | 
+| Microsoft.Azure.ServiceBus (legacy) |  https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus |
 
 ## Java samples
 | Package | Samples location | 
 | ------- | ---------------- | 
-| azure-messaging-servicebus (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/servicebus/azure-messaging-servicebus/src/samples) |
-| azure-servicebus (legacy) | [GitHub location](https://github.com/Azure/azure-service-bus/tree/master/samples/Java) |
+| azure-messaging-servicebus (latest) | https://docs.microsoft.com/samples/azure/azure-sdk-for-java/servicebus-samples/ |
+| azure-servicebus (legacy) | https://github.com/Azure/azure-service-bus/tree/master/samples/Java |
 
 ## Python samples
-| Package version | Samples location |
+| Package | Samples location |
 | -------------------- | ----------------------- |
-| azure.servicebus version 7.0 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus/samples) |
-| azure.servicebus version  0.50.3 (legacy) | [GitHub location](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus) |
+| azure.servicebus | https://docs.microsoft.com/samples/azure/azure-sdk-for-python/servicebus-samples/ |
 
 ## JavaScript samples
-| Package version | Samples location | 
+| Package | Samples location | 
 | ------- | ---------------- | 
-| azure/service-bus version 7.0 (latest) | [GitHub location](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples) | 
-| azure/service-bus version 1.1.10 | [GitHub location](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/event-hubs_2.1.0/sdk/servicebus/service-bus/samples) |
+| azure/service-bus | https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/ | 
 
 ## Go samples
 | Package | Samples location | 
 | ------- | ---------------- | 
-| azure-service-bus-go | [GitHub location](https://github.com/Azure/azure-service-bus-go/) |
+| azure-service-bus-go | https://github.com/Azure/azure-service-bus-go/ |
 
 ## Management samples
-You can find management samples on GitHub at [this location](https://github.com/Azure/azure-service-bus/tree/master/samples/Management).
+You can find management samples on GitHub at https://github.com/Azure/azure-service-bus/tree/master/samples/Management.
 
-## Next steps
-
-See the following topics for conceptual overviews of Service Bus.
-
-* [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus architecture](./service-bus-messaging-overview.md)
