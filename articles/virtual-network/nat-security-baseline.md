@@ -150,7 +150,7 @@ Use Azure Security Center and follow the network protection recommendations to h
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+- [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 **Azure Security Center monitoring**: Unset. Please provide a value in the work item.
 
