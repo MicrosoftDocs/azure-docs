@@ -376,6 +376,7 @@ When you click the Amazon Web Services (AWS) tile in the Access Panel, you shoul
 * Roles must meet the following requirements to be eligible to be imported from AWS into Azure AD:
 
   * Roles must have exactly one saml-provider defined in AWS
+  * The combined length of the ARN(Amazon Resource Name) for the role and the ARN for the associated saml-provider must be less than 119 characters
 
 ## Additional resources
 
