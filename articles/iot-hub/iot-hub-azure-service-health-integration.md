@@ -1,6 +1,6 @@
 ---
-title: Check IoT Hub service health with Azure Service Health and Azure Resource Health | Microsoft Docs
-description: Use Azure Service Health and Azure Resource Health to monitor your IoT Hub and diagnose service problems
+title: Check IoT Hub service and resource health | Microsoft Docs
+description: Use Azure Service Health and Azure Resource Health to monitor your IoT Hub
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -10,13 +10,13 @@ ms.author: robinsh
 ms.custom: [amqp, 'Role: Cloud Development', 'Role: Technical Support', devx-track-csharp]
 ---
 
-# Check IoT Hub health status with Azure Service Health and Azure Resource Health
+# Check IoT Hub service and resource health
 
-Azure IoT Hub integrates with the [Azure Service Health service](../service-health/overview) to provide you with the ability to monitor the service-level health of the IoT Hub service and individual IoT hubs. You can also set up alerts to be notified when the status of the IoT Hub service or an IoT hub changes. The Azure Service Health service is a combination of three smaller services: Azure Resource Health, Azure Service Health, and the Azure status page. The sections in this article describe each service and its relationship to IoT Hub in more detail.
+Azure IoT Hub integrates with the [Azure Service Health service](../service-health/overview.md) to provide you with the ability to monitor the service-level health of the IoT Hub service and individual IoT hubs. You can also set up alerts to be notified when the status of the IoT Hub service or an IoT hub changes. The Azure Service Health service is a combination of three smaller services: Azure Resource Health, Azure Service Health, and the Azure status page. The sections in this article describe each service and its relationship to IoT Hub in more detail.
 
-Azure Service Health service helps you monitor service-level events like outages and upgrades that may affect the availability of the IoT Hub service and your individual IoT hubs. IoT Hub also integrates with Azure Monitor to provide IoT Hub platform metrics and IoT Hub resource logs that you can use to monitor operational errors and conditions that occur on a specific IoT hub. To learn more, see [Monitor operations of your Azure IoT hub with Azure Monitor](iot-hub-azure-monitor-integration.md).
+Azure Service Health service helps you monitor service-level events like outages and upgrades that may affect the availability of the IoT Hub service and your individual IoT hubs. IoT Hub also integrates with Azure Monitor to provide IoT Hub platform metrics and IoT Hub resource logs that you can use to monitor operational errors and conditions that occur on a specific IoT hub. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
 
-## Check health of an individual IoT hub with Azure Resource Health
+## Check health of an IoT hub with Azure Resource Health
 
 Azure Resource Health is a part of Azure Service Health service that tracks the health of individual resources. You can check the health status of your IoT hub directly from the portal.
 

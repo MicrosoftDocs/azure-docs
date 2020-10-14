@@ -1,16 +1,16 @@
 ---
-title: Monitoring Azure IoT Hub data reference #Required; *your official service name*  
+title: Monitoring Azure IoT Hub data reference  
 description: Important reference material needed when you monitor Azure IoT Hub 
 author: robinsh
 ms.author: robinsh
-ms.topic: subject-monitoring
+ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/13/2020
 ---
 
 # Monitoring Azure IoT Hub data reference
 
-See [Monitor Azure IoT Hub](monitor-service.md) for details on collecting and analyzing monitoring data for Azure IoT Hub.
+See [Monitor Azure IoT Hub](monitor-iot-hub.md) for details on collecting and analyzing monitoring data for Azure IoT Hub.
 
 ## Metrics
 
@@ -654,5 +654,5 @@ The following table lists the operations related to Azure IoT Hub that may be cr
 
 ## See Also
 
-* See [Monitor Azure IoT Hub](monitor-service-name.md) for a description of monitoring Azure IoT Hub.
+* See [Monitor Azure IoT Hub](monitor-iot-hub.md) for a description of monitoring Azure IoT Hub.
 * See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resources) for details on monitoring Azure resources.

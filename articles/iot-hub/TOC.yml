@@ -342,7 +342,7 @@
         - name: Monitor IoT Hub
           href: monitor-iot-hub.md
         - name: IoT Hub service and resource health
-          href: iot-hub-service-health-integration.md
+          href: iot-hub-azure-service-health-integration.md
         - name: Monitoring data reference
           href: monitor-service-reference.md
     - name: Use real devices

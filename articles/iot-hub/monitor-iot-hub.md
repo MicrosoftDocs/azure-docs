@@ -3,7 +3,7 @@ title: Monitoring Azure IoT Hub
 description: Start here to learn how to monitor Azure IoT Hub 
 author: robinsh
 ms.author: robinsh
-ms.topic: subject-monitoring 
+ms.topic: conceptual 
 ms.service: iot-hub
 ms.date: 10/13/2020
 ---
@@ -97,13 +97,13 @@ If you don't support resource logs, say so. Some services may be only onboarded 
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties. To route data to Azure Monitor logs, you must create a diagnostic setting to send resource log categories or platform metrics to a Log Analytics workspace. To learn more, see [Collection and routing](#collection-and-routing).
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for Azure IoT Hub resource logs is found in the [Azure IoT Hub Data Reference](monitor-service-reference#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-schema#top-level-resource-logs-schema) The schema for Azure IoT Hub resource logs is found in the [Azure IoT Hub Data Reference](monitor-service-reference.md#resource-logs).
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
-For a list of the types of resource logs collected for Azure IoT Hub, see [Monitoring Azure IoT Hub data reference](monitor-service-reference#logs)  
+For a list of the types of resource logs collected for Azure IoT Hub, see [Monitoring Azure IoT Hub data reference](monitor-service-reference.md#resource-logs)  
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure IoT Hub data reference](monitor-service-reference#azure-monitor-logs-tables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Monitoring Azure IoT Hub data reference](monitor-service-reference.md#azure-monitor-logs-tables)  
 
 ### SDK version in IoT Hub logs
 
