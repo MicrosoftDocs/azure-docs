@@ -2,7 +2,8 @@
 title: Find request unit (RU) charge for a SQL query in Azure Cosmos DB
 description: Learn how to find the request unit (RU) charge for SQL queries executed against an Azure Cosmos container. You can use the Azure portal, .NET, Java, Python, and Node.js languages to find the RU charge. 
 author: ThomasWeiss
-ms.service: cosmosdb-sql
+ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss

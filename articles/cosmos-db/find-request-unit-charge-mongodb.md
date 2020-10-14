@@ -2,7 +2,8 @@
 title: Find request unit charge for Azure Cosmos DB API for MongoDB operations
 description: Learn how to find the request unit (RU) charge for MongoDB queries executed against an Azure Cosmos container. You can use the Azure portal, MongoDB .NET, Java, Node.js drivers.
 author: ThomasWeiss
-ms.service: cosmosdb-mongo
+ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
