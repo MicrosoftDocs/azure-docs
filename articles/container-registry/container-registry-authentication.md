@@ -15,7 +15,7 @@ Recommended ways include authenticating to a registry directly via [individual l
 
 The following table lists available authentication methods and typical scenarios. See linked content for details.
 
-| Method                               | How to authenticate                                           | Scenarios                                                            | RBAC                             | Limitations                                |
+| Method                               | How to authenticate                                           | Scenarios                                                            | Role-based access control (RBAC)                             | Limitations                                |
 |---------------------------------------|-------------------------------------------------------|---------------------------------------------------------------------|----------------------------------|--------------------------------------------|
 | [Individual AD identity](#individual-login-with-azure-ad)                | `az acr login` in Azure CLI                             | Interactive push/pull by developers, testers                                    | Yes                              | AD token must be renewed every 3 hours     |
 | [AD service principal](#service-principal)                  | `docker login`<br/><br/>`az acr login` in Azure CLI<br/><br/> Registry login settings in APIs or tooling<br/><br/> [Kubernetes pull secret](container-registry-auth-kubernetes.md)                                           | Unattended push from CI/CD pipeline<br/><br/> Unattended pull to Azure or external services  | Yes                              | SP password default expiry is 1 year       |                                                           
@@ -26,13 +26,14 @@ The following table lists available authentication methods and typical scenarios
 
 ## Individual login with Azure AD
 
-When working with your registry directly, such as pulling images to and pushing images from a development workstation to a registry you created, authenticate by using your individual Azure identity. Run the [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) command in the [Azure CLI](/cli/azure/install-azure-cli):
+When working with your registry directly, such as pulling images to and pushing images from a development workstation to a registry you created, authenticate by using your individual Azure identity. Sign in to the [Azure CLI](/cli/azure/install-azure-cli) with [az login](/cli/azure/reference-index#az-login), and then run the [az acr login](/cli/azure/acr#az-acr-login) command:
 
 ```azurecli
+az login
 az acr login --name <acrName>
 ```
 
-When you log in with `az acr login`, the CLI uses the token created when you executed [az login](/cli/azure/reference-index#az-login) to seamlessly authenticate your session with your registry. To complete the authentication flow, the Docker CLI and Docker daemon must be installed and running in your environment. `az acr login` uses the Docker client to set an Azure Active Directory token in the `docker.config` file. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands in your session do not require a username or password.
+When you log in with `az acr login`, the CLI uses the token created when you executed `az login` to seamlessly authenticate your session with your registry. To complete the authentication flow, the Docker CLI and Docker daemon must be installed and running in your environment. `az acr login` uses the Docker client to set an Azure Active Directory token in the `docker.config` file. Once you've logged in this way, your credentials are cached, and subsequent `docker` commands in your session do not require a username or password.
 
 > [!TIP]
 > Also use `az acr login` to authenticate an individual identity when you want to push or pull artifacts other than Docker images to your registry, such as [OCI artifacts](container-registry-oci-artifacts.md).  
@@ -100,7 +101,7 @@ docker login myregistry.azurecr.io
 
 For best practices to manage login credentials, see the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command reference.
 
-To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr?view=azure-cli-latest#az-acr-update) command in the Azure CLI:
+To enable the admin user for an existing registry, you can use the `--admin-enabled` parameter of the [az acr update](/cli/azure/acr#az-acr-update) command in the Azure CLI:
 
 ```azurecli
 az acr update -n <acrName> --admin-enabled true

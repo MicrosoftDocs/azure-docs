@@ -121,9 +121,9 @@ Only one long-running operation is supported for a given Live Event or any of it
 
 |SDK|Reference|
 |---|---|
-|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET ref](https://aka.ms/ams-v3-dotnet-ref)|
-|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java ref](https://aka.ms/ams-v3-java-ref)|
-|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python ref](https://aka.ms/ams-v3-python-ref)|
+|[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET ref](/dotnet/api/overview/azure/mediaservices/management)|
+|[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java ref](/java/api/overview/azure/mediaservices/management)|
+|[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python ref](/python/api/overview/azure/mediaservices/management)|
 |[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js ref](/javascript/api/overview/azure/mediaservices/management)| 
 |[Go SDK](https://aka.ms/ams-v3-go-sdk) |[Go ref](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||

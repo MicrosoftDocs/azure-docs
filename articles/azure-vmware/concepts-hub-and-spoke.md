@@ -23,7 +23,7 @@ Traffic between the on-premises datacenter, Azure VMware Solution private cloud,
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and Azure VMware Solution through ExpressRoute Global Reach.
 
-:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub and Spoke integration deployment" border="false":::
+:::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub and Spoke integration deployment" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::
 
 The architecture has the following main components:
 
@@ -60,12 +60,12 @@ Because an ExpressRoute gateway doesn't provide transitive routing between its c
 
 * **On-premises to Azure VMware Solution traffic flow**
 
-  :::image type="content" source="media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="On-premises to Azure VMware Solution traffic flow" border="false":::
+  :::image type="content" source="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png" alt-text="On-premises to Azure VMware Solution traffic flow" border="false" lightbox="./media/hub-spoke/on-premises-azure-vmware-solution-traffic-flow.png":::
 
 
 * **Azure VMware Solution to Hub VNET traffic flow**
 
-  :::image type="content" source="media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution to Hub virtual network traffic flow" border="false":::
+  :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png" alt-text="Azure VMware Solution to Hub virtual network traffic flow" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-vnet-traffic-flow.png":::
 
 
 You can find more details about Azure VMware Solution networking and connectivity concepts in the [Azure VMware Solution product documentation](./concepts-networking.md).

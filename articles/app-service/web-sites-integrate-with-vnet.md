@@ -145,6 +145,10 @@ Three charges are related to the use of the gateway-required VNet Integration fe
 
 ## Troubleshooting
 
+> [!NOTE]
+> VNET integration is not supported for Docker Compose scenarios in App Service.
+>
+
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
 ## Automation
