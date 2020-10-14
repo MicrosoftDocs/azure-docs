@@ -67,7 +67,7 @@ The following architecture diagram shows the implementation.
 
     - [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Used to store and retrieve settings.
 
-    - [Application Insights](../azure-monitor/app/app-insights-overview.md#:~:text=Application%20Insights%2C%20a%20feature%20of%20Azure%20Monitor%2C%20is,professionals.%20Use%20it%20to%20monitor%20your%20live%20applications) (optional): Used to log in to both the API and the admin portal.
+    - [Application Insights](../azure-monitor/app/app-insights-overview.md) (optional): Used to log in to both the API and the admin portal.
 
 3. Deploy the BRIMS API and the BRIMS administration portal in your Azure environment.
 
