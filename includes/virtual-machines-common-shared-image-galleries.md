@@ -77,7 +77,7 @@ An **image version** is what you use to create a VM. You can have multiple versi
 The properties of an image version are:
 
 - Version number. This is used as the name of the image version. It is always in the format: MajorVersion.MinorVersion.Patch. When you specify to use **latest** when creating a VM, the latest image is chosen based on the highest MajorVersion, then MinorVersion, then Patch. 
-- Source. The source can be a snapshot, managed disk, OS disk snapshot, or a VHD. 
+- Source. The source can be a VM, managed disk, snapshot, managed image, or another image version. 
 - Exclude from latest. You can keep a version from being used as the latest image version. 
 - End of life date. Date after which VMs can't be created from this image.
 
