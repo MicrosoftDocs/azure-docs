@@ -41,5 +41,5 @@ If you have an Analysis Services server in Azure portal, you can quickly and eas
 
 ## Next steps
 
-[Adventure Works tutorial](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Azure On-premises Data Gateway](analysis-services-gateway.md)  
+[Adventure Works tutorial](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Azure On-premises Data Gateway](analysis-services-gateway.md)
