@@ -2,12 +2,13 @@
 title: Concept - Integrate an Azure VMware Solution deployment in a hub and spoke architecture
 description: Learn about the recommendations for integrating an Azure VMware Solution deployment in an existing or a new hub and spoke architecture on Azure.
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 10/14/2020
 ---
 
 # Integrate Azure VMware Solution in a hub and spoke architecture
 
 In this article, we provide recommendations for integrating an Azure VMware Solution deployment in an existing or a new [Hub and Spoke architecture](/azure/architecture/reference-architectures/hybrid-networking/shared-services) on Azure. 
+
 
 The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 
@@ -20,6 +21,9 @@ The Hub and Spoke scenario assume a hybrid cloud environment with workloads on:
 The *Hub* is an Azure Virtual Network that acts as a central point of connectivity to your on-premises and Azure VMware Solution private cloud. The *Spokes* are virtual networks peered with the Hub to enable cross-virtual network communication.
 
 Traffic between the on-premises datacenter, Azure VMware Solution private cloud, and the Hub goes through Azure ExpressRoute connections. Spoke virtual networks usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Virtual Network, or other PaaS services with [Azure Private Link](../private-link/index.yml) enabled.
+
+>[!IMPORTANT]
+>You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.
 
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and Azure VMware Solution through ExpressRoute Global Reach.
 
@@ -100,14 +104,17 @@ Review Azure VMware Solution specific article on [Application Gateway](./protect
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Second level of traffic segmentation using the Network Security Groups" border="false":::
 
 
-### Jumpbox and Azure Bastion
+### Jump box and Azure Bastion
 
-Access Azure VMware Solution environment with Jumpbox, which is a Windows 10 or Windows Server VM deployed in the shared service subnet within the Hub virtual network.
+Access Azure VMware Solution environment with jump box, which is a Windows 10 or Windows Server VM deployed in the shared service subnet within the Hub virtual network.
 
-As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.yml) service within the Hub virtual network. Azure Bastion provides seamless RDP and SSH access to VMs deployed on Azure without the need to provision public IP addresses to those resources. Once you provision the Azure Bastion service, you can access the selected VM from the Azure portal. After establishing the connection, a new tab opens, showing the Jumpbox desktop, and from that desktop, you can access the Azure VMware Solution private cloud management plane.
+>[!IMPORTANT]
+>Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You cannot use Azure Bastion to connect to Azure VMware Solution VMs since they are not Azure IaaS objects.  
+
+As a security best practice, deploy [Microsoft Azure Bastion](../bastion/index.yml) service within the Hub virtual network. Azure Bastion provides seamless RDP and SSH access to VMs deployed on Azure without the need to provision public IP addresses to those resources. Once you provision the Azure Bastion service, you can access the selected VM from the Azure portal. After establishing the connection, a new tab opens, showing the jump box desktop, and from that desktop, you can access the Azure VMware Solution private cloud management plane.
 
 > [!IMPORTANT]
-> Do not give a public IP address to the Jumpbox VM or expose 3389/TCP port to the public internet. 
+> Do not give a public IP address to the jump box VM or expose 3389/TCP port to the public internet. 
 
 
 :::image type="content" source="media/hub-spoke/azure-bastion-hub-vnet.png" alt-text="Azure Bastion Hub virtual network" border="false":::
