@@ -44,7 +44,7 @@ There could be some rare situations when a data center experiences extended outa
 
 For best practices on HA/DR, see the following Azure guidance on this topic: 
 * The article [*Azure Business Continuity Technical Guidance*](/azure/architecture/framework/resiliency/overview) describes a general framework to help you think about business continuity and disaster recovery. 
-* The [*Disaster recovery and high availability for Azure applications*](/architecture/framework/resiliency/backup-and-recovery) paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
+* The [*Disaster recovery and high availability for Azure applications*](/azure/architecture/framework/resiliency/backup-and-recovery) paper provides architecture guidance on strategies for Azure applications to achieve High Availability (HA) and Disaster Recovery (DR).
 
 ## Next steps 
 
