@@ -156,7 +156,39 @@ The [usage](#usage) section explains `myQueueItem`, which is named by the `name`
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+The following example demonstrates how to read a queue message passed to a function via a trigger.
+
+A Storage queue trigger is defined in *function.json* file where `type` is set to `queueTrigger`.
+
+```json
+{
+  "bindings": [
+    {
+      "name": "QueueItem",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "messages",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
+
+The code in the *Run.ps1* file declares a parameter as `$QueueItem`, which allows you to read the queue message in your function.
+
+```powershell
+# Input bindings are passed in via param block.
+param([string] $QueueItem, $TriggerMetadata)
+
+# Write out the queue message and metadata to the information log.
+Write-Host "PowerShell queue trigger function processed work item: $QueueItem"
+Write-Host "Queue item expiration time: $($TriggerMetadata.ExpirationTime)"
+Write-Host "Queue item insertion time: $($TriggerMetadata.InsertionTime)"
+Write-Host "Queue item next visible time: $($TriggerMetadata.NextVisibleTime)"
+Write-Host "ID: $($TriggerMetadata.Id)"
+Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
+Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
+```
 
 # [Python](#tab/python)
 
@@ -331,7 +363,7 @@ The following table explains the binding configuration properties that you set i
 
 Access the message data by using a method parameter such as `string paramName`. You can bind to any of the following types:
 
-* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code. 
+* Object - The Functions runtime deserializes a JSON payload into an instance of an arbitrary class defined in your code.
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
@@ -359,7 +391,7 @@ The queue item payload is available via `context.bindings.<NAME>` where `<NAME>`
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+Access the queue message via string parameter that matches the name designated by binding's `name` parameter in the *function.json* file.
 
 # [Python](#tab/python)
 
