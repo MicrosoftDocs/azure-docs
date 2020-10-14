@@ -121,6 +121,8 @@
     href: authentication-flows-app-scenarios.md
   - name: Identity platform best practices
     href: identity-platform-integration-checklist.md
+  - name: Mobile single sign-on
+    href: mobile-sso-support-overview.md
   - name: Application scenarios
     displayName: App scenarios
     items:
