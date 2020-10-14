@@ -48,7 +48,7 @@ Fill out these values:
 
 Switch to the **Auto-shutdown** page to see its settings. Auto-shutdown allows you to automatically shut down all machines in a lab at a scheduled time each day.
 
-![auto-shutdown](./media/devtest-lab-create-lab/autoshutdown.png)
+![Auto-shutdown tab](./media/devtest-lab-create-lab/auto-shutdown.png)
 
 On the page, you can enable **Auto-shutdown** and define the parameters for the automatic shutting down of all the lab's VMs. The auto-shutdown feature is mainly a cost-saving feature whereby you can specify when you want the VM to automatically be shut down. You can change auto-shutdown settings after creating the lab by following the steps outlined in the article [Manage all policies for a lab in Azure DevTest Labs](./devtest-lab-set-lab-policy.md#set-auto-shutdown).
 
@@ -68,13 +68,13 @@ Enter **NAME** and **VALUE** information for **Tags** if you want to create cust
 
 Once done, select **Create**. You can monitor the status of the lab creation process by watching the **Notifications** area at the top-right of the portal page. 
 
-![Create tab ](./media/devtest-lab-create-lab/create.png)
+![Create tab](./media/devtest-lab-create-lab/create1.png)
 
 ## Completed the creation
 
 Once completed, the **Go to resource** button appears at the bottom of the page and in the notification window. Alternatively, refresh the **DevTest Labs** page to see the newly created lab in the list of labs.  
 
-![Creating the service](./media/devtest-lab-create-lab/creating.png)
+![Creating the service](./media/devtest-lab-create-lab/create2.png)
 
 Press **Go to resource** button and you will be brought to the home page of your new DevTest Labs account.
 
