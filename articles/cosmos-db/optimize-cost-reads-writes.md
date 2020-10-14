@@ -29,7 +29,7 @@ Read operations in Azure Cosmos DB are typically ordered from fastest/most effic
 
 ### Role of the consistency level
 
-When using either the **strong** or **bounded staleness** [consistency levels](consistency-level.md), the RU cost of any read operation (point read or query) is doubled.
+When using either the **strong** or **bounded staleness** [consistency levels](consistency-levels.md), the RU cost of any read operation (point read or query) is doubled.
 
 ### Point reads
 
