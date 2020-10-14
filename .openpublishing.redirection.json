@@ -39778,6 +39778,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/speech-service/how-to-phrase-lists.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/speech-service/how-to-customize-voice-font.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice",
       "redirect_document_id": true

@@ -33,8 +33,6 @@
         - name: Use compressed audio input formats
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
-        - name: Improve accuracy with Phrase Lists
-          href: how-to-phrase-lists.md
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
         - name: Use automatic source language detection
