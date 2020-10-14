@@ -40,9 +40,9 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 
 ```xml
 <cross-domain>
-    <cross-domain>
+    <cross-domain-policy>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain>
+    </cross-domain-policy>
 </cross-domain>
 ```
 
