@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 > * Create an A and TXT record for your custom domain
 > * Create a CNAME record for your custom domain
 > * Test the new records
-> * Add custom host names you your web app
+> * Add custom host names to your web app
 > * Test the custom host names
 
 

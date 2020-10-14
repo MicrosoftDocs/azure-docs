@@ -4,7 +4,7 @@ description: Design high-performance applications using Azure premium SSD manage
 author: roygara
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 06/27/2017
+ms.date: 10/05/2020
 ms.author: rogarana
 ms.subservice: disks
 ---
@@ -125,7 +125,7 @@ The PerfMon counters are available for processor, memory and, each logical disk 
 | **Max. Memory** |Amount of memory required to run application smoothly |% Committed Bytes in Use |Use vmstat |
 | **Max. CPU** |Amount CPU required to run application smoothly |% Processor time |%util |
 
-Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](https://msdn.microsoft.com/library/aa645516.aspx).
+Learn more about [iostat](https://linux.die.net/man/1/iostat) and [PerfMon](/windows/win32/perfctrs/performance-counters-portal).
 
 
 
@@ -300,45 +300,11 @@ As an example, you can apply these guidelines to SQL Server running on Premium S
 
 ## Optimize performance on Linux VMs
 
-For all premium SSDs or ultra disks with cache set to **ReadOnly** or **None**, you must disable "barriers" when you mount the file system. You don't need barriers in this scenario because the writes to premium storage disks are durable for these cache settings. When the write request successfully finishes, data has been written to the persistent store. To disable "barriers," use one of the following methods. Choose the one for your file system:
-  
-* For **reiserFS**, to disable barriers, use the  `barrier=none` mount option. (To enable barriers, use `barrier=flush`.)
-* For **ext3/ext4**, to disable barriers, use the `barrier=0` mount option. (To enable barriers, use `barrier=1`.)
-* For **XFS**, to disable barriers, use the `nobarrier` mount option. (To enable barriers, use `barrier`.)
-* For premium storage disks with cache set to **ReadWrite**, enable barriers for write durability.
-* For volume labels to persist after you restart the VM, you must update /etc/fstab with the universally unique identifier (UUID) references to the disks. For more information, see [Add a managed disk to a Linux VM](./linux/add-disk.md).
+For all premium SSDs or ultra disks, you may be able to disable “barriers” for file systems on the disk in order to improve performance when it is known that there are no caches that could lose data.  If Azure disk caching is set to ReadOnly or None, you can disable barriers.  But if caching is set to ReadWrite, barriers should remain enabled to ensure write durability.  Barriers are typically enabled by default, but you can disable barriers using one of the following methods depending on the file system type:
 
-The following Linux distributions have been validated for premium SSDs. For better performance and stability with premium SSDs, we recommend that you upgrade your VMs to one of these versions or newer. 
-
-Some of the versions require the latest Linux Integration Services (LIS), v4.0, for Azure. To download and install a distribution, follow the link listed in the following table. We add images to the list as we complete validation. Our validations show that performance varies for each image. Performance depends on workload characteristics and your image settings. Different images are tuned for different kinds of workloads.
-
-| Distribution | Version | Supported kernel | Details |
-| --- | --- | --- | --- |
-| Ubuntu | 12.04 or newer| 3.2.0-75.110+ | &nbsp; |
-| Ubuntu | 14.04 or newer| 3.13.0-44.73+  | &nbsp; |
-| Debian | 7.x, 8.x or newer| 3.16.7-ckt4-1+ | &nbsp; |
-| SUSE | SLES 12 or newer| 3.12.36-38.1+ | &nbsp; |
-| SUSE | SLES 11 SP4 or newer| 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+ or newer| 3.18.4+ | &nbsp; |
-| CentOS | 6.5, 6.6, 6.7, 7.0, or newer| &nbsp; | [LIS4 required](https://www.microsoft.com/download/details.aspx?id=55106) <br> *See note in the next section* |
-| CentOS | 7.1+ or newer| 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://www.microsoft.com/download/details.aspx?id=55106) <br> *See note in the next section* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+, or newer | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+, or newer | &nbsp; | UEK4 or RHCK |
-| Oracle | 7.0-7.1 or newer | &nbsp; | UEK4 or RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-| Oracle | 6.4-6.7 or newer | &nbsp; | UEK4 or RHCK w/[LIS4](https://www.microsoft.com/download/details.aspx?id=55106) |
-
-### LIS drivers for OpenLogic CentOS
-
-If you're running OpenLogic CentOS VMs, run the following command to install the latest drivers:
-
-```
-sudo yum remove hypervkvpd  ## (Might return an error if not installed. That's OK.)
-sudo yum install microsoft-hyper-v
-sudo reboot
-```
-
-In some cases the command above will upgrade the kernel as well. If a kernel update is required then you may need to run the above commands again after rebooting to fully install the microsoft-hyper-v package.
-
+* For **reiserFS**, use the barrier=none mount option to disable barriers.  To explicitly enable barriers, use barrier=flush.
+* For **ext3/ext4**, use the barrier=0 mount option to disable barriers.  To explicitly enable barriers, use barrier=1.
+* For **XFS**, use the nobarrier mount option to disable barriers.  To explicitly enable barriers, use barrier.  Note that in later Linux kernel versions, the design of XFS file system always ensures durability, and disabling barriers has no effect.  
 
 ## Disk striping
 
@@ -372,7 +338,7 @@ There are configuration settings that you can alter to influence this multi-thre
 
 For example, say your application using SQL Server is executing a large query and an index operation at the same time. Let us assume that you wanted the index operation to be more performant compared to the large query. In such a case, you can set MAXDOP value of the index operation to be higher than the MAXDOP value for the query. This way, SQL Server has more number of processors that it can leverage for the index operation compared to the number of processors it can dedicate to the large query. Remember, you do not control the number of threads SQL Server will use for each operation. You can control the maximum number of processors being dedicated for multi-threading.
 
-Learn more about [Degrees of Parallelism](https://technet.microsoft.com/library/ms188611.aspx) in SQL Server. Find out such settings that influence multi-threading in your application and their configurations to optimize performance.
+Learn more about [Degrees of Parallelism](/previous-versions/sql/sql-server-2008-r2/ms188611(v=sql.105)) in SQL Server. Find out such settings that influence multi-threading in your application and their configurations to optimize performance.
 
 ## Queue depth
 

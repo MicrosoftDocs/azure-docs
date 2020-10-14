@@ -23,7 +23,7 @@ For greater control, certain types of enterprise applications can be configured 
 > When you assign a group to an application, only users in the group will have access. The assignment does not cascade to nested groups.
 
 > [!NOTE]
-> Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Office 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
+> Group-based assignment requires Azure Active Directory Premium P1 or P2 edition. Group-based assignment is supported for Security groups only. Nested group memberships and Microsoft 365 groups are not currently supported. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory). 
 
 ## Configure an application to require user assignment
 
@@ -50,7 +50,10 @@ To require user assignment for an application:
 6. Select the **Save** button at the top of the screen.
 
 ## Assign or unassign users, and groups, for an app using the Azure portal
-To learn how to assign, or unassign, a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-application-portal-assign-users.md). 
+To learn how to assign, or unassign, a user or group using the Azure portal, see the [Quickstart Series on Application Management](add-application-portal-assign-users.md).
+
+## Assign or unassign users, and groups, for an app using the Graph API
+You can use the Graph API to assign or unassign users, and groups, for an app. To learn more, see [App role assignments](https://docs.microsoft.com/graph/api/resources/approleassignment).
 
 ## Assign users, and groups, to an app using PowerShell
 1. Open an elevated Windows PowerShell command prompt.

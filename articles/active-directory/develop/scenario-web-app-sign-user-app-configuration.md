@@ -92,7 +92,7 @@ In ASP.NET Core, these settings are located in the [appsettings.json](https://gi
     // Client ID (application ID) obtained from the Azure portal
     "ClientId": "[Enter the Client Id]",
     "CallbackPath": "/signin-oidc",
-    "SignedOutCallbackPath ": "/signout-oidc"
+    "SignedOutCallbackPath": "/signout-oidc"
   }
 }
 ```

@@ -94,7 +94,7 @@ Set up an ingestion pipeline to load [weather data](https://catalog.data.gov/dat
 
 1. **Create a new Azure Analysis Services cluster** - [Create an instance of Azure Analysis services](../analysis-services/analysis-services-create-server.md) in the same region as the Azure Cosmos account and the Databricks cluster.
 
-1. **Create a new Analysis Services Tabular Project in Visual Studio** -  [Install the SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017) and create an Analysis Services Tabular project in Visual Studio.
+1. **Create a new Analysis Services Tabular Project in Visual Studio** -  [Install the SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017&preserve-view=true) and create an Analysis Services Tabular project in Visual Studio.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="Create Azure Analysis Services project":::
 

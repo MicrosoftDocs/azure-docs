@@ -18,7 +18,7 @@ ms.service: digital-twins
 
 # Move an Azure Digital Twins instance to a different Azure region
 
-If you need to move your Azure Digital Twins instance from one region to another, the current process is to **recreate your resources in the new region**, and then (optionally) delete the original resources. At the end of this process, you will be working with a new Azure Digital Twins instance that is identical to the first, except for the updated location.
+If you need to move your Azure Digital Twins instance from one region to another, the current process is to **recreate your resources in the new region**, and then delete the original resources. At the end of this process, you will be working with a new Azure Digital Twins instance that is identical to the first, except for the updated location.
 
 This article provides guidance on how to do a complete move, copying over everything you'll need to make the new instance match the original.
 
@@ -29,7 +29,7 @@ This process includes the following steps:
     - Upload original models, twins, and graph.
     - Recreate endpoints and routes.
     - Re-link connected resources.
-4. Clean up source resources (optional): Delete original instance.
+4. Clean up source resources: Delete original instance.
 
 ## Prerequisites
 
@@ -50,20 +50,34 @@ Here are some questions you may want to consider:
     - Device Provisioning Service (DPS)
 * What other **personal or company apps** do I have that connect to my instance?
 
-You can gather this information using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+You can gather this information using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md), [Azure Digital Twins CLI commands](how-to-use-cli.md), or the [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
 ## Prepare
 
-In this section, you will prepare to recreate your instance by **downloading your original models, twins, and graph** from your original instance. You will do this using the [Azure Digital Twins (ADT) Explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
+In this section, you will prepare to recreate your instance by **downloading your original models, twins, and graph** from your original instance. This article does this using the [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) sample.
 
 >[!NOTE]
 >You may already have files containing the models and/or the graph in your instance. If so, you do not need to download everything again—just the pieces you are missing or things that may have changed since you originally uploaded these files (such as twins that may have been updated with new data).
 
+### Limitations of ADT Explorer
+
+The [Azure Digital Twins (ADT) Explorer sample](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) is a client app sample that supports a visual representation of your graph, and provides visual interaction with your instance. This article shows how to use it to download, and later re-upload, your models, twins, and graphs.
+
+Please note, however, that this is a **sample** and not a complete tool. It has not been stress tested, and was not built to handle graphs of a large size. Consequently, please keep in mind the following out-of-the-box sample limitations:
+* The sample has currently only been tested on graph sizes up to 1000 nodes and 2000 relationships
+* The sample does not support retrying in the case of any intermittent failures
+* The sample will not necessarily notify the user if data uploaded is incomplete
+* The sample doesn't handle errors resulting from very large graphs exceeding available resources like memory
+
+If the sample is not able to handle the size of your graph, you can export and import the graph using other Azure Digital Twins developer tools:
+* [Azure Digital Twins CLI commands](how-to-use-cli.md)
+* [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+
 ### Set up ADT Explorer application
 
-First, download the sample application code and set it up to run on your machine. 
+To proceed with ADT Explorer, first download the sample application code and set it up to run on your machine. 
 
-Navigate to the sample here: [Azure Digital Twins (ADT) explorer](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**ADT_Explorer.zip**_. Unzip the file.
+Navigate to the sample here: [Azure Digital Twins (ADT) explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Hit the *Download ZIP* button to download a *.ZIP* file of this sample code to your machine as _**ADT_Explorer.zip**_. Unzip the file.
 
 Next, set up permissions for ADT Explorer to run on your machine. To do this, follow the steps in the [*Set ADT Explorer permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) section of the Azure Digital Twins quickstart.
 
@@ -100,7 +114,7 @@ Next, you will complete the "move" of your instance by creating a new instance i
 
 ### Create a new instance
 
-First, **create a new instance of Azure Digital Twins in your target region**. To do this, follow the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md), keeping these pointers in mind:
+First, **create a new instance of Azure Digital Twins in your target region**. To do this, follow the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md), keeping these pointers in mind:
 * You can keep the same name for the new instance **if** it is in a different resource group. If you need to use the same resource group that contains your original instance, then your new instance will need its own distinct name.
 * Enter the target new region when prompted for a location.
 * You do **not need** to recreate the app registration. Your new instance can reuse the same app registration you already have.
@@ -206,14 +220,14 @@ After completing this step, your new instance in the target region should be a c
 To verify that your new instance was set up correctly, you can use the following tools:
 * The [**Azure portal**](https://portal.azure.com) (good for verifying that your new instance exists and is in the correct target region; also good for verifying endpoints and routes, and connections to other Azure services)
 * The [Azure Digital Twins **CLI commands**](how-to-use-cli.md) (good for verifying that your new instance exists and is in the correct target region; also can be used to verify instance data)
-* [**ADT Explorer**](https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (good for verifying instance data like models, twins, and graph)
+* [**ADT Explorer**](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) (good for verifying instance data like models, twins, and graph)
 * The [Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md) (good for verifying instance data like models, twins, and graph; also good for verifying endpoints and routes)
 
 You can also try running any custom apps or end-to-end flows that you had running with your original instance, to help you verify that they're working with the new instance correctly.
 
-## Clean up source resources (optional)
+## Clean up source resources
 
-Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can **delete the original instance** if you would like.
+Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can **delete the original instance**.
 
 You can do this in the [Azure portal](https://portal.azure.com), with the [CLI](how-to-use-cli.md), or with the [control plane APIs](how-to-use-apis-sdks.md#overview-control-plane-apis).
 

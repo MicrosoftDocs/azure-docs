@@ -15,20 +15,20 @@ ms.reviewer: japere
 
 # Troubleshoot problems signing in to an application from Azure AD My Apps
 
-My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. 
+My Apps is a web-based portal that enables a user with a work or school account in Azure Active Directory (Azure AD) to view and start cloud-based applications that the Azure AD administrator has granted them access to. My Apps is accessed using a web browser at [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
 To learn more about using Azure AD as an identity provider for an app, see the [What is Application Management in Azure AD](what-is-application-management.md). To get up to speed quickly, check out the [Quickstart Series on Application Management](view-applications-portal.md).
 
 These applications are configured on behalf of the user in the Azure AD portal. The application must be configured properly and assigned to the user or a group the user is a member of to see the application in My Apps. 
 
 The type of apps a user may be seeing fall in the following categories:
--   Microsoft 365 and Office 365 Applications
+-   Microsoft 365 Applications
 -   Microsoft and third-party applications configured with federation-based SSO
 -   Password-based SSO applications
 -   Applications with existing SSO solutions
 
 Here are some things to check if an app is appearing or not appearing.
-- Make sure the app is added to Azure AD and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](view-applications-portal.md).
+- Make sure the app is added to Azure AD and make sure the user is assigned. To learn more, see the [Quickstart Series on Application Management](add-application-portal.md).
 - If an app was recently added, have the user sign out and back in again. 
 - If the app requires a license, such as Office, then make sure the user is assigned the appropriate license.
 - The time it takes for licensing changes can vary depending on the size and complexity of the group.
@@ -158,7 +158,7 @@ To assign a license to a user, follow these steps:
 11. Select the **Assign** button to assign these licenses to this user.
 
 ## Troubleshooting deep links
-Deep links or User access URLs are links your users may use to access their password-SSO applications directly from their browsers URL bars. By navigating to this link, users are automatically signed into the application without having to go to My Apps first. The link is the same one that users use to access these applications from the Office 365 application launcher.
+Deep links or User access URLs are links your users may use to access their password-SSO applications directly from their browsers URL bars. By navigating to this link, users are automatically signed into the application without having to go to My Apps first. The link is the same one that users use to access these applications from the Microsoft 365 application launcher.
 
 ### Checking the deep link
 

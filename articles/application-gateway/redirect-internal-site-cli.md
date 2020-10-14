@@ -16,12 +16,11 @@ You can use the Azure CLI to configure [web traffic redirection](multiple-site-o
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and redirection rule
-> * Create a virtual machine scale set with the backend pool
-> * Create a CNAME record in your domain
+* Set up the network
+* Create an application gateway
+* Add listeners and redirection rule
+* Create a virtual machine scale set with the backend pool
+* Create a CNAME record in your domain
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

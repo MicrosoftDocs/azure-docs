@@ -2,12 +2,12 @@
 title: Metrics, alerts, and diagnostic logs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 10/08/2020
 ms.custom: seodec18
 
 ---
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
- 
+
 This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-platform-metrics.md) and [diagnostic logs](../azure-monitor/platform/platform-logs-overview.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../azure-monitor/platform/alerts-overview.md) so you receive notifications when a metric reaches a specified value.
 
 ## Batch metrics
@@ -52,7 +52,7 @@ You can configure near real-time *metric alerts* that trigger when the value of 
 
 Alerts that trigger on a single data point is not recommended, as metrics are subject to out-of-order delivery, data loss, and/or duplication. When creating your alerts, you can use thresholds to account for these inconsistencies.
 
-For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools. For best results, set a period of 10 or more minutes, where alerts trigger if the average low priority core count falls below the threshold value for the entire period. This allows for more time for metrics to aggregate so that you get more accurate results. 
+For example, you might want to configure a metric alert when your low priority core count falls to a certain level, so you can adjust the composition of your pools. For best results, set a period of 10 or more minutes, where alerts trigger if the average low priority core count falls below the threshold value for the entire period. This allows for more time for metrics to aggregate so that you get more accurate results.
 
 To configure a metric alert in the Azure portal:
 
@@ -82,11 +82,11 @@ A common scenario is to select an Azure Storage account as the log destination. 
 
 Alternately, you can:
 
-- Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-about.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
+- Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-about.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider.
 - Send diagnostic logs to [Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
 
 > [!NOTE]
-> You may incur additional costs to store or process diagnostic log data with Azure services. 
+> You may incur additional costs to store or process diagnostic log data with Azure services.
 
 ### Enable collection of Batch diagnostic logs
 
@@ -150,7 +150,7 @@ Azure Batch service logs, if collected, contain events emitted by the Azure Batc
     },
     "resizeTimeout": "300000",
     "targetDedicatedComputeNodes": 2,
-    "maxTasksPerNode": 1,
+    "taskSlotsPerNode": 1,
     "vmFillType": "Spread",
     "enableAutoscale": false,
     "enableInterNodeCommunication": false,
@@ -165,9 +165,11 @@ Service log events emitted by the Batch service include the following:
 - [Pool delete complete](batch-pool-delete-complete-event.md)
 - [Pool resize start](batch-pool-resize-start-event.md)
 - [Pool resize complete](batch-pool-resize-complete-event.md)
+- [Pool autoscale](batch-pool-autoscale-event.md)
 - [Task start](batch-task-start-event.md)
 - [Task complete](batch-task-complete-event.md)
 - [Task fail](batch-task-fail-event.md)
+- [Task schedule fail](batch-task-schedule-fail-event.md)
 
 ## Next steps
 

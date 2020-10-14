@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 05/21/2020
+ms.date: 10/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,11 +14,13 @@ manager: daveba
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
-ms.custom: contperfq4
+ms.custom: contperfq4, azuread-video-2020
 ---
 # What is Conditional Access?
 
 The modern security perimeter now extends beyond an organization's network to include user and device identity. Organizations can utilize these identity signals as part of their access control decisions. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-AD-Conditional-Access/player]
 
 Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane.
 
@@ -92,6 +94,8 @@ Discover how other organizations use Azure AD Conditional Access to define and i
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features. 
+
+[Sign-in Risk](concept-conditional-access-conditions.md#sign-in-risk) requires access to [Identity Protection](../identity-protection/overview-identity-protection.md)
 
 ## Next steps
 

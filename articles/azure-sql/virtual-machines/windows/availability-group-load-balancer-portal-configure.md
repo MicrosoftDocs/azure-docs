@@ -9,7 +9,7 @@ editor: monicar
 ms.assetid: d1f291e9-9af2-41ba-9d29-9541e3adcfcf
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
@@ -37,7 +37,7 @@ View related articles:
 
 By walking through this article, you create and configure a load balancer in the Azure portal. After the process is complete, you configure the cluster to use the IP address from the load balancer for the availability group listener.
 
-## Create and configure the load balancer in the Azure portal
+## Create & configure load balancer 
 
 In this portion of the task, do the following steps:
 

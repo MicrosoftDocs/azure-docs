@@ -20,6 +20,8 @@
     href: set-up-service-alerts.md
 - name: How-to
   items:
+  - name: Migrate manually
+    href: manual-migration.md
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
@@ -32,6 +34,12 @@
         href: connect-macos.md
       - name: Connect with the iOS client
         href: connect-ios.md
+      - name: Connect with the Microsoft Store client
+        href: connect-microsoft-store.md
+      - name: Connect with Linux devices
+        href: linux-overview.md
+  - name: Configure device redirections
+    href: configure-device-redirections.md
   - name: Set up the PowerShell module
     href: powershell-module.md
   - name: Create a host pool and session hosts
@@ -98,6 +106,8 @@
     href: azure-advisor.md
   - name: Resolve recommendations
     href: azure-advisor-recommendations.md
+  - name: Set up a disaster recovery plan
+    href: disaster-recovery.md
 - name: Concepts
   items:
   - name: Authentication

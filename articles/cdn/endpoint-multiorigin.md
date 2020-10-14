@@ -1,16 +1,16 @@
 ---
-title: Azure CDN endpoint multi-origin
+title: 'Azure CDN endpoint multi-origin (Preview)' 
 description: Get started with Azure CDN endpoint multiple origins.
 services: cdn
 author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 8/20/2020
+ms.date: 9/06/2020
 ms.author: allensu
 ---
 
-# Azure CDN endpoint multi-origin
+# Azure CDN endpoint multi-origin (Preview)
 
 Multi-origin support eliminates downtime and establishes global redundancy. 
 
@@ -20,6 +20,11 @@ Setup one or more origin groups and choose a default origin group. Each origin g
 
 > [!NOTE]
 > Currently this feature is only available from Azure CDN from Microsoft. 
+
+> [!IMPORTANT]
+> Azure CDN endpoint multi-origin is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Create the origin group
 

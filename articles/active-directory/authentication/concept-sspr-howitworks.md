@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/14/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 
@@ -36,7 +36,7 @@ A user can reset or change their password using the [SSPR portal](https://aka.ms
 
 When a user selects the **Can't access your account** link from an application or page, or goes directly to [https://aka.ms/sspr](https://passwordreset.microsoftonline.com), the language used in the SSPR portal is based on the following options:
 
-* By default, the browser locale is used to display the SSPR in the appropriate language. The password reset experience is localized into the same languages that [Office 365 supports](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
+* By default, the browser locale is used to display the SSPR in the appropriate language. The password reset experience is localized into the same languages that [Microsoft 365 supports](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * If you want to link to the SSPR in a specific localized language, append `?mkt=` to the end of the password reset URL along with the required locale.
     * For example, to specify the Spanish *es-us* locale, use `?mkt=es-us` - [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us).
 
@@ -74,7 +74,7 @@ Before users can reset or change their password using SSPR, they must register t
 
 You can enable the option to require a user to complete the SSPR registration if they sign in to any applications using Azure AD. This workflow includes the following applications:
 
-* Office 365
+* Microsoft 365
 * Azure portal
 * Access Panel
 * Federated applications
@@ -223,7 +223,7 @@ SSPR performs the equivalent of an admin-initiated password reset in Active Dire
 
 Password reset and change are fully supported on all business-to-business (B2B) configurations. B2B user password reset is supported in the following three cases:
 
-* **Users from a partner organization with an existing Azure AD tenant**: If the organization you partner with has an existing Azure AD tenant, we respect whatever password reset policies are enabled on that tenant. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Office 365 customers.
+* **Users from a partner organization with an existing Azure AD tenant**: If the organization you partner with has an existing Azure AD tenant, we respect whatever password reset policies are enabled on that tenant. For password reset to work, the partner organization just needs to make sure that Azure AD SSPR is enabled. There is no additional charge for Microsoft 365 customers.
 * **Users who sign up through** self-service sign-up: If the organization you partner with used the [self-service sign-up](../users-groups-roles/directory-self-service-signup.md) feature to get into a tenant, we let them reset the password with the email they registered.
 * **B2B users**: Any new B2B users created by using the new [Azure AD B2B capabilities](../external-identities/what-is-b2b.md) can also reset their passwords with the email they registered during the invite process.
 

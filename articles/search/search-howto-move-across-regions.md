@@ -9,7 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
+ms.date: 09/10/2020
 ---
 
 # Move your Azure Cognitive Search service to another Azure region
@@ -19,7 +19,13 @@ Occasionally, customers ask about moving a search service to another region. Cur
 > [!NOTE]
 > In the Azure portal, all services have an **Export template** command. In the case of Azure Cognitive Search, this command produces a basic definition of a service (name, location, tier, replica, and partition count), but does not recognize the content of your service, nor does it carry over keys, roles, or logs. Although the command exists, we don't recommend using it for moving a search service.
 
-## Guidance for moving a service
+## Prerequisites
+
++ Ensure that the services and features that your account uses are supported in the target region.
+
++ For preview features, ensure that your subscription is approved for the target region.
+
+## Prepare and move
 
 1. Identify dependencies and related services to understand the full impact of relocating a service, in case you need to move more than just Azure Cognitive Search.
 
@@ -37,7 +43,9 @@ Occasionally, customers ask about moving a search service to another region. Cur
 
 1. Update client applications and test suites to use the new service name and API keys, and test all applications.
 
-1. Delete the old service once the new service is fully tested and operational.
+## Discard or clean up
+
+Delete the old service once the new service is fully tested and operational. Deleting the service automatically deletes all content associated with the service.
 
 ## Next steps
 

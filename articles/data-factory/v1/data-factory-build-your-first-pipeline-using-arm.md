@@ -338,7 +338,7 @@ Create a JSON file named **ADFTutorialARM-Parameters.json** that contains parame
    ![Diagram View](./media/data-factory-build-your-first-pipeline-using-arm/DiagramView.png) 
 5. In the Diagram View, double-click the dataset **AzureBlobOutput**. You see that the slice that is currently being processed.
    
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
+    ![Screenshot that shows the AzureBlobOutput dataset.](./media/data-factory-build-your-first-pipeline-using-arm/AzureBlobOutput.png)
 6. When processing is done, you see the slice in **Ready** state. Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.
    
     ![Dataset](./media/data-factory-build-your-first-pipeline-using-arm/SliceReady.png)    

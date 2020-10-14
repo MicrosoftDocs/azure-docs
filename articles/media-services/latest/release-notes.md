@@ -31,17 +31,16 @@ To stay up-to-date with the most recent developments, this article provides you 
 ## Known issues
 
 > [!NOTE]
-> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md) and jobs, get info about accessing APIs, encrypt content. For all other management tasks (for example, manage transforms and jobs), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+> You can use the [Azure portal](https://portal.azure.com/) to manage v3 [live events](live-events-outputs-concept.md), view v3 [assets](assets-concept.md) and jobs, get info about accessing APIs, encrypt content. For all other management tasks (for example, manage transforms and jobs), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 >
 > For details, see: [the Azure portal limitations for Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
-
 
 ## August 2020
 
 ### Dynamic Encryption
-Support for the legacy PlayReady Protected Interoperable File Format (PIFF 1.1) encryption is now available in the Dynamic Packager. This provides support for legacy Smart TV sets from Samsung and LG that implemented the early drafts of the Common Encryption standard (CENC) published by Microsoft.  The PIFF 1.1 format is also known as the encryption format that was previously supported by the Silverlight client library. Today, the only use case scenario for this encryption format is to target the legacy Smart TV market where there remains a non-trivial number of Smart TV's in some regions that only support Smooth Streaming with PIFF 1.1 encryption. 
+Support for the legacy PlayReady Protected Interoperable File Format (PIFF 1.1) encryption is now available in the Dynamic Packager. This provides support for legacy Smart TV sets from Samsung and LG that implemented the early drafts of the Common Encryption standard (CENC) published by Microsoft.  The PIFF 1.1 format is also known as the encryption format that was previously supported by the Silverlight client library. Today, the only use case scenario for this encryption format is to target the legacy Smart TV market where there remains a non-trivial number of Smart TVs in some regions that only support Smooth Streaming with PIFF 1.1 encryption. 
 
-To use the new PIFF 1.1 encryption support, change the encryption value to 'piff' in the URL path of the Streaming Locator. For more details see the [Content Protection overview.](content-protection-overview.md)
+To use the new PIFF 1.1 encryption support, change the encryption value to 'piff' in the URL path of the Streaming Locator. For more details, see the [Content Protection overview.](content-protection-overview.md)
 For Example: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000-0000-0000-000000000000/ignite.ism/manifest(encryption=piff)`|
 
 > [!NOTE]
@@ -53,11 +52,11 @@ For Example: `https://amsv3account-usw22.streaming.media.azure.net/00000000-0000
 
 Live Transcriptions now supports 19 languages and 8 regions.
 
-## Protecting your content with Media Services and Azure AD
+### Protecting your content with Media Services and Azure AD
 
 We published a tutorial called [End-to-End content protection using Azure AD](./azure-ad-content-protection.md).
 
-### High availablity
+### High availability
 
 We published a High Availability with Media Services and Video on Demand (VOD) [overview](./media-services-high-availability-encoding.md) and [sample](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/master/HighAvailabilityEncodingStreaming).
 
@@ -132,13 +131,13 @@ Added support for the following new recommended partner encoders for RTMP live s
 ### File Encoding enhancements
 
 - A new Content Aware Encoding preset is now available. It produces a set of GOP-aligned MP4s by using content-aware encoding. Given any input content, the service performs an initial lightweight analysis of the input content. It uses those results to determine the optimal number of layers, appropriate bit rate, and resolution settings for delivery by adaptive streaming. This preset is particularly effective for low-complexity and medium-complexity videos, where the output files are at lower bit rates but at a quality that still delivers a good experience to viewers. The output will contain MP4 files with video and audio interleaved. For more information, see the [open API specs](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/Encoding.json).
-- Improved performance and multi-threading for the re-sizer in Standard Encoder. Under specific conditions, customer should see a performance boost between 5-40% VOD encoding. Low complexity content encoded into multiple bit-rates will see the highest performance increases. 
-- Standard encoding now maintains a regular GOP cadence for variable frame rate  (VFR) contents during VOD encoding when using the time-based GOP setting.  This means that customer submitting mixed frame rate content that varies between 15-30 fps for example should now see regular GOP distances calculated on output to adaptive bitrate streaming MP4 files. This will improve the ability to switch seamlessly between tracks when delivering over HLS or DASH. 
+- Improved performance and multi-threading for the resizer in Standard Encoder. Under specific conditions, customer should see a performance boost between 5-40% VOD encoding. Low complexity content encoded into multiple bit-rates will see the highest performance increases. 
+- Standard encoding now maintains a regular GOP cadence for variable frame rate  (VFR) contents during VOD encoding when using the time-based GOP setting.  This means that customer submitting mixed frame rate content that varies between 15-30 fps, for example,  should now see regular GOP distances calculated on output to adaptive bitrate streaming MP4 files. This will improve the ability to switch seamlessly between tracks when delivering over HLS or DASH. 
 -  Improved AV sync for variable frame rate (VFR) source content
 
 ### Video Indexer, Video analytics
 
-- Keyframes extracted using the VideoAnalyzer preset are now in the original resolution of the video instead of being resized. High resolution keyframe extraction gives you original quality images and allows you to make use of the image-based artificial intelligence models provided by the Microsoft Computer Vision and Custom Vision services to gain even more insights from your video.
+- Keyframes extracted using the VideoAnalyzer preset are now in the original resolution of the video instead of being resized. High-resolution keyframe extraction gives you original quality images and allows you to make use of the image-based artificial intelligence models provided by the Microsoft Computer Vision and Custom Vision services to gain even more insights from your video.
 
 ## September 2019
 
@@ -152,7 +151,7 @@ Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear 
 
 #### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) topic. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces these legacy media processors.
 
 For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
@@ -170,9 +169,9 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 
 #### Deprecation of media processors
 
-We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired. For the retirement dates, see this [legacy components](../previous/legacy-components.md) topic.
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired. For the retirement dates, see this [legacy components](../previous/legacy-components.md) article.
 
-For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+For details, see [Migrate WAME to Media Encoder Standard](../previous/migrate-windows-azure-media-encoder.md) and [Migrate AME to Media Encoder Standard](../previous/migrate-azure-media-encoder.md).
  
 ## July 2019
 
@@ -220,8 +219,8 @@ For more information, see [Clouds and regions in which Media Services v3 exists]
 
 Added updates that include Media Services performance improvements.
 
-* The maximum file size supported for processing was updated. See, [Quotas and limits](limits-quotas-constraints.md).
-* [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* The maximum file size supported for processing was updated. See, [Quotas, and limits](limits-quotas-constraints.md).
+* [Encoding speeds improvements](concept-media-reserved-units.md).
 
 ## April 2019
 
@@ -261,21 +260,21 @@ Updates from the GA release of the V3 API include:
 
 ## November 2018
 
-The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest) – v 2.0.50.
+The CLI 2.0 module is now available for [Azure Media Services v3 GA](/cli/azure/ams?view=azure-cli-latest&preserve-view=true) – v 2.0.50.
 
 ### New commands
 
-- [az ams account](/cli/azure/ams/account?view=azure-cli-latest)
-- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest)
-- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest)
-- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
+- [az ams account](/cli/azure/ams/account?view=azure-cli-latest&preserve-view=true)
+- [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams asset](/cli/azure/ams/asset?view=azure-cli-latest&preserve-view=true)
+- [az ams asset-filter](/cli/azure/ams/asset-filter?view=azure-cli-latest&preserve-view=true)
+- [az ams content-key-policy](/cli/azure/ams/content-key-policy?view=azure-cli-latest&preserve-view=true)
+- [az ams job](/cli/azure/ams/job?view=azure-cli-latest&preserve-view=true)
+- [az ams live-event](/cli/azure/ams/live-event?view=azure-cli-latest&preserve-view=true)
+- [az ams live-output](/cli/azure/ams/live-output?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-endpoint](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest&preserve-view=true)
+- [az ams streaming-locator](/cli/azure/ams/streaming-locator?view=azure-cli-latest&preserve-view=true)
+- [az ams account mru](/cli/azure/ams/account/mru?view=azure-cli-latest&preserve-view=true) - enables you to manage Media Reserved Units. For more information, see [Scale Media Reserved Units](media-reserved-units-cli-how-to.md).
 
 ### New features and breaking changes
 

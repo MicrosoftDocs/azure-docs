@@ -80,7 +80,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 **Supported:**
 
-* [Office 365](https://aka.ms/ExpressRouteOffice365)
+* [Microsoft 365](/microsoft-365/enterprise/azure-expressroute)
 * Power BI - Available via an Azure Regional Community, see [here](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) for how to find out the region of your Power BI tenant.
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
@@ -154,7 +154,7 @@ See [here](https://docs.microsoft.com/azure/expressroute/designing-for-high-avai
 
 ### How I do implement redundancy on Microsoft peering?
 
-It is highly recommended when customers are using Microsoft peering to access Azure public services like Azure Storage or Azure SQL, as well as customers that are using Microsoft peering for Office 365 that they implement multiple circuits in different peering locations to avoid single points of failure. Customers can either advertise the same prefix on both circuits and use [AS PATH prepending](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) or advertise different prefixes to determine path from on-premises.
+It is highly recommended when customers are using Microsoft peering to access Azure public services like Azure Storage or Azure SQL, as well as customers that are using Microsoft peering for Microsoft 365 that they implement multiple circuits in different peering locations to avoid single points of failure. Customers can either advertise the same prefix on both circuits and use [AS PATH prepending](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) or advertise different prefixes to determine path from on-premises.
 
 See [here](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) for designing for high availability.
 
@@ -289,7 +289,7 @@ ExpressRoute premium is a collection of the following features:
 
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
 * Increased number of VNets and ExpressRoute Global Reach connections that can be enabled on an ExpressRoute circuit (default is 10). For more information, see the [ExpressRoute Limits](#limits) table.
-* Connectivity to Office 365
+* Connectivity to Microsoft 365
 * Global connectivity over the Microsoft core network. You can now link a VNet in one geopolitical region with an ExpressRoute circuit in another region.<br>
     **Examples:**
 
@@ -340,43 +340,43 @@ ExpressRoute Local also has the same limits on resources (e.g. the number of VNe
 ### Where is ExpressRoute Local available and which Azure regions is each peering location mapped to?
 ExpressRoute Local is available at the peering locations where one or two Azure regions are close-by. It is not available at a peering location where there is no Azure region in that state or province or country/region. Please see the exact mappings on [the Locations page](expressroute-locations-providers.md).  
 
-## ExpressRoute for Office 365
+## ExpressRoute for Microsoft 365
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### How do I create an ExpressRoute circuit to connect to Office 365 services?
+### How do I create an ExpressRoute circuit to connect to Microsoft 365 services?
 
 1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) to make sure you meet the requirements.
 2. To ensure that your connectivity needs are met, review the list of service providers and locations in the [ExpressRoute partners and locations](expressroute-locations.md) article.
-3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](https://aka.ms/tune/).
+3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance).
 4. Follow the steps listed in the workflows to set up connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Make sure that you have enabled ExpressRoute premium add-on when configuring connectivity to Office 365 services.
+> Make sure that you have enabled ExpressRoute premium add-on when configuring connectivity to Microsoft 365 services.
 > 
 > 
 
-### Can my existing ExpressRoute circuits support connectivity to Office 365 services?
+### Can my existing ExpressRoute circuits support connectivity to Microsoft 365 services?
 
-Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Make sure that you have sufficient capacity to connect to Office 365 services and that you have enabled premium add-on. [Network planning and performance tuning for Office 365](https://aka.ms/tune/) helps you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
+Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Microsoft 365 services. Make sure that you have sufficient capacity to connect to Microsoft 365 services and that you have enabled premium add-on. [Network planning and performance tuning for Microsoft 365](/microsoft-365/enterprise/network-planning-and-performance) helps you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
-### What Office 365 services can be accessed over an ExpressRoute connection?
+### What Microsoft 365 services can be accessed over an ExpressRoute connection?
 
-Refer to [Office 365 URLs and IP address ranges](https://aka.ms/o365endpoints) page for an up-to-date list of services supported over ExpressRoute.
+Refer to [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) page for an up-to-date list of services supported over ExpressRoute.
 
-### How much does ExpressRoute for Office 365 services cost?
+### How much does ExpressRoute for Microsoft 365 services cost?
 
-Office 365 services require premium add-on to be enabled. See the [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) for costs.
+Microsoft 365 services require premium add-on to be enabled. See the [pricing details page](https://azure.microsoft.com/pricing/details/expressroute/) for costs.
 
-### What regions is ExpressRoute for Office 365 supported in?
+### What regions is ExpressRoute for Microsoft 365 supported in?
 
 See [ExpressRoute partners and locations](expressroute-locations.md) for information.
 
-### Can I access Office 365 over the Internet, even if ExpressRoute was configured for my organization?
+### Can I access Microsoft 365 over the Internet, even if ExpressRoute was configured for my organization?
 
-Yes. Office 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. Please check with your organization's networking team if the network at your location is configured to connect to Office 365 services through ExpressRoute.
+Yes. Microsoft 365 service endpoints are reachable through the Internet, even though ExpressRoute has been configured for your network. Please check with your organization's networking team if the network at your location is configured to connect to Microsoft 365 services through ExpressRoute.
 
-### How can I plan for high availability for Office 365 network traffic on Azure ExpressRoute?
+### How can I plan for high availability for Microsoft 365 network traffic on Azure ExpressRoute?
 See the recommendation for [High availability and failover with Azure ExpressRoute](https://aka.ms/erhighavailability)
 
 ### Can I access Office 365 US Government Community (GCC) services over an Azure US Government ExpressRoute circuit?
@@ -391,11 +391,11 @@ You will not see any routes. You have to attach a route filter to your circuit t
 
 ### I turned on Microsoft peering and now I am trying to select Exchange Online, but it is giving me an error that I am not authorized to do it.
 
-When using route filters, any customer can turn on Microsoft peering. However, for consuming Office 365 services, you still need to get authorized by Office 365.
+When using route filters, any customer can turn on Microsoft peering. However, for consuming Microsoft 365 services, you still need to get authorized by Microsoft 365.
 
 ### I enabled Microsoft peering prior to August 1, 2017, how can I take advantage of route filters?
 
-Your existing circuit will continue advertising the prefixes for Office 365. If you want to add Azure public prefixes advertisements over the same Microsoft peering, you can create a route filter, select the services you need advertised (including the Office 365 service(s) you need), and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
+Your existing circuit will continue advertising the prefixes for Microsoft 365. If you want to add Azure public prefixes advertisements over the same Microsoft peering, you can create a route filter, select the services you need advertised (including the Microsoft 365 service(s) you need), and attach the filter to your Microsoft peering. For instructions, see [Configure route filters for Microsoft peering](how-to-routefilter-powershell.md).
 
 ### I have Microsoft peering at one location, now I am trying to enable it at another location and I am not seeing any prefixes.
 

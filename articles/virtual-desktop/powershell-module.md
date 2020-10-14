@@ -35,7 +35,7 @@ Next, run the following cmdlet to connect to Azure:
 Connect-AzAccount
 ```
 
->![IMPORTANT]
+>[!IMPORTANT]
 >If you're connecting to the US Gov portal, run this cmdlet instead:
 > 
 > ```powershell

@@ -1,20 +1,22 @@
 ---
-title: "Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool - Form Recognizer"
+title: "Quickstart: Label forms, train a model, and analyze forms using the sample labeling tool - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom model with the labeled documents and use the model to extract key/value pairs.
+description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/25/2020
+ms.date: 09/30/2020
 ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: document processing
 ---
 
 # Train a Form Recognizer model with labels using the sample labeling tool
 
-In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about this feature.
+In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
 
 > [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
@@ -26,7 +28,7 @@ To complete this quickstart, you must have:
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
-* A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
+* A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
 ## Create a Form Recognizer resource
 
@@ -221,7 +223,9 @@ The following value types and variations are currently supported:
 > [!NOTE]
 > See these rules for date formatting:
 > 
-> The following characters can be used as DMY date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
+> You must specify a format (`dmy`, `mdy`, `ymd`) for date formatting to work.
+>
+> The following characters can be used as date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
@@ -230,11 +234,11 @@ The following value types and variations are currently supported:
 > * 1-1-2020
 > * 1-01-20
 >
-> If a DMY date string has eight digits, the delimiter is optional:
+> If a date string has eight digits, the delimiter is optional:
 > * 01012020
 > * 01 01 2020
 >
-> The month can also be written as its full or short name. If the name is used, delimiter characters are optional:
+> The month can also be written as its full or short name. If the name is used, delimiter characters are optional. However, this format may be recognized less accurately than others.
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020
@@ -301,7 +305,10 @@ Finally, go to the main page (house icon) and click Open Cloud Project. Then sel
 
 ## Next steps
 
-In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to integrate the labeling tool into your own application, use the REST APIs that deal with labeled data training.
+In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
 > [Train with labels using Python](./python-labeled-data.md)
+
+* [What is Form Recognizer?](../overview.md)
+* [Form Recognizer client library quickstarts](client-library.md)

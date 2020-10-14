@@ -102,6 +102,9 @@
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
+  - name: Azure Automanage
+    tocHref: https://azure.microsoft.com/services/azure-automanage/
+    topicHref: https://azure.microsoft.com/services/azure-automanage/
   - name: Static Web Apps
     tocHref: /azure/static-web-apps/
     topicHref: /azure/static-web-apps/
@@ -114,6 +117,16 @@
   - name: Synapse Analytics
     tocHref: /azure/synapse-analytics/
     topicHref: /azure/synapse-analytics/
+  - name: Azure Arc
+    tocHref: /azure/azure-arc/
+    topicHref: /azure/azure-arc/
+    items:
+      - name: Arc enabled Kubernetes
+        tocHref: /azure/azure-arc/kubernetes/
+        topicHref: /azure/azure-arc/kubernetes/
+      - name: Arc enabled servers
+        tocHref: /azure/azure-arc/servers/
+        topicHref: /azure/azure-arc/servers/
   - name: ASC for IoT
     tocHref: /azure/asc-for-iot/
     topicHref: /azure/asc-for-iot/
@@ -379,7 +392,7 @@
       topicHref: /azure/cognitive-services/LUIS/
     - name: Linguistic Analysis
       tocHref: /azure/cognitive-services/linguisticanalysisapi/
-      topicHref: /azure/cognitive-services/linguisticanalysisapi/home
+      topicHref: https://www.programmableweb.com/api/microsoft-cognitive-services-linguistic-analysis
     - name: QnA Maker
       tocHref: /azure/cognitive-services/qnamaker/
       topicHref: /azure/cognitive-services/qnamaker/home
@@ -403,7 +416,7 @@
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
-      topicHref: /azure/cognitive-services/web-language-model/home
+      topicHref: https://www.programmableweb.com/sdk/microsoft-cognitive-services-web-language-model-c-sdk-microsoft
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
       topicHref: /azure/cognitive-services/qnamaker/overview/overview
@@ -422,6 +435,9 @@
     - name: Immersive Reader
       tocHref: /azure/cognitive-services/immersive-reader/
       topicHref: /azure/cognitive-services/immersive-reader/
+  - name: Communication Services
+    tocHref: /azure/communication-services/
+    topicHref: /azure/communication-services/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -585,6 +601,9 @@
       - name: Secrets
         tocHref: /azure/key-vault/secrets/
         topicHref: /azure/key-vault/secrets/
+      - name: Managed HSM
+        tocHref: /azure/key-vault/managed-hsm/
+        topicHref: /azure/key-vault/managed-hsm/
   - name: Azure Kinect DK
     tocHref: /azure/kinect-dk/
     topicHref: /azure/kinect-dk/
@@ -610,12 +629,9 @@
     - name: Data Science Virtual Machine
       tocHref: /azure/machine-learning/data-science-virtual-machine
       topicHref: /azure/machine-learning/data-science-virtual-machine/
-  - name: Marketplace Consumer
-    tocHref: /azure/marketplace-consumer/
+  - name: Commercial marketplace
+    tocHref: /azure/marketplace
     topicHref: /azure/marketplace/
-  - name: Marketplace Publishing
-    tocHref: /azure/marketplace-publishing/
-    topicHref: /azure/marketplace/marketplace-publishers-guide
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/

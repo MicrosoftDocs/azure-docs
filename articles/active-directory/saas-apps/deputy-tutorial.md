@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Deputy Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier", "Reply URL", and "Save" button highlighted.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
@@ -167,7 +167,7 @@ To configure Azure AD single sign-on with Deputy, perform the following steps:
 
 1. Navigate to the following URL:`https://(your-subdomain).deputy.com/exec/config/system_config`. Go to **Security Settings** and click **Edit**.
    
-    ![Configure Single Sign-On](./media/deputy-tutorial/tutorial_deputy_004.png)
+    ![Screenshot that shows the "System Config" page with the "Security Settings - Edit" button selected.](./media/deputy-tutorial/tutorial_deputy_004.png)
 
 2. On this **Security Settings** page, perform below steps.
 

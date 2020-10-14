@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 09/25/2020
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps by using an integration service environment (ISE)
@@ -42,7 +42,14 @@ You can also create an ISE by using the [sample Azure Resource Manager quickstar
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). 
   > For pricing rates, see [Logic Apps pricing](../logic-apps/logic-apps-pricing.md).
 
-* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by internal Logic Apps components, such as connectors and caching for performance. You can create the subnets in advance, or you can wait until you create your ISE so that you can create subnets at the same time. However, before you create your subnets, review the [subnet requirements](#create-subnet).
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). Your virtual network needs to have four *empty* subnets, which are required for creating and deploying resources in your ISE and are used by these internal and hidden components:
+
+  * Logic Apps Compute
+  * Internal App Service Environment (connectors)
+  * Internal API Management (connectors)
+  * Internal Redis for caching and performance
+  
+  You can create the subnets in advance, or you can wait until you create your ISE so that you can create subnets at the same time. However, before you create your subnets, review the [subnet requirements](#create-subnet).
 
   > [!IMPORTANT]
   >
@@ -161,6 +168,8 @@ If you don't permit access for these dependencies, your ISE deployment fails and
 * [Azure Traffic Manager management addresses](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json)
 
 * [Logic Apps inbound and outbound addresses for the ISE region](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses-and-service-tags)
+
+* [Azure IP addresses for connectors in the ISE region, which are in this download file](https://www.microsoft.com/download/details.aspx?id=56519)
 
 * You need to enable service endpoints for Azure SQL, Storage, Service Bus, and Event Hub because you can't send traffic through a firewall to these services.
 
@@ -283,6 +292,21 @@ If you don't permit access for these dependencies, your ISE deployment fails and
    > connector picker on the Logic App Designer. Before you can use these ISE connectors, you have to manually 
    > [add those connectors to your ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#add-ise-connectors-environment) 
    > so that they appear in the Logic App Designer.
+
+   > [!IMPORTANT]
+   > Managed ISE connectors currently do not support [tags](../azure-resource-manager/management/tag-support.md). If you set up a policy that enforces tagging, trying to add ISE connectors  
+   > might fail with an error similar to this example: 
+   > 
+   > ```json
+   > {
+   >    "error": { 
+   >       "code": "IntergrationServiceEnvironmentManagedApiDefinitionTagsNotSupported", 
+   >       "message": "The tags are not supported in the managed API 'azureblob'."
+   >    }
+   > }
+   > ```
+   > To add ISE connectors, you have to either disable or remove your policy.
+   > 
 
 ## Next steps
 

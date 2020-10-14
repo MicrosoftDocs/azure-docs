@@ -24,7 +24,7 @@ Recommendations on choosing the ideal number of data warehouse units (DWUs) to o
 
 ### Data Warehouse Units
 
-A Synapse SQL pool represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
+A Synapse SQL pool represents a collection of analytic resources that are being provisioned. Analytic resources are defined as a combination of CPU, memory, and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). A DWU represents an abstract, normalized measure of compute resources and performance. A change to your service level alters the number of DWUs that are available to the system. In turn, this change adjusts the performance and cost of your system.
 
 For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. Storage and compute costs are billed separately, so changing data warehouse units does not affect storage costs.
 
@@ -47,7 +47,7 @@ The Service Level Objective (SLO) is the scalability setting that determines the
 The Service Level Objective (SLO) is the scalability setting that determines the cost and performance level of your data warehouse. The service levels for Gen2 SQL pool are measured in data warehouse units (DWU), for example DW2000c.
 
 > [!NOTE]
-> Azure SQL Data Warehouse Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+> Azure Synapse Analytics Gen2 recently added additional scale capabilities to support compute tiers as low as 100 cDWU. Existing data warehouses currently on Gen1 that require the lower compute tiers can now upgrade to Gen2 in the regions that are currently available for no additional cost.  If your region is not yet supported, you can still upgrade to a supported region. For more information, see [Upgrade to Gen2](../sql-data-warehouse/upgrade-to-latest-generation.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 In T-SQL, the SERVICE_OBJECTIVE setting determines the service level and the performance tier for your SQL pool.
 
@@ -68,7 +68,7 @@ Each performance tier uses a slightly different unit of measure for their data w
 
 Both DWUs and cDWUs support scaling compute up or down, and pausing compute when you don't need to use the data warehouse. These operations are all on-demand. Gen2 uses a local disk-based cache on the compute nodes to improve performance. When you scale or pause the system, the cache is invalidated and so a period of cache warming is required before optimal performance is achieved.  
 
-As you increase data warehouse units, you are linearly increasing computing resources. Gen2 provides the best query performance and highest scale. Gen2 systems also make the most use of the cache.
+As you increase data warehouse units, you're linearly increasing computing resources. Gen2 provides the best query performance and highest scale. Gen2 systems also make the most use of the cache.
 
 #### Capacity limits
 
@@ -76,7 +76,7 @@ Each SQL server (for example, myserver.database.windows.net) has a [Database Tra
 
 ### Assess the number of data warehouse units you need
 
-The ideal number of data warehouse units depends very much on your workload and the amount of data you have loaded into the system.
+The ideal number of data warehouse units depends very much on your workload and the amount of data you've loaded into the system.
 
 Steps for finding the best DWU for your workload:
 
@@ -119,11 +119,11 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 To change DWUs:
 
-1. Open the [Azure portal](https://portal.azure.com), open your database, and click **Scale**.
+1. Open the [Azure portal](https://portal.azure.com), open your database, and select **Scale**.
 
 2. Under **Scale**, move the slider left or right to change the DWU setting.
 
-3. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
+3. Select **Save**. A confirmation message appears. Select **yes** to confirm or **no** to cancel.
 
 #### PowerShell
 
@@ -135,7 +135,7 @@ To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-az
 Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
-For more information, see [PowerShell cmdlets for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+For more information, see [PowerShell cmdlets for Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 
 #### T-SQL
 
@@ -167,15 +167,15 @@ Content-Type: application/json; charset=UTF-8
 }
 ```
 
-For more REST API examples, see [REST APIs for SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+For more REST API examples, see [REST APIs for Azure Synapse Analytics](../sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 
 ### Check status of DWU changes
 
-DWU changes may take several minutes to complete. If you are scaling automatically, consider implementing logic to ensure that certain operations have been completed before proceeding with another action.
+DWU changes may take several minutes to complete. If you're scaling automatically, consider implementing logic to ensure that certain operations have been completed before proceeding with another action.
 
-Checking the database state through various endpoints allows you to correctly implement automation. The portal provides notification upon completion of an operation and the databases current state but does not allow for programmatic checking of state.
+Checking the database state through various endpoints allows you to correctly implement automation. The portal provides notification upon completion of an operation and the databases current state but doesn't allow for programmatic checking of state.
 
-You cannot check the database state for scale-out operations with the Azure portal.
+You can't check the database state for scale-out operations with the Azure portal.
 
 To check the status of DWU changes:
 

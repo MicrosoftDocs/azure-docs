@@ -25,7 +25,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. Each concurrent user will consume a Dynamics 365 license while the test drive is active, so ensure you have enough licenses available to support the maximum limit set. The recommended value is 3-5.
 
-- **Test drive duration** (required) – Enter the number of hours the test drive will stay active. After this time, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set in whole hours (for example, "2" hours is valid; "1.5" is not). The user can request a new session if they run out of time and want to access the test drive again.
+- **Test drive duration** (required) – Enter the number of hours the test drive will stay active (at least one hour). After this time, the session will end and no longer consume one of your licenses. We recommend a value of 2-24 hours depending on the complexity of your offer. This duration may only be set in whole hours (for example, "2" hours is valid; "1.5" is not). The user can request a new session if they run out of time and want to access the test drive again.
 
 - **Instance URL** (required) – The URL where the customer will begin their test drive. Typically the URL of your Dynamics 365 instance running your app with sample data installed (for example, `https://testdrive.crm.dynamics.com`).
 
@@ -43,7 +43,7 @@ This type of test drive is not hosted by Microsoft. Use it to connect with a Dyn
 
 - **Max concurrent test drives** (required) – Set the maximum number of customers that can use your test drive at one time. These test drives are already deployed, enabling customers to instantly access them without waiting for a deployment.
 
-- **Test drive duration** (required) – Enter the length of time that the Test Drive will stay active, in # of hours. The test drive terminates automatically after this time period ends.
+- **Test drive duration** (required) – Enter the number of hours the test drive will stay active (at least one hour). The test drive terminates automatically after this time period ends.
 
 - **Azure resource group name** (required) – Enter the [Azure resource group](../azure-resource-manager/resource-group-overview.md#resource-groups)) name where your Logic App test drive is saved.
 
@@ -69,7 +69,7 @@ To allow Microsoft to deploy the test drive on your behalf, create and provide a
 
 - **Azure AD app ID** (required) – Enter your Azure Active Directory (AD) [application ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (such as `50c464d3-4930-494c-963c-1e951d15360e`).
 
-- **Azure AD app client secret** (required) – Enter your Azure AD application [client secret](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. Don't navigate away from the page before you copy the value.
+- **Azure AD app client secret** (required) – Enter your Azure AD application [client secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. Don't navigate away from the page before you copy the value.
 
 ## Test drive listings
 

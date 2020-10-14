@@ -24,7 +24,7 @@ The articles in this section were created to help you migrate your workloads fro
 
 The two regions in Germany are entirely separate from global Azure. The clouds in global Azure and in Germany have their own, separate Azure Active Directory (Azure AD) instances. Because of this, Azure Germany tenants are separate from global Azure tenants. This article describes the migration tools that are available when you migrate between *different* tenants.
 
-The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and O365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
+The guidance on identity / tenants is intended for Azure-only customers. If you use common Azure Active Directory (Azure AD) tenants for Azure and Microsoft 365 (or other Microsoft products), there are complexities in identity migration and you should first contact your Account Manager prior to using this migration guidance.
 
 ## Migration process
 
@@ -95,7 +95,7 @@ These terms are used in the Azure Germany migration articles:
 - **Target region**: You can use almost any region in global Azure. It's likely that you'll want to migrate your resources to West Europe (**westeurope**) or North Europe (**northeurope**).
 
 > [!NOTE]
-> Verify that the Azure service you're migrating is offered in the target region. All Azure services that are available in Azure Germany are available in West Europe. All Azure services that are available in Azure Germany are available in North Europe, except for Azure Machine Learning Studio and the G/GS VM series in Azure Virtual Machines.
+> Verify that the Azure service you're migrating is offered in the target region. All Azure services that are available in Azure Germany are available in West Europe. All Azure services that are available in Azure Germany are available in North Europe, except for Azure Machine Learning Studio (classic) and the G/GS VM series in Azure Virtual Machines.
 
 It's a good idea to bookmark the source and target portals in your browser:
 

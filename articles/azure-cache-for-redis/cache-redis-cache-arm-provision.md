@@ -22,7 +22,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 ## Prerequisites
 
 * **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **A storage account**: To create one, see [Create an Azure Storage account](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). The storage account is used for diagnostic data.
+* **A storage account**: To create one, see [Create an Azure Storage account](/azure/storage/common/storage-account-create?tabs=azure-portal). The storage account is used for diagnostic data.
 
 ## Review the template
 
@@ -33,7 +33,7 @@ The template used in this quickstart is from [Azure Quickstart Templates](https:
 The following resources are defined in the template:
 
 * [Microsoft.Cache/Redis](/azure/templates/microsoft.cache/redis)
-* [Microsoft.Insights/diagnosticsettings](/azure/templates/diagnosticsettings)
+* [Microsoft.Insights/diagnosticsettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 Resource Manager templates for the new [Premium tier](cache-overview.md#service-tiers) are also available.
 

@@ -35,7 +35,7 @@ Most features are available on every tier, including Free, but resource-intensiv
 
 Tiers are differentiated by:
 
-+ Quantity of indexes and indexers you can create
++ Quantity of indexes and indexers (maximum limits)
 + Size and speed of partitions (physical storage)
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
@@ -126,7 +126,7 @@ The following suggestions can help you lower costs or manage costs more effectiv
 
 + Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-Additionally, visit [Billing and cost management](../cost-management-billing/manage/getting-started.md) for built-in tools and features related to spending.
+Additionally, visit [Billing and cost management](../cost-management-billing/cost-management-billing-overview.md) for built-in tools and features related to spending.
 
 Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
 

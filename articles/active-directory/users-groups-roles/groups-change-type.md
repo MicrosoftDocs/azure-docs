@@ -1,6 +1,6 @@
 ---
 title: Change static group membership to dynamic - Azure AD | Microsoft Docs
-description: How to create membership rules to automatically populate groups, and a rule reference.
+description: Learn how to convert existing groups from static to dynamic membership using either Azure AD Admin center or PowerShell cmdlets.
 services: active-directory
 documentationcenter: ''
 author: curtand

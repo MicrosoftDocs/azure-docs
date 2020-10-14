@@ -238,7 +238,7 @@ For additional commands, see [MySQL 5.7 Reference Manual - Chapter 4.5.1](https:
 1. In the **Setup New Connection** dialog box, enter the following information on the **Parameters**
    tab:
 
-   ![setup new connection](./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-powershell/setup-new-connection.png" alt-text="setup new connection":::
 
     |    **Setting**    |           **Suggested Value**           |                      **Description**                       |
     | ----------------- | --------------------------------------- | ---------------------------------------------------------- |

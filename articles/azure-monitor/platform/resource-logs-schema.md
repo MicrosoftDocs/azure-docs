@@ -45,7 +45,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Service | Schema & Docs |
 | --- | --- |
 | Azure Active Directory | [Overview](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Audit log schema](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) and [Sign-ins schema](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | https://docs.microsoft.com/azure/analysis-services/analysis-services-logging |
+| Analysis Services | [Azure Analysis Services - Setup diagnostic logging](../../analysis-services/analysis-services-logging.md) |
 | API Management | [API Management Resource Logs](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Application Gateways |[Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -65,6 +65,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Schema not available. |
 | Azure Firewall | Schema not available. |
+| Front Door | [Logging for Front Door](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [IoT Hub Operations](../../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
 | Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-master-logs.md#log-event-schema) |

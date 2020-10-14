@@ -66,7 +66,7 @@ No. Successful backup jobs don't generate alerts. Alerts are sent only for backu
 
 ## Can I see scheduled backup jobs in the Backup Jobs menu?
 
-The **Backup Job** menu will only show on-demand backup jobs. For scheduled job use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
+The **Backup Job** menu shows all scheduled and on-demand operations, except the scheduled log backups since they can be very frequent. For scheduled log jobs, use [Monitoring using Azure Monitor](backup-azure-monitoring-use-azuremonitor.md).
 
 ## Are future databases automatically added for backup?
 
@@ -95,6 +95,10 @@ You can select the database, which is now renamed and configure protection on it
 A database that you [add to an autoprotected instance](backup-sql-server-database-azure-vms.md#enable-auto-protection) might not immediately appear under protected items. This is because the discovery typically runs every 8 hours. However, you can discover and protect new databases immediately if you manually run a discovery by selecting **Rediscover DBs**, as shown in the following image:
 
   ![Manually discover a newly added database](./media/backup-azure-sql-database/view-newly-added-database.png)
+  
+## Can I protect databases that have TDE (Transparent Data Encryption) turned on and will the database stay encrypted through the entire backup process?
+
+Yes, Azure Backup supports backup of SQL Server databases or server with TDE enabled. Backup supports [TDE](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) with keys managed by Azure, or with customer-managed keys (BYOK).  Backup doesn't perform any SQL encryption as part of the backup process so the database will stay encrypted when backed up.
 
 ## Next steps
 

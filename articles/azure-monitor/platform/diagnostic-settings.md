@@ -68,15 +68,15 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
 
    - For a single resource, click **Diagnostic settings** under **Monitor** in the resource's menu.
 
-        ![Diagnostic settings](media/diagnostic-settings/menu-resource.png)
+        ![Screenshot of the Monitoring section of a resource menu in Azure portal with Diagnostic settings highlighted.](media/diagnostic-settings/menu-resource.png)
 
    - For one or more resources, click **Diagnostic settings** under **Settings** in the Azure Monitor menu and then click on the resource.
 
-      ![Diagnostic settings](media/diagnostic-settings/menu-monitor.png)
+        ![Screenshot of the Settings section in the Azure Monitor menu with Diagnostic settings highlighted.](media/diagnostic-settings/menu-monitor.png)
 
    - For the Activity log, click **Activity log** in the **Azure Monitor** menu and then **Diagnostic settings**. Make sure you disable any legacy configuration for the Activity log. See [Disable existing settings](./activity-log.md#legacy-collection-methods) for details.
 
-        ![Diagnostic settings](media/diagnostic-settings/menu-activity-log.png)
+        ![Screenshot of the Azure Monitor menu with Activity log selected and Diagnostic settings highlighted in the Monitor-Activity log menu bar.](media/diagnostic-settings/menu-activity-log.png)
 
 2. If no settings exist on the resource you have selected, you are prompted to create a setting. Click **Add diagnostic setting**.
 
@@ -95,7 +95,7 @@ You can configure diagnostic settings in the Azure portal either from the Azure 
      - **AllMetrics** routes a resource's platform metrics into the Azure Logs store, but in log form. These metrics are usually sent only to the Azure Monitor metrics time-series database. Sending them to the Azure Monitor Logs store (which is searchable via Log Analytics) you to integrate them into queries which search across other logs. This option may not be available for all resource types. When it is supported, [Azure Monitor supported metrics](metrics-supported.md) lists what metrics are collected for what resource types.
 
        > [!NOTE]
-       > See limitatation for routing metrics to Azure Monitor Logs earlier in this article.  
+       > See limitation for routing metrics to Azure Monitor Logs earlier in this article.  
 
 
      - **Logs** lists the different categories available depending on the resource type. Check any categories that you would like to route to a destination.

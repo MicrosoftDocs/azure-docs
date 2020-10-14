@@ -43,9 +43,9 @@ For more information:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## SQL Data Warehouse
+## Azure Synapse Analytics
 
-To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
+To migrate Azure Synapse Analytics resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
 
 ## Azure Cosmos DB
 

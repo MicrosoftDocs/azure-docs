@@ -27,6 +27,15 @@ The rest of this article provides examples of how to use these operations.
 
 This section contains sample queries that illustrate the query language structure and perform possible query operations on [digital twins](concepts-twins-graph.md).
 
+### Show all existing digital twins
+
+Here is the basic query that will return a list of all digital twins in the instance:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+```
+
 ### Select top items
 
 You can select the several "top" items in a query using the `Select TOP` clause.
@@ -35,6 +44,38 @@ You can select the several "top" items in a query using the `Select TOP` clause.
 SELECT TOP (5)
 FROM DIGITALTWINS
 WHERE ...
+```
+
+### Count items
+
+You can count the number of items in a result set using the `Select COUNT` clause:
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS
+``` 
+
+Add a `WHERE` clause to count the number of items that meet a certain criteria. Here are some examples of counting with an applied filter based on the type of twin model (for more on this syntax, see [*Query by model*](#query-by-model) below):
+
+```sql
+SELECT COUNT() 
+FROM DIGITALTWINS 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') 
+SELECT COUNT() 
+FROM DIGITALTWINS c 
+WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
+```
+
+You can also use `COUNT` along with the `JOIN` clause. Here is a query that counts all the light bulbs contained in the light panels of rooms 1 and 2:
+
+```sql
+SELECT COUNT()  
+FROM DIGITALTWINS Room  
+JOIN LightPanel RELATED Room.contains  
+JOIN LightBulb RELATED LightPanel.contains  
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
+AND Room.$dtId IN ['room1', 'room2'] 
 ```
 
 ### Query by property
@@ -173,8 +214,44 @@ You can **combine** any of the above types of query using combination operators 
 | Description | Query |
 | --- | --- |
 | Out of the devices that *Room 123* has, return the MxChip devices that serve the role of Operator | `SELECT device​`<br>​`FROM DigitalTwins space​`​<br>​`JOIN device RELATED space.has​`<br>​`WHERE space.$dtid = 'Room 123'`​<br>​`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>​`AND has.role = 'Operator'` ​|
-| Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITIALTWINS Room​​`​<br>​`JOIN Thermostat ON Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
+| Get twins that have a relationship named *Contains* with another twin that has an ID of *id1* | ​`​SELECT Room​`​<br>​`FROM DIGITALTWINS Room​​`​<br>​`JOIN Thermostat RELATED Room.Contains​​`​<br>​`WHERE Thermostat.$dtId = 'id1'`​ |
 | Get all the rooms of this room model that are contained by *floor11* | `SELECT Room`​<br>​`FROM DIGITALTWINS Floor​`​<br>​`JOIN Room RELATED Floor.Contains​`​<br>​`WHERE Floor.$dtId = 'floor11'​`​<br>​`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')​` |
+
+## Reference: Expressions and conditions
+
+This section contains reference for the operators and functions available when writing Azure Digital Twins queries.
+
+### Operators
+
+The following operators are supported:
+
+| Family | Operators |
+| --- | --- |
+| Logical |AND, OR, NOT |
+| Comparison |=, !=, <, >, <=, >= |
+| Contains | IN, NIN |
+
+### Functions
+
+The following type checking and casting functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. This is supported only when the value is a primitive type. Primitive types include string, Boolean, numeric, or `null`. DateTime, object types and arrays are not supported. |
+| IS_OF_MODEL | Returns a Boolean value indicating if the specified twin matches the specified model type |
+| IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
+| IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
+| IS_STRING | Returns a Boolean value indicating if the type of the specified expression is a string. |
+| IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
+| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or `null`). |
+| IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
+
+The following string functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| STARTSWITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
+| ENDSWITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
 
 ## Run queries with an API call
 

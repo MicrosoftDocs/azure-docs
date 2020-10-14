@@ -63,7 +63,7 @@ All users and operators benefit when using a secure workstation. An attacker who
 * Highly sensitive workstation, such as a SWIFT payment terminal
 * Workstation handling trade secrets
 
-To reduce risk, you should implement elevated security controls for privileged workstations that make use of these accounts. For more information, see the [Azure Active Directory feature deployment guide](../fundamentals/active-directory-deployment-checklist-p2.md), [Office 365 roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
+To reduce risk, you should implement elevated security controls for privileged workstations that make use of these accounts. For more information, see the [Azure Active Directory feature deployment guide](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
 
 ## Why use dedicated workstations?
 
@@ -72,7 +72,7 @@ While it's possible to add security to an existing device, it's better to start 
 A growing number of attack vectors through email and web browsing makes it increasingly hard to be sure that a device can be trusted. This guide assumes that a dedicated workstation is isolated from standard productivity, browsing, and email. Removal of productivity, web browsing, and email from a device can have a negative impact on productivity. However, this safeguard is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.
 
 > [!NOTE]
-> Web browsing here refers to general access to arbitrary websites which can be a high risk activity. Such browsing is distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Office 365, other cloud providers, and SaaS applications.
+> Web browsing here refers to general access to arbitrary websites which can be a high risk activity. Such browsing is distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Microsoft 365, other cloud providers, and SaaS applications.
 
 Containment strategies tighten security by increasing the number and type of controls that deter an attacker from gaining access sensitive assets. The model described in this article uses a tiered privilege design and restricts administrative privileges to specific devices.
 

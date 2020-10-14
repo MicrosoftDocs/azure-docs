@@ -58,6 +58,7 @@ This table provides a quick comparison for the change in terminology:
 
 | Feature | Details |
 | ---| --- |
+| <a href="/azure/azure-sql/database/elastic-transactions-overview">Distributed transactions</a> | Distributed transactions accross Managed Instances. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instance pools</a> | A convenient and cost-efficient way to migrate smaller SQL instances to the cloud. |
 | <a href="https://aka.ms/managed-instance-aadlogins">Instance-level Azure AD server principals (logins)</a> | Create instance-level logins using a <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN FROM EXTERNAL PROVIDER</a> statement. |
 | [Transactional Replication](../managed-instance/replication-transactional-overview.md) | Replicate the changes from your tables into other databases in SQL Managed Instance, SQL Database, or SQL Server. Or update your tables when some rows are changed in other instances of SQL Managed Instance or SQL Server. For information, see [Configure replication in Azure SQL Managed Instance](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
@@ -66,7 +67,7 @@ This table provides a quick comparison for the change in terminology:
 
 ---
 
-## SQL Managed Instance new features and known issues
+## New features
 
 ### SQL Managed Instance H2 2019 updates
 
@@ -87,10 +88,11 @@ The following features are enabled in the SQL Managed Instance deployment model 
   - New built-in [Instance Contributor role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) enables separation of duty (SoD) compliance with security principles and compliance with enterprise standards.
   - SQL Managed Instance is available in the following Azure Government regions to GA (US Gov Texas, US Gov Arizona) as well as in China North 2 and China East 2. It is also available in the following public regions: Australia Central, Australia Central 2, Brazil South, France South, UAE Central, UAE North, South Africa North, South Africa West.
 
-### Known issues
+## Known issues
 
 |Issue  |Date discovered  |Status  |Date resolved  |
 |---------|---------|---------|---------|
+|[BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql) in Azure SQL and `BACKUP`/`RESTORE` statement in Managed Instance cannot use Azure AD Manage Identity to authenticate to Azure storage|Sep 2020|Has Workaround||
 |[Service Principal cannot access Azure AD and AKV](#service-principal-cannot-access-azure-ad-and-akv)|Aug 2020|Has Workaround||
 |[Restoring manual backup without CHECKSUM might fail](#restoring-manual-backup-without-checksum-might-fail)|May 2020|Resolved|June 2020|
 |[Agent becomes unresponsive upon modifying, disabling, or enabling existing jobs](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|May 2020|Resolved|June 2020|
@@ -118,6 +120,21 @@ The following features are enabled in the SQL Managed Instance deployment model 
 |Point-in-time database restore from Business Critical tier to General Purpose tier will not succeed if source database contains in-memory OLTP objects.||Resolved|Oct 2019|
 |Database mail feature with external (non-Azure) mail servers using secure connection||Resolved|Oct 2019|
 |Contained databases not supported in SQL Managed Instance||Resolved|Aug 2019|
+
+### BULK INSERT and BACKUP/RESTORE statements cannot use Managed Identity to access Azure storage
+
+Bulk insert statement cannot use `DATABASE SCOPED CREDENTIAL` with Managed Identity to authenticate to Azure storage. As a workaround, switch to SHARED ACCESS SIGNATURE authentication. The following example will not work on Azure SQL (both Database and Managed Instance):
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Identity';
+GO
+CREATE EXTERNAL DATA SOURCE MyAzureBlobStorage
+  WITH ( TYPE = BLOB_STORAGE, LOCATION = 'https://****************.blob.core.windows.net/curriculum', CREDENTIAL= msi_cred );
+GO
+BULK INSERT Sales.Invoices FROM 'inv-2017-12-08.csv' WITH (DATA_SOURCE = 'MyAzureBlobStorage');
+```
+
+**Workaround**: Use [Shared Access Signature to authenticate to storage](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql?view=sql-server-ver15#f-importing-data-from-a-file-in-azure-blob-storage).
 
 ### Service Principal cannot access Azure AD and AKV
 

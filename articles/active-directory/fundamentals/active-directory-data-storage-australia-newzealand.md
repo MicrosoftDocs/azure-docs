@@ -1,6 +1,6 @@
 ---
-title: Identity data storage for Australian customers - Azure AD
-description: Learn about where Azure Active Directory stores identity-related data for its Australian customers.
+title: Customer data storage for Australian and New Zealand customers - Azure AD
+description: Learn about where Azure Active Directory stores customer-related data for its Australian and New Zealand customers.
 services: active-directory
 author: ajburnle
 manager: daveba
@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 
 # Customer Data storage for Australian and New Zealand customers in Azure Active Directory
 
-Azure Active Directory (Azure AD) stores its Customer Data in a geographical location based on the country you provided when you signed up for a Microsoft Online service. Microsoft Online services include Office 365 and Azure. 
+Azure Active Directory (Azure AD) stores its Customer Data in a geographical location based on the country you provided when you signed up for a Microsoft Online service. Microsoft Online services include Microsoft 365 and Azure. 
 
 For information about where Azure AD and other Microsoft services' data is located, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 

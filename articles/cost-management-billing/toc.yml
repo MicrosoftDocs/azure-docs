@@ -40,6 +40,10 @@
       href: costs/understand-work-scopes.md
     - name: Group and filter options
       href: costs/group-filter.md
+    - name: Plan to manage costs
+      href: understand/plan-manage-costs.md
+    - name: Prevent unexpected costs
+      href: understand/analyze-unexpected-charges.md
     - name: Manage costs with automation
       href: costs/manage-automation.md
     - name: Cost Management for partners
@@ -114,6 +118,10 @@
       href: understand/mca-overview.md
     - name: Billing accounts for Microsoft Partner Agreement
       href: understand/mpa-overview.md
+    - name: About transferring subscriptions
+      href: understand/subscription-transfer.md 
+    - name: Transfer subscriptions between partners (Preview)
+      href: manage/azure-plan-subscription-transfer-partners.md 
 - name: How-to guides
   items:
   - name: Configure Cost Management + Billing
@@ -122,7 +130,7 @@
       items:
       - name: Account administrator tasks
         href: manage/account-admin-tasks.md
-      - name: Edit profile
+      - name: Edit billing contact information
         href: manage/change-azure-account-profile.md
       - name: Resolve past due balance
         href: manage/resolve-past-due-balance.md
@@ -172,12 +180,16 @@
         href: manage/pay-by-invoice.md
       - name: Create additional subscriptions
         href: manage/create-subscription.md
-      - name: Create subscriptions programmatically
+      - name: Create subscriptions programmatically with latest API
         href: manage/programmatically-create-subscription.md
+      - name: Create subscriptions programmatically with preview API
+        href: manage/programmatically-create-subscription-preview.md
       - name: Grant access to create EA subscriptions
         href: manage/grant-access-to-create-subscription.md
       - name: Export subscription information
         href: manage/export-subscriptions.md
+      - name: Delete an Azure billing payment method
+        href: manage/delete-azure-payment-method.md
       - name: Change credit card
         href: manage/change-credit-card.md
       - name: Change administrator
@@ -242,8 +254,6 @@
         href: manage/upgrade-azure-subscription.md
   - name: Perform key cost management tasks
     items:
-    - name: Prevent unexpected costs
-      href: manage/getting-started.md
     - name: Calculate pricing
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Use cost analysis for common tasks
@@ -330,6 +340,12 @@
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
   - name: Troubleshoot
     items:
+    - name: EA billing issues with usage files
+      href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+    - name: MCA billing issues with usage files
+      href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+    - name: CSP billing issues with usage files
+      href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
     - name: No subscriptions found
       href: manage/no-subscriptions-found.md
     - name: Payment issues

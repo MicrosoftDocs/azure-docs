@@ -18,10 +18,9 @@ To enable traffic routing, you create [routing rules](application-gateway-url-ro
 
 In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Set up the network
-> * Create listeners, URL path map, and rules
-> * Create scalable backend pools
+* Set up the network
+* Create listeners, URL path map, and rules
+* Create scalable backend pools
 
 ![URL routing example](./media/tutorial-url-route-powershell/scenario.png)
 

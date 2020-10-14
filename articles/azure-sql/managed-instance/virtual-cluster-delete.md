@@ -6,10 +6,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
+ms.reviewer: douglas, sstein
 ms.date: 06/26/2019
 ---
 

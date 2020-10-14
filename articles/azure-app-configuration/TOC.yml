@@ -23,6 +23,8 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
+        - name: Python
+          href: quickstart-python.md
         - name: ARM template
           href: quickstart-resource-manager.md
           displayName: ARM, azure resource manager template
@@ -32,6 +34,8 @@
           href: quickstart-feature-flag-aspnet-core.md
         - name: .NET Framework
           href: quickstart-feature-flag-dotnet.md
+        - name: Azure Functions in .NET Core 
+          href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutorials
@@ -148,6 +152,10 @@
       items:
         - name: REST API
           href: https://docs.microsoft.com/rest/api/appconfiguration/
+        - name: PowerShell
+          href: https://docs.microsoft.com/powershell/module/az.appconfiguration/
+        - name: Terraform
+          href: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

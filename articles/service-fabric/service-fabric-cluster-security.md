@@ -128,7 +128,7 @@ The concept of creating secure clusters is the same, whether they are Linux or W
 
 ### Client authentication certificates (optional)
 
-Any number of additional certificates can be specified for admin or user client operations. The client can use this certificate when mutual authentication is required. Client certificates typically are not issued by a third-party CA. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority. The certificate should have an **Intended Purposes** value of **Client Authentication**.  
+Any number of additional certificates can be specified for admin or user client operations. The client can use these certificates when mutual authentication is required. Client certificates typically are not issued by a third-party CA. Instead, the Personal store of the current user location typically contains client certificates placed there by a root authority. The certificate should have an **Intended Purposes** value of **Client Authentication**.  
 
 By default the cluster certificate has admin client privileges. These additional client certificates should not be installed into the cluster, but are specified as being allowed in the cluster configuration.  However, the client certificates need to be installed on the client machines to connect to the cluster and perform any operations.
 

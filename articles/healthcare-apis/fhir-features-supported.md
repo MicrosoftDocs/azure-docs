@@ -93,14 +93,24 @@ All search parameter types are supported.
 | Search operations       | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
-| `_sort`                 | No        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
+| `_sort`                 | Partial        | Partial   | Partial        |   `_sort=_lastUpdated` is supported       |
 | `_score`                | No        | No        | No        |         |
 | `_count`                | Yes       | Yes       | Yes       |         |
 | `_summary`              | Partial   | Partial   | Partial   | `_summary=count` is supported |
 | `_include`              | No        | Yes       | No        |         |
 | `_revinclude`           | No        | Yes       | No        | Included items are limited to 100. |
 | `_contained`            | No        | No        | No        |         |
-| `_elements`             | No        | No        | No        |         |
+| `_elements`             | Yes        | Yes        | Yes        |         |
+
+## Extended Operations
+
+All the operations that are supported that extend the RESTful API.
+
+| Search parameter type | Supported - PaaS | Supported - OSS (SQL) | Supported - OSS (Cosmos DB) | Comment |
+|-----------------------|-----------|-----------|-----------|---------|
+| $export (whole system)                | Yes       | Yes       | Yes       |         |
+| Patient/$export         | Yes       | Yes       | Yes       |         |
+| Group/$export               | Yes       | Yes       | Yes       |         |
 
 ## Persistence
 

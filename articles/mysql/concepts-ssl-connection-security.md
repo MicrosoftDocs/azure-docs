@@ -15,6 +15,9 @@ Azure Database for MySQL supports connecting your database server to client appl
 > [!NOTE]
 > Updating the `require_secure_transport` server parameter value does not affect the MySQL service's behavior. Use the SSL and TLS enforcement features outlined in this article to secure connections to your database.
 
+> [!IMPORTANT] 
+> SSL root certificate is set to expire starting October 26th, 2020 (10/26/2020). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
+
 ## SSL Default settings
 
 By default, the database service should be configured to require SSL connections when connecting to MySQL.  We recommend to avoid disabling the SSL option whenever possible.
@@ -53,6 +56,17 @@ For example, setting the value of minimum TLS setting version to TLS 1.0 means y
 > Once you enforce a minimum TLS version, you cannot later disable minimum version enforcement.
 
 To learn how to set the TLS setting for your Azure Database for MySQL, refer to [How to configure TLS setting](howto-tls-configurations.md).
+
+## Cipher support by Azure Database for MySQL Single server
+
+As part of the SSL/TLS communication, the cipher suites are validated and only support cipher suits are allowed to communicate to the database serer. The cipher suite validation is controlled in the [gateway layer](concepts-connectivity-architecture.md#connectivity-architecture) and not explicitly on the node itself. If the cipher suites doesn't match one of suites listed below, incoming client connections will be rejected.
+
+### Cipher suite supported
+
+*   TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+*   TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+*   TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 
 ## Next steps
 

@@ -173,6 +173,8 @@
           href: iot-hub-devguide-glossary.md
     - name: Security
       items:
+        - name: Security baseline
+          href: security-baseline.md
         - name: Recommendations
           href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
         - name: Security from the ground up

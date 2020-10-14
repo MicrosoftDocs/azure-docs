@@ -1,19 +1,19 @@
 ---
-title: Develop a SCIM endpoint for user provisioning to apps from Azure AD
-description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. Learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
+title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azure AD
+description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
-ms.topic: how-to
-ms.date: 03/07/2020
+ms.topic: tutorial
+ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
 
-# Build a SCIM endpoint and configure user provisioning with Azure AD
+# Tutorial - Build a SCIM endpoint and configure user provisioning with Azure AD
 
 As an application developer, you can use the System for Cross-Domain Identity Management (SCIM) user management API to enable automatic provisioning of users and groups between your application and Azure AD. This article describes how to build a SCIM endpoint and integrate with the Azure AD provisioning service. The SCIM specification provides a common user schema for provisioning. When used in conjunction with federation standards like SAML or OpenID Connect, SCIM gives administrators an end-to-end, standards-based solution for access management.
 
@@ -143,7 +143,7 @@ If you're building an application that supports a SCIM 2.0 user management API, 
 Within the [SCIM 2.0 protocol specification](http://www.simplecloud.info/#Specification), your application must meet these requirements:
 
 * Supports creating users, and optionally also groups, as per section [3.3 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.3).  
-* Supports modifying users or groups with PATCH requests, as per [section 3.5.2 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Supports modifying users or groups with PATCH requests, as per [section 3.5.2 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.5.2). Supporting ensures that groups and users are provisioned in a performant manner. 
 * Supports retrieving a known resource for a user or group created earlier, as per [section 3.4.1 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
 * Supports querying users or groups, as per section [3.4.2 of the SCIM protocol](https://tools.ietf.org/html/rfc7644#section-3.4.2).  By default, users are retrieved by their `id` and queried by their `username` and `externalId`, and groups are queried by `displayName`.  
 * Supports querying user by ID and by manager, as per section 3.4.2 of the SCIM protocol.  
@@ -163,6 +163,7 @@ Follow these general guidelines when implementing a SCIM endpoint to ensure comp
 * Don't require a case-sensitive match on structural elements in SCIM, in particular PATCH `op` operation values, as defined in https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD emits the values of 'op' as `Add`, `Replace`, and `Remove`.
 * Microsoft Azure AD makes requests to fetch a random user and group to ensure that the endpoint and the credentials are valid. It's also done as a part of **Test Connection** flow in the [Azure portal](https://portal.azure.com). 
 * The attribute that the resources can be queried on should be set as a matching attribute on the application in the [Azure portal](https://portal.azure.com). For more information, see [Customizing User Provisioning Attribute Mappings](customize-application-attributes.md)
+* Support HTTPS on your SCIM endpoint
 
 ### User provisioning and deprovisioning
 
@@ -746,7 +747,7 @@ TLS 1.2 Cipher Suites minimum bar:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### IP Ranges
-The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. 
+The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programatically retrieve the IP range list using the following [API](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list).
 
 ## Step 3: Build a SCIM endpoint
 
@@ -1178,7 +1179,7 @@ If you're building an application that will be used by more than one tenant, you
 Follow the checklist below to ensure that your application is onboarded quicky and customers have a smooth deployment experience. The information will be gathered from you when onboarding to the gallery. 
 > [!div class="checklist"]
 > * Support a [SCIM 2.0 ](#step-2-understand-the-azure-ad-scim-implementation) user and group endpoint (Only one is required but both are recommended)
-> * Support at least 25 requests per second per tenant (Required)
+> * Support at least 25 requests per second per tenant to ensure that users and groups are provisioned and deprovisioned without delay (Required)
 > * Establish engineering and support contacts to guide customers post gallery onboarding (Required)
 > * 3 Non-expiring test credentials for your application (Required)
 > * Support the OAuth authorization code grant or a long lived token as described below (Required)
@@ -1195,7 +1196,7 @@ The SCIM spec does not define a SCIM-specific scheme for authentication and auth
 |--|--|--|--|
 |Username and password (not recommended or supported by Azure AD)|Easy to implement|Insecure - [Your Pa$$word doesn't matter](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984)|Supported on a case-by-case basis for gallery apps. Not supported for non-gallery apps.|
 |Long-lived bearer token|Long-lived tokens do not require a user to be present. They are easy for admins to use when setting up provisioning.|Long-lived tokens can be hard to share with an admin without using insecure methods such as email. |Supported for gallery and non-gallery apps. |
-|OAuth authorization code grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid and authorization will need to be completed again.|Supported for gallery apps, but not non-gallery apps. Support for non-gallery is in our backlog.|
+|OAuth authorization code grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have.  A real user must be present during initial authorization, adding a level of accountability. |Requires a user to be present. If the user leaves the organization, the token is invalid and authorization will need to be completed again.|Supported for gallery apps, but not non-gallery apps. However, you can provide an access token in the UI as the secret token for short term testing purposes. Support for OAuth code grant on non-gallery is in our backlog.|
 |OAuth client credentials grant|Access tokens are much shorter-lived than passwords, and have an automated refresh mechanism that long-lived bearer tokens do not have. Both the authorization code grant and the client credentials grant create the same type of access token, so moving between these methods is transparent to the API.  Provisioning can be completely automated, and new tokens can be silently requested without user interaction. ||Not supported for gallery and non-gallery apps. Support is in our backlog.|
 
 > [!NOTE]
@@ -1212,6 +1213,17 @@ Note that OAuth v1 is not supported due to exposure of the client secret. OAuth 
 Best practices (recommended but not required):
 * Support multiple redirect URLs. Administrators can configure provisioning from both "portal.azure.com" and "aad.portal.azure.com". Supporting multiple redirect URLs will ensure that users can authorize access from either portal.
 * Support multiple secrets to ensure smooth secret renewal, without downtime. 
+
+Steps in the OAuth code grant flow:
+1. User signs into the Azure portal > Enterprise applications > Select application > Provisioning > click authorize.
+2. Azure portal redirects user to the Authorization URL (sign in page for the third party app).
+3. Admin provides credentials to the third party application. 
+4. Third party app redirects user back to Azure portal and provides the grant code 
+5. Azure AD provisioning services calls the token URL and provides the grant code. The third party application responds with the access token, refresh token, and expiry date
+6. When the provisioning cycle begins, the service checks if the current access token is valid and exchanges it for a new token if needed. The access token is provided in each request made to the app and the validity of the request is checked before each request.
+
+> [!NOTE]
+> While it is not possible to setup OAuth on the non-gallery application today, you can manually generate an access token from your authorization server and input that in the secret token field of the non-gallery application. This allows you to verify compatibility of your SCIM server with the Azure AD SCIM client before onboarding to the app gallery, which does support the OAuth code grant.  
 
 **Long-lived OAuth bearer tokens:** If your application does not support the OAuth authorization code grant flow, you can also generate a long lived OAuth bearer token than that an administrator can use to setup the provisioning integration. The token should be perpetual, or else the provisioning job will be [quarantined](application-provisioning-quarantine-status.md) when the token expires. This token must be below 1KB in size.  
 

@@ -1,6 +1,6 @@
 ---
 title: Create a group for assigning roles in Azure Active Directory | Microsoft Docs
-description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
+description: Learn how to create a role-assignable group in Azure AD. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
 manager: daveba
@@ -84,7 +84,7 @@ $groupName = "Contoso_Bellevue_Admins"
 $groupDescription = "This group is assigned to Helpdesk Administrator built-in role in Azure AD."
 $mailNickname = "contosobellevueadmins"
 
-#Create new security group which is a role assignable group. For creating O365 group, set GroupTypes="Unified" and MailEnabled=$true
+#Create new security group which is a role assignable group. For creating a Microsoft 365 group, set GroupTypes="Unified" and MailEnabled=$true
 $roleAssignablegroup = New-AzureADMSGroup -DisplayName $groupName -Description $groupDescription -MailEnabled $false -MailNickname $mailNickname -SecurityEnabled $true -IsAssignableToRole $true
 
 #Get details of existing group

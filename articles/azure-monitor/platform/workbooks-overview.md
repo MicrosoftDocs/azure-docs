@@ -1,14 +1,12 @@
 ---
 title: Azure Monitor Workbooks Overview
-description: Simplify complex reporting with prebuilt and custom parameterized workbooks
-author: mrbullwinkle
+description: Learn how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.
 manager: carmonm
 services: azure-monitor
 
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
 ---
 
 # Azure Monitor Workbooks
@@ -39,12 +37,13 @@ Workbooks are currently compatible with the following data sources:
 
 Workbooks provide a rich set of capabilities for visualizing your data. For detailed examples of each visualization type you can consult the example links below:
 
-* [Text](workbooks-visualizations.md#text)
-* [Charts](workbooks-visualizations.md#charts)
-* [Grids](workbooks-visualizations.md#grids)
-* [Tiles](workbooks-visualizations.md#tiles)
-* [Trees](workbooks-visualizations.md#trees)
-* [Graphs](workbooks-visualizations.md#graphs)
+* [Text](workbooks-text-visualizations.md)
+* [Charts](workbooks-chart-visualizations.md)
+* [Grids](workbooks-grid-visualizations.md)
+* [Tiles](workbooks-tile-visualizations.md)
+* [Trees](workbooks-tree-visualizations.md)
+* [Graphs](workbooks-graph-visualizations.md)
+* [Composite bar](workbooks-composite-bar.md)
 
 ![Example workbook visualizations](./media/workbooks-overview/visualizations.png)
 
@@ -82,9 +81,9 @@ In the case of this particular workbook, the experience is interactive. You can 
 
 ### Editing mode
 
-To understand how this workbook template is put together you need to swap to editing mode by selecting **Edit**. 
+To understand how this workbook template is put together you need to swap to editing mode by selecting **Edit**.
 
-![Screenshot of application failure analysis template](./media/workbooks-overview/edit.png)
+![Screenshot of edit button in workbooks.](./media/workbooks-overview/edit.png)
 
 Once you have switched to editing mode you will notice a number of **Edit** boxes appear to the right corresponding with each individual aspect of your workbook.
 
@@ -107,7 +106,7 @@ To access pin mode, click **Edit** to enter editing mode, and select the blue pi
 ![Pin experience](./media/workbooks-overview/pin-experience.png)
 
 > [!NOTE]
-> The state of the the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
+> The state of the workbook is saved at the time of the pin, and pinned workbooks on a dashboard will not update if the underlying workbook is modified. In order to update a pinned workbook part, you will need to delete and re-pin that part.
 
 ## Dashboard time ranges
 

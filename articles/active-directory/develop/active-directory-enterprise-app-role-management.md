@@ -155,7 +155,7 @@ If your application expects custom roles to be passed in a SAML response, you ne
 
     a. click **Edit** icon to open **User Attributes & Claims** dialog.
 
-      !["Add attribute" button](./media/active-directory-enterprise-app-role-management/editattribute.png)
+      ![Screenshot that highlights the Edit icon used to open the User Attributes & Claims dialog box.](./media/active-directory-enterprise-app-role-management/editattribute.png)
 
     b. In the **Manage user claims** dialog, add the SAML token attribute by clicking on **Add new claim**.
 

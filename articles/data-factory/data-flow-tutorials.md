@@ -5,7 +5,7 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 08/11/2020
+ms.date: 10/13/2020
 ---
 
 # Mapping data flow video tutorials
@@ -77,6 +77,10 @@ As updates are constantly made to the product, some features have added or diffe
 [Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
+
+[Transform hierarchical data](https://youtu.be/oAEh21NFgWQ)
+
+[Rank transformation](https://youtu.be/6XvgkbMtws0)
 
 ## Source and sink
 
@@ -165,3 +169,7 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+## Metadata
+
+[Metadata validation rules](https://www.youtube.com/watch?v=E_UD3R-VpYE)

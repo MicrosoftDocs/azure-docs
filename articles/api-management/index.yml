@@ -31,10 +31,16 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Azure CLI
+            url: get-started-create-service-instance-cli.md
           - text: Azure portal
             url: get-started-create-service-instance.md
           - text: Azure PowerShell
             url: powershell-create-service-instance.md
+          - text: Visual Studio Code 
+            url: vscode-create-service-instance.md
+          - text: ARM template
+            url: quickstart-arm-template.md
 
   # Card
   - title: Manage API Management
