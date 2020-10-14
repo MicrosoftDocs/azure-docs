@@ -14,7 +14,7 @@ This article describes how read and write requests translate into [Request Units
 
 Azure Cosmos DB offers a rich set of database operations that operate on the items within a container. The cost associated with each of these operations varies based on the CPU, IO, and memory required to complete the operation. Instead of thinking about and managing hardware resources, you can think of a Request Unit (RU) as a single measure for the resources required to perform various database operations to serve a request.
 
-## Measuring the RU charge for a request
+## Measuring the RU charge of a request
 
 It is important to measure the RU charge of your requests to understand their actual cost and also evaluate the effectiveness of your optimizations. You can fetch this cost by using the Azure portal or inspecting the response sent back from Azure Cosmos DB through one of the SDKs. See [Find the request unit charge in Azure Cosmos DB](find-request-unit-charge.md) for detailed instructions on how to achieve that.
 
@@ -27,9 +27,13 @@ Read operations in Azure Cosmos DB are typically ordered from fastest/most effic
 * Query without an equality or range filter clause on any property.
 * Query without filters.
 
+### Role of the consistency level
+
+When using either the **strong** or **bounded staleness** [consistency levels](consistency-level.md), the RU cost of any read operation (point read or query) is doubled.
+
 ### Point reads
 
-The following table shows the RU cost of point reads for items that are 1 KB and 100 KB in size.
+The only factor affecting the RU charge of a point read (besides the consistency level used) is the size of the item retrieved. The following table shows the RU cost of point reads for items that are 1 KB and 100 KB in size.
 
 | **Item Size** | **Cost of one point read** |
 | --- | --- |
@@ -39,8 +43,6 @@ The following table shows the RU cost of point reads for items that are 1 KB and
 Because point reads (key/value lookups on the item ID) are the most efficient kind of read, you should make sure your item ID has a meaningful value so you can fetch your items with a point read (instead of a query) when possible.
 
 ### Queries
-
-#### Factors influencing request unit charge for a query
 
 Request units for queries are dependent on a number of factors. For example, the number of Azure Cosmos items loaded/returned, the number of lookups against the index, the query compilation time etc. details. Azure Cosmos DB guarantees that the same query when executed on the same data will always consume the same number of request units even with repeat executions. The query profile using query execution metrics gives you a good idea of how the request units are spent.  
 
@@ -88,19 +90,14 @@ Consider the following best practices when optimizing queries for cost:
 
    Request charge returned in the request header indicates the cost of a given query. For example, if a query returns 1000 1-KB items, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [request units](request-units.md) article and the request unit calculator.
 
-* **Fine-tune parallelism for cross-partition queries**
-
-    Queries that read data from multiple partitions incur higher latency and consume higher number of request units. You can make such queries faster by using the parallelism options. To learn more about partitioning and partition keys, see [Partitioning in Azure Cosmos DB](partitioning-overview.md).
-
 ## Writing data
 
 The RU cost of writing an item depends on:
 
 - The item size.
 - The number of properties covered by the [indexing policy](index-policy.md) and needed to be indexed.
-- The [consistency level](consistency-levels.md) used.
 
-Inserting a 1 KB item with less than 5 properties to index in Session (or weaker) consistency costs around 5 RUs. Replacing an item costs two times the charge required to insert the same item.
+Inserting a 1 KB item with less than 5 properties to index costs around 5 RUs. Replacing an item costs two times the charge required to insert the same item.
 
 ### Optimizing writes
 
