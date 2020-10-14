@@ -58172,6 +58172,11 @@
       "source_path": "articles/azure-monitor/asp-net-more.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/optimize-cost-queries.md",
+      "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
+      "redirect_document_id": false
     }
   ]
 }
