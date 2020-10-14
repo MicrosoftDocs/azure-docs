@@ -97,10 +97,6 @@ You can view the role assignment you've set up under *Access control (IAM) > Rol
 
 You now have an Azure Digital Twins instance ready to go, and have assigned permissions to manage it.
 
-### Other possible steps for your organization
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
-
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 

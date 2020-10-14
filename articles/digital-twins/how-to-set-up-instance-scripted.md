@@ -125,10 +125,6 @@ If verification was unsuccessful, you can retry creating an instance using the [
 
 If verification was unsuccessful, you can also redo your own role assignment using the [portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
-## Other possible steps for your organization
-
-[!INCLUDE [digital-twins-setup-additional-requirements.md](../../includes/digital-twins-setup-additional-requirements.md)]
-
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
