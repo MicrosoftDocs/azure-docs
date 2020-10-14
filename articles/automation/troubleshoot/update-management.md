@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
-ms.date: 09/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
 ---
@@ -481,6 +481,8 @@ Verify that the system account has read access to the **C:\ProgramData\Microsoft
 The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes.
 
 ### Resolution
+
+To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 
