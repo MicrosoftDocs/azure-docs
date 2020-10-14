@@ -1,10 +1,10 @@
 ### YamlMime:Landing
 
-title: Azure Cloud Services documentation
+title: Azure Cloud Services (classic) documentation
 summary: Learn how to use Cloud Services to host and run highly available, scalable cloud applications and APIs. Shows how to manage virtual machine hosts and configure, patch, and install software.
 
 metadata:
-  title: Azure Cloud Services documentation
+  title: Azure Cloud Services (classic) documentation
   description: Describes how to use Cloud Services to host and run highly available and scalable cloud applications and APIs.
   ms.service: cloud-services
   service: cloud-services
@@ -17,7 +17,7 @@ metadata:
 
 landingContent:
   # Card
-  - title: About Cloud Services
+  - title: About Cloud Services (classic)
     linkLists:
       - linkListType: overview
         links:
