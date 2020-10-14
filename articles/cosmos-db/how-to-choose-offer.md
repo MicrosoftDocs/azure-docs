@@ -55,7 +55,11 @@ Next, determine how the normalized utilization varies over time. Find the highes
 > If your account is configured to use multi-region writes and has more than one region, the rate per 100 RU/s is the same for both manual and autoscale. This means that enabling autoscale incurs no additional cost regardless of utilization. As a result, it is always recommended to use autoscale with multi-region writes when you have more than one region, to take advantage of the savings from paying only for the RU/s your application scales to. If you have multi-region writes and one region, use the average utilization to determine if autoscale will result in cost savings. 
 
 #### Examples
+
 Let's take a look at two different example workloads and analyze if they are suitable for manual or autoscale throughput. To illustrate the general approach, we'll analyze three hours of history to determine the cost difference between using manual and autoscale. For production workloads, it's recommended to use 7 to 30 days of history (or longer if available) to establish a pattern of RU/s usage.
+
+> [!NOTE]
+> All the examples shown in this doc are based on the price for an Azure Cosmos account deployed in a non-government region in the US. The pricing and calculation vary depending on the region you are using, see the Azure Cosmos DB [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) for the latest pricing information.
 
 Assumptions:
 - Suppose we currently have manual throughput of 30,000 RU/s. 
