@@ -322,7 +322,7 @@ This stored procedure takes the ID of the post and the body of the new comment a
 - replaces the post
 - adds the new comment
 
-As stored procedures are executed as atomic transactions, it is guaranteed that the value of `commentCount` and the actual number of comments will always stay in sync.
+As stored procedures are executed as atomic transactions, the value of `commentCount` and the actual number of comments will always stay in sync.
 
 We obviously call a similar stored procedure when adding new likes to increment the `likeCount`.
 

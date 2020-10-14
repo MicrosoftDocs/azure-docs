@@ -111,7 +111,7 @@ If your container could grow to more than a few physical partitions, then you sh
 
 If your container has a property that has a wide range of possible values, it is likely a great partition key choice. One possible example of such a property is the *item ID*. For small read-heavy containers or write-heavy containers of any size, the *item ID* is naturally a great choice for the partition key.
 
-The system property *item ID* is guaranteed to exist in every item in your container. You may have other properties that represent a logical ID of your item. In many cases, these are also great partition key choices for the same reasons as the *item ID*.
+The system property *item ID* exists in every item in your container. You may have other properties that represent a logical ID of your item. In many cases, these are also great partition key choices for the same reasons as the *item ID*.
 
 The *item ID* is a great partition key choice for the following reasons:
 
