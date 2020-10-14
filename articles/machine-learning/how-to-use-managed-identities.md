@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 10/08/2020
 ---
 
-# Use Managed Identities with Azure Machine Learning (preview)
+# Use Managed identities with Azure Machine Learning (preview)
 
 [Managed identities](/azure/active-directory/managed-identities-azure-resources/overview) allow you to configure your workspace with the *minimum required permissions to access resources*. 
 
