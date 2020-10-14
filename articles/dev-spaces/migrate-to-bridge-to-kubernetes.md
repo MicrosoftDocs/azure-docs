@@ -103,7 +103,6 @@ Bridge to Kubernetes has the flexibility to work with applications running in Ku
 
 1. Manually migrate any customizations, such as environment variable settings, in *azds.yaml* into your project's *values.yml* file.
 1. (optional) Remove the `azds.yaml` file from your project.
-1. Redeploy your application.
 1. Configure Bridge to Kubernetes on your deployed application. For more information on using Bridge to Kubernetes in Visual Studio, see [Use Bridge to Kubernetes in Visual Studio][use-btk-vs]. For VS Code, see [Use Bridge to Kubernetes in VS Code][use-btk-vsc].
 1. Start debugging using the newly created Bridge to Kubernetes debug/launch profile.
 1. You can run the script again as needed to redeploy to your cluster.

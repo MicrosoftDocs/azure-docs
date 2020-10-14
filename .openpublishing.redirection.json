@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/healthcare-apis/bring-your-own-key.md",
+      "redirect_url": "/azure/healthcare-apis/customer-managed-key",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/sa-upload-vhd.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/sa-upload-vhd",
       "redirect_document_id": false
@@ -38353,12 +38358,17 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
       "redirect_document_id": false
     },
     {
