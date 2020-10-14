@@ -104,8 +104,8 @@ When the device is activated, you are prompted to save a key file that contains 
 > [!IMPORTANT]
 > Save the key file in a secure location outside the device itself. If the device doesn't boot up, and you don't have the key, it could potentially result in data loss.
 
-- Certain recovery scenarios will prompt you for the key file that you have saved.
-- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.
+- Certain recovery scenarios will prompt you for the key file that you have saved. 
+<!--- If a node isn't booting up, you will need to perform a node replacement. You will have the option to swap the data disks from the failed node to the new node. For a 4-node device, you won't need a key file. For a 1-node device, you will be prompted to provide a key file.-->
 
 #### Restricted access to data
 
