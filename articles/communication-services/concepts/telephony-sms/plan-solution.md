@@ -46,7 +46,7 @@ The table below summarizes these phone number types:
 | Toll-Free         | +1 (toll-free area *code*) XXX XX XX | US                      | Calling (Outbound), SMS (Inbound/Outbound)| Assigning phone numbers to Interactive Voice Response (IVR) systems/Bots, SMS applications                                        |
 
 
-## Phone number configuration in Azure Communication Services 
+## Phone number features in Azure Communication Services 
 
 For most phone numbers, we allow you to configure an "a la carte" set of features. These features can be selected as you lease your telephone numbers within Azure Communication Services.
 
