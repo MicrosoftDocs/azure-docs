@@ -71,8 +71,8 @@ You can delegate guest user management to application owners so that they can ad
 
 Bring your external partners on board in ways customized to your organization's needs.
 
-- Use [Azure AD entitlement management](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) to configure policies that [manage access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users).
-- Use the [B2B collaboration invitation APIs](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) to customize your onboarding experiences.
+- Use [Azure AD entitlement management](../governance/entitlement-management-overview.md) to configure policies that [manage access for external users](../governance/entitlement-management-external-users.md#how-access-works-for-external-users).
+- Use the [B2B collaboration invitation APIs](/graph/api/resources/invitation) to customize your onboarding experiences.
 
 ## Integrate with Identity providers
 

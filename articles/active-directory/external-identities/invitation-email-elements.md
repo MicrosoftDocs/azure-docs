@@ -69,7 +69,7 @@ The next section of the email contains information about where the invitee will 
 
 ### Footer section
 
-The footer contains more information about the invitation being sent. There is always an option for the invitee to block future invitations. If the organization has [set a privacy statement](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-properties-area), the link to the statement is displayed here.  Otherwise, a note indicates the organization hasn't set a privacy statement.
+The footer contains more information about the invitation being sent. There is always an option for the invitee to block future invitations. If the organization has [set a privacy statement](../fundamentals/active-directory-properties-area.md), the link to the statement is displayed here.  Otherwise, a note indicates the organization hasn't set a privacy statement.
 
 ![Image of the footer section in the email](media/invitation-email-elements/footer-section.png)
 
@@ -91,8 +91,8 @@ A guest user can follow these steps to view or export the organizations they've 
 
 The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language.
 
-- The **messageLanguage** property of the [invitedUserMessageInfo](https://docs.microsoft.com/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object if the Create invitation API is used
--	The **preferredLanguage** property specified in the guest's [user object](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0)
+- The **messageLanguage** property of the [invitedUserMessageInfo](/graph/api/resources/invitedusermessageinfo?view=graph-rest-1.0) object if the Create invitation API is used
+-	The **preferredLanguage** property specified in the guest's [user object](/graph/api/resources/user?view=graph-rest-1.0)
 -	The **Notification language** set in the properties of the guest user’s home tenant (for Azure AD tenants only)
 -	The **Notification language** set in the properties of the resource tenant
 
