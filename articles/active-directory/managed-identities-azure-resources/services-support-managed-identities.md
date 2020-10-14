@@ -44,7 +44,7 @@ Refer to the following list to configure managed identity for Azure API Manageme
 | System assigned | ![Available][check] | ![Available][check] | Not Available | Not Available |
 | User assigned | ![Available][check] | ![Available][check]  | Not Available  | Not Available |
 
-Refer to the following list to configure managed identity for Azure App Configuration
+Refer to the following list to configure managed identity for Azure App Configuration (in regions where available):
 
 - [Azure CLI](../../azure-app-configuration/overview-managed-identity.md)
 
