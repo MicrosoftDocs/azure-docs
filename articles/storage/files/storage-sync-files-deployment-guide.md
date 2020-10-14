@@ -546,7 +546,7 @@ Enable-StorageSyncSelfServiceRestore [-DriveLetter] <string> [[-Force]]
 VSS snapshots are taken of an entire volume. 
 By default, up to 64 snapshots can exist for a given volume, granted there is enough space to store the snapshots. VSS handles this automatically. The default snapshot schedule takes two snapshots per day, Monday through Friday. That schedule is configurable via a Windows Scheduled Task. The above PowerShell cmdlet does two things:
 1. It configures Azure File Syncs cloud tiering on the specified volume to be compatible with previous versions and guarantees that a file can be restored from a previous version, even if it was tiered to the cloud on the server. 
-2. It enables the default VSS schedule. You can then decide to modify it later. 
+1. It enables the default VSS schedule. You can then decide to modify it later. 
 
 > [!Note]  
 > There are two important things to note:
