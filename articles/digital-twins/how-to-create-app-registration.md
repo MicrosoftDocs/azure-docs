@@ -23,14 +23,12 @@ This is not required for all authentication scenarios. However, if you are using
 
 ## Using Azure Active Directory app registrations
 
-[Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's cloud-based identity and access management service,
+[Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's cloud-based identity and access management service. Setting up an **app registration** in Azure AD is one way to grant a client app access to Azure Digital Twins.
 
-Setting up an **app registration** in Azure AD is one way to grant a client app access to Azure Digital Twins.
-
-This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, client apps will authenticate against the app registration using the registration's **client and tenant ID values**, and as a result it is granted the configured access permissions to the APIs.
+This app registration is where you configure access permissions to the [Azure Digital Twins APIs](how-to-use-apis-sdks.md). Later, client apps can authenticate against the app registration using the registration's **client and tenant ID values**, and as a result be granted the configured access permissions to the APIs.
 
 >[!TIP]
-> As a subscription Owner/administrator, you may prefer to set up a new app registration every time you need one, *or* to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
+> You may prefer to set up a new app registration every time you need one, *or* to do this only once, establishing a single app registration that will be shared among all scenarios that require it.
 
 ## Create the registration
 
@@ -48,6 +46,14 @@ When you are finished, hit the *Register* button.
 :::image type="content" source="media/how-to-create-app-registration/register-an-application.png" alt-text="View of the 'Register an application' page with the described values filled in":::
 
 When the registration is finished setting up, the portal will redirect you to its details page.
+
+## Collect client ID and tenant ID
+
+Next, collect some important values about the app registration from its details page:
+
+:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
+
+Take note of the _**Application (client) ID**_ and _**Directory (tenant) ID**_ shown on **your** page. These are the values a client app will need to use this registration to authenticate with Azure Digital Twins.
 
 ## Provide Azure Digital Twins API permission
 
@@ -71,7 +77,7 @@ Next, you'll select which permissions to grant for these APIs. Expand the **Read
 
 Hit *Add permissions* when finished.
 
-## Verify success and collect important values
+### Verify success
 
 Back on the *API permissions* page, verify that there is now an entry for Azure Digital Twins reflecting Read/Write permissions:
 
@@ -83,13 +89,7 @@ To do this, select *Manifest* from the menu to view the app registration's manif
 
 :::image type="content" source="media/how-to-create-app-registration/verify-manifest.png" alt-text="Portal view of the manifest for the Azure AD app registration. Nested under 'requiredResourceAccess', there's a 'resourceAppId' value of 0b07f429-9f4b-4714-9392-cc5e8e80c8b0, and a 'resourceAccess > id' value of 4589bd03-58cb-4e6c-b17f-b580e39652f8":::
 
-### Collect client ID and tenant ID
-
-Next, select *Overview* from the menu bar to see the details of the app registration:
-
-:::image type="content" source="media/how-to-create-app-registration/app-important-values.png" alt-text="Portal view of the important values for the app registration":::
-
-Take note of the _**Application (client) ID**_ and _**Directory (tenant) ID**_ shown on **your** page. These are the values a client app will need to use this registration to authenticate with Azure Digital Twins.
+If these values are missing, retry the steps in the [section for adding the API permission](#provide-azure-digital-twins-api-permission).
 
 ## Other possible steps for your organization
 
