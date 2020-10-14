@@ -38,7 +38,8 @@ We recommend the following steps to enable your app to take advantage of single 
 
 The best choice for implementing single sign-on in your application is to use [the Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview). By using MSAL you can add authentication to your app with minimal code and API calls, get the full features of the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/), and let Microsoft handle the maintenance of a secure authentication solution. By default, MSAL adds SSO support for your application. In addition, using MSAL is a requirement if you also plan to implement app protection policies.
 
-> [!NOTE] It is possible to configure MSAL to use an embedded web view. This will prevent single sign-on. Use the default behavior (i.e. system web browser) to ensure that SSO will work.
+> [!NOTE]
+> It is possible to configure MSAL to use an embedded web view. This will prevent single sign-on. Use the default behavior (i.e. system web browser) to ensure that SSO will work.
 
 If you are currently using the [ADAL library](https://docs.microsoft.com/azure/active-directory/azuread-dev/active-directory-authentication-libraries) in your application, then we highly recommend that you [migrate it to MSAL](https://docs.microsoft.com/azure/active-directory/develop/msal-migration), as [ADAL is being deprecated](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/update-your-applications-to-use-microsoft-authentication-library/ba-p/1257363).
 
@@ -54,7 +55,8 @@ Google has guidance for doing this for Android Applications: [Chrome Custom Tabs
 
 Apple has guidance for doing this in iOS applications: [Authenticating a User Through a Web Service | Apple Developer Documentation](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service).
 
-> [!NOTE] The SSO plug-in for Apple devices allows SSO for iOS apps that use embedded web views on managed devices using Intune. We recommend MSAL and system browser as the best option for developing apps that enable SSO for all users, but this will allow SSO in some scenarios where it otherwise is not possible.
+> [!TIP]
+> The SSO plug-in for Apple devices allows SSO for iOS apps that use embedded web views on managed devices using Intune. We recommend MSAL and system browser as the best option for developing apps that enable SSO for all users, but this will allow SSO in some scenarios where it otherwise is not possible.
 
 ## Enable App Protection Policies
 
