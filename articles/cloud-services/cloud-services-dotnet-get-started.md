@@ -228,7 +228,7 @@ Azure storage account connection strings for both the web role project and the w
 
 1. In **Solution Explorer**, right-click **ContosoAdsWeb** under **Roles** in the **ContosoAdsCloudService** project, and then click **Properties**.
 
-    ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Image shows Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
 2. Click the **Settings** tab. In the **Service Configuration** drop-down box, choose **Cloud**.
 
     ![Cloud configuration](./media/cloud-services-dotnet-get-started/sccloud.png)
@@ -377,7 +377,7 @@ In this section, you configure Azure Storage and SQL connection strings for test
 2. Save your changes.
 3. In the ContosoAdsCloudService project, right-click ContosoAdsWeb under **Roles**, and then click **Properties**.
 
-    ![Role properties](./media/cloud-services-dotnet-get-started/roleproperties.png)
+    ![Role properties image](./media/cloud-services-dotnet-get-started/roleproperties.png)
 4. In the **ContosoAdsWeb [Role]** properties window, click the **Settings** tab, and then click **Add Setting**.
 
     Leave **Service Configuration** set to **All Configurations**.
