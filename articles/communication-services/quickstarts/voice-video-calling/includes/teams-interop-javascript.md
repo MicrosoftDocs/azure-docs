@@ -111,7 +111,7 @@ Insert the Teams context into the text box and press *Join Teams Meeting* to joi
 
 ## Schedule the Teams meeting
 
-Schedule a meeting in Teams as [you normally would](https://support.microsoft.com/office/schedule-a-meeting-in-teams-943507a9-8583-4c58-b5d2-8ec8265e04e5). Note that in order for Azure Communication users to join, anonymous joins must be allowed in the [meeting settings](https://docs.microsoft.com/en-us/microsoftteams/meeting-settings-in-teams).
+Schedule a meeting in Teams as [you normally would](https://support.microsoft.com/office/schedule-a-meeting-in-teams-943507a9-8583-4c58-b5d2-8ec8265e04e5). Note that in order for Communication Services users to join, anonymous joins must be allowed in the [meeting settings](https://docs.microsoft.com/microsoftteams/meeting-settings-in-teams).
 
 
 
