@@ -96,6 +96,10 @@ public static void Run(TimerInfo myTimer, ICollector<EventGridEvent> outputEvent
 }
 ```
 
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for Java.
+
 # [JavaScript](#tab/javascript)
 
 The following example shows the Event Grid output binding data in the *function.json* file.
@@ -158,6 +162,10 @@ module.exports = function(context) {
 
 # [Python](#tab/python)
 
+**TODO**
+
+# [Python](#tab/python)
+
 The following example shows a trigger binding in a *function.json* file and a [Python function](functions-reference-python.md) that uses the binding. It then sends in an event to the custom topic, as specified by the `topicEndpointUri`.
 
 Here's the binding data in the *function.json* file:
@@ -190,7 +198,6 @@ import logging
 import azure.functions as func
 import datetime
 
-
 def main(eventGridEvent: func.EventGridEvent, 
          outputEvent: func.Out[func.EventGridOutputEvent]) -> None:
 
@@ -205,10 +212,6 @@ def main(eventGridEvent: func.EventGridEvent,
             event_time=datetime.datetime.utcnow(),
             data_version="1.0"))
 ```
-
-# [Java](#tab/java)
-
-The Event Grid output binding is not available for Java.
 
 ---
 
@@ -235,17 +238,21 @@ For a complete example, see [example](#example).
 
 Attributes are not supported by C# Script.
 
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for Java.
+
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
 
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
 # [Python](#tab/python)
 
 The Event Grid output binding is not available for Python.
-
-# [Java](#tab/java)
-
-The Event Grid output binding is not available for Java.
 
 ---
 
@@ -278,17 +285,21 @@ Send messages by using a method parameter such as `out EventGridEvent paramName`
 Send messages by using a method parameter such as `out EventGridEvent paramName`. In C# script, `paramName` is the value specified in the `name` property of *function.json*. To write multiple messages, you can use `ICollector<EventGridEvent>` or
 `IAsyncCollector<EventGridEvent>` in place of `out EventGridEvent`.
 
+# [Java](#tab/java)
+
+The Event Grid output binding is not available for Java.
+
 # [JavaScript](#tab/javascript)
 
 Access the output event by using `context.bindings.<name>` where `<name>` is the value specified in the `name` property of *function.json*.
 
+# [PowerShell](#tab/powershell)
+
+**TODO**
+
 # [Python](#tab/python)
 
 The Event Grid output binding is not available for Python.
-
-# [Java](#tab/java)
-
-The Event Grid output binding is not available for Java.
 
 ---
 
