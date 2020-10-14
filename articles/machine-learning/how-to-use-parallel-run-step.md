@@ -5,7 +5,7 @@ description: Learn how to get inferences asynchronously on large amounts of data
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
