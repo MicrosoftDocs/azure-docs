@@ -62,7 +62,7 @@ For example, if you used the sample scripts to [Create demo certificates](how-to
 
 1. Copy the three certificate and key files onto your IoT Edge device.
 
-   You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.  If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
+   You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.  If you generated the certificates on the IoT Edge device itself, you can skip this step and use the path to the working directory.
 
 1. Open the IoT Edge security daemon config file.
 
