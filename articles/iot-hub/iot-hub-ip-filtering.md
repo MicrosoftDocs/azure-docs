@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub IP filters | Microsoft Docs
-description: How to use IP filtering to block connections from specific IP addresses for to your Azure IoT hub. You can block connections from individual or ranges of IP addresses.
+description: How to use IP filtering to allow connections from specific IP addresses for to your Azure IoT hub.
 author: jlian
 ms.service: iot-hub
 services: iot-hub
@@ -83,7 +83,7 @@ For example, if you want to accept addresses in the range `192.168.100.0/22` and
 
 ## Retrieve and update IP filters using Azure CLI
 
-Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/).
 
 To retrieve current IP filters of your IoT Hub, run:
 

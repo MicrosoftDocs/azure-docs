@@ -1,6 +1,6 @@
 ---
 title: IoT Hub classic IP filter (deprecated) | Microsoft Docs
-description: How to use IP filtering to block connections from specific IP addresses for to your Azure IoT hub. You can block connections from individual or ranges of IP addresses.
+description: How to upgrade from classic IP filter and what are the benefits
 author: jlian
 ms.service: iot-hub
 services: iot-hub
@@ -132,7 +132,7 @@ To delete an IP filter rule, select the trash can icon on that row and then sele
 
 ### Retrieve and update IP filters using Azure CLI
 
-Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+Your IoT Hub's IP filters can be retrieved and updated through [Azure  CLI](https://docs.microsoft.com/cli/azure/).
 
 To retrieve current IP filters of your IoT Hub, run:
 
