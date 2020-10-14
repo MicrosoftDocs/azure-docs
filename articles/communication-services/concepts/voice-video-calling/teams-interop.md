@@ -12,7 +12,9 @@ ms.topic: overview
 ms.service: azure-communication-services
 ---
 
-## Joining Teams meetings
+# Joining Teams meetings
+
+[!INCLUDE [Public Preview Notice](../../includes/private-preview-include.md)]
 
 Azure Communication Services can be used to build custom meeting experiences that interact with Microsoft Teams. Users of your Communication Services solution(s) can interact with Teams participants over voice, video, and screen sharing.
 
