@@ -2,8 +2,9 @@
 title: Remove VMs from Azure Automation Change Tracking and Inventory
 description: This article tells how to remove VMs from Change Tracking and Inventory.
 services: automation
+ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 10/02/2020
+ms.date: 10/14/2020
 ---
 
 # Remove VMs from Change Tracking and Inventory
@@ -16,7 +17,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## To remove your VMs
 
-1. In the Azure portal, launch **Cloud Shell** from the top navigation of the Azure portal. If you are unfamiliar with Azure Cloud Shell, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
+1. In the Azure portal, launch **Cloud Shell** from the top navigation of the Azure portal. If you are unfamiliar with Azure Cloud Shell, see [Overview of Azure Cloud Shell](/cloud-shell/overview).
 
 2. Use the following command to identify the UUID of a machine that you want to remove from management.
 
@@ -39,4 +40,4 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
-To re-enable this feature, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md), [Enable Change Tracking and Inventory by browsing the Azure portal](enable-portal.md), [Enable Change Tracking and Inventory from a runbook](enable-runbook.md), or [Enable Change Tracking and Inventory from an Azure VM](enable-from-vm.md).
+To re-enable this feature, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md), [Enable Change Tracking and Inventory by browsing the Azure portal](enable-from-portal.md), [Enable Change Tracking and Inventory from a runbook](enable-from-runbook.md), or [Enable Change Tracking and Inventory from an Azure VM](enable-from-vm.md).

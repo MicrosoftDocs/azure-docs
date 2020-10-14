@@ -49,7 +49,7 @@ Change Tracking and Inventory doesn't support or has the following limitations:
 - If network traffic is high, change records can take up to six hours to display.
 - If you modify a configuration while a machine or server is shut down, it might post changes belonging to the previous configuration.
 - Collecting Hotfix updates on Windows Server 2016 Core RS3 machines.
-- Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](../../azure-monitor/reference/tables/configurationchange.md) table is written.
+- Linux daemons might show a changed state even though no change has occurred. This issue arises because of the way the `SvcRunLevels` data in the Azure Monitor [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange) table is written.
 
 ## Supported operating systems
 
@@ -77,7 +77,7 @@ Here are the ways that you can enable Change Tracking and Inventory and select m
 * [From an Azure virtual machine](enable-from-vm.md).
 * [From browsing multiple Azure virtual machines](enable-from-portal.md).
 * [From an Azure Automation account](enable-from-automation-account.md).
-* For Arc enabled servers (preview) or non-Azure machines, install the [Log Analytics agent](/azure-monitor/platform/log-analytics-agent) and then [enable machines in the workspace](enable-from-automation-account.md/#enable-machines-in-the-workspace) to Change Tracking and Inventory.
+* For Arc enabled servers (preview) or non-Azure machines, install the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) and then [enable machines in the workspace](enable-from-automation-account.md/#enable-machines-in-the-workspace) to Change Tracking and Inventory.
 * [Using an Automation runbook](enable-from-runbook.md).
 
 ## Tracking file changes
@@ -88,7 +88,7 @@ For tracking changes in files on both Windows and Linux, Change Tracking and Inv
 
 Change Tracking and Inventory allows you to view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](/storage/common/storage-account-create). When you're tracking a file, you can view its contents before or after a change. The file content can be viewed either inline or side by side.
 
-![View changes in a file](./media/change-tracking/view-file-changes.png)
+![View changes in a file](./media/overview/view-file-changes.png)
 
 ## Tracking of registry keys
 
@@ -181,7 +181,7 @@ A key capability of Change Tracking and Inventory is alerting on changes to the 
 
 ## Next steps
 
-- To enable from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-acount.md).
+- To enable from an Automation account, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md).
 
 - To enable from the Azure portal, see [Enable Change Tracking and Inventory from the Azure portal](enable-from-portal.md).
 

@@ -16,7 +16,7 @@ Before using the procedures in this article, ensure that you've enabled Change T
 * [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md)
 * [Enable Change Tracking and Inventory by browsing the Azure portal](enable-from-portal.md)
 * [Enable Change Tracking and Inventory from a runbook](enable-from-runbook.md)
-* [Enable Change Tracking and Inventory from an Azure VM](enable-from-vms.md)
+* [Enable Change Tracking and Inventory from an Azure VM](enable-from-vm.md)
 
 ## <a name="scope-configuration"></a>Limit the scope for the deployment
 
