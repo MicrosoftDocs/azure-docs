@@ -1,4 +1,22 @@
-# Support single sign-on and app protection policies in the mobile apps you develop
+---
+title: Support single sign-on and app protection policies in mobile apps you develop
+titleSuffix: Microsoft identity platform
+description: Explanation and overview of building mobile applications that support single sign-on and app protection policies
+services: active-directory
+author: knicholasa
+manager: CelesteDG
+
+ms.assetid:
+ms.service: active-directory
+ms.subservice: develop
+ms.topic: conceptual
+ms.workload: identity
+ms.date: 10/14/2020
+ms.author: nichola
+#Customer intent: As an app developer, I want to know how to implement an app that supports single sign-on and app protection policies using the Microsoft identity platform.
+---
+
+# Support single sign-on and app protection policies in mobile apps you develop
 
 Single sign-on (SSO) provides easy and secure logins for users of your app. App protection policies (APP) enable support of the key security policies that keep your user’s data safe. Together, these features enable secure user logins and management of your app’s data.
 
