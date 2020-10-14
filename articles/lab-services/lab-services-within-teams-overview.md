@@ -7,9 +7,9 @@ ms.date: 10/07/2020
 
 # Azure Lab Services within Microsoft Teams
 
-Azure Lab Services owners/creators are now able to create labs within Microsoft Teams.
+Azure Lab Services can be leveraged within Microsoft Teams using **Azure Lab Services** Teams App. Any team owner with owner/contributor/creator access to the lab accounts will be able to create labs and provision virtual machines to everyone on the team.
 
-This article outlines the benefits of Teams integration and provides links to other articles for instructions on how to manage the Azure Lab Services within Teams. 
+This article outlines the benefits of using Azure Lab Services within Teams and provides links to other articles for instructions on how to create and manage labs within Teams. 
 
 ## Benefits
 
@@ -26,8 +26,8 @@ Azure Lab Services integration with Microsoft Teams will help educators set up a
 
 See the following articles:
 
-- [Get started and create a Lab Services lab from Teams](how-to-get-started-create-lab-within-teams.md)
-- [Manage Lab Services user lists from Teams](how-to-manage-user-lists-within-teams.md)
-- [Manage a VM pool in Lab Services from Teams](how-to-manage-vm-pool-within-teams.md)
-- [Create Lab Services schedules from Teams](how-to-create-schedules-within-teams.md)
-- [Access a VM (student view) in Lab Services from Teams](how-to-access-vm-for-students-within-teams.md)
+- [Get started and create a lab within Teams](how-to-get-started-create-lab-within-teams.md)
+- [Manage lab user lists within Teams](how-to-manage-user-lists-within-teams.md)
+- [Manage lab's VM pool within Teams](how-to-manage-vm-pool-within-teams.md)
+- [Create and manage lab schedules within Teams](how-to-create-schedules-within-teams.md)
+- [Access a VM within Teams – Student view](how-to-access-vm-for-students-within-teams.md)
