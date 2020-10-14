@@ -91,6 +91,9 @@ To remove a standard:
 
 1. Select the relevant subscription from which you want to remove a standard.
 
+    > [!NOTE]
+    > You can remove a standard from a subscription, but not from a management group. 
+
     The security policy page opens. For the selected subscription, it shows the default policy, the industry and regulatory standards, and any custom initiatives you've created.
 
     :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard.png" alt-text="Removing a regulatory standard from your regulatory compliance dashboard in Azure Security Center":::
