@@ -101,13 +101,9 @@ If the script completes successfully, the final printout will say `Deployment co
 
 ## Verify success and collect important values
 
-To verify the creation of your resources and permissions set up by the script, you can look at them in the [Azure portal](https://portal.azure.com) with the instructions below.
+To verify the creation of your resources and permissions set up by the script, you can look at them in the [Azure portal](https://portal.azure.com) with the instructions below. If you are unable to verify the success of any step, retry the step. You can perform the steps individually using the [Azure portal](how-to-set-up-instance-portal.md) or [CLI](how-to-set-up-instance-cli.md) instructions.
 
-If you are unable to verify the success of any step, retry the step. You can perform the steps individually using the [Azure portal](how-to-set-up-instance-portal.md) or [CLI](how-to-set-up-instance-cli.md) instructions.
-
-There are also several important values from the resources set up by the script that you may need as you continue working with your Azure Digital Twins instance. This section also shows you how to find these in the Azure portal. You should save them in a safe place, or return to this section to find them later when you need them.
-
-If other users will be programming against the instance, you should also share these values with them.
+This section also shows you how to find important values from the resources set up by the script that you may need as you continue working with your Azure Digital Twins instance. You should save these values in a safe place, or return to this section to find them later when you need them. If other users will be programming against the instance, you should share these values with them as well.
 
 ### Verify instance
 
