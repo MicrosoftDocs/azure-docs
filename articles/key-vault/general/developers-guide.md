@@ -52,7 +52,7 @@ It is recommended to use managed identity for applications deployed to Azure. If
 Recommended security principals per environment:
 - **Production environment**:
   - Managed identity or service principal with a certificate
-- **Test and dev environments**:
+- **Test and development environments**:
   - Managed identity, service principal with certificate or service principal with secret
 - **Local development**:
   - User principal or service principal with secret
