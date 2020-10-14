@@ -29,8 +29,6 @@ This article helps you create a VPN gateway connection between virtual networks.
 
 ![VNet to VNet Connectivity Diagram](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
 
-
-
 ## About VNet-to-VNet connections
 
 Connecting a virtual network to another virtual network (VNet-to-VNet) in the classic deployment model using a VPN gateway is similar to connecting a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to provide a secure tunnel using IPsec/IKE.
@@ -83,7 +81,7 @@ In this step, you create two classic virtual networks. If you are using this art
 Name: TestVNet1<br>
 Address space: 10.11.0.0/16, 10.12.0.0/16 (optional)<br>
 Subnet name: default<br>
-Subnet address range: 10.11.0.1/24<br>
+Subnet address range: 10.11.0.0/24<br>
 Resource group: ClassicRG<br>
 Location: East US<br>
 GatewaySubnet: 10.11.1.0/27
