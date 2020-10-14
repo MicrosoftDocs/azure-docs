@@ -11,7 +11,7 @@ ms.author: charwen
 ---
 # Working with NSG access and Azure Bastion
 
-When working with Azure Bastion, you can use network security groups (NSGs). For more information, see [Security Groups](../virtual-network/security-overview.md).
+When working with Azure Bastion, you can use network security groups (NSGs). For more information, see [Security Groups](../virtual-network/network-security-groups-overview.md).
 
 :::image type="content" source="./media/bastion-nsg/figure-1.png" alt-text="NSG":::
 
