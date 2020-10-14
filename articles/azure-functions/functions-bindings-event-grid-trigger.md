@@ -222,7 +222,28 @@ module.exports = function (context, eventGridEvent) {
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+The following example shows how to configure an Event Grid trigger binding in a the *function.json* file.
+
+```powershell
+{
+  "bindings": [
+    {
+      "type": "eventGridTrigger",
+      "name": "eventGridEvent",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+The Event Grid event is made available to the function via a parameter named `eventGridEvent`, as shown in the following PowerShell example.
+
+```powershell
+param($eventGridEvent, $TriggerMetadata)
+
+# Make sure to pass hashtables to Out-String so they're logged correctly
+$eventGridEvent | Out-String | Write-Host
+```
 
 # [Python](#tab/python)
 
@@ -357,7 +378,7 @@ The Event Grid instance is available via the parameter configured in the *functi
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+The Event Grid instance is available via the parameter configured in the *function.json* file's `name` property.
 
 # [Python](#tab/python)
 
