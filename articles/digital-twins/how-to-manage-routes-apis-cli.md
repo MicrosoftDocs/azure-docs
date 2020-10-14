@@ -96,6 +96,10 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
+To learn more about dead-lettering, see [Concepts: Event Routes](./concepts-route-events.md#dead-letter-events)
+
+#### Configuring the endpoint
+
 When creating an endpoint, add a `deadLetterSecret` to the `properties` object in the body of the request which contains a container URL and SAS token for your storage account.
 
 ```json
@@ -111,6 +115,8 @@ When creating an endpoint, add a `deadLetterSecret` to the `properties` object i
 ```
 
 For more information, see our REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+
+### Message storage schema
 
 Dead-lettered messages will be stored the following format in your storage account:
 
@@ -143,8 +149,6 @@ Here is an example of a dead-letter message for a twin create notification:
   "traceparent": "00-889a9094ba22b9419dd9d8b3bfe1a301-f6564945cb20e94a-01"
 }
 ```
-
-To learn more, see [Concepts: Event Routes](./concepts-route-events.md#dead-letter-events)
 
 ## Event routes (with APIs and the C# SDK)
 
