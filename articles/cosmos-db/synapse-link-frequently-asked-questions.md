@@ -31,7 +31,9 @@ In the preview release, when Azure Synapse Link is enabled for a multi-region ac
 
 ### Is backup and restore supported for Azure Synapse Link enabled accounts?
 
-In preview, for Azure Synapse Link enabled database accounts, backup and restore of containers is not supported. If you have production workloads that require backup and restore functionality, we recommended not to enable Synapse Link on those database accounts. 
+For the containers with analytical store turned on, automatic backup and restore of your data in the analytical store is not supported at this time. 
+
+When Synapse Link is enabled on a database account, Azure Cosmos DB will continue to automatically [take backups](https://docs.microsoft.com/azure/cosmos-db/online-backup-and-restore) of your data in the transactional store (only) of containers at scheduled backup interval, as always. It is important to note that when a container with analytical store turned on is restored to a new account, the container will be restored with only transactional store and no analytical store enabled. 
 
 ### Can I disable the Azure Synapse Link feature for my Azure Cosmos DB account?
 

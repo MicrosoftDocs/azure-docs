@@ -18,7 +18,7 @@ The Azure Security Baseline for Azure Kubernetes Service contains recommendation
 
 The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see [Azure Security Baselines overview](/azure/security/benchmarks/security-baselines-overview-v1).
+For more information, see [Azure Security Baselines overview](/azure/security/benchmarks/security-baselines-overview).
 
 ## Network security
 
