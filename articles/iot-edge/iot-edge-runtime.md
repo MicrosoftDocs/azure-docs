@@ -66,7 +66,7 @@ To receive a message, register a callback that processes messages coming in on a
    await client.SetInputMessageHandlerAsync("input1", messageProcessor, userContext);
    ```
 
-For more information about the ModuleClient class and its communication methods, see the API reference for your preferred SDK language: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient), or [Node.js](/javascript/api/azure-iot-device/moduleclient).
+For more information about the ModuleClient class and its communication methods, see the API reference for your preferred SDK language: [C#](/dotnet/api/microsoft.azure.devices.client.moduleclient), [C](/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient), [Java](/java/api/com.microsoft.azure.sdk.iot.device.moduleclient), or [Node.js](/javascript/api/azure-iot-device/moduleclient).
 
 The solution developer is responsible for specifying the rules that determine how IoT Edge hub passes messages between modules. Routing rules are defined in the cloud and pushed down to IoT Edge hub in its module twin. The same syntax for IoT Hub routes is used to define routes between modules in Azure IoT Edge. For more information, see [Learn how to deploy modules and establish routes in IoT Edge](module-composition.md).
 
@@ -121,15 +121,15 @@ For more information about the Azure IoT Edge security framework, read about the
 
 ## Runtime quality telemetry
 
-IoT Edge collects anonymized telemetry from the host runtime and system modules to improve product quality. This information is called Runtime quality telemetry (RQT). RQT is periodically sent as device-to-cloud messages to IoT Hub from the IoT Edge Agent. RQT messages do not appear in customer's regular telemetry and do not consume any message quota.
+IoT Edge collects anonymous telemetry from the host runtime and system modules to improve product quality. This information is called runtime quality telemetry. The collected telemetry is periodically sent as device-to-cloud messages to IoT Hub from the IoT Edge agent. These messages do not appear in customer's regular telemetry and do not consume any message quota.
 
-A full list of the metrics collected by edgeAgent and edgeHub is available in the [Available metrics section of the Access IoT Edge runtime metrics article](how-to-access-built-in-metrics.md#available-metrics). A subset of these metrics is collected by the IoT Edge Agent as part of RQT. Metrics collected as a part of RQT include the tag `ms_telemetry`.
+The IoT Edge agent and hub generate metrics that you can collect to understand device performance. A subset of these metrics is collected by the IoT Edge Agent as part of runtime quality telemetry. The metrics collected for runtime quality telemetry are labeled with the tag `ms_telemetry`. For information about all the available metrics, see [Access built-in metrics](how-to-access-built-in-metrics.md).
 
-As part of the anonymization, any personally or organizationally identifiable information, such as device and module names, are removed before upload.
+Any personally or organizationally identifiable information, such as device and module names, are removed before upload to ensure the anonymous nature of the runtime quality telemetry.
 
-The default frequency of RQT is one message sent to IoT Hub every 24 hours and local collection by edgeAgent every hour.
+The IoT Edge agent collects the telemetry every hour and sends one message to IoT Hub every 24 hours.
 
-If you wish to opt out of RQT, there are two ways to do so:
+If you wish to opt out of sending runtime telemetry from your devices, there are two ways to do so:
 
 * Set the `SendRuntimeQualityTelemetry` environment variable to `false` for **edgeAgent**, or
 * Uncheck the option in the Azure portal during deployment.

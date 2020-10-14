@@ -99,25 +99,13 @@
       - name: Consistency levels
         displayName: session, consistency prefix, strong, eventual, bounded staleness
         href: consistency-levels.md
-      - name: Choose the right consistency level
-        displayName: session, consistency prefix, strong, eventual, bounded staleness
-        href: consistency-levels-choosing.md
-      - name: Consistency levels and Azure Cosmos DB APIs
-        href: consistency-levels-across-apis.md
-      - name: Consistency, availability, and performance tradeoffs
-        href: consistency-levels-tradeoffs.md
       - name: High availability
         href: high-availability.md
-      - name: Globally scale provisioned throughput
-        displayName: request units, RUs, RU
-        href: scaling-throughput.md
       - name: Conflict types and resolution policies
         displayName: last write wins, custom, multi-region writes, multi-master
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
-      - name: Regional presence
-        href: regional-presence.md
     - name: Partitioning
       items:
       - name: Partitioning and horizontal scaling
@@ -582,11 +570,6 @@
         - name: Secure access to data
           displayName: primary key, resource token, users, roles
           href: secure-access-to-data.md
-        - name: IP firewall
-          href: firewall-support.md
-        - name: Access from virtual networks
-          displayName: service endpoint
-          href: vnet-service-endpoint.md
         - name: Service tags
           href: ../virtual-network/service-tags-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Role-based access control
@@ -601,8 +584,6 @@
           href: security-baseline.md
     - name: Enterprise readiness
       items:
-      - name: Online backup and on-demand restore
-        href: online-backup-and-restore.md
       - name: Compliance
         href: compliance.md
       - name: Azure Policy support
@@ -658,7 +639,9 @@
         - name: Partitioning
           href: cassandra-partitioning.md          
         - name: Secondary Indexes
-          href: cassandra-secondary-index.md          
+          href: cassandra-secondary-index.md
+        - name: Mapping consistency levels
+          href: cassandra-consistency.md
       - name: How-to guides
         items:
         - name: Migrate to Cassandra API
@@ -756,6 +739,8 @@
           href: mongodb-feature-support.md
         - name: FAQ
           href: mongodb-api-faq.md
+        - name: Mapping consistency levels
+          href: mongodb-consistency.md
       - name: How-to guides
         items:
         - name: Migrate to MongoDB API
@@ -789,6 +774,8 @@
           href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
+        - name: Troubleshoot query performance
+          href: mongodb-troubleshoot-query.md
         - name: Store and manage Spring Data
           href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: MongoDB extension commands
@@ -834,6 +821,10 @@
         items:
         - name: FAQ
           href: gremlin-api-faq.md
+        - name: Response headers
+          href: gremlin-headers.md
+        - name: Limits
+          href: gremlin-limits.md
       - name: How-to guides
         items:
         - name: Graph data modeling
@@ -861,14 +852,6 @@
           href: powershell-samples.md
         - name: Manage using Azure CLI
           href: cli-samples.md
-      - name: Reference
-        items:
-        - name: Response Headers
-          href: gremlin-headers.md
-        - name: Limits
-          href: gremlin-limits.md
-        - name: Compatibility
-          href: gremlin-compatibility.md
     - name: Table API
       items:
       - name: Overview
@@ -1034,6 +1017,8 @@
         href: how-to-define-unique-keys.md
     - name: Performance
       items:
+      - name: Connectivity modes
+        href: sql-sdk-connection-modes.md
       - name: Query
         items: 
         - name: Get query execution metrics
@@ -1172,8 +1157,8 @@
         href: how-to-setup-cmk.md
     - name: Enterprise readiness
       items:
-      - name: Restore data from a backup
-        href: how-to-backup-and-restore.md
+      - name: Online backup and on-demand restore
+        href: online-backup-and-restore.md
       - name: Request quota increase
         href: create-support-request-quota-increase.md
     - name : Monitor
