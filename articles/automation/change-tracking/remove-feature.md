@@ -2,7 +2,8 @@
 title: Remove Azure Automation Change Tracking and Inventory feature
 description: This article tells how to stop using Change Tracking and Inventory, and unlink an Automation account from the Log Analytics workspace. 
 services: automation
-ms.date: 10/02/2020
+ms.subservice: change-inventory-management
+ms.date: 10/14/2020
 ms.topic: conceptual
 ---
 
@@ -24,7 +25,7 @@ Before you can unlink the Automation account from the workspace, you need to fol
 
 1. In the Azure portal, select **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters suggestions based on your input. Select **Log Analytics**.
 
-2. In your list of Log Analytics workspaces, select the workspace you chose when you enabled Update Management.
+2. In your list of Log Analytics workspaces, select the workspace you chose when you enabled Change Tracking and Inventory.
 
 3. On the left, select **Solutions**.  
 
@@ -54,4 +55,4 @@ While it attempts to unlink the Automation account, you can track the progress u
 
 ## Next steps
 
-To re-enable this feature, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md), [Enable Change Tracking and Inventory by browsing the Azure portal](enable-portal.md), [Enable Change Tracking and Inventory from a runbook](enable-runbook.md), or [Enable Change Tracking and Inventory from an Azure VM](enable-from-vm.md).
+To re-enable this feature, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md), [Enable Change Tracking and Inventory by browsing the Azure portal](enable-from-portal.md), [Enable Change Tracking and Inventory from a runbook](enable-from-runbook.md), or [Enable Change Tracking and Inventory from an Azure VM](enable-from-vm.md).

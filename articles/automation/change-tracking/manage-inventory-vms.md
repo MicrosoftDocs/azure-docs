@@ -4,7 +4,7 @@ description: This article tells how to manage inventory collection from VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 06/30/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ---
 # Manage inventory collection from VMs
@@ -20,7 +20,7 @@ Azure Automation Change Tracking and Inventory provides a browser-based user int
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
-This article assumes that you have a VM to enable with Change Tracking and Inventory. If you don't have an Azure VM, you can [create a VM](../virtual-machines/windows/quick-create-portal.md).
+This article assumes that you have a VM to enable with Change Tracking and Inventory. If you don't have an Azure VM, you can [create a VM](../../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to the Azure portal
 
@@ -35,11 +35,11 @@ Sign in to the [Azure portal](https://portal.azure.com/).
     If no workspace is available to you for that region, you are prompted to create a default workspace and automation account.
 5. To start enabling your computer, select **Enable**.
 
-   ![View onboarding options](./media/automation-vm-inventory/inventory-onboarding-options.png)
+   ![View onboarding options](./media/manage-inventory-vms/inventory-onboarding-options.png)
 
     A status bar notifies you that the Change Tracking and Inventory feature is being enabled. This process can take up to 15 minutes. During this time, you can close the window, or you can keep it open and it notifies you when the feature is enabled. You can monitor the deployment status from the notifications pane.
 
-   ![View inventory](./media/automation-vm-inventory/inventory-onboarded.png)
+   ![View inventory](./media/manage-inventory-vms/inventory-onboarded.png)
 
 When the deployment is complete, the status bar disappears. The system is still collecting inventory data, and the data might not be visible yet. A full collection of data can take 24 hours.
 
@@ -88,21 +88,21 @@ The following sections provide information about each property that can be confi
 
 Inventory allows you to create and view machine groups in Azure Monitor logs. Machine groups are collections of machines defined by a query in Azure Monitor logs.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 To view your machine groups select the **Machine groups** tab on the Inventory page.
 
-![View machine groups on the inventory page](./media/automation-vm-inventory/inventory-machine-groups.png)
+![View machine groups on the inventory page](./media/manage-inventory-vms/inventory-machine-groups.png)
 
 Selecting a machine group from the list opens the Machine groups page. This page shows details about the machine group. These details include the Azure Monitor log query that is used to define the group. At the bottom of the page, is a paged list of the machines that are part of that group.
 
-![View machine group page](./media/automation-vm-inventory/machine-group-page.png)
+![View machine group page](./media/manage-inventory-vms/machine-group-page.png)
 
 Click **+ Clone** to clone the machine group. You must give the group a new name and alias for the group. The definition can be altered at this time. After changing the query, click **Validate query** to preview the machines that would be selected. When you are happy with the group, click **Create** to create the machine group.
 
 If you want to create a new machine group, click **+ Create a machine group**. This button opens the **Create a machine group** page, where you can define your new group. Click **Create** to create the group.
 
-![Create new machine group](./media/automation-vm-inventory/create-new-group.png)
+![Create new machine group](./media/manage-inventory-vms/create-new-group.png)
 
 ## Disconnect your VM from management
 
@@ -124,6 +124,6 @@ To remove your VM from Change Tracking and Inventory management:
 
 ## Next steps
 
-* For details of working with the feature, see [Manage Change Tracking and Inventory](change-tracking-file-contents.md).
-* To find out more about tracking software changes, see [Track software changes in your environment with Change Tracking](./change-tracking.md).
-* To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](troubleshoot/change-tracking.md).
+* For details of working with the feature, see [Manage Change Tracking and Inventory](manage-change-tracking.md).
+* To find out more about tracking software changes, see [Track software changes in your environment with Change Tracking](overview.md).
+* To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).
