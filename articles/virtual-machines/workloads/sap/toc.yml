@@ -245,6 +245,12 @@
     href: ../../../site-recovery/site-recovery-workload.md#protect-sap
   - name: Azure Proximity Placement Groups for optimal network latency with SAP applications
     href: sap-proximity-placement-scenarios.md
+- name: SAP BusinessObjects Business Intelligence Platform on Azure
+  items:
+  - name: SAP BOBI Platform Planning and Implementation Guide on Azure 
+    href: bobi-deployment-guide.md
+  - name: SAP BOBI Platform Deployment Guide for Linux on Azure
+    href: bobi-deployment-guide-linux.md
 - name: Integrate Azure AD with SAP applications
   items:
   - name: Provision users from SAP SuccessFactors to Active Directory
