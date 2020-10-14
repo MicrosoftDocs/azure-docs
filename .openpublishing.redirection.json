@@ -3694,7 +3694,7 @@
     {
       "source_path": "articles/cosmos-db/how-to-backup-and-restore.md",
       "redirect_url": "/azure/cosmos-db/online-backup-and-restore",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/databases-containers-items.md",
@@ -3704,12 +3704,12 @@
     {
       "source_path": "articles/cosmos-db/partition-data.md",
       "redirect_url": "/azure/cosmos-db/partitioning-overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/gremlin-compatibility.md",
       "redirect_url": "/azure/cosmos-db/gremlin-support",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/provision-throughput-autopilot.md",
@@ -3729,7 +3729,7 @@
     {
       "source_path": "articles/cosmos-db/firewall-support.md",
       "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
@@ -3739,7 +3739,7 @@
     {
       "source_path": "articles/cosmos-db/vnet-service-endpoint.md",
       "redirect_url": "/azure/cosmos-db/how-to-configure-vnet-service-endpoint",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
