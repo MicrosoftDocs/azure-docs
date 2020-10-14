@@ -45,7 +45,7 @@ The following example shows how to accessAppSource Power BI visual add-ins from 
 
 :::image type="content" source="media/overview/power-bi.png" alt-text="Shows how to access Power BI Visuals in AppSource from the Power BI File menu."::: 
 
-This option opens a windows where the customer can search for Power BI add-ins by name or category. 
+This option opens a window where the customer can search for Power BI add-ins by name or category. 
 
 :::image type="content" source="media/overview/power-bi-apps.png" alt-text="Shows the list of AppSource add-ins from within Power BI."::: 
 
