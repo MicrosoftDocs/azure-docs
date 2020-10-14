@@ -119,7 +119,7 @@ You can scale the provisioned throughput of a container or a database through th
 
 If you are **reducing the provisioned throughput**, you will be able to do it up to the [minimum](#current-provisioned-throughput).
 
-If you are **increasing the provisioned throughput**, most of the time, the operation is instantaneous. There are however, cases where the operation can take longer time due to the system tasks to provision the required resources. In this case, an attempt to modify the provisioned throughput while this operation is in progress will yield an [HTTP error 423](rest/api/cosmos-db/http-status-codes-for-cosmosdb) with an error message explaining that another scaling operation is in progress.
+If you are **increasing the provisioned throughput**, most of the time, the operation is instantaneous. There are however, cases where the operation can take longer time due to the system tasks to provision the required resources. In this case, an attempt to modify the provisioned throughput while this operation is in progress will yield an HTTP 423 response with an error message explaining that another scaling operation is in progress.
 
 > [!NOTE]
 > If you are planning for a very large ingestion workload that will require a big increase in provisioned throughput, keep in mind that the scaling operation has no SLA and, as mentioned in the previous paragraph, it can take a long time when the increase is large. You might want to plan ahead and start the scaling before the workload starts and use the below methods to check progress.
