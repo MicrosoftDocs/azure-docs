@@ -98,10 +98,10 @@ It's possible that your organization requires additional actions from subscripti
 Here are some common potential activities that an Owner/administrator on the subscription may need to perform. These and other operations can be performed from the [*Azure AD App registrations*](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) page in the Azure portal.
 * Grant admin consent for the app registration. Your organization may have *Admin Consent Required* globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator will need to select this button for your company on the app registration's *API permissions* page for the app registration to be valid:
 
-    :::image type="content" source="how-to-create-app-registration/portal/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
+    :::image type="content" source="how-to-create-app-registration/grant-admin-consent.png" alt-text="Portal view of the 'Grant admin consent' button under API permissions":::
   - If consent was granted successfully, the entry for Azure Digital Twins should then show a *Status* value of _Granted for **(your company)**_
    
-    :::image type="content" source="how-to-create-app-registration/portal/granted-admin-consent-done.png" alt-text="Portal view of the admin consent granted for the company under API permissions":::
+    :::image type="content" source="how-to-create-app-registration/granted-admin-consent-done.png" alt-text="Portal view of the admin consent granted for the company under API permissions":::
 * Activate public client access
 * Set specific reply URLs for web and desktop access
 * Allow for implicit OAuth2 authentication flows
