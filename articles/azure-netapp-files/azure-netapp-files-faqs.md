@@ -195,7 +195,7 @@ SMB encryption is not required. As such, it is only enabled for a given share if
 
 #### <a name="smb_encryption_impact"></a>What is the anticipated impact of SMB encryption on client workloads?
 
-Reads are impacted more heavily that writes as shown in the following table:
+Reads are impacted more heavily than writes as shown in the following table:
 
 |     I/O profile    	|     Performance decrease observed    	|
 |-	|-	|
