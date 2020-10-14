@@ -48,9 +48,9 @@ Request units for queries are dependent on a number of factors. For example, the
 
 In some cases you may see a sequence of 200 and 429 responses, and variable request units in a paged execution of queries, that is because queries will run as fast as possible based on the available RUs. You may see a query execution break into multiple pages/round trips between server and client. For example, 10,000 items may be returned as multiple pages, each charged based on the computation performed for that page. When you sum across these pages, you should get the same number of RUs as you would get for the entire query.
 
-#### Metrics for troubleshooting
+#### Metrics for troubleshooting queries
 
-The performance and the throughput consumed by queries, user-defined functions (UDFs) mostly depends on the function body. The easiest way to find out how much time the query execution is spent in the UDF and the number of RUs consumed, is by enabling the Query Metrics. If you use the .NET SDK, here are sample query metrics returned by the SDK:
+The performance and the throughput consumed by queries (including user-defined functions) mostly depend on the function body. The easiest way to find out how much time the query execution is spent in the UDF and the number of RUs consumed, is by enabling the query metrics. If you use the .NET SDK, here are sample query metrics returned by the SDK:
 
 ```bash
 Retrieved Document Count                 :               1              
