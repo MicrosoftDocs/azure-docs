@@ -3,7 +3,7 @@ title: Analyze Azure costs with the Power BI App
 description: This article explains how to install and use the Azure Cost Management Power BI App.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 10/14/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -23,8 +23,8 @@ The Azure Cost Management Power BI App currently supports only customers with an
 
 ## Prerequisites
 
-- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) to install and use the app
-- To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account
+- A [Power BI Pro license](/power-bi/service-self-service-signup-for-power-bi) is required to install and use the app.
+- To connect to data, you must use an [Enterprise Administrator](../manage/understand-ea-roles.md) account. The Enterprise Administrator (read only) role is supported.
 
 ## Installation steps
 
