@@ -654,6 +654,9 @@
             href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Change feed
           href: cassandra-change-feed.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge-cassandra.md
         - name: Store and manage Spring Data 
           href: https://docs.microsoft.com/azure/developer/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?context=/azure/cosmos-db/context/context
         - name: Cassandra and Spark
@@ -912,6 +915,9 @@
         items:
         - name: Build apps with Table API
           href: table-support.md
+        - name: Find request unit charge
+          displayName: request units, RUs, RU, charge, consumption
+          href: find-request-unit-charge-table.md
         - name: Table storage design guide
           href: table-storage-design-guide.md
         - name: Manage using Resource Manager templates

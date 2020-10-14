@@ -27,7 +27,7 @@ This article provides examples that you can re-create by using the [nutrition da
 
 ## Use $explain command to get metrics
 
-When you optimize a query in Azure Cosmos DB, the first step is always to [obtain the RU charge](find-request-unit-charge.md#azure-cosmos-db-api-for-mongodb) for your query. As a rough guideline, you should explore ways to lower the RU charge for queries with charges greater than 50 RUs. 
+When you optimize a query in Azure Cosmos DB, the first step is always to [obtain the RU charge](find-request-unit-charge-mongodb.md) for your query. As a rough guideline, you should explore ways to lower the RU charge for queries with charges greater than 50 RUs. 
 
 In addition to obtaining the RU charge, you should use the `$explain` command to obtain the query and index usage metrics. Here is an example that runs a query and uses the `$explain` command to show query and index usage metrics:
 
