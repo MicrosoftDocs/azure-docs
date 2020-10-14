@@ -6,7 +6,7 @@ ms.author: mingshen
 ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.topic: overview
-ms.date: 10/01/2020
+ms.date: 10/14/2020
 ---
 
 # What is the Microsoft commercial marketplace?
@@ -21,21 +21,41 @@ The Microsoft commercial marketplace has two online stores: [Microsoft AppSource
 
 When you create a commercial marketplace offer in Partner Center, it may be listed on either or both online stores based on the offer type, categories, and other options you select. In the rare case that the offer is relevant to the users of both online stores, it can appear in both. To learn more, see [Select an online store](determine-your-listing-type.md#selecting-an-online-store) and [A Buyer’s Guide to Microsoft AppSource and Azure Marketplace](https://aka.ms/MarketplaceBuyerGuide).
 
-**Microsoft AppSource** is for business solutions, such as software as a service (SaaS) applications, and also apps that extend directly into Dynamics 365, Microsoft 365, and Microsoft Power Platform. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
+### Microsoft AppSource
+
+[Microsoft AppSource](https://appsource.microsoft.com/) is for business solutions, such as software as a service (SaaS) applications, and also apps that extend directly into Dynamics 365, Microsoft 365, and Microsoft Power Platform. AppSource consulting services are professional services offerings that help customers get started with or accelerate usage of Dynamics 365 and Power BI.
 
 Here’s an example of an offer listing page in AppSource:
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Illustrates an offer listing page in Microsoft AppSource.":::
 
-**Azure Marketplace** is for solutions that are built on or built for Azure and intended for IT professionals and developers. This includes listings for consulting and managed services. Azure Marketplace consulting services are professional service offerings that help customers get started with or accelerate the use of Azure.
+### Azure Marketplace
+
+[Azure Marketplace](https://azuremarketplace.microsoft.com/) is for solutions that are built on or built for Azure and intended for IT professionals and developers. This includes listings for consulting and managed services. Azure Marketplace consulting services are professional service offerings that help customers get started with or accelerate the use of Azure.
 
 Here’s an example of an offer listing page in Azure Marketplace:
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustrates an offer listing page in Azure Marketplace."::: 
 
-Because Azure Marketplace is built on Azure, customers can access solutions through the **Create a resource** option in the [Azure portal](https://portal.azure.com/).
+### In-product experiences
 
-:::image type="content" source="media/overview/create-resource.png" alt-text="Illustrates the Create a resource option in the Azure portal"::: 
+The online storefronts integrate with Microsoft technology, which means customers can also access your solutions from products such as Power Apps, Dynamics 365, and Microsoft 365 and the Azure portal. 
+
+The following example shows how to accessAppSource Power BI visual add-ins from the Power BI **File** menu.
+
+:::image type="content" source="media/overview/power-bi.png" alt-text="Shows how to access Power BI Visuals in AppSource from the Power BI File menu."::: 
+
+This option opens a windows where the customer can search for Power BI add-ins by name or category. 
+
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Shows the list of AppSource add-ins from within Power BI."::: 
+
+Because Azure Marketplace is built on Azure, customers can discover and deploy solutions through the **Create a resource** option in the [Azure portal](https://portal.azure.com/).
+
+:::image type="content" source="media/overview/create-resource.png" alt-text="Shows the Create a resource option in the Azure portal"::: 
+
+This opens the Azure Marketplace within the Azure portal, where they can search for solutions by name or by category.
+
+:::image type="content" source="media/overview/search-portal.png" alt-text="Shows the Azure Marketplace search options within the Azure portal"::: 
 
 ## Benefits of selling with Microsoft
 
