@@ -82,6 +82,14 @@ If a user attempts to perform an action not allowed by their role, they may rece
 
 Azure Digital Twins provides encryption of data at rest and in-transit as it's written in our data centers, and decrypts it for you as you access it. This encryption occurs using a Microsoft managed encryption key.
 
+## Cross-Origin Resource Sharing (CORS)
+
+Azure Digital Twins doesn't currently support **Cross-Origin Resource Sharing (CORS)**. As a result, if you are calling a REST API from a browser app, an [API Management (APIM)](../api-management/api-management-key-concepts.md) interface, or a [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) connector, you may see a policy error.
+
+To resolve this error, you can do one of the following:
+* Strip the CORS header `Access-Control-Allow-Origin` from the message. This header indicates whether the response can be shared. 
+* Alternatively, create a CORS proxy and make the Azure Digital Twins REST API request through it. 
+
 ## Next steps
 
 * See these concepts in action in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md).
