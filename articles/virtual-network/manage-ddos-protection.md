@@ -24,7 +24,7 @@ ms.author: kumud
 
 Learn how to enable and disable distributed denial of service (DDoS) protection, and use telemetry to mitigate a DDoS attack with Azure DDoS Protection Standard. DDoS Protection Standard protects Azure resources such as virtual machines, load balancers, and application gateways that have an Azure [public IP address](virtual-network-public-ip-address.md) assigned to it. To learn more about DDoS Protection Standard and its capabilities, see [DDoS Protection Standard overview](ddos-protection-overview.md).
 
-Before completing any steps in this tutorial, log in to the Azure portal at https://portal.azure.com with an account assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions).
+Before completing any steps in this tutorial, log in to the Azure portal at https://portal.azure.com with an account assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in [Permissions](#permissions-and-restrictions).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -222,7 +222,7 @@ To view the alerts, open **Security Center** in the Azure portal. Under **Threat
 
 The alerts include general information about the public IP address that’s under attack, geo and threat intelligence information, and remediations steps.
 
-## Permissions
+## Permissions and restrictions
 
 To work with DDoS protection plans, your account must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) role that is assigned the appropriate actions listed in the following table:
 
@@ -234,6 +234,9 @@ To work with DDoS protection plans, your account must be assigned to the [networ
 | Microsoft.Network/ddosProtectionPlans/join/action | Join a DDoS protection plan              |
 
 To enable DDoS protection for a virtual network, your account must also be assigned the appropriate [actions for virtual networks](manage-virtual-network.md#permissions).
+
+### Azure Policy
+For customers who have various subscriptions, and who want to ensure a single plan for Azure DDoS Protection Standard is deployed across their tenant for cost control, you can use Azure Policy to [restrict creation of Azure DDoS Protection Standard plans](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Restrict%20creation%20of%20Azure%20DDoS%20Protection%20Standard%20Plans%20with%20Azure%20Policy). This policy will block the creation of any DDoS plans, unless the subscription has been previously marked as an exception. This policy will also show a list of all subscriptions that have a DDoS plan deployed but should not, marking them as out of compliance. 
 
 ## Next steps
 

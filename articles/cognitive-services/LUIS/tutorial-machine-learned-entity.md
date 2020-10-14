@@ -1,6 +1,8 @@
 ---
 title: "Tutorial: extract structured data with machine-learning entity - LUIS"
 description: Extract structured data from an utterance using the machine-learning entity. To increase the extraction accuracy, add subentities with features.
+ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 05/08/2020
 #Customer intent: As a new user, I want to understand how to extract complex data contained in a user utterance.

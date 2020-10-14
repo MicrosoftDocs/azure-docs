@@ -24,6 +24,6 @@ Offers on the commercial marketplace must comply with our policies and terms. We
 - [Azure Marketplace participation policies](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
 - [Azure Marketplace terms](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
-## Next step
+## Next steps
 
-Visit the [Commercial marketplace publishing guide](marketplace-publishers-guide.md) page.
+- [What is the Microsoft commercial marketplace?](overview.md)

@@ -49,15 +49,15 @@ Before configuring Flock for automatic user provisioning with Azure AD, you will
 
 1. Log in into [Flock](https://web.flock.com/?). Click **Settings Icon** > **Manage your team**.
 
-	![Flock](media/flock-provisioning-tutorial/icon.png)
+	:::image type="content" source="media/flock-provisioning-tutorial/icon.png" alt-text="Screenshot of the Flock website. The settings icon is highlighted and its shortcut menu is visible. In that menu, Manage your team is highlighted." border="false":::
 
 2. Select **Auth and Provisioning**.
 
-	![Flock](media/Flock-provisioning-tutorial/auth.png)
+	:::image type="content" source="media/Flock-provisioning-tutorial/auth.png" alt-text="Screenshot of a menu on the Flock website. The Auth and provisioning item is highlighted." border="false":::
 
 3. Copy the **API Token**. These values will be entered in the **Secret Token** field in the Provisioning tab of your Flock application in the Azure portal.
 
-	![Flock](media/Flock-provisioning-tutorial/provisioning.png)
+	:::image type="content" source="media/Flock-provisioning-tutorial/provisioning.png" alt-text="Screenshot of a Provisioning tab on the Flock website. Under A P I token, a value is highlighted. Next to the token is a Copy token button." border="false":::
 
 
 ## Add Flock  from the gallery
@@ -101,11 +101,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the `https://api.flock-staging.com/v2/scim` and **API Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Flock. If the connection fails, ensure your Flock account has Admin permissions and try again.
 

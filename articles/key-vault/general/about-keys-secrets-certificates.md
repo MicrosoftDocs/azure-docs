@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault REST API overview
+title: Azure Key Vault Keys, Secrets, and Certificates Overview
 description: Overview of Azure Key Vault REST interface and developer details for keys, secrets and certificates.
 services: key-vault
 author: msmbaldwin
@@ -12,7 +12,7 @@ ms.date: 04/17/2020
 ms.author: mbaldwin
 ---
 
-# Azure Key Vault REST API overview
+# Azure Key Vault keys, secrets and certificates overview
 
 Azure Key Vault enables Microsoft Azure applications and users to store and use several types of secret/key data. Key Vault resource provider supports two resource types: vaults and managed HSMs.
 

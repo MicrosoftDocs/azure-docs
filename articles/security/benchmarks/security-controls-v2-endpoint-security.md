@@ -94,3 +94,4 @@ Follow recommendations in Azure Security Center: "Compute &amp; Apps" to ensure 
 
 - [Posture management](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
+- [Endpoint protection assessment and recommendations in Azure Security Center](../../security-center/security-center-endpoint-protection.md)

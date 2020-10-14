@@ -1,6 +1,6 @@
 ---
 title: Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
-description: Learn how to enable synapse link for Azure Cosmos accounts, create a container with analytical store enabled, connect the Azure Cosmos database to synapse workspace, and run queries. 
+description: Learn how to enable synapse link for Azure Cosmos DB accounts, create a container with analytical store enabled, connect the Azure Cosmos database to synapse workspace, and run queries. 
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
@@ -11,29 +11,29 @@ ms.custom: references_regions
 
 # Configure and use Azure Synapse Link for Azure Cosmos DB (preview)
 
-Synapse Link for Azure Cosmos DB is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
+[Azure Synapse Link for Azure Cosmos DB](synapse-link.md) is a cloud-native hybrid transactional and analytical processing (HTAP) capability that enables you to run near real-time analytics over operational data in Azure Cosmos DB. Synapse Link creates a tight seamless integration between Azure Cosmos DB and Azure Synapse Analytics.
 
 > [!IMPORTANT]
-> To use Azure Synapse Link, ensure you provision your Azure Cosmos account & Azure Synapse Analytics workspace in one of the supported regions. Azure Synapse Link is currently available in the following Azure regions: US West Central, East US, West US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
+> To use Azure Synapse Link, ensure you provision your Azure Cosmos DB account & Azure Synapse Analytics workspace in one of the supported regions. Azure Synapse Link is currently available in the following Azure regions: US West Central, East US, West US2, North Europe, West Europe, South Central US, Southeast Asia, Australia East, East U2, UK South.
 
-Use the following steps to run analytical queries with the Synapse Link for Azure Cosmos DB:
+Azure Synapse Link is available for Azure Cosmos DB SQL API containers or for Azure Cosmos DB API for Mongo DB collections. Use the following steps to run analytical queries with the Azure Synapse Link for Azure Cosmos DB:
 
-* [Enable Synapse Link for your Azure Cosmos accounts](#enable-synapse-link)
-* [Create an analytical store enabled Azure Cosmos container](#create-analytical-ttl)
-* [Connect your Azure Cosmos database to a Synapse workspace](#connect-to-cosmos-database)
+* [Enable Synapse Link for your Azure Cosmos DB accounts](#enable-synapse-link)
+* [Create an analytical store enabled Azure Cosmos DB container](#create-analytical-ttl)
+* [Connect your Azure Cosmos DB database to a Synapse workspace](#connect-to-cosmos-database)
 * [Query the analytical store using Synapse Spark](#query-analytical-store-spark)
 * [Query the analytical store using Synapse SQL serverless](#query-analytical-store-sql-on-demand)
 * [Use Synapse SQL serverless to analyze and visualize data in Power BI](#analyze-with-powerbi)
 
-## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos accounts
+## <a id="enable-synapse-link"></a>Enable Azure Synapse Link for Azure Cosmos DB accounts
 
 ### Azure portal
 
 1. Sign into the [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Azure account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos account.
+1. [Create a new Azure account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos DB account.
 
-1. Navigate to your Azure Cosmos account and open the **Features** pane.
+1. Navigate to your Azure Cosmos DB account and open the **Features** pane.
 
 1. Select **Synapse Link** from the features list.
 
@@ -59,7 +59,7 @@ You can turn on analytical store on an Azure Cosmos container while creating the
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos explorer](https://cosmos.azure.com/).
 
-1. Navigate to your Azure Cosmos account and open the **Data Explorer** tab.
+1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
 1. Select **New Container** and enter a name for your database, container, partition key and throughput details. Turn on the **Analytical store** option. After you enable the analytical store, it creates a container with `AnalyicalTTL` property set to the default value of  -1 (infinite retention). This analytical store that retains all the historical versions of records.
 
@@ -167,7 +167,7 @@ If you created an analytical store enabled container through the Azure portal, i
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) or the [Azure Cosmos explorer](https://cosmos.azure.com/).
 
-1. Navigate to your Azure Cosmos account and open the **Data Explorer** tab.
+1. Navigate to your Azure Cosmos DB account and open the **Data Explorer** tab.
 
 1. Select an existing container that has analytical store enabled. Expand it and modify the following values:
 
@@ -223,7 +223,7 @@ You can build a Synapse SQL serverless database and views over Synapse Link for 
 
 ## Azure Resource Manager template
 
-The [Azure Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
+The [Azure Resource Manager template](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) creates a Synapse Link enabled Azure Cosmos DB account for SQL API. This template creates a Core (SQL) API account in one region with a container configured with analytical TTL enabled, and an option to use manual or autoscale throughput. To deploy this template, click on **Deploy to Azure** on the readme page.
 
 ## <a id="cosmosdb-synapse-link-samples"></a> Getting started with Azure Synpase Link - Samples
 

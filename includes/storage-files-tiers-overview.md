@@ -20,4 +20,5 @@ Premium file shares are only available in a provisioned billing model. For more 
 
 Hot and cool file shares are available in all Azure Public and Azure Government regions. Transaction optimized file shares are available in all Azure regions, including Azure China and Azure Germany regions.
 
-To deploy a hot or cool file share, see [Create a hot or cool file share](../articles/storage/files/storage-how-to-create-file-share.md#create-a-hot-or-cool-file-share). 
+> [!Important]  
+> You can move file shares between tiers within GPv2 storage account types (transaction optimized, hot, and cool). Share moves between tiers incur transactions: moving from a hotter tier to a cooler tier will incur the cooler tier's write transaction charge for each file in the share, while a move from a cooler tier to a hotter tier will incur the cool tier's read transaction charge for each file the share.

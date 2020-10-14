@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/15/2020
+ms.date: 09/23/2020
 ---
 
 # Co-sell partner engagement
@@ -31,7 +31,7 @@ Offers that attain **Azure IP Co-sell incentivized** status gain these additiona
 * The marketplace service fee is reduced from 20% to 10%. This discount applies to your IaaS or SaaS offer sold through the commercial marketplace. See [Reduced Service Fee](marketplace-commercial-transaction-capabilities-and-considerations.md#reduced-service-fee) for more details.
 * Cloud Solution Provider (CSP) partners receive a 10% incentive to sell your IaaS or SaaS offer. Learn more about the CSP program at [Cloud Solution Provider program](cloud-solution-providers.md).
 * Sales of your offer through commercial marketplace will contribute towards customers’ Azure consumption commitments. Eligible customers will see the offer marked as **"Azure benefit eligible"** in Azure Portal. See [Azure consumption commitment benefit](azure-consumption-commitment-benefit.md) for more details.
-* Your offer will receive a **"Preferred solutions"** badge in the storefronts. The badge promotes the offers’ quality, performance, and ability to address customer needs in a certain industry vertical or solution area. Learn more at [Preferred solutions in Microsoft AppSource and Azure Marketplace](preferred-solutions.md).
+* Offers that achieve **Azure IP Co-sell incentivized** or **Business Applications Co-sell incentivized** status will receive a **"Preferred solutions"** badge in the storefronts. The badge promotes an offer's quality, performance, and ability to address customer needs in a certain industry vertical or solution area. Learn more at [Preferred solutions in Microsoft AppSource and Azure Marketplace](preferred-solutions.md).
 
 ## Co-sell publishing steps and requirements
 

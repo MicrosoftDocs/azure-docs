@@ -26,15 +26,8 @@ In Xcode, create a new iOS project and select the **Single View App** template. 
 Add the Azure Communication Services Calling client library and its dependencies (AzureCore.framework and AzureCommunication.framework) to your project.
 
 > [!NOTE]
-> With the release of AzureCommunicationCalling SDK, you'll find a bash script named `BuildAzurePackages.sh`.
-> When the script is run `sh ./BuildAzurePackages.sh`, it gives you the path to the generated framework packages that needs to be imported in the sample app in the next step.
-> You'll need to set up Xcode Command Line Tools, if you haven't done so before you run the script.
-> 1. Start Xcode.
-> 1. Select **Preferences** > **Locations**.
-> 1. Pick your Xcode version for the Command Line Tools.
->
-> **The BuildAzurePackages.sh script works only with Xcode 11.5 and later.**
->
+> With the release of AzureCommunicationCalling SDK you will find a bash script `BuildAzurePackages.sh`. 
+The script when run `sh ./BuildAzurePackages.sh` will give you the path to the generated framework packages which needs to be imported in the sample app in the next step. Note that you will need to set up Xcode Command Line Tools if you have not done so before you run the script: Start Xcode, select "Preferences -> Locations". Pick your Xcode version for the Command Line Tools. **Note that the BuildAzurePackages.sh script works only with Xcode 11.5 and above.**
 
 1. Download the Azure Communication Services Calling client library for iOS.
 2. In Xcode, click on your project file to and select the build target to open the project settings editor.
@@ -116,7 +109,7 @@ Pass CommunicationUserCredential object created above to ACSCallClient
 callClient = ACSCallClient()
 callClient?.createCallAgent(userCredential!,
     withCompletionHandler: { (callAgent, error) in
-        if error != nil {
+        if error == nil {
             print("Create agent succeeded")
             self.callAgent = callAgent
         } else {

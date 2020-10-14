@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: migration
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -38,7 +38,7 @@ The following steps show you how to connect to your virtual machine using a remo
 
 1. After deployment completes, go to the virtual machine resource.
 
-   ![VM](./media/database-import-export-azure-services-off/vm.png)  
+   ![Screenshot shows a virtual machine Overview page with a Connect button.](./media/database-import-export-azure-services-off/vm.png)  
 
 2. Select **Connect**.
 

@@ -4,7 +4,7 @@ description: Learn about the benefits and features of Azure Defender for servers
 author: memildin
 ms.author: memildin
 ms.date: 9/23/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 
@@ -37,7 +37,7 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
 - **Adaptive application controls (AAC)** - Adaptive application controls are an intelligent and automated solution for defining allow lists of known-safe applications for your machines.
 
-    When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe. [Learn more](security-center-adaptive-network-hardening.md).
+    When you've enabled and configured adaptive application controls, you'll get security alerts if any application runs other than the ones you've defined as safe. [Learn more](security-center-adaptive-application.md).
 
 - **Adaptive network hardening (ANH)** - Applying network security groups (NSG) to filter traffic to and from resources, improves your network security posture. However, there can still be some cases in which the actual traffic flowing through the NSG is a subset of the NSG rules defined. In these cases, further improving the security posture can be achieved by hardening the NSG rules, based on the actual traffic patterns.
 
@@ -54,7 +54,7 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
 - **Fileless attack detection (Windows only)** - Fileless attacks inject malicious payloads into memory to avoid detection by disk-based scanning techniques. The attacker’s payload then persists within the memory of compromised processes and performs a wide range of malicious activities.
 
-  With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of processes. Specific insights for Linux include the identification of: 
+  With fileless attack detection, automated memory forensic techniques identify fileless attack toolkits, techniques, and behaviors. This solution periodically scans your machine at runtime, and extracts insights directly from the memory of processes. Specific insights include the identification of: 
 
   - Well-known toolkits and crypto mining software 
 

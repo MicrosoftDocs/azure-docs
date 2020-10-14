@@ -16,6 +16,9 @@ You can serve static content (HTML, CSS, JavaScript, and image files) directly f
 
 This article shows you how to enable static website hosting by using the Azure portal, the Azure CLI, or PowerShell.
 
+> [!NOTE]
+> Make sure to create a general-purpose v2 Standard storage account . Static websites aren't available in any other type of storage account.
+
 ## Enable static website hosting
 
 Static website hosting is a feature that you have to enable on the storage account.

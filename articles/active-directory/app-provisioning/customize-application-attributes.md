@@ -316,7 +316,7 @@ Selecting this option will effectively force a resynchronization of all users wh
 ## Next steps
 
 - [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)
-- [Writing Expressions for Attribute-Mappings](../app-provisioning/functions-for-customizing-application-data.md)
-- [Scoping Filters for User Provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+- [Writing Expressions for Attribute-Mappings](functions-for-customizing-application-data.md)
+- [Scoping Filters for User Provisioning](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
 - [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)

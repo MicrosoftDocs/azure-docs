@@ -9,6 +9,9 @@ ms.date: 09/23/2020
 
 This article lists whether an Azure resource type supports the move operation. It also provides information about special conditions to consider when moving a resource.
 
+> [!IMPORTANT]
+> In most cases, a child resource can't be moved independently from its parent resource. Child resources have a resource type in the format of `<resource-provider-namespace>/<parent-resource>/<child-resource>`. For example, `Microsoft.ServiceBus/namespaces/queues` is a child resource of `Microsoft.ServiceBus/namespaces`. When you move the parent resource, the child resource is automatically moved with it. If you don't see a child resource in this article, you can assume it is moved with the parent resource. If the parent resource doesn't support move, the child resource can't be moved.
+
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -198,7 +201,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domainservices | No | No |
-> | domainservices / oucontainer | No | No |
 
 ## microsoft.aadiam
 
@@ -289,8 +291,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | spring | Yes | Yes |
-> | spring / apps | No | No |
-> | spring / apps / deployments | No | No |
 
 ## Microsoft.AppService
 
@@ -344,13 +344,7 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | automationaccounts | Yes | Yes |
 > | automationaccounts / configurations | Yes | Yes |
-> | automationaccounts / jobs | No | No |
-> | automationaccounts / privateendpointconnectionproxies | No | No |
-> | automationaccounts / privateendpointconnections | No | No |
-> | automationaccounts / privatelinkresources | No | No |
 > | automationaccounts / runbooks | Yes | Yes |
-> | automationaccounts / softwareupdateconfigurations | No | No |
-> | automationaccounts / webhooks | No | No |
 
 ## Microsoft.AVS
 
@@ -358,7 +352,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | privateclouds | Yes | Yes |
-> | privateclouds / clusters | No | No |
 
 ## Microsoft.AzureActiveDirectory
 
@@ -380,7 +373,6 @@ Jump to a resource provider namespace:
 > | sqlmanagedinstances | No | No |
 > | sqlserverinstances | No | No |
 > | sqlserverregistrations | Yes | Yes |
-> | sqlserverregistrations / sqlservers | No | No |
 
 ## Microsoft.AzureStack
 
@@ -389,8 +381,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | cloudmanifestfiles | No | No |
 > | registrations | Yes | Yes |
-> | registrations / customersubscriptions | No | No |
-> | registrations / products | No | No |
 
 ## Microsoft.AzureStackHCI
 
@@ -412,67 +402,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | billingaccounts | No | No |
-> | billingaccounts / agreements | No | No |
-> | billingaccounts / billingpermissions | No | No |
-> | billingaccounts / billingprofiles | No | No |
-> | billingaccounts / billingprofiles / availablebalance | No | No |
-> | billingaccounts / billingprofiles / billingpermissions | No | No |
-> | billingaccounts / billingprofiles / billingroleassignments | No | No |
-> | billingaccounts / billingprofiles / billingroledefinitions | No | No |
-> | billingaccounts / billingprofiles / billingsubscriptions | No | No |
-> | billingaccounts / billingprofiles / createbillingroleassignment | No | No |
-> | billingaccounts / billingprofiles / customers | No | No |
-> | billingaccounts / billingprofiles / instructions | No | No |
-> | billingaccounts / billingprofiles / invoices | No | No |
-> | billingaccounts / billingprofiles / invoices / pricesheet | No | No |
-> | billingaccounts / billingprofiles / invoices / transactions | No | No |
-> | billingaccounts / billingprofiles / invoicesections | No | No |
-> | billingaccounts / billingprofiles / invoicesections / billingpermissions | No | No |
-> | billingaccounts / billingprofiles / invoicesections / billingroleassignments | No | No |
-> | billingaccounts / billingprofiles / invoicesections / billingroledefinitions | No | No |
-> | billingaccounts / billingprofiles / invoicesections / billingsubscriptions | No | No |
-> | billingaccounts / billingprofiles / invoicesections / createbillingroleassignment | No | No |
-> | billingaccounts / billingprofiles / invoicesections / initiatetransfer | No | No |
-> | billingaccounts / billingprofiles / invoicesections / products | No | No |
-> | billingaccounts / billingprofiles / invoicesections / products / transfer | No | No |
-> | billingaccounts / billingprofiles / invoicesections / products / updateautorenew | No | No |
-> | billingaccounts / billingprofiles / invoicesections / transactions | No | No |
-> | billingaccounts / billingprofiles / invoicesections / transfers | No | No |
-> | billingaccounts / billingprofiles / paymentmethods | No | No |
-> | billingaccounts / billingprofiles / policies | No | No |
-> | billingaccounts / billingprofiles / pricesheet | No | No |
-> | billingaccounts / billingprofiles / products | No | No |
-> | billingaccounts / billingprofiles / transactions | No | No |
-> | billingaccounts / billingroleassignments | No | No |
-> | billingaccounts / billingroledefinitions | No | No |
-> | billingaccounts / billingsubscriptions | No | No |
-> | billingaccounts / billingsubscriptions / invoices | No | No |
-> | billingaccounts / createbillingroleassignment | No | No |
-> | billingaccounts / customers | No | No |
-> | billingaccounts / customers / billingpermissions | No | No |
-> | billingaccounts / customers / billingsubscriptions | No | No |
-> | billingaccounts / customers / initiatetransfer | No | No |
-> | billingaccounts / customers / policies | No | No |
-> | billingaccounts / customers / products | No | No |
-> | billingaccounts / customers / transactions | No | No |
-> | billingaccounts / customers / transfers | No | No |
-> | billingaccounts / departments | No | No |
-> | billingaccounts / enrollmentaccounts | No | No |
-> | billingaccounts / invoices | No | No |
-> | billingaccounts / invoicesections | No | No |
-> | billingaccounts / invoicesections / billingsubscriptions | No | No |
-> | billingaccounts / invoicesections / billingsubscriptions / transfer | No | No |
-> | billingaccounts / invoicesections / products | No | No |
-> | billingaccounts / invoicesections / products / transfer | No | No |
-> | billingaccounts / invoicesections / products / updateautorenew | No | No |
-> | billingaccounts / invoicesections / producttransfersresults | No | No |
-> | billingaccounts / invoicesections / transactions | No | No |
-> | billingaccounts / invoicesections / transfers | No | No |
-> | billingaccounts / lineofcredit | No | No |
-> | billingaccounts / listinvoicesectionswithcreatesubscriptionpermission | No | No |
-> | billingaccounts / paymentmethods | No | No |
-> | billingaccounts / products | No | No |
-> | billingaccounts / transactions | No | No |
 > | billingperiods | No | No |
 > | billingpermissions | No | No |
 > | billingproperty | No | No |
@@ -482,9 +411,6 @@ Jump to a resource provider namespace:
 > | enrollmentaccounts | No | No |
 > | invoices | No | No |
 > | transfers | No | No |
-> | transfers / accepttransfer | No | No |
-> | transfers / declinetransfer | No | No |
-> | transfers / validatetransfer | No | No |
 
 ## Microsoft.BingMaps
 
@@ -523,9 +449,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | blueprintassignments | No | No |
 > | blueprints | No | No |
-> | blueprints / artifacts | No | No |
-> | blueprints / versions | No | No |
-> | blueprints / versions / artifacts | No | No |
 
 ## Microsoft.BotService
 
@@ -533,8 +456,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | botservices | Yes | Yes |
-> | botservices / channels | No | No |
-> | botservices / connections | No | No |
 
 ## Microsoft.Cache
 
@@ -545,8 +466,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | redis | Yes | Yes |
-> | redis / eventgridfilters | No | No |
-> | redis / privatelinkresources | No | No |
 > | redisenterprise | No | No |
 
 ## Microsoft.Capacity
@@ -562,15 +481,6 @@ Jump to a resource provider namespace:
 > | commercialreservationorders | No | No |
 > | exchange | No | No |
 > | reservationorders | No | No |
-> | reservationorders / availablescopes | No | No |
-> | reservationorders / calculaterefund | No | No |
-> | reservationorders / merge | No | No |
-> | reservationorders / reservations | No | No |
-> | reservationorders / reservations / availablescopes | No | No |
-> | reservationorders / reservations / revisions | No | No |
-> | reservationorders / return | No | No |
-> | reservationorders / split | No | No |
-> | reservationorders / swap | No | No |
 > | reservations | No | No |
 > | resources | No | No |
 > | validatereservationorder | No | No |
@@ -585,9 +495,6 @@ Jump to a resource provider namespace:
 > | edgenodes | No | No |
 > | profiles | Yes | Yes |
 > | profiles / endpoints | Yes | Yes |
-> | profiles / endpoints / customdomains | No | No |
-> | profiles / endpoints / origingroups | No | No |
-> | profiles / endpoints / origins | No | No |
 
 ## Microsoft.CertificateRegistration
 
@@ -598,7 +505,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | certificateorders | Yes | Yes |
-> | certificateorders / certificates | No | No |
 
 ## Microsoft.ClassicCompute
 
@@ -610,20 +516,10 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | capabilities | No | No |
 > | domainnames | Yes | No |
-> | domainnames / capabilities | No | No |
-> | domainnames / internalloadbalancers | No | No |
-> | domainnames / servicecertificates | No | No |
-> | domainnames / slots | No | No |
-> | domainnames / slots / roles | No | No |
-> | domainnames / slots / roles / metricdefinitions | No | No |
-> | domainnames / slots / roles / metrics | No | No |
 > | quotas | No | No |
 > | resourcetypes | No | No |
 > | validatesubscriptionmoveavailability | No | No |
 > | virtualmachines | Yes | Yes |
-> | virtualmachines / diagnosticsettings | No | No |
-> | virtualmachines / metricdefinitions | No | No |
-> | virtualmachines / metrics | No | No |
 
 ## Microsoft.ClassicInfrastructureMigrate
 
@@ -651,8 +547,6 @@ Jump to a resource provider namespace:
 > | quotas | No | No |
 > | reservedips | No | No |
 > | virtualnetworks | No | No |
-> | virtualnetworks / remotevirtualnetworkpeeringproxies | No | No |
-> | virtualnetworks / virtualnetworkpeerings | No | No |
 
 ## Microsoft.ClassicStorage
 
@@ -669,17 +563,6 @@ Jump to a resource provider namespace:
 > | publicimages | No | No |
 > | quotas | No | No |
 > | storageaccounts | Yes | No |
-> | storageaccounts / blobservices | No | No |
-> | storageaccounts / fileservices | No | No |
-> | storageaccounts / metricdefinitions | No | No |
-> | storageaccounts / metrics | No | No |
-> | storageaccounts / queueservices | No | No |
-> | storageaccounts / services | No | No |
-> | storageaccounts / services / diagnosticsettings | No | No |
-> | storageaccounts / services / metricdefinitions | No | No |
-> | storageaccounts / services / metrics | No | No |
-> | storageaccounts / tableservices | No | No |
-> | storageaccounts / vmimages | No | No |
 > | vmimages | No | No |
 
 ## Microsoft.ClassicSubscription
@@ -735,14 +618,7 @@ Jump to a resource provider namespace:
 > | sshpublickeys | No | No |
 > | virtualmachines | Yes | Yes |
 > | virtualmachines / extensions | Yes | Yes |
-> | virtualmachines / metricdefinitions | No | No |
-> | virtualmachines / runcommands | No | No |
 > | virtualmachinescalesets | Yes | Yes |
-> | virtualmachinescalesets / extensions | No | No |
-> | virtualmachinescalesets / networkinterfaces | No | No |
-> | virtualmachinescalesets / publicipaddresses | No | No |
-> | virtualmachinescalesets / virtualmachines | No | No |
-> | virtualmachinescalesets / virtualmachines / networkinterfaces | No | No |
 
 ## Microsoft.Consumption
 
@@ -786,39 +662,9 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | registries | Yes | Yes |
 > | registries / agentpools | Yes | Yes |
-> | registries / agentpools / listqueuestatus | No | No |
-> | registries / builds | No | No |
 > | registries / buildtasks | Yes | Yes |
-> | registries / buildtasks / listsourcerepositoryproperties | No | No |
-> | registries / buildtasks / steps | No | No |
-> | registries / buildtasks / steps / listbuildarguments | No | No |
-> | registries / eventgridfilters | No | No |
-> | registries / exportpipelines | No | No |
-> | registries / generatecredentials | No | No |
-> | registries / getbuildsourceuploadurl | No | No |
-> | registries / getcredentials | No | No |
-> | registries / importimage | No | No |
-> | registries / importpipelines | No | No |
-> | registries / listbuildsourceuploadurl | No | No |
-> | registries / listcredentials | No | No |
-> | registries / listpolicies | No | No |
-> | registries / listusages | No | No |
-> | registries / pipelineruns | No | No |
-> | registries / privateendpointconnectionproxies | No | No |
-> | registries / privateendpointconnectionproxies / validate | No | No |
-> | registries / privateendpointconnections | No | No |
-> | registries / privatelinkresources | No | No |
-> | registries / queuebuild | No | No |
-> | registries / regeneratecredential | No | No |
-> | registries / regeneratecredentials | No | No |
 > | registries / replications | Yes | Yes |
-> | registries / runs | No | No |
-> | registries / schedulerun | No | No |
-> | registries / scopemaps | No | No |
-> | registries / taskruns | No | No |
 > | registries / tasks | Yes | Yes |
-> | registries / tokens | No | No |
-> | registries / updatepolicies | No | No |
 > | registries / webhooks | Yes | Yes |
 
 ## Microsoft.ContainerService
@@ -859,15 +705,6 @@ Jump to a resource provider namespace:
 > | enrollmentaccounts | No | No |
 > | exports | No | No |
 > | externalbillingaccounts | No | No |
-> | externalbillingaccounts / alerts | No | No |
-> | externalbillingaccounts / dimensions | No | No |
-> | externalbillingaccounts / forecast | No | No |
-> | externalbillingaccounts / query | No | No |
-> | externalsubscriptions | No | No |
-> | externalsubscriptions / alerts | No | No |
-> | externalsubscriptions / dimensions | No | No |
-> | externalsubscriptions / forecast | No | No |
-> | externalsubscriptions / query | No | No |
 > | forecast | No | No |
 > | query | No | No |
 > | register | No | No |
@@ -920,8 +757,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspaces | No | No |
-> | workspaces / dbworkspaces | No | No |
-> | workspaces / virtualnetworkpeerings | No | No |
 
 ## Microsoft.DataCatalog
 
@@ -952,11 +787,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Yes | Yes |
-> | datafactories / diagnosticsettings | No | No |
-> | datafactories / metricdefinitions | No | No |
 > | datafactoryschema | No | No |
 > | factories | Yes | Yes |
-> | factories / integrationruntimes | No | No |
 
 ## Microsoft.DataLake
 
@@ -971,10 +803,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | Yes | Yes |
-> | accounts / datalakestoreaccounts | No | No |
-> | accounts / storageaccounts | No | No |
-> | accounts / storageaccounts / containers | No | No |
-> | accounts / storageaccounts / containers / listsastokens | No | No |
 
 ## Microsoft.DataLakeStore
 
@@ -982,8 +810,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | Yes | Yes |
-> | accounts / eventgridfilters | No | No |
-> | accounts / firewallrules | No | No |
 
 ## Microsoft.DataMigration
 
@@ -1007,15 +833,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | Yes | Yes |
-> | accounts / shares | No | No |
-> | accounts / shares / datasets | No | No |
-> | accounts / shares / invitations | No | No |
-> | accounts / shares / providersharesubscriptions | No | No |
-> | accounts / shares / synchronizationsettings | No | No |
-> | accounts / sharesubscriptions | No | No |
-> | accounts / sharesubscriptions / consumersourcedatasets | No | No |
-> | accounts / sharesubscriptions / datasetmappings | No | No |
-> | accounts / sharesubscriptions / triggers | No | No |
 
 ## Microsoft.DBforMariaDB
 
@@ -1023,50 +840,23 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | servers | Yes | Yes |
-> | servers / advisors | No | No |
-> | servers / privateendpointconnectionproxies | No | No |
-> | servers / privateendpointconnections | No | No |
-> | servers / privatelinkresources | No | No |
-> | servers / querytexts | No | No |
-> | servers / recoverableservers | No | No |
-> | servers / topquerystatistics | No | No |
-> | servers / virtualnetworkrules | No | No |
-> | servers / waitstatistics | No | No |
 
 ## Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
+> | flexibleServers | Yes | Yes |
 > | servers | Yes | Yes |
-> | servers / advisors | No | No |
-> | servers / keys | No | No |
-> | servers / privateendpointconnectionproxies | No | No |
-> | servers / privateendpointconnections | No | No |
-> | servers / privatelinkresources | No | No |
-> | servers / querytexts | No | No |
-> | servers / recoverableservers | No | No |
-> | servers / topquerystatistics | No | No |
-> | servers / virtualnetworkrules | No | No |
-> | servers / waitstatistics | No | No |
 
 ## Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
+> | flexibleServers | Yes | Yes |
 > | servergroups | No | No |
 > | servers | Yes | Yes |
-> | servers / advisors | No | No |
-> | servers / keys | No | No |
-> | servers / privateendpointconnectionproxies | No | No |
-> | servers / privateendpointconnections | No | No |
-> | servers / privatelinkresources | No | No |
-> | servers / querytexts | No | No |
-> | servers / recoverableservers | No | No |
-> | servers / topquerystatistics | No | No |
-> | servers / virtualnetworkrules | No | No |
-> | servers / waitstatistics | No | No |
 > | serversv2 | Yes | Yes |
 > | singleservers | Yes | Yes |
 
@@ -1088,13 +878,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | applicationgroups | Yes | Yes |
-> | applicationgroups / applications | No | No |
-> | applicationgroups / desktops | No | No |
-> | applicationgroups / startmenuitems | No | No |
 > | hostpools | Yes | Yes |
-> | hostpools / sessionhosts | No | No |
-> | hostpools / sessionhosts / usersessions | No | No |
-> | hostpools / usersessions | No | No |
 > | workspaces | Yes | Yes |
 
 ## Microsoft.Devices
@@ -1105,10 +889,7 @@ Jump to a resource provider namespace:
 > | elasticpools | No | No |
 > | elasticpools / iothubtenants | No | No |
 > | iothubs | Yes | Yes |
-> | iothubs / eventgridfilters | No | No |
-> | iothubs / securitysettings | No | No |
 > | provisioningservices | Yes | Yes |
-> | usages | No | No |
 
 ## Microsoft.DevOps
 
@@ -1123,7 +904,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | controllers | Yes | Yes |
-> | controllers / listconnectiondetails | No | No |
 
 ## Microsoft.DevTestLab
 
@@ -1158,7 +938,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domains | Yes | Yes |
-> | domains / domainownershipidentifiers | No | No |
 > | generatessorequest | No | No |
 > | topleveldomains | No | No |
 > | validatedomainregistrationinformation | No | No |
@@ -1176,16 +955,12 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domains | Yes | Yes |
-> | domains / topics | No | No |
 > | eventsubscriptions | No - can't be moved independently but automatically moved with subscribed resource. | No - can't be moved independently but automatically moved with subscribed resource. |
 > | extensiontopics | No | No |
 > | partnernamespaces | Yes | Yes |
-> | partnernamespaces / eventchannels | No | No |
 > | partnerregistrations | No | No |
 > | partnertopics | Yes | Yes |
-> | partnertopics / eventsubscriptions | No | No |
 > | systemtopics | Yes | Yes |
-> | systemtopics / eventsubscriptions | No | No |
 > | topics | Yes | Yes |
 > | topictypes | No | No |
 
@@ -1196,12 +971,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | clusters | Yes | Yes |
 > | namespaces | Yes | Yes |
-> | namespaces / authorizationrules | No | No |
-> | namespaces / disasterrecoveryconfigs | No | No |
-> | namespaces / eventhubs | No | No |
-> | namespaces / eventhubs / authorizationrules | No | No |
-> | namespaces / eventhubs / consumergroups | No | No |
-> | namespaces / networkrulesets | No | No |
 > | sku | No | No |
 
 ## Microsoft.Experimentation
@@ -1273,7 +1042,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | Yes | Yes |
-> | clusters / applications | No | No |
 
 ## Microsoft.HealthcareApis
 
@@ -1281,8 +1049,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | services | Yes | Yes |
-> | services / privateendpointconnections | No | No |
-> | services / privatelinkresources | No | No |
 
 ## Microsoft.HybridCompute
 
@@ -1336,12 +1102,6 @@ Jump to a resource provider namespace:
 > | autoscalesettings | Yes | Yes |
 > | baseline | No | No |
 > | components | Yes | Yes |
-> | components / events | No | No |
-> | components / linkedstorageaccounts | No | No |
-> | components / metadata | No | No |
-> | components / metrics | No | No |
-> | components / pricingplans | No | No |
-> | components / query | No | No |
 > | datacollectionrules | No | No |
 > | diagnosticsettings | No | No |
 > | diagnosticsettingscategories | No | No |
@@ -1364,9 +1124,6 @@ Jump to a resource provider namespace:
 > | myworkbooks | No | No |
 > | notificationgroups | No | No |
 > | privatelinkscopes | No | No |
-> | privatelinkscopes / privateendpointconnectionproxies | No | No |
-> | privatelinkscopes / privateendpointconnections | No | No |
-> | privatelinkscopes / scopedresources | No | No |
 > | rollbacktolegacypricingmodel | No | No |
 > | scheduledqueryrules | Yes | Yes |
 > | topology | No | No |
@@ -1404,9 +1161,6 @@ Jump to a resource provider namespace:
 > | hsmpools | No | No |
 > | managedhsms | No | No |
 > | vaults | Yes | Yes |
-> | vaults / accesspolicies | No | No |
-> | vaults / eventgridfilters | No | No |
-> | vaults / secrets | No | No |
 
 ## Microsoft.Kubernetes
 
@@ -1429,12 +1183,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | clusters | Yes | Yes |
-> | clusters / attacheddatabaseconfigurations | No | No |
-> | clusters / databases | No | No |
-> | clusters / databases / dataconnections | No | No |
-> | clusters / databases / eventhubconnections | No | No |
-> | clusters / databases / principalassignments | No | No |
-> | clusters / principalassignments | No | No |
 
 ## Microsoft.LabServices
 
@@ -1492,11 +1240,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | No | No |
-> | accounts / workspaces | No | No |
-> | accounts / workspaces / projects | No | No |
 > | teamaccounts | No | No |
-> | teamaccounts / workspaces | No | No |
-> | teamaccounts / workspaces / projects | No | No |
 
 ## Microsoft.MachineLearningModelManagement
 
@@ -1511,8 +1255,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | workspaces | No | No |
-> | workspaces / computes | No | No |
-> | workspaces / eventgridfilters | No | No |
 
 ## Microsoft.Maintenance
 
@@ -1568,7 +1310,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | accounts | Yes | Yes |
-> | accounts / eventgridfilters | No | No |
 > | accounts / privateatlases | Yes | Yes |
 
 ## Microsoft.Marketplace
@@ -1578,20 +1319,11 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | offers | No | No |
 > | offertypes | No | No |
-> | offertypes / publishers | No | No |
-> | offertypes / publishers / offers | No | No |
-> | offertypes / publishers / offers / plans | No | No |
-> | offertypes / publishers / offers / plans / agreements | No | No |
-> | offertypes / publishers / offers / plans / configs | No | No |
-> | offertypes / publishers / offers / plans / configs / importimage | No | No |
 > | privategalleryitems | No | No |
 > | privatestoreclient | No | No |
 > | privatestores | No | No |
-> | privatestores / offers | No | No |
 > | products | No | No |
 > | publishers | No | No |
-> | publishers / offers | No | No |
-> | publishers / offers / amendments | No | No |
 > | register | No | No |
 
 ## Microsoft.MarketplaceApps
@@ -1615,18 +1347,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | mediaservices | Yes | Yes |
-> | mediaservices / accountfilters | No | No |
-> | mediaservices / assets | No | No |
-> | mediaservices / assets / assetfilters | No | No |
-> | mediaservices / contentkeypolicies | No | No |
-> | mediaservices / eventgridfilters | No | No |
 > | mediaservices / liveevents | Yes | Yes |
-> | mediaservices / liveevents / liveoutputs | No | No |
 > | mediaservices / streamingendpoints | Yes | Yes |
-> | mediaservices / streaminglocators | No | No |
-> | mediaservices / streamingpolicies | No | No |
-> | mediaservices / transforms | No | No |
-> | mediaservices / transforms / jobs | No | No |
 
 ## Microsoft.Microservices4Spring
 
@@ -1661,11 +1383,8 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | netappaccounts | No | No |
-> | netappaccounts / backuppolicies | No | No |
 > | netappaccounts / capacitypools | No | No |
 > | netappaccounts / capacitypools / volumes | No | No |
-> | netappaccounts / capacitypools / volumes / mounttargets | No | No |
-> | netappaccounts / capacitypools / volumes / snapshots | No | No |
 
 ## Microsoft.Network
 
@@ -1685,27 +1404,14 @@ Jump to a resource provider namespace:
 > | ddoscustompolicies | Yes | Yes |
 > | ddosprotectionplans | No | No |
 > | dnszones | Yes | Yes |
-> | dnszones / a | No | No |
-> | dnszones / aaaa | No | No |
-> | dnszones / all | No | No |
-> | dnszones / caa | No | No |
-> | dnszones / cname | No | No |
-> | dnszones / mx | No | No |
-> | dnszones / ns | No | No |
-> | dnszones / ptr | No | No |
-> | dnszones / recordsets | No | No |
-> | dnszones / soa | No | No |
-> | dnszones / srv | No | No |
-> | dnszones / txt | No | No |
 > | expressroutecircuits | No | No |
 > | expressroutegateways | No | No |
 > | expressrouteserviceproviders | No | No |
 > | firewallpolicies | Yes | Yes |
 > | frontdoors | No | No |
-> | frontdoors / frontendendpoints | No | No |
 > | ipallocations | Yes | Yes |
 > | ipgroups | Yes | Yes |
-> | loadbalancers | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
+> | loadbalancers | Yes - Basic SKU<br> Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 > | localnetworkgateways | Yes | Yes |
 > | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
@@ -1719,21 +1425,12 @@ Jump to a resource provider namespace:
 > | networkwatchers / pingmeshes | Yes | No |
 > | p2svpngateways | No | No |
 > | privatednszones | Yes | Yes |
-> | privatednszones / a | No | No |
-> | privatednszones / aaaa | No | No |
-> | privatednszones / all | No | No |
-> | privatednszones / cname | No | No |
-> | privatednszones / mx | No | No |
-> | privatednszones / ptr | No | No |
-> | privatednszones / soa | No | No |
-> | privatednszones / srv | No | No |
-> | privatednszones / txt | No | No |
 > | privatednszones / virtualnetworklinks | Yes | Yes |
 > | privatednszonesinternal | No | No |
 > | privateendpointredirectmaps | No | No |
 > | privateendpoints | Yes | Yes |
 > | privatelinkservices | No | No |
-> | publicipaddresses | Yes - Basic SKU<br>No - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
+> | publicipaddresses | Yes - Basic SKU<br>Yes - Standard SKU | Yes - Basic SKU<br>No - Standard SKU |
 > | publicipprefixes | Yes | Yes |
 > | routefilters | No | No |
 > | routetables | Yes | Yes |
@@ -1793,12 +1490,6 @@ Jump to a resource provider namespace:
 > | linktargets | No | No |
 > | storageinsightconfigs | No | No |
 > | workspaces | Yes | Yes |
-> | workspaces / datasources | No | No |
-> | workspaces / linkedservices | No | No |
-> | workspaces / linkedstorageaccounts | No | No |
-> | workspaces / metadata | No | No |
-> | workspaces / query | No | No |
-> | workspaces / scopedprivatelinkproxies | No | No |
 
 ## Microsoft.OperationsManagement
 
@@ -1871,7 +1562,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | availableaccounts | No | No |
 > | providerregistrations | No | No |
-> | providerregistrations / resourcetyperegistrations | No | No |
 > | rollouts | No | No |
 
 ## Microsoft.Quantum
@@ -1905,12 +1595,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | namespaces | Yes | Yes |
-> | namespaces / authorizationrules | No | No |
-> | namespaces / hybridconnections | No | No |
-> | namespaces / hybridconnections / authorizationrules | No | No |
-> | namespaces / privateendpointconnections | No | No |
-> | namespaces / wcfrelays | No | No |
-> | namespaces / wcfrelays / authorizationrules | No | No |
 
 ## Microsoft.ResourceGraph
 
@@ -1948,12 +1632,6 @@ Jump to a resource provider namespace:
 > | resourcegroups | No | No |
 > | resources | No | No |
 > | subscriptions | No | No |
-> | subscriptions / providers | No | No |
-> | subscriptions / resourcegroups | No | No |
-> | subscriptions / resourcegroups / resources | No | No |
-> | subscriptions / resources | No | No |
-> | subscriptions / tagnames | No | No |
-> | subscriptions / tagnames / tagvalues | No | No |
 > | tags | No | No |
 > | templatespecs | No | No |
 > | templatespecs / versions | No | No |
@@ -2062,16 +1740,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | namespaces | Yes | Yes |
-> | namespaces / authorizationrules | No | No |
-> | namespaces / disasterrecoveryconfigs | No | No |
-> | namespaces / eventgridfilters | No | No |
-> | namespaces / networkrulesets | No | No |
-> | namespaces / queues | No | No |
-> | namespaces / queues / authorizationrules | No | No |
-> | namespaces / topics | No | No |
-> | namespaces / topics / authorizationrules | No | No |
-> | namespaces / topics / subscriptions | No | No |
-> | namespaces / topics / subscriptions / rules | No | No |
 > | premiummessagingregions | No | No |
 > | sku | No | No |
 
@@ -2082,7 +1750,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- | ---------- |
 > | applications | No | No |
 > | clusters | Yes | Yes |
-> | clusters / applications | No | No |
 > | containergroups | No | No |
 > | containergroupsets | No | No |
 > | edgeclusters | No | No |
@@ -2116,7 +1783,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | signalr | Yes | Yes |
-> | signalr / eventgridfilters | No | No |
 
 ## Microsoft.SoftwarePlan
 
@@ -2145,79 +1811,12 @@ Jump to a resource provider namespace:
 > | instancepools | No | No |
 > | locations | Yes | Yes |
 > | managedinstances | No | No |
-> | managedinstances / administrators | No | No |
-> | managedinstances / databases | No | No |
-> | managedinstances / databases / backuplongtermretentionpolicies | No | No |
-> | managedinstances / databases / vulnerabilityassessments | No | No |
-> | managedinstances / metricdefinitions | No | No |
-> | managedinstances / metrics | No | No |
-> | managedinstances / recoverabledatabases | No | No |
-> | managedinstances / tdecertificates | No | No |
-> | managedinstances / vulnerabilityassessments | No | No |
 > | servers | Yes | Yes |
-> | servers / administrators | No | No |
-> | servers / advisors | No | No |
-> | servers / aggregateddatabasemetrics | No | No |
-> | servers / auditingpolicies | No | No |
-> | servers / auditingsettings | No | No |
-> | servers / automatictuning | No | No |
-> | servers / communicationlinks | No | No |
-> | servers / connectionpolicies | No | No |
 > | servers / databases | Yes | Yes |
-> | servers / databases / advisors | No | No |
-> | servers / databases / auditingpolicies | No | No |
-> | servers / databases / auditingsettings | No | No |
-> | servers / databases / auditrecords | No | No |
-> | servers / databases / automatictuning | No | No |
 > | servers / databases / backuplongtermretentionpolicies | Yes | Yes |
-> | servers / databases / backupshorttermretentionpolicies | No | No |
-> | servers / databases / connectionpolicies | No | No |
-> | servers / databases / datamaskingpolicies | No | No |
-> | servers / databases / datamaskingpolicies / rules | No | No |
-> | servers / databases / extensions | No | No |
-> | servers / databases / geobackuppolicies | No | No |
-> | servers / databases / metricdefinitions | No | No |
-> | servers / databases / metrics | No | No |
-> | servers / databases / recommendedsensitivitylabels | No | No |
-> | servers / databases / securityalertpolicies | No | No |
-> | servers / databases / syncgroups | No | No |
-> | servers / databases / syncgroups / syncmembers | No | No |
-> | servers / databases / topqueries | No | No |
-> | servers / databases / topqueries / querytext | No | No |
-> | servers / databases / transparentdataencryption | No | No |
-> | servers / databases / vulnerabilityassessment | No | No |
-> | servers / databases / vulnerabilityassessments | No | No |
-> | servers / databases / vulnerabilityassessmentscans | No | No |
-> | servers / databases / vulnerabilityassessmentsettings | No | No |
-> | servers / databases / workloadgroups | No | No |
-> | servers / databasesecuritypolicies | No | No |
-> | servers / disasterrecoveryconfiguration | No | No |
-> | servers / dnsaliases | No | No |
-> | servers / elasticpoolestimates | No | No |
 > | servers / elasticpools | Yes | Yes |
-> | servers / elasticpools / advisors | No | No |
-> | servers / elasticpools / metricdefinitions | No | No |
-> | servers / elasticpools / metrics | No | No |
-> | servers / encryptionprotector | No | No |
-> | servers / extendedauditingsettings | No | No |
-> | servers / failovergroups | No | No |
-> | servers / import | No | No |
 > | servers / jobaccounts | Yes | Yes |
 > | servers / jobagents | Yes | Yes |
-> | servers / jobagents / jobs | No | No |
-> | servers / jobagents / jobs / executions | No | No |
-> | servers / jobagents / jobs / steps | No | No |
-> | servers / keys | No | No |
-> | servers / recommendedelasticpools | No | No |
-> | servers / recoverabledatabases | No | No |
-> | servers / restorabledroppeddatabases | No | No |
-> | servers / securityalertpolicies | No | No |
-> | servers / serviceobjectives | No | No |
-> | servers / syncagents | No | No |
-> | servers / tdecertificates | No | No |
-> | servers / usages | No | No |
-> | servers / virtualnetworkrules | No | No |
-> | servers / vulnerabilityassessments | No | No |
 > | virtualclusters | Yes | Yes |
 
 ## Microsoft.SqlVirtualMachine
@@ -2226,7 +1825,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | sqlvirtualmachinegroups | Yes | Yes |
-> | sqlvirtualmachinegroups / availabilitygrouplisteners | No | No |
 > | sqlvirtualmachines | Yes | Yes |
 
 ## Microsoft.Storage
@@ -2235,15 +1833,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storageaccounts | Yes | Yes |
-> | storageaccounts / blobservices | No | No |
-> | storageaccounts / fileservices | No | No |
-> | storageaccounts / listaccountsas | No | No |
-> | storageaccounts / listservicesas | No | No |
-> | storageaccounts / queueservices | No | No |
-> | storageaccounts / services | No | No |
-> | storageaccounts / services / metricdefinitions | No | No |
-> | storageaccounts / tableservices | No | No |
-> | usages | No | No |
 
 ## Microsoft.StorageCache
 
@@ -2258,11 +1847,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | storagesyncservices | Yes | Yes |
-> | storagesyncservices / registeredservers | No | No |
-> | storagesyncservices / syncgroups | No | No |
-> | storagesyncservices / syncgroups / cloudendpoints | No | No |
-> | storagesyncservices / syncgroups / serverendpoints | No | No |
-> | storagesyncservices / workflows | No | No |
 
 ## Microsoft.StorageSyncDev
 
@@ -2302,10 +1886,7 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | environments | No | No |
-> | environments / eventsources | No | No |
 > | instances | No | No |
-> | instances / environments | No | No |
-> | instances / environments / eventsources | No | No |
 
 ## Microsoft.Subscription
 
@@ -2320,7 +1901,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | services | No | No |
-> | services / problemclassifications | No | No |
 > | supporttickets | No | No |
 
 ## Microsoft.Synapse
@@ -2338,7 +1918,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | environments | Yes | Yes |
-> | environments / accesspolicies | No | No |
 > | environments / eventsources | Yes | Yes |
 > | environments / referencedatasets | Yes | Yes |
 
@@ -2348,9 +1927,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | stores | Yes | Yes |
-> | stores / accesspolicies | No | No |
-> | stores / services | No | No |
-> | stores / services / tokens | No | No |
 
 ## Microsoft.VirtualMachineImages
 
@@ -2358,7 +1934,6 @@ Jump to a resource provider namespace:
 > | Resource type | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | imagetemplates | No | No |
-> | imagetemplates / runoutputs | No | No |
 
 ## microsoft.visualstudio
 
@@ -2428,9 +2003,6 @@ Jump to a resource provider namespace:
 > | deploymentlocations | No | No |
 > | georegions | No | No |
 > | hostingenvironments | No | No |
-> | hostingenvironments / eventgridfilters | No | No |
-> | hostingenvironments / multirolepools | No | No |
-> | hostingenvironments / workerpools | No | No |
 > | kubeenvironments | Yes | Yes |
 > | publishingusers | No | No |
 > | recommendations | No | No |
@@ -2439,14 +2011,8 @@ Jump to a resource provider namespace:
 > | serverfarms | Yes | Yes |
 > | serverfarms / eventgridfilters | No | No |
 > | sites | Yes | Yes |
-> | sites / eventgridfilters | No | No |
-> | sites / hostnamebindings | No | No |
-> | sites / networkconfig | No | No |
 > | sites / premieraddons | Yes | Yes |
 > | sites / slots | Yes | Yes |
-> | sites / slots / eventgridfilters | No | No |
-> | sites / slots / hostnamebindings | No | No |
-> | sites / slots / networkconfig | No | No |
 > | sourcecontrols | No | No |
 > | staticsites | No | No |
 
@@ -2487,6 +2053,7 @@ Jump to a resource provider namespace:
 Third-party services currently don't support the move operation.
 
 ## Next steps
+
 For commands to move resources, see [Move resources to new resource group or subscription](move-resource-group-and-subscription.md).
 
 To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv).

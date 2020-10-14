@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Connect with C# - Azure Database for PostgreSQL - Single Server'
 description: This quickstart provides a C# (.NET) code sample you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.custom: "mvc, devcenter, devx-track-csharp"
 ms.devlang: csharp

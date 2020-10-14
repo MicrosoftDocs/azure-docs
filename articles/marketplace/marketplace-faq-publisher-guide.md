@@ -224,7 +224,7 @@ The user account must have *Owner* or *Contributor* permissions on the Azure sub
 
 Customers can get solutions from the commercial marketplace in 141 locations around the world.
 
-To review the list of locations, go to [Tax details for commercial marketplace publishers](partner-center-portal/tax-details-paid-transactions.md).
+To review the list of locations, go to [Tax details for commercial marketplace publishers](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### What currencies are supported with the commercial marketplace?
 
@@ -269,32 +269,32 @@ Customers are usually billed monthly for any purchases in the previous billing c
 
 ### How often will I receive payouts for sales through the commercial marketplace?
 
-Payouts happen monthly. For details on payment schedules, finding your upcoming payouts in Partner Center, and how we deal with customer non-payments, see [Payout Policy Details](partner-center-portal/payout-policy-details.md).
+Payouts happen monthly. For details on payment schedules, finding your upcoming payouts in Partner Center, and how we deal with customer non-payments, see [Payout policy details](/partner-center/payout-policy-details?context=/azure/marketplace/context/context).
 
 - For transactions where the customer used an Enterprise Agreement, payouts are issued in the next payout cycle 30-days post customer invoice. 
 - For transactions where the customer used a credit card, there is an additional 30-day escrow period after we receive payment to ensure funds clear and there are no chargebacks or suspected fraud.
 
 Payouts are issued only when sales have reached a minimum combined value of $50.00.
 
-For more information, see [Payment thresholds, methods, and time frames](partner-center-portal/payment-thresholds-methods-timeframes.md).
+For more information, see [Payment thresholds, methods, and time frames](/partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context).
 
 ### In what countries/regions are taxes managed on my behalf?
 
 Customers can find solutions from the commercial marketplace around the world, and we manage taxes in many locations. 
 
-To review the full list of locations, go to [Tax details for commercial marketplace publishers](partner-center-portal/tax-details-paid-transactions.md).
+To review the full list of locations, go to [Tax details for commercial marketplace publishers](/partner-center/tax-details-marketplace?context=/azure/marketplace/context/context).
 
 ### Where can I find payout reporting for the commercial marketplace?
 
 Within Partner Center, a user with *Owner* or *Financial Contributor* permissions can view payout reporting. These users can access reports at the upper right by selecting the icon showing a hand holding a bill.
 
-For more information, see [payout reporting](partner-center-portal/payout-summary.md).
+For more information, see [Payout statements](/partner-center/payout-statement?context=/azure/marketplace/context/context).
 
 ### How do I configure my payout method and destination?
 
 With Partner Center, users with *Owner* permissions can set up the payout account and tax forms. Users can do this by selecting the **Settings** button (gear icon) at the upper right.
 
-For more information, go to [payout account and tax forms](partner-center-portal/set-up-your-payout-account-tax-forms.md).
+For more information, see [Set up your payout account and tax forms](/partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context).
 
 ### Are returns and refunds supported with the commercial marketplace?
 
@@ -306,9 +306,8 @@ To receive refunds, customers can cancel subscriptions within a specified time f
 
 Here are some resources to get you started:
 
-- [Introduction to the Microsoft commercial marketplace](/azure/marketplace/marketplace-publishers-guide)
+- [What is the Microsoft commercial marketplace?](overview.md)
 - [Microsoft commercial marketplace partner hub](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
-- [Welcome to the commercial marketplace](index.yml)
 
 ### How can I engage with Microsoft and other partners?
 
@@ -319,7 +318,7 @@ We recommend these resources:
 
 ### Where can I learn more about Partner Center?
 
-- [Partner Center documentation](https://docs.microsoft.com/partner-center/)
+- [Partner Center documentation](/partner-center/)
 - [Welcome to the commercial marketplace](index.yml)
 
 ### Where can I learn more about the Microsoft Admin Center?

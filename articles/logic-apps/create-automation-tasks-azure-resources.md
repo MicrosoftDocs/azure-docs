@@ -28,6 +28,7 @@ Here are the currently available task templates in this preview:
 | All Azure resources | **Send monthly cost for resource** |
 | Azure virtual machines | Additionally: <p>- **Power off Virtual Machine** <br>- **Start Virtual Machine** |
 | Azure Storage accounts | Additionally: <p>- **Delete old blobs** |
+| Azure Cosmos DB | Additionally, <p>- **Send query result via email** |
 |||
 
 This article shows you how to complete the following tasks:
@@ -38,11 +39,13 @@ This article shows you how to complete the following tasks:
 
 * [Edit the task](#edit-task) so that you can update the task, or customize the task's underlying workflow in the Logic App Designer.
 
+<a name="differences"></a>
+
 ## How do automation tasks differ from Azure Automation?
 
-Currently, you can create an automation task only at the resource level, view the task's runs history, and edit the task's underlying logic app workflow, which is powered by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service.
+Currently, you can create an automation task only at the resource level, view the task's runs history, and edit the task's underlying logic app workflow, which is powered by the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service. Automation tasks are more basic and lightweight than [Azure Automation](../automation/automation-intro.md).
 
-[Azure Automation](../automation/automation-intro.md) is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
+By comparison, Azure Automation is a cloud-based automation and configuration service that supports consistent management across your Azure and non-Azure environments. The service comprises [process automation for orchestrating processes](../automation/automation-intro.md#process-automation) by using [runbooks](../automation/automation-runbook-execution.md), configuration management with [change tracking and inventory](../automation/change-tracking.md), update management, shared capabilities, and heterogeneous features. Automation gives you complete control during deployment, operations, and decommissioning of workloads and resources.
 
 ## Prerequisites
 

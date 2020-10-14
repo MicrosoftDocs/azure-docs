@@ -129,7 +129,7 @@ You can't upload a *.zip* file for a .NET Core Steeltoe app by using the Azure p
 
 When you deploy your application package by using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), the Azure CLI periodically polls the deployment progress and, in the end, it displays the deployment result.
 
-Ensure that your application is packaged in the correct *.zip* file format. If it isn't packaged correctly, the process will hang or you will receive an error message.
+Ensure that your application is packaged in the correct *.zip* file format. If it isn't packaged correctly, the process will stop responding or you will receive an error message.
 ::: zone-end
 
 ::: zone pivot="programming-language-java"

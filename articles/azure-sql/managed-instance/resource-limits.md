@@ -7,10 +7,10 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom:
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop, sachinp, sstein
+ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ---
 # Overview of Azure SQL Managed Instance resource limits

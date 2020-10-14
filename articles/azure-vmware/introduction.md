@@ -23,7 +23,7 @@ New private clouds are deployed through the Azure portal or Azure CLI.
 
 ## Networking
 
-[!INCLUDE [avs-networking-description](includes/avs-networking-description.md)]
+[!INCLUDE [avs-networking-description](includes/azure-vmware-solution-networking-description.md)]
 
 For more information on networking and interconnectivity, see the [Networking concepts](concepts-networking.md) article.
 

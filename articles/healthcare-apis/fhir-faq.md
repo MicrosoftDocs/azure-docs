@@ -60,6 +60,23 @@ The current limit on count is 100.
 
 For Group Export we only export the included references from the group, not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
 
+### Can I post a bundle to the Azure API for FHIR?
+
+We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html) but do not support posting transaction bundles in the Azure API for FHIR. You can use the open-source FHIR Server backed by SQL to post transaction bundles.
+
+### How can I get all resources for a single patient in the Azure API for FHIR?
+
+We support [compartment search](https://www.hl7.org/fhir/compartmentdefinition.html) in the Azure API for FHIR. This allows you to get all the resources related to a specific patient. Note that right now compartment includes all the resources related to the patient but not the patient itself so you will need to also search to get the patient if you need the patient resource in your results.
+
+Some examples of this are below:
+
+* GET Patient/<id>/*
+* GET Patient/<id>/Observation
+* GET Patient/<id>/Observation?code=8302-2
+
+### Where can I see some examples of using the Azure API for FHIR within a workflow?
+
+We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
 
 ## Azure IoT Connector for FHIR (preview)
 

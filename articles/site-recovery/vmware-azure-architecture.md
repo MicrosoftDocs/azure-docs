@@ -45,6 +45,8 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 | Replication               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Allows the VM to communicate with the Site Recovery service. |
 | Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Allows the VM to write Site Recovery monitoring and diagnostics data. |
 
+For exhaustive list of URLs to be filtered for communication between on-premises Azure Site Recovery infrastructure and Azure services, refer to [network requirements section in the prerequisites article](vmware-azure-deploy-configuration-server.md#prerequisites).
+
 ## Replication process
 
 1. When you enable replication for a VM, initial replication to Azure storage begins, using the specified replication policy. Note the following:
@@ -77,6 +79,54 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 5. By default resynchronization is scheduled to run automatically outside office hours. If you don't want to wait for default resynchronization outside hours, you can resynchronize a VM manually. To do this, go to Azure portal, select the VM > **Resynchronize**.
 6. If default resynchronization fails outside office hours and a manual intervention is required, then an error is generated on the specific machine in Azure portal. You can resolve the error and trigger the resynchronization manually.
 7. After completion of resynchronization, replication of delta changes will resume.
+
+## Replication policy 
+
+When you enable Azure VM replication, by default Site Recovery creates a new replication policy with the default settings summarized in the table.
+
+**Policy setting** | **Details** | **Default**
+--- | --- | ---
+**Recovery point retention** | Specifies how long Site Recovery keeps recovery points | 24 hours
+**App-consistent snapshot frequency** | How often Site Recovery takes an app-consistent snapshot. | Every four hours
+
+### Managing replication policies
+
+You can manage and modify the default replication policies settings as follows:
+- You can modify the settings as you enable replication.
+- You can create a replication policy at any time, and then apply it when you enable replication.
+
+### Multi-VM consistency
+
+If you want VMs to replicate together, and have shared crash-consistent and app-consistent recovery points at failover, you can gather them together into a replication group. Multi-VM consistency impacts workload performance, and should only be used for VMs running workloads that need consistency across all machines. 
+
+
+
+## Snapshots and recovery points
+
+Recovery points are created from snapshots of VM disks taken at a specific point in time. When you fail over a VM, you use a recovery point to restore the VM in the target location.
+
+When failing over, we generally want to ensure that the VM starts with no corruption or data loss, and that the VM data is consistent for the operating system, and for apps that run on the VM. This depends on the type of snapshots taken.
+
+Site Recovery takes snapshots as follows:
+
+1. Site Recovery takes crash-consistent snapshots of data by default, and app-consistent snapshots if you specify a frequency for them.
+2. Recovery points are created from the snapshots, and stored in accordance with retention settings in the replication policy.
+
+### Consistency
+
+The following table explains different types of consistency.
+
+### Crash-consistent
+
+**Description** | **Details** | **Recommendation**
+--- | --- | ---
+A crash consistent snapshot captures data that was on the disk when the snapshot was taken. It doesn't include anything in memory.<br/><br/> It contains the equivalent of the on-disk data that would be present if the VM crashed or the power cord was pulled from the server at the instant that the snapshot was taken.<br/><br/> A crash-consistent doesn't guarantee data consistency for the operating system, or for apps on the VM. | Site Recovery creates crash-consistent recovery points every five minutes by default. This setting can't be modified.<br/><br/>  | Today, most apps can recover well from crash-consistent points.<br/><br/> Crash-consistent recovery points are usually sufficient for the replication of operating systems, and apps such as DHCP servers and print servers.
+
+### App-consistent
+
+**Description** | **Details** | **Recommendation**
+--- | --- | ---
+App-consistent recovery points are created from app-consistent snapshots.<br/><br/> An app-consistent snapshot contain all the information in a crash-consistent snapshot, plus all the data in memory and transactions in progress. | App-consistent snapshots use the Volume Shadow Copy Service (VSS):<br/><br/>   1) Azure Site Recovery uses Copy Only backup (VSS_BT_COPY) method which does not change Microsoft SQL's transaction log backup time and sequence number </br></br> 2) When a snapshot is initiated, VSS perform a copy-on-write (COW) operation on the volume.<br/><br/>   3) Before it performs the COW, VSS informs every app on the machine that it needs to flush its memory-resident data to disk.<br/><br/>   4) VSS then allows the backup/disaster recovery app (in this case Site Recovery) to read the snapshot data and proceed. | App-consistent snapshots are taken in accordance with the frequency you specify. This frequency should always be less than you set for retaining recovery points. For example, if you retain recovery points using the default setting of 24 hours, you should set the frequency at less than 24 hours.<br/><br/>They're more complex and take longer to complete than crash-consistent snapshots.<br/><br/> They affect the performance of apps running on a VM enabled for replication. 
 
 ## Failover and failback process
 

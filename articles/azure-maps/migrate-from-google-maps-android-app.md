@@ -1,17 +1,17 @@
 ---
-title: 'How to migrate an Android app to Microsoft Azure Maps'
-description: Learn how to migrate an Android app from Google Maps to Microsoft Azure Maps.
+title: 'Tutorial - Migrate an Android app |Microsoft Azure Maps'
+description: 'Tutorial on how to migrate an Android app from Google Maps to Microsoft Azure Maps'
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/19/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: 
 ---
 
-# Migrate an Android app from Google Maps
+# Tutorial - Migrate an Android app from Google Maps
 
 The Azure Maps Android SDK has an API interface that is similar to the Web SDK. If you've developed with one of these SDKs, many of the same concepts, best practices, and architectures apply.
 
@@ -177,7 +177,8 @@ To display a map using the Azure Maps SDK for Android, the following steps need 
         > The Azure Maps Android SDK is regularly upgraded and enhanced. You can see the [Getting started with Android map control](how-to-use-android-map-control-library.md) to get the latest Azure Maps version number. Also, you can set the version number from "0.2" to "0+" to have your code always point to the latest version.
 
     4. Go to **File** in the toolbar and then click on **Sync Project with Gradle Files**.
-3. Add a map fragment to the main activity (resources \> layout \> activity\_main.xml):
+
+3. Add a map fragment to the main activity (resources pwd\> layout \> activity\_main.xml):
 
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -742,9 +743,6 @@ mapControl.onReady(map -> {
 
 ![Azure Maps traffic](media/migrate-google-maps-android-app/azure-maps-traffic.png)
 
-## Next steps
-
 Learn more about the Azure Maps Android SDK.
 
-> [!div class="nextstepaction"]
-> [How to use the Android map control](how-to-use-android-map-control-library.md)
+[How to use the Android map control](how-to-use-android-map-control-library.md)

@@ -44,7 +44,9 @@ See [supported backend resources](https://docs.microsoft.com/azure/application-g
 
 ### In what regions is Application Gateway available?
 
-Application Gateway is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+
+For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
 
 ### Is this deployment dedicated for my subscription, or is it shared across customers?
 
@@ -183,9 +185,9 @@ See [Network security groups in the Application Gateway subnet](https://docs.mic
 
 See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
 
-### Are storage endpoint policies supported in the Application Gateway subnet?
+### Are service endpoint policies supported in the Application Gateway subnet?
 
-No. [Storage endpoint policies](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) are not supported in Application Gateway subnet and configuring it will block Azure infrastructure traffic.
+No. [Service endpoint policies](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) for storage accounts are not supported in Application Gateway subnet and configuring it will block Azure infrastructure traffic.
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 

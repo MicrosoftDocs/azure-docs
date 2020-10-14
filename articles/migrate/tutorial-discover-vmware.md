@@ -68,6 +68,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
     ![Verify in User Settings that users can register Active Directory apps](./media/tutorial-discover-vmware/register-apps.png)
 
+9. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of AAD App(s). [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 ## Prepare VMware
 
@@ -161,7 +162,7 @@ Check that the OVA file is secure, before you deploy it:
   
    ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
    
-   Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+   Example usage: ```C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256```
 
 3. Verify the latest appliance versions and hash values:
 
@@ -169,13 +170,13 @@ Check that the OVA file is secure, before you deploy it:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (11.6 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+        VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | bd5c19eec93a62d52cc507a6b7b408d07f33f92b7d39b8a1e3dfec4ec62830d7
 
     - For Azure Government:
     
         **Algorithm** | **Download** | **SHA256**
         --- | --- | ---
-        VMware (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 47179f47eba2842337bbe533c424dd1da56baccdcf68b1d87b71a5a4280108c2
+        VMware (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140337) | 2daaa2a59302bf911e8ef195f8add7d7c8352de77a9af0b860e2a627979085ca
 
 
 

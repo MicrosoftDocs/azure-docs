@@ -5093,7 +5093,7 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 
 ### Microsoft.MachineLearning
 
-Azure service: [Machine Learning Studio (classic)](../machine-learning/studio/index.yml)
+Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -8204,7 +8204,7 @@ Azure service: [Azure Policy](../governance/policy/overview.md), [Azure RBAC](ov
 > | Action | Description |
 > | --- | --- |
 > | Microsoft.Authorization/elevateAccess/action | Grants the caller User Access Administrator access at the tenant scope |
-> | Microsoft.Authorization/classicAdministrators/read | Reads the administrators for the subscription. |
+> | Microsoft.Authorization/classicAdministrators/read | Reads the administrators for the subscription. Does not have an effect if used as a NotAction in a custom role. |
 > | Microsoft.Authorization/classicAdministrators/write | Add or modify administrator to a subscription. |
 > | Microsoft.Authorization/classicAdministrators/delete | Removes the administrator from the subscription. |
 > | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Gets the administrator operation statuses of the subscription. |

@@ -154,7 +154,7 @@ Review the following information regarding how to test SSO, as well as expectati
         * For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 * SignalFx application can be accessed from the Access Panel or via a custom login page assigned to the organization. The test user should test the integration starting from either of these location.
-    * The test user can use the credentials created earlier in this process for **b.simon@contoso.com**.
+    * The test user can use the credentials created earlier in this process for **b.simon\@contoso.com**.
 
 ### First-time logins
 
