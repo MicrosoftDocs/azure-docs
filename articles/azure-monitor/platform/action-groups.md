@@ -284,7 +284,7 @@ You may have a limited number of Webhook actions in an Action Group.
 ### Service Tag
 A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules for an ActionGroup.
 
-1. In Azure Portal under Azure Services search for *Network Security Group*.
+1. In Azure portal under Azure Services search for *Network Security Group*.
 2. Click on **Add** and create a Network Security Group.
 
    1. Add the Resource Group Name and then enter *Instance Details*.
