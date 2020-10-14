@@ -28,7 +28,8 @@ This version of this article completes these steps by running an [**automated de
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
 The script also includes an optional third step, which is not required but can be used in certain [client app authentication](how-to-authenticate-client.md) methods later:
-3. **Setting up an app registration**: When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, Those applications need to authenticate with Azure Digital Twins in order to interact with it, and some of the authentication mechanisms that apps can use make use of this [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) app registration. For more on using app registrations with Azure Digital Twins, see [*How-to: Create an app registration*](how-to-create-app-registration.md).
+
+3. **(Optional) Setting up an app registration**: When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, which need to authenticate with the instance. Some of the authentication options that apps can use require an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) app registration. For more on using app registrations with Azure Digital Twins, see [*How-to: Create an app registration*](how-to-create-app-registration.md).
 
 [!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
@@ -69,6 +70,9 @@ Here are the steps to run the deployment script in Cloud Shell.
     ./deploy.ps1
     ```
 
+
+    The script will create an Azure Digital Twins instance, and assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance. If you opt to continue through the app registration steps, the script will also create an app registration.
+
     As the script runs through the automated setup steps, you will be asked to pass in the following values:
     * For the instance: the *subscription ID* of your Azure subscription to use
     * For the instance: a *location* where you'd like to deploy the instance. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
@@ -77,9 +81,16 @@ Here are the steps to run the deployment script in Cloud Shell.
 
     To bypass creating an app registration, end script execution here (you can exit the script by entering *CTRL+C* in the Cloud Shell terminal). Otherwise, continue through the following two prompts to finish setting up an app registration:
     * For the app registration (OPTIONAL): an *Azure AD application display name* to associate with the registration. 
-    * For the app registration (OPTIONAL): an *Azure AD application reply URL* for the Azure AD application. Use `http://localhost`. The script will set up a *Public client/native (mobile & desktop)* URI for it. Y
+    * For the app registration (OPTIONAL): an *Azure AD application reply URL* for the Azure AD application. Use `http://localhost`. The script will set up a *Public client/native (mobile & desktop)* URI for it.
 
-The script will create an Azure Digital Twins instance, and assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance. If you opt to continue through the app registration steps, the script will also create an app registration.
+Here is an excerpt of the output log from the script:
+
+:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell window showing log of input and output through the run of the deploy script" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
+
+If the script completes successfully, the final printout will say `Deployment completed successfully`. Otherwise, address the error message, and re-run the script. It will bypass the steps that you've already completed and start requesting input again at the point where you left off.
+
+> [!NOTE]
+> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Owner (Preview)*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 >[!NOTE]
 >There is currently a **known issue** with scripted setup, in which some users (especially users on personal [Microsoft accounts (MSAs)](https://account.microsoft.com/account)) may find the **role assignment to _Azure Digital Twins Owner (Preview)_ was not created**.
@@ -88,34 +99,15 @@ The script will create an Azure Digital Twins instance, and assign your Azure us
 >
 >For more detail on this issue, see [*Troubleshooting: Known issues in Azure Digital Twins*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
-Here is an excerpt of the output log from the script:
+## Verify success and collect important values
 
-:::image type="content" source="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png" alt-text="Cloud Shell window showing log of input and output through the run of the deploy script" lightbox="media/how-to-set-up-instance/cloud-shell/deployment-script-output.png":::
-
-If the script completes successfully, the final printout will say `Deployment completed successfully`. Otherwise, address the error message, and re-run the script. It will bypass the steps that you've already completed and start requesting input again at the point where you left off.
-
-Upon script completion, you now have an Azure Digital Twins instance ready to go with permissions to manage it, and have set up permissions for a client app to access it.
-
-> [!NOTE]
-> The script currently assigns the required management role within Azure Digital Twins (*Azure Digital Twins Owner (Preview)*) to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
-
-## Collect important values
-
-There are several important values from the resources set up by the script that you may need as you continue working with your Azure Digital Twins instance. In this section, you will use the [Azure portal](https://portal.azure.com) to collect these values. You should save them in a safe place, or return to this section to find them later when you need them.
-
-If other users will be programming against the instance, you should also share these values with them.
-
-In the [Azure portal](https://portal.azure.com), find your Azure Digital Twins instance by searching for the name of your instance in the portal search bar.
-
-Selecting it will open up the instance's *Overview* page. Note its *Name*, *Resource group*, and *Host name*. You may need these later to identify and connect to your instance.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Highlighting the important values from the instance's Overview page":::
-
-## Verify success
-
-If you would like to verify the creation of your resources and permissions set up by the script, you can look at them in the [Azure portal](https://portal.azure.com) with the instructions below.
+To verify the creation of your resources and permissions set up by the script, you can look at them in the [Azure portal](https://portal.azure.com) with the instructions below.
 
 If you are unable to verify the success of any step, retry the step. You can perform the steps individually using the [Azure portal](how-to-set-up-instance-portal.md) or [CLI](how-to-set-up-instance-cli.md) instructions.
+
+There are also several important values from the resources set up by the script that you may need as you continue working with your Azure Digital Twins instance. This section also shows you how to find these in the Azure portal. You should save them in a safe place, or return to this section to find them later when you need them.
+
+If other users will be programming against the instance, you should also share these values with them.
 
 ### Verify instance
 
@@ -124,6 +116,12 @@ To verify that your instance was created, go to the [Azure Digital Twins page](h
 This page lists all your Azure Digital Twins instances. Look for the name of your newly-created instance in the list.
 
 If verification was unsuccessful, you can retry creating an instance using the [portal](how-to-set-up-instance-portal.md#create-the-azure-digital-twins-instance) or [CLI](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance).
+
+### Collect instance values
+
+Select the name of your instance from the [Azure Digital Twins page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.DigitalTwins%2FdigitalTwinsInstances) to open up the instance's *Overview* page. Note its *Name*, *Resource group*, and *Host name*. You may need these later to identify and connect to your instance.
+
+:::image type="content" source="media/how-to-set-up-instance/portal/instance-important-values.png" alt-text="Highlighting the important values from the instance's Overview page":::
 
 ### Verify user role assignment
 
@@ -134,7 +132,7 @@ If verification was unsuccessful, you can retry creating an instance using the [
 
 If verification was unsuccessful, you can also redo your own role assignment using the [portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
 
-### Optional: Verify app registration and collect important values
+### Optional: Verify app registration and collect its values
 
 If you used the script to set up an app registration, you can verify that it was created by navigating to the [Azure AD app registration overview page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. You can get to this page yourself by searching for *App registrations* in the portal search bar.
 
