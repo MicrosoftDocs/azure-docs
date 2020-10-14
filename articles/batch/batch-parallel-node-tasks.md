@@ -14,7 +14,7 @@ While some scenarios work best with all of a node's resources dedicated to a sin
 - **Minimizing data transfer** when tasks are able to share data. You can dramatically reduce data transfer charges by copying shared data to a smaller number of nodes, then executing tasks in parallel on each node. This especially applies if the data to be copied to each node must be transferred between geographic regions.
 - **Maximizing memory usage** when tasks require a large amount of memory, but only during short periods of time, and at variable times during execution. You can employ fewer, but larger, compute nodes with more memory to efficiently handle such spikes. These nodes would have multiple tasks running in parallel on each node, but each task would take advantage of the nodes' plentiful memory at different times.
 - **Mitigating node number limits** when inter-node communication is required within a pool. Currently, pools configured for inter-node communication are limited to 50 compute nodes. If each node in such a pool is able to execute tasks in parallel, a greater number of tasks can be executed simultaneously.
--* **Replicating an on-premises compute cluster**, such as when you first move a compute environment to Azure. If your current on-premises solution executes multiple tasks per compute node, you can increase the maximum number of node tasks to more closely mirror that configuration.
+- **Replicating an on-premises compute cluster**, such as when you first move a compute environment to Azure. If your current on-premises solution executes multiple tasks per compute node, you can increase the maximum number of node tasks to more closely mirror that configuration.
 
 ## Example scenario
 
@@ -167,8 +167,9 @@ The [ParallelTasks](https://github.com/Azure/azure-batch-samples/tree/master/CSh
 
 This C# console application uses the [Batch .NET](/dotnet/api/microsoft.azure.batch) library to create a pool with one or more compute nodes. It executes a configurable number of tasks on those nodes to simulate a variable load. Output from the application shows which nodes executed each task. The application also provides a summary of the job parameters and duration.
 
-The summary portion of the output from two different runs of the sample application appears below. The first execution of the sample application shows that with a single node in the pool and the default setting of one task per node, the job duration is over 30 minutes.
+As an example, below is the summary portion of the output from two different runs of the ParallelTasks sample application. Job durations shown here don't include pool creation time, since each job was submitted to a previously created pool whose compute nodes were in the *Idle* state at submission time.
 
+The first execution of the sample application shows that with a single node in the pool and the default setting of one task per node, the job duration is over 30 minutes.
 
 ```
 Nodes: 1
@@ -179,7 +180,7 @@ Tasks: 32
 Duration: 00:30:01.4638023
 ```
 
-The second run of the sample shows a significant decrease in job duration. This is because the pool was configured with four tasks per node, which allows for parallel task execution to complete the job in nearly a quarter of the time.
+The second run of the sample shows a significant decrease in job duration. This is because the pool was configured with four tasks per node, alloing for parallel task execution to complete the job in nearly a quarter of the time.
 
 ```
 Nodes: 1
@@ -189,9 +190,6 @@ Max slots per task: 1
 Tasks: 32
 Duration: 00:08:48.2423500
 ```
-
-> [!NOTE]
-> The job durations in the summaries above do not include pool creation time. Each of the jobs above was submitted to previously created pools whose compute nodes were in the *Idle* state at submission time.
 
 ## Next steps
 
