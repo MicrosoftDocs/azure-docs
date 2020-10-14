@@ -418,6 +418,10 @@ You're now able to join the VMs to **corp.contoso.com**. Do the following steps 
 7. When you see the "Welcome to the corp.contoso.com domain" message, select **OK**.
 8. Select **Close**, and then select **Restart Now** in the popup dialog.
 
+## Add accounts
+
+Add the installation account as an administrator on each VM, grant permission to the installation account and local accounts within SQL Server, and update the SQL Server service account. 
+
 ### Add the Corp\Install user as an administrator on each cluster VM
 
 After each virtual machine restarts as a member of the domain, add **CORP\Install** as a member of the local administrators group.
@@ -462,6 +466,36 @@ Use the installation account (CORP\install) to configure the availability group.
 1. Select **OK**.
 
 Repeat the preceding steps on the other SQL Server VM.
+
+### Configure system account permissions
+
+To create an account for the system account and grant appropriate permissions, complete the following steps on each SQL Server instance:
+
+1. Create an account for `[NT AUTHORITY\SYSTEM]` on each SQL Server instance. The following script creates this account:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Grant the following permissions to `[NT AUTHORITY\SYSTEM]` on each SQL Server instance:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   The following script grants these permissions:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
 
 ### <a name="setServiceAccount"></a>Set the SQL Server service accounts
 
@@ -523,35 +557,6 @@ The method of opening the ports depends on the firewall solution that you use. T
 
 Repeat these steps on the second SQL Server VM.
 
-## Configure system account permissions
-
-To create an account for the system account and grant appropriate permissions, complete the following steps on each SQL Server instance:
-
-1. Create an account for `[NT AUTHORITY\SYSTEM]` on each SQL Server instance. The following script creates this account:
-
-   ```sql
-   USE [master]
-   GO
-   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
-   GO 
-   ```
-
-1. Grant the following permissions to `[NT AUTHORITY\SYSTEM]` on each SQL Server instance:
-
-   - `ALTER ANY AVAILABILITY GROUP`
-   - `CONNECT SQL`
-   - `VIEW SERVER STATE`
-
-   The following script grants these permissions:
-
-   ```sql
-   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
-   GO 
-   ```
 
 ## Next steps
 
