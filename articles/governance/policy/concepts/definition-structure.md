@@ -755,8 +755,20 @@ The following functions are only available in policy rules:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **range**: [Required] string - String specifying a range of IP addresses.
+    - **targetRange**: [Required] string - String specifying a range of IP addresses.
+
+    Returns whether the given IP address range contains the target IP address range. Empty ranges, or mixing between IP families isn't allowed and results in evaluation failure.
+
+    Supported formats:
+    - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)
+    - CIDR range (examples: `10.0.0.0/24`, `2001:0DB8::/110`)
+    - Range defined by start and end IP addresses (examples: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
+
+
 #### Policy function example
 
 This policy rule example uses the `resourceGroup` resource function to get the **name** property,
