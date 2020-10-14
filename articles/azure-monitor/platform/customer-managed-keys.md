@@ -68,7 +68,7 @@ The following rules apply:
 
 1. Allowing subscription -- The CMK capability is delivered on dedicated Log Analytics clusters. To verify that we have the required capacity in your region, we require that your subscription is allowed beforehand. Use your Microsoft contact to get your subscription allowed.
 2. Creating Azure Key Vault and storing key
-3. Creating a dedicated cluster
+3. Creating cluster
 4. Granting permissions to your Key Vault
 5. Linking Log Analytics workspaces
 
@@ -166,7 +166,7 @@ These settings can be updated via CLI and PowerShell:
 - [Soft Delete](../../key-vault/general/soft-delete-overview.md)
 - [Purge protection](../../key-vault/general/soft-delete-overview.md#purge-protection) guards against force deletion of the secret / vault even after soft delete
 
-### Create a cluster
+### Create cluster
 
 Follow the procedure illustrated in [Dedicated Clusters article](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters#creating-a-cluster). 
 
@@ -268,7 +268,7 @@ A response to GET request should look like this when Key identifier update is co
 }
 ```
 
-### Link a workspace
+### Link workspace to cluster
 
 You need to have 'write' permissions to both your workspace and cluster to perform this operation, which include these actions:
 
