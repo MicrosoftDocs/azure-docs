@@ -165,11 +165,11 @@ AzureDiagnostics
 
 The following log samples show the data included in a log entry.
 
-![log entry one](media/log-analytics-samples/log1.png)
+![Screenshot of a log entry. Multiple values are visible, such as a time stamp, a protocol, a port number, an action, a rule collection, and a rule.](media/log-analytics-samples/log1.png)
 
-![log entry two ](media/log-analytics-samples/log2.png)
+![Screenshot of a log entry. Multiple values are visible, such as a time stamp, a protocol, source and target I P addresses, and an action.](media/log-analytics-samples/log2.png)
 
-![log entry three](media/log-analytics-samples/log3.png)
+![Screenshot of a log entry. Multiple values are visible, such as a time stamp, a protocol, source and target I P addresses and ports, and a message.](media/log-analytics-samples/log3.png)
 ## Next steps
 
 To learn about Azure Firewall monitoring and diagnostics, see [Tutorial: Monitor Azure Firewall logs and metrics](tutorial-diagnostics.md).
