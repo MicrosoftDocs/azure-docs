@@ -49,7 +49,7 @@ Before you begin, make sure that you have a running Data Box Gateway device. Fol
         - [Register](/azure/storage/common/storage-lifecycle-management-concepts) for the preview of the Blob Lifecycle Management service to use the Archive tier.
         - Use the following policy to [Archive data on ingest](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
 - Once the blobs are marked as Archive, they can no longer be modified by the gateway unless they are moved to the hot or cold tier. If the file is in the local storage, any changes made to the local copy (including deletes) are not uploaded to the Archive tier.
-- To read data in Archive storage, the data must be rehydrated by changing the blob tier to hot or cool. [Refreshing the share](data-box-gateway-manage-shares.md#refresh-shares) on the gateway does not rehydrate the blob.
+- To read data in Archive storage, you must rehydrate the data by changing the blob tier to hot or cool. [Refreshing the share](data-box-gateway-manage-shares.md#refresh-shares) on the gateway does not rehydrate the blob.
 
 For more information, learn more about how to [Manage Azure Blob Storage Lifecycle](/azure/storage/common/storage-lifecycle-management-concepts).
 

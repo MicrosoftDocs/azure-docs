@@ -62,7 +62,7 @@ When generating the activation key for the device, or performing any operations 
 -  Creating a share with an associated storage account.
 -  Creating a user who can access the shares on the device.
 
-You should have a `User` access on Active Directory tenant as you need to be able to `Read all directory objects`. You can't be a Guest user as they don't have permissions to `Read all directory objects`. If you're a guest, then the operations such as generation of an activation key, creation of a share on your device, creation of a user will all fail.
+You should have `User` access on the Active Directory tenant so you can `Read all directory objects`. A Guest user doesn't have permissions to `Read all directory objects`. If you're a guest, operations like generating an activation key, creating a share on your device, and creating a user will fail.
 
 For more information on how to provide access to users to Microsoft Graph API, see [Microsoft Graph permissions reference](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -72,9 +72,9 @@ To provision a resource in Azure (in the Azure Resource Manager model), you need
  
 Resource providers are registered on the level of the subscription. By default, any new Azure subscription is pre-registered with a list of commonly used resource providers. The resource provider for 'Microsoft.DataBoxEdge' is not included in this list.
 
-You don't need to grant access permissions to the subscription level for users to be able to create resources like 'Microsoft.DataBoxEdge' within the resource groups that they have owner rights on, as long as the resource providers for these resources are already registered.
+You don't need to grant access permissions at the subscription level for users to be able to create resources like 'Microsoft.DataBoxEdge' within resource groups that they have owner rights on, as long as the resource providers for these resources are already registered.
 
-Before you attempt to create any resource, make sure that the resource provider is registered in the subscription. If the resource provider is not registered, you'll need to make sure that the user creating the new resource has enough rights to register the required resource provider at the subscription level. If you haven't done this as well, then you'll see the following error:
+Before you try to create any resource, make sure the resource provider is registered in the subscription. If the resource provider is not registered, you'll need to make sure that the user creating the new resource has enough rights to register the required resource provider at the subscription level. If you haven't done this as well, then you'll see the following error:
 
 *The subscription \<Subscription name> doesn't have permissions to register the resource provider(s): Microsoft.DataBoxEdge.*
 
@@ -85,7 +85,7 @@ To get a list of registered resource providers in the current subscription, run 
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-For an Azure Stack Edge device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, the subscription admin should run the following command:
+For a Data Box Gateway device, `Microsoft.DataBoxEdge` should be registered. To register `Microsoft.DataBoxEdge`, the subscription admin should run the following command:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge
@@ -119,7 +119,7 @@ To change the device mode, follow these steps:
 
 ## Manage power
 
-You can shut down or restart your virtual device using the local web UI. We recommend that before you restart, you take the shares offline on the host and then the device. This action minimizes any possibility of data corruption.
+You can shut down or restart your virtual device using the local web UI. We recommend that before you restart the device, you take the shares offline on the host and then the device. This action minimizes any possibility of data corruption.
 
 1. In the local web UI, go to **Maintenance > Power settings**.
 2. Click **Shutdown** or **Restart** depending on what you intend to do.
