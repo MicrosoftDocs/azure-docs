@@ -163,28 +163,51 @@ The first item is required to upload metrics and the second one is required to u
 
 Follow these commands to create your metrics upload service principal and assign it to the 'Monitoring Metrics Publisher' and 'Contributor' roles so that the service principal can upload metrics and perform create and upload operations.
 
-
 ## Assign service principal to monitoring metrics publisher
 
 Run this command to assign the service principal to the 'Monitoring Metrics Publisher' role on the subscription where your database instance resources are located:
 
+::: zone pivot="client-operating-system-windows"
 
 > [!NOTE]
 > You need to use double quotes for role names when running from a Windows environment.
 
-
 ```console
 az role assignment create --assignee <appId value from output above> --role "Monitoring Metrics Publisher" --scope subscriptions/<sub ID>
-az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
+az role assignment create --assignee <appId value from output above> --role "Contributor" --scope subscriptions/<sub ID>
 
-#Example:
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
-
-#On Windows environment
+#Example
 #az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 #az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Contributor" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 ```
+
+::: zone-end
+
+::: zone pivot="client-operating-system-linux"
+
+```console
+az role assignment create --assignee <appId value from output above> --role 'Monitoring Metrics Publisher' --scope subscriptions/<sub ID>
+az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
+
+#Example:
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Monitoring Metrics Publisher' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+```
+
+::: zone-end
+
+::: zone pivot="client-operating-system-macos"
+
+```console
+az role assignment create --assignee <appId value from output above> --role 'Monitoring Metrics Publisher' --scope subscriptions/<sub ID>
+az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
+
+#Example:
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Monitoring Metrics Publisher' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+```
+
+::: zone-end
 
 Example output:
 
@@ -243,18 +266,38 @@ Example output:
 
 Save the customerId (workspace ID) as an environment variable to be used later:
 
+
+::: zone pivot="client-operating-system-windows"
+
 ```console
-#PowerShell
 $Env:WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' command output above>'
 
-#Linux/macOS
+#Example (using Linux)
+#export WORKSPACE_ID='d6abb435-2626-4df1-b887-445fe44a4123'
+```
+::: zone-end
+::: zone pivot="client-operating-system-macos"
+
+```console
 export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' command output above>'
 
 #Example (using Linux)
 #export WORKSPACE_ID='d6abb435-2626-4df1-b887-445fe44a4123'
 ```
 
-This command will print the access keys required to connect to your log analytics workspace:
+::: zone-end
+::: zone pivot="client-operating-system-linux"
+
+```console
+export WORKSPACE_ID='<the customerId from the 'log-analytics workspace create' command output above>'
+
+#Example (using Linux)
+#export WORKSPACE_ID='d6abb435-2626-4df1-b887-445fe44a4123'
+```
+
+::: zone end
+
+This command returns the access keys required to connect to your log analytics workspace:
 
 ```console
 az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGroup --workspace-name MyLogsWorkpace
@@ -262,7 +305,7 @@ az monitor log-analytics workspace get-shared-keys --resource-group MyResourceGr
 
 Example output:
 
-```console
+```output
 {
   "primarySharedKey": "JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXqaydpaj1ByWGvKoCghL8hL4BRoypXxkLr123==",
   "secondarySharedKey": "p2XHSxLJ4o9IAqm2zINcEmx0UWU5Z5EZz8PQC0OHpFjdpuVaI0zsPbTv5VyPFgaCUlCZb2yEbkiR4eTuTSF123=="
@@ -271,42 +314,88 @@ Example output:
 
 Save the primary key in an environment variable to be used later:
 
+
+
+::: zone pivot="client-operating-system-windows"
+
 ```console
-#PowerShell:
 $Env:WORKSPACE_SHARED_KEY='<the primarySharedKey value from the 'get-shared-keys' command above'
 
-#Linux/macOS:
+#Example (using Linux)
+#export WORKSPACE_ID='d6abb435-2626-4df1-b887-445fe44a4123'
+```
+::: zone-end
+::: zone pivot="client-operating-system-macos"
+
+```console
 export WORKSPACE_SHARED_KEY='<the primarySharedKey value from the 'get-shared-keys' command above'
 
 #Example (using Linux):
 export WORKSPACE_SHARED_KEY='JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXqaydpaj1ByWGvKoCghL8hL4BRoypXxkLr123=='
-
 ```
+
+::: zone-end
+::: zone pivot="client-operating-system-linux"
+
+```console
+export WORKSPACE_SHARED_KEY='<the primarySharedKey value from the 'get-shared-keys' command above'
+
+#Example (using Linux):
+export WORKSPACE_SHARED_KEY='JXzQp1RcGgjXFCDS3v0sXoxPvbgCoGaIv35lf11Km2WbdGFvLXqaydpaj1ByWGvKoCghL8hL4BRoypXxkLr123=='
+```
+
+::: zone end
 
 ## Set final environment variables and confirm
 
 Set the SPN authority URL in an environment variable:
 
-```console
-#PowerShell
-$Env:SPN_AUTHORITY='https://login.microsoftonline.com'
+::: zone pivot="client-operating-system-windows"
 
+```console
+$Env:SPN_AUTHORITY='https://login.microsoftonline.com'
+```
+
+::: zone-end
+
+::: zone pivot="client-operating-system-macos"
+
+```console
 #Linux/macOS:
 export SPN_AUTHORITY='https://login.microsoftonline.com'
 ```
 
-Check to make sure that all environment variables required are set if you want:
+::: zone-end
+
+::: zone pivot="client-operating-system-linux"
 
 ```console
-#PowerShell
+#Linux/macOS:
+export SPN_AUTHORITY='https://login.microsoftonline.com'
+```
+
+::: zone-end
+
+
+Check to make sure that all environment variables required are set if you want:
+
+
+::: zone pivot="client-operating-system-windows"
+
+```console
 $Env:WORKSPACE_ID
 $Env:WORKSPACE_SHARED_KEY
 $Env:SPN_TENANT_ID
 $Env:SPN_CLIENT_ID
 $Env:SPN_CLIENT_SECRET
 $Env:SPN_AUTHORITY
+```
 
-#Linux/macOS
+
+::: zone-end
+::: zone pivot="client-operating-system-macos"
+
+```console
 echo $WORKSPACE_ID
 echo $WORKSPACE_SHARED_KEY
 echo $SPN_TENANT_ID
@@ -314,6 +403,20 @@ echo $SPN_CLIENT_ID
 echo $SPN_CLIENT_SECRET
 echo $SPN_AUTHORITY
 ```
+
+::: zone-end
+::: zone pivot="client-operating-system-linux"
+
+```console
+echo $WORKSPACE_ID
+echo $WORKSPACE_SHARED_KEY
+echo $SPN_TENANT_ID
+echo $SPN_CLIENT_ID
+echo $SPN_CLIENT_SECRET
+echo $SPN_AUTHORITY
+```
+
+::: zone-end
 
 ## Upload metrics to Azure Monitor
 
