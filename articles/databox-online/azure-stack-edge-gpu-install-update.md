@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 09/29/2020
+ms.date: 10/13/2020
 ms.author: alkohli
 ---
 # Update your Azure Stack Edge Pro GPU 
@@ -17,7 +17,7 @@ This article describes the steps required to install update on your Azure Stack 
 The procedure described in this article was performed using a different version of software, but the process remains the same for the current software version.
 
 > [!IMPORTANT]
-> - Update **2009** corresponds to **2.1.1364.2110** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2009-release-notes.md).
+> - Update **2010** corresponds to **2.1.1377.2170** software version on your device. For information on this update, go to [Release notes](azure-stack-edge-gpu-2009-release-notes.md).
 >
 > - Keep in mind that installing an update or hotfix restarts your device. This update requires you to apply two updates sequentially. First you apply the device software updates and then Kubernetes updates. Given that the Azure Stack Edge Pro is a single node device, any I/O in progress is disrupted and your device experiences a downtime of up to 30 minutes for the device software update.
 
@@ -100,7 +100,7 @@ We recommend that you install updates through the Azure portal. The device autom
     ![Software version after update 12](./media/azure-stack-edge-gpu-install-update/portal-update-11.png)
 
 
-7. After the restart, the device is again put in the maintenance mode and an informational alert is displayed to indicate that.
+7. After the restart, an informational alert is displayed to indicate that.
 
     If you select the **Update device** from the top command bar, you can see the progress of the updates.   
 
@@ -128,9 +128,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
     ![Software version after update 18](./media/azure-stack-edge-gpu-install-update/portal-update-19.png)
 
-    As the updates are installed, the device is put into maintenance mode. The device does not restart for the Kubernetes updates. 
-
-    Once the Kubernetes updates are successfully installed, the banner notification disappears as no further updates are needed. Your device has now the latest version of device software and Kubernetes.
+    Once the Kubernetes updates are successfully installed, the banner notification disappears as no further updates are needed. The device does not restart for the Kubernetes updates. Your device has now the latest version of device software and Kubernetes.
 
     ![Software version after update 19](./media/azure-stack-edge-gpu-install-update/portal-update-20.png)
 
@@ -158,9 +156,9 @@ Do the following steps to download the update from the Microsoft Update Catalog.
 
 2. In the search box of the Microsoft Update Catalog, enter the Knowledge Base (KB) number of the hotfix or terms for the update you want to download. For example, enter **Azure Stack Edge Pro**, and then click **Search**.
    
-    The update listing appears as **Azure Stack Edge Pro 2006**.
+    The update listing appears as **Azure Stack Edge Pro 2010**.
    
-    ![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)
+    <!--![Search catalog 2](./media/azure-stack-edge-gpu-install-update/download-update-2b.png)-->
 
 4. Select **Download**. There are two files to download with *SoftwareUpdatePackage.exe* and *Kubernetes_Package.exe* suffixes that correspond to device software updates and Kubernetes updates respectively. Download the files to a folder on the local system. You can also copy the folder to a network share that is reachable from the device.
 
