@@ -515,7 +515,7 @@ Renderer object following APIs
 // Create a view for a video stream
 renderer.createView()
 ```
-* Dispose renderer and all `RendererView` associated with this renderer
+* Dispose renderer and all `RendererView` associated with this renderer. To be called when you have removed all associated views from the UI.
 ```java
 renderer.dispose()
 ```
