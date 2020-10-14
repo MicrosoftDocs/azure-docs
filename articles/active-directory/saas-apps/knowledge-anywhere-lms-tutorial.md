@@ -109,19 +109,19 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. Select on the **Site** tab.
 
-    ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure1.png)
+    ![Screenshot shows the Site tab.](./media/knowledge-anywhere-lms-tutorial/configure1.png)
 
 5. Select on the **SAML Settings** tab.
 
-    ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure2.png)
+    ![Screenshot shows the Knowledge anywhere page with SAML Settings selected.](./media/knowledge-anywhere-lms-tutorial/configure2.png)
 
 6. Click on the **Add New**.
 
-    ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure3.png)
+    ![Screenshot shows the Add New button in Service Provider Settings.](./media/knowledge-anywhere-lms-tutorial/configure3.png)
 
 7. On the **Add/Update SAML Settings** page, perform the following steps:
 
-    ![Knowledge Anywhere LMS Configuration](./media/knowledge-anywhere-lms-tutorial/configure4.png)
+    ![Screenshot shows the Add/Update SAML Settings page where you can make the changes described here.](./media/knowledge-anywhere-lms-tutorial/configure4.png)
 
     a. Enter the IDP Name as per your organization. For ex:- `Azure`.
 

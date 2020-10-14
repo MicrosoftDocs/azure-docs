@@ -44,11 +44,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Login to [Lucidchart admin console](https://www.lucidchart.com). Navigate to **Team > App Integration**.
 
-      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/team1.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/team1.png" alt-text="Screenshot of the Lucidchart admin console. The Team menu is highlighted and open. Under Admin, App Integration is highlighted." border="false":::
 
 2. Navigate to **SCIM**.
 
-      ![Lucidchart scim](./media/lucidchart-provisioning-tutorial/scim.png)
+      :::image type="content" source="./media/lucidchart-provisioning-tutorial/scim.png" alt-text="Screenshot of the Lucidchart admin console. Within a large S C I M button, the text S C I M is highlighted, and an enabled banner is visible." border="false":::
 
 3. Scroll down to see the **Bearer token** and **Lucidchart Base URL**. Copy and save the **Bearer token**. This value will be entered in the **Secret Token** * field in the Provisioning tab of your LucidChart application in the Azure portal. 
 

@@ -151,7 +151,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Say `turn on the tv`
 1. The visual state of the tv should change to "on"
    > [!div class="mx-imgBorder"]
-   > ![Send Activity payload](media/custom-commands/send-activity-to-client-turn-on-tv.png)
+   > ![Screenshot that shows that the visual state of the T V is now on.](media/custom-commands/send-activity-to-client-turn-on-tv.png)
 
 ## Next steps
 
