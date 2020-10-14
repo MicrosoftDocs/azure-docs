@@ -1,6 +1,6 @@
 ---
 title: "Configure transactional replication between Azure SQL Managed Instance and SQL Server"
-description: "A tutorial that configures replication between a publisher managed instance, a distributor managed instance, and a SQL Server subscriber on an Azure VM, along with necessary networking components such as private DNS zone and VPN peering." 
+description: "A tutorial that configures replication between a publisher managed instance, a distributor managed instance, and a SQL Server subscriber on an Azure VM, along with necessary networking components such as private DNS zone and VNet peering." 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: security
@@ -32,7 +32,7 @@ This tutorial is intended for an experienced audience and assumes that the user 
 
 
 > [!NOTE]
-> This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Managed Instance. It is unrelated to [failover groups](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), an Azure SQL Managed Instance feature that allows you to create complete readable replicas of individual instances. There are additional considerations when configuring [transactional replication with failover groups](replication-transactional-overview.md#with-failover-groups).
+> This article describes the use of [transactional replication](/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Managed Instance. It is unrelated to [failover groups](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), an Azure SQL Managed Instance feature that allows you to create complete readable replicas of individual instances. There are additional considerations when configuring [transactional replication with failover groups](replication-transactional-overview.md#with-failover-groups).
 
 ## Prerequisites
 
@@ -70,7 +70,7 @@ Create two managed instances within this new resource group using the [Azure por
 For more information about creating a managed instance, see [Create a managed instance in the portal](instance-create-quickstart.md).
 
   > [!NOTE]
-  > For the sake of simplicity, and because it is the most common configuration, this tutorial suggests placing the distributor managed instance within the same virtual network as the publisher. However, it's possible to create the distributor in a separate virtual network. To do so, you will need to configure VPN peering between the virtual networks of the publisher and distributor, and then configure VPN peering between the virtual networks of the distributor and subscriber.
+  > For the sake of simplicity, and because it is the most common configuration, this tutorial suggests placing the distributor managed instance within the same virtual network as the publisher. However, it's possible to create the distributor in a separate virtual network. To do so, you will need to configure VNet peering between the virtual networks of the publisher and distributor, and then configure VNet peering between the virtual networks of the distributor and subscriber.
 
 ## Create a SQL Server VM
 
@@ -85,7 +85,7 @@ For more information about deploying a SQL Server VM to Azure, see [Quickstart: 
 
 ## Configure VNet peering
 
-Configure VPN peering to enable communication between the virtual network of the two managed instances, and the virtual network of SQL Server. To do so, use this PowerShell code snippet:
+Configure VNet peering to enable communication between the virtual network of the two managed instances, and the virtual network of SQL Server. To do so, use this PowerShell code snippet:
 
 ```powershell-interactive
 # Set variables
@@ -104,13 +104,13 @@ $virtualNetwork1 = Get-AzVirtualNetwork `
   -ResourceGroupName $resourceGroup `
   -Name $subvNet  
 
-# Configure VPN peering from publisher to subscriber
+# Configure VNet peering from publisher to subscriber
 Add-AzVirtualNetworkPeering `
   -Name $pubsubName `
   -VirtualNetwork $virtualNetwork1 `
   -RemoteVirtualNetworkId $virtualNetwork2.Id
 
-# Configure VPN peering from subscriber to publisher
+# Configure VNet peering from subscriber to publisher
 Add-AzVirtualNetworkPeering `
   -Name $subpubName `
   -VirtualNetwork $virtualNetwork2 `
@@ -130,7 +130,7 @@ Get-AzVirtualNetworkPeering `
 
 ```
 
-Once VPN peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on SQL Server and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to SQL Managed Instance](point-to-site-p2s-configure.md#connect-with-ssms).
+Once VNet peering is established, test connectivity by launching SQL Server Management Studio (SSMS) on SQL Server and connecting to both managed instances. For more information on connecting to a managed instance using SSMS, see [Use SSMS to connect to SQL Managed Instance](point-to-site-p2s-configure.md#connect-with-ssms).
 
 ![Test connectivity to the managed instances](./media/replication-two-instances-and-sql-server-configure-tutorial/test-connectivity-to-mi.png)
 
@@ -391,7 +391,7 @@ Possible solutions:
 - Confirm the DNS name was used when creating the subscriber.
 - Verify that your virtual networks are correctly linked in the private DNS zone.
 - Verify your A record is configured correctly.
-- Verify your VPN peering is configured correctly.
+- Verify your VNet peering is configured correctly.
 
 ### No publications to which you can subscribe
 
