@@ -57,7 +57,7 @@ You may want to connect virtual networks for the following reasons:
 
 For more information about VNet-to-VNet connections, see [VNet-to-VNet considerations](#faq) at the end of this article.
 
-### <a name="powershell"></a>Working with Azure PowerShell
+## Prerequisites
 
 We use the portal for most of the steps, but you must use PowerShell to create the connections between the VNets. You can't create the connections using the Azure portal. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
