@@ -48,15 +48,11 @@ In this tutorial you'll learn how to:
 > * Use wildcards to simplify tracking across directories
 
 
-<<<<<<< HEAD
-FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](../automation/change-tracking/overview.md#change-tracking-data-collection-details) for Azure Change Tracking.
-=======
 ## How does FIM work?
 
 By comparing the current state of these items with the state during the previous scan, FIM alerts you if suspicious modifications have been made.
 
-FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When file integrity monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) for Azure Change Tracking.
->>>>>>> 8a6d6f324d30835a14f1e7faf89d55d18f133183
+FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When file integrity monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](../automation/change-tracking/overview.md#change-tracking-data-collection-details).
 
 > [!NOTE]
 > If you remove the **Change Tracking** resource, you will also disable the file integrity monitoring feature in Security Center.
