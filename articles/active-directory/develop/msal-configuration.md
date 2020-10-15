@@ -30,7 +30,7 @@ This article will help you understand the various settings in the configuration 
 |-----------|------------|-------------|-------|
 | `client_id` | String | Yes | Your app's Client ID from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
 | `redirect_uri`   | String | Yes | Your app's Redirect URI from the [Application registration page](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) |
-| `broker_redirect_uri_registered` | boolean | No | Possible values: `true`, `false` |
+| `broker_redirect_uri_registered` | Boolean | No | Possible values: `true`, `false` |
 | `authorities` | List\<Authority> | No | The list of authorities your app needs |
 | `authorization_user_agent` | AuthorizationAgent (enum) | No | Possible values: `DEFAULT`, `BROWSER`, `WEBVIEW` |
 | `http` | HttpConfiguration | No | Configure `HttpUrlConnection` `connect_timeout` and `read_timeout` |
@@ -46,7 +46,7 @@ The redirect URI you registered when you registered your application. If the red
 
 ### broker_redirect_uri_registered
 
-If you desire to use brokered auth, this must be set to true.  In this case, the application will validate your redirect URI and throw an exception on startup if it is not of the correct format to talk to the broker as described in [Redirect URI for public client apps](msal-client-application-configuration.md#redirect-uri-for-public-client-apps).
+If you want to use brokered authentication, the `broker_redirect_uri_registered` property must be set to `true`. In a brokered authentication scenario, if the application isn't in the correct format to talk to the broker as described in [Redirect URI for public client apps](msal-client-application-configuration.md#redirect-uri-for-public-client-apps), the application validates your redirect URI and throws an exception when it starts.
 
 ### authorities
 
