@@ -1,7 +1,7 @@
 ---
 title: How to secure a single page application with non-interactive sign-in
 titleSuffix: Azure Maps
-description: How to configure a single page application with non-interactive Azure AD Role based access control and Azure Maps Web SDK.
+description: How to configure a single page application with non-interactive Azure role-based access control (Azure RBAC) and Azure Maps Web SDK.
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
@@ -31,7 +31,7 @@ Create a secured web service application which is responsible for authentication
 
 3. [Add a system-assigned identity](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) on the Azure function to enable creation of a service principal to authenticate to Azure AD.  
 
-4. Grant role based access for the system-assigned identity to the Azure Maps account. See [Grant role based access](#grant-role-based-access) for details.
+4. Grant role-based access for the system-assigned identity to the Azure Maps account. See [Grant role-based access](#grant-role-based-access) for details.
 
 5. Write code for the Azure function to obtain Azure Maps access tokens using system-assigned identity with one of the supported mechanisms or the REST protocol. See [Obtain tokens for Azure resources](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity)
 
