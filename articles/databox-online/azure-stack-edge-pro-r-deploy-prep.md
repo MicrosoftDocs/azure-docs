@@ -78,94 +78,91 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
-To create a Azure Stack Edge resource, take the following steps in the Azure portal.
+To create an Azure Stack Edge resource, take the following steps in the Azure portal.
 
-1. Use your Microsoft Azure credentials to sign in to: 
-    
-    - The Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
-    - Or, the Azure Government portal at this URL: [https://portal.azure.us](https://portal.azure.us). For more details, go to [Connect to Azure Government using the portal](../azure-government/documentation-government-get-started-connect-with-portal.md).
+1. Use your Microsoft Azure credentials to sign in to the Azure portal at this URL: [https://portal.azure.com](https://portal.azure.com).
 
-2. In the left-pane, select **+ Create a resource**. 
+2. In the left-pane, select **+ Create a resource**. Search for and select **Azure Stack Edge / Data Box Gateway**. Select **Create**. 
 
-    ![Create new resource](media/azure-stack-edge-j-series-deploy-prep/order-1.png)
+3. Pick the subscription that you want to use for the Azure Stack Edge Pro device. Select the country to where you want to ship this physical device. Select **Show devices**.
 
-3. Search for **Azure Stack Edge**. Select **Azure Stack Edge**. 
+    ![Create a resource 1](media/azure-stack-edge-gpu-deploy-prep/create-resource-1.png)
 
-    ![Search Data Box Edge/ Data Box Gateway service](media/azure-stack-edge-j-series-deploy-prep/order-2.png)
+4. Select device type. Under **Azure Stack Edge Pro**, choose **Azure Stack Edge Pro with GPU** and then choose **Select**. If you see any issues or are unable to select the device type, go to [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
-4. Select **Create**.
+    ![Create a resource 3](media/azure-stack-edge-gpu-deploy-prep/create-resource-3.png)
 
-    <!--![Select create](media/azure-stack-edge-j-series-deploy-prep/order-3.png)-->
+5. Based on your business need, you can select Azure Stack Edge Pro with 1 or 2 Graphical Processing Units (GPUs) from Nvidia. 
 
-5. Pick the subscription that you want to use for the Azure Stack Edge device. Select the region where you want to deploy the Azure Stack Edge resource. For this release, East US, West US2, and South Central US are available. 
+    ![Create a resource 4](media/azure-stack-edge-gpu-deploy-prep/create-resource-4.png)
 
-    Choose a location closest to the geographical region where you want to deploy your device. The region stores only the metadata for device management. The actual data can be stored in any storage account. 
-    
-    Select **Apply**.
-
-    ![Pick subscription, location, country](media/azure-stack-edge-j-series-deploy-prep/order-4.png)
-
-5. Select your Azure Stack Edge device. In this example, **Azure Stack Edge Rugged J-series** was selected.
-
-    ![Pick Azure Stack Edge device](media/azure-stack-edge-j-series-deploy-prep/order-5.png)
-
-3. On the **Basics** tab, enter or select the following **Project details**.
+6. On the **Basics** tab, enter or select the following **Project details**.
     
     |Setting  |Value  |
     |---------|---------|
     |Subscription    |This is automatically populated based on the earlier selection. Subscription is linked to your billing account. |
     |Resource group  |Select an existing group or create a new group.<br>Learn more about [Azure Resource Groups](../azure-resource-manager/resource-group-overview.md).     |
 
-4. Enter or select the following **Instance details**.
+7. Enter or select the following **Instance details**.
 
     |Setting  |Value  |
     |---------|---------|
     |Name   | A friendly name to identify the resource.<br>The name has between 2 and 50 characters containing letter, numbers, and hyphens.<br> Name starts and ends with a letter or a number.        |
-    |Region     |For this release, East US, West US2, and South Central US are available to deploy your resource. If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
-    |Configuration   | Choose the appropriate configuration for your device. The following configurations are available: <ul><li>1-node device</li><li> 1-node device with UPS.</li><li>1-node device with UPS and heater</li><li>4-node device</li><li>4-node device with UPS</li><li>4-node device with UPS and heater</li></ul>       |
+    |Region     |For a list of all the regions where the Azure Stack Edge resource is available, see [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). If using Azure Government, all the government regions are available as shown in the [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).<br> Choose a location closest to the geographical region where you want to deploy your device.|
 
-    ![Choose configuration](media/azure-stack-edge-j-series-deploy-prep/order-7.png)
+    ![Create a resource 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-    The **Basics** tab should look like the following screenshot: 
 
-    ![Basics tab](media/azure-stack-edge-j-series-deploy-prep/order-8.png)
- 
+8. Select **Next: Shipping address**.
 
-5. Select **Next: Shipping address**.
+    - If you already have a device, select the combo box for **I have a Azure Stack Edge Pro device**.
 
-    - If you already have a device, select the combo box for **I have an Azure Stack Edge device**.
-
-        ![Check existing device](media/azure-stack-edge-j-series-deploy-prep/order-9.png)
+        ![Create a resource 6](media/azure-stack-edge-gpu-deploy-prep/create-resource-6.png)
 
     - If this is the new device that you are ordering, enter the contact name, company, address to ship the device, and contact information.
 
-        ![Shipping address for new device](media/azure-stack-edge-j-series-deploy-prep/order-10.png)
+        ![Create a resource 7](media/azure-stack-edge-gpu-deploy-prep/create-resource-7.png)
 
-6. Select **Next: Review + create**.
+9. Select **Next: Tags**. Optionally provide tags to categorize resources and consolidate billing. Select **Next: Review + create**.
 
-7. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
+10. On the **Review + create** tab, review the **Pricing details**, **Terms of use**, and the details for your resource. Select the combo box for **I have reviewed the privacy terms**.
 
-    ![Review Azure Stack Edge resource details and privacy terms](media/azure-stack-edge-j-series-deploy-prep/order-12.png)
+    ![Create a resource 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
-8. Select **Create**.
+    You are also notified that during the resource creation, a Managed Service Identity (MSI) is enabled that lets you authenticate to cloud services. This identity exists for as long as the resource exists.
 
-The resource creation takes a few minutes. After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
+11. Select **Create**.
 
-![Go to the Azure Stack Edge resource](media/azure-stack-edge-j-series-deploy-prep/order-13.png)
+The resource creation takes a few minutes. An MSI is also created that lets the the Azure Stack Edge device communicate with the resource provider in Azure.
 
-You device is now ready for setup and activation.
+After the resource is successfully created and deployed, you're notified. Select **Go to resource**.
+
+![Go to the Azure Stack Edge Pro resource](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-1.png)
+
+After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
+
+<!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+
+If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
 ## Get the activation key
 
-After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge device with the resource. You can get this key now while you are in the Azure portal.
+After the Azure Stack Edge resource is up and running, you'll need to get the activation key. This key is used to activate and connect your Azure Stack Edge Pro device with the resource. You can get this key now while you are in the Azure portal.
 
 1. Select the resource that you created. Select **Overview** and then select **Device setup**.
 
-    ![Select Device setup](media/azure-stack-edge-j-series-deploy-prep/get-activation-key-1.png)
+    ![Select Device setup](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)
 
-2. On the **Activate** tile, select **Generate key** to create an activation key. Select the copy icon to copy the key and save it for later use.
+2. On the **Activate** tile, provide a name for the Azure Key Vault or accept the default name. The key vault name can be between 3 and 24 characters. 
 
-    ![Get activation key](media/azure-stack-edge-j-series-deploy-prep/get-activation-key-2.png)
+    A key vault is created for each Azure Stack Edge resource that is activated with your device. The key vault lets you store and access secrets, for example, the Channel Integrity Key (CIK) for the service is stored in the key vault. 
+
+    Once you have specified a key vault name, select **Generate key** to create an activation key. 
+
+    ![Get activation key](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-3.png)
+
+    Wait a few minutes as the key vault and activation key are created. Select the copy icon to copy the key and save it for later use.
+
 
 > [!IMPORTANT]
 > - The activation key expires three days after it is generated.
