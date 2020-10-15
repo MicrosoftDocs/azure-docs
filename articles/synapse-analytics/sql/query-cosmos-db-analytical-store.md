@@ -259,6 +259,15 @@ For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more a
 - Alias **MUST** be specified after `OPENROWSET` function (for example, `OPENROWSET (...) AS function_alias`). Omitting alias might cause connection issue and Synapse serverless SQL endpoint might be temporarily unavailable. This issue will be resolved in Nov 2020.
 - Synapse serverless SQL currently don't support [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use Synapse serverless SQL only to access Cosmos DB well-defined schema.
 
+List of possible errors and troubleshooting actions are listed in the following table:
+
+| Error | Root cause |
+| --- | --- |
+| Syntax errors:<br/> - Incorrect syntax near 'Openrowset'<br/> - `...` is not a recognized BULK OPENROWSET provider option.<br/> - Incorrect syntax near `...` | Possible root causes<br/> - Not using 'CosmosDB' as first parameter,<br/> - Using string literal instead of identifier in third parameter,<br/> - Not specifying third parameter (container name) |
+| There was an error in CosmosDB connection string | - Account, Database, Key is not specified <br/> - There is some option in connection string that is not recognized.<br/> - Semicolon `;` is placed at the end of connection string |
+| Resolving CosmosDB path has failed with error 'Incorrect account/database name' | Specified account name or database name cannot be found. |
+| Resolving CosmosDB path has failed with error 'Incorrect secret value' 'Secret is null or empty' | Account key is not valid or missing. |
+
 You can report suggestions and issues on [Azure Synapse feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
 ## Next steps
