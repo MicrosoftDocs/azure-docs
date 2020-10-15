@@ -110,7 +110,7 @@ Please refer to [anomaly detection configurations](how-tos/configure-metrics.md#
 
 ### How does Metric Advisor build an incident tree for multi-dimensional metrics?
 
-A metric can be split into multiple time series by dimensions. For example, the metric `Response latency` is monitored for all services owned by the team. The `Service` category could be used as a dimension to enrich the metric, so we get `Response latency` split by `Service1`, `Service2`, and so on. To elaborate further, each service could be deployed on different machines in multiple data centers, so the metric could be further split by `Machine` and `Data center`.
+A metric can be split into multiple time series by dimensions. For example, the metric `Response latency` is monitored for all services owned by the team. The `Service` category could be used as a dimension to enrich the metric, so we get `Response latency` split by `Service1`, `Service2`, and so on. Each service could be deployed on different machines in multiple data centers, so the metric could be further split by `Machine` and `Data center`.
 
 |Service| Data center| Machine 	| 
 |----|------|----------------	|
@@ -128,7 +128,7 @@ Starting from the total `Response latency`, we can drill down into the metric by
 
 In Metric Advisor, users can specify any path they would like to drill down or roll up from one node of the hierarchical topology. More precisely, the hierarchical topology is a directed acyclic graph rather than a tree structure. There's a full hierarchical topology that consists of all potential dimension combinations, like this: 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="hierarchical topology diagram consisting of multiple interconnecting nodes and edges with multiple dimensions labeled S,DC, and M with corresponding numbers ranging from 1 to 6" lightbox="media/query-result.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="hierarchical topology diagram consisting of multiple interconnecting nodes and edges with multiple dimensions labeled S,DC, and M with corresponding numbers ranging from 1 to 6" lightbox="media/dimension-combinations-view.png":::
 
 In theory, if the dimension `Service` has `Ls` distinct values, dimension `Data center` has `Ldc` distinct values, and dimension `Machine` has `Lm` distinct values, then there could be `(Ls + 1) * (Ldc + 1) * (Lm + 1)` dimension combinations in the hierarchical topology. 
 
@@ -138,7 +138,7 @@ The **Incident tree** tool in the diagnostics page only shows nodes where an ano
  
 For example, when an anomaly occurs on `Service = S2 | Data Center = DC2 | Machine = M5`, the deviation of the anomaly impacts the parent node `Service= S2` which also has detected the anomaly, but the anomaly doesn't affect the entire data center at `DC2` and all services on `M5`. The incident tree would be built as in the below screenshot, the top anomaly is captured on `Service = S2`, and root cause could be analyzed in two paths which both lead to `Service = S2 | Data Center = DC2 | Machine = M5`.
 
- :::image type="content" source="media/root-cause-paths.png" alt-text="5 labeled nodes with two distinct paths connected by edges with a common node labelled S2" lightbox="media/query-result.png":::
+ :::image type="content" source="media/root-cause-paths.png" alt-text="5 labeled nodes with two distinct paths connected by edges with a common node labelled S2" lightbox="media/root-cause-paths.png":::
 
 ## Next Steps
 - [Metrics Advisor overview](overview.md)
