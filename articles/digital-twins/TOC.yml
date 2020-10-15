@@ -201,7 +201,7 @@
         href: /samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: DPS and IoT Hub integration sample
         href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
-      - name: Azure Digital Twins Custom Swaggers
+      - name: Azure Digital Twins custom Swaggers for Logic Apps connector
         href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
       - name: SignalR integration sample
         href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
