@@ -16,13 +16,13 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 
 ### Advantages
 * Supported on Basic, Standard, and Premium Azure Cache for Redis instances. 
-* By using [Azure Private Link](https://azure.microsoft.com/services/private-link/), you can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. This allows cache instances to be available from both within the VNet and publicly.  
-* Once a private endpoint is created, access to the public network can be restricted through the `publicNetworkAccess` flag. It is `Enabled` by default and it is meant to allow you to optionally allow both public and private-link access to the cache if set to ‘Enabled’. If set to ‘Disabled’ it will only allow private link access. You can try setting the value to disabled with a PATCH request. For more information, see [Azure Cache for Redis with Azure Private Link (Preview)](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-private-link). 
-* All external cache dependencies will not affect the VNet's NSG rules.
+* By using [Azure Private Link](https://azure.microsoft.com/services/private-link/), you can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. With this, cache instances are available from both within the VNet and publicly.  
+* Once a private endpoint is created, access to the public network can be restricted through the `publicNetworkAccess` flag. It's `Enabled` by default and it's meant to allow you to optionally allow both public and private-link access to the cache if set to ‘Enabled’. If set to ‘Disabled’ it will only allow private link access. You can try setting the value to `Disabled` with a PATCH request. For more information, see [Azure Cache for Redis with Azure Private Link (Preview)](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-private-link). 
+* All external cache dependencies won't affect the VNet's NSG rules.
 
 ### Limitations 
-* NSG’s are disabled for private endpoints, but if there were other resources on the subnet, it will still have NSG enforcement. 
-* Geo-replication, firewall rules, portal console support, multiple endpoints per clustered cache, persistence to firewall and VNet injected caches is not supported yet. 
+* Network security groups (NSG) are disabled for private endpoints, but if there were other resources on the subnet, it will still have NSG enforcement. 
+* Geo-replication, firewall rules, portal console support, multiple endpoints per clustered cache, persistence to firewall and VNet injected caches isn't supported yet. 
 * To connect to a clustered cache, `publicNetworkAccess` needs to be set to `Disabled` and there can only be one private endpoint connection.
 
 > [!NOTE]
@@ -35,14 +35,14 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 VNet is the fundamental building block for your private network in Azure. VNet enables many Azure resources, to securely communicate with each other, the internet, and on-premises networks. VNet is like a traditional network that you would operate in your own data center, but brings with it additional benefits of Azure such as infrastructure, scale, availability, and isolation. 
 
 ### Advantages
-* When an Azure Cache for Redis instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet.  
-* When VNet is combined with restricted network security group (NSG) policies, it helps reduce the risk of data exfiltration. 
+* When an Azure Cache for Redis instance is configured with a VNet, it's not publicly addressable and can only be accessed from virtual machines and applications within the VNet.  
+* When VNet is combined with restricted NSG policies, it helps reduce the risk of data exfiltration. 
 * Azure Virtual Network (VNet) deployment provides enhanced security and isolation for your Azure Cache for Redis, as well as subnets, access control policies, and other features to further restrict access. 
 * Geo replication is supported. 
 
 ### Limitations
 * VNet injected caches are only available for Premium Azure Cache for Redis. 
-* When using a VNet injected cache, you will need to open your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.  
+* When using a VNet injected cache, you'll need to open your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.  
 
 
 ## Firewall Rules
