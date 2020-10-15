@@ -65,7 +65,7 @@ The Azure SQL Database data source supports the following functionality:
 1. Navigate to your Babylon catalog.
 
 2. Select on **Manage your data** tile on the home page.
-![Babylon home page](media/register-scan-azure-sql-database/image1_2.png)
+![Babylon home page](media/register-scan-azure-sql-database/babylon-home-page.png)
 
 3. Select on **Data sources** under the Sources and scanning section.
 
@@ -73,11 +73,11 @@ The Azure SQL Database data source supports the following functionality:
 
 5. Select **Azure SQL Database** and then **Continue**
 
-    ![Set up the SQL data source](media/register-scan-azure-sql-database/image1.png)
+    ![Set up the SQL data source](media/register-scan-azure-sql-database/set-up-the-sql-data-source.png)
 
 6. Pick the server name from the dropdown menu from your Azure subscription or provide a friendly name and server endpoint with port number via manual enter. Then select **Finish** to register the data source.
 
-    ![Add Azure SQL Database](media/register-scan-azure-sql-database/image2.png)
+    ![Add Azure SQL Database](media/register-scan-azure-sql-database/add-azure-sql-database.png)
 
     E.g. `foobar.database.windows.net,1433`
 
@@ -93,30 +93,30 @@ The Azure SQL Database data source supports the following functionality:
 
    1. **SQL authentication:** You will need database name, user name and password.
 
-      ![Set up scan using SQL authentication](media/register-scan-azure-sql-database/image3.png)
+      ![Set up scan using SQL authentication](media/register-scan-azure-sql-database/set-up-scan-using-sql-authentication.png)
 
    1. **Service Principal:** Select Service Principal from the dropdown menu and provide database name service principal ID which is your **Application client (ID)** and service principal key which is your **client secret**.
    
-      ![Set up scan using service principal](media/register-scan-azure-sql-database/image5.png)
+      ![Set up scan using service principal](media/register-scan-azure-sql-database/set-up-scan-using-service-principal.png)
 
       > [!Note]
       > If Test connection fails, you need to go back to the **Prerequisites** step to confirm if the appropriate permission is assigned to the service principal. In addition, the server name must have port number to successfully connect.
 
    1. **Managed Identity:** You just need to select Managed Identity from the drop down menu and test connection.
    
-      ![Set up scan using managed identity](media/register-scan-azure-sql-database/image6.png)
+      ![Set up scan using managed identity](media/register-scan-azure-sql-database/set-up-scan-using-managed-identity.png)
 
 1. You can scope your scan to specific schemas by checking the appropriate items in the list.
 
-    ![Scope your scan](media/register-scan-azure-sql-database/image4.png)
+    ![Scope your scan](media/register-scan-azure-sql-database/scope-your-scan.png)
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-    ![trigger](media/register-scan-azure-sql-database/image8.png)
+    ![trigger](media/register-scan-azure-sql-database/trigger-scan.png)
 
 1. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
 
-    ![SRS](media/register-scan-azure-sql-database/image9.png)
+    ![Scan rule set](media/register-scan-azure-sql-database/scan-rule-set.png)
 
 1. Review your scan and select **Save and run**.
 
@@ -136,7 +136,7 @@ The Azure SQL Database data source supports the following functionality:
 
 2. Select the scan you would like to manage. You can edit the scan by selecting on the edit.
 
-    ![edit scan](media/register-scan-azure-sql-database/image11.png)
+    ![edit scan](media/register-scan-azure-sql-database/edit-scan.png)
 
 3. You can delete your scan by selecting on delete.
 
