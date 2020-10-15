@@ -1,6 +1,6 @@
 ---
-title: Copy data to and from Azure SQL Managed Instance
-description: Learn how to move data to and from Azure SQL Managed Instance by using Azure Data Factory.
+title: Copy and transform data in Azure SQL Managed Instance
+description: Learn how to copy and transform data in Azure SQL Managed Instance by using Azure Data Factory.
 services: data-factory
 ms.service: data-factory
 ms.workload: data-services
@@ -10,20 +10,21 @@ author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 09/21/2020
+ms.date: 10/15/2020
 ---
 
-# Copy data to and from Azure SQL Managed Instance by using Azure Data Factory
+# Copy and transform data in Azure SQL Managed Instance by using Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the copy activity in Azure Data Factory to copy data to and from Azure SQL Managed Instance. It builds on the [Copy activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure SQL Managed Instance, and use Data Flow to transform data in Azure SQL Managed Instance. To learn about Azure Data Factory, read the [introductory article](introduction.md).
 
 ## Supported capabilities
 
 This SQL Managed Instance connector is supported for the following activities:
 
 - [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [Mapping data flow](concepts-data-flow-overview.md)
 - [Lookup activity](control-flow-lookup-activity.md)
 - [GetMetadata activity](control-flow-get-metadata-activity.md)
 
@@ -633,9 +634,79 @@ The following sample shows how to use a stored procedure to do an upsert into a 
     }
     ```
 
+## Mapping data flow properties
+
+When transforming data in mapping data flow, you can read and write to tables from Azure SQL Managed Instance. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows.
+
+> [!NOTE]
+> Azure SQL Managed Instance connector in Mapping Data Flow is currently available as public preview. You can connect to SQL Managed Instance public endpoint but not private endpoint yet.
+
+### Source transformation
+
+The below table lists the properties supported by Azure SQL Managed Instance source. You can edit these properties in the **Source options** tab.
+
+Settings specific to Azure SQL Managed Instance are available in the **Source Options** tab of the source transformation.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Table | If you select Table as input, data flow fetches all the data from the table specified in the dataset, equivalent of `Select * from <table-name>`. | No | - |- |
+| Query | If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.<br>SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```| No | String | query |
+| Batch size | Enter a batch size to chunk large data into reads. | No | Integer | batchSize |
+| Isolation Level | The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:<br>- Read Committed<br>- Read Uncommitted<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE |isolationLevel |
+
+#### Azure SQL Managed Instance source script examples
+
+When you use Azure SQL Managed Instance as source type, the associated data flow script is:
+
+```
+source(allowSchemaDrift: true,
+	validateSchema: false,
+	isolationLevel: 'READ_UNCOMMITTED',
+	query: 'select * from MYTABLE',
+	format: 'query') ~> SQLMISource
+```
+
+### Sink transformation
+
+The below table lists the properties supported by Azure SQL Managed Instance sink. You can edit these properties in the **Sink options** tab.
+
+| Name | Description | Required | Allowed values | Data flow script property |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update method | Specify what operations are allowed on your database destination. The default is to only allow inserts.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
+| Key columns | For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.<br>The column name that you pick as the key here will be used by ADF as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. | No | Array | keys |
+| Skip writing key columns | If you wish to not write the value to the key column, select "Skip writing key columns". | No | `true` or `false` | skipKeyWrites |
+| Table action |Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
+| Batch size | Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No | Integer | batchSize |
+| Pre and Post SQL scripts | Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database. | No | String | preSQLs<br>postSQLs |
+
+#### Azure SQL Managed Instance sink script examples
+
+When you use Azure SQL Managed Instance as sink type, the associated data flow script is:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+	validateSchema: false,
+	deletable:false,
+	insertable:true,
+	updateable:true,
+	upsertable:true,
+	keys:['keyColumn'],
+	format: 'table',
+	skipDuplicateMapInputs: true,
+	skipDuplicateMapOutputs: true) ~> SQLMISink
+```
+
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
 ## Data type mapping for SQL Managed Instance
 
-When data is copied to and from SQL Managed Instance, the following mappings are used from SQL Managed Instance data types to Azure Data Factory interim data types. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
+When data is copied to and from SQL Managed Instance using copy activity, the following mappings are used from SQL Managed Instance data types to Azure Data Factory interim data types. To learn how the copy activity maps from the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
 | SQL Managed Instance data type | Azure Data Factory interim data type |
 |:--- |:--- |
@@ -674,14 +745,6 @@ When data is copied to and from SQL Managed Instance, the following mappings are
 
 >[!NOTE]
 > For data types that map to the Decimal interim type, currently Copy activity supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string in a SQL query.
-
-## Lookup activity properties
-
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
-
-## GetMetadata activity properties
-
-To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
 
 ## Using Always Encrypted
 
