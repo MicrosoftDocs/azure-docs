@@ -23,7 +23,7 @@ Periodically, you can export out usage information for billing purposes, monitor
 
 ## Prerequisites
 
-[!INCLUDE [arc-data-upload-prerequisites](../../aks/includes/arc-data-upload-prerequisites.md)]
+[!INCLUDE [arc-data-upload-prerequisites](includes/arc-data-upload-prerequisites.md)]
 
 ## Create service principal
 
