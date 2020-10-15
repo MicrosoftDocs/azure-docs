@@ -175,4 +175,4 @@ Azure Stream Analytics uses a SQL-like query language to specify an input source
 
 ## Next Steps
 
-Azure Data Lake Analytics can be used to perform big data analysis on your Data Lake Store data sets. Learn more on the [Data Lake Analytics Documentation](https://docs.microsoft.com/azure/data-lake-analytics).
+Azure Data Lake Analytics can be used to perform big data analysis on your Data Lake Store data sets. Learn more on the [Data Lake Analytics Documentation](../data-lake-analytics/index.yml).
