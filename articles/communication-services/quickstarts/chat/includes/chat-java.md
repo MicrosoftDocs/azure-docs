@@ -51,7 +51,7 @@ In your POM file, reference the `azure-communication-chat` package with the Chat
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-chat</artifactId>
-    <version>1.0.0-beta.1</version> 
+    <version>1.0.0-beta.2</version> 
 </dependency>
 ```
 
@@ -61,7 +61,7 @@ For authentication, your client needs to reference the `azure-communication-comm
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0-beta.1</version> 
+    <version>1.0.0-beta.2</version> 
 </dependency>
 
 ```

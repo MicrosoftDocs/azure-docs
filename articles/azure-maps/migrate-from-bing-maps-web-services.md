@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Migrate web services from Bing Maps | Microsoft Azure Maps'
-description: How to migrate web services from Bing Maps to Microsoft Azure Maps.
+description: Tutorial on how to migrate web services from Bing Maps to Microsoft Azure Maps.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 9/10/2020
@@ -11,7 +11,7 @@ manager: cpendle
 ms.custom: 
 ---
 
-# Migrate web service from Bing Maps
+# Tutorial - Migrate web service from Bing Maps
 
 Both Azure and Bing Maps provide access to spatial APIs through REST web services. The API interfaces for these platforms perform similar functionalities but use different naming conventions and response objects.
 
@@ -244,7 +244,7 @@ The Azure Maps routing API has many additional features not available in Bing Ma
 
 There are several ways to snap coordinates to roads in Azure Maps.
 
--   Use the route directions API to snap coordinates and from a logical route along the road network.
+-   Use the route directions API to snap coordinates to a logical route along the road network.
 -   Use the Azure Maps Web SDK to snap individual coordinates to the nearest road in the vector tiles.
 -   Use the Azure Maps vector tiles directly to snap individual coordinates.
 

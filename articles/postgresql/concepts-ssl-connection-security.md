@@ -1,8 +1,8 @@
 ---
 title: SSL/TLS - Azure Database for PostgreSQL - Single Server
 description: Instructions and information on how to configure TLS connectivity for Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: niklarin
+ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/08/2020

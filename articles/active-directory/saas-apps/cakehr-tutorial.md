@@ -139,11 +139,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the top-right corner of the page, click on **Profile** and then navigate to **Settings**.
 
-    ![CakeHR configuration](./media/cakehr-tutorial/config01.png)
+    ![Screenshot shows Profile with Settings selected.](./media/cakehr-tutorial/config01.png)
 
 1. From the left side of the menu bar, click on **INTEGRATIONS** > **SAML SSO** and perform the following steps:
 
-    ![CakeHR configuration](./media/cakehr-tutorial/config02.png)
+    ![Screenshot shows the Setting pane where you perform these steps.](./media/cakehr-tutorial/config02.png)
 
     a. In the **Entity ID** text box, type `cake.hr`.
 
@@ -165,11 +165,11 @@ To enable Azure AD users to sign in to CakeHR, they must be provisioned into Cak
 
 2. From the left side of the menu bar, click on **COMPANY** > **ADD**.
 
-    ![CakeHR configuration](./media/cakehr-tutorial/config03.png)
+    ![Screenshot shows CakeHR with COMPANY and ADD selected.](./media/cakehr-tutorial/config03.png)
 
 3. On the **Add new employee** pop-up, perform the following steps:
 
-     ![CakeHR configuration](./media/cakehr-tutorial/config04.png)
+     ![Screenshot shows Add new employee where you perform these steps.](./media/cakehr-tutorial/config04.png)
 
     a. In **Full name** text box, enter the name of user like B.Simon.
 

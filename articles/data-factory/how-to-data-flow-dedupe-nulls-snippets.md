@@ -18,6 +18,8 @@ ms.author: makromer
 
 By using code snippets in mapping data flows, you can very easily perform common tasks like data deduplication and null filtering. This how-to guide will explain how to add those functions to your pipelines very easily using data flow script snippets.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4GnhH]
+
 ## Create a pipeline
 
 1. Select **+New Pipeline** to create a new pipeline.

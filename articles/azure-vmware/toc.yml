@@ -61,9 +61,13 @@
   - name: Deploy disaster recovery for VMs
     href: disaster-recovery-for-virtual-machines.md
   - name: Deploy VM via content library
-    href: tutorial-deploy-vm-content-library.md
+    href: ./deploy-vm-content-library.md
   - name: Set up GitHub Enterprise Server 
     href: github-enterprise-server.md
+  - name: Public IP usage
+    href: public-ip-usage.md
+  - name: Create an IPSec tunnel
+    href: create-ipsec-tunnel.md
   - name: Azure native integration
     items:
     - name: API Management
@@ -88,6 +92,10 @@
       href: vrealize-operations-for-azure-vmware-solution.md
     - name: Deploy VMware Horizon 
       href: azure-vmware-solution-horizon.md
+  - name: VMware ecosystem
+    items:
+    - name: Backup solutions for VMs
+      href: ecosystem-back-up-vms.md
 - name: Resources
   items:
   - name: Troubleshooting

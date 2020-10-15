@@ -1,15 +1,18 @@
 - name: Azure Active Directory for developers
   href: index.yml
 - name: Overview
-  href: v1-overview.md
-- name: Samples
-  href: sample-v1-code.md
-- name: Concepts
+  expanded: true
   items:
+  - name: Overview
+    href: v1-overview.md
   - name: Evolution of Microsoft identity platform
     href: about-microsoft-identity-platform.md
   - name: Why update to v2.0
     href: azure-ad-endpoint-comparison.md
+- name: Samples
+  href: sample-v1-code.md
+- name: Concepts
+  items:
   - name: Application types
     items:
     - name: Types of applications

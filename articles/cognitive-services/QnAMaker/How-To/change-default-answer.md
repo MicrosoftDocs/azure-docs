@@ -1,6 +1,8 @@
 ---
 title: Get default answer - QnA Maker
 description: The default answer is returned when there is no match to the question. You may want to change the default answer from the standard default answer.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 07/13/2020
 ---

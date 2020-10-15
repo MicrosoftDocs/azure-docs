@@ -48,7 +48,7 @@ If the *Log Analytics agent for Linux* VM extension is not installing or reporti
 
 1. If the extension status is *Unknown* check if the Azure VM agent is installed and working correctly by reviewing the VM agent log file `/var/log/waagent.log`
    * If the log does not exist, the VM agent is not installed.
-   * [Install the Azure VM Agent on Linux VMs](../learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Install the Azure VM Agent on Linux VMs](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#installation)
 2. For other unhealthy statuses, review the Log Analytics agent for Linux VM extension logs files in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` and `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
 3. If the extension status is healthy, but data is not being uploaded review the Log Analytics agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`
 

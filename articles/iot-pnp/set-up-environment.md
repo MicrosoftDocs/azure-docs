@@ -82,7 +82,6 @@ The service samples need the following environment variables to identify the hub
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
 * **IOTHUB_DEVICE_ID**: `my-pnp-device`.
-* **DEVICE_ID**: `my-pnp-device`.
 
 For example, in a Linux bash shell:
 
@@ -94,7 +93,6 @@ export IOTHUB_DEVICE_DPS_DEVICE_KEY="<Your enrolment primary key>"
 export IOTHUB_DEVICE_DPS_ENDPOINT="global.azure-devices-provisioning.net"
 export IOTHUB_CONNECTION_STRING="<Your IoT hub connection string>"
 export IOTHUB_DEVICE_ID="my-pnp-device"
-export DEVICE_ID="my-pnp-device"
 ```
 
 For example, at the Windows command line:
@@ -107,7 +105,6 @@ set IOTHUB_DEVICE_DPS_DEVICE_KEY=<Your enrolment primary key>
 set IOTHUB_DEVICE_DPS_ENDPOINT=global.azure-devices-provisioning.net
 set IOTHUB_CONNECTION_STRING=<Your IoT hub connection string>
 set IOTHUB_DEVICE_ID=my-pnp-device
-set DEVICE_ID=my-pnp-device
 ```
 
 ## Download the model files

@@ -35,7 +35,11 @@
     - name: 0 - Deploy object and motion detection application
       href: tutorial-video-analytics-deploy.md
     - name: 1 - Create a video analytics application
-      href: tutorial-video-analytics-create-app.md
+      items:
+      - name: Object and motion detection (YOLO v3)
+        href: tutorial-video-analytics-create-app-yolo-v3.md
+      - name: Object and motion detection (OpenVINO)
+        href: tutorial-video-analytics-create-app-openvino.md
     - name: 2 - Configure an IoT Edge device
       items:
       - name: Create video analytics device on the edge (Linux VM)

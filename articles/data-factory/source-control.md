@@ -158,6 +158,8 @@ The configuration pane shows the following GitHub repository settings:
 
 - GitHub integration with the Data Factory visual authoring tools only works in the generally available version of Data Factory.
 
+- Azure Data Factory doesn't support GitHub organization accounts
+
 - A maximum of 1,000 entities per resource type (such as pipelines and datasets) can be fetched from a single GitHub branch. If this limit is reached, is suggested to split your resources into separate factories. Azure DevOps Git does not have this limitation.
 
 ## Version control

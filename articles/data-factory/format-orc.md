@@ -54,7 +54,7 @@ Below is an example of ORC dataset on Azure Blob Storage:
 
 Note the following points:
 
-* Complex data types are not supported (STRUCT, MAP, LIST, UNION).
+* Complex data types (e.g. MAP, LIST, STRUCT) are currently supported only in Data Flows, not in Copy Activity. To use complex types in data flows, do not import the file schema in the dataset, leaving schema blank in the dataset. Then, in the Source transformation, import the projection.
 * White space in column name is not supported.
 
 ## Copy activity properties
