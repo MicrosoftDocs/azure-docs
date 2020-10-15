@@ -615,11 +615,11 @@ Below example shows what a good scenario would look like.
     ![TCP 4 handshake workflow](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
 
-### Receiving email notification to update the network configuration to allow communication with new IP addresses
+### Receiving email to update the network configuration to allow communication with new IP addresses
 
 #### Symptoms
 
-You may receive below email notification, which recommended you to update the network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
+You may receive below email notification, which recommends you to update the network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
 
    ![Email notification](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
 
