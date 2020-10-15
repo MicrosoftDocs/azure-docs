@@ -38,11 +38,11 @@ After your automated machine learning experiment completes, a history of the run
 
 For SDK experiments, you can see these same results during a run when you use the `RunDetails` [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
 
-The following steps and animation show how to view the run history and performance metrics and charts of a specific model in the the studio.
+The following steps and animation show how to view the run history and performance metrics and charts of a specific model in the studio.
 
 ![Steps to view run history and model performance metrics and charts](./media/how-to-understand-automated-ml/view-run-metrics-ui.gif)
 
-To view the run history and model performance metrics and charts in the the studio: 
+To view the run history and model performance metrics and charts in the studio: 
 
 1. [Sign into the studio](https://ml.azure.com/) and navigate to your workspace.
 1. In the left panel of the workspace, select **Runs**.
@@ -236,7 +236,7 @@ This graph can be used to measure performance of a model as the closer to the y=
 ![A regression model with low accuracy in predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
 #### Example 2: A regression model with high accuracy 
-[![A regression model with high accuracy in its predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
+![A regression model with high accuracy in its predictions](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)
 
 <a name="histo"></a> 
 
