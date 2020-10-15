@@ -1,21 +1,4 @@
-- name: Linux VMs Documentation
-  href: index.yml
-- name: Overview
-  items:
-  - name: About Virtual Machines
-    href: overview.md
-- name: Quickstarts
-  items:
-  - name: Create VM - Azure CLI
-    href: quick-create-cli.md
-  - name: Create VM - Portal
-    href: quick-create-portal.md
-  - name: Create VM - Azure PowerShell
-    href: quick-create-powershell.md
-  - name: Create VM - ARM template
-    displayName: Resource Manager, template, json
-    href: quick-create-template.md
-  expanded: true
+
 - name: Tutorials
   items:
   - name: 1 - Create / manage VMs
