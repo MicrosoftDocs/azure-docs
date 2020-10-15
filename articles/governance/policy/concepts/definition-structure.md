@@ -144,7 +144,9 @@ The following Resource Provider modes are currently supported as a **preview**:
   Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
   mode is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
-  [Azure Key Vault](../../../key-vault/general/overview.md).
+  [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
+  definitions, see
+  [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support
@@ -394,6 +396,9 @@ The following fields are supported:
 - `type`
 - `location`
   - Use **global** for resources that are location agnostic.
+- `id`
+  - Returns the resource ID of the resource that is being evaluated.
+  - Example: `/subscriptions/06be863d-0996-4d56-be22-384767287aa2/resourceGroups/myRG/providers/Microsoft.KeyVault/vaults/myVault`
 - `identity.type`
   - Returns the type of
     [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md)
@@ -752,8 +757,20 @@ The following functions are only available in policy rules:
     "definitionReferenceId": "StorageAccountNetworkACLs"
   }
   ```
-  
-  
+
+
+- `ipRangeContains(range, targetRange)`
+    - **range**: [Required] string - String specifying a range of IP addresses.
+    - **targetRange**: [Required] string - String specifying a range of IP addresses.
+
+    Returns whether the given IP address range contains the target IP address range. Empty ranges, or mixing between IP families isn't allowed and results in evaluation failure.
+
+    Supported formats:
+    - Single IP address (examples: `10.0.0.0`, `2001:0DB8::3:FFFE`)
+    - CIDR range (examples: `10.0.0.0/24`, `2001:0DB8::/110`)
+    - Range defined by start and end IP addresses (examples: `192.168.0.1-192.168.0.9`, `2001:0DB8::-2001:0DB8::3:FFFF`)
+
+
 #### Policy function example
 
 This policy rule example uses the `resourceGroup` resource function to get the **name** property,

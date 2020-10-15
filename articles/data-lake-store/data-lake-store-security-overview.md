@@ -27,7 +27,7 @@ Authentication is the process by which a user's identity is verified when the us
 Each Azure subscription can be associated with an instance of Azure Active Directory. Only users and service identities that are defined in your Azure Active Directory service can access your Data Lake Storage Gen1 account, by using the Azure portal, command-line tools, or through client applications your organization builds by using the Data Lake Storage Gen1 SDK. Key advantages of using Azure Active Directory as a centralized access control mechanism are:
 
 * Simplified identity lifecycle management. The identity of a user or a service (a service principal identity) can be quickly created and quickly revoked by simply deleting or disabling the account in the directory.
-* Multi-factor authentication. [Multi-factor authentication](../active-directory/authentication/multi-factor-authentication.md) provides an additional layer of security for user sign-ins and transactions.
+* Multi-factor authentication. [Multi-factor authentication](../active-directory/authentication/concept-mfa-howitworks.md) provides an additional layer of security for user sign-ins and transactions.
 * Authentication from any client through a standard open protocol, such as OAuth or OpenID.
 * Federation with enterprise directory services and cloud identity providers.
 

@@ -56,7 +56,7 @@ Microsoft provides support for the four Apache services in the following table i
 | Apache Livy | Active headnode | Spark | Enables easy interaction with a Spark cluster over a REST interface |
 
 >[!Note]
-> HDInsight Enterprise Security Package (ESP) clusters currently only provide the Ambari server high availability.
+> HDInsight Enterprise Security Package (ESP) clusters currently only provide the Ambari server high availability. Application Timeline Server, Job History Server and Livy are all running only on headnode0 and they don't failover to headnode1 when Ambari failsover. The application timeline database is also on headnode0 and not on Ambari SQL server.
 
 ### Architecture
 

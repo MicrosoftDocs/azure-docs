@@ -126,17 +126,17 @@ To configure Azure AD single sign-on with QuickHelp, perform the following steps
 
 2. In the menu on the top, click **Admin**.
    
-    ![Configure Single Sign-On][21]
+    ![Screenshot shows the Admin menu item for Brainstorm.][21]
 
 3. In the **QuickHelp Admin** menu, click **Settings**.
    
-    ![Configure Single Sign-On][22]
+    ![Screenshot shows Settings selected from the QuickHelp Admin menu.][22]
 
 4. Click **Authentication Settings**.
 
 5. On the **Authentication Settings** page, perform the following steps
    
-    ![Configure Single Sign-On][23]
+    ![Screenshot shows the Authentication Settings page where you can enter the values described.][23]
    
     a. As **SSO Type**, select **WSFederation**.
    

@@ -40,14 +40,14 @@ API Management emits [metrics](../azure-monitor/platform/data-platform-metrics.m
 > [!IMPORTANT]
 > The following metrics have been deprecated as of May 2019 and will be retired in August 2023: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides equivalent functionality.
 
-:::image type="content" source="media/api-management-howto-use-azure-monitor/apim-monitor-metrics.png" alt-text="Metrics in API Management":::
+:::image type="content" source="media/api-management-howto-use-azure-monitor/apim-monitor-metrics.png" alt-text="Screenshot of Metrics in API Management Overview":::
 
 To access metrics:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance. On the **Overview** page, review key metrics for your APIs.
 1. To investigate metrics in detail, select **Metrics** from the menu near the bottom of the page.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Metrics in Monitoring menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-metrics-blade.png" alt-text="Screenshot of Metrics item in Monitoring menu":::
 
 1. From the drop-down, select metrics you are interested in. For example, **Requests**. 
 1. The chart shows the total number of API calls.
@@ -66,7 +66,7 @@ To configure an example alert rule based on a request metric:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select **Alerts** from the menu bar near the bottom of the page.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/alert-menu-item.png" alt-text="Alerts in Monitoring menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/alert-menu-item.png" alt-text="Screenshot of Alerts option in Monitoring menu":::
 
 1. Select **+ New alert rule**.
 1. In the **Create alert rule** window, **Select condition**.
@@ -78,11 +78,11 @@ To configure an example alert rule based on a request metric:
     1. Select **4xx**, for client errors such as unauthorized or invalid requests.
     1. In **Alert logic**, specify a threshold after which the alert should be triggered and select **Done**.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold.png" alt-text="Configure signal logic":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold.png" alt-text="Screenshot of Configure Signal Logic windows":::
 
 7. Select an existing action group or create a new one. In the following example, a new action group is created. A notification email will be sent to admin@contoso.com. 
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="Notification for action":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="Screenshot of notifications for new action group":::
 
 8. Enter a name and description of the alert rule and select the severity level. 
 9. Select **Create alert rule**.
@@ -96,7 +96,7 @@ To configure an example alert rule based on a request metric:
 
     Alerts also appear on the **Alerts** page for the API Management instance.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/portal-alerts.png" alt-text="Alerts in portal":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/portal-alerts.png" alt-text="Screenshot of alerts in portal":::
 
 ## Activity logs
 
@@ -107,7 +107,7 @@ Activity logs provide insight into the operations that were performed on your AP
 
 You can access activity logs in your API Management service, or access logs of all your Azure resources in Azure Monitor. 
 
-:::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs.png" alt-text="Activity logs":::
+:::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs.png" alt-text="Screenshot of activity log in portal":::
 
 To view the activity log:
 
@@ -115,7 +115,7 @@ To view the activity log:
 
 1. Select **Activity log**.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs-blade.png" alt-text="Activity log menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs-blade.png" alt-text="Screenshot of Activity log item in Monitoring menu":::
 3. Select the desired filtering scope and then **Apply**.
 
 ## Resource logs
@@ -127,7 +127,7 @@ To configure resource logs:
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 2. Select **Diagnostic settings**.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Diagnostic settings menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Screenshot of Diagnostic settings item in Monitoring menu":::
 
 1. Select **+ Add diagnostic setting**.
 1. Select the logs or metrics that you want to collect.
@@ -143,7 +143,7 @@ If you enable collection of GatewayLogs or metrics in a Log Analytics workspace,
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select **Logs** from the menu near the bottom of the page.
 
-    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Logs menu":::
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Screenshot of Logs item in Monitoring menu":::
 
 Run queries to view the data. Several [sample queries](../azure-monitor/log-query/saved-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
 

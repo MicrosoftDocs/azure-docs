@@ -19,7 +19,7 @@ This article explains how to deploy only the Azure Platform Services needed to d
 
 ## Deploy Azure platform services
 
-1. Make sure you have PowerShell and [AzureRM PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) extensions installed.  Open a command prompt or terminal and run:
+1. Make sure you have PowerShell and [AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps) extensions installed.  Open a command prompt or terminal and run:
 
    ```bash
    git clone https://github.com/Azure/azure-iiot-components
