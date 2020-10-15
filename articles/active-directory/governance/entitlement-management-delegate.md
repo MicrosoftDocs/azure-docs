@@ -134,9 +134,9 @@ For a user who is not a Global administrator or a User administrator, to add gro
 | User | Catalog owner | Only if group owner | Only if group owner | Only if app owner |  |
 
 > [!NOTE]
-> If a user adds a security group or Microsoft 365 group, then the group can't be role-assignable. If the user adds a group that is role-assignable when they create the access package, then they must also be the owner of that role-assignable group. For more information, reference [Create a role-assignable group in Azure Active Directory](../users-groups-roles/roles-groups-create-eligible.md).
+> If a user adds a security group or Microsoft 365 group, then the group can't be role-assignable. If the user adds a group that is role-assignable when they create the access package, then they must also be the owner of that role-assignable group. For more information, reference [Create a role-assignable group in Azure Active Directory](../roles/groups-create-eligible.md).
 
-To determine the least privileged role for a task, you can also reference [Administrator roles by admin task in Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
+To determine the least privileged role for a task, you can also reference [Administrator roles by admin task in Azure Active Directory](../roles/delegate-by-task.md#entitlement-management).
 
 ## Next steps
 

@@ -27,7 +27,7 @@ Using this feature requires an Azure AD Premium P1 license for your Azure AD org
 Use the permissions listed in this article to manage app consent policies, as well as the permission to grant consent to apps.
 
 > [!NOTE]
-> The Azure AD admin portal does not yet support adding the permissions listed in this article to a custom directory role definition. You must [use Azure AD PowerShell to create a custom directory role](../users-groups-roles/roles-create-custom.md#create-a-role-using-powershell) with the permissions listed in this article.
+> The Azure AD admin portal does not yet support adding the permissions listed in this article to a custom directory role definition. You must [use Azure AD PowerShell to create a custom directory role](custom-create.md#create-a-role-using-powershell) with the permissions listed in this article.
 
 ### Granting delegated permissions to apps on behalf of self (user consent)
 
@@ -71,5 +71,5 @@ microsoft.directory/permissionGrantPolicies/delete | Grants the ability to delet
 
 ## Next steps
 
-- [Create custom roles using the Azure portal, Azure AD PowerShell, and Graph API](../users-groups-roles/roles-create-custom.md)
+- [Create custom roles using the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
 - [View the assignments for a custom role](../roles/view-assignments.md)

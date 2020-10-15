@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 In Azure Active Directory (Azure AD), you can add groups to an administrative unit (AU) for more granular administrative scope of control.
 
-For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](roles-admin-units-manage.md#get-started).
+For steps to prepare to use PowerShell and Microsoft Graph for administrative unit management, see [Get started](../roles/admin-units-manage.md#get-started).
 
 ## Add groups to an AU
 
@@ -161,5 +161,5 @@ https://graph.microsoft.com/v1.0/directory/AdministrativeUnits/<adminunit-id>/me
 
 ## Next steps
 
-- [Assign a role to an administrative unit](roles-admin-units-assign-roles.md)
-- [Manage users in an administrative unit](roles-admin-units-add-manage-users.md)
+- [Assign a role to an administrative unit](../roles/admin-units-assign-roles.md)
+- [Manage users in an administrative unit](../roles/admin-units-add-manage-users.md)

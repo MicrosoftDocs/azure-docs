@@ -33,7 +33,7 @@ This procedure describes viewing assignments of a role with organization-wide sc
 
 ## View role assignments using Azure AD PowerShell
 
-This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](../users-groups-roles/roles-assign-powershell.md).
+This section describes viewing assignments of a role with organization-wide scope. This article uses the [Azure Active Directory PowerShell Version 2](/powershell/module/azuread/?view=azureadps-2.0#directory_roles) module. To view single-application scope assignments using PowerShell, you can use the cmdlets in [Assign custom roles with PowerShell](custom-assign-powershell.md).
 
 ### Prepare PowerShell
 
@@ -72,7 +72,7 @@ Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
 
 ## View role assignments using Microsoft Graph API
 
-This section describes viewing assignments of a role with organization-wide scope.  To view single-application scope assignments using Graph API, you can use the operations in [Assign custom roles with Graph API](../users-groups-roles/roles-assign-graph.md).
+This section describes viewing assignments of a role with organization-wide scope.  To view single-application scope assignments using Graph API, you can use the operations in [Assign custom roles with Graph API](custom-assign-graph.md).
 
 HTTP request to get a role assignment for a given role definition.
 

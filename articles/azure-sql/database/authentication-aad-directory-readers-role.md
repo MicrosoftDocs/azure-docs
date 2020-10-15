@@ -18,7 +18,7 @@ ms.date: 08/14/2020
 > [!NOTE]
 > This feature in this article is in **public preview**.
 
-Azure Active Directory (Azure AD) has introduced [using cloud groups to manage role assignments in Azure Active Directory (preview)](../../active-directory/users-groups-roles/roles-groups-concept.md). This allows for Azure AD roles to be assigned to groups.
+Azure Active Directory (Azure AD) has introduced [using cloud groups to manage role assignments in Azure Active Directory (preview)](../../active-directory/roles/groups-concept.md). This allows for Azure AD roles to be assigned to groups.
 
 When enabling a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics, the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) role must be assigned to the identity to allow read access to the [Azure AD Graph API](../../active-directory/develop/active-directory-graph-api.md). The managed identity of SQL Database and Azure Synapse is referred to as the server identity. The managed identity of SQL Managed Instance is referred to as the managed instance identity, and is automatically assigned when the instance is created. For more information on assigning a server identity to SQL Database or Azure Synapse, see [Enable service principals to create Azure AD users](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
 

@@ -65,7 +65,7 @@ The following steps will help create a Conditional Access policy to require thos
       * User administrator
    
       > [!WARNING]
-      > Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../users-groups-roles/roles-admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../users-groups-roles/roles-create-custom.md).
+      > Conditional Access policies do not support users assigned a directory role [scoped to an administrative unit](../roles/admin-units-assign-roles.md) or directory roles scoped directly to an object, like through [custom roles](../roles/custom-create.md).
 
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.

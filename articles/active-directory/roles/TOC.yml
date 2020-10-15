@@ -170,7 +170,7 @@
       - name: Create a custom role
         href: roles-create-custom.md
       - name: View custom role assignments
-        href: roles-view-assignments.md
+        href: custom-view-assignments.md
       - name: Assign custom roles in Azure portal
         href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
       - name: Assign custom roles in PowerShell

@@ -358,7 +358,7 @@ Previously, Custom Open ID Connect providers could only be added or managed thro
 **Service category:** Azure AD roles  
 **Product capability:** Access Control
 
-You can now assign Azure AD built-in roles to cloud groups with this new feature. For example, you can assign the SharePoint Administrator role to Contoso_SharePoint_Admins group. You can also use PIM to make the group an eligible member of the role, instead of granting standing access. To learn how to configure this feature, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../users-groups-roles/roles-groups-concept.md).
+You can now assign Azure AD built-in roles to cloud groups with this new feature. For example, you can assign the SharePoint Administrator role to Contoso_SharePoint_Admins group. You can also use PIM to make the group an eligible member of the role, instead of granting standing access. To learn how to configure this feature, see [Use cloud groups to manage role assignments in Azure Active Directory (preview)](../roles/groups-concept.md).
  
 ---
 
@@ -854,7 +854,7 @@ If the original SAML sign-in token used a different format for NameID (e.g. emai
 **Service category:** Azure AD Cloud Provisioning  
 **Product capability:** Identity Lifecycle Management
  
-IT Admins can start using the new "Hybrid Admin" role as the least privileged role for setting up Azure ADConnect Cloud Provisioning. With this new role, you no longer have to use the Global Admin role to setup and configure Cloud Provisioning. [Learn more](../users-groups-roles/roles-delegate-by-task.md#connect).
+IT Admins can start using the new "Hybrid Admin" role as the least privileged role for setting up Azure ADConnect Cloud Provisioning. With this new role, you no longer have to use the Global Admin role to setup and configure Cloud Provisioning. [Learn more](../roles/delegate-by-task.md#connect).
  
 ---
 

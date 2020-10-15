@@ -66,7 +66,7 @@ Create an Automation account with run-as permissions. For instructions, see [Cre
 
 ### <a name="about"></a>2. Assign the Run As account a role
 
-By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/users-groups-roles/roles-create-custom.md).
+By default, the **Contributor** role is assigned to the service principal that is used by your **Run As** account. You can keep the default role assigned to the service principal, or you can restrict permissions by assigning a [built-in role](../role-based-access-control/built-in-roles.md) (for example, Reader) or a [custom role](../active-directory/roles/custom-create.md).
 
  Use the following steps to determine the role assign to the service principal that is used by your Run As account:
 

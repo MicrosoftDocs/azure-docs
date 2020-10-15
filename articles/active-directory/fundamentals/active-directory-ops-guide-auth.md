@@ -184,7 +184,7 @@ On the other hand, if you find applications that have assignment to individual u
 #### Assign users to applications recommended reading
 
 - [Assign users and groups to an application in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
-- [Delegate app registration permissions in Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
+- [Delegate app registration permissions in Azure Active Directory](../roles/delegate-app-roles.md)
 - [Dynamic membership rules for groups in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
 
 ## Access policies
