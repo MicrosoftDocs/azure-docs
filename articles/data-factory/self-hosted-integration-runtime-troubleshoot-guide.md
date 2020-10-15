@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: abnarain
 ---
 
@@ -614,6 +614,32 @@ Below example shows what a good scenario would look like.
 
     ![TCP 4 handshake workflow](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### Receiving email notification to update the network configuration to allow communication with new IP addresses
+
+#### Symptoms
+
+You may receive below email notification, which recommended you to update the network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
+
+   ![Email notification](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### Resolution
+
+This notification is for outbound communications from your private network to ADF service. For example, if you have Self-hosted IR or Azure-SQL Server Integration Services (SSIS) IR in VNET, which needs to access ADF service, then you need to add the new IP ranges in your network rule. But if you use service tag, there is no impact and no action is required.
+
+#### More details
+
+These new IP ranges only have impact on outbound communications from customer private network to ADF service, such as SHIR or SSIS IR in on-premise network or your virtual network, which needs to interact with ADF service. 
+
+For existing users:
+
+1. Check if you set up any NSG rules in the private network. If no, then there is no impact on your side.
+2. If yes, check if you use service tag or not. If you use service tag, then there is no need to change or add anything as the new IP ranges are under existing service tag.
+3. If you use IP addresses directly in your rule setting, then check if you add all IP ranges in service tags IP range download link. We have already put the new IP ranges in this file. 
+
+For new users: 
+
+You just need to follow up relevant SHIR or SSIS IR configuration in our document to configure NSG rules.
 
 ## Self-hosted IR sharing
 
