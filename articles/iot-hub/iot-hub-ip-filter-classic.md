@@ -1,5 +1,5 @@
 ---
-title: IoT Hub classic IP filter (deprecated) | Microsoft Docs
+title: Azure IoT Hub classic IP filter (deprecated) | Microsoft Docs
 description: How to upgrade from classic IP filter and what are the benefits
 author: jlian
 ms.service: iot-hub
@@ -218,7 +218,7 @@ You can change the order of your IP filter rules in the grid by clicking the thr
 
 To save your new IP filter rule order, click **Save**.
 
-:::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-rule-order.png" alt-text="Change the order of your IoT HUb IP filter rules":::
+:::image type="content" source="media/iot-hub-ip-filter-classic/ip-filter-rule-order.png" alt-text="Change the order of your IoT Hub IP filter rules":::
 
 ## Next steps
 
