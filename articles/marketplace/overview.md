@@ -41,7 +41,7 @@ Here’s an example of an offer listing page in Azure Marketplace:
 
 The online storefronts integrate with Microsoft technology, which means customers can also access your solutions from products such as Power Apps, Dynamics 365, and Microsoft 365 and the Azure portal. 
 
-The following example shows how to accessAppSource Power BI visual add-ins from the Power BI **File** menu.
+The following example shows how to access AppSource add-ins from the Power BI **File** menu.
 
 :::image type="content" source="media/overview/power-bi.png" alt-text="Shows how to access Power BI Visuals in AppSource from the Power BI File menu."::: 
 
@@ -49,11 +49,11 @@ This option opens a window where the customer can search for Power BI add-ins by
 
 :::image type="content" source="media/overview/power-bi-apps.png" alt-text="Shows the list of AppSource add-ins from within Power BI."::: 
 
-Because Azure Marketplace is built on Azure, customers can discover and deploy solutions through the **Create a resource** option in the [Azure portal](https://portal.azure.com/).
+Azure customers can discover and deploy Azure Marketplace solutions through the **Create a resource** option in the [Azure portal](https://portal.azure.com/).
 
 :::image type="content" source="media/overview/create-resource.png" alt-text="Shows the Create a resource option in the Azure portal"::: 
 
-This opens the Azure Marketplace within the Azure portal, where they can search for solutions by name or by category.
+This option opens the Azure Marketplace within the Azure portal, where they can search for solutions by name or by category.
 
 :::image type="content" source="media/overview/search-portal.png" alt-text="Shows the Azure Marketplace search options within the Azure portal"::: 
 
