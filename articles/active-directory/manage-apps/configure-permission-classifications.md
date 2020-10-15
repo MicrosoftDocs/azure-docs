@@ -28,7 +28,7 @@ Currently, only the "Low impact" permission classification is supported. Only de
 
 Follow these steps to classify permissions using the Azure portal:
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator--company-administrator).
+1. Sign in to the [Azure portal](https://portal.azure.com) as a [Global Administrator](../roles/permissions-reference.md#global-administrator--company-administrator), [Application Administrator](../roles/permissions-reference.md#application-administrator), or [Cloud Application Administrator](../roles/permissions-reference.md#cloud-application-administrator)
 1. Select **Azure Active Directory** > **Enterprise applications** > **Consent and permissions** > **Permission classifications**.
 1. Choose **Add permissions** to classify another permission as "Low impact".
 1. Select the API and then select the delegated permission(s).
