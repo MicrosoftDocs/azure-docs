@@ -111,7 +111,7 @@ This section shows how to add protection for your backend API by configuring rat
 
 1.  Select **Demo Conference API** > **All operations** > **Design**.
 1.  In the **Inbound processing** section, select the code editor (**</>**) icon.
-1.  Position the cursor inside the **&lt;inbound&gt;** element.
+1.  Position the cursor inside the **&lt;inbound&gt;** element and select **Show snippets** at the top right corner.
 
     :::image type="content" source="media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png" alt-text="Set inbound policy" border="false":::
 
