@@ -41,7 +41,7 @@ A key vault is created for Azure Stack Edge resource during the process of activ
 
     ![MSI created during Azure Stack Edge resource creation](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png)
 
-- You can browse to the Azure Key Vault by clicking on the key vault name under properties within the Azure Stack Edge resource. 
+- To browse to the Azure key vault, go to the **Properties** in your Azure Stack Edge resource and select the key vault name. 
 
 - To prevent accidental deletion, a resource lock is enabled on the key vault. A soft-delete is also enabled on the key vault that allows the key vault to be restored within 90 days if there is an accidental deletion. For more information, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md)
 
