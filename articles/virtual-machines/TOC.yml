@@ -91,7 +91,7 @@
       - name: 5 - Highly available VMs
         href: ./windows/tutorial-availability-sets.md
       - name: 6 - Create a scale set
-        href: ./windows/-create-vmss.md
+        href: ./windows/tutorial-create-vmss.md
       - name: 7 - Load balance VMs
         href: ./windows/tutorial-load-balancer.md
       - name: 8 - Manage networking
@@ -114,97 +114,97 @@
 - name: Samples
   items:
   - name: Linux samples
-  items:
-  - name: Azure CLI
+    items:
+    - name: Azure CLI
     items:
     - name: CLI sample index
-      href: cli-samples.md
+        href: ./linux/cli-samples.md
     - name: Create VMs
-      items:
-      - name: Create a virtual machine
+        items:
+        - name: Create a virtual machine
         href: ./scripts/virtual-machines-linux-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a fully configured virtual machine
+        - name: Create a fully configured virtual machine
         href: ./scripts/virtual-machines-linux-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create highly available virtual machines
+        - name: Create highly available virtual machines
         href: ./scripts/virtual-machines-linux-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a VM and run configuration script
+        - name: Create a VM and run configuration script
         href: ./scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a VM with WordPress installed
+        - name: Create a VM with WordPress installed
         href: ./scripts/virtual-machines-linux-cli-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a VM from a managed OS disk
+        - name: Create a VM from a managed OS disk
         href: ./scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a VM from a snapshot
+        - name: Create a VM from a snapshot
         href: ./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Manage storage
-      items:
-      - name: Create managed disk from a VHD
-        href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a managed disk from a snapshot
-        href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Copy managed disk to same or different subscription
-        href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Export a snapshot as VHD to a storage account
-        href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Export the VHD of a managed disk to a storage account
-        href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Copy snapshot to same or different subscription
-        href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        items:
+        - name: Create managed disk from a VHD
+        href: ./scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Create a managed disk from a snapshot
+        href: ./scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Copy managed disk to same or different subscription
+        href: ./scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Export a snapshot as VHD to a storage account
+        href: ./scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Export the VHD of a managed disk to a storage account
+        href: ./scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Copy snapshot to same or different subscription
+        href: ./scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Network virtual machines
-      items:
-      - name: Secure network traffic between virtual machines
+        items:
+        - name: Secure network traffic between virtual machines
         href: ./scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Secure virtual machines
-      items:
-      - name: Encrypt a VM and data disks
+        items:
+        - name: Encrypt a VM and data disks
         href: ./scripts/virtual-machines-linux-cli-sample-encrypt-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Monitor virtual machines
-      items:
-      - name: Monitor a VM with Azure Monitor logs
+        items:
+        - name: Monitor a VM with Azure Monitor logs
         href: ./scripts/virtual-machines-linux-cli-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Troubleshoot
-      items:
-      - name: Troubleshoot a VMs operating system disk
+        items:
+        - name: Troubleshoot a VMs operating system disk
         href: ./scripts/virtual-machines-linux-cli-sample-mount-os-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Azure PowerShell
+    - name: Azure PowerShell
     items:
     - name: PowerShell sample index
-      href: powershell-samples.md
+        href: powershell-samples.md
     - name: Create virtual machines
-      items:
-      - name: Create a fully configured virtual machine
+        items:
+        - name: Create a fully configured virtual machine
         href: ./scripts/virtual-machines-linux-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | Creates a resource group, virtual machine, and all related resources.|
-      - name: Create a VM with Docker enabled
+        - name: Create a VM with Docker enabled
         href: ./scripts/virtual-machines-linux-powershell-sample-create-docker-host.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a VM and run configuration script
+        - name: Create a VM and run configuration script
         href: ./scripts/virtual-machines-linux-powershell-sample-create-vm-nginx.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a VM with WordPress installed
+        - name: Create a VM with WordPress installed
         href: ./scripts/virtual-machines-linux-powershell-sample-create-vm-wordpress.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a VM from a managed OS disk
+        - name: Create a VM from a managed OS disk
         href: ./scripts/virtual-machines-powershell-sample-create-vm-from-managed-os-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a VM from a snapshot
+        - name: Create a VM from a snapshot
         href: ./scripts/virtual-machines-linux-powershell-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Manage storage
-      items:
-      - name: Create a managed disk from a VHD in the same or a different subscription
-        href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a managed disk from a snapshot
-        href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Export a snapshot as a VHD to a storage account
-        href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Export the VHD of a managed disk to a storage account
-        href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Create a snapshot from a VHD
-        href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Copy a snapshot to the same or a different subscription
-        href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        items:
+        - name: Create a managed disk from a VHD in the same or a different subscription
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Create a managed disk from a snapshot
+        href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Export a snapshot as a VHD to a storage account
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Export the VHD of a managed disk to a storage account
+        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Create a snapshot from a VHD
+        href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Copy a snapshot to the same or a different subscription
+        href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Monitor virtual machines
-      items:
-      - name: Monitor a VM with Azure Monitor logs
+        items:
+        - name: Monitor a VM with Azure Monitor logs
         href: ./scripts/virtual-machines-linux-powershell-sample-create-vm-oms.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Copy a managed disk to the same or a different subscription
-        href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-      - name: Collect details about all VMs in a subscription with PowerShell
-        href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Copy a managed disk to the same or a different subscription
+        href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+        - name: Collect details about all VMs in a subscription with PowerShell
+        href: ./scripts/virtual-machines-powershell-sample-collect-vm-details.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Windows samples
     items:
     - name: PowerShell index
@@ -232,19 +232,19 @@
         - name: Manage storage
           items:
           - name: Create a managed disk from a VHD
-            href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
+            href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-vhd.md
           - name: Create a managed disk from a snapshot
-            href: ../scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
+            href: ./scripts/virtual-machines-powershell-sample-create-managed-disk-from-snapshot.md
           - name: Copy a managed disk
-            href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
+            href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
           - name: Export a snapshot as a VHD to a storage account
-            href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
+            href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
           - name: Export the VHD of a managed disk to a storage account
-            href: ../scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
+            href: ./scripts/virtual-machines-powershell-sample-copy-managed-disks-vhd.md
           - name: Create a snapshot from a VHD
-            href: ../scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
+            href: ./scripts/virtual-machines-powershell-sample-create-snapshot-from-vhd.md
           - name: Copy a snapshot
-            href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
+            href: ./scripts/virtual-machines-powershell-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Secure
           items:
           - name: Encrypt a VM and its data disks
@@ -254,7 +254,7 @@
           - name: Azure Monitor
             href: ./scripts/virtual-machines-windows-powershell-sample-create-vm-oms.md
           - name: Collect details about all VMs in a subscription
-            href: ../scripts/virtual-machines-powershell-sample-collect-vm-details.md
+            href: ./scripts/virtual-machines-powershell-sample-collect-vm-details.md
     - name: Azure CLI index
       href: cli-samples.md
       items:
@@ -275,17 +275,17 @@
         - name: Manage storage
           items:
           - name: Create managed disk from a VHD
-            href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
+            href: ./scripts/virtual-machines-cli-sample-create-managed-disk-from-vhd.md
           - name: Create a managed disk from a snapshot
-            href: ../scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
+            href: ./scripts/virtual-machines-cli-sample-create-managed-disk-from-snapshot.md
           - name: Copy managed disk
-            href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
+            href: ./scripts/virtual-machines-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
           - name: Export a snapshot as VHD to a storage account
-            href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
+            href: ./scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
           - name: Export the VHD of a managed disk to a storage account
-            href: ../scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
+            href: ./scripts/virtual-machines-cli-sample-copy-managed-disks-vhd.md
           - name: Copy snapshot
-            href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
+            href: ./scripts/virtual-machines-cli-sample-copy-snapshot-to-same-or-different-subscription.md
         - name: Network
           items:
           - name: Secure network traffic between VMs
