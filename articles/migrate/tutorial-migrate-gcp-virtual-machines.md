@@ -395,7 +395,7 @@ Mobility Agent is installed on the source VM to be migrated and is registered th
 **Answer:** You may have to make these changes before migrating your EC2 VMs to Azure:
 
 - If you are using cloud-init for your VM provisioning, you may want to disable cloud-init on the VM before replicating it to Azure. The provisioning steps performed by cloud-init on the VM maybe GCP specific and won't be valid after the migration to Azure. ​ 
-- Review the [prerequisites](#prerequisites) section to determine whether there are any changes necessary for the operating system you are
+- Review the [prerequisites](#prerequisites) section to determine whether there are any changes necessary for the operating system before you migrate them to Azure.
 - We always recommend you run a test migration before the final migration.  
 
 ## Next steps
