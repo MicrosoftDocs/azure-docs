@@ -120,11 +120,10 @@ The workflow file must be stored in the **.github/workflows** folder at the root
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
 
-    The workflow file has three sections:
+    The first section of the workflow file includes:
 
     - **name**: The name of the workflow.
     - **on**: The name of the GitHub events that triggers the workflow. The workflow is trigger when there is a push event on the master branch, which modifies at least one of the two files specified. The two files are the workflow file and the template file.
-
 
 1. Select **Start commit**.
 1. Select **Commit directly to the master branch**.
@@ -134,10 +133,9 @@ Because the workflow is configured to be triggered by either the workflow file o
 
 ## Check workflow status
 
-1. Select the **Actions** tab. You shall see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to execute the workflow.
+1. Select the **Actions** tab. You will see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to run the workflow.
 1. Select the workflow to open it.
-1. Select **deploy-storage-account-template** (job name) from the left menu. The job name is defined in the workflow.
-1. Select **Deploy ARM Template** (step name) to expand it. You can see the REST API response.
+1. Select **Run azure/arm-deploy@v1**from the menu to verify that the deployment.
 
 ## Clean up resources
 
