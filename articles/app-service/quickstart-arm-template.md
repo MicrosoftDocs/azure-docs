@@ -10,7 +10,7 @@ ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
-# Create App Service app using an ARM template
+# Quickstart: Create App Service app using an ARM template
 
 Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
 
