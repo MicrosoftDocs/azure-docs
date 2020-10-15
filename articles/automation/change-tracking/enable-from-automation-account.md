@@ -55,15 +55,18 @@ Manually installed machines or machines already reporting to your workspace must
 
 1. From your Automation account, select **Inventory** or **Change tracking** under **Configuration Management**.
 
-2. Select **Manage machines**. The **Manage machines** button might be grayed out if you previously chose the option **Enable on all available and future machines**
+2. Select **Manage machines**. The **Manage machines** option might be grayed out if you previously chose the option **Enable on all available and future machines**
 
-    ![Saved searches](media/enable-from-automation-account/managemachines.png)
+    ![Saved searches](media/enable-from-automation-account/manage-machines.png)
 
-3. To enable Change Tracking and Inventory for all available machines, select **Enable on all available machines** on the Manage Machines page. This action disables the control to add machines individually. This task adds all the names of the machines reporting to the workspace to the computer group saved search query. When selected, this action disables the **Manage Machines** button.
+3. To enable Change Tracking and Inventory for all available machines, select **Enable on all available machines** on the **Manage Machines** page. This action disables the control to add machines individually and adds all of the machines reporting to the workspace to the computer group saved search query. When selected, this action disables the **Manage Machines** option.
 
-4. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved searches and scope configurations from the workspace and opens the feature for all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** button permanently, as there's no scope configuration left.
+4. To enable the feature for all available machines and future machines, select **Enable on all available and future machines**. This option deletes the saved search and scope configuration from the workspace and opens the feature for all Azure and non-Azure machines that are reporting to the workspace. When selected, this action disables the **Manage Machines** option permanently, as there's no scope configuration left.
 
-5. If necessary, you can add the scope configurations back by re-adding the initial saved searches. For more information, see [Limit Change Tracking and Inventory deployment scope](manage-scope-configurations.md).
+    > [!NOTE]
+    > Because this option deletes the saved search and scope configuration within Log Analytics, it's important to remove any deletion locks on the Log Analytics Workspace before you select this option. If you don't, the option will fail to remove the configurations and you must remove them manually.
+
+5. If necessary, you can add the scope configuration back by re-adding the initial saved search. For more information, see [Limit Change Tracking and Inventory deployment scope](manage-scope-configurations.md).
 
 6. To enable the feature for one or more machines, select **Enable on selected machines** and click **Add** next to each machine to enable for the feature. This task adds the selected machine names to the computer group saved search query for the feature.
 
