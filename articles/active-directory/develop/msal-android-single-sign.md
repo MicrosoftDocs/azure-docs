@@ -1,21 +1,21 @@
 ---
-title: How to enable cross-app SSO on Android using MSAL | Microsoft Docs
+title: How to enable cross-app SSO on Android using MSAL | Azure
+titleSuffix: Microsoft identity platform
 description: How to use the features of the MSAL SDK to enable single sign-on across your applications.
 services: active-directory
 author: hamiltonha
 manager: CelesteDG
 
 ms.service: active-directory
-ms.subservice: azuread-dev
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.custom: aaddev, devx-track-java
-ROBOTS: NOINDEX
+
 ---
 
 # How to: Enable cross-app SSO on Android using MSAL 
@@ -88,9 +88,6 @@ MSAL primarily retrieves the default browser from the package manager and checks
 
 If there are no browser packages on the device, MSAL uses the in-app `WebView`. If the device default setting isn't changed, the same browser should be launched for each sign in to ensure a SSO experience.
 
-> [!NOTE]
-> MSAL no longer always prefers Chrome if another browser is set as default. For example, on a device which has both Chrome and another browser pre-installed, MSAL will use the browser the user has set as the default.
-
 #### Tested Browsers
 
 The following browsers have been tested to see if they correctly redirect to the `"redirect_uri"` specified in the configuration file:
@@ -98,22 +95,22 @@ The following browsers have been tested to see if they correctly redirect to the
 | Device | Built-in Browser | Chrome | Opera  | Microsoft Edge | UC Browser | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
 | Nexus 4 (API 17) | pass | pass |not applicable |not applicable |not applicable |not applicable |
-| Samsung S7 (API 25) | pass* | pass | pass | pass | fail |pass |
-| Huawei (API 26) |pass** | pass | fail | pass | pass |pass |
+| Samsung S7 (API 25) | pass<sup>1</sup> | pass | pass | pass | fail |pass |
+| Huawei (API 26) |pass<sup>2</sup> | pass | fail | pass | pass |pass |
 | Vivo (API 26) |pass|pass|pass|pass|pass|fail|
 | Pixel 2 (API 26) |pass | pass | pass | pass | fail |pass |
-| Oppo | pass | not applicable*** |not applicable  |not applicable |not applicable | not applicable|
+| Oppo | pass | not applicable<sup>3</sup>|not applicable  |not applicable |not applicable | not applicable|
 | OnePlus (API 25) |pass | pass | pass | pass | fail |pass |
 | Nexus (API 28) |pass | pass | pass | pass | fail |pass |
 |MI | pass | pass | pass | pass | fail |pass |
 
-*Samsung's built-in browser is Samsung Internet.  
-**Huawei's built-in browser is Huawei Browser.  
-***The default browser can't be changed inside the Oppo device setting.
+<sup>1</sup>Samsung's built-in browser is Samsung Internet.  
+<sup>2</sup>Huawei's built-in browser is Huawei Browser.  
+<sup>3</sup>The default browser can't be changed inside the Oppo device setting.
 
 ## SSO through Brokered authentication 
 
-You must use one of Microsoft's authentication brokers to participate in device-wide single sign-on (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
+It is recommended one of Microsoft's authentication brokers to participate in device-wide single sign-on (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
 
 - Device single sign-on
 - Conditional access for:
@@ -229,3 +226,8 @@ It might not be immediately clear that broker integration is working, but you ca
 1. In the settings on your Android device, look for a newly created account corresponding to the account that you authenticated with. The account should be of type *Work account*.
 
 You can remove the account from settings if you want to repeat the test.
+
+## Next steps
+
+[Shared device mode for Android devices](msal-android-shared-devices.md) allows you to configure an Android device so that it can be easily shared by multiple employees.
+
