@@ -64,7 +64,7 @@ After installing the required components, select your users' single sign-on meth
 |Enable single sign-on|This option is available with both password hash sync and pass-through authentication. It provides a single sign-on experience for desktop users on corporate networks. For more information, see [Single sign-on](how-to-connect-sso.md). </br></br>**Note:** For AD FS customers, this option is unavailable. AD FS already offers the same level of single sign-on.</br>
 
 ### Connect to Azure AD
-On the Connect to Azure AD page, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, don't sign in with an account that's in a domain you plan to enable for federation. 
+On the **Connect to Azure AD** page, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, don't sign in with an account that's in a domain you plan to enable for federation. 
 
 You might want to use an account in the default *onmicrosoft.com* domain, which comes with your Azure AD tenant. This account is used only to create a service account in Azure AD. It's not used after the installation finishes.
   
@@ -80,7 +80,7 @@ If you see an error or have problems with connectivity, then see [Troubleshoot c
 
 ## Sync pages
 
-The following sections describe the pages in the Sync section.
+The following sections describe the pages in the **Sync** section.
 
 ### Connect your directories
 To connect to Active Directory Domain Services (Azure AD DS), Azure AD Connect needs the forest name and credentials of an account that has sufficient permissions.
@@ -91,8 +91,8 @@ After you enter the forest name and select  **Add Directory**, a window appears.
 
 | Option | Description |
 | --- | --- |
-| Create new account | Create the Azure AD DS account that Azure AD Connect needs to connect to the Active Directory forest during directory synchronization. After you select this option, enter the username and password for an enterprise admin account.  Azure AD Connect uses the provided enterprise admin account to create the required Azure AD DS account. You can enter the domain part in either NetBios format or FQDN format. That is, enter *FABRIKAM\administrator* or *fabrikam.com\administrator*. |
-| Use existing account | Provide an existing Azure AD DS account that Azure AD Connect can use to connect to the Active Directory forest during directory synchronization. You can enter the domain part in either NetBios format or FQDN format. That is, enter *FABRIKAM\syncuser* or *fabrikam.com\syncuser*. This account can be a regular user account because it needs only the default read permissions. But depending on your scenario, you might need more permissions. For more information, see [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account). |
+| Create new account | Create the Azure AD DS account that Azure AD Connect needs to connect to the Active Directory forest during directory synchronization. After you select this option, enter the username and password for an enterprise admin account.  Azure AD Connect uses the provided enterprise admin account to create the required Azure AD DS account. You can enter the domain part in either NetBIOS format or FQDN format. That is, enter *FABRIKAM\administrator* or *fabrikam.com\administrator*. |
+| Use existing account | Provide an existing Azure AD DS account that Azure AD Connect can use to connect to the Active Directory forest during directory synchronization. You can enter the domain part in either NetBIOS format or FQDN format. That is, enter *FABRIKAM\syncuser* or *fabrikam.com\syncuser*. This account can be a regular user account because it needs only the default read permissions. But depending on your scenario, you might need more permissions. For more information, see [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md#create-the-ad-ds-connector-account). |
 
 ![Screenshot showing the "Connect Directory" page and the A D forest account window, where you can choose to create a new account or use an existing account.](./media/how-to-connect-install-custom/connectdir02.png)
 
@@ -101,9 +101,9 @@ After you enter the forest name and select  **Add Directory**, a window appears.
 >
 
 ### Azure AD sign-in configuration
-On the Azure AD sign-in configuration page, review the user principal name (UPN) domains in on-premises Azure AD DS. These UPN domains have been verified in Azure AD. On this page, you configure the attribute to use for the userPrincipalName.
+On the **Azure AD sign-in configuration** page, review the user principal name (UPN) domains in on-premises Azure AD DS. These UPN domains have been verified in Azure AD. On this page, you configure the attribute to use for the userPrincipalName.
 
-![Screenshot showing unverified domains on the "Azure A D sign-in" page.](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
+![Screenshot showing unverified domains on the "Azure A D sign-in configuration" page.](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 
 Review every domain that's marked as **Not Added** or **Not Verified**. Make sure that the domains you use have been verified in Azure AD. After you verify your domains, select the circular refresh icon. For more information, see [Add and verify the domain](../fundamentals/add-custom-domain.md).
 
@@ -111,7 +111,7 @@ Users use the *userPrincipalName* attribute when they sign in to Azure AD and Mi
 
 If the userPrincipalName attribute is nonroutable and can't be verified, then you can select another attribute. You can, for example, select email as the attribute that holds the sign-in ID. When you use an attribute other than userPrincipalName, it's known as an *alternate ID*. 
 
-The alternate ID attribute value must follow the RFC 822 standard. You can use an alternate ID with password hash sync, pass-through authentication, and federation. In Active Directory, the attribute can't be defined as multivalued, even if it has only a single value. For more information about the alternate ID, see [Pass-through authentication frequently asked questions](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
+The alternate ID attribute value must follow the RFC 822 standard. You can use an alternate ID with password hash sync, pass-through authentication, and federation. In Active Directory, the attribute can't be defined as multivalued, even if it has only a single value. For more information about the alternate ID, see [Pass-through authentication: Frequently asked questions](./how-to-connect-pta-faq.md#does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname).
 
 >[!NOTE]
 > When you enable pass-through authentication, you must have at least one verified domain to continue through the custom installation process.
@@ -139,7 +139,7 @@ If you see this warning, make sure that these domains are indeed unreachable and
 
 ### Uniquely identifying your users
 
-On the Identifying Users page, choose how to identify users in your on-premises directories and how to identify them by using the sourceAnchor attribute.
+On the **Identifying users** page, choose how to identify users in your on-premises directories and how to identify them by using the sourceAnchor attribute.
 
 #### Select how users should be identified in your on-premises directories
 By using the *Matching across forests* feature, you can define how users from your Azure AD DS forests are represented in Azure AD. A user might be represented only once across all forests or might have a combination of enabled and disabled accounts. The user might also be represented as a contact in some forests.
@@ -235,13 +235,13 @@ You can extend the schema in Azure AD by using custom attributes that your organ
 For more information, see [Directory extensions](how-to-connect-sync-feature-directory-extensions.md).
 
 ### Enabling single sign-on
-On the Single Sign-on page, you configure single sign-on for use with password synchronization or pass-through authentication. You do this step once for each forest that's being synchronized to Azure AD. Configuration involves two steps:
+On the **Single sign-on** page, you configure single sign-on for use with password synchronization or pass-through authentication. You do this step once for each forest that's being synchronized to Azure AD. Configuration involves two steps:
 
 1.	Create the necessary computer account in your on-premises instance of Active Directory.
 2.	Configure the intranet zone of the client machines to support single sign-on.
 
 #### Create the computer account in Active Directory
-For each forest that has been added in Azure AD Connect, you need to supply domain administrator credentials so that the computer account can be created in each forest. The credentials are used only to create the account. They aren't stored or used for any other operation. Add the credentials on the **Enable Single sign-on** page, as the following image shows.
+For each forest that has been added in Azure AD Connect, you need to supply domain administrator credentials so that the computer account can be created in each forest. The credentials are used only to create the account. They aren't stored or used for any other operation. Add the credentials on the **Enable single sign-on** page, as the following image shows.
 
 ![Screenshot showing the "Enable single sign-on" page. Forest credentials are added.](./media/how-to-connect-install-custom/enablesso.png)
 
@@ -286,12 +286,12 @@ If you choose to use an existing AD FS farm, you see the page where you can conf
 >You can use Azure AD Connect to manage only one AD FS farm. If you have an existing federation trust where Azure AD is configured on the selected AD FS farm, Azure AD Connect re-creates the trust from scratch.
 
 ### Specify the AD FS servers
-Specify the servers where you want to install AD FS. You can add one or more servers, depending on your capacity needs. Before you set up this configuration, join all AD FS servers to Active Directory. This step isn't required for the WAP servers. 
+Specify the servers where you want to install AD FS. You can add one or more servers, depending on your capacity needs. Before you set up this configuration, join all AD FS servers to Active Directory. This step isn't required for the Web Application Proxy servers. 
 
 Microsoft recommends installing a single AD FS server for test and pilot deployments. After the initial configuration, you can add and deploy more servers to meet your scaling needs by running Azure AD Connect again.
 
 > [!NOTE]
-> Before you set up this configuration, ensure that all of your servers are joined to an AD domain.
+> Before you set up this configuration, ensure that all of your servers are joined to an Azure AD domain.
 >
 
 
@@ -303,7 +303,7 @@ Specify your Web Application Proxy servers. The Web Application Proxy server is 
 Microsoft recommends installing a single Web Application Proxy server for test and pilot deployments. After the initial configuration, you can add and deploy more servers to meet your scaling needs by running Azure AD Connect again. We recommend that you have an equivalent number of proxy servers to satisfy authentication from the intranet.
 
 > [!NOTE]
-> - If the account you use isn't a local admin on the WAP servers, then you're prompted for admin credentials.
+> - If the account you use isn't a local admin on the Web Application Proxy servers, then you're prompted for admin credentials.
 > - Before you specify Web Application Proxy servers, ensure that there's HTTP/HTTPS connectivity between the Azure AD Connect server and the Web Application Proxy server.
 > - Ensure that there's HTTP/HTTPS connectivity between the Web Application Server and the AD FS server to allow authentication requests to flow through.
 >
@@ -318,8 +318,8 @@ You're prompted to enter credentials so that the web application server can esta
 ### Specify the service account for the AD FS service
 The AD FS service requires a domain service account to authenticate users and to look up user information in Active Directory. It can support two types of service accounts:
 
-* **Group managed service account** - This account type was introduced into AD DS by Windows Server 2012. This type of account provides services such as AD FS. It's a single account in which you don't need to update the password regularly. Use this option if you already have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
-* **Domain user account** - This type of account requires you to provide a password and regularly update it when it expires. Use this option only when you don't have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
+* **Group managed service account**: This account type was introduced into AD DS by Windows Server 2012. This type of account provides services such as AD FS. It's a single account in which you don't need to update the password regularly. Use this option if you already have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
+* **Domain user account**: This type of account requires you to provide a password and regularly update it when it expires. Use this option only when you don't have Windows Server 2012 domain controllers in the domain that your AD FS servers belong to.
 
 If you selected **Create a group Managed Service Account** and this feature has never been used in Active Directory, then enter your enterprise admin credentials. These credentials are used to initiate the key store and enable the feature in Active Directory.
 
@@ -329,7 +329,7 @@ If you selected **Create a group Managed Service Account** and this feature has 
 ![Screenshot showing the "A D F S service account" page.](./media/how-to-connect-install-custom/adfs5.png)
 
 ### Select the Azure AD domain that you want to federate
-Use the Azure AD Domain page to set up the federation relationship between AD FS and Azure AD. Here, you configure AD FS to provide security tokens to Azure AD. You also configure Azure AD to trust the tokens from this AD FS instance. 
+Use the **Azure AD Domain** page to set up the federation relationship between AD FS and Azure AD. Here, you configure AD FS to provide security tokens to Azure AD. You also configure Azure AD to trust the tokens from this AD FS instance. 
 
 On this page, you can configure only a single domain in the initial installation. You can configure more domains later by running Azure AD Connect again.
 
@@ -380,7 +380,7 @@ Finally, you can verify the newly configured federated login flow by signing in 
 ![Screenshot showing the "Verify federated login" page. A message at the bottom indicates a successful sign-in.](./media/how-to-connect-install-custom/ping4.png)
 
 ## Configure and verify pages
-The configuration happens on the Configure page.
+The configuration happens on the **Configure** page.
 
 > [!NOTE]
 > If you configured federation, then make sure that you have also configured [Name resolution for federation servers](how-to-connect-install-prerequisites.md#name-resolution-for-federation-servers) before you continue the installation.
