@@ -208,7 +208,7 @@ Azure Cloud Shell is a browser-based command-line experience that is used for in
 
 **Guidance**: Not applicable; Azure Cloud Shell does not expose any operating system configurations or security logs to customers. Microsoft is responsible for monitoring the underlying service's compute infrastructure.
 
-Azure Cloud Shell is a browser-based command-line experience that is used for interactive management of cloud resources, the container that the customer's session is running on is ephemeral and not able to be customized by the user.
+Azure Cloud Shell is a browser-based command-line experience that is used for interactive management of cloud resources, the container for the customer's session is ephemeral and not able to be customized by the user.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -260,7 +260,7 @@ Azure Cloud Shell is a browser-based command-line experience that is used for in
 
 **Guidance**: Not applicable; Azure Cloud Shell does not produce or expose any anti-malware logging to customers. For all Microsoft-managed resources, Microsoft handles the anti-malware logging.
 
-Azure Cloud Shell is a browser-based command-line experience that is used for interactive management of cloud resources, the container that the customer's session is running on is ephemeral and not able to be customized by the user.
+Azure Cloud Shell is a browser-based command-line experience that is used for interactive management of cloud resources, the container for the customer's session is ephemeral and not able to be customized by the user.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -338,7 +338,7 @@ Azure Cloud Shell is a browser-based command-line experience that is used for in
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33528.).
 
-**Guidance**: Azure Cloud Shell is a browser-based command-line experience that uses the same authorization that is used to access the Azure portal, in this case an SSO into the Azure Portal will also authenticate you with Cloud Shell. 
+**Guidance**: Azure Cloud Shell is a browser-based command-line experience that uses the same authorization that is used to access the Azure portal, in this case an SSO into the Azure portal will also authenticate you with Cloud Shell. 
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -349,7 +349,7 @@ Azure Cloud Shell is a browser-based command-line experience that is used for in
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33529.).
 
-**Guidance**: Azure Cloud Shell is a browser-based command-line experience that uses the same authorization that is used to access the Azure portal, in this case any MFA that is required to connect to the Azure Portal will also be required for Cloud Shell. 
+**Guidance**: Azure Cloud Shell is a browser-based command-line experience that uses the same authorization that is used to access the Azure portal, in this case any MFA that is required to connect to the Azure portal will also be required for Cloud Shell. 
 
 **Azure Security Center monitoring**: Yes
 
