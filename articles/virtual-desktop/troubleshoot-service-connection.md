@@ -44,7 +44,7 @@ This could also happen if a CSP Provider created the subscription and then trans
 
 1. Sign in to the Azure portal.
 2. Go to **Subscription**, then select your subscription.
-3. On the menu of the left side of the page, select **Resource provider**.
+3. In the menu on the left side of the page, select **Resource provider**.
 4. Find and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
 
 ## Next steps

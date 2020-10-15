@@ -89,7 +89,7 @@ If you can't find the app ID 9cdead84-a844-4324-93f2-b2e6bb768d07 in the list, y
 
 1. Sign in to the Azure portal.
 2. Go to **Subscription**, then select your subscription.
-3. On the menu of the left side of the page, select **Resource provider**.
+3. In the menu on the left side of the page, select **Resource provider**.
 4. Find and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
 
 ## Next steps
