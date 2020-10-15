@@ -125,6 +125,9 @@ If your API Management service is in an internal VNet, your developer portal is 
 
 If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the Internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management.
 
+### Why is the Publish button greyed out on the Azure Portal?
+By design, if your API Management service is in an internal VNet, the 'Publish' button on the Azure Portal will be greyed out. To publish the portal, you need to open it as an administrator and [publish it](api-management-howto-developer-portal-customize.md#publish) from there.
+
 ### I have assigned a custom API Management domain and the published portal doesn't work
 
 After you update the domain, you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
