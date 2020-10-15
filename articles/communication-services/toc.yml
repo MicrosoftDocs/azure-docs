@@ -34,6 +34,8 @@
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Use the calling client library
       href: quickstarts/voice-video-calling/calling-client-samples.md
+    - name: Join your calling app to a Teams meeting
+      href: quickstarts/voice-video-calling/get-started-teams-interop.md
 - name: Tutorials
   expanded: false
   items:
@@ -62,6 +64,8 @@
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
         href: concepts/voice-video-calling/about-call-types.md
+      - name: Teams interoperability
+        href: concepts/voice-video-calling/teams-interop.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Call flows
