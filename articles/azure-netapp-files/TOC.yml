@@ -98,7 +98,7 @@
   - name: Resize a capacity pool or a volume
     href: azure-netapp-files-resize-capacity-pools-or-volumes.md
   - name: Monitor the capacity of a volume
-    href: articles\azure-netapp-files\monitor-volume-capacity.md
+    href: monitor-volume-capacity.md
   - name: Dynamically change the service level of a volume
     href: dynamic-change-volume-service-level.md
   - name: Manage cross-region replication

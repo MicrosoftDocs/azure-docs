@@ -53,7 +53,7 @@ Azure NetApp Files leverages the standard [Azure Monitor](/azure/azure-monitor/o
 
 ## Using Azure CLI  
 
-You can use the [`az netappfiles volume`](/cli/azure/netappfiles/volume?view=azure-cli-latest) commands of the [Azure command line (CLI) tools](azure-netapp-files-sdk-cli.md) to monitor a volume.
+You can use the [`az netappfiles volume`](/cli/azure/netappfiles/volume?view=azure-cli-latest&preserve-view=true) commands of the [Azure command line (CLI) tools](azure-netapp-files-sdk-cli.md) to monitor a volume.
  
 ## Using REST API  
 
