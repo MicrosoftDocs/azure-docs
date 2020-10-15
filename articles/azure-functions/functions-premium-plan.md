@@ -100,7 +100,7 @@ You can configure the plan size and maximums in the Azure portal by selecting th
 You can also increase the maximum burst limit from the Azure CLI:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --max-burst <desired_max_burst>
 ```
 
 The minimum for every plan will be at least one instance.  The actual minimum number of instances will be autoconfigured for you based on the always ready instances requested by apps in the plan.  For example, if app A requests five always ready instances, and app B requests two always ready instances in the same plan, the minimum plan size will be calculated as five.  App A will be running on all 5, and app B will only be running on 2.
@@ -113,7 +113,7 @@ In most circumstances this autocalculated minimum should be sufficient.  However
 Increasing the calculated minimum for a plan can be done using the Azure CLI.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
+az functionapp plan update -g <resource_group> -n <premium_plan_name> --min-instances <desired_min_instances>
 ```
 
 ### Available instance SKUs
