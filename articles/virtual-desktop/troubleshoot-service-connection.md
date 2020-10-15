@@ -3,7 +3,7 @@ title: Troubleshoot service connection Windows Virtual Desktop - Azure
 description: How to resolve issues while setting up service connections in a Windows Virtual Desktop tenant environment.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -39,6 +39,13 @@ A user can start Remote Desktop clients and is able to authenticate, however the
 This error usually appears after a user moved their subscription from one Azure AD tenant to another. As a result, the service loses track of their user assignments, since those are still tied to the old Azure AD tenant.
 
 To resolve this, all you need to do is reassign the users to their app groups.
+
+This could also happen if a CSP Provider created the subscription and then transferred to the customer. To resolve this re-register the Resource Provider.
+
+1. Sign in to the Azure portal.
+2. Go to **Subscription**, then select your subscription.
+3. On the menu of the left side of the page, select **Resource provider**.
+4. Find and select **Microsoft.DesktopVirtualization**, then select **Re-register**.
 
 ## Next steps
 
