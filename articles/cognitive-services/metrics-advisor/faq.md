@@ -126,7 +126,7 @@ Starting from the total `Response latency`, we can drill down into the metric by
 
 In Metric Advisor, users can specify any path they would like to drill down or roll up from one node of the hierarchical topology. More precisely, the hierarchical topology is a directed acyclic graph rather than a tree structure. There's a full hierarchical topology that consists of all potential dimension combinations, like this: 
 
-:::image type="content" source="media/dimension-combinations.png" alt-text="hierarchical topology diagram consisting of multiple interconnecting nodes and edges with multiple dimensions labeled S,DC, and M with corresponding numbers ranging from 1 to 6" lightbox="media/query-result.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="hierarchical topology diagram consisting of multiple interconnecting nodes and edges with multiple dimensions labeled S,DC, and M with corresponding numbers ranging from 1 to 6" lightbox="media/query-result.png":::
 
 In theory, if the dimension `Service` has `Ls` distinct values, dimension `Data center` has `Ldc` distinct values, and dimension `Machine` has `Lm` distinct values, then there could be `(Ls + 1) * (Ldc + 1) * (Lm + 1)` dimension combinations in the hierarchical topology. 
 
