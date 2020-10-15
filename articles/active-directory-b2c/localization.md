@@ -159,7 +159,7 @@ The ElementType reference to a claim type, a claim transformation, or a user int
 |Predicate user message|`Predicate`|The name of the predicate| The attribute of the predicate to be localized. Possible values: `HelpText`.|
 |Predicate group user message|`InputValidation`|The ID of the PredicateValidation element.|The ID of the PredicateGroup element. The predicate group must be a child of the predicate validation element as defined in the ElementId.|
 |User interface elements |`UxElement` | | The ID of the user interface element to be localized.|
-|[Display Control](display-controls.md) |`DisplayControl` | | The ID of the user interface element to be localized.|
+|[Display Control](display-controls.md) |`DisplayControl` |The ID of the display control. | The ID of the user interface element to be localized.|
 
 ## Examples
 
@@ -338,7 +338,7 @@ The DisplayControl value is used to localize one of the [display Control](displa
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
 ```
 
-In the Metadata section of a self-asserted technical profile, the referenced ContentDefinition needs to have DataUri set to page contract version 2.1.0 or higher. For example:
+In the Metadata section of a self-asserted technical profile, the referenced ContentDefinition needs to have DataUri set to [page layout version](page-layout.md) 2.1.0 or higher. For example:
 
 ```xml
 <ContentDefinition Id="api.selfasserted">

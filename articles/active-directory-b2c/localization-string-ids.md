@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -339,7 +339,43 @@ The following example shows the use of some of the user interface elements in th
 
 ## Verification display control user interface elements
 
-The following are the IDs for a [Verification display control](display-control-verification.md)
+The following are the IDs for a [Verification display control](display-control-verification.md) with [page layout version](page-layout.md) 2.1.0 or higher.
+
+| ID | Default value |
+| -- | ------------- |
+|intro_msg| Verification is necessary. Please click Send button.|
+|success_send_code_msg | Verification code has been sent to your inbox. Please copy it to the input box below.|
+|failure_send_code_msg | We are having trouble verifying your email address. Please enter a valid email address and try again.|
+|success_verify_code_msg | E-mail address verified. You can now continue.|
+|failure_verify_code_msg | We are having trouble verifying your email address. Please try again.|
+|but_send_code | Send verification code|
+|but_verify_code | Verify code|
+|but_send_new_code | Send new code|
+|but_change_claims | Change e-mail|
+
+### Verification display control example
+
+```xml
+<LocalizedResources Id="api.localaccountsignup.en">
+  <LocalizedStrings>
+   <!-- Display control UI elements-->
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="intro_msg">Verification is necessary. Please click Send button.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_send_code_msg">Verification code has been sent to your inbox. Please copy it to the input box below.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_send_code_msg">We are having trouble verifying your email address. Please enter a valid email address and try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="success_verify_code_msg">E-mail address verified. You can now continue.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="failure_verify_code_msg">We are having trouble verifying your email address. Please try again.</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
+    <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
+LocalizedString>
+  </LocalizedStrings>
+</LocalizedResources>
+```
+
+## Verification display control user interface elements (deprecated)
+
+The following are the IDs for a [Verification display control](display-control-verification.md) with [page layout version](page-layout.md) 2.0.0.
 
 | ID | Default value |
 | -- | ------------- |
@@ -351,7 +387,7 @@ The following are the IDs for a [Verification display control](display-control-v
 |verification_control_but_verify_code |Verify Code |
 |verification_control_code_sent| Verification code has been sent. Please copy it to the input box below. |
 
-### Verification display control example
+### Verification display control example (deprecated)
 
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
@@ -464,8 +500,8 @@ The following are the IDs for a [one-time password technical profile](one-time-p
 ```xml
 <LocalizedResources Id="api.localaccountsignup.en">
   <LocalizedStrings>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceed the maximum time allowed.</LocalizedString>
-    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceed the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">That code is incorrect. Please try again.</LocalizedString>
