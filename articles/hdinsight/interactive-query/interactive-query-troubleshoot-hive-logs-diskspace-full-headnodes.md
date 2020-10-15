@@ -42,7 +42,7 @@ In advanced hive-log4j configurations, the current default deletion schedule is 
 3. Set `appender.RFA.strategy.action.condition.age` parameter to an age of your choice. Example for 14 days: `appender.RFA.strategy.action.condition.age = 14D`
 
 4. If you do not see any related settings, please append these following settings.
-```
+    ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
     appender.RFA.strategy.action.basePath = ${sys:hive.log.dir}
@@ -50,17 +50,17 @@ In advanced hive-log4j configurations, the current default deletion schedule is 
     appender.RFA.strategy.action.condition.age = 30D
     appender.RFA.strategy.action.PathConditions.type = IfFileName
     appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
-```
+    ```
 
 5. Set `hive.root.logger` to `INFO,RFA` as follows. The default setting is DEBUG, which makes logs become very large.
 
-```
+    ```
     # Define some default values that can be overridden by system properties
     hive.log.threshold=ALL
     hive.root.logger=INFO,RFA
     hive.log.dir=${java.io.tmpdir}/${user.name}
     hive.log.file=hive.log
-```
+    ```
 
 6. Save the configs and restart the required components.
 
