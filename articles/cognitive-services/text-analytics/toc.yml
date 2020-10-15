@@ -74,6 +74,8 @@
      href: How-tos/text-analytics-for-health.md
    - name: Use containers
      items:
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
       - name: Install and run containers
         href: how-tos/text-analytics-how-to-install-containers.md
       - name: Configure containers

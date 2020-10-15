@@ -13,7 +13,7 @@ metadata:
   ms.author: aahi
   manager: nitinme
   ms.custom: custom-portals-hub
-  ms.date: 08/28/2020
+  ms.date: 10/15/2020
 
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -49,16 +49,16 @@ conceptualContent:
     - title: Language containers
       summary: Detect sentiment in text, extract key phrases, and identify the language of written text. 
       links:
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
           itemType: overview
           text: Sentiment Analysis
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
           itemType: overview
           text: Key phrase extraction
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
           itemType: overview
           text: Text language detection
-        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+        - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare
           itemType: overview
           text: Text Analytics for health     
         - url: ../luis/luis-container-howto.md
@@ -67,22 +67,22 @@ conceptualContent:
     - title: Speech containers
       summary: Convert speech to text, generate speech, or identify a spoken language.
       links:
-        - url: ../speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md?tabs=stt
           itemType: overview
           text: Speech to text 
-        - url: ../speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md?tabs=cstt
           itemType: overview
           text: Custom Speech to text 
-        - url: ../speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md?tabs=tts
           itemType: overview
           text: Text to speech
-        - url: ../speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md?tabs=ctts
           itemType: overview
           text: Custom text to speech 
-        - url: ../speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md?tabs=ntts
           itemType: overview
           text: Neural text to speech 
-        - url: ../speech-service/speech-container-howto.md
+        - url: ../speech-service/speech-container-howto.md?tabs=lid
           itemType: overview
           text: Speech language detection
     - title: Decision container
