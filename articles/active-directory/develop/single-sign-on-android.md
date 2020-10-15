@@ -31,7 +31,7 @@ In this how-to, you'll learn how to configure the SDK within your application to
 
 This how-to assumes that you know how to:
 
-- Provision your app using the Azure portal. For more info, see [the tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
+- Provision your app using the Azure portal. For more information on this topic, see the instructions for creating an app in [the Android tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
 - Integrate your application with the [Microsoft Authentication Library for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
 ### Single sign-on concepts
