@@ -23,11 +23,15 @@ If your HR department (for instance) has a total of 15 shares, you might conside
 
 Azure File Sync supports syncing the root of a volume to an Azure file share. If you sync the root folder, then all subfolders and files will go to the same Azure file share.
 
-Syncing the root of the volume isn't always the best answer. There are benefits in syncing multiple locations. For example, doing so helps keep the number of items lower per sync scope. Setting up Azure File Sync with a lower number of items is not just beneficial for file sync. A lower number of items also benefits scenarios like these:
+Syncing the root of the volume isn't always the best answer. There are benefits in syncing multiple locations. For example, doing so helps keep the number of items lower per sync scope. While we test Azure file shares and Azure File Sync with 100 million items (files and folders) per share, a best practice is to try and keep the number below 20 or 30 million in a single share. Setting up Azure File Sync with a lower number of items is not just beneficial for file sync. A lower number of items also benefits scenarios like these:
 
+* Initial scan of the cloud content before the namespace can start to appear on an Azure File Sync enabled server can complete faster.
 * Cloud-side restore from an Azure file share snapshot will be faster.
 * Disaster recovery of an on-premises server can speed up significantly.
 * Changes made directly in an Azure file share (outside sync) can be detected and synced faster.
+
+> [!TIP]
+> If you are unsure how many files and folder you have, you can check out the TreeSize tool from JAM Software GmbH.
 
 #### A structured approach to a deployment map
 
@@ -53,7 +57,7 @@ To make the decision about how many Azure file shares you need, review the follo
 
 Azure File Sync supports syncing up to 100 Million items to a single Azure file share. This limit can be exceeded and only shows what the Azure File Sync team tests on a regular basis.
 
-It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares. We recommend syncing no more than 20 million to 30 million items (files and folders combined) in an Azure file share. Split your namespace into multiple shares if you start to exceed these numbers. You can continue to group multiple on-prem shares into the same Azure file share, as long as you stay roughly below these numbers. This will provide you with room to grow.
+It's a best practice to keep the number of items per sync scope low. That's an important factor to consider in your mapping of folders to Azure file shares. While we test Azure file shares and Azure File Sync with 100 million items (files and folders) per share, a best practice is to try and keep the number below 20 or 30 million in a single share. Split your namespace into multiple shares if you start to exceed these numbers. You can continue to group multiple on-prem shares into the same Azure file share, as long as you stay roughly below these numbers. This will provide you with room to grow.
 
 In your situation, it's possible that a set of folders can logically sync to the same Azure file share (using the new, common root folder approach mentioned earlier). But it might still be better to regroup folders such that they sync to two instead of one Azure file share. You can use this approach to keep the number of files and folders per file share balanced across the server.
 
