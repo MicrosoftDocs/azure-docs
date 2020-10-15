@@ -355,7 +355,7 @@ Access the output event by using `context.bindings.<name>` where `<name>` is the
 
 # [PowerShell](#tab/powershell)
 
-**TODO**
+Access the output event by using the `Push-OutputBinding` commandlet **TODO**.
 
 # [Python](#tab/python)
 

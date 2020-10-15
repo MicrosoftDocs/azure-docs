@@ -222,7 +222,7 @@ module.exports = function (context, eventGridEvent) {
 
 # [PowerShell](#tab/powershell)
 
-The following example shows how to configure an Event Grid trigger binding in a the *function.json* file.
+The following example shows how to configure an Event Grid trigger binding in the *function.json* file.
 
 ```powershell
 {
