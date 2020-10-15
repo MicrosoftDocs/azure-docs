@@ -57,7 +57,7 @@ Azure Application Gateways are always deployed in a highly available fashion. Th
 
 Please note that even if you configure autoscaling with zero minimum instances the service will still be highly available, which is always included with the fixed price.
 
-However, creating a new instance can take some time (around six or seven minutes). Hence, if you do not want to cope with this downtime you can configure a minimum instance count of at least 3, ideally with Availability Zone support. This way you will have at least two instances inside of your Azure Application Gateway under normal circumstances, so if one of them had a problem the other will try to cope with the traffic, during the time a new instance is being created. Note that an Azure Application Gateway instance can support around 10 Capacity Units, so depending on how much traffic you typically have you might want to configure your minimum instance autoscaling setting to a value higher than 3.
+However, creating a new instance can take some time (around six or seven minutes). Hence, if you do not want to cope with this downtime you can configure a minimum instance count of 2, ideally with Availability Zone support. This way you will have at least two instances inside of your Azure Application Gateway under normal circumstances, so if one of them had a problem the other will try to cope with the traffic, during the time a new instance is being created. Note that an Azure Application Gateway instance can support around 10 Capacity Units, so depending on how much traffic you typically have you might want to configure your minimum instance autoscaling setting to a value higher than 2.
 
 ## Feature comparison between v1 SKU and v2 SKU
 
