@@ -2,7 +2,7 @@
   href: sql-data-warehouse/index.yml
 - name: Switch to classic
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
-- name: 
+- name: "------------------------------------------"
   items: 
 - name: Overview
   items:
