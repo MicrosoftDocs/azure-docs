@@ -95,7 +95,8 @@
   - name: VMware ecosystem
     items:
     - name: Backup solutions for VMs
-      href: ecosystem-back-up-vms.md- name: Resources
+      href: ecosystem-back-up-vms.md
+- name: Resources
   items:
   - name: Troubleshooting
     items:
