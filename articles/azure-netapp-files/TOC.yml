@@ -37,6 +37,8 @@
       href: azure-netapp-files-smb-performance.md
   - name: Cost model for Azure NetApp Files
     href: azure-netapp-files-cost-model.md
+  - name: Understand volume quota
+    href: volume-quota-introduction.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
   - name: Manual QoS capacity pool
@@ -95,6 +97,8 @@
     href: azure-netapp-files-manage-snapshots.md
   - name: Resize a capacity pool or a volume
     href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+  - name: Monitor the capacity of a volume
+    href: articles\azure-netapp-files\monitor-volume-capacity.md
   - name: Dynamically change the service level of a volume
     href: dynamic-change-volume-service-level.md
   - name: Manage cross-region replication
