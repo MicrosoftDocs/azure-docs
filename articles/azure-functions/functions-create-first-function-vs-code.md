@@ -57,7 +57,7 @@ Before you get started, make sure you have the following requirements in place:
 ::: zone pivot="programming-language-powershell"
 - [PowerShell 7](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-- Both [.NET Core 3.1](https://www.microsoft.com/net/download) and [.NET Core 2.1](https://dotnet.microsoft.com/download/dotnet-core/2.2)
+- Both [.NET Core 3.1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/3.1) and [.NET Core 2.1 Runtime](https://dotnet.microsoft.com/download/dotnet-core/2.1)
 ::: zone-end
 ::: zone pivot="programming-language-java"
 - The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
