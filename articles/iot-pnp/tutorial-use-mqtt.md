@@ -23,7 +23,7 @@ The sample in this tutorial uses the [Eclipse Mosquitto](http://mosquitto.org/) 
 
 To complete this tutorial on Windows, install the following software on your local Windows environment:
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](https://docs.microsoft.com/cpp/build/vscpp-step-0-installation?view=vs-2019&preserve-view=true) Visual Studio
+* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure you include the **Desktop Development with C++** workload when you [install](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) Visual Studio
 * [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 
