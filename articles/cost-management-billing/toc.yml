@@ -340,6 +340,12 @@
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
   - name: Troubleshoot
     items:
+    - name: EA billing issues with usage files
+      href: manage/troubleshoot-ea-billing-issues-usage-file-pivot-tables.md
+    - name: MCA billing issues with usage files
+      href: manage/troubleshoot-customer-agreement-billing-issues-usage-file-pivot-tables.md
+    - name: CSP billing issues with usage files
+      href: manage/troubleshoot-csp-billing-issues-usage-file-pivot-tables.md
     - name: No subscriptions found
       href: manage/no-subscriptions-found.md
     - name: Payment issues

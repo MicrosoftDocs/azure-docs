@@ -28,7 +28,7 @@ In this article, you use the Azure CLI to subscribe to events for your Azure Med
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
-    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
+    Currently, not all [Media Services v3 CLI](/cli/azure/ams) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
 - [Create a Media Services account](./create-account-howto.md).
 
