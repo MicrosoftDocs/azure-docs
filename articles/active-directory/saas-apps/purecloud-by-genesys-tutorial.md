@@ -162,11 +162,11 @@ In this section, you'll set up  B.Simon to use Azure single sign-on by granting 
 
 1. Select **Admin** at the top and then go to **Single Sign-on** under **Integrations**.
 
-	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure01.png)
+	![Screenshot shows the PureCloud Admin window where you can select Single Sign-on.](./media/purecloud-by-genesys-tutorial/configure01.png)
 
 1. Switch to the **ADFS/Azure AD(Premium)** tab, and then follow these steps:
 
-	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure02.png)
+	![Screenshot shows the Integrations page where you can enter the values described.](./media/purecloud-by-genesys-tutorial/configure02.png)
 
 	a. Select **Browse** to upload the base-64 encoded certificate that you downloaded from the Azure portal into the **ADFS Certificate**.
 
@@ -176,7 +176,7 @@ In this section, you'll set up  B.Simon to use Azure single sign-on by granting 
 
 	d. For the **Relying Party Identifier** value, go to the Azure portal, and then on the **PureCloud by Genesys** application integration page, select the **Properties** tab and copy the **Application ID** value. Paste it into the **Relying Party Identifier** box.
 
-	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure06.png)
+	![Screenshot shows the Properties pane where you can find the Application I D value.](./media/purecloud-by-genesys-tutorial/configure06.png)
 
 	e. Select **Save**.
 
@@ -190,15 +190,15 @@ To enable Azure AD users to sign in to PureCloud by Genesys, they must be provis
 
 1. Select **Admin** at the top and go to **People** under **People & Permissions**.
 
-	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure03.png)
+	![Screenshot shows the PureCloud Admin window where you can select People.](./media/purecloud-by-genesys-tutorial/configure03.png)
 
 1. On the **People** page, select **Add Person**.
 
-	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure04.png)
+	![Screenshot shows the People page where you can add a person.](./media/purecloud-by-genesys-tutorial/configure04.png)
 
 1. In the **Add People to the Organization** dialog box, follow these steps:
 
-	![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure05.png)
+	![Screenshot shows the page where you can enter the values described.](./media/purecloud-by-genesys-tutorial/configure05.png)
 
 	a. In the **Full Name** box, enter the name of a user. For example: **B.simon**.
 

@@ -1,8 +1,8 @@
 ---
 title: Connect devices with X.509 certificates in an Azure IoT Central application
 description: How to connect devices with X.509 certificates using Node.js device SDK for IoT Central Application
-author: v-krghan
-ms.author: v-krghan
+author: dominicbetts
+ms.author: dobett
 ms.date: 08/12/2020
 ms.topic: how-to
 ms.service: iot-central

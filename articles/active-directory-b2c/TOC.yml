@@ -180,7 +180,7 @@
       href: basic-age-gating.md
     - name: Define custom attributes
       href: user-flow-custom-attributes.md
-    - name: API connectors
+    - name: API connectors (preview)
       items:
       - name: Overview
         href: api-connectors-overview.md

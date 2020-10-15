@@ -1061,8 +1061,8 @@ In this quickstart
 * Configured the load balancer traffic rule and health probe.
 * Tested the load balancer.
 
-To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
-
-* Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
+To learn more about Azure Load Balancer, continue to..
+> [!div class="nextstepaction"]
+> [What is Azure Load Balancer?](load-balancer-overview.md)
 
 

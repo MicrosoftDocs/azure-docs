@@ -25,7 +25,7 @@ This article gives answers to frequently asked questions about Azure Media Servi
 
 ### What are the Azure portal limitations for Media Services v3?
 
-You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+You can use the [Azure portal](https://portal.azure.com/) to manage v3 live events, view v3 assets and jobs, get info about accessing APIs, encrypt content. <br/>For all other management tasks (for example, managing transforms and jobs or analyzing v3 content), use the [REST API](/rest/api/media/accountfilters), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 If your video was previously uploaded into the Media Services account using Media Services v3 API or the content was generated based on a live output, you will not see the **Encode**, **Analyze**, or **Encrypt** buttons in the Azure portal. Use the Media Services v3 APIs to perform these tasks.  
 
@@ -160,7 +160,7 @@ Currently, you can use the [Azure portal](https://portal.azure.com/) to:
 * View (not manage) v3 [assets](assets-concept.md). 
 * [Get info about accessing APIs](./access-api-howto.md). 
 
-For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), the [Azure CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), the [Azure CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 
 ### Is there an AssetFile concept in v3?
 
