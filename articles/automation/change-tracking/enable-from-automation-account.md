@@ -29,7 +29,7 @@ Sign in to Azure at https://portal.azure.com.
 
 2. Choose the Log Analytics workspace and Automation account and click **Enable** to enable Change Tracking and Inventory. The setup takes up to 15 minutes to complete.
 
-    ![Enable Change Tracking and Inventory](media/enable-from-automation-account/onboardsolutions.png)
+    ![Enable Change Tracking and Inventory](media/enable-from-automation-account/enable-feature.png)
 
 ## Enable Azure VMs
 
@@ -39,7 +39,7 @@ Sign in to Azure at https://portal.azure.com.
 
 3. Click **Enable** to add the selected VMs to the computer group saved search for the feature. For more information, see [Limit Change Tracking and Inventory deployment scope](manage-scope-configurations.md).
 
-    ![Enable Azure VMs](media/enable-from-automation-account/enable-azure-vms.png)
+      [ ![Enable Azure VMs](./media/enable-from-automation-account/enable-azure-vms.png)](./media/enable-from-automation-account/enable-azure-vms-expanded.png#lightbox)
 
 ## Enable non-Azure VMs
 
