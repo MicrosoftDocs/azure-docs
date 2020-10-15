@@ -45,8 +45,6 @@ Save the `appId`, `password`, and `tenant` values in an environment variable for
 
 ::: zone pivot="client-operating-system-windows-command"
 
-To save the `appId`, `password`, and `tenant` with Windows command shell, follow this example:
-
 ```console
 SET SPN_CLIENT_ID=<appId>
 SET SPN_CLIENT_SECRET=<password>
@@ -57,8 +55,6 @@ SET SPN_TENANT_ID=<tenant>
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
-Save the `appId`, `password`, and `tenant` values in an environment variable for use later:
-
 ```console
 export SPN_CLIENT_ID='<appId>'
 export SPN_CLIENT_SECRET='<password>'
@@ -68,8 +64,6 @@ export SPN_TENANT_ID='<tenant>'
 ::: zone-end
 
 ::: zone pivot="client-operating-system-powershell"
-
-Save the `appId`, `password`, and `tenant` values in an environment variable for use later:
 
 ```console
 $Env:SPN_CLIENT_ID="<appId>"
