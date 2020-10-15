@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 7/7/2020
+ms.date: 10/15/2020
 ---
 
 # Read replicas in Azure Database for MariaDB
