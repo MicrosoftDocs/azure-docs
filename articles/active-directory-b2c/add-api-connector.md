@@ -284,7 +284,8 @@ Content-type: application/json
 | status      | Integer | Yes      | Must be value `400` for a ValidationError response.                        |
 | userMessage | String  | Yes      | Message to display to the user.                                            |
 
-*Note:* HTTP status code has to be "400" in addition to the "status" value in the body of the response.
+> [!NOTE]
+> HTTP status code has to be "400" in addition to the "status" value in the body of the response.
 
 **End-user experience with a validation-error response**
 
