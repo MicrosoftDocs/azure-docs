@@ -265,8 +265,8 @@
           - name: Prepare drives for import (v2)
     - name: Monitoring
       items:
-      - name: Monitor a storage account
-        href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Monitor Blob storage
+        href: monitor-blob-storage.md
       - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Monitoring (classic)
@@ -328,7 +328,7 @@
           href: authorize-active-directory-powershell.md
         - name: Azure CLI
           href: ../common/authorize-data-operations-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage access rights with RBAC
+      - name: Manage access rights with Azure RBAC
         items:
         - name: Portal
           href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -462,6 +462,8 @@
         href: storage-blob-static-website-how-to.md
       - name: Integrate with Azure CDN
         href: static-website-content-delivery-network.md
+      - name: Use GitHub Actions to deploy a static site to Azure Storage
+        href: storage-blobs-static-site-github-actions.md
     - name: Use a custom domain
       href: storage-custom-domain-name.md
     - name: Route events to a custom endpoint
@@ -554,7 +556,7 @@
       displayName: ARM
       href: /azure/templates/microsoft.storage/allversions
     - name: Monitoring data
-      href: ../common/monitor-storage-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      href: monitor-blob-storage-reference.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ../common/policy-reference.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -580,10 +582,10 @@
         href: ../common/storage-explorer-support-policy-lifecycle.md
       - name: Storage Explorer accessibility
         href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Azure Storage on Microsoft Q&A
+    - name: Blob storage on Microsoft Q&A
       href: https://docs.microsoft.com/answers/topics/azure-blob-storage.html
-    - name: Azure Storage on Stack Overflow
-      href: https://stackoverflow.com/questions/tagged/windows-azure-storage
+    - name: Blob storage on Stack Overflow
+      href: https://stackoverflow.com/questions/tagged/azure-blob-storage
     - name: Pricing for block blobs
       href: https://azure.microsoft.com/pricing/details/storage/blobs/
     - name: Pricing for page blobs
@@ -701,7 +703,7 @@
         href: data-lake-storage-supported-open-source-platforms.md
     - name: Monitoring
       items:
-      - name: Monitor a storage account
+      - name: Monitor Blob storage
         href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Transition from classic metrics
         href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json

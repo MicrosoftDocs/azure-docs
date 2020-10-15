@@ -21,7 +21,7 @@ How you purchase your Azure services helps you determine the methodology and too
 
 The following articles provide detailed steps that explain how to review your bill based on your customer type. In each article there are instructions about how to download a CSV file containing usage and cost details for a given billing period.
 
-- [Pay-As-You-Go bill review process](review-individual-bill.md#compare-invoiced-charges-with-usage-file)
+- [Pay-As-You-Go bill review process](review-individual-bill.md#charges)
 - [Enterprise Agreement bill review process](review-enterprise-agreement-bill.md)
 - [Microsoft Customer Agreement review process](review-customer-agreement-bill.md#analyze-your-azure-usage-charges)
 - [Microsoft Partner Agreement review process](review-partner-agreement-bill.md#analyze-your-azure-usage-charges)

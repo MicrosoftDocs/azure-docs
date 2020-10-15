@@ -99,7 +99,7 @@ To confirm that the publish profile credentials are blocked on WebDeploy, try [p
 
 ### Disable access to the API
 
-The API in the previous section is backed Azure Role-Based Access Control (RBAC), which means you can [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) and assign lower-priveldged users to the role so they cannot enable basic auth on any sites. To configure the custom role, [follow these instructions](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+The API in the previous section is backed Azure role-based access control (Azure RBAC), which means you can [create a custom role](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) and assign lower-priveldged users to the role so they cannot enable basic auth on any sites. To configure the custom role, [follow these instructions](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
 
 You can also use [Azure Monitor](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) to audit any successful authentication requests and use [Azure Policy](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) to enforce this configuration for all sites in your subscription.
 

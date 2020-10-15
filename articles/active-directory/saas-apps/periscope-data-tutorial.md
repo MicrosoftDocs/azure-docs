@@ -118,7 +118,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
 2. Open the gear menu in the bottom left and open the **Billing** > **Security** menu and perform the following steps. Only admins have access to these settings.
 
-    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure01.png)
+    ![Screenshot that shows the "Security" dialog with selected settings.](./media/periscope-data-tutorial/configure01.png)
 
     a. Copy the **App Federation Metadata URL** from step #5 **SAML Signing Certificate** and open it in a browser. This will open up an XML document.
 
@@ -138,7 +138,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
     i. Finally, click **Save** and **confirm** the SSO settings change by typing **Logout**.
 
-    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure02.png)
+    ![Screenshot that shows the "Update S S O Configuration" dialog with "logout" typed in the textbox and the "Confirm" button selected.](./media/periscope-data-tutorial/configure02.png)
 
 ### Create an Azure AD test user 
 
@@ -201,7 +201,7 @@ To enable Azure AD users to log in to Periscope Data, they must be provisioned i
 
 2. Click on the **Settings** icon on the left bottom of the menu and navigate to **Permissions**.
 
-    ![Periscope Data Configure information](./media/periscope-data-tutorial/configure03.png)
+    ![Screenshot that shows the "Settings" menu with "Permissions" selected.](./media/periscope-data-tutorial/configure03.png)
 
 3. Click on the **ADD USER** and perform the following steps:
 

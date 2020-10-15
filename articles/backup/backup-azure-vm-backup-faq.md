@@ -73,7 +73,7 @@ Remove the lock, and clear the restore point collection from that resource group
 
 ### Does Azure Backup support standard SSD-managed disks?
 
-Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+Yes, Azure Backup supports [standard SSD managed disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
 

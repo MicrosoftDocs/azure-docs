@@ -17,7 +17,7 @@ Consulting service offers are customer-specific engagements. Publishers have the
 
 ## Compare consulting services
 
-The commercial marketplace online stores, Microsoft AppSource and Azure Marketplace, are aligned with solution types and cloud products to help customers find what they need. Each online store has specialized publishing options to help you maximize your publishing investment. To learn more about the difference between the two online stores, see [Comparing Microsoft AppSource and Azure Marketplace](comparing-appsource-azure-marketplace.md).
+The commercial marketplace online stores, Microsoft AppSource and Azure Marketplace, are aligned with solution types and cloud products to help customers find what they need. Each online store has specialized publishing options to help you maximize your publishing investment. To learn more about the differences between the AppSource and Azure Marketplace, see [Commercial marketplace online stores](overview.md#commercial-marketplace-online-stores).
 
 Consulting services offers that are based on Dynamics 365, Power Apps, and Power BI are eligible to be listed on AppSource. For more information, download the [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) PDF file.
 

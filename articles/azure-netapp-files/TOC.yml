@@ -39,6 +39,8 @@
     href: azure-netapp-files-cost-model.md
   - name: Guidelines for Azure NetApp Files network planning 
     href: azure-netapp-files-network-topologies.md
+  - name: Manual QoS capacity pool
+    href: manual-qos-capacity-pool-introduction.md
   - name: Cross-region replication
     items: 
     - name: Understand cross-region replication
@@ -121,12 +123,14 @@
       href: troubleshoot-capacity-pools.md
     - name: Troubleshoot cross-region replication
       href: troubleshoot-cross-region-replication.md
+    - name: Troubleshoot dual-protocol volumes
+      href: troubleshoot-dual-protocol-volumes.md
     - name: Troubleshoot snapshot policies
       href: troubleshoot-snapshot-policies.md
 - name: Reference
   items:
   - name: REST
-    href: https://docs.microsoft.com/rest/api/netapp/ 
+    href: /rest/api/netapp/
   - name: Resource Manager template
     href: /azure/templates/microsoft.netapp/allversions
 - name: Resources

@@ -14,16 +14,15 @@ manager: philmea
 
 The Route Directions and Route Matrix APIs in Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) can be used to calculate the estimated arrival times (ETAs) for each requested route. Route APIs consider factors such as real-time traffic information and historic traffic data, like the typical road speeds on the requested day of the week and time of day. The APIs return the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. Users can also request specialized routes and details for walkers, bicyclists, and commercial vehicles like trucks. In this article, we'll share the best practices to call Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route), and you'll learn how-to:
 
-> [!div class="checklist"]
-> * Choose between the Route Directions APIs and the Matrix Routing API
-> * Request historic and predicted travel times, based on real-time and historical traffic data
-> * Request route details, like time and distance, for the entire route and each leg of the route
-> * Request route for a commercial vehicle, like a truck
-> * Request traffic information along a route, like jams and toll information
-> * Request a route that consists of one or more stops (waypoints)
-> * Optimize a route of one or more stops to obtain the best order to visit each stop (waypoint)
-> * Optimize alternative routes using supporting points. For example, offer alternative routes that pass an electric vehicle charging station.
-> * Use the [Route Service](https://docs.microsoft.com/rest/api/maps/route) with the Azure Maps Web SDK
+ * Choose between the Route Directions APIs and the Matrix Routing API
+ * Request historic and predicted travel times, based on real-time and historical traffic data
+ * Request route details, like time and distance, for the entire route and each leg of the route
+ * Request route for a commercial vehicle, like a truck
+ * Request traffic information along a route, like jams and toll information
+ * Request a route that consists of one or more stops (waypoints)
+ * Optimize a route of one or more stops to obtain the best order to visit each stop (waypoint)
+ * Optimize alternative routes using supporting points. For example, offer alternative routes that pass an electric vehicle charging station.
+ * Use the [Route Service](https://docs.microsoft.com/rest/api/maps/route) with the Azure Maps Web SDK
 
 ## Prerequisites
 

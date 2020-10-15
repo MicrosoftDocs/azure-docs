@@ -18,7 +18,7 @@ You can create an Azure Database for MySQL Flexible Server in one of three diffe
 | Resource / Tier | **Burstable** | **General Purpose** | **Memory Optimized** |
 |:---|:----------|:--------------------|:---------------------|
 | VM series| B-series | Ddsv4-series | Edsv4-series|
-| vCores | 1, 2 | 2, 4, 8, 16, 32, 64 | 2, 4, 8, 16, 32, 48, 64 |
+| vCores | 1, 2 | 2, 4, 8, 16, 32, 48, 64 | 2, 4, 8, 16, 32, 48, 64 |
 | Memory per vCore | Variable | 4 GiB | 8 GiB * |
 | Storage size | 5 GiB to 16 TiB | 5 GiB to 16 TiB | 5 GiB to 16 TiB |
 | Database backup retention period | 1 to 35 days | 1 to 35 days | 1 to 35 days |

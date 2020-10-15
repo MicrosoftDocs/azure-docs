@@ -31,7 +31,8 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](cre
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- The Offer ID combined with the Publisher ID must be under 40 characters in length.
+- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces. For example, if your Publisher ID is testpublisherid and you enter **test-offer-1** here, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
@@ -251,9 +252,8 @@ Upload the extension package file (.app) file for your offer.
 
 Required if your offer must be installed along with another extension that will not be published to the marketplace. If so upload its .app file here.
 
-#### Dependency package file
-
-Required if your offer must be installed along with another extension that has already been published to the marketplace. If so, upload its `.app` or `.zip` file here.
+>[!NOTE]
+>The dependency package file is no longer used. Upload a library package file instead.
 
 ### URL to app installation
 

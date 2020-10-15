@@ -1,7 +1,7 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options in Azure Blueprints to protect resources when assigning a blueprint.
-ms.date: 08/27/2020
+ms.date: 10/05/2020
 ms.topic: conceptual
 ---
 # Understand resource locking in Azure Blueprints
@@ -48,7 +48,7 @@ designed to create from accidental or programmatic deletion or alteration.
 
 ### Assign at management group
 
-An additional option to prevent subscription owners from removing a blueprint assignment is to
+The only option to prevent subscription owners from removing a blueprint assignment is to
 assign the blueprint to a management group. In this scenario, only **Owners** of the management
 group have the permissions needed to remove the blueprint assignment.
 
@@ -136,8 +136,8 @@ of each mode are as follows:
 
 |Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Read Only |**\*** |**\*/read** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
-|Do Not Delete |**\*/delete** | |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Read Only |**\*** |**\*/read**<br />**Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Do Not Delete |**\*/delete** | **Microsoft.Authorization/locks/delete**<br />**Microsoft.Network/virtualNetwork/subnets/join/action** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny

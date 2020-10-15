@@ -106,14 +106,14 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 
 	c. After the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Brightidea section textbox:
 
-	![image](common/idp-intiated.png)
+	![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values do not get auto polulated, then fill in the values manually according to your requirement.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![image](common/metadata-upload-additional-signon.png)
+	![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.brightidea.com`
@@ -138,21 +138,21 @@ To configure Azure AD single sign-on with Brightidea, perform the following step
 
 2. To get to the SSO feature in your Brightidea system, navigate to **Enterprise Setup** -> **Authentication Tab**. There you will see two sub tabs: Auth Selection & SAML Profiles.
 
-	![Brightidea Configuration](./media/brightidea-tutorial/configure1.png)
+	![Screenshot shows the Brightidea site with the Authentication tab selected.](./media/brightidea-tutorial/configure1.png)
 
 3. Select **Auth Selection**. By default, it only shows two standard methods: Brightidea Login & Registration. When an SSO method added, it will show up in the list.
 
-	![Brightidea Configuration](./media/brightidea-tutorial/configure2.png)
+	![Screenshot shows the Brightidea Authentication tab with Auth Selection selected.](./media/brightidea-tutorial/configure2.png)
 
 4. Select **SAML Profiles** and perform the following steps:
 
-	![Brightidea Configuration](./media/brightidea-tutorial/configure3.png)
+	![Screenshot shows the Brightidea Authentication tab with SAML Profiles selected, which provides options to Download Metadata and Add New.](./media/brightidea-tutorial/configure3.png)
 
 	a. Click on the **Download Metadata** and upload at the **Basic SAML Configuration** section in the Azure portal.
 
 	b. Click on the **Add New** button under the **Identity Provider Setting** and perform the following steps:
 	
-	![Brightidea Configuration](./media/brightidea-tutorial/configure4.png)
+	![Screenshot shows the Brightidea Identity Provider Setting where you enter information.](./media/brightidea-tutorial/configure4.png)
 	
    * Enter the **SAML Profile Name** like e.g `Azure Ad SSO`
 	

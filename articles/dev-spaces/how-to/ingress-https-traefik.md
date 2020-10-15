@@ -10,6 +10,8 @@ ms.custom: devx-track-js
 
 # Use a custom traefik ingress controller and configure HTTPS
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../../includes/dev-spaces-deprecation.md)]
+
 This article shows you how to configure Azure Dev Spaces to use a custom traefik ingress controller. This article also shows you how to configure that custom ingress controller to use HTTPS.
 
 ## Prerequisites

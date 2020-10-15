@@ -129,11 +129,11 @@ To configure Azure AD single sign-on with M-Files, perform the following steps:
 
 1. Open the **M-Files Desktop Settings** window. Then, click **Add**.
    
-    ![Configure Single Sign-On](./media/m-files-tutorial/tutorial_m_files_10.png)
+    ![Screenshot shows M-Files Desktop Settings where you can select Add.](./media/m-files-tutorial/tutorial_m_files_10.png)
 
 1. On the **Document Vault Connection Properties** window, perform the following steps:
    
-    ![Configure Single Sign-On](./media/m-files-tutorial/tutorial_m_files_11.png)  
+    ![Screenshot shows Document Vault Connection Properties where you can enter the values described.](./media/m-files-tutorial/tutorial_m_files_11.png)  
 
     Under the Server section type, the values as follows:  
 
