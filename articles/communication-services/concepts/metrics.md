@@ -36,9 +36,6 @@ More information on supported aggregation types and time series aggregations can
 
 The following operations are available on Chat API request metrics:
 
-TODO: turn this into a table that describes each item, maybe explain how a dev might invoke/consume these, how they can help the developer
-
-
 | Operation / Route    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
 | GetChatMessage       | Gets a message by message id. |
