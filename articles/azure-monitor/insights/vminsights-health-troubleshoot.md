@@ -1,0 +1,36 @@
+---
+title: Troubleshoot Azure Monitor for VMs guest health (preview)
+description: 
+ms.subservice: 
+ms.topic: conceptual
+author: bwren
+ms.author: bwren
+ms.date: 09/08/2020
+
+---
+
+# Troubleshoot Azure Monitor for VMs guest health (preview)
+This article describes troubleshooting steps that you can take when you receive a message that no data is available for Azure Monitor for VMs health. 
+
+![No data](media/vminsights-health-troubleshoot/no-data.png)
+
+
+## Verify that the virtual machine meets configuration requirements
+
+1. Verify that the virtual machine is an Azure virtual machine. Azure Arc for servers is not currently supported.
+2. Verify that the virtual machine is running a [supported operating system](insights/vminsights-health-enable.md?current-limitations).
+3. Verify that the virtual machine is installed in a [supported region](insights/vminsights-health-enable.md?current-limitations).
+4. Verify that the Log Analytics workspace is installed in a [supported region](insights/vminsights-health-enable.md?current-limitations).
+
+## Verify that the VM is properly onboarded
+Verify that the Azure Monitor agent extension and Guest VM Health agent are successfully provisioned on the virtual machine. Select **Extensions** from the virtual machine's menu in the Azure portal. If the two agents are listed, then see []().
+
+[![Extensions](media/vminsights-health-troubleshoot/extensions.png)](media/vminsights-health-troubleshoot/extensions.png)
+
+## Verify the system assigned identity is enabled on the virtual machine
+Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. If the two agents are listed, then see []().
+
+[![System assigned identity](media/vminsights-health-troubleshoot/system-identity.png)](media/vminsights-health-troubleshoot/system-identity.png)
+
+## Verify data collection rule
+Verify that the data collection rule specifying health extension as a data source is associated with the virtual machine.

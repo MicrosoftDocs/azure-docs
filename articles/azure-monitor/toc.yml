@@ -984,6 +984,8 @@
         href: insights/vminsights-health-configure.md
       - name: Configure at scale
         href: insights/vminsights-health-configure-template.md
+      - name: Troubleshoot
+        href: insights/vminsights-health-troubleshoot.md
     - name: Monitor changes
       href: insights/vminsights-change-analysis.md
     - name: Analyze data with log queries
