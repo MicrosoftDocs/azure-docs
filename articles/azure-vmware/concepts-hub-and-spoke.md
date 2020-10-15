@@ -22,6 +22,9 @@ The *Hub* is an Azure Virtual Network that acts as a central point of connectivi
 
 Traffic between the on-premises datacenter, Azure VMware Solution private cloud, and the Hub goes through Azure ExpressRoute connections. Spoke virtual networks usually contain IaaS based workloads but can have PaaS services like [App Service Environment](../app-service/environment/intro.md), which has direct integration with Virtual Network, or other PaaS services with [Azure Private Link](../private-link/index.yml) enabled.
 
+>[!IMPORTANT]
+>You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.
+
 The diagram shows an example of a Hub and Spoke deployment in Azure connected to on-premises and Azure VMware Solution through ExpressRoute Global Reach.
 
 :::image type="content" source="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png" alt-text="Azure VMware Solution Hub and Spoke integration deployment" border="false" lightbox="./media/hub-spoke/azure-vmware-solution-hub-and-spoke-deployment.png":::

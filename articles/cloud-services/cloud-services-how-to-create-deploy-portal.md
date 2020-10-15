@@ -79,13 +79,10 @@ If your deployment package was [configured to use certificates](cloud-services-c
 
     ![CloudServices_QuickGlance](./media/cloud-services-how-to-create-deploy-portal/running.png)
 
-[TFSTutorialForCloudService]: https://go.microsoft.com/fwlink/?LinkID=251796
+[TFSTutorialForCloudService]: ./cloud-services-choose-me.md
 
 ## Next steps
 * [General configuration of your cloud service](cloud-services-how-to-configure-portal.md).
 * Configure a [custom domain name](cloud-services-custom-domain-name-portal.md).
 * [Manage your cloud service](cloud-services-how-to-manage-portal.md).
 * Configure [TLS/SSL certificates](cloud-services-configure-ssl-certificate-portal.md).
-
-
-
