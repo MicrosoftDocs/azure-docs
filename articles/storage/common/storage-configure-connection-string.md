@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
@@ -106,9 +106,10 @@ The endpoint values in a connection string are used to construct the request URI
 
 If you've mapped a storage endpoint to a custom domain and omit that endpoint from a connection string, then you will not be able to use that connection string to access data in that service from your code.
 
+For more information about configuring a custom domain for Azure Storage, see [Map a custom domain to an Azure Blob Storage endpoint](../blobs/storage-custom-domain-name.md).
+
 > [!IMPORTANT]
-> Service endpoint values in your connection strings must be well-formed URIs, including `https://` (recommended) or `http://`. Because Azure Storage does not yet support HTTPS for custom domains, you *must* specify `http://` for any endpoint URI that points to a custom domain.
->
+> Service endpoint values in your connection strings must be well-formed URIs, including `https://` (recommended) or `http://`.
 
 ### Create a connection string with an endpoint suffix
 
