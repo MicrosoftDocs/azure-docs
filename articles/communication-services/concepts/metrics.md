@@ -38,7 +38,24 @@ The following operations are available on Chat API request metrics:
 
 TODO: turn this into a table that describes each item, maybe explain how a dev might invoke/consume these, how they can help the developer
 
-Operation – (All routes) - GetChatMessage, ListChatMessages, SendChatMessage, UpdateChatMessage, DeleteChatMessage, GetChatThread, ListChatThreads, UpdateChatThread,  CreateChatThread, DeleteChatThread, GetReadReceipts, SendTypingIndicator, ListChatThreadParticipants, AddChatThreadParticipants and RemoveChatThreadParticipant.
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| GetChatMessage       | TODO |
+| ListChatMessages     | TODO |
+| SendChatMessage      | TODO |
+| UpdateChatMessage    | TODO |
+| DeleteChatMessage    | TODO |
+| GetChatThread        | TODO |
+| ListChatThreads      | TODO |
+| UpdateChatThread     | TODO |
+| CreateChatThread     | TODO |
+| DeleteChatThread     | TODO |
+| GetReadReceipts      | TODO |
+| SendTypingIndicator           | TODO |
+| ListChatThreadParticipants    | TODO |
+| AddChatThreadParticipants     | TODO |
+| RemoveChatThreadParticipant   | TODO |
 
 :::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
@@ -48,9 +65,12 @@ If a request is made to an operation that isn't recognized, you'll receive a "Ba
 
 The following operations are available on SMS API request metrics:
 
-TODO: turn this into a table that describes each item, maybe explain how a dev might invoke/consume these
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| SMSMessageSent       | TODO |
+| SMSDeliveryReportsReceived     | TODO |
+| SMSMessagesReceived      | TODO |
 
-Operation – (All routes) - SMSMessageSent, SMSDeliveryReportsReceived, and SMSMessagesReceived
 
 :::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
 
