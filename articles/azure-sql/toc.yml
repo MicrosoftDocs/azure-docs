@@ -1062,7 +1062,7 @@
             href: virtual-machines/windows/automated-backup.md
           - name: Automated backup (SQL 2014)
             href: virtual-machines/windows/automated-backup-sql-2014.md
-        - name: Always On availability group
+        - name: Availability group (AG)
           items:
           - name: Create AG 
             items: 

@@ -26,7 +26,7 @@ Use the Azure portal to create a new cluster or onboard an existing cluster, and
    > [!NOTE]
    > This feature is currently in preview and being deployed so if your desired region is unavailable, check back soon. 
 
-While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
+While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
 
 
 ## Prerequisites
