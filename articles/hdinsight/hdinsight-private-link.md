@@ -1,15 +1,15 @@
 ---
-title: Secure virtual network traffic with private Azure HDInsight clusters (preview)
-description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure network security groups and user-defined routes for virtual networking with Azure HDInsight.
+title: Secure and isolate Azure HDInsight clusters with Private Link (preview)
+description: Learn how to isolate Azure HDInsight clusters in a virtual network using Azure Private Link.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 10/14/2020
 ---
 
-# Secure virtual network traffic with private Azure HDInsight clusters (preview)
+# Secure and isolate Azure HDInsight clusters with Private Link (preview)
 
 In Azure HDInsight's [default virtual network architecture](./hdinsight-virtual-network-architecture.md), the HDInsight resource provider (RP) communicates with the cluster using public IP addresses. Some scenarios require complete network isolation with no use of public IP addresses. In this article, you learn about the advanced controls you can use to create a private HDInsight cluster. For information on how to restrict traffic to and from your cluster without complete network isolation, see [Control network traffic in Azure HDInsight](./control-network-traffic.md).
 
@@ -32,7 +32,13 @@ The following diagram shows what a potential HDInsight virtual network architect
 
 :::image type="content" source="media/hdinsight-private-link/outbound-resource-provider-connection-only.png" alt-text="Diagram of HDInsight architecture using an outbound resource provider connection":::
 
-### DNS entries
+### Private DNS considerations
+
+When you configure `resourceProviderConnection` to outbound, your HDInsight cluster does not use public IP addresses, which means that you cannot use the Public DNS Zone. To access the cluster, you can either use the private IP addresses directly, or you can implement your own Private DNS Zone to override the cluster endpoints. You'll need to configure all three load balancer endpoints:
+
+* `https://<clustername>.azurehdinsight.net`
+* `https://<clustername>-int.azurehdinsight.net`
+* `https://<clustername>-ssh.azurehdinsight.net`
 
 
 ## Enable Private Link
@@ -53,11 +59,15 @@ Once you've set up the networking, you can create a cluster with outbound resour
 
 :::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagram of private link environment after cluster creation":::
 
-### Public DNS entries
-
 ### Access a private cluster
 
 To access private clusters, you can use the internal load balancer private IPs directly, or you can use Private Link DNS extensions and Private Endpoints. When the `privateLink` setting is set to enabled, you can create your own private endpoints and configure DNS resolution through private DNS zones.
+
+The Private Link DNS extensions for each load balancer are as follows:
+
+* `https://<clustername>.privatelink.azurehdinsight.net`
+* `https://<clustername>-int.privatelink.azurehdinsight.net`
+* `https://<clustername>-ssh.privatelink.azurehdinsight.net`
 
 The following image shows an example of the private DNS entries required to access the cluster from a virtual network that is not peered or doesn't have a direct line of sight to the cluster load balancers. You can use Azure Private Zone to override `*.privatelink.azurehdinsight.net` FQDNs and resolve to your own private endpoints IP addresses.
 
@@ -65,6 +75,18 @@ The following image shows an example of the private DNS entries required to acce
 
 ## ARM template properties
 
+The following JSON code snippet includes the two network properies you need to configure in your ARM template to create a private HDInsight cluster.
+
+```json
+networkProperties: {
+    "resourceProviderConnection": "Inbound" | "Outbound",
+    "privateLink": "Enabled" | "Disabled"
+}
+```
+
+For a complete template with many of the HDInsight enterprise security features, including Private Link, see [HDInsight enterprise security template](https://github.com/Azure-Samples/hdinsight-enterprise-security/tree/main/ESP-HIB-PL-Template).
+
 ## Next steps
 
-* 
+* [Enterprise Security Package for Azure HDInsight](enterprise-security-package.md)
+* [Enterprise security general information and guidelines in Azure HDInsight](./domain-joined/general-guidelines.md)
