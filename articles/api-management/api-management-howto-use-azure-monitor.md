@@ -71,18 +71,18 @@ To configure alerts:
 
 1. Select **Alerts** from the menu bar near the bottom of the page.
 
-    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![Screenshot that shows Alerts in the menu near the bottom of the page.](./media/api-management-azure-monitor/alert-menu-item.png)
 
 2. Click on a **New alert rule** for this alert.
 3. Click on **Add condition**.
 4. Select **Metrics** in the Signal type drop down.
 5. Select **Unauthorized Gateway Request** as the signal to monitor.
 
-    ![alerts](./media/api-management-azure-monitor/signal-type.png)
+    ![Screenshot that highlights the Signal Type field  and Unauthorized Gateway Requests signal name.](./media/api-management-azure-monitor/signal-type.png)
 
 6. In the **Configure signal logic** view, specify a threshold after which the alert should be triggered and click **Done**.
 
-    ![alerts](./media/api-management-azure-monitor/threshold.png)
+    ![Screenshot that shows the Configure signal logic view.](./media/api-management-azure-monitor/threshold.png)
 
 7. Select an existing Action Group or create a new one. In the example below, an email will be sent to the admins. 
 
