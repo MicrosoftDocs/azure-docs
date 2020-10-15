@@ -120,7 +120,7 @@ The OutputClaim element contains the following attributes:
 
   - **ClaimTypeReferenceId** - The identifier of a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy file or parent policy file.
   - **PartnerClaimType** - Allows you to change the name of the claim in the token. 
-  - **DefaultValue** - A default value. You can aslo set the default value to a [claim resolver](claim-resolver-overview.md), such as tenant ID.
+  - **DefaultValue** - A default value. You can also set the default value to a [claim resolver](claim-resolver-overview.md), such as tenant ID.
   - **AlwaysUseDefaultValue** - Force the use of the default value.
 
 ## Next steps
