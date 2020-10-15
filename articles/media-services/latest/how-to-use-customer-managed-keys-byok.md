@@ -76,7 +76,7 @@ resourceLocation = the region where you want your resources
 1. Store the key identifier
 [!INCLUDE [store the key identifier](./includes/task-store-key-identifier-rest.md)]
 1. Update the Media Services account to use the key
-[!INLUDE [update the media services account](./includes/task-update-media-services-to-use-customer-key-rest.md)]
+[!INLUDE [update the media services account](./includes/task-update-media-services-customer-key-rest.md)]
 
 ## Change the key
 
