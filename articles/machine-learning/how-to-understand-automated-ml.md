@@ -156,7 +156,7 @@ You can compare the lift of the model built automatically with Azure Machine Lea
 
 A higher lift curve, that is the higher your model is above the baseline, indicates a better performing model. 
 
-#### Example 1: A classification model that has poor lift 
+#### Example 1: A classification model that performs poorly compared to a random selection model
 ![A classification model that does worse than a random selection model](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
 
 #### Example 2: A classification model that performs better than a random selection model
@@ -176,10 +176,10 @@ You can compare the cumulative gains chart to the baseline (incorrect model) to 
 Similar to a lift chart, the higher your cumulative gains curve is above the baseline, the better your model is performing. Additionally, the closer your cumulative gains curve is to the top left corner of the graph, the greater gain your model is achieving versus the baseline. 
 
 ##### Example 1: A classification model with minimal gain
-![a classification model with minimal gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
+![a classification model with minimal gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
 
 ##### Example 2: A classification model with significant gain
-![A classification model with significant gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+![A classification model with significant gain](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
 
 <a name="calibration-plot"></a>
 
