@@ -36,15 +36,13 @@ This how-to assumes that you know how to:
 
 ### Single sign-on concepts
 
-There are two ways for third party applications using MSAL for Android to accheive SSO, through the system browser and through a broker application. 
+There are two ways for third party applications using MSAL for Android to accheive SSO, through the system browser and through a broker application. Using a broker application allows for additional benefits such as device wide SSO, account management, and conditional access, however, it does require your users download additional applications.
 
 ## SSO through System Browser 
 
 Android applications have the option to use the webview, system browser, or Chrome Custom Tabs for authentication user experience. If the application is not using brokered authentication, it will need to use the system browser rather than the native webview in order to achieve SSO. [Read more about authorization agents and SSO implications](https://docs.microsoft.com/azure/active-directory/develop/authorization-agents). 
 
 ### Authorization agents (Android)
-
-This article describes the different authorization agents that the Microsoft Authentication Library (MSAL) allows your app to use and how to enable them.
 
 Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults (see [Understand  the Android MSAL configuration file](msal-configuration.md) to see the various defaults).
 
