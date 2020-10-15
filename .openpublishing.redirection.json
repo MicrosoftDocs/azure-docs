@@ -14643,6 +14643,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-vmware/ecosystem-backup-vms.md",
+      "redirect_url": "/azure/azure-vmware/ecosystem-back-up-vms",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-vmware/tutorial-deploy-vm-content-library.md",
       "redirect_url": "/azure/azure-vmware/deploy-vm-content-library",
       "redirect_document_id": false
@@ -39773,6 +39778,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/speech-service/how-to-choose-recognition-mode.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-phrase-lists.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/speech-service/how-to-customize-voice-font.md",
       "redirect_url": "/azure/cognitive-services/speech-service/how-to-custom-voice-create-voice",
       "redirect_document_id": true
@@ -58076,6 +58091,11 @@
     {
       "source_path": "articles/private-link/create-private-endpoint-cosmosdb-portal.md",
       "redirect_url": "/azure/private-link/tutorial-private-endpoint-cosmosdb-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/cli-samples.md",
+      "redirect_url": "/azure/batch/scripts/batch-cli-sample-create-account",
       "redirect_document_id": false
     },
     {

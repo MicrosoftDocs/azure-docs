@@ -155,7 +155,7 @@ To edit the rules for a group of machines:
     :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-group-settings.png" alt-text="The group settings page for adaptive application controls" lightbox="./media/security-center-adaptive-application/adaptive-application-group-settings.png":::
 
     > [!IMPORTANT]
-    > The **Enforce** option in the file type protection mode settings is greyed out in all scenarios. No enforcement options are available at this time. 
+    > The **Enforce** option, in the file type protection mode settings, is greyed out in **all** scenarios. No enforcement options are available at this time. 
     >
     > :::image type="content" source="./media/security-center-adaptive-application/adaptive-application-modes.png" alt-text="The enforce mode for file protection is permanently grayed out. No enforcement options are available.":::
 
