@@ -201,7 +201,7 @@ Azure Cosmos DB data might have nested subarrays like the author's array from [C
 
 In some cases, you might need to "join" the properties from the top item (metadata) with all
 elements of the array (authors). Serverless SQL pool enables you to flatten nested structures by applying
-`OPENJSON` function on the nested array:
+the `OPENJSON` function on the nested array:
 
 ```sql
 SELECT
