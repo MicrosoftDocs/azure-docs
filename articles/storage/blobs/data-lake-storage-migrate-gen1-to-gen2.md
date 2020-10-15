@@ -174,7 +174,7 @@ Check out our sample code for the incremental copy pattern in our [Incremental c
 
 4. Stop all writes to Gen1 and then decommission Gen1.
 
-Check out our sample code for the dual pipeline pattern in our [Dual Pipeline migration sample](hhttps://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
+Check out our sample code for the dual pipeline pattern in our [Dual Pipeline migration sample](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Dual%20pipeline/README.md).
 
 > [!div class="mx-imgBorder"]
 > ![Dual pipeline pattern](./media/data-lake-storage-migrate-gen1-to-gen2/dual-pipeline.png)
