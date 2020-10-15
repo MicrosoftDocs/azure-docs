@@ -160,7 +160,7 @@ If you select **Use XML file**, you can specify specific containers and blobs (p
 2. Select **+ Container** to create a container.
     ![Screenshot of the Containers section.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-02.png)
 
-3. In **New Container** tab that pops out from the right side of the Azure portal, add a name for the container. The name must be lower-case and you may include numbers and dashes '-'. Then select the **Public access level** from the drop-down list box. We recommend that you choose **Private (non anonymous access)** to prevent others from accessing your data. For more information regarding container access levels, see [Container access permissions](../storage/blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
+3. In **New Container** tab that pops out from the right side of the Azure portal, add a name for the container. The name must be lower-case and you may include numbers and dashes '-'. Then select the **Public access level** from the drop-down list box. We recommend that you choose **Private (non anonymous access)** to prevent others from accessing your data. For more information regarding container access levels, see [Container access permissions](../storage/blobs/anonymous-read-access-configure.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 
    ![Screenshot of the New container tab showing the Private (no anonymous access) option selected.](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
