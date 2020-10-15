@@ -487,7 +487,6 @@ The Localization element allows you to support multiple locales or languages in 
 <LocalizedResources Id="api.custom-email.en">
   <LocalizedStrings>
     ...
-
     <!-- Display control UI elements-->
     <LocalizedString ElementType="UxElement" StringId="verification_control_but_change_claims">Change</LocalizedString>
     <LocalizedString ElementType="UxElement" StringId="verification_control_fail_send_code">Failed to send the code, please try again later.</LocalizedString>
