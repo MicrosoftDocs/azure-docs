@@ -14,44 +14,50 @@ ms.date: 10/14/2020
 
 The following are the steps for using a customer managed key with a Media Services storage account.
 
+## Prerequisites
+
+- Note your tenant Id.
+- Create a service principal and secret.
+- Keep track of the service principal ID, service principal object id, and secret as you will be using them in the below steps.
+
 ## Values
 
 You will need the following values:
 
 ### AAD details
 
-tenantId - your tenant ID
-servicePrincipalId - the ID of the service principal you create.
-servicePrincipalObjectId - **what is this?**
-servicePrincipalSecret - the secret for the service principal
+- tenantId - your tenant ID
+- servicePrincipalId - the ID of the service principal you create.
+- servicePrincipalObjectId - **what is this?**
+- servicePrincipalSecret - the secret for the service principal
 
 ### AAD resources
 
 **What needs to be said about these values?**
 
-armResource = https://management.core.windows.net/
-graphResource = https://graph.windows.net/
-keyVaultResource = https://vault.azure.net/
+- armResource = `https://management.core.windows.net/`
+- graphResource = `https://graph.windows.net/`
+- keyVaultResource = `https://vault.azure.net/`
 
 ### Service endpoints
 
 **What needs to be said about these values?**
 
-armEndpoint = management.azure.com
-aadEndpoint = login.microsoftonline.com
-keyVaultDomainSuffix = vault.azure.net
+- armEndpoint = management.azure.com
+- aadEndpoint = login.microsoftonline.com
+- keyVaultDomainSuffix = vault.azure.net
 
 ### ARM details
 
-subscription - your subscription ID
-resourceGroup - the resource group you would like to use
-storageName - the name of your storage account
-accountName - the name of your Media Services account
-keyVaultName = the name of your Key Vault
-keyName = the name of your key
-resourceLocation = the region where you want your resources
+- subscription - your subscription ID
+- resourceGroup - the resource group you would like to use
+- storageName - the name of your storage account
+- accountName - the name of your Media Services account
+- keyVaultName = the name of your Key Vault
+- keyName = the name of your key
+- resourceLocation = the region where you want your resources
 
-**Do we need to add a note here about resources needing to all be in the same location or is that false?**
+**Do we need to add a note here about resources needing to all be in the same resource location or is that false?**
 
 ## Create resources
 
