@@ -18,7 +18,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use the storage account key to create a service SAS for a container or blob with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
+This article shows how to use the storage account key to create a service SAS for a container or blob with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 ## Create a service SAS for a blob container
 
