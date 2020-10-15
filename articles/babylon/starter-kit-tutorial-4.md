@@ -35,9 +35,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## View resource sets
 
-A resource set is a single object in the catalog that represents many physical objects in storage. The objects usually share a common schema and, in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*. 
-<!--- Temporarily comment out until rest of release branch files are ported
-For more information about resource sets, see [Resource sets in Azure Babylon](concept-resource-sets.md). --->
+A resource set is a single object in the catalog that represents many physical objects in storage. The objects usually share a common schema and, in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*. For more information about resource sets, see [Resource sets in Azure Babylon](concept-resource-sets.md).
 
 1. Go to your Azure Babylon portal at `https://web.babylon.azure.com/resource/<your Azure Babylon account name>`.
 
