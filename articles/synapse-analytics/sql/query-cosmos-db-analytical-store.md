@@ -15,9 +15,6 @@ ms.reviewer: jrasnick
 
 Synapse SQL serverless (previously SQL on-demand) allows you to analyze data in your Azure Cosmos DB containers that are enabled with [Azure Synapse Link](../../cosmos-db/synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) in near real time without impacting the performance of your transactional workloads. It offers a familiar T-SQL syntax to query data from the [analytical store](../../cosmos-db/analytical-store-introduction.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and integrated connectivity to a wide range of BI and ad-hoc querying tools via the T-SQL interface.
 
-> [!NOTE]
-> Support for querying Azure Cosmos DB analytical store with SQL serverless is currently in gated preview. Open public preview will be announced on [Azure service updates](https://azure.microsoft.com/updates/?status=nowavailable&category=databases) page.
-
 For querying Azure Cosmos DB, the full [SELECT](/sql/t-sql/queries/select-transact-sql?view=sql-server-ver15) surface area is supported through the [OPENROWSET](develop-openrowset.md) function, including the majority of [SQL functions and operators](overview-features.md). You can also store results of the query that reads data from Azure Cosmos DB along with data in Azure Blob Storage or Azure Data Lake Storage using [create external table as select](develop-tables-cetas.md#cetas-in-sql-on-demand). You can't currently store SQL serverless query results to Azure Cosmos DB using [CETAS](develop-tables-cetas.md#cetas-in-sql-on-demand).
 
 In this article, you'll learn how to write a query using SQL serverless that will query data from Azure Cosmos DB containers that are Synapse Link enabled. You can then learn more about building SQL serverless views over Azure Cosmos DB containers and connecting them to Power BI models in [this](./tutorial-data-analyst.md) tutorial. 
@@ -261,6 +258,17 @@ For querying Azure Cosmos DB accounts of Mongo DB API kind, you can learn more a
 
 - Alias **MUST** be specified after `OPENROWSET` function (for example, `OPENROWSET (...) AS function_alias`). Omitting alias might cause connection issue and Synapse serverless SQL endpoint might be temporarily unavailable. This issue will be resolved in Nov 2020.
 - Synapse serverless SQL currently don't support [Azure Cosmos DB full fidelity schema](../../cosmos-db/analytical-store-introduction.md#schema-representation). Use Synapse serverless SQL only to access Cosmos DB well-defined schema.
+
+List of possible errors and troubleshooting actions are listed in the following table:
+
+| Error | Root cause |
+| --- | --- |
+| Syntax errors:<br/> - Incorrect syntax near 'Openrowset'<br/> - `...` is not a recognized BULK OPENROWSET provider option.<br/> - Incorrect syntax near `...` | Possible root causes<br/> - Not using 'CosmosDB' as first parameter,<br/> - Using string literal instead of identifier in third parameter,<br/> - Not specifying third parameter (container name) |
+| There was an error in CosmosDB connection string | - Account, Database, Key is not specified <br/> - There is some option in connection string that is not recognized.<br/> - Semicolon `;` is placed at the end of connection string |
+| Resolving CosmosDB path has failed with error 'Incorrect account name' or 'Incorrect database name' | Specified account name, database name, or container cannot be found, or analytical storage has not been enabled o the specified collection|
+| Resolving CosmosDB path has failed with error 'Incorrect secret value' or 'Secret is null or empty' | Account key is not valid or missing. |
+| Column `column name` of type `type name` is not compatible with external data type `type name` | Specified column type in `WITH` clause doesn't match type in Cosmos DB container. Try to change the column type as it is described in the section [Azure Cosmos DB to SQL type mappings](#azure-cosmos-db-to-sql-type-mappings) or use `VARCHAR` type. |
+| Column contains `NULL` values in all cells. | Possibly wrong column name or path expression in `WITH` clause. Column name (or path expression after the column type) in `WITH` clause must match some property name in Cosmos DB collection. Comparison is **case sensitive**  (for example, `productCode` and `ProductCode` are different properties). |
 
 You can report suggestions and issues on [Azure Synapse feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
