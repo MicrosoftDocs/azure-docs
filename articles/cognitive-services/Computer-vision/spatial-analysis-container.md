@@ -341,7 +341,6 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
 
 |Parameter  |Description  |
 |---------|---------|
-| `--deployment-id` | A new name for the deployment. |
 | `--hub-name` | Your Azure IoT Hub name. |
 | `--content` | The name of the deployment file. |
 | `--target-condition` | Your IoT Edge device name for the host computer. |
