@@ -248,7 +248,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         </service>
 ```
 
-- Once the payload is retrieved, it can be passed to the *Communication Services* client library to be handled by calling the *handlePushNotification* method on a *CallAgent* instance. A `CallAgent` instance is create by calling the `createCallAgent(...)` method on a `CallClient` class.
+- Once the payload is retrieved, it can be passed to the *Communication Services* client library to be handled by calling the *handlePushNotification* method on a *CallAgent* instance. A `CallAgent` instance is created by calling the `createCallAgent(...)` method on the `CallClient` class.
 
 ```java
 try {
