@@ -879,4 +879,4 @@ groups:
   - id: client-operating-system-windows-command
     title: Windows command shell
   - id: client-operating-system-powershell
-    title: Windows command shell
+    title: PowerShell
