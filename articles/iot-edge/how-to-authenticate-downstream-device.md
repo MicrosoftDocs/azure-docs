@@ -105,7 +105,7 @@ For X.509 self-signed authentication, sometimes referred to as thumbprint authen
 
 4. Copy both the primary and secondary device certificates and their keys to any location on the downstream device. Also move a copy of the shared root CA certificate that generated both the gateway device certificate and the downstream device certificates.
 
-   You'll reference these certificate files in any applications on the downstream device that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
+   You'll reference these certificate files in any applications on the downstream device that connect to IoT Hub. You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
 5. Depending on your preferred language, review samples of how X.509 certificates can be referenced in IoT applications:
 
@@ -151,7 +151,7 @@ This section is based on the instructions detailed in the IoT Hub article [Set u
 
 5. Copy the device certificate and keys to any location on the downstream device. Also move a copy of the shared root CA certificate that generated both the gateway device certificate and the downstream device certificates.
 
-   You'll reference these files in any applications on the downstream device that connect to IoT Hub. You can use a service like [Azure Key Vault](https://docs.microsoft.com/azure/key-vault) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
+   You'll reference these files in any applications on the downstream device that connect to IoT Hub. You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
 6. Depending on your preferred language, review samples of how X.509 certificates can be referenced in IoT applications:
 

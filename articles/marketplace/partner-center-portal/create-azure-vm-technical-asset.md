@@ -141,7 +141,7 @@ This article details how to use the built-in Windows RDP support to connect to y
 
 ### Connect to a Linux-based VM
 
-To connect to a Linux-based VM, you need a secure shell protocol (SSH) client. The following steps use the free [PuTTY](https://www.ssh.com/ssh/putty/) SHH terminal.
+To connect to a Linux-based VM, you need a secure shell protocol (SSH) client. The following steps use the free [PuTTY](https://www.ssh.com/ssh/putty/) SSH terminal.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/).
 2. Search for and select Virtual machines.

@@ -1,5 +1,5 @@
 ---
-title: 'Create an Azure Bastion host: Windows VM: portal'
+title: 'Tutorial: Create an Azure Bastion host: Windows VM: portal'
 description: In this article, you learn how to create an Azure Bastion host and connect to a Windows VM.
 services: bastion
 author: cherylmc
@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 # Tutorial: Create an Azure Bastion host and connect to a Windows VM through a browser
 
-This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, you deploy Bastion to your virtual network. After deploying Bastion, you connect to a VM via the private IP address using the Azure portal. Your VM does not need a public IP address or special software. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
+This tutorial shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, you deploy Bastion to your virtual network. After deploying Bastion, you connect to a VM via its private IP address using the Azure portal. Your VM does not need a public IP address or special software. Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
 In this tutorial, you'll learn how to:
 
@@ -85,4 +85,7 @@ your resources using the following steps:
 
 ## Next steps
 
-In this tutorial, you created a Bastion Host and associated it to a virtual network, and connected to a Windows VM. You may choose to use Network Security Groups with your Azure Bastion subnet. To do so, see [Work with NSGs](bastion-nsg.md).
+In this tutorial, you created a Bastion host and associated it to a virtual network, then connected to a Windows VM. You may choose to use Network Security Groups with your Azure Bastion subnet. To do so, see:
+
+> [!div class="nextstepaction"]
+> [Work with NSGs](bastion-nsg.md)

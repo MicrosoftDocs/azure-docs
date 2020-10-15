@@ -80,6 +80,12 @@ Azure IoT Edge relies on an [OCI-compatible](https://www.opencontainers.org/) co
 
 If you are installing IoT Edge on a virtual machine, enable nested virtualization and allocate at least 2-GB memory. For Hyper-V, generation 2 virtual machines have nested virtualization enabled by default. For VMware, there's a toggle to enable the feature on your virtual machine.
 
+If you are installing IoT Edge on an IoT Core device, use the following command in a [remote PowerShell session](/windows/iot-core/connect-your-device/powershell) to check whether Windows containers are supported on your device:
+
+```powershell
+Get-Service vmcompute
+```
+
 ---
 
 Azure IoT Edge software packages are subject to the license terms located in each package (`usr/share/doc/{package-name}` or the `LICENSE` directory). Read the license terms prior to using a package. Your installation and use of a package constitutes your acceptance of these terms. If you do not agree with the license terms, do not use that package.
@@ -156,6 +162,9 @@ If the version that you want to install isn't listed, follow the [Offline or spe
 
 # [Windows](#tab/windows)
 
+>[!TIP]
+>For IoT Core devices, we recommend running the installation commands using a remote PowerShell session. For more information, see [Using PowerShell for Windows IoT](/windows/iot-core/connect-your-device/powershell).
+
 1. Run PowerShell as an administrator.
 
    Use an AMD64 session of PowerShell, not PowerShell(x86). If you're unsure which session type you're using, run the following command:
@@ -182,7 +191,7 @@ If the version that you want to install isn't listed, follow the [Offline or spe
    Deploy-IoTEdge -ContainerOs Linux
    ```
 
-3. At this point, the output may prompt you to restart. If so, restart your device now.
+3. At this point, IoT Core devices may restart automatically. Windows 10 or Windows Server devices may prompt you to restart. If so, restart your device now.
 
 When you install IoT Edge on a device, you can use additional parameters to modify the process including:
 
@@ -263,7 +272,7 @@ If your device will be offline during installation, or if you want to install a 
 
 4. Optionally, download an installer for Visual C++ redistributable. For example, the PowerShell script uses this version: [vc_redist.x64.exe](https://download.microsoft.com/download/0/6/4/064F84EA-D1DB-4EAA-9A5C-CC2F0FF6A638/vc_redist.x64.exe). Save the installer in the same folder on your IoT device as the IoT Edge files.
 
-5. To install with offline components, [dot source](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) the local copy of the PowerShell script. 
+5. To install with offline components, [dot source](/powershell/module/microsoft.powershell.core/about/about_scripts#script-scope-and-dot-sourcing) the local copy of the PowerShell script. 
 
 6. Run the [Deploy-IoTEdge](reference-windows-scripts.md#deploy-iotedge) command with the `-OfflineInstallationPath` parameter. Provide the absolute path to the file directory. For example,
 
@@ -317,6 +326,8 @@ If you want to remove the IoT Edge installation from your Windows device, use th
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; `
 Uninstall-IoTEdge
 ```
+
+The `Uninstall-IoTEdge` command does not work on Windows IoT Core. To remove IoT Edge, you need to redeploy your Windows IoT Core image.
 
 For more information about uninstallation options, use the command `Get-Help Uninstall-IoTEdge -full`.
 

@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/healthcare-apis/bring-your-own-key.md",
+      "redirect_url": "/azure/healthcare-apis/customer-managed-key",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/linux/sa-upload-vhd.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/linux/sa-upload-vhd",
       "redirect_document_id": false
@@ -14635,6 +14640,11 @@
     {
       "source_path": "articles/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways.md",
       "redirect_url": "/azure-stack/user/azure-stack-vpn-gateway-about-vpn-gateways",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-vmware/ecosystem-backup-vms.md",
+      "redirect_url": "/azure/azure-vmware/ecosystem-back-up-vms",
       "redirect_document_id": false
     },
     {
@@ -38353,12 +38363,17 @@
     },
     {
       "source_path": "articles/active-directory/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/active-directory/manage-apps/application-provisioning-config-problem-storage-limit.md",
-      "redirect_url": "/azure/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/app-provisioning/application-provisioning-config-problem-storage-limit.md",
+      "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
       "redirect_document_id": false
     },
     {
@@ -39761,6 +39776,16 @@
       "source_path": "articles/cognitive-services/speech-service/speech-scenarios.md",
       "redirect_url": "/azure/cognitive-services/speech-service/overview",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-choose-recognition-mode.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/speech-service/how-to-phrase-lists.md",
+      "redirect_url": "/azure/cognitive-services/speech-service/get-started-speech-to-text",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/speech-service/how-to-customize-voice-font.md",
@@ -58066,6 +58091,11 @@
     {
       "source_path": "articles/private-link/create-private-endpoint-cosmosdb-portal.md",
       "redirect_url": "/azure/private-link/tutorial-private-endpoint-cosmosdb-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/cli-samples.md",
+      "redirect_url": "/azure/batch/scripts/batch-cli-sample-create-account",
       "redirect_document_id": false
     },
     {
