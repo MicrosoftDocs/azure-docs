@@ -1,6 +1,6 @@
 ---
 title: Authentication and authorization
-description: Learn about the various ways an app or service can authenticate to Azure Spatial Anchors, and the levels of control that you have to gate access to Azure Spatial Anchors.
+description: Learn about the various ways an app or service can authenticate to Azure Spatial Anchors, and the levels of control that you have to gate access to Spatial Anchors.
 author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
@@ -13,21 +13,21 @@ ms.custom: devx-track-csharp
 ---
 # Authentication and authorization to Azure Spatial Anchors
 
-In this section, we will cover the various ways you can authenticate to Azure Spatial Anchors from your app or web service, and the ways in which you can use Role-Based Access Control in Azure Directory (Azure AD) to control access to your Spatial Anchors accounts.
+In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use role-based access control in Azure Directory (Azure AD) to control access to your Spatial Anchors accounts.
 
 ## Overview
 
 ![Diagram that shows an overview of authentication to Azure Spatial Anchors.](./media/spatial-anchors-authentication-overview.png)
 
-To access a given Azure Spatial Anchors account, clients need to first obtain an access token from Azure Mixed Reality Security Token Service (STS). Tokens obtained from STS live for 24 hours, and contain information for the Spatial Anchors services to make authorization decisions on the account, and ensure that only authorized principals can access that account.
+To access a given Azure Spatial Anchors account, clients need to first obtain an access token from Azure Mixed Reality Security Token Service (STS). Tokens obtained from STS have a lifetime of 24 hours. They contain information that Spatial Anchors services use to make authorization decisions on the account and ensure that only authorized principals can access the account.
 
-Access tokens can be obtained in exchange from either account keys, or from Azure AD-issued tokens.
+Access tokens can be obtained in exchange for either account keys or tokens issued by Azure AD.
 
-Account keys enable you to get quickly started on using the Azure Spatial Anchors service; however, before you deploy your application to production, it is advised that you update your app to use Azure AD-based authentication.
+Account keys enable you to get started quickly with using the Azure Spatial Anchors service. But before you deploy your application to production, we recommend that you update your app to use Azure AD authentication.
 
-Azure AD authentication tokens can be obtained two ways:
+You can obtain Azure AD authentication tokens in two ways:
 
-- If you are building an enterprise application, and your company is using Azure AD as its identity system, you may use user-based Azure AD authentication in your app, and grant access to your spatial anchors accounts using your existing Azure AD security groups, or directly to users in your organization.
+- If you're building an enterprise application and your company is using Azure AD as its identity system, you can use user-based Azure AD authentication in your app. You then grant access to your Spatial Anchors accounts by using your existing Azure AD security groups. You can also grant access directly to users in your organization.
 - Otherwise, it is recommended that you obtain Azure AD tokens from a web service supporting your app. Using a supporting web service is the recommended method of authentication for production applications, as it avoids embedding the credentials for accessing Azure Spatial Anchors in your client application.
 
 ## Account keys
