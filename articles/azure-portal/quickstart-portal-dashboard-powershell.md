@@ -23,9 +23,9 @@ before you begin.
 
 If you choose to use PowerShell locally, this article requires that you install the Az PowerShell
 module and connect to your Azure account using the
-[Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount)
+[Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount)
 cmdlet. For more information about installing the Az PowerShell module, see
-[Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+[Install Azure PowerShell](/powershell/azure/install-az-ps).
 
 > [!IMPORTANT]
 > While the **Az.Portal** PowerShell module is in preview, you must install it separately from from
@@ -43,7 +43,7 @@ Install-Module -Name Az.Portal
 
 If you have multiple Azure subscriptions, choose the appropriate subscription in which the resources
 should be billed. Select a specific subscription using the
-[Set-AzContext](https://docs.microsoft.com/powershell/module/az.accounts/set-azcontext) cmdlet.
+[Set-AzContext](/powershell/module/az.accounts/set-azcontext) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
@@ -75,8 +75,8 @@ $vmName = 'SimpleWinVM'
 
 ## Create a resource group
 
-Create an [Azure resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
-using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup)
+Create an [Azure resource group](../azure-resource-manager/management/overview.md)
+using the [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)
 cmdlet. A resource group is a logical container in which Azure resources are deployed and managed as
 a group.
 
@@ -119,7 +119,7 @@ completes, move on to the next section.
 ## Download the dashboard template
 
 Since Azure dashboards are resources, they can be represented as JSON. The following code downloads
-a JSON representation of a sample dashboard. For more information, see [The structure of Azure Dashboards](/azure/azure-portal/azure-portal-dashboards-structure).
+a JSON representation of a sample dashboard. For more information, see [The structure of Azure Dashboards](./azure-portal-dashboards-structure.md).
 
 ```azurepowershell-interactive
 $myPortalDashboardTemplateUrl = 'https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/azure-portal/portal-dashboard-template-testvm.json'
@@ -200,4 +200,4 @@ Remove-AzResourceGroup -Name $resourceGroupName
 For more information about the cmdlets contained in the Az.Portal PowerShell module, see:
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure PowerShell: Portal Dashboard cmdlets](https://docs.microsoft.com/powershell/module/Az.Portal/)
+> [Microsoft Azure PowerShell: Portal Dashboard cmdlets](/powershell/module/Az.Portal/)

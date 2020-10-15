@@ -99,7 +99,7 @@ To access your Azure VMware Solution private cloud, the ExpressRoute circuit, wh
 The ExpressRoute circuit from Azure VMware Solution connects to an ExpressRoute gateway in the Azure Virtual Network that you define in this step.  
 
 >[!IMPORTANT]
->If you choose an existing virtual network, you must select one that does not have a pre-existing gateway subnet.  
+>You can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.  
 
 If you want to connect the ExpressRoute circuit from Azure VMware Solution to an existing ExpressRoute gateway, you can do it after deployment.  
 

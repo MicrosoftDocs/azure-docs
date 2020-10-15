@@ -31,7 +31,7 @@ Example use cases include: confidential multiparty data sharing, fraud detection
 | Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
 
-- DCsv2-series VMs are [generation 2 VMs](./linux/generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
+- DCsv2-series VMs are [generation 2 VMs](./generation-2.md#creating-a-generation-2-vm) and only support `Gen2` images.
 - Currently available in the regions listed [here](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all).
 - Previous generation of Confidential Compute VMs: [DC series](sizes-previous-gen.md#preview-dc-series)
 - Create DCsv2 VMs using the [Azure portal](./linux/quick-create-portal.md) or [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview)

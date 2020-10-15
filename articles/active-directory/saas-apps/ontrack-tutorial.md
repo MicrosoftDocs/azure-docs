@@ -112,7 +112,7 @@ To configure Azure AD single sign-on with OnTrack, perform the following steps:
 
 5. OnTrack application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" icon selected in the top-right.](common/edit-attribute.png)
 
 6. In addition to above, OnTrack application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with OnTrack, perform the following steps:
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot that shows the "User claims" dialog with the "Add new claim" and "Save" actions selected.](common/new-save-attribute.png)
 
 	![image](common/new-attribute-details.png)
 

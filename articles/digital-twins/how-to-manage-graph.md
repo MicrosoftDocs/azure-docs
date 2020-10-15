@@ -414,7 +414,7 @@ Consider the following data table, describing a set of digital twins and relatio
 | dtmi:example:Room;1  | Room1 | Floor1 | contains | {"Temperature": 80, "Humidity": 60} |
 | dtmi:example:Room;1  | Room0 | Floor0 | contains | {"Temperature": 70, "Humidity": 30} |
 
-The following code uses the [Microsoft Graph API](https://docs.microsoft.com/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
+The following code uses the [Microsoft Graph API](/graph/overview) to read a spreadsheet and construct an Azure Digital Twins twin graph from the results.
 
 ```csharp
 var range = msftGraphClient.Me.Drive.Items["BuildingsWorkbook"].Workbook.Worksheets["Building"].usedRange;
