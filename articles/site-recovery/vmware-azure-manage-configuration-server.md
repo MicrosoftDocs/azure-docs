@@ -66,7 +66,7 @@ If you missed adding credentials during OVF deployment of configuration server,
 
 1. After [sign-in](#access-configuration-server), select **Manage virtual machine credentials**.
 2. Click on **Add virtual machine credentials**.
-    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![Screenshot shows Manage virtual machine credentials pane with the Add virtual machine credentials link.](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Enter the new credentials and click on **Add**.
 
 You can also add credentials through CSPSConfigtool.exe.

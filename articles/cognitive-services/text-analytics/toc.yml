@@ -107,7 +107,7 @@
         - name: Python
           href: https://aka.ms/azsdk-python-textanalytics-ref-docs
         - name: Java
-          href: https://aka.ms/azsdk-java-textanalytics-ref-docs
+          href: https://docs.microsoft.com/java/api/overview/azure/ai-textanalytics-readme?view=azure-java-stable
         - name: Node.js
           href: https://aka.ms/azsdk-js-textanalytics-ref-docs
     - name: v2

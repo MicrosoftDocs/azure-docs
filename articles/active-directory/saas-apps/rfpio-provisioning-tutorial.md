@@ -61,11 +61,11 @@ Before configuring RFPIO for automatic user provisioning with Azure AD, you will
 
 4.	Ensure that **Auto User Provisioning** is enabled. Click on **GENERATE SCIM API TOKEN**.
 
-	![RFPIO Create Token](media/rfpio-provisioning-tutorial/generate.png)
+	![Screenshot of the S C I M section with the GENERATE S C I M A P I TOKEN option called out.](media/rfpio-provisioning-tutorial/generate.png)
 
 5.	Save the **SCIM API Token** as this token will not be displayed again for security purpose. This value will be entered in the **Secret Token** field in the Provisioning tab of your RFPIO application in the Azure portal.
 
-	![RFPIO Create Token](media/rfpio-provisioning-tutorial/auth.png)
+	![Screenshot of the S C I M section with the the Warning dialog box that appears after you select SUBMIT.](media/rfpio-provisioning-tutorial/auth.png)
 
 ## Add RFPIO from the gallery
 

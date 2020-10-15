@@ -1,8 +1,9 @@
 ---
 author: aahill
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include
-ms.date: 09/21/2020
+ms.date: 10/07/2020
 ms.author: aahi
 ---
 
@@ -111,6 +112,7 @@ These code snippets show you how to do the following tasks with the Text Analyti
 
 * [Authenticate the client](#authenticate-the-client)
 * [Sentiment Analysis](#sentiment-analysis)
+* [Opinion mining](#opinion-mining)
 * [Language detection](#language-detection)
 * [Named Entity recognition](#named-entity-recognition-ner) 
 * [Personally Identifiable Information recognition](#personally-identifiable-information-recognition) 
@@ -238,6 +240,8 @@ Neutral=0.77
 Negative=0.02
 ```
 
+## Opinion mining
+
 In order to do sentiment analysis with opinion mining, create a new function called `sentiment_analysis_with_opinion_mining_example()` that takes the client as an argument, then calls the `analyze_sentiment()` function with option flag `show_opinion_mining=True`. The returned response object will contain not only the sentiment label and score of the entire input document with sentiment analysis for each sentence, but also aspect and opinion level sentiment analysis.
 
 
@@ -249,7 +253,7 @@ def sentiment_analysis_with_opinion_mining_example(client):
         "The rooms were beautiful but dirty. The AC was good and quiet, but the elevator was broken"
     ]
 
-    result = text_analytics_client.analyze_sentiment(documents, show_opinion_mining=True)
+    result = client.analyze_sentiment(documents, show_opinion_mining=True)
     doc_result = [doc for doc in result if not doc.is_error]
 
     positive_reviews = [doc for doc in doc_result if doc.sentiment == "positive"]

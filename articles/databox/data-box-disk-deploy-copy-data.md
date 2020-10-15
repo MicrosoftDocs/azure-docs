@@ -65,7 +65,7 @@ Review the following considerations before you copy the data to the disks:
 
 Perform the following steps to connect and copy data from your computer to the Data Box Disk.
 
-1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order.
+1. View the contents of the unlocked drive. The list of the precreated folders and subfolders in the drive is different depending upon the options selected when placing the Data Box Disk order. If a precreated folder does not exist, do not create it as copying to a user created folder will fail to upload on Azure.
 
     |Selected storage destination  |Storage account type|Staging storage account type |Folders and sub-folders  |
     |---------|---------|---------|------------------|
@@ -209,15 +209,15 @@ This optional procedure may be used when you are using multiple disks and have a
 3. Identify the source data to copy. For instance, in this case:
     - Following block blob data was identified.
 
-         ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
+         ![Split copy data 2](media/data-box-disk-deploy-copy-data/split-copy-2.png)    
 
     - Following page blob data was identified.
 
-         ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-3.png)
+         ![Split copy data 3](media/data-box-disk-deploy-copy-data/split-copy-3.png)
  
 4. Go to the folder where the software is extracted. Locate the `SampleConfig.json` file in that folder. This is a read-only file that you can modify and save.
 
-   ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-4.png)
+   ![Split copy data 4](media/data-box-disk-deploy-copy-data/split-copy-4.png)
  
 5. Modify the `SampleConfig.json` file.
  
@@ -226,11 +226,11 @@ This optional procedure may be used when you are using multiple disks and have a
    - Enter the drive letters corresponding to the target disks. The data is taken from the source path and copied across multiple disks.
    - Provide a path for the log files. By default, it is sent to the current directory where the `.exe` is located.
 
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-5.png)
+     ![Split copy data 5](media/data-box-disk-deploy-copy-data/split-copy-5.png)
 
 6. To validate the file format, go to `JSONlint`. Save the file as `ConfigFile.json`. 
 
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-6.png)
+     ![Split copy data 6](media/data-box-disk-deploy-copy-data/split-copy-6.png)
  
 7. Open a Command Prompt window. 
 
@@ -238,24 +238,24 @@ This optional procedure may be used when you are using multiple disks and have a
 
     `DataBoxDiskSplitCopy.exe PrepImport /config:<Your-config-file-name.json>`
 
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-7.png)
+     ![Split copy data 7](media/data-box-disk-deploy-copy-data/split-copy-7.png)
  
 9. Enter to continue the script.
 
-    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-8.png)
+    ![Split copy data 8](media/data-box-disk-deploy-copy-data/split-copy-8.png)
   
 10. When the dataset is split and copied, the summary of the Split Copy tool for the copy session is presented. A sample output is shown below.
 
-    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-9.png)
+    ![Split copy data 9](media/data-box-disk-deploy-copy-data/split-copy-9.png)
  
 11. Verify that the data is split across the target disks. 
  
-    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-10.png)
-    ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-11.png)
+    ![Split copy data 10](media/data-box-disk-deploy-copy-data/split-copy-10.png)
+    ![Split copy data 11](media/data-box-disk-deploy-copy-data/split-copy-11.png)
 	 
     If you examine the contents of `n:` drive further, you will see that two sub-folders are created corresponding to block blob and page blob format data.
     
-     ![Split copy data](media/data-box-disk-deploy-copy-data/split-copy-12.png)
+     ![Split copy data 12](media/data-box-disk-deploy-copy-data/split-copy-12.png)
 
 12. If the copy session fails, then to recover and resume, use the following command:
 

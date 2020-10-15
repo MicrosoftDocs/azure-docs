@@ -5,7 +5,7 @@ services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: 
+ms.subservice: face-api
 ms.topic: include
 ms.date: 09/17/2020
 ms.author: pafarley
@@ -18,7 +18,6 @@ Use the Face service client library for Go to:
 * [Find similar faces](#find-similar-faces)
 * [Create and train a person group](#create-and-train-a-person-group)
 * [Identify a face](#identify-a-face)
-* [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
 [Reference documentation](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face) | [Library source code](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/face) | [SDK download](https://github.com/Azure/azure-sdk-for-go)
 
@@ -103,7 +102,6 @@ These code samples show you how to complete basic tasks using the Face service c
 * [Find similar faces](#find-similar-faces)
 * [Create and train a person group](#create-and-train-a-person-group)
 * [Identify a face](#identify-a-face)
-* [Take a snapshot for data migration](#take-a-snapshot-for-data-migration)
 
 ## Authenticate the client
 
@@ -240,53 +238,6 @@ The following code compares each of the source images to the target image and pr
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_ver)]
 
-
-## Take a snapshot for data migration
-
-The Snapshots feature lets you move your saved face data, such as a trained **PersonGroup**, to a different Azure Cognitive Services Face subscription. You might use this feature if, for example, you've created a **PersonGroup** object using a free subscription and now want to migrate it to a paid subscription. See the [Migrate your face data](../../Face-API-How-to-Topics/how-to-migrate-face-data.md) for a broad overview of the Snapshots feature.
-
-In this example, you'll migrate the **PersonGroup** you created in [Create and train a person group](#create-and-train-a-person-group). You can either complete that section first, or use your own Face data construct(s).
-
-### Set up target subscription
-
-First, you must have a second Azure subscription with a Face resource; you can do this by repeating the steps in the [Set up](#setting-up) section. 
-
-Then, create the following variables near the top of your **main** method. You'll also need to create new environment variables for the subscription ID of your Azure account, as well as the key, endpoint, and subscription ID of your new (target) account.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_target_client)]
-
-Then, put your subscription ID value into an array for the next steps.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_id)]
-
-### Authenticate target client
-
-Later in your script, save your original client object as the source client, and then authenticate a new client object for your target subscription. 
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_target_auth)]
-
-### Take a snapshot
-
-The next step is to take the snapshot with **[Take](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Take)**, which saves your original subscription's face data to a temporary cloud location. This method returns an ID that you use to query the status of the operation.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_take)]
-
-Next, query the ID until the operation has completed.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_query)]
-
-### Apply the snapshot
-
-Use the **[Apply](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#SnapshotClient.Apply)** operation to write your newly uploaded face data to your target subscription. This method also returns an ID.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply)]
-
-Again, query the ID until the operation has completed.
-
-[!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_snap_apply_query)]
-
-Once you've completed these steps, you can access your face data constructs from your new (target) subscription.
-
 ## Run the application
 
 Run your face recognition app from the application directory with the `go run <app-name>` command.
@@ -302,7 +253,7 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Portal](../../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-If you created a **PersonGroup** in this quickstart and you want to delete it, call the **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** method. If you migrated data using the Snapshot feature in this quickstart, you'll also need to delete the **PersonGroup** saved to the target subscription.
+If you created a **PersonGroup** in this quickstart and you want to delete it, call the **[Delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient.Delete)** method.
 
 ## Next steps
 

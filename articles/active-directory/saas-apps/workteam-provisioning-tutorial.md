@@ -49,15 +49,15 @@ Before configuring Workteam  for automatic user provisioning with Azure AD, you 
 
 1. Log in into [Workteam](https://app.workte.am/account/signin). Click **Organization settings** > **SETTINGS**.
 
-	![Workteam](media/workteam-provisioning-tutorial/settings.png)
+	![Screenshot of the Workteam U I with the Organization settings and SETTINGS options called out.](media/workteam-provisioning-tutorial/settings.png)
 
 2. Scroll to bottom and enable the provisioning capabilities of Workteam.
 
-	![Workteam](media/workteam-provisioning-tutorial/icon.png)
+	![Screenshot of the bottom of the SETTINGS section with the S C I M User Provisioning gear icon called out.](media/workteam-provisioning-tutorial/icon.png)
 
 3. Copy the **Base Url** and **Bearer Token**. These values will be entered in the **Tenant URL**and **Secret Token** field in the Provisioning tab of your Workteam application in the Azure portal.
 
-	![Workteam](media/workteam-provisioning-tutorial/scim.png)
+	![Screenshot of the S C I M Settings dialog box with the BASE U R L and BEARER TOKEN text boxes called out.](media/workteam-provisioning-tutorial/scim.png)
 
 
 ## Add Workteam  from the gallery

@@ -4,7 +4,6 @@ description: In this quickstart, you will build a Docker image with your applica
 
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.author: suhuruli
 ms.custom: mvc
 ---
 # Quickstart: Deploy Linux containers to Service Fabric

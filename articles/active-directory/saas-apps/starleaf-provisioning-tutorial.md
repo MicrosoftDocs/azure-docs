@@ -47,15 +47,15 @@ Before you configure StarLeaf for automatic user provisioning with Azure AD, you
 
 1. Sign in to your [StarLeaf Admin Console](https://portal.starleaf.com/#page=login). Navigate to **Integrations** > **Add integration**.
 
-	![StarLeaf Add SCIM](media/starleaf-provisioning-tutorial/image00.png)
+	![Screenshot of the StarLeaf Admin Console with the Integrations and Add integration options called out.](media/starleaf-provisioning-tutorial/image00.png)
 
 2. Select the **Type** to be Microsoft Azure Active Directory. Enter a suitable name in **Name**. Click **Apply**.
 
-	![StarLeaf Add SCIM](media/starleaf-provisioning-tutorial/image01.png)
+	![Screenshot of the Add integration dialog box with the Type and Name text boxes called out.](media/starleaf-provisioning-tutorial/image01.png)
 
 3.  The **SCIM base URL** and **Access token** values will be then displayed. These values will be entered in the **Tenant URL** and **Secret Token** fields in the Provisioning tab of your StarLeaf application in the Azure portal. 
 
-	![StarLeaf Create Token](media/starleaf-provisioning-tutorial/image02.png)
+	![Screenshot of the Edit integration dialog box with the Type, Name, and SCIM base URL text boxes called out.](media/starleaf-provisioning-tutorial/image02.png)
 
 ## Add StarLeaf from the gallery
 
@@ -110,11 +110,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to StarLeaf**.
 
-	![StarLeaf Create Token](media/starleaf-provisioning-tutorial/usermapping.png)
+	![Screenshot of the Mappings section showing the Synchronize Azure Active Directory Users to StarLeaf option.](media/starleaf-provisioning-tutorial/usermapping.png)
 
 9. Review the user attributes that are synchronized from Azure AD to StarLeaf in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in StarLeaf for update operations. Select the **Save** button to commit any changes.
 
-	![StarLeaf Create Token](media/starleaf-provisioning-tutorial/userattribute.png)
+	![Screenshot of the Attribute Mappings section showing nine mappings displayed.](media/starleaf-provisioning-tutorial/userattribute.png)
 
 
 10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).

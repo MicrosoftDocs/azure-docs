@@ -3,9 +3,10 @@ title: Run Azure Automation runbooks on a Hybrid Runbook Worker
 description: This article describes how to run runbooks on machines in your local datacenter or other cloud provider with the Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.topic: conceptual
 ---
+
 # Run runbooks on a Hybrid Runbook Worker
 
 Runbooks that run on a [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) typically manage resources on the local computer or against resources in the local environment where the worker is deployed. Runbooks in Azure Automation typically manage resources in the Azure cloud. Even though they are used differently, runbooks that run in Azure Automation and runbooks that run on a Hybrid Runbook Worker are identical in structure.
@@ -18,7 +19,7 @@ Azure Automation handles jobs on Hybrid Runbook Workers differently from jobs ru
 
 Jobs for Hybrid Runbook Workers run under the local **System** account on Windows, or the **nxautomation** account on Linux. For Linux, verify the **nxautomation** account has access to the location where the runbook modules are stored. When you use the [Install-Module](/powershell/module/powershellget/install-module) cmdlet, be sure to specify AllUsers for the `Scope` parameter to ensure that the **nxautomation** account has access. For more information on PowerShell on Linux, see [Known Issues for PowerShell on Non-Windows Platforms](/powershell/scripting/whats-new/known-issues-ps6#known-issues-for-powershell-on-non-windows-platforms).
 
-## Set up runbook permissions
+## Configure runbook permissions
 
 Define permissions for your runbook to run on the Hybrid Runbook Worker in the following ways:
 
@@ -26,7 +27,7 @@ Define permissions for your runbook to run on the Hybrid Runbook Worker in the f
 * Configure authentication using [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager).
 * Specify a Run As account to provide a user context for all runbooks.
 
-## Use runbook authentication to local resources
+### Use runbook authentication to local resources
 
 If preparing a runbook that provides its own authentication to resources, use [credential](./shared-resources/credentials.md) and [certificate](./shared-resources/certificates.md) assets in your runbook. There are several cmdlets that allow you to specify credentials so that the runbook can authenticate to different resources. The following example shows a portion of a runbook that restarts a computer. It retrieves credentials from a credential asset and the name of the computer from a variable asset and then uses these values with the `Restart-Computer` cmdlet.
 
@@ -39,7 +40,7 @@ Restart-Computer -ComputerName $Computer -Credential $Cred
 
 You can also use an [InlineScript](automation-powershell-workflow.md#use-inlinescript) activity. `InlineScript` allows you to run blocks of code on another computer with credentials.
 
-## <a name="runbook-auth-managed-identities"></a>Use runbook authentication with managed identities
+### <a name="runbook-auth-managed-identities"></a>Use runbook authentication with managed identities
 
 Hybrid Runbook Workers on Azure virtual machines can use managed identities to authenticate to Azure resources. Using managed identities for Azure resources instead of Run As accounts provides benefits because you don't need to:
 
@@ -66,7 +67,7 @@ Follow the next steps to use a managed identity for Azure resources on a Hybrid 
     > [!NOTE]
     > `Connect-AzAccount -Identity` works for a Hybrid Runbook Worker using a system-assigned identity and a single user-assigned identity. If you use multiple user-assigned identities on the Hybrid Runbook Worker, your runbook must specify the `AccountId` parameter for `Connect-AzAccount` to select a specific user-assigned identity.
 
-## Use runbook authentication with Run As account
+### Use runbook authentication with Run As account
 
 Instead of having your runbook provide its own authentication to local resources, you can specify a Run As account for a Hybrid Runbook Worker group. To specify a Run As account, you must define a [credential asset](./shared-resources/credentials.md) that has access to local resources. These resources include certificate stores and all runbooks run under these credentials on a Hybrid Runbook Worker in the group.
 
@@ -176,7 +177,7 @@ To finish preparing the Run As account:
 
 ## Work with signed runbooks on a Windows Hybrid Runbook Worker
 
-You can configure a Windows Hybrid Runbook Worker to run only signed runbooks. 
+You can configure a Windows Hybrid Runbook Worker to run only signed runbooks.
 
 > [!IMPORTANT]
 > Once you've configured a Hybrid Runbook Worker to run only signed runbooks, unsigned runbooks fail to execute on the worker.
@@ -188,14 +189,13 @@ The following example creates a self-signed certificate that can be used for sig
 ```powershell
 # Create a self-signed certificate that can be used for code signing
 $SigningCert = New-SelfSignedCertificate -CertStoreLocation cert:\LocalMachine\my `
-                                        -Subject "CN=contoso.com" `
-                                        -KeyAlgorithm RSA `
-                                        -KeyLength 2048 `
-                                        -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
-                                        -KeyExportPolicy Exportable `
-                                        -KeyUsage DigitalSignature `
-                                        -Type CodeSigningCert
-
+    -Subject "CN=contoso.com" `
+    -KeyAlgorithm RSA `
+    -KeyLength 2048 `
+    -Provider "Microsoft Enhanced RSA and AES Cryptographic Provider" `
+    -KeyExportPolicy Exportable `
+    -KeyUsage DigitalSignature `
+    -Type CodeSigningCert
 
 # Export the certificate so that it can be imported to the hybrid workers
 Export-Certificate -Cert $SigningCert -FilePath .\hybridworkersigningcertificate.cer
@@ -241,6 +241,13 @@ To be able to work with signed runbooks, a Linux Hybrid Runbook Worker must have
 > [!IMPORTANT]
 > Once you've configured a Hybrid Runbook Worker to run only signed runbooks, unsigned runbooks fail to execute on the worker.
 
+You will perform the following steps to complete this configuration:
+
+* Create a GPG keyring and keypair
+* Make the keyring available to the Hybrid Runbook Worker
+* Verify that signature validation is on
+* Sign a runbook
+
 ### Create a GPG keyring and keypair
 
 To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomation account](automation-runbook-execution.md#log-analytics-agent-for-linux).
@@ -265,10 +272,10 @@ To create the GPG keyring and keypair, use the Hybrid Runbook Worker [nxautomati
 
 ### Make the keyring available to the Hybrid Runbook Worker
 
-Once the keyring has been created, make it available to the Hybrid Runbook Worker. Modify the settings file **/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf** to include the following example code under the file section `[worker-optional]`.
+Once the keyring has been created, make it available to the Hybrid Runbook Worker. Modify the settings file **home/nxautomation/state/worker.conf** to include the following example code under the file section `[worker-optional]`.
 
 ```bash
-gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
+gpg_public_keyring_path = /home/nxautomation/run/.gnupg/pubring.kbx
 ```
 
 ### Verify that signature validation is on

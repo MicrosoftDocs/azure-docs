@@ -63,14 +63,11 @@ When you complete these steps, an alert indicates that the notification hub has 
 
 # [Azure CLI](#tab/azure-cli)
 
-### Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-Before you begin, you must have the following:
+- Notification Hubs requires version 2.0.67 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
-* The [Azure CLI](/cli/azure/install-azure-cli) version 2.0.67 or later.
-
-* The Azure CLI [extension for Notification Hubs](/cli/azure/ext/notification-hub/notification-hub).
-* The **API Key** for a Google Firebase Cloud Messaging (FCM) project.
+- You will need the **API Key** for your Google Firebase Cloud Messaging (FCM) project.
 
 ### Set up push notifications for Google FCM
 

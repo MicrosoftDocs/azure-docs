@@ -15,6 +15,12 @@ This article answers common questions about backing up Azure VMs with the [Azure
 
 When you create a VM, you can enable backup for VMs running [supported operating systems](backup-support-matrix-iaas.md#supported-backup-actions).
 
+### Why Initial backup is taking lot of time to complete?
+
+Initial backup is always a full backup and it will depend on the size of the data and when the backup is processed. <br>
+To improve backup performance see, [backup best practices](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#best-practices); [Backup considerations](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-and-restore-considerations) and [Backup Performance](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction#backup-performance)<br>
+Although the total backup time for incremental backups is less than 24 hours, that might not be the case for the first backup.
+
 ### Is the backup cost included in the VM cost?
 
 No. Backup costs are separate from a VM's costs. Learn more about [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/).
@@ -67,7 +73,7 @@ Remove the lock, and clear the restore point collection from that resource group
 
 ### Does Azure Backup support standard SSD-managed disks?
 
-Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+Yes, Azure Backup supports [standard SSD managed disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#standard-ssd).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
 
@@ -148,6 +154,10 @@ Operations like secret/key roll-over don't require this step and the same key va
 ### Can I access the VM once restored due to a VM having broken relationship with domain controller?
 
 Yes, you access the VM once restored due to a VM having broken relationship with domain controller. For more information, see this [article](./backup-azure-arm-restore-vms.md#post-restore-steps)
+
+### Why restore operation is taking long time to complete?
+
+The total restore time depends on the Input/output operations per second (IOPS) and the throughput of the storage account. The total restore time can be affected if the target storage account is loaded with other application read and write operations. To improve restore operation, select a storage account that isn't loaded with other application data.
 
 ## Manage VM backups
 

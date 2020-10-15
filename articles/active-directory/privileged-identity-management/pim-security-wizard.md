@@ -41,7 +41,7 @@ Also, keep role assignments permanent if a user has a Microsoft account (in othe
 
 1. Select **Reduce global administrators**.
 
-    ![Reduce global administrators - Role pane showing all members](./media/pim-security-wizard/new-preview-page.png)
+    ![Screenshot that shows the "Discovery and insights (Preview)" with the "Reduce global administrators" action selected.](./media/pim-security-wizard/new-preview-page.png)
 
 1. Review the list of Global Administrator role assignments.
 

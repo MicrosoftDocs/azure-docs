@@ -4,6 +4,7 @@ description: Synapse SQL support connections from SQL Server Management Studio (
 services: synapse-analytics
 author: vvasic-msft
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
@@ -21,7 +22,7 @@ This article discusses the differences between the various authentication option
 
 For all the features discussed in this article, use at least July 2017, version 17.2.  The most recent connection dialog box, should look similar to the following image:
 
-![1mfa-universal-connect](./media/mfa-authentication/1mfa-universal-connect.png "Completes the User name box.")  
+![Screenshot shows Connect to Server dialog box where you can select a server name and authentication option.](./media/mfa-authentication/1mfa-universal-connect.png "Completes the User name box.")  
 
 ## The five authentication options  
 
@@ -58,7 +59,7 @@ To enter the parameter (beginning with SSMS version 17.2), in the **Connect to D
 
 Check the **AD domain name or tenant ID** box, and provide authenticating authority, such as the domain name (**contosotest.onmicrosoft.com**) or the GUID of the tenant ID.  
 
-   ![mfa-tenant-ssms](./media/mfa-authentication/mfa-tenant-ssms.png)
+   ![Screenshot shows Connect to Server in the Connection Properties tab with values entered.](./media/mfa-authentication/mfa-tenant-ssms.png)
 
 If you are running SSMS 18.x or later, then the AD domain name or tenant ID is no longer needed for guest users because 18.x or later automatically recognizes it.
 

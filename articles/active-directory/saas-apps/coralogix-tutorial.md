@@ -91,13 +91,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
  1. The Coralogix application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on the application integration page. On the **Set up Single Sign-On with SAML** page, select the **Edit** button to open the **User Attributes** dialog box.
 
-	![image](common/edit-attribute.png)
+	![Screenshot that shows the "User Attributes" dialog with the "Edit" button highlighted.](common/edit-attribute.png)
 
 1. In the **User Claims** section in the **User Attributes** dialog box, edit the claims by using the **Edit** icon. You can also add the claims by using **Add new claim** to configure the SAML token attribute as shown in the previous image. Then take the following steps:
     
 	a. Select the **Edit icon** to open the **Manage user claims** dialog box.
 
-	![image](./media/coralogix-tutorial/tutorial_usermail.png)
+	![Screenshot that shows the "User Attributes & Claims" dialog with the "Edit" button highlighted.](./media/coralogix-tutorial/tutorial_usermail.png)
 	![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
 
 	b. From the **Choose name identifier format** list, select **Email address**.

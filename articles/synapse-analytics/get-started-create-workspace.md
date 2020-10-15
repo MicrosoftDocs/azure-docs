@@ -7,33 +7,34 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: overview
 ms.topic: tutorial
-ms.date: 08/27/2020 
+ms.date: 10/07/2020 
 ---
 
-# Prerequisites
-
-To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
-
-## Create a Synapse workspace
+# Creating a Synapse workspace
 
 In this tutorial, you'll learn how to create a Synapse workspace, a SQL pool, and an Apache Spark pool. 
 
-## Create a Synapse workspace
+## Prerequisites
+
+To complete this all of this tutorial's steps, you need to have access to a resource group for which you are assigned the **Owner** role. Create the Synapse workspace in this resource group.
+
+## Create a Synapse workspace in the Azure Portal
 
 1. Open the [Azure portal](https://portal.azure.com), and at the top search for **Synapse**.
 1. In the search results, under **Services**, select **Azure Synapse Analytics (workspaces preview)**.
 1. Select **Add** to create a workspace.
-1. In **Basics**, choose a workspace name. In this tutorial, we'll use **myworkspace**.
-1. You need an ADLSGEN2 account to create a workspace. The simplest choice it to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
+1. In **Basics**, enter your preferred **Subscription**, **Resource group**, **Region**, and then choose a workspace name. In this tutorial, we'll use **myworkspace**.
+1. You need an ADLSGEN2 account and a container in that account to create a workspace. The simplest choice it to create a new one. If you want to re-use an existing one you'll need to perform some additional configuration. 
+    1. The Synapse workspace will use this container as the default location to store Spark logs and and data for Spark tables.
 1. OPTION 1 Creating a new ADLSGEN2 account 
     1. Navigate to **Select Data Lake Storage Gen 2**. 
     1. Click **Create New** and name it **contosolake**.
-    1. Click **File System** and  name it **users**.
+    1. Click **File System** and name it **users**. This will create a container called **users**
 1. OPTION 2 Using an existing ADLSGEN2 account. See the **Preparing an ADLSGEN2 Storage Account** instructions at the bottom of this document.
 1. Your Azure Synapse workspace will use this storage account as the "primary" storage account and the container to store workspace data. The workspace stores data in Apache Spark tables. It stores Spark application logs under a folder called **/synapse/workspacename**.
 1. Select **Review + create** > **Create**. Your workspace is ready in a few minutes.
-
 
 ## Open Synapse Studio
 
@@ -112,8 +113,8 @@ Configure access to the storage account from your workspace. Managed identities 
 1. Assign the following roles or make sure they're already assigned. We use the same name for the workspace identity and the workspace name.
     * For the **Storage Blob Data Contributor** role on the storage account, assign **myworkspace** as the workspace identity.
     * Assign **myworkspace** as the workspace name.
-
 1. Select **Save**.
+
 
 ## Next steps
 

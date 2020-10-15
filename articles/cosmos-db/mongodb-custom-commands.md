@@ -1,11 +1,11 @@
 ---
 title: MongoDB extension commands to manage data in Azure Cosmos DB’s API for MongoDB 
 description: This article describes how to use MongoDB extension commands to manage data stored in Azure Cosmos DB’s API for MongoDB.  
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/28/2020
-ms.author: lbosq
+ms.author: jasonh
 ms.custom: devx-track-js
 ---
 
