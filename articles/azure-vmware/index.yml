@@ -81,9 +81,8 @@ landingContent:
           - text: Deploy disaster recovery for VMs
             url: disaster-recovery-for-virtual-machines.md
           - text: Deploy VM via content library
-            url: tutorial-deploy-vm-content-library.md
+            url: ./deploy-vm-content-library.md
           - text: Use the public IP functionality
             url: public-ip-usage.md
 
 
-  

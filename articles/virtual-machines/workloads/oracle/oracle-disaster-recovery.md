@@ -1,20 +1,13 @@
 ---
 title: Overview of an Oracle disaster recovery scenario in your Azure environment | Microsoft Docs
 description: A disaster recovery scenario for an Oracle Database 12c database in your Azure environment
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: dbakevlar
-manager: 
-editor: 
-tags: azure-resource-manager
-ms.assetid: 
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: kegorman
+ms.reviewer: cynthn
+
 ---
 
 # Disaster recovery for an Oracle Database 12c database in an Azure environment
@@ -96,7 +89,7 @@ Following is a summary of the Azure setup:
 - [Design and implement an Oracle database on Azure](oracle-design.md)
 - [Configure Oracle Data Guard](configure-oracle-dataguard.md)
 - [Configure Oracle Golden Gate](configure-oracle-golden-gate.md)
-- [Oracle backup and recovery](oracle-backup-recovery.md)
+- [Oracle backup and recovery](./oracle-overview.md)
 
 
 ## Next steps

@@ -84,7 +84,7 @@ public class GenerateThumbnail {
     private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
     // The endpoint path
-    private static final String uriBase = endpoint + "vision/v3.0/generateThumbnail";
+    private static final String uriBase = endpoint + "vision/v3.1/generateThumbnail";
     // It's optional if you'd like to use your own image instead of this one.
     private static final String imageToAnalyze = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg";
 
