@@ -108,9 +108,9 @@ After you configure your network, use this procedure to provision your HSMs.
 
    ![provisioning status](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-   When the deployment completes successfully "provisioningState": "Succeeded" will be displayed. You can connect to your existing virtual machine and use SSH to ensure availability of the HSM device.
+   When the deployment completes successfully, "provisioningState": "Succeeded" will be displayed. You can connect to your existing virtual machine and use SSH to ensure availability of the HSM device.
 
-1. To see a current HSM, use the [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) command:
+1. To see a current HSM, run the [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) command:
 
    ```azurecli
    az dedicated-hsm show  --resource group myRG --name hsm1
@@ -122,7 +122,7 @@ After you configure your network, use this procedure to provision your HSMs.
    az dedicated-hsm create --location westus --name hsm2 --resource-group myRG --network-profile-network-interfaces /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
    ```
 
-1. Use the [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) command to view details about your current HSMs:
+1. Run the [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) command to view details about your current HSMs:
 
    ```azurecli
    az dedicated-hsm list --resource-group myRG
