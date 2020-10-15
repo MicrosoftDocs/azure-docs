@@ -76,6 +76,10 @@
     href: concepts/event-handling.md
   - name: Notifications
     href: concepts/notifications.md
+  - name: Logging and diagnostics
+    href: concepts/logging-and-diagnostics.md
+  - name: Metrics
+    href: concepts/metrics.md
 - name: Samples
   items:
   - name: Group calling hero sample
