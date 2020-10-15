@@ -5,6 +5,7 @@ author: vladvino
 ms.topic: troubleshooting
 ms.date: 10/30/2020
 ms.author: apimpm
+ms.service: api-management
 ---
 
 # Troubleshooting client response timeouts and errors with API Management
