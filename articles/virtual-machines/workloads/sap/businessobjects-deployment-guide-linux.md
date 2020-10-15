@@ -19,7 +19,7 @@ ms.author: depadia
 
 ---
 
-# SAP BusinessObjects Business Intelligence Platform on Azure for Linux
+# SAP BusinessObjects BI platform deployment guide for linux on Azure
 
 This article describes the strategy to deploy SAP BOBI Platform on Azure for Linux. In this example, two virtual machines with Premium SSD Managed Disks as its install directory are configured. Azure Database for MySQL is used for CMS database, and Azure NetApp Files for File Repository Server is shared across both servers. The default Tomcat Java web application and BI Platform application are installed together on both virtual machines. To load balance the user request, Application Gateway is used that has native TLS/SSL offloading capabilities.
 
@@ -40,7 +40,7 @@ In this example, below product version and file system layout is used
 | /usr/sap/frsinput  | The mount directory is for the shared files across all BOBI hosts that will be used as Input File Repository Directory  | Business Need         | bl1adm | sapsys | Azure NetApp Files         |
 | /usr/sap/frsoutput | The mount directory is for the shared files across all BOBI hosts that will be used as Output File Repository Directory | Business Need         | bl1adm | sapsys | Azure NetApp Files         |
 
-## Deploy Linux Virtual Machine via Azure portal
+## Deploy linux virtual machine via Azure portal
 
 In this section, we'll create two virtual machines (VMs) with Linux Operating System (OS) image for SAP BOBI Platform. The high-level steps to create Virtual Machines are as follows -
 
@@ -107,13 +107,13 @@ As you're creating your Azure NetApp Files for SAP BOBI Platform File Repository
 6. The Azure NetApp Files feature isn't zone-aware yet. Currently, the feature isn't deployed in all availability zones in an Azure region. Be aware of the potential latency implications in some Azure regions.
 7. Azure NetApp Files volumes can be deployed as NFSv3 or NFSv4.1 volumes. Both protocols are supported for the SAP BI Platform Applications.
 
-## Configure File Systems on Linux Servers
+## Configure file systems on linux servers
 
 The steps in this section use the following prefixes:
 
 **[A]**: The step applies to all hosts
 
-### Format and Mount SAP File System
+### Format and mount SAP file system
 
 1. **[A]** List all attached disk
 
@@ -179,7 +179,7 @@ The steps in this section use the following prefixes:
     /dev/sdc                       128G   29G  100G  23% /usr/sap
     ```
 
-### Mount Azure NetApp Files Volume
+### Mount Azure NetApp Files volume
 
 1. **[A]** Create mount directories
 
@@ -264,13 +264,13 @@ The steps in this section use the following prefixes:
    10.31.2.4:/azusbobi-frsoutput  100T  512K  100T   1% /usr/sap/frsoutput
    ```
 
-## Configure CMS Database - Azure DB for MySQL
+## Configure CMS database - Azure database for MySQL
 
 This section provides details on how to provision Azure Database for MySQL using Azure portal. It also provides instructions on how to create CMS and Audit Databases for SAP BOBI Platform and a user account to access the database.
 
 The guidelines are applicable only if you're using Azure DB for MySQL. For other database(s), refer to SAP or database-specific documentation for instructions.
 
-### Create an Azure Database for MySQL
+### Create an Azure database for MySQL
 
 Sign in to Azure portal and follow the steps mentioned in this [Quick start Guide of Azure Database for MySQL](../../../mysql/quickstart-create-mysql-server-database-using-azure-portal.md#create-an-azure-database-for-mysql-server). Few points to note while provisioning Azure Database for MySQL -
 
@@ -289,7 +289,7 @@ Sign in to Azure portal and follow the steps mentioned in this [Quick start Guid
 > [!NOTE]
 > Changing the [Backup Redundancy Options](../../../mysql/concepts-backup.md#backup-redundancy-options) after server creation is not supported.
 
-### Configure Connection Security
+### Configure connection security
 
 By default the server created is protected with a firewall and isn't accessible publicly. To provide access to the virtual network where SAP BI Platform application servers are running, follow below steps -  
 
@@ -298,7 +298,7 @@ By default the server created is protected with a firewall and isn't accessible 
 3. Under VNET rules, select **Adding existing virtual network**. Select the virtual network and subnet of SAP BI Platform application server. Also you need to provide access to Jump box or other servers from where you can connect [MySQL Workbench](../../../mysql/connect-workbench.md) to Azure Database for MySQL. MySQL Workbench will be used to create CMS and Audit database
 4. Once virtual networks are added, select **Save**.
 
-### Create CMS and Audit Database
+### Create CMS and audit database
 
 1. Download and install MySQL workbench from [MySQL website](https://dev.mysql.com/downloads/workbench/). Make sure you install MySQL workbench on the server that can access Azure Database for MySQL.
 
@@ -352,7 +352,7 @@ By default the server created is protected with a firewall and isn't accessible 
    +----------------------------------------------------------------------------+
    ```
 
-### Install MySQL C API Connector (libmysqlclient) on Linux Server
+### Install MySQL C API connector (libmysqlclient) on linux server
 
 For SAP BOBI Application server to access database, it requires database client/drivers. MySQL C API Connector for Linux has to be used to access CMS and Audit databases. ODBC connection to CMS database isn't supported. This section provides instructions on how to set up MySQL C API Connector on Linux.
 
@@ -497,9 +497,9 @@ select version();
 +-----------+
 ```
 
-## Post Installation
+## Post installation
 
-### Tomcat Clustering - Session Replication
+### Tomcat clustering - session replication
 
 Tomcat supports clustering of two or more application servers for session replication and failover. SAP BOBI platform sessions are serialized, a user session can fail over seamlessly to another instance of tomcat, even when an application server fails.
 
@@ -507,11 +507,11 @@ For example, if a user is connected to a web server that fails while the user is
 
 In SAP Note [2808640](https://launchpad.support.sap.com/#/notes/2808640), steps to configure tomcat clustering is provided using multicast. But in Azure, multicast isn't supported. So to make Tomcat cluster work in Azure, you must use [StaticMembershipInterceptor](https://tomcat.apache.org/tomcat-8.0-doc/config/cluster-interceptor.html#Static_Membership) (SAP Note [2764907](https://launchpad.support.sap.com/#/notes/2764907)). Check [Tomcat Clustering using Static Membership for SAP BusinessObjects BI Platform](https://blogs.sap.com/2020/09/04/sap-on-azure-tomcat-clustering-using-static-membership-for-sap-businessobjects-bi-platform/) on SAP blog to set up tomcat cluster in Azure.
 
-### Load-Balancing Web Tier of SAP BI Platform
+### Load-balancing web tier of SAP BI platform
 
 In SAP BOBI multi-instance deployment, Java Web Application servers (web tier) are running on two or more hosts. To distribute user load evenly across web servers, you can use a load balancer between end users and web servers. In Azure, you can either use Azure Load Balancer or Azure Application Gateway to manage traffic to your web application servers. Details about each offering are explained in following section.
 
-#### Azure Load Balancer (Network-based Load Balancer)
+#### Azure load balancer (network-based load balancer)
 
 [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) is a high performance, low latency layer 4 (TCP, UDP) load balancer that distributes traffic among healthy Virtual Machines. A load balancer health probe monitors a given port on each VM and only distributes traffic to an operational Virtual Machine(s). You can either choose a public load balancer or internal load balancer depending on whether you want SAP BI Platform accessible from internet or not. Its zone redundant, ensuring high-availability across Availability Zones.
 
@@ -522,7 +522,7 @@ Refer to Internal Load Balancer section in below figure where web application se
 
 ![Azure Load Balancer to balance traffic across Web Servers](media/businessobjects-deployment-guide/businessobjects-deployment-load-balancer.png)
 
-#### Azure Application Gateway (Web Application Load Balancer)
+#### Azure application gateway (web application load balancer)
 
 [Azure Application Gateway (AGW)](../../../application-gateway/overview.md) provide Application Delivery Controller (ADC) as a service, which is used to help application to direct user traffic to one or more web application servers. It offers various layer 7 load-balancing capabilities like TLS/SSL Offloading, Web Application Firewall (WAF), Cookie-based session affinity and others for your applications.
 
@@ -535,7 +535,7 @@ To configure Application Gateway for SAP BOBI Web Server, you can refer to [Load
 > [!NOTE]
 > We recommend to use Azure Application Gateway to load balance the traffic to web server as it provide feature likes like SSL offloading, Centralize SSL management to reduce encryption and decryption overhead on server, Round-Robin algorithm to distribute traffic, Web Application Firewall (WAF) capabilities, high-availability and so on.
 
-### SAP BusinessObjects BI Platform - Back up and Restore
+### SAP BusinessObjects BI Platform - back up and restore
 
 Backup and Restore is a process of creating periodic copies of data and applications to separate location. So it can be restored or recovered to previous state if the original data or applications are lost or damaged. It's also an essential component of any business disaster recovery strategy.
 
@@ -547,29 +547,29 @@ To develop comprehensive backup and restore strategy for SAP BOBI Platform, iden
 
 Following section describes how to implement backup and restore strategy for each component on SAP BOBI Platform.
 
-#### Backup & Restore for SAP BOBI Installation Directory
+#### Backup & restore for SAP BOBI installation directory
 
 In Azure, the simplest way to back up application servers and all the attached disks is by using [Azure Backup](../../../backup/backup-overview.md) Service. It provides independent and isolated backups to guard unintended destruction of the data on your VMs. Backups are stored in a Recovery Services vault with built-in management of recovery points. Configuration and scaling are simple, backups are optimized and can be restored easily when needed.
 
-As part of backup process, snapshot is taken and the data is transferred to the Recovery Service vault with no impact on production workloads. The snapshot provides different level of consistency as described in [Snapshot Consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) article. You can also choose to back up subset of the data disks in VM by using selective disks backup and restore functionality. For more information, refer to [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md) document and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.md).
+As part of backup process, snapshot is taken and the data is transferred to the Recovery Service vault with no impact on production workloads. The snapshot provides different level of consistency as described in [Snapshot Consistency](../../../backup/backup-azure-vms-introduction.md#snapshot-consistency) article. You can also choose to back up subset of the data disks in VM by using selective disks backup and restore functionality. For more information, see [Azure VM Backup](../../../backup/backup-azure-vms-introduction.md) document and [FAQs - Backup Azure VMs](../../../backup/backup-azure-vm-backup-faq.md).
 
-#### Backup & Restore for File Repository Server
+#### Backup & restore for file repository server
 
-For **Azure NetApp Files**, you can create an on-demand snapshots and schedule automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your ANF volume. For more details, refer to [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
+For **Azure NetApp Files**, you can create an on-demand snapshots and schedule automatic snapshot by using snapshot policies. Snapshot copies provide a point-in-time copy of your ANF volume. For more information, see [Manage snapshots by using Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-manage-snapshots.md).
 
-**Azure Files** backup is integrated with native [Azure Backup](../../../backup/backup-overview.md) service, which centralizes the backup and restore function along with VMs backup and simplifies operation work. For more information, refer to [Azure File Share backup](../../../backup/azure-file-share-backup-overview.md) and [FAQs - Back up Azure Files](../../../backup/backup-azure-files-faq.md).
+**Azure Files** backup is integrated with native [Azure Backup](../../../backup/backup-overview.md) service, which centralizes the backup and restore function along with VMs backup and simplifies operation work. For more information, see [Azure File Share backup](../../../backup/azure-file-share-backup-overview.md) and [FAQs - Back up Azure Files](../../../backup/backup-azure-files-faq.md).
 
-#### Backup & Restore for CMS Database
+#### Backup & restore for CMS database
 
 Azure Database of MySQL is DBaaS offering in Azure, which automatically creates server backups and stores them in user configured locally redundant or geo-redundant storage. Azure Database of MySQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, it either takes full and differential backups (4-TB max storage servers) or snapshot backup (up to 16-TB max storage servers). These backups allow you to restore a server at any point-in-time within your configured backup retention period. The default backup retention period is seven days, which you can [optionally configure it](../../../mysql/howto-restore-server-portal.md#set-backup-configuration) up to three days. All backups are encrypted using AES 256-bit encryption.
 
-These backup files aren't user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](../../../mysql/concepts-migrate-dump-restore.md) to copy a database. For more information, refer to [Backup and restore in Azure Database for MySQL](../../../mysql/concepts-backup.md).
+These backup files aren't user-exposed and cannot be exported. These backups can only be used for restore operations in Azure Database for MySQL. You can use [mysqldump](../../../mysql/concepts-migrate-dump-restore.md) to copy a database. For more information, see [Backup and restore in Azure Database for MySQL](../../../mysql/concepts-backup.md).
 
 For database installed on Virtual Machines, you can use standard backup tools or [Azure Backup](../../../backup/sap-hana-db-about.md) for HANA Database. Also if the Azure Services and tools don't meet your requirement, you can use other backup tools or script to create disks backup.
 
-## SAP BusinessObjects BI Platform Reliability
+## SAP BusinessObjects BI platform reliability
 
-SAP BusinessObjects BI Platform includes different tiers, which are optimized for specific tasks and operations. When a component from any one tier becomes unavailable, SAP BOBI application will either become inaccessible or certain functionality of the application won’t work. So one need to make sure that each tier is designed to be reliable to keep application operational without any business disruption. 
+SAP BusinessObjects BI Platform includes different tiers, which are optimized for specific tasks and operations. When a component from any one tier becomes unavailable, SAP BOBI application will either become inaccessible or certain functionality of the application won’t work. So one need to make sure that each tier is designed to be reliable to keep application operational without any business disruption.
 
 This section focuses on the following options for SAP BOBI Platform -
 
@@ -578,7 +578,7 @@ This section focuses on the following options for SAP BOBI Platform -
 
 Implementation of this solution varies based on the nature of the system setup in Azure. So customer needs to tailor High Availability and Disaster Recovery solution based on their business requirement.
 
-### High Availability
+### High availability
 
 High Availability refers to a set of technologies that can minimize IT disruptions by providing business continuity of application/services through redundant, fault-tolerant, or failover-protected components inside the same data center. In our case, the data centers are within one Azure region. The article [High-availability Architecture and Scenarios for SAP](sap-high-availability-architecture-scenarios.md) provide an initial insight on different high availability techniques and recommendation offered on Azure for SAP Applications, which will compliment the instructions in this section.
 
@@ -589,7 +589,7 @@ Based on the sizing result of SAP BOBI Platform, you need to design the landscap
 
 Following section describes how to achieve high availability on each component of SAP BOBI Platform.
 
-#### High Availability for Application Servers
+#### High availability for application servers
 
 For BI and Web Application Servers whether they're installed separately or together, doesn’t need a specific high availability solution. You can achieve high availability by redundancy, that is by configuring multiple instances of BI and Web Servers in various Azure Virtual Machines.
 
@@ -602,33 +602,33 @@ To reduce the impact of downtime due to one or more events, it is advisable to f
 
 For more information, check [Manage the availability of Linux virtual machines](../../manage-availability.md)
 
-#### High Availability for CMS Database
+#### High availability for CMS database
 
 If you're using Azure Database as a Service (DBaaS) service for CMS database, high availability framework is provided by default. You just need to select the region and service inherent high availability, redundancy, and resiliency capabilities without requiring you to configure any additional components. For more details on the SLA of supported DBaaS offering on Azure, check [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md) and [High availability for Azure SQL Database](../../../azure-sql/database/high-availability-sla.md)
 
 For other DBMS deployment for CMS database refer to [DBMS deployment guides for SAP Workload](dbms_guide_general.md), which provides insight on different DBMS deployment and its approach to attain high availability.
 
-#### High Availability for File Repository Server
+#### High availability for file repository server
 
 File Repository Server (FRS) refers to the disk directories where contents like reports, universes, and connections are stored. It's being shared across all application servers of that system. So you must make sure that it's highly available.
 
-On Azure, you can either choose [Azure Premium Files](../../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) for file share that are designed to be highly available and highly durable in nature. For more information, refer to [Redundancy](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) section for Azure Files.
+On Azure, you can either choose [Azure Premium Files](../../../storage/files/storage-files-introduction.md) or [Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-introduction.md) for file share that are designed to be highly available and highly durable in nature. For more information, see [Redundancy](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy) section for Azure Files.
 
 > [!NOTE]
-> SMB Protocol for Azure Files is generally available, but NFS Protocol support for Azure Files is currently in preview. For more details, refer to [NFS 4.1 support for Azure Files is now in preview](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
+> SMB Protocol for Azure Files is generally available, but NFS Protocol support for Azure Files is currently in preview. For more information, see [NFS 4.1 support for Azure Files is now in preview](https://azure.microsoft.com/en-us/blog/nfs-41-support-for-azure-files-is-now-in-preview/)
 
 As this File share service isn't available in all region, make sure you refer to [Products available by region](https://azure.microsoft.com/en-us/global-infrastructure/services/) site to find out up-to-date information. If the service isn't available in your region, you can create NFS server from which you can share the file system to SAP BOBI application. But you'll also need to consider its high availability.
 
-#### High Availability for Load Balancer
+#### High availability for load balancer
 
 To distribute traffic across web server, you can either use Azure Load Balancer or Azure Application Gateway. The redundancy for either of the load balancer can be achieved based on the SKU you choose for deployment.
 
-- For Azure Load Balancer, redundancy can be achieved by configuring Standard Load Balancer frontend as zone-redundant. For more information, refer to [Standard Load Balancer and Availability Zones](../../../load-balancer/load-balancer-standard-availability-zones.md)
+- For Azure Load Balancer, redundancy can be achieved by configuring Standard Load Balancer frontend as zone-redundant. For more information, see [Standard Load Balancer and Availability Zones](../../../load-balancer/load-balancer-standard-availability-zones.md)
 - For Application Gateway, high availability can be achieved based on the type of tier selected during deployment.
   - v1 SKU supports high-availability scenarios when you've deployed two or more instances. Azure distributes these instances across update and fault domains to ensure that instances don't all fail at the same time. So with this SKU, redundancy can be achieved within the zone
   - v2 SKU automatically ensures that new instances are spread across fault domains and update domains. If you choose zone redundancy, the newest instances are also spread across availability zones to offer zonal failure resiliency. For more details, refer [Autoscaling and Zone-redundant Application Gateway v2](../../../application-gateway/application-gateway-autoscaling-zone-redundant.md)
 
-#### Reference High Availability Architecture for SAP BusinessObjects BI Platform
+#### Reference high availability architecture for SAP BusinessObjects BI platform
 
 Below reference architecture describe the setup of SAP BOBI Platform using availability set, which provides VMs redundancy and availability within the zone. The architecture showcases the use of different Azure Services like Azure Application Gateway, Azure NetApp Files, and Azure Database for MySQL for SAP BOBI Platform that offers built-in redundancy, which reduces the complexity of managing different high availability solutions.
 
@@ -640,33 +640,33 @@ The above architecture provides insight on how SAP BOBI deployment on Azure can 
 
 In several Azure Regions, Availability Zones are offered which means it has independent supply of power source, cooling, and network. It enables customer to deploy application across two or three availability zones. For customer who wants to achieve high availability across AZs can deploy SAP BOBI Platform across availability zones, making sure that each component in the application is zone redundant.
 
-### Disaster Recovery
+### Disaster recovery
 
 The instruction in this section explains the strategy to provide disaster recovery protection for SAP BOBI Platform. It complements the [Disaster Recovery for SAP](../../../site-recovery/site-recovery-sap.md) document, which represents the primary resources for overall SAP disaster recovery approach.
 
-#### Reference Disaster Recovery Architecture for SAP BusinessObjects BI Platform
+#### Reference disaster recovery architecture for SAP BusinessObjects BI platform
 
 This reference architecture is running multi-instance deployment of SAP BOBI Platform with redundant application servers. For disaster recovery, you should fail over all tier to a secondary region. Each tier uses a different strategy to provide disaster recovery protection.
 
 ![SAP BusinessObjects BI Platform Disaster Recovery](media/businessobjects-deployment-guide/businessobjects-deployment-disaster-recovery.png)
 
-#### Load Balancer
+#### Load balancer
 
 Load Balancer is used to distribute traffic across Web Application Servers of SAP BOBI Platform. To achieve DR for Azure Application Gateway, implement parallel setup of application gateway on secondary region.
 
-#### Virtual Machines running Web and BI Application Servers
+#### Virtual machines running web and BI application servers
 
 Azure Site Recovery service can be used to replicate Virtual Machines running Web and BI Application Servers on the secondary region. It replicates the servers on the secondary region so that when disasters and outages occur you can easily fail over to your replicated environment and continue working
 
-#### File Repository Servers
+#### File repository servers
 
-- **Azure NetApp Files** provides NFS and SMB volumes, so any file-based copy tool can be used to replicate data between Azure regions. For more information on how to copy ANF volume in another region, refer to [FAQs About Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)
+- **Azure NetApp Files** provides NFS and SMB volumes, so any file-based copy tool can be used to replicate data between Azure regions. For more information on how to copy ANF volume in another region, see [FAQs About Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-faqs.md#how-do-i-create-a-copy-of-an-azure-netapp-files-volume-in-another-azure-region)
 
   You can use Azure NetApp Files Cross Region Replication, which is currently in [preview](https://azure.microsoft.com/en-us/blog/azure-netapp-files-cross-region-replication-and-new-enhancements-in-preview/) that uses NetApp SnapMirror® technology. So only changed blocks are sent over the network in a compressed, efficient format. This proprietary technology minimizes the amount of data required to replicate across the regions, which saves data transfer costs. It also shortens the replication time so you can achieve a smaller Restore Point Objective (RPO). Refer to [Requirements and considerations for using cross-region replication](../../../azure-netapp-files/cross-region-replication-requirements-considerations.md) for more information.
 
-- **Azure Premium Files** only support locally redundant (LRS) and zone redundant storage (ZRS). For Azure Premium Files DR strategy, you can use [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) or [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) to copy your files to another storage account in a different region. For more details, refer to [Disaster recovery and storage account failover](../../../storage/common/storage-disaster-recovery-guidance.md)
+- **Azure premium files** only support locally redundant (LRS) and zone redundant storage (ZRS). For Azure Premium Files DR strategy, you can use [AzCopy](../../../storage/common/storage-use-azcopy-v10.md) or [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/) to copy your files to another storage account in a different region. For more information, see [Disaster recovery and storage account failover](../../../storage/common/storage-disaster-recovery-guidance.md)
 
-#### CMS Database
+#### CMS database
 
 Azure Database for MySQL provides multiple options to recover database if there are any disaster. Choose appropriate option that works for your business.
 
@@ -687,7 +687,7 @@ Following is the recommendation for disaster recovery of each tier used in this 
 | Azure NetApp Files        | File based copy tool to replicate data to Secondary Region **or** ANF Cross Region Replication (Preview) |
 | Azure Database for MySQL  | Cross region read replicas **or** Restore backup from geo-redundant backups.                             |
 
-## Next Steps
+## Next steps
 
 - [Set up disaster recovery for a multi-tier SAP app deployment](../../../site-recovery/site-recovery-sap.md)
 - [Azure Virtual Machines planning and implementation for SAP](planning-guide.md)
