@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
 # Add a preview audience for a virtual machine offer
@@ -27,4 +27,4 @@ Select **Save draft** before you proceed to the next section.
 
 ## Next steps
 
-- [Create plans for a VM offer](azure-vm-create-plans.md)
+- [Review and publish offers](review-publish-offer.md)

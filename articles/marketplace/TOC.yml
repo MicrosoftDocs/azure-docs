@@ -105,9 +105,9 @@
         href: partner-center-portal/create-azure-container-technical-assets.md
       - name: Create an Azure Container offer
         href: partner-center-portal/create-azure-container-offer.md
-  - name: Azure virtual machine offers
+  - name: Azure virtual machine offer
     items:
-    - name: Plan a virtual machine offer
+    - name: Plan a VM offer
       href: marketplace-virtual-machines.md
     - name: Create and publish a VM offer
       items: 
@@ -115,36 +115,30 @@
         href: azure-vm-create.md
       - name: Create VM technical assets
         items:
-        - name: Create VM technical assets
+        - name: Prepare VM technical assets
           href: azure-vm-create-technical-assets.md
-        - name: Create VM from an approved base
+        - name: Create VM using an approved base
           href: azure-vm-create-using-approved-base.md
         - name: Create VM using your own image
           href: azure-vm-create-using-own-image.md
+        - name: Test a VM image
+          href: azure-vm-image-test.md
+        - name: Get SAS URI
+          href: azure-vm-get-sas-uri.md
+        - name: SAS failure messages
+          href: azure-vm-sas-failure-messages.md
+        - name: VM creation FAQ
+          href: azure-vm-create-faq.md
+        - name: VM certification troubleshooting
+          href: azure-vm-create-certification-faq.md
       - name: Configure VM offer properties
         href: azure-vm-create-properties.md
       - name: Configure VM offer listing
         href: azure-vm-create-listing.md
+      - name: Create VM plans
+        href: azure-vm-create-plans.md
       - name: Add a preview audience
         href: azure-vm-create-preview.md
-      - name: Create plans
-        href: azure-vm-create-plans.md
-      - name: Test and publish a VM offer
-        href: azure-vm-create-test-publish.md
-    - name: Market your VM offer
-      href: azure-vm-create-marketing.md
-    - name: Test a VM image
-      href: azure-vm-image-certification.md
-    - name: SAS URI
-      items:
-      - name: Get SAS URI
-        href: azure-vm-get-sas-uri.md
-      - name: SAS URI FAQ
-        href: azure-vm-common-sas-uri-issues.md
-    - name: VHD creation FAQ
-      href: azure-vm-common-issues-during-vhd-creation.md
-    - name: VM certification, issues, and solutions
-      href: azure-vm-certification-issues-solutions.md
   - name: Consulting services
     items: 
     - name: Plan a consulting services offer

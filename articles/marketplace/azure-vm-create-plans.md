@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
 # Create plans for a virtual machine offer
@@ -195,4 +195,4 @@ Select **Save draft** before you continue and return to **Plan overview**.
 
 ## Next steps
 
-- [Add technical assets for your VM offer](azure-vm-create-technical-assets.md)
+- [Add a preview audience](azure-vm-create-preview.md)
