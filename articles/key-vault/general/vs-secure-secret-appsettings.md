@@ -56,9 +56,8 @@ If you already have your web app created, grant the web app access to the Key Va
 4. Add the following NuGet packages to your project:
 
     ```
-    Microsoft.Azure.KeyVault
-    Microsoft.Azure.Services.AppAuthentication
-    Microsoft.Extensions.Configuration.AzureKeyVault
+    Azure.Identity
+    Azure.Extensions.AspNetCore.Configuration.Secrets
     ```
 5. Add the following code to Program.cs file:
 
@@ -70,12 +69,7 @@ If you already have your web app created, grant the web app access to the Key Va
                     var keyVaultEndpoint = GetKeyVaultEndpoint();
                     if (!string.IsNullOrEmpty(keyVaultEndpoint))
                     {
-                        var azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        var keyVaultClient = new KeyVaultClient(
-                            new KeyVaultClient.AuthenticationCallback(
-                                azureServiceTokenProvider.KeyVaultTokenCallback));
-                        builder.AddAzureKeyVault(
-                        keyVaultEndpoint, keyVaultClient, new DefaultKeyVaultSecretManager());
+                        builder.AddAzureKeyVault(new Uri(keyVaultEndpoint), new DefaultAzureCredential(), new KeyVaultSecretManager());
                     }
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
@@ -85,11 +79,27 @@ If you already have your web app created, grant the web app access to the Key Va
 
         private static string GetKeyVaultEndpoint() => Environment.GetEnvironmentVariable("KEYVAULT_ENDPOINT");
     ```
-6. Add your Key Vault URL to launchsettings.json file. The environment variable name *KEYVAULT_ENDPOINT* is defined in the code you added in step 6.
+6. Set up the following environment variables for DefaultAzureCredential.
+
+    Linux
+    ``` bash
+    export AZURE_TENANT_ID = "<YourTenantId>"
+    export AZURE_CLIENT_ID = "<YourClientId>"
+    export AZURE_CLIENT_SECRET = "<YourClientSecret>"
+    ```
+
+    Windows
+    ``` cmd
+    setx AZURE_TENANT_ID "<YourTenantId>"
+    setx AZURE_CLIENT_ID "<YourClientId>"
+    setx AZURE_CLIENT_SECRET "<YourClientSecret>"
+    ```
+
+7. Add your Key Vault URL to launchsettings.json file. The environment variable name *KEYVAULT_ENDPOINT* is defined in the code you added in step 7.
 
     ![Add Key Vault URL as a project environment variable](../media/vs-secure-secret-appsettings/add-keyvault-url.png)
 
-7. Start debugging the project. It should run successfully.
+8. Start debugging the project. It should run successfully.
 
 ## ASP.NET and .NET applications
 
