@@ -66,12 +66,12 @@
       items:
         - name: Monitor with Grafana & Kibana
           href: monitor-grafana-kibana.md
-        - name: Upload metrics
-          href: upload-metrics-and-logs-to-azure-monitor.md
         - name: Upload logs
           href: upload-logs.md
-        - name: Uplaod metrics
+        - name: Upload metrics
           href: upload-metrics.md
+        - name: Upload usage data
+          href: upload-usage-data.md
         - name: Inventory database instances
           href: view-arc-data-services-inventory-in-azure-portal.md
         - name: Get data controller username & password
