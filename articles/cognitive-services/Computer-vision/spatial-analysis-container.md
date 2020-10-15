@@ -310,7 +310,7 @@ Use the below steps to deploy the container using the Azure CLI.
 
 ### IoT Deployment manifest
 
-To streamline container deployment on multiple host computers, you can create a deployment manifest file to specify the container creation options, and environment variables. You can find an example of a [deployment manifest on GitHub](https://go.microsoft.com/fwlink/?linkid=2142179).
+To streamline container deployment on multiple host computers, you can create a deployment manifest file to specify the container creation options, and environment variables. You can find an example of an [Azure Stack Edge specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) and a [non-Azure Stack Edge specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) on Github.
 
 The following table shows the various Environment Variables used by the IoT Edge Module. You can also set them in the deployment manifest linked above, using the `env` attribute in `spatialanalysis`:
 
@@ -331,7 +331,7 @@ The following table shows the various Environment Variables used by the IoT Edge
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 
-Once you update the sample [DeploymentManifest.json](https://go.microsoft.com/fwlink/?linkid=2142179) file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
+Once you update the sample [ASE DeploymentManifest.json](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-ASE DeploymentManifest.json](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) file with your own settings and selection of operations, you can use the below [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-cli) command to deploy the container on the host computer, as an IoT Edge Module.
 
 ```azurecli
 az login
@@ -341,7 +341,6 @@ az iot edge set-modules --hub-name "<IoT Hub name>" --device-id "<IoT Edge devic
 
 |Parameter  |Description  |
 |---------|---------|
-| `--deployment-id` | A new name for the deployment. |
 | `--hub-name` | Your Azure IoT Hub name. |
 | `--content` | The name of the deployment file. |
 | `--target-condition` | Your IoT Edge device name for the host computer. |
@@ -382,7 +381,7 @@ Navigate to the **Container** section, and either create a new container or use 
 
 Click on **Generate SAS Token and URL** and copy the Blob SAS URL. Replace the starting `https` with `http` and test the URL in a browser that supports video playback.
 
-Replace `VIDEO_URL` in the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) with URL you created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and redeploy the spatial analysis container with the updated manifest. See the example below.
+Replace `VIDEO_URL` in the [ASE deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-ASE deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json) with the URL you created, for all of the graphs. Set `VIDEO_IS_LIVE` to `false`, and redeploy the spatial analysis container with the updated manifest. See the example below.
 
 The spatial analysis module will start consuming video file and will continuously auto replay as well.
 
