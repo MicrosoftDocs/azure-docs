@@ -8,7 +8,7 @@ ms.date: 10/14/2020
 ---
 # Enable Change Tracking and Inventory from a runbook
 
-This article describes how you can use a runbook to enable the [Change Tracking and Inventory](overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
+This article describes how you can use a runbook to enable [Change Tracking and Inventory](overview.md) for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
 
 > [!NOTE]
 > When enabling Change Tracking and Inventory, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
@@ -97,5 +97,9 @@ You must have enabled Change Tracking and Inventory for an Azure VM to start thi
 ## Next steps
 
 * To schedule a runbook, see [Manage schedules in Azure Automation](../shared-resources/schedules.md).
-* For details of working with the feature, see [Manage Change Tracking and Inventory](manage-change-tracking.md).
+
+* For details of working with the feature, see [Manage Change Tracking](manage-change-tracking.md) and [Manage Inventory](manage-inventory-vms.md).
+
 * To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).
+
+

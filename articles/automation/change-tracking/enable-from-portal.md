@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Enable Change Tracking and Inventory from Azure portal
 
-This article describes how you can enable the [Change Tracking and Inventory](overview.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
+This article describes how you can enable [Change Tracking and Inventory](overview.md) for one or more Azure VMs in the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
 
 The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../../azure-resource-manager/templates/cross-scope-deployment.md). Resource Manager deployments, not to be confused with update deployments, are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Change Tracking and Inventory. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
 
@@ -54,5 +54,5 @@ Sign in to Azure at https://portal.azure.com.
 
 ## Next steps
 
-* For details of working with the feature, see [Manage Change Tracking and Inventory](overview.md).
+* For details of working with the feature, see [Manage Change Tracking](manage-change-tracking.md) and [Manage Inventory](manage-inventory-vms.md).
 * To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).

@@ -8,7 +8,7 @@ ms.topic: conceptual
 ---
 # Enable Change Tracking and Inventory from an Automation account
 
-This article describes how you can use your Automation account to enable the [Change Tracking and Inventory](overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
+This article describes how you can use your Automation account to enable [Change Tracking and Inventory](overview.md) for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
 
 > [!NOTE]
 > When enabling Change Tracking and Inventory, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
@@ -69,5 +69,6 @@ Manually installed machines or machines already reporting to your workspace must
 
 ## Next steps
 
-* To work with the feature, see [Manage Change Tracking and Inventory](manage-change-tracking.md).
+* For details of working with the feature, see [Manage Change Tracking](manage-change-tracking.md) and [Manage Inventory](manage-inventory-vms.md).
+
 * To troubleshoot general problems with the feature, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).
