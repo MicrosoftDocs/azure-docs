@@ -106,6 +106,8 @@ If your data is normally quite unstable and fluctuates a lot, and you want to be
 "Change threshold" is able to be configured to detect such data points when the change is too tiny.
 Please refer to [anomaly detection configurations](how-tos/configure-metrics.md#anomaly-detection-methods) for details.
 
+## Advanced concepts
+
 ### How does Metric Advisor build an incident tree for multi-dimensional metrics?
 
 A metric can be split into multiple time series by dimensions. For example, the metric `Response latency` is monitored for all services owned by the team. The `Service` category could be used as a dimension to enrich the metric, so we get `Response latency` split by `Service1`, `Service2`, and so on. To elaborate further, each service could be deployed on different machines in multiple data centers, so the metric could be further split by `Machine` and `Data center`.
