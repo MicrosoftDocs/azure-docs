@@ -50,7 +50,7 @@ Create the device based application in Azure AD to enable Azure AD sign in. This
     > [!div class="mx-imgBorder"]
     > ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
 
-6. Configure Azure role based access control for users or groups. See [Grant role based access for users to Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
+6. Configure Azure role-based access control (Azure RBAC) for users or groups. See [Grant role-based access for users to Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
 7. Add code for acquiring token flow in the application, for implementation details see [Device code flow](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). When acquiring tokens, reference the scope: `user_impersonation` which was selected on earlier steps.
 
@@ -106,7 +106,7 @@ Body:
 }
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## Next steps
 

@@ -58,13 +58,11 @@ Before installing the Log Analytics agent for Linux, you need the workspace ID a
 
 2. In your list of Log Analytics workspaces, select the workspace you created earlier. (You might have named it **DefaultLAWorkspace**.)
 
-3. Select **Advanced settings**:
-
-    ![Advanced Settings menu for Log Analytics in the Azure portal](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
+3. Select **Agents management**:
  
-4. Select **Connected Sources**, and then select **Linux Servers**.
+4. Then select **Linux servers**.
 
-5. The value to the right of **Workspace ID** and **Primary Key**. Copy and paste both into your favorite editor.
+5. The value to the right of **Workspace ID** and **Primary key**. Copy and paste both into your favorite editor.
 
 ## Install the agent for Linux
 

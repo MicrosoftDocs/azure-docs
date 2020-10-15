@@ -65,7 +65,7 @@ Build succeeded.
 Within the application directory, install the Computer Vision client library for .NET with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0-preview.1
+dotnet add package Microsoft.Azure.CognitiveServices.Vision.ComputerVision --version 6.0.0
 ```
 
 ---
