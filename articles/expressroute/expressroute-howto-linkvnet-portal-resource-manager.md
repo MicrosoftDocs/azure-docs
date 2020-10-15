@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: tutorial
-ms.date: 10/06/2020
+ms.date: 10/15/2020
 ms.author: duau
 ms.custom: seodec18
 
@@ -113,7 +113,13 @@ The circuit owner creates an authorization, which creates an authorization key t
 
 **To delete a connection authorization**
 
-You can delete a connection by selecting the **Delete** icon on the page for your connection.
+You can delete a connection by selecting the **Delete** icon for the authorization key for your connection.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Delete authorization key":::
+
+If you want to delete the connection but retain the authorization key, you can delete the connection from the connection page of the circuit.
+
+:::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Delete connection owning circuit":::
 
 ### Circuit user operations
 
@@ -132,17 +138,16 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="Basics page":::
 
-1. In the **Settings** page, Select the *Virtual network gateway* and check the **Redeem authorization** check box. Enter the *Authorization key* and the *Peer circuit URI* and give the connection a name. Select **OK**. The *Peer Circuit URI* is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
+1. In the **Settings** page, Select the *Virtual network gateway* and check the **Redeem authorization** check box. Enter the *Authorization key* and the *Peer circuit URI* and give the connection a name. Select **OK**. 
+ 
+    > [!NOTE]
+    > The *Peer Circuit URI* is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="Settings page":::
 
 1. Review the information in the **Summary** page and select **OK**.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Summary page":::
-
-**To release a connection authorization**
-
-You can release an authorization by deleting the connection that links the ExpressRoute circuit to the virtual network.
 
 ## Clean up resources
 
