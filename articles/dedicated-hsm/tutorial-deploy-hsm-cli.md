@@ -34,7 +34,7 @@ This tutorial focuses on a pair of HSMs and required ExpressRoute Gateway (see S
 
 ## Prerequisites
 
-Azure Dedicated HSM is not currently available in the Azure portal. All interaction with the service will be via command-line or using PowerShell. This tutorial will use the command-line (CLI) interface in the Azure Cloud Shell. If you are new to the Azure CLI, follow getting started instructions here: [Azure CLI 2.0 Get Started](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+Azure Dedicated HSM is not currently available in the Azure portal. All interaction with the service will be via command-line or using PowerShell. This tutorial will use the command-line (CLI) interface in the Azure Cloud Shell. If you are new to the Azure CLI, follow getting started instructions here: [Azure CLI 2.0 Get Started](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 Assumptions:
 
@@ -187,7 +187,7 @@ When you are connected to the HSM using ssh, run the following command to ensure
 
 The output should look as shown on the image below:
 
-![components list](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
+![Screenshot shows output in PowerShell window.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
 At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Gemalto Luna Network HSM 7 Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Gemalto for download once you are registered in the Gemalto Customer Support Portal and have a Customer ID. Download Client Software version 7.2 to get all required components.
 
