@@ -57,7 +57,7 @@
     - name: Register and scan Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
     - name: Register and scan Azure SQL Database
-      href: register-scan-azure-sql-database
+      href: register-scan-azure-sql-database.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
   - name: Classify

@@ -33,9 +33,9 @@ The Azure SQL Database data source supports the following functionality:
     > [!Note]
     > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Babylon account should have the appropriate permissions to be able to scan the resource(s).
     
-   1. **SQL authentication:** You can follow the instructions in [CREATE LOGIN](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current#examples-1) to create a login for Azure SQL Database. 
+   1. **SQL authentication:** You can follow the instructions in [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database. 
 
-   1. **Service Principal:** You need to [create an Azure AD application and service principal that can access resources if you don't have one already](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal). In addition, you must also create an Azure AD user in Azure SQL Database by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
+   1. **Service Principal:** You need to [create an Azure AD application and service principal that can access resources if you don't have one already](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal). In addition, you must also create an Azure AD user in Azure SQL Database by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
    
    ```sql
    CREATE USER [ServicePrincipalName] FROM EXTERNAL PROVIDER
@@ -48,7 +48,7 @@ The Azure SQL Database data source supports the following functionality:
    > [!Note]
    > Babylon will need the **Application (client) ID** and the **client secret** in order to scan.
 
-   1. **Managed Identity:** Your Babylon account has its own Managed Identity which is basically your Babylon name when you created it. You must create an Azure AD user in Azure SQL Database with the exact Babylon's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/en-us/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
+   1. **Managed Identity:** Your Babylon account has its own Managed Identity which is basically your Babylon name when you created it. You must create an Azure AD user in Azure SQL Database with the exact Babylon's Managed Identity name by following the prerequisites and tutorial on [Create Azure AD users using Azure AD applications](https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-service-principal-tutorial). Example SQL syntax to create user and grant permission:
    
    ```sql
    CREATE USER [BabylonManagedIdentity] FROM EXTERNAL PROVIDER
@@ -65,7 +65,7 @@ The Azure SQL Database data source supports the following functionality:
 1. Navigate to your Babylon catalog.
 
 2. Select on **Manage your data** tile on the home page.
-![Babylon home page](media/register-scan-on-prem-sql-server/image1.png)
+![Babylon home page](media/register-scan-azure-sql-database/image1_2.png)
 
 3. Select on **Data sources** under the Sources and scanning section.
 
@@ -93,18 +93,18 @@ The Azure SQL Database data source supports the following functionality:
 
    1. **SQL authentication:** You will need database name, user name and password.
 
-      ![Set up scan](media/register-scan-azure-sql-database/image3.png)
+      ![Set up scan using SQL authentication](media/register-scan-azure-sql-database/image3.png)
 
    1. **Service Principal:** Select Service Principal from the dropdown menu and provide database name service principal ID which is your **Application client (ID)** and service principal key which is your **client secret**.
    
-      ![Set up scan](media/register-scan-azure-sql-database/image5.png)
+      ![Set up scan using service principal](media/register-scan-azure-sql-database/image5.png)
 
       > [!Note]
       > If Test connection fails, you need to go back to the **Prerequisites** step to confirm if the appropriate permission is assigned to the service principal. In addition, the server name must have port number to successfully connect.
 
-   1. **Managed Identity:** You just need to select Managed Identity from the drop down memu and test connection.
+   1. **Managed Identity:** You just need to select Managed Identity from the drop down menu and test connection.
    
-      ![Set up scan](media/register-scan-azure-sql-database/image6.png)
+      ![Set up scan using managed identity](media/register-scan-azure-sql-database/image6.png)
 
 1. You can scope your scan to specific schemas by checking the appropriate items in the list.
 
@@ -112,11 +112,11 @@ The Azure SQL Database data source supports the following functionality:
 
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
 
-    ![trigger](media/register-scan-on-prem-sql-server/image8.png)
+    ![trigger](media/register-scan-azure-sql-database/image8.png)
 
 1. The select a scan rule set for you scan. You can choose between the system default, the existing custom ones or create a new one inline.
 
-    ![SRS](media/register-scan-on-prem-sql-server/image9.png)
+    ![SRS](media/register-scan-azure-sql-database/image9.png)
 
 1. Review your scan and select **Save and run**.
 
@@ -136,7 +136,7 @@ The Azure SQL Database data source supports the following functionality:
 
 2. Select the scan you would like to manage. You can edit the scan by selecting on the edit.
 
-    ![edit scan](media/register-scan-on-prem-sql-server/image11.png)
+    ![edit scan](media/register-scan-azure-sql-database/image11.png)
 
 3. You can delete your scan by selecting on delete.
 
