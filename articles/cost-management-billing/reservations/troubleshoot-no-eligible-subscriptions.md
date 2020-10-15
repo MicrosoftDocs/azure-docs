@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot no eligible subscriptions
+title: Troubleshoot no eligible subscriptions in the Azure portal
 description: This article helps you troubleshoot the No eligible subscriptions error message in the Azure portal when you try to purchase a reservation.
 author: bandersmsft
 ms.service: cost-management-billing
@@ -92,3 +92,7 @@ The current reservation order owner or reservation owner can delegate access to 
 1. Select the user, and then select **Save**.
 
 For more information, see [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
+## Next steps
+
+- Review [Add or change users who can manage a reservation](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation) if you need to have a reservation owner grant you access.
