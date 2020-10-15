@@ -66,7 +66,7 @@ In addition, you must use a broker app for authentication. The broker requires t
 
 Finally, [add the Intune SDK](https://docs.microsoft.com/mem/intune/developer/app-sdk-get-started) to your app to enable app protection policies. The SDK for the most part follows an intercept model and will automatically apply app protection policies to determine if actions the app is taking are allowed or not. There are also APIs you can call manually to tell the app if there are restrictions on certain actions.
 
-Next steps:
+## Additional resources
 
 - [Plan an Azure Active Directory single sign-on deployment](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
 - [How to: Configure SSO on macOS and iOS](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-macos-ios)
