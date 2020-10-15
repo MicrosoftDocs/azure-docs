@@ -15,7 +15,7 @@ ms.author: mathoma
 
 ---
 
-# Feature interoperability with AG and DNN listener (Preview)
+# Feature interoperability with AG and DNN listener 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 There are certain SQL Server features that rely on a hard-coded virtual network name (VNN). As such, when using the distributed network name (DNN) listener with your Always On availability group and SQL Server on Azure VMs, there may be some additional considerations. 

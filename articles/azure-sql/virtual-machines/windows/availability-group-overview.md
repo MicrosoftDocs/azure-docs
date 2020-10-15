@@ -44,7 +44,7 @@ An availability set is a grouping of resources which are configured such that no
 
 In a traditional on-premises deployment, clients connect to the availability group listener using the virtual network name (VNN), and the listener routes traffic to the appropriate SQL Server replica in the availability group. However, there is an extra requirement to route traffic on the Azure network. 
 
-With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and later, you can configure a [distributed network name (DNN) listener (Preview)](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
+With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and later, you can configure a [distributed network name (DNN) listener](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
 
 
 ### Load balancer 
@@ -57,15 +57,13 @@ To get started, see [configure a load balancer](availability-group-vnn-azure-loa
 
 ### DNN listener
 
-SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener (Preview). The DNN listener replaces the traditional availability group listener, negating the need for an Azure Loud Balancer to route traffic on the Azure network. 
+SQL Server 2019 CU8 introduces support for the distributed network name (DNN) listener. The DNN listener replaces the traditional availability group listener, negating the need for an Azure Loud Balancer to route traffic on the Azure network. 
 
 The DNN listener is the recommended HADR connectivity solution in Azure as it simplifies deployment, reduces maintenance and cost, and reduces failover time in the event of a failure. 
 
 Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. 
 
-The DNN listener is currently in preview. 
-
-To get started, see [configure a DNN listener (Preview)](availability-group-distributed-network-name-dnn-listener-configure.md).
+To get started, see [configure a DNN listener](availability-group-distributed-network-name-dnn-listener-configure.md).
 
 
 ## Deployment 

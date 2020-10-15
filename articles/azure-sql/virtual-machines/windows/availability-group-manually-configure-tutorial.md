@@ -19,21 +19,20 @@ ms.custom: "seo-lt-2019"
 
 ---
 
-# Tutorial: Configure a SQL Server availability group on Azure Virtual Machines manually
-
+# Tutorial: Manually configure an availability group (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Servers.
+This tutorial shows how to create a Always On availability group for SQL Server on Azure Azure Virtual Machines (VMs). The complete tutorial creates an availability group with a database replica on two SQL Servers.
 
-**Time estimate**: Takes about 30 minutes to complete once the prerequisites are met.
+**Time estimate**: Takes about 30 minutes to complete once the [prerequisites](availability-group-manually-configure-prerequisites-tutorial.md) are met.
 
-The diagram illustrates what you build in the tutorial.
-
-![Availability Group](./media/availability-group-manually-configure-tutorial/00-EndstateSampleNoELB.png)
+While this article manually configures the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Quickstart templates](availability-group-quickstart-template-configure.md) as well. 
 
 ## Prerequisites
 
 The tutorial assumes you have a basic understanding of SQL Server Always On Availability Groups. If you need more information, see [Overview of Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+
+Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
 
 The following table lists the prerequisites that you need to complete before starting this tutorial:
 
@@ -47,11 +46,8 @@ The following table lists the prerequisites that you need to complete before sta
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Add Failover Clustering Feature** | Both SQL Server instances require this feature |
 |:::image type="icon" source="./media/availability-group-manually-configure-tutorial/square.png" border="false":::   **Installation domain account** | - Local administrator on each SQL Server <br/> - Member of SQL Server sysadmin fixed server role for each instance of SQL Server  |
 
-
-Before you begin the tutorial, you need to [Complete prerequisites for creating Always On Availability Groups in Azure Virtual Machines](availability-group-manually-configure-prerequisites-tutorial.md). If these prerequisites are completed already, you can jump to [Create Cluster](#CreateCluster).
-
-  >[!NOTE]
-  > Many of the steps provided in this tutorial can now be automated with [Azure SQL VM CLI](availability-group-az-cli-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
+>[!NOTE]
+> Many of the steps provided in this tutorial can now be automated with the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell and the Az CLI](availability-group-az-cli-configure.md) and [Azure Quickstart Templates](availability-group-quickstart-template-configure.md).
 
 
 <!--**Procedure**: *This is the first "step". Make titles H2's and short and clear – H2's appear in the right pane on the web page and are important for navigation.*-->

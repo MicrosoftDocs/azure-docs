@@ -16,14 +16,14 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure a DNN listener (Preview) for an availability group
+# Configure a DNN listener for an availability group
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 With SQL Server on Azure VMs, the distributed network name (DNN) routes traffic to the appropriate clustered resource. It provides an easier way to connect to an Always On availability group (AG) than the virtual network name (VNN) listener, without the need for an Azure Load Balancer. 
 
 This article teaches you to configure a DNN listener to replace the VNN listener and route traffic to your availability group with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
-The DNN listener feature is currently in preview and only available for SQL Server 2019 CU8 on Windows Server 2016 and later. 
+The DNN listener feature is currently only available starting with SQL Server 2019 CU8 on Windows Server 2016 and later. 
 
 For an alternative connectivity option, consider a [VNN listener + Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) instead. 
 
@@ -34,7 +34,6 @@ A distributed network name (DNN) listener replaces the traditional virtual netwo
 Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. 
 
 ## Prerequisites
-
 
 Before you complete the steps in this article, you should already have:
 

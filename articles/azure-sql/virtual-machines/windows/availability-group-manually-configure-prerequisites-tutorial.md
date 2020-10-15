@@ -31,6 +31,9 @@ The following diagram illustrates what you build in the tutorial.
 
 ![Availability group](./media/availability-group-manually-configure-prerequisites-tutorial-/00-EndstateSampleNoELB.png)
 
+While this article manually configures the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Quickstart templates](availability-group-quickstart-template-configure.md) as well. 
+
+
 ## Review availability group documentation
 
 This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
