@@ -25,79 +25,9 @@ Periodically, you can export out usage information for billing purposes, monitor
 
 [!INCLUDE [arc-data-upload-prerequisites](../../aks/includes/arc-data-upload-prerequisites.md)]
 
-## Create service principal and assign roles
+## Create service principal
 
-Follow these commands to create your metrics upload service principal:
-
-To create a service principal, run this command:
-
-> [!NOTE]
-> Creating a service principal requires [certain permissions in Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
-
-```console
-az ad sp create-for-rbac --name <a name you choose>
-
-#Example:
-#az ad sp create-for-rbac --name azure-arc-metrics
-```
-
-Example output:
-
-```output
-"appId": "2e72adbf-de57-4c25-b90d-2f73f126e123",
-"displayName": "azure-arc-metrics",
-"name": "http://azure-arc-metrics",
-"password": "5039d676-23f9-416c-9534-3bd6afc78123",
-"tenant": "72f988bf-85f1-41af-91ab-2d7cd01ad1234"
-```
-
-Save the appId and tenant values in an environment variable for use later. 
-
-::: zone pivot="client-operating-system-windows"
-
-To save the appId and tenant values with PowerShell, follow this example:
-
-```powershell
-$Env:SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-$Env:SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-$Env:SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-```
-
-::: zone-end
-
-::: zone pivot="client-operating-system-linux"
-
-On a Linux console, save the appId and tenant values with this example:
-
-```console
-export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-# Example:
-export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
-export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
-export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
-```
-::: zone-end
-
-::: zone pivot="client-operating-system-macos"
-
-On a Mac OS console, save the appId and tenant values with this example:
-
-```console
-export SPN_CLIENT_ID='<the 'appId' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_CLIENT_SECRET='<the 'password' value from the output of the 'az ad sp create-for-rbac' command above>'
-export SPN_TENANT_ID='<the 'tenant' value from the output of the 'az ad sp create-for-rbac' command above>'
-
-#Example (using macOS):
-export SPN_CLIENT_ID='2e72adbf-de57-4c25-b90d-2f73f126e123'
-export SPN_CLIENT_SECRET='5039d676-23f9-416c-9534-3bd6afc78123'
-export SPN_TENANT_ID='72f988bf-85f1-41af-91ab-2d7cd01ad1234'
-```
-
-::: zone-end
-
+[!INCLUDE [arc-data-create-service-principal](includes/arc-data-create-service-principal.md)]
 
 ## Upload usage data
 
