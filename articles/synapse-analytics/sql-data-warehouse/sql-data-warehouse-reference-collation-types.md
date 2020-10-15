@@ -5,6 +5,7 @@ services: synapse-analytics
 author: antvgski 
 manager: igorstan
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: anvang

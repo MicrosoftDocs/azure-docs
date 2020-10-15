@@ -45,7 +45,7 @@ To start, make sure you're set up correctly in Visual Studio for cross-platform 
 
 1. Select **Create** to go to the **New Mobile App Xamarin Forms Project** window.
 
-   ![Screenshot that shows the New Universal Windows Platform Project dialog box in Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
+   ![Screenshot that shows the New Mobile App Xamarin Forms Project dialog box in Visual Studio.](../articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-xamarin-new-xamarin-project.png)
 
 1. Select the **Blank** template.
 
