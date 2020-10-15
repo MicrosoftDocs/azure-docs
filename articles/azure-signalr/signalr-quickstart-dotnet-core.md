@@ -107,7 +107,7 @@ In this section, you'll add the [Secret Manager tool](https://docs.microsoft.com
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
-        services.AddAzureSignalR();
+        services.AddSignalR().AddAzureSignalR();
     }
     ```
 
