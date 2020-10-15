@@ -38528,8 +38528,13 @@
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-first-party-microsoft.md",
