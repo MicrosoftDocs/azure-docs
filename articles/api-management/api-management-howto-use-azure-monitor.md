@@ -20,7 +20,7 @@ In this tutorial, you learn how to:
 > * View metrics of your API 
 > * Set up an alert rule 
 > * View activity logs
-> * View resource logs
+> * Enable and view resource logs
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ To access metrics:
 
 1. From the drop-down, select metrics you are interested in. For example, **Requests**. 
 1. The chart shows the total number of API calls.
-1. The chart can be filtered using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Catgory**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
+1. The chart can be filtered using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Category**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.   
 
 ## Set up an alert rule 
 
@@ -61,7 +61,7 @@ You can receive [alerts](../azure-monitor/platform/alerts-metric-overview.md) ba
 * Call a webhook
 * Invoke an Azure Logic App
 
-To configure an alert based on a metric:
+To configure an example alert rule based on a request metric:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select **Alerts** from the menu bar near the bottom of the page.
@@ -70,24 +70,33 @@ To configure an alert based on a metric:
 
 1. Select **+ New alert rule**.
 1. In the **Create alert rule** window, **Select condition**.
-1. In the **Configure signal logic** window:
+1. In the **Configure signal logic** window
     1. In **Signal type**, select **Metrics**.
     1. In **Signal name**, select **Requests**.
 1. In the **Configure signal logic** window:
     1. In **Split by dimensions**, in **Dimension name**, select **Gateway Response Code Category**.
-    1. Select **Add custom value**, and enter *401* for unauthorized access
-    1. In **Dimenstion values**, select 401.
+    1. Select **4xx**, for client errors such as unauthorized or invalid requests.
     1. In **Alert logic**, specify a threshold after which the alert should be triggered and select **Done**.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold.png" alt-text="Configure signal logic":::
 
-7. Select an existing action group or create a new one. In the following example, a new action group is created. A notification email will be sent to *admin@contoso.com*. 
+7. Select an existing action group or create a new one. In the following example, a new action group is created. A notification email will be sent to admin@contoso.com. 
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="Notification for action":::
 
 8. Enter a name and description of the alert rule and select the severity level. 
 9. Select **Create alert rule**.
-10. Now, try to call the Conference API without an API key. The alert will be triggered and email will be sent to *admin@contoso.com*. 
+10. Now, test the alert rule by calling the Conference API without an API key. For example:
+
+    ```bash
+    curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
+    ```
+
+    An alert will be triggered based on the evaluation period, and email will be sent to admin@contoso.com. 
+
+    Alerts also appear on the **Alerts** page for the API Management instance.
+
+    :::image type="content" source="media/api-management-howto-use-azure-monitor/portal-alerts.png" alt-text="Alerts in portal":::
 
 ## Activity logs
 
@@ -120,23 +129,23 @@ To configure resource logs:
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-diagnostic-logs-blade.png" alt-text="Diagnostic settings menu":::
 
+1. Select **+ Add diagnostic setting**.
+1. Select the logs or metrics that you want to collect.
 
-3. Select **+ Add diagnostic setting**, and then the logs or metrics that you want to collect.
-
-You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to Azure Monitor logs. 
+   You can archive resource logs along with metrics to a storage account, stream them to an Event Hub, or send them to a Log Analytics workspace. 
 
 For more information, see [Create diagnostic settings to send platform logs and metrics to different destinations](../azure-monitor/platform/diagnostic-settings.md).
 
 ## View diagnostic data in Azure Monitor
 
-If you enable collection of GatewayLogs or metrics in Log Analytics, it can take a few minutes for data to appear in Azure Monitor. To view the data:
+If you enable collection of GatewayLogs or metrics in a Log Analytics workspace, it can take a few minutes for data to appear in Azure Monitor. To view the data:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
 1. Select **Logs** from the menu near the bottom of the page.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/logs-menu-item.png" alt-text="Logs menu":::
 
-Run queries to view the data. Several [sample queries](../azure-monitor/log-query/saved-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the ApiManagementGatewayLogs table:
+Run queries to view the data. Several [sample queries](../azure-monitor/log-query/saved-queries.md) are provided, or run your own. For example, the following query retrieves the most recent 24 hours of data from the GatewayLogs table:
 
 ```kusto
 ApiManagementGatewayLogs
@@ -149,7 +158,7 @@ For more information about using resource logs for API Management, see:
 
 * [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-The following sample JSON indicates an entry in GatewayLogs for a successful API request. For details, see the [schema reference](gateway-log-schema-reference.md). 
+The following JSON indicates a sample entry in GatewayLogs for a successful API request. For details, see the [schema reference](gateway-log-schema-reference.md). 
 
 ```json
 {
@@ -194,7 +203,7 @@ In this tutorial, you learned how to:
 > * View metrics of your API
 > * Set up an alert rule 
 > * View activity logs
-> * View resource logs
+> * Enable and view resource logs
 
 
 Advance to the next tutorial:

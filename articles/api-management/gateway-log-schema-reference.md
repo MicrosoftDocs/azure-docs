@@ -14,11 +14,11 @@ ms.author: apimpm
 
 This article provides a schema reference for the Azure API Management GatewayLogs resource log. Log entries also include fields in the [top-level common schema](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema).
 
-To enable collection of the resource log in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md)
+To enable collection of the resource log in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md#resource-logs).
 
 ## GatewayLogs schema
 
-The following schema includes properties logged for each API request.
+The following properties are logged for each API request.
 
 | Property  | Type | Description |
 | ------------- | ------------- | ------------- |
@@ -30,7 +30,7 @@ The following schema includes properties logged for each API request.
 | apiId | string | API entity identifier for current request | 
 | operationId | string | Operation entity identifier for current request | 
 | clientProtocol | string | HTTP protocol version of the incoming request |
-| clientTime | integer | Number of milliseconds spent on overall client IO (connecting, sending, and receiving bytes) | 
+| clientTime | integer | Number of milliseconds spent on overall client I/O (connecting, sending, and receiving bytes) | 
 | apiRevision | string | API revision for current request | 
 | clientTlsVersion| string | TLS version used by client sending request |
 | lastError | object | For an unsuccessful request, details about the last request processing error | 
@@ -43,6 +43,6 @@ The following schema includes properties logged for each API request.
 
 ## Next steps
 
-* For information about ways to monitor APIs in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md)
+* For information about monitoring APIs in API Management, see [Monitor published APIs](api-management-howto-use-azure-monitor.md)
 * Learn more about [Common and service-specific schema for Azure Resource Logs](../azure-monitor/platform/resource-logs-schema.md)
 
