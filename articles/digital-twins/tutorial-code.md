@@ -55,7 +55,7 @@ This will create several files inside your directory, including one called *Prog
 Next, add two necessary dependencies for working with Azure Digital Twins:
 
 ```cmd/sh
-dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.4
 dotnet add package Azure.identity
 ```
 
