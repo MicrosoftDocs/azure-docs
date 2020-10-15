@@ -481,7 +481,7 @@ To localize the email, you must send localized strings to SendGrid, or your emai
     
 ## [Optional] Localize the UI
 
-The Localization element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to provide language-specific strings for both [Verification display control user interface elements](localization-string-ids.md#verification-display-control-user-interface-elements), and [One time password error messages](localization-string-ids.md#one-time-password-error-messages). Add the following LocalizedString to your LocalizedResources.
+The Localization element allows you to support multiple locales or languages in the policy for the user journeys. The localization support in policies allows you to provide language-specific strings for both [Verification display control user interface elements](localization-string-ids.md#verification-display-control-user-interface-elements), and [One time password error messages](localization-string-ids.md#one-time-password-error-messages). Add the following LocalizedString to your LocalizedResources. 
 
 ```XML
 <LocalizedResources Id="api.custom-email.en">
@@ -505,6 +505,8 @@ The Localization element allows you to support multiple locales or languages in 
   </LocalizedStrings>
 </LocalizedResources>
 ```
+
+After you add the localized strings, remove the OTP validation error messages metadata from the LocalAccountSignUpWithLogonEmail and LocalAccountDiscoveryUsingEmailAddress technical profiles.
 
 ## Next steps
 
