@@ -63,21 +63,21 @@ Azure Security Center includes a bundle of recommendations that are available wh
     > 
     > If you don't enter the necessary parameters for the recommendations that require configuration, your workloads will be shown as unhealthy.
 
-    | Recommendation name                                                                   | Security control                         | Configuration required |
-    |---------------------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | Container CPU and memory limits should be enforced (preview)                          | Protect applications against DDoS attack | No                     |
-    | Privileged containers should be avoided (preview)                                     | Manage access and permissions            | No                     |
-    | Immutable (read-only) root filesystem should be enforced for containers (preview)     | Manage access and permissions            | No                     |
-    | Container with privilege escalation should be avoided (preview)                       | Manage access and permissions            | No                     |
-    | Running containers as root user should be avoided (preview)                           | Manage access and permissions            | No                     |
-    | Containers sharing sensitive host namespaces should be avoided (preview)              | Manage access and permissions            | No                     |
-    | Least privileged Linux capabilities should be enforced for containers (preview)       | Manage access and permissions            | **Yes**                |
-    | Usage of pod HostPath volume mounts should be restricted to a known list (preview)    | Manage access and permissions            | **Yes**                |
-    | Containers should listen on allowed ports only (preview)                              | Restrict unauthorized network access     | **Yes**                |
-    | Services should listen on allowed ports only (preview)                                | Restrict unauthorized network access     | **Yes**                |
-    | Usage of host networking and ports should be restricted (preview)                     | Restrict unauthorized network access     | **Yes**                |
-    | Overriding or disabling of containers AppArmor profile should be restricted (preview) | Remediate security configurations        | **Yes**                |
-    | Container images should be deployed only from trusted registries (preview)            | Remediate vulnerabilities                | **Yes**                |
+    | Recommendation name                                                         | Security control                         | Configuration required |
+    |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
+    | Container CPU and memory limits should be enforced                          | Protect applications against DDoS attack | No                     |
+    | Privileged containers should be avoided                                     | Manage access and permissions            | No                     |
+    | Immutable (read-only) root filesystem should be enforced for containers     | Manage access and permissions            | No                     |
+    | Container with privilege escalation should be avoided                       | Manage access and permissions            | No                     |
+    | Running containers as root user should be avoided                           | Manage access and permissions            | No                     |
+    | Containers sharing sensitive host namespaces should be avoided              | Manage access and permissions            | No                     |
+    | Least privileged Linux capabilities should be enforced for containers       | Manage access and permissions            | **Yes**                |
+    | Usage of pod HostPath volume mounts should be restricted to a known list    | Manage access and permissions            | **Yes**                |
+    | Containers should listen on allowed ports only                              | Restrict unauthorized network access     | **Yes**                |
+    | Services should listen on allowed ports only                                | Restrict unauthorized network access     | **Yes**                |
+    | Usage of host networking and ports should be restricted                     | Restrict unauthorized network access     | **Yes**                |
+    | Overriding or disabling of containers AppArmor profile should be restricted | Remediate security configurations        | **Yes**                |
+    | Container images should be deployed only from trusted registries            | Remediate vulnerabilities                | **Yes**                |
 
 
 1. For the recommendations with parameters must be customized, set the parameters:

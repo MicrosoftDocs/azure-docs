@@ -67,7 +67,7 @@ The Event Hubs Dedicated offering is billed at a fixed monthly price, with a min
 | Size in bytes per schema | 1 MB |   
 | Number of properties per schema group | 1024 |
 | Size in bytes per group property key | 256 | 
-| Size in bytes per group property key | 1024 | 
+| Size in bytes per group property value | 1024 | 
 
 
 #### Limits that are different for **standard** and **dedicated** tiers 

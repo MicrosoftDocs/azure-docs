@@ -17,7 +17,7 @@ Microsoft provides hyper-scale services for traditional resellers and distributo
 ExpressRoute is composed of a pair of circuits for high availability that are attached to a single customer's subscription(s) and cannot be shared by multiple customers. Each circuit should be terminated in a different router to maintain the high availability.
 
 > [!NOTE]
-> There are bandwidth and connection caps on ExpressRoute which means that large/complex implementations will require multiple ExpressRoute circuits for a single customer.
+> There are limits to the bandwidth and number of connections possible on each ExpressRoute circuit. If a single customer's needs exceed these limits, they will require multiple ExpressRoute circuits for their hybrid network implementation.
 > 
 > 
 
@@ -71,30 +71,30 @@ ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows custom
 ExpressRoute supports the connection of multiple vNets to a single ExpressRoute circuit for better utilization of the higher-speed connections. A single ExpressRoute circuit can be shared among multiple Azure subscriptions owned by the same customer.
 
 ## Configuring ExpressRoute
-ExpressRoute can be configured to support three types of traffic ([routing domains](#expressroute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into Microsoft peering, Azure public peering and private peering. You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
+ExpressRoute can be configured to support three types of traffic ([routing domains](#expressroute-routing-domains)) over a single ExpressRoute circuit. This traffic is segregated into private peering, Microsoft peering, and public peering (deprecated). You can choose one or all types of traffic to be sent over a single ExpressRoute circuit or use multiple ExpressRoute circuits depending on the size of the ExpressRoute circuit and isolation required by your customer. The security posture of your customer may not allow public traffic and private traffic to traverse over the same circuit.
 
 ### Connect-through model
-In a connect-through configuration, you will be responsible for all of the networking underpinnings to connect your customers datacenter resources to the subscriptions hosted in Azure. Each of your customer's that want to use Azure capabilities will need their own ExpressRoute connection, which will be managed by the You. The you will use the same methods the customer would use to procure the ExpressRoute circuit. The you will follow the same steps outlined in the article [ExpressRoute workflows](expressroute-workflows.md) for circuit provisioning and circuit states. The you will then configure the Border Gateway Protocol (BGP) routes to control the traffic flowing between the on-premises network and Azure vNet.
+In a connect-through configuration, you will be responsible for all of the networking underpinnings to connect your customer's datacenter resources to the subscriptions hosted in Azure. Each of your customers that want to use Azure capabilities will need their own ExpressRoute connection, which will be managed by  you. You will use the same methods the customer would use to procure the ExpressRoute circuit. You will follow the same steps outlined in the article [ExpressRoute workflows](expressroute-workflows.md) for circuit provisioning and circuit states. You will then configure the Border Gateway Protocol (BGP) routes to control the traffic flowing between the on-premises network and Azure vNet.
 
 ### Connect-to model
-In a connect-to configuration, your customer already has an existing connection to Azure or will initiate a connection to the internet service provider linking ExpressRoute from your customer’s own datacenter directly to Azure, instead of your datacenter. To begin the provisioning process, your customer will follow the steps as described in the Connect-Through model, above. Once the circuit has been established your customer will need to configure the on-premises routers to be able to access both your network and Azure vNets.
+In a connect-to configuration, your customer already has an existing connection to Azure or will initiate a connection to the internet service provider linking ExpressRoute from their own datacenter directly to Azure, instead of your datacenter. To begin the provisioning process, your customer will follow the steps as described in the Connect-Through model, above. Once the circuit has been established, your customer will need to configure the on-premises routers to be able to access both your network and Azure vNets.
 
 You can assist with setting up the connection and configuring the routes to allow the resources in your datacenter(s) to communicate with the client resources in your datacenter, or with the resources hosted in Azure.
 
 ## ExpressRoute routing domains
-ExpressRoute offers three routing domains: public, private, and Microsoft peering. Each of the routing domains is configured with identical routers in active-active configuration for high availability. For more details on ExpressRoute routing domains look [here](expressroute-circuit-peerings.md).
+ExpressRoute offers two routing domains for new circuits: private peering and Microsoft peering. Each of the routing domains is configured with identical routers in active-active configuration for high availability. For more details on ExpressRoute routing domains look [here](expressroute-circuit-peerings.md).
 
 You can define custom routes filters to allow only the route(s) you want to allow or need. For more information or to see how to make these changes see article: [Create and modify routing for an ExpressRoute circuit using PowerShell](expressroute-howto-routing-classic.md) for more details about routing filters.
 
 > [!NOTE]
-> For Microsoft and Public Peering connectivity must be though a public IP address owned by the customer or CSP and must adhere to all defined rules. For more information, see the [ExpressRoute Prerequisites](expressroute-prerequisites.md) page.  
+> For Microsoft Peering, connectivity must be though a public IP address owned by the customer or CSP and must adhere to all defined rules. For more information, see the [ExpressRoute Prerequisites](expressroute-prerequisites.md) page.  
 > 
 > 
 
 ## Routing
 ExpressRoute connects to the Azure networks through the Azure Virtual Network Gateway. Network gateways provide routing for Azure virtual networks.
 
-Creating Azure Virtual Networks also creates a default routing table for the vNet to direct traffic to/from the subnets of the vNet. If the default route table is insufficient for the solution custom routes can be created to route outgoing traffic to custom appliances or to block routes to specific subnets or external networks.
+Creating Azure Virtual Networks also creates a default routing table for the vNet to direct traffic to/from the subnets of the vNet. If the default route table is insufficient for the solution, custom routes can be created to route outgoing traffic to custom appliances or to block routes to specific subnets or external networks.
 
 ### Default routing
 The default route table includes the following routes:
