@@ -38529,7 +38529,7 @@
     {
       "source_path": "articles/active-directory/application-sign-in-problem-federated-sso-gallery.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-federated-sso-non-gallery.md",
