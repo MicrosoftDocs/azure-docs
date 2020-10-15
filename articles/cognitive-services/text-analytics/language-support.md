@@ -128,7 +128,7 @@ If you have content expressed in a less frequently used language, you can try La
 |Basque|`eu`|✓|    |iso639-1|
 |Belarusian|`be`|✓|    |iso639-1|
 |Bengali|`bn`|✓|    |iso639-1|
-|Bosnian|`bs`|✓|9/1/2020|iso639-1|
+|Bosnian|`bs`|✓|2020-09-01|iso639-1|
 |Bulgarian|`bg`|✓|    |iso639-1|
 |Burmese|`my`|✓|    |iso639-1|
 |Catalan,Valencian|`ca`|✓|    |iso639-1|
@@ -139,13 +139,13 @@ If you have content expressed in a less frequently used language, you can try La
 |Croatian|`hr`|✓|    |iso639-1|
 |Czech|`cs`|✓|    |iso639-1|
 |Danish|`da`|✓|    |iso639-1|
-|Dari|`prs`|✓|9/1/2020|BCP-47|
+|Dari|`prs`|✓|2020-09-01|BCP-47|
 |Divehi, Dhivehi, Maldivian|`dv`|✓|    |iso639-1|
 |Dutch, Flemish|`nl`|✓|    |iso639-1|
 |English|`en`|✓|    |iso639-1|
 |Esperanto|`eo`|✓|    |iso639-1|
 |Estonian|`et`|✓|    |iso639-1|
-|Fijian|`fj`|✓|9/1/2020|iso639-1|
+|Fijian|`fj`|✓|2020-09-01|iso639-1|
 |Finnish|`fi`|✓|    |iso639-1|
 |French|`fr`|✓|    |iso639-1|
 |Galician|`gl`|✓|    |iso639-1|
@@ -156,7 +156,7 @@ If you have content expressed in a less frequently used language, you can try La
 |Haitian, Haitian Creole|`ht`|✓|    |iso639-1|
 |Hebrew|`he`|✓|    |iso639-1|
 |Hindi|`hi`|✓|    |iso639-1|
-|Hmong Daw|`mww`|✓|9/1/2020|BCP-47|
+|Hmong Daw|`mww`|✓|2020-09-01|BCP-47|
 |Hungarian|`hu`|✓|    |iso639-1|
 |Icelandic|`is`|✓|    |iso639-1|
 |Indonesian|`id`|✓|    |iso639-1|
@@ -165,7 +165,7 @@ If you have content expressed in a less frequently used language, you can try La
 |Italian|`it`|✓|    |iso639-1|
 |Japanese|`ja`|✓|    |iso639-1|
 |Kannada|`kn`|✓|    |iso639-1|
-|Kazakh|`kk`|✓|9/1/2020|iso639-1|
+|Kazakh|`kk`|✓|2020-09-01|iso639-1|
 |Korean|`ko`|✓|    |iso639-1|
 |Kurdish|`ku`|✓|    |iso639-1|
 |Lao|`lo`|✓|    |iso639-1|
@@ -173,12 +173,12 @@ If you have content expressed in a less frequently used language, you can try La
 |Latvian|`lv`|✓|    |iso639-1|
 |Lithuanian|`lt`|✓|    |iso639-1|
 |Macedonian|`mk`|✓|    |iso639-1|
-|Malagasy|`mg`|✓|9/1/2020|iso639-1|
+|Malagasy|`mg`|✓|2020-09-01|iso639-1|
 |Malay|`ms`|✓|    |iso639-1|
 |Malayalam|`ml`|✓|    |iso639-1|
 |Maltese|`mt`|✓|    |iso639-1|
-|Maori|`mi`|✓|9/1/2020|iso639-1|
-|Marathi|`mr`|✓|9/1/2020|iso639-1|
+|Maori|`mi`|✓|2020-09-01|iso639-1|
+|Marathi|`mr`|✓|2020-09-01|iso639-1|
 |Norwegian|`no`|✓|    |iso639-1|
 |Norwegian Nynorsk|`nn`|✓|    |iso639-1|
 |Oriya|`or`|✓|    |iso639-1|
@@ -187,10 +187,10 @@ If you have content expressed in a less frequently used language, you can try La
 |Polish|`pl`|✓|    |iso639-1|
 |Portuguese|`pt`|✓|    |iso639-1|
 |Punjabi, Panjabi|`pa`|✓|    |iso639-1|
-|Queretaro Otomi|`otq`|✓|9/1/2020|BCP-47|
+|Queretaro Otomi|`otq`|✓|2020-09-01|BCP-47|
 |Romanian, Moldavian, Moldovan|`ro`|✓|    |iso639-1|
 |Russian|`ru`|✓|    |iso639-1|
-|Samoan|`sm`|✓|9/1/2020|iso639-1|
+|Samoan|`sm`|✓|2020-09-01|iso639-1|
 |Serbian|`sr`|✓|    |iso639-1|
 |Sinhala, Sinhalese|`si`|✓|    |iso639-1|
 |Slovak|`sk`|✓|    |iso639-1|
@@ -200,11 +200,11 @@ If you have content expressed in a less frequently used language, you can try La
 |Swahili|`sw`|✓|    |iso639-1|
 |Swedish|`sv`|✓|    |iso639-1|
 |Tagalog|`tl`|✓|    |iso639-1|
-|Tahitian|`ty`|✓|9/1/2020|iso639-1|
+|Tahitian|`ty`|✓|2020-09-01|iso639-1|
 |Tamil|`ta`|✓|    |iso639-1|
 |Telugu|`te`|✓|    |iso639-1|
 |Thai|`th`|✓|    |iso639-1|
-|Tongan|`to`|✓|9/1/2020|iso639-1|
+|Tongan|`to`|✓|2020-09-01|iso639-1|
 |Turkish|`tr`|✓|    |iso639-1|
 |Ukrainian|`uk`|✓|    |iso639-1|
 |Urdu|`ur`|✓|    |iso639-1|
@@ -213,6 +213,7 @@ If you have content expressed in a less frequently used language, you can try La
 |Welsh|`cy`|✓|    |iso639-1|
 |Yiddish|`yi`|✓|    |iso639-1|
 |Yucatec Maya|`yua`|✓|    |BCP-47|
+
 
 
 ## See also
