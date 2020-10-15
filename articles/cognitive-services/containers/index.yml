@@ -26,7 +26,7 @@ highlightedContent:
       url: container-faq.md
     - title: Container reuse recipe
       itemType: concept
-      url: ./container-reuse-recipe
+      url: ./container-reuse-recipe.md
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
