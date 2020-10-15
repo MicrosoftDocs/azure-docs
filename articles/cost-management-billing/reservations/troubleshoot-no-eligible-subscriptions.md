@@ -25,7 +25,7 @@ This article helps you troubleshoot the *No eligible subscriptions* error messag
     You do not have any eligible subscriptions to purchase reservations. To purchase a reservation, you should be an owner on at least one subscription of the following type: Pay-as-you-go, CSP, Microsoft Enterprise or Microsoft Customer Agreement.
     ```
 1. In the **Select the product you want to purchase** area, expand the **Billing subscription** list to see the reason why a specific subscription isn't eligible to purchase a reserved instance. The following image shows examples why a reservation can't be purchased.  
-    :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Example showing why a reservation can't be purchased" :::
+    :::image type="content" source="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png" alt-text="Example showing why a reservation can't be purchased" lightbox="./media/troubleshoot-no-eligible-subscriptions/select-product-to-purchase.png :::
 
 ## Cause
 
