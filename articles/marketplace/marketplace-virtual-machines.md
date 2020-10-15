@@ -7,7 +7,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
 # Plan a virtual machine offer
@@ -54,7 +54,7 @@ These are the available listing options for VM offers:
 
 For more information on these listing options, see [Commercial marketplace transact capabilities](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
 
-After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer's listing page. The following example shows an offer page in Azure Marketplace with the  **Get it now** button.
+After your offer is published, the listing option you chose for your offer appears as a button in the upper-left corner of your offer's listing page. The following example shows an offer page in Azure Marketplace with the **Get it now** button.
 
 :::image type="content" source="media/vm/sample-offer-screen.png" alt-text="Sample VM offer screen.":::
 
@@ -67,7 +67,7 @@ Use this offer type when your offer is deployed as a virtual machine to the subs
 
 You can restrict the discovery and deployment of your VM to a specific set of customers by publishing the image and pricing as a Private Offer. Private Offers unlock the ability for you to create exclusive offers for your closest customers and offer customized software and terms. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software. Private Offers enable you to give specific pricing or products to a limited set of customers by creating a new plan with those details.
 
-For more information, see [**Private Offers on Azure Marketplace**](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
+For more information, see [Private Offers on Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
 
 > [!NOTE]
 > The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
@@ -76,5 +76,4 @@ For more information, see [**Private Offers on Azure Marketplace**](https://azur
 
 - Learn how to [Grow your cloud business with Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- Get started at [How to create a VM offer in the commercial marketplace](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-vm-create-offer).
- 
+- Started creating your offer at [Create a VM offer on Azure Marketplace](https://docs.microsoft.com/azure/marketplace/azure-vm-create).

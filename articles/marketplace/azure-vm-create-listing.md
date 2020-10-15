@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
 # Configure virtual machine offer listing details
@@ -40,7 +40,7 @@ Provide a longer description of your offer, to be displayed in Azure Marketplace
 
 [!INCLUDE [Long description-2](includes/long-description-2.md)]
 
-[!INCLUDE [Long description-3](includes/long-description-3.md)]
+Use HTML tags to format your description so it's more engaging. For a list of allowed tags, see [Supported HTML tags](supported-html-tags.md).
 
 ### Privacy policy link
 
@@ -113,4 +113,4 @@ Select **Save draft** before you continue.
 
 ## Next steps
 
-- [Add a preview audience for your VM offer](azure-vm-create-preview.md)
+- [Create plans](azure-vm-create-plans.md)

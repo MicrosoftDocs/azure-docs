@@ -1,19 +1,19 @@
 ---
-title: Common SAS URI issues and fixes - Azure Marketplace
-description: Common issues encountered and suggested resolutions when working with shared access signatures.
+title: Virtual machine SAS failure messages - Azure Marketplace
+description: Frequently asked questions when working with shared access signatures (SAS).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/09/2020
+ms.date: 10/15/2020
 ---
 
-# Common SAS URI issues and fixes
+# Virtual machine SAS failure messages
 
 Following are common issues encountered when working with shared access signatures (which are used to identify and share the uploaded VHDs for your solution), along with suggested resolutions.
 
-| **Issue** | **Failure Message** | **Fix** |
+| Issue | Failure Message | Fix |
 | --------- | ------------------- | ------- |
 | *Failure in copying images* |  |  |
 | "?" is not found in SAS URI | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Update the SAS URI using recommended tools. |
@@ -25,6 +25,7 @@ Following are common issues encountered when working with shared access signatur
 |  |  |  |
 
 For details, see [Using shared access signatures (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+
 ## Next steps
 
-- [VHD creation FAQ](azure-vm-common-issues-during-vhd-creation.md)
+- [Generate SAS URI](azure-vm-get-sas-uri.md)

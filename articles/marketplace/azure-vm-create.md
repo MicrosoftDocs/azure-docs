@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/15/2020
 ---
 
 # Create a virtual machine offer on Azure Marketplace
@@ -30,16 +30,6 @@ If you haven't done so yet, review [Plan a virtual machine offer](marketplace-vi
   - [Azure PowerShell for Linux VMs](../virtual-machines/linux/powershell-samples.md)
   - [Azure CLI samples for Windows VMs](../virtual-machines/windows/cli-samples.md)
   - [Azure PowerShell for Windows VMs](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
-
-## Fundamentals in technical knowledge
-
-The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies that are used to build your offer.
-
-Your engineering team should have a basic understanding and working knowledge of the following Microsoft technologies:
-
-- [Azure services](https://azure.microsoft.com/services/)
-- [Design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/)
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
 
 ## Create a new offer
 

@@ -1,15 +1,15 @@
 ---
-title: Get a SAS URI for your VM image - Azure Marketplace
-description: Generate a shared access signature (SAS) URI for your virtual hard disks (VHD) in Azure Marketplace.
+title: Generate a SAS URI for a VM image - Azure Marketplace
+description: Generate a shared access signature (SAS) URI for a virtual hard disks (VHD) in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: iqshahmicrosoft
-ms.author: iqshah
-ms.date: 08/14/2020
+ms.author: krsh
+ms.date: 10/15/2020
 ---
 
-# Get a SAS URI for your VM image
+# Generate a SAS URI for a VM image
 
 During the publishing process, you must provide a SAS (Shared Access Signature) URI for each VHD associated with your plans (previously called SKUs). Microsoft needs access to these VHDs during the certification process. You’ll enter this URI on the **Plans** tab in Partner Center.
 
@@ -22,19 +22,20 @@ Generating SAS URIs for your VHDs has these requirements:
 
 ## Generate the SAS address
 
-There are two common tools used to create an SAS address (URL):
+There are two common tools used to create a SAS address (URL):
 
-1. **Microsoft Storage Explorer** – Graphical tool available for Windows, macOS, and Linux.
-2. **Microsoft Azure CLI** – Recommended for non-Windows operating systems and automated or continuous integration environments.
+1. **Azure Storage Explorer** – Available on the Azure portal.
+2. **Azure CLI** – Recommended for non-Windows operating systems and automated or continuous integration environments.
 
-### Using Tool 1: Microsoft Storage Explorer
+### Using Tool 1: Azure Storage Explorer
 
-1. Download and install [Microsoft Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-2. Open the explorer and in the left menu, select **Add Account**.
-3. In the **Connect to Azure Storage** dialog box, select **Add an Azure Account** and sign in to your Azure account.
-4. In the left-Explorer pane, expand the **Storage Accounts** node.
-5. Right-click your VHD and select **Get Share Access Signature**.
-6. In the **Shared Access Signature** dialog box, complete the following fields:
+1. Go to your **Storage Account**.
+1. Open **Storage Explorer**.
+
+    :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Storage account window.":::
+
+3. In the **Container**, right-click the VHD file and select **Get Share Access Signature**.
+4. In the **Shared Access Signature** dialog box, complete the following fields:
 
     1. Start time – Permission start date for VHD access. Provide a date that is one day before the current date.
     2. Expiry time – Permission expiration date for VHD access. Provide a date at least three weeks beyond the current date.
@@ -43,19 +44,13 @@ There are two common tools used to create an SAS address (URL):
 
     ![Shared access signature dialog box.](media/vm/create-sas-uri-storage-explorer.png)
 
-7. To create the associated SAS URI for this VHD, select **Create**. The dialog box refreshes and shows details about this operation.
-
-8. Copy the URI and save it to a text file in a secure location.
-
-    ![Copying the URI.](media/vm/create-sas-uri-shared-access-signature-details.png)
-
-    This generated SAS URI is for container-level access. To make it specific, edit the text file to add the VHD name.
-
-9. Insert your VHD name after the vhds string in the SAS URI (include a forward slash). The final SAS URI should look like this:
+5. To create the associated SAS URI for this VHD, select **Create**.
+6. Copy the URI and save it to a text file in a secure location. This generated SAS URI is for container-level access. To make it specific, edit the text file to add the VHD name.
+7. Insert your VHD name after the vhds string in the SAS URI (include a forward slash). The final SAS URI should look like this:
 
     `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
 
-1. Repeat these steps for each VHD in the plans you will publish.
+8. Repeat these steps for each VHD in the plans you will publish.
 
 ### Using Tool 2: Azure CLI
 
@@ -105,6 +100,7 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 - When `sr=c` appears, this means that container-level access is specified.
 - Copy and paste the URI into a browser to test-download the blob (you can cancel the operation before the download completes).
 
-## Next step
+## Next steps
 
-- Read [Common SAS URI issues and fixes](azure-vm-common-sas-uri-issues.md).
+- If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md).
+- After you have the SAS URIs, [Configure VM offer properties](azure-vm-create-properties.md).

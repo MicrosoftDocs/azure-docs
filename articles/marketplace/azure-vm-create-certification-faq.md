@@ -1,6 +1,6 @@
 ---
-title: Common issues when certifying virtual machine images for Azure Marketplace
-description: This article explains common error messages and issues when testing and certifying VM images for Azure Marketplace. It also discusses related solutions.
+title: VM certification troubleshooting for Azure Marketplace
+description: This article covers troubleshooting topics common to testing and certifying VM images for Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
@@ -9,14 +9,14 @@ ms.author: iqshah
 ms.date: 10/14/2020
 ---
 
-# Common issues when certifying virtual machine images for Azure Marketplace
+# VM certification troubleshooting
 
 When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
 
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> If you have questions or feedback for improvement, please contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
+> If you have questions or feedback for improvement, please contact Partner Center [support](https://aka.ms/marketplacepublishersupport).
 
 ## Approved base image
 
@@ -58,7 +58,7 @@ To verify that the VM extensions are properly activated, do the following:
 
 ## VM provisioning issue
 
-Check to ensure that you've followed the VM provisioning process rigorously before you submit your offer. To view the JSON format for provisioning the VM, see [Azure virtual machine image certification](azure-vm-image-certification.md).
+Check to ensure that you've followed the VM provisioning process rigorously before you submit your offer. To view the JSON format for provisioning the VM, see [Test a virtual machine image](azure-vm-image-test.md).
 
 Provisioning issues can include the following failure scenarios:
 
@@ -88,7 +88,7 @@ For more information about selecting an approved base, see [Create a virtual mac
 
 The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
-Download the [Microsoft Certification toolkit](azure-vm-image-certification.md).
+Download the [Microsoft Certification toolkit](azure-vm-image-test.md).
 
 ## Linux test cases
 
@@ -143,7 +143,7 @@ The following table lists the Windows test cases that the toolkit will run, alon
 |17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |
 
-If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team. 
+If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team.
 
 ## Data disk size verification
 
@@ -176,7 +176,7 @@ As VMs allow access to the underlying operating system, ensure that the VHD size
 
 To prevent a potential attack related to the WannaCry virus, ensure that all Windows image requests are updated with the latest patch.
 
-To check the Windows Server patched version for the OS detail and the minimum version it will support, refer to the following table: 
+To check the Windows Server patched version for the OS detail and the minimum version it will support, refer to the following table:
 
 The image file version can be verified from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
 
@@ -348,94 +348,94 @@ Step 5. Re-Submit the generalized image.
 
 ## Requesting exceptions (custom templates) on VM images for selective tests
 
-Publishers can reach out to request exceptions for few tests performed during VM certification. Exceptions are provided in extremely rare cases when publisher provides evidence to support the request.
-The Certification team reserves the right to deny or approve exceptions at any point of time.
+Publishers can request exceptions for few tests performed during VM certification. Exceptions are provided in extremely rare cases when publisher provides evidence to support the request. The Certification team reserves the right to deny or approve exceptions at any time.
 
-In the sections below, we will talk about main scenarios where exceptions are requested and how to request exception.
+In the sections below, we will talk about main scenarios where exceptions are requested and how to request one.
 
-Scenarios for exception
+### Scenarios for exception
 
-There are three scenarios/cases where publishers generally request these exceptions.
+There are generally three scenarios/cases where publishers request exceptions.
 
-* **Exception for one or more test cases:** Publishers can reach out to [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases.
+- **Exception for one or more test cases** – Publishers contact Partner Center [support](https://aka.ms/marketplacepublishersupport) to request exceptions for test cases.
 
-* **Locked Down VMs/No root access:** Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. 
-       In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
+- **Locked-down VMs/No root access** – Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at Partner Center [support](https://aka.ms/marketplacepublishersupport).
 
-* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs.
-In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation.
+- **Custom templates** – Some publishers publish VM images that require a custom ARM template to deploy the VMs. In this case, publishers should submit the custom templates at Partner Center [support](https://aka.ms/marketplacepublishersupport) so the same can be used by the Certification team for validation.
 
 ### Information to provide for exception scenarios
 
-Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
+Publishers should contact Partner Center [support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
 
-   1.	Publisher ID – The publisher ID on Partner Center portal
-   2.	Offer ID/name – The Offer ID/name for which exception is requested 
-   3.	SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
-   4.	 Version – The version of the VM offer for which exception is requested
-   5.	Exception Type –Tests, Locked Down VM, Custom Templates
-   6.	Reason of request – Reason for this exception and information on tests to be exempted 
-   7. Timeline - Date till which this exception has been requested 
-   8.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
+   1. Publisher ID – The publisher ID on Partner Center portal
+   2. Offer ID/name – The Offer ID/name for which exception is requested
+   3. SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
+   4. Version – The version of the VM offer for which exception is requested
+   5. Exception Type –Tests, Locked Down VM, Custom Templates
+   6. Reason of request – Reason for this exception and information on tests to be exempted
+   7. Timeline - Date till which this exception has been requested
+   8. Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
 
-## How to address a vulnerability or exploit in a VM offer
+## Address a vulnerability or exploit in a VM offer
 
-This FAQ helps you provide a virtual machine (VM) image when a vulnerability or exploit is discovered with one of your VM images. This FAQ applies only to Azure Virtual Machine offers that are published to the Azure Marketplace.
+This section describes how to provide a new VM image when a vulnerability or exploit is discovered with one of your VM images. This applies only to Azure Virtual Machine offers published to the Azure Marketplace.
 
 > [!NOTE]
-> You can’t remove the last VM image from a plan and you can’t stop sell the last plan for an offer.
+> You can't remove the last VM image from a plan or stop-sell the last plan for an offer.
 
 Do one of the following:
 
-1. If you have a new VM image to replace the vulnerable VM image, then go to [How to provide a fixed VM image](#how-to-provide-a-fixed-vm-image).
-1. If you don’t have a new VM image to replace the only VM image in a plan and if you’re done with the plan, then you can [stop selling the plan](update-existing-offer.md#stop-selling-an-offer-or-plan).
-1. If you don’t plan to replace the only VM image in the offer, then we recommend that you [stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan).
+- If you have a new VM image to replace the vulnerable VM image, see [Provide a fixed VM image](#provide-a-fixed-vm-image) below.
+- If you don't have a new VM image to replace the only VM image in a plan, or if you're done with the plan, [stop selling the plan](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+- If you don't plan to replace the only VM image in the offer, we recommend you [stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
-### How to provide a fixed VM image
+### Provide a fixed VM image
 
-To provide a fixed VM image to replace a VM image that has a vulnerability or exploit, you must do the following:
+To provide a fixed VM image to replace a VM image that has a vulnerability or exploit, do the following:
 
 1. Provide a new VM image to address the security vulnerability or exploit.
-1. Remove the VM image that has the security vulnerability or exploit.
-1. Republish the offer.
+2. Remove the VM image with the security vulnerability or exploit.
+3. Republish the offer.
 
 #### Provide a new VM image to address the security vulnerability or exploit
 
-To complete these steps, you’ll need prepare the technical asset for the VM image you want to add. For more information, see [Create technical assets for an Azure Marketplace virtual machine offer](create-azure-vm-technical-asset.md) and [Get a SAS URI for your VM image](get-sas-uri.md).
+To complete these steps you'll need to prepare the technical assets for the VM image you want to add. For more information, see [Prepare technical assets](azure-vm-create-technical-assets.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-1. In the **Offer alias** column, select the offer.
-1. On the **Plan overview** tab, in the **Name** column, select the plan you want to add the VM to.
-1. On the **Technical configuration** tab, under **VM Images**, select **+ Add VM Image**.
-   > [!NOTE]
-   > You can add only one VM image to a plan at a time. To add multiple VM images, publish the first one and wait until it reaches the _Publisher signoff_ stage before you add the next VM image.
-1. In the boxes that appear, provide a new disk version and the virtual machine image.
-1. Select **Save draft**.
-1. Continue to the next section to remove the VM image with the security vulnerability.
+2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+3. In the **Offer alias** column, select the offer.
+4. On the **Plan overview** tab, in the **Name** column, select the plan you want to add the VM to.
+5. On the **Technical configuration** tab, under **VM Images** , select **+ Add VM Image**.
 
-#### Remove the VM image that has the security vulnerability or exploit
+> [!NOTE]
+> You can add only one VM image to one plan at a time. To add multiple VM images, publish the first one and wait until it reaches the Publisher sign-off stage, then add the next VM image.
 
-Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
-1. In the **Offer alias** column, select the offer.
-1. On the **Plan overview** tab, in the **Name** column, select the plan with the VM you want to remove.
-1. On the **Technical configuration** tab, under **VM Images**, next to the VM image you want to remove, select **Remove VM Image**.
-1. In the dialog box that appears, select **Continue**.
-1. Select **Save draft**.
-1. Continue to the next section to republish the offer.
+6. In the boxes that appear, provide a new disk version and the virtual machine image.
+7. Select **Save draft**.
+
+Continue with the next section below to remove the VM image with the security vulnerability.
+
+#### Remove the VM image with the security vulnerability or exploit
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+3. In the **Offer alias** column, select the offer.
+4. On the **Plan overview** tab, in the **Name** column, select the plan with the VM you want to remove.
+5. On the **Technical configuration** tab, under **VM Images** , next to the VM image you want to remove, select **Remove VM Image**.
+6. In the dialog box that appears, select **Continue**.
+7. Select **Save draft**.
+
+Continue with the next section below to republish the offer.
 
 #### Republish the offer
 
-After you’ve removed or replaced the VM image, you need to republish the offer.
 1. Select **Review and publish**.
-1. If you need to provide any information to the certification team, add it to the **Notes for certification** box.
-1. Select **Publish**.
+2. If you need to provide any information to the certification team, add it to the **Notes for certification** box.
+3. Select **Publish**.
 
-For more details about the publishing process, see [How to review and publish an offer to the commercial marketplace](../review-publish-offer.md).
+To complete the publishing process, see [Review and publish offers](review-publish-offer.md).
 
 ## Next steps
 
-- [Review and publish an offer to the commercial marketplace](review-publish-offer.md)
+- [Configure VM offer properties](azure-vm-create-properties.md)
 - [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
-- If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
+- If you have questions or feedback for improvement, contact Partner Center [support](https://aka.ms/marketplacepublishersupport).
