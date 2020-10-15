@@ -13,46 +13,47 @@ ms.service: azure-communication-services
 ---
 # Metrics overview
 
-Azure Communication services currently provide metrics for chat and SMS. Follow Azure's Getting started with Azure Metrics Explorer to learn how to start plotting your own charts, investigate abnormalities in your metric values and understand your API traffic for Chat and SMS.
-https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started
+Azure Communication Services currently provides metrics for Chat and SMS. [Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that Chat and SMS requests emit.
 
 ## Where to find Metrics
 
-Chat and SMS services in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics blade under your ACS resource. You can also create permanent dashboards using the workbooks blade under your ACS resource.
+Chat and SMS services in Azure Communication Services emit metrics for API requests. These metrics can be found in the Metrics blade under your Communication Services resource. You can also create permanent dashboards using the workbooks blade under your Communication Services resource.
 
 ## Metric definitions
-Chat API Requests - Count of all API requests to ACS chat gateway endpoint.
 
-SMS API Requests - Count of all API requests to ACS SMS gateway endpoint.
+There are two types of requests that are represented within Communication Services metrics: **Chat API requests** and **SMS API requests**.
 
-### ChatAPIRequests
+Both Chat and SMS API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using `count` and support all standard Azure Aggregation time series:
 
-The Chat API request metric contains three dimension to filter on. The dimensions can be aggregated together using count and supports all standard Azure Aggregation time series.
+TODO: clarify what 'Count' means, and what the following items represent (to a developer who is new to Azure and Aggregation)
 
-Operation - All operations or routes that can be called on the ACS Chat gateway.
-Status Code - The status code response sent after the request.
-StatusSubClass - The status code series sent after the response. 
+- **Operation** - All operations or routes that can be called on the ACS Chat gateway.
+- **Status Code** - The status code response sent after the request.
+- **StatusSubClass** - The status code series sent after the response. 
 
-The list below are the possible operations or route values that can be returned by the Chat API request metric. If a request is made to a route that is not recognized, you will receive a "Bad Route" value for Operation.
+
+### Chat API request metric operations
+
+The following operations are available on Chat API request metrics:
+
+TODO: turn this into a table that describes each item, maybe explain how a dev might invoke/consume these
 
 Operation – (All routes) - GetChatMessage, ListChatMessages, SendChatMessage, UpdateChatMessage, DeleteChatMessage, GetChatThread, ListChatThreads, UpdateChatThread,  CreateChatThread, DeleteChatThread, GetReadReceipts, SendTypingIndicator, ListChatThreadParticipants, AddChatThreadParticipants and RemoveChatThreadParticipant.
 
 :::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
-### SMSAPIRequests
+If a request is made to a route that is not recognized, you'll receive a "Bad Route" value for Operation.
 
-The SMS API request metric contains three dimension to filter on. The dimensions can be aggregated together using count and supports all standard Azure Aggregation time series.
+### SMS API requests
 
-Operation - All operations or routes that can be called on the ACS SMS gateway.
-Status Code - The status code response sent after the request.
-StatusSubClass - The status code series sent after the response. 
+The following operations are available on SMS API request metrics:
 
-The list below are the possible operations or route values that can be returned by the SMS API request metric. If a request is made to a route that is not recognized, you will receive a "Bad Route" value for Operation.
+TODO: turn this into a table that describes each item, maybe explain how a dev might invoke/consume these
 
 Operation – (All routes) - SMSMessageSent, SMSDeliveryReportsReceived, and SMSMessagesReceived
 
 :::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
 
-## References
+## Next Steps
 
-https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics 
+- Learn more about [Data Platform Metrics](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)
