@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ---
 
 # Common issues when certifying virtual machine images for Azure Marketplace
@@ -377,6 +377,62 @@ Publishers must reach out to the support at [Marketplace Publisher Support](http
    6. Reason of request – Reason for this exception and information on tests to be exempted
    7. Timeline - Date till which this exception has been requested
    8. Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
+
+## How to address a vulnerability or exploit in a VM offer
+
+This FAQ helps you provide a virtual machine (VM) image when a vulnerability or exploit is discovered with one of your VM images. This FAQ applies only to Azure Virtual Machine offers that are published to the Azure Marketplace.
+
+> [!NOTE]
+> You can’t remove the last VM image from a plan and you can’t stop sell the last plan for an offer.
+
+Do one of the following:
+
+1. If you have a new VM image to replace the vulnerable VM image, then go to [How to provide a fixed VM image](#how-to-provide-a-fixed-vm-image).
+1. If you don’t have a new VM image to replace the only VM image in a plan and if you’re done with the plan, then you can [stop selling the plan](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+1. If you don’t plan to replace the only VM image in the offer, then we recommend that you [stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+
+### How to provide a fixed VM image
+
+To provide a fixed VM image to replace a VM image that has a vulnerability or exploit, you must do the following:
+
+1. Provide a new VM image to address the security vulnerability or exploit.
+1. Remove the VM image that has the security vulnerability or exploit.
+1. Republish the offer.
+
+#### Provide a new VM image to address the security vulnerability or exploit
+
+To complete these steps, you’ll need prepare the technical asset for the VM image you want to add. For more information, see [Create technical assets for an Azure Marketplace virtual machine offer](partner-center-portal/create-azure-vm-technical-asset.md) and [Get a SAS URI for your VM image](partner-center-portal/get-sas-uri.md).
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. In the **Offer alias** column, select the offer.
+1. On the **Plan overview** tab, in the **Name** column, select the plan you want to add the VM to.
+1. On the **Technical configuration** tab, under **VM Images**, select **+ Add VM Image**.
+   > [!NOTE]
+   > You can add only one VM image to a plan at a time. To add multiple VM images, publish the first one and wait until it reaches the _Publisher signoff_ stage before you add the next VM image.
+1. In the boxes that appear, provide a new disk version and the virtual machine image.
+1. Select **Save draft**.
+1. Continue to the next section to remove the VM image with the security vulnerability.
+
+#### Remove the VM image that has the security vulnerability or exploit
+
+Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. In the **Offer alias** column, select the offer.
+1. On the **Plan overview** tab, in the **Name** column, select the plan with the VM you want to remove.
+1. On the **Technical configuration** tab, under **VM Images**, next to the VM image you want to remove, select **Remove VM Image**.
+1. In the dialog box that appears, select **Continue**.
+1. Select **Save draft**.
+1. Continue to the next section to republish the offer.
+
+#### Republish the offer
+
+After you’ve removed or replaced the VM image, you need to republish the offer.
+1. Select **Review and publish**.
+1. If you need to provide any information to the certification team, add it to the **Notes for certification** box.
+1. Select **Publish**.
+
+For more details about the publishing process, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md).
 
 ## Next steps
 

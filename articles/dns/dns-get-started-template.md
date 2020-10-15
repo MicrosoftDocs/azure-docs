@@ -7,7 +7,8 @@ author: duongau
 ms.service: dns
 ms.topic: quickstart
 ms.date: 09/8/2020
-ms.author: duau 
+ms.author: duau
+ms.custom: subject-armqs
 
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using Azure ARM template so I can use Azure DNS for my name resolution.
 ---
