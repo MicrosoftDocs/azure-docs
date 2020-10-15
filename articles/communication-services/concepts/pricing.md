@@ -15,13 +15,8 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-<!--
-> [!WARNING]
-> This document is under construction and needs the following items to be addressed:
-> - Looks like other resources point to a /pricing page that is managed by Commerce or Marketing? https://azure.microsoft.com/pricing/details/functions/ Should we? FOLLOWING UP WITH KRISTIN TO FIND THE RIGHT ACS PAGE
--->
 
-Prices for Azure Communication Services are based on a pay-as-you-go model with no upfront fees. You'll only be billed for your consumption and use of the services.
+Prices for Azure Communication Services are generally based on a pay-as-you-go model.
 
 ## Voice/Video calling and screen sharing
 
@@ -79,6 +74,16 @@ Rose sees the messages and starts chatting. In the meanwhile Casey gets a call a
 ## Price 
 
 Telephony services are priced on a per-minute basis, while SMS is priced on a per-message basis. Pricing is determined by the type and location of the number you're using as well as the destination of your calls and SMS messages.
+
+### Telephone number leasing
+
+Fees for phone number leasing are charged upfront and then recur on a month-to-month basis:
+
+|Number type   |Monthly fee   |
+|--------------|-----------|
+|Local     |$1/mo        |
+|Toll-free |$2/mo |
+
 
 ### Telephone calling
 
