@@ -1,6 +1,6 @@
 ---
-title: How to update to dynamic regulatory compliance monitoring in your Azure Security Center regulatory compliance dashboard | Microsoft Docs
-description: Updating your regulatory compliance packages
+title: Using the regulatory compliance dashboard in Azure Security Center
+description: Learn how to add and remove regulatory standards from the regulatory compliance dashboard in Security Center
 services: security-center
 documentationcenter: na
 author: memildin
@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 15/10/2020
 ms.author: memildin
 
 ---
