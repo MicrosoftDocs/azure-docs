@@ -1,6 +1,6 @@
 ---
 title: Clustering point data on a map | Microsoft Azure Maps
-description: In this article, you'll learn how to cluster point data and render it on a map using the Microsoft Azure Maps Web SDK.
+description: Learn how to cluster point data on maps. See how to use the Azure Maps Web SDK to cluster data, react to cluster mouse events, and display cluster aggregates.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: codepen
+ms.custom: codepen, devx-track-js
 ---
 
 # Clustering point data
@@ -133,13 +133,13 @@ The following sample uses an aggregate expression. The code calculates a count b
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [DataSource class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest)
+> [DataSource class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions?view=azure-iot-typescript-latest)
+> [DataSourceOptions object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [atlas.math namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math?view=azure-iot-typescript-latest)
+> [atlas.math namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)
 
 See code examples to add functionality to your app:
 

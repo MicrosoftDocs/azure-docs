@@ -1,11 +1,11 @@
 ---
 title: Manage authentication
 titleSuffix: Azure Maps
-description: Use the Azure portal to manage authentication in Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+description: Become familiar with Azure Maps authentication. See which approach works best in which scenario. Learn how to use the portal to view authentication settings.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -36,7 +36,7 @@ Depending on application needs there are specific pathways to securing the appli
 The following table outlines common authentication and authorization scenarios in Azure Maps. The table provides a comparison of the types of protection each scenario offers.
 
 > [!IMPORTANT]
-> Microsoft recommends implementing Azure Active Directory (Azure AD) with role-based access control (RBAC) for production applications.
+> Microsoft recommends implementing Azure Active Directory (Azure AD) with Azure role-based access control (Azure RBAC) for production applications.
 
 | Scenario                                                                                    | Authentication | Authorization | Development effort | Operational effort |
 | ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
@@ -51,17 +51,17 @@ The links in the table take you to detailed configuration information for each s
 
 ## View role definitions
 
-To view RBAC roles that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
+To view Azure roles that are available for Azure Maps, go to **Access control (IAM)**. Select **Roles**, and then search for roles that begin with *Azure Maps*. These Azure Maps roles are the roles that you can grant access to.
 
 > [!div class="mx-imgBorder"]
 > ![View available roles](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 ## View role assignments
 
-To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
+To view users and apps that have been granted access for Azure Maps, go to **Access Control (IAM)**. There, select **Role assignments**, and then filter by **Azure Maps**.
 
 > [!div class="mx-imgBorder"]
-> ![View users and apps that have been granted RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+> ![View users and apps that have been granted access](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 ## Request tokens for Azure Maps
 

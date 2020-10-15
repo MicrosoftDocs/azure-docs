@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
+ms.custom: devx-track-csharp
 ---
 
 # Convert session token formats in .NET SDK

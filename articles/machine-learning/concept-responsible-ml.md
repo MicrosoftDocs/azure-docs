@@ -1,42 +1,45 @@
 ---
-title: Responsible Machine Learning (ML)
+title: What is responsible machine learning (preview)
 titleSuffix: Azure Machine Learning
-description: 'Learn what Responsible ML is and how to use it in Azure Machine Learning'
+description: 'Learn what responsible machine learning is and how to use it in Azure Machine Learning'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
-ms.date: 05/08/2020
-#intent: As a data scientist, I want to know learn what responsible ML is and how I can use it in Azure Machine Learning
+ms.date: 08/05/2020
+#intent: As a data scientist, I want to know learn what responsible machine learning is and how I can use it in Azure Machine Learning
 ---
 
-# Responsible Machine Learning (ML)
+# What is responsible machine learning? (preview)
 
-In this article, you'll learn what Responsible ML is and ways you can put it into practice with Azure Machine Learning.
+In this article, you'll learn what responsible machine learning (ML) is and ways you can put it into practice with Azure Machine Learning.
 
-Throughout the development and use of AI systems, trust must be at the core. Trust in the platform, process, and models. At Microsoft, Responsible ML encompasses the following values and principles:
+## Responsible machine learning principles
+
+Throughout the development and use of AI systems, trust must be at the core. Trust in the platform, process, and models. At Microsoft, responsible machine learning encompasses the following values and principles:
 
 - Understand machine learning models
   - Interpret and explain model behavior
   - Assess and mitigate model unfairness
 - Protect people and their data
-  - Prevent data exposure with differential privacy  
+  - Prevent data exposure with differential privacy
+  - Work with encrypted data using homomorphic encryption
 - Control the end-to-end machine learning process
   - Document the machine learning lifecycle with datasheets
 
-:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Responsible ML Pillars":::
+:::image type="content" source="media/concept-responsible-ml/responsible-ml-pillars.png" alt-text="Responsible ML pillars - interpretability, differential privacy, homomorphic encryption, audit trail - Azure Machine Learning":::
 
 As artificial intelligence and autonomous systems integrate more into the fabric of society, it's important to proactively make an effort to anticipate and mitigate the unintended consequences of these technologies.
 
 ## Interpret and explain model behavior
 
-Hard to explain or black-box systems can be problematic because it makes it hard for stakeholders like system developers, regulators, users, and business decision makers to understand why systems make certain decisions. Some AI systems are more explainable than others and there's sometimes a tradeoff between a system with higher accuracy and one that is more explainable.
+Hard to explain or opaque-box systems can be problematic because it makes it hard for stakeholders like system developers, regulators, users, and business decision makers to understand why systems make certain decisions. Some AI systems are more explainable than others and there's sometimes a tradeoff between a system with higher accuracy and one that is more explainable.
 
 To build interpretable AI systems, use [InterpretML](https://github.com/interpretml/interpret), an open-source package built by Microsoft. [InterpretML can be used inside of Azure Machine Learning](how-to-machine-learning-interpretability.md) to [interpret and explain your machine learning models](how-to-machine-learning-interpretability-aml.md), including [automated machine learning models](how-to-machine-learning-interpretability-automl.md).
 
-## Assess and mitigate model unfairness
+## Mitigate fairness in machine learning models
 
 As AI systems become more involved in the everyday decision-making of society, it's of extreme importance that these systems work well in providing fair outcomes for everyone.
 
@@ -60,11 +63,21 @@ Implementing differentially private systems is difficult. [WhiteNoise](https://g
 > [!NOTE]
 > Please note that we are renaming the toolkit and will be introducing the new name in the coming weeks. 
 
+## Work on encrypted data with homomorphic encryption
+
+In traditional cloud storage and computation solutions, the cloud needs to have unencrypted access to customer data to compute on it. This access exposes the data to cloud operators. Data privacy relies on access control policies implemented by the cloud and trusted by the customer.
+
+Homomorphic encryption allows for computations to be done on encrypted data without requiring access to a secret (decryption) key. The results of the computations are encrypted and can be revealed only by the owner of the secret key. Using homomorphic encryption, cloud operators will never have unencrypted access to the data they're storing and computing on. Computations are performed directly on encrypted data. Data privacy relies on state-of-the-art cryptography, and the data owner controls all information releases. For more information on homomorphic encryption at Microsoft, see [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
+
+To get started with homomorphic encryption in Azure Machine Learning, use the [encrypted-inference](https://pypi.org/project/encrypted-inference/) Python bindings for [Microsoft SEAL](https://github.com/microsoft/SEAL). Microsoft SEAL is an open-source homomorphic encryption library that allows additions and multiplications to be performed on encrypted integers or real numbers. To learn more about Microsoft SEAL, see the [Azure Architecture Center](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) or the [Microsoft Research project page](https://www.microsoft.com/research/project/microsoft-seal/).
+
+See the following sample to learn [how to deploy an encrypted inferencing web service in Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
+
 ## Document the machine learning lifecycle with datasheets
 
 Documenting the right information in the machine learning process is key to making responsible decisions at each stage. Datasheets are a way to document machine learning assets that are used and created as part of the machine learning lifecycle.
 
-Models tend to be thought of as "black boxes" and often there is little information about them. Because machine learning systems are becoming more pervasive and are used for decision making, using datasheets is a step towards developing more responsible machine learning systems.
+Models tend to be thought of as "opaque boxes" and often there is little information about them. Because machine learning systems are becoming more pervasive and are used for decision making, using datasheets is a step towards developing more responsible machine learning systems.
 
 Some model information you might want to document as part of a datasheet:
 
@@ -79,5 +92,5 @@ See the following sample to learn how to use the Azure Machine Learning SDK to i
 
 ## Additional resources
 
-- Use homomorphic encryption to [deploy an encrypted inferencing web service](how-to-homomorphic-encryption-seal.md).
+- For more information, see the [responsible innovation toolkit](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) to learn about best practices.
 - Learn more about the [ABOUT ML](https://www.partnershiponai.org/about-ml/) set of guidelines for machine learning system documentation.

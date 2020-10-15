@@ -3,9 +3,9 @@ title: Exchange messages with Azure Service Bus
 description: Create automated tasks and workflows that send and receive messages by using Azure Service Bus in Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 10/12/2020
 tags: connectors
 ---
 
@@ -26,7 +26,7 @@ You can use triggers that get responses from Service Bus and make the output ava
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 * A Service Bus namespace and messaging entity, such as a queue. These items and your logic app need to use the same Azure subscription. If you don't have these items, learn how to [create your Service Bus namespace and a queue](../service-bus-messaging/service-bus-create-namespace-portal.md).
 
@@ -40,7 +40,7 @@ You can use triggers that get responses from Service Bus and make the output ava
 
 Confirm that your logic app has permissions for accessing your Service Bus namespace.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), sign in with your Azure account.
 
 1. Go to your Service Bus *namespace*. On the namespace page, under **Settings**, select **Shared access policies**. Under **Claims**, check that you have **Manage** permissions for that namespace.
 
@@ -49,7 +49,7 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 1. Get the connection string for your Service Bus namespace. You need this string when you provide the connection information in your logic app.
 
    1. On the **Shared access policies** pane, select **RootManageSharedAccessKey**.
-   
+
    1. Next to your primary connection string, select the copy button. Save the connection string for later use.
 
       ![Copy Service Bus namespace connection string](./media/connectors-create-api-azure-service-bus/find-service-bus-connection-string.png)
@@ -77,27 +77,30 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
    Some triggers, such as the **When one or more messages arrive in a queue (auto-complete)** trigger, can return one or more messages. When these triggers fire, they return between one and the number of messages that's specified by the trigger's **Maximum message count** property.
 
+    > [!NOTE]
+    > The auto-complete trigger automatically completes a message, but completion happens only at the next call to Service Bus. This behavior can affect your logic app's design. For example, avoid changing the concurrency on the auto-complete trigger because this change might result in duplicate messages if your logic app enters a throttled state. Changing the concurrency control creates these conditions: throttled triggers are skipped with the `WorkflowRunInProgress` code, the completion operation won't happen, and next trigger run occurs after the polling interval. You have to set the service bus lock duration to a value that's longer than the polling interval. However, despite this setting, the message still might not complete if your logic app remains in a throttled state at next polling interval.
+
 1. If your trigger is connecting to your Service Bus namespace for the first time, follow these steps when the Logic App Designer prompts you for connection information.
 
    1. Provide a name for your connection, and select your Service Bus namespace.
 
-      ![Create Service Bus connection, part 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
+      ![Screenshot that shows providing connection name and selecting Service Bus namespace](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-1.png)
 
       To manually enter the connection string instead, select **Manually enter connection information**. If you don't have your connection string, learn [how to find your connection string](#permissions-connection-string).
 
    1. Select your Service Bus policy, and select **Create**.
 
-      ![Create Service Bus connection, part 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
+      ![Screenshot that shows selecting Service Bus policy](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-trigger-2.png)
 
    1. Select the messaging entity you want, such as a queue or topic. For this example, select your Service Bus queue.
    
-      ![Select Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
+      ![Screenshot that shows selecting Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-trigger.png)
 
 1. Provide the necessary information for your selected trigger. To add other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
    For this example's trigger, select the polling interval and frequency for checking the queue.
 
-   ![Set up polling interval](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
+   ![Screenshot that shows setting polling interval on the Service Bus trigger](./media/connectors-create-api-azure-service-bus/service-bus-trigger-details.png)
 
    For more information about available triggers and properties, see the connector's [reference page](/connectors/servicebus/).
 
@@ -119,29 +122,29 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
    For this example, select the **Send message** action.
 
-   ![Select Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
+   ![Screenshot that shows selecting the Service Bus action](./media/connectors-create-api-azure-service-bus/select-service-bus-send-message-action.png) 
 
 1. If your action is connecting to your Service Bus namespace for the first time, follow these steps when the Logic App Designer prompts you for connection information.
 
    1. Provide a name for your connection, and select your Service Bus namespace.
 
-      ![Create Service Bus connection, part 1](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
+      ![Screenshot that shows providing a connection name and selecting a Service Bus namespace](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-1.png)
 
       To manually enter the connection string instead, select **Manually enter connection information**. If you don't have your connection string, learn [how to find your connection string](#permissions-connection-string).
 
    1. Select your Service Bus policy, and select **Create**.
 
-      ![Create Service Bus connection, part 2](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
+      ![Screenshot that shows selecting a Service Bus policy and selecting the Create button](./media/connectors-create-api-azure-service-bus/create-service-bus-connection-action-2.png)
 
    1. Select the messaging entity you want, such as a queue or topic. For this example, select your Service Bus queue.
 
-      ![Select Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
+      ![Screenshot that shows selecting a Service Bus queue](./media/connectors-create-api-azure-service-bus/service-bus-select-queue-action.png)
 
 1. Provide the necessary details for your selected action. To add other available properties to the action, open the **Add new parameter** list, and select the properties that you want.
 
    For example, select the **Content** and **Content Type** properties so that you add them to the action. Then, specify the content for the message that you want to send.
 
-   ![Provide message content and details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
+   ![Screenshot that shows providing the message content type and details](./media/connectors-create-api-azure-service-bus/service-bus-send-message-details.png)
 
    For more information about available actions and their properties, see the connector's [reference page](/connectors/servicebus/).
 
@@ -155,15 +158,19 @@ Confirm that your logic app has permissions for accessing your Service Bus names
 
 ## Send correlated messages in order
 
-When you need to send related messages in a specific order, you can use the [*sequential convoy* pattern](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
+When you need to send related messages in a specific order, you can use the [*sequential convoy* pattern](/azure/architecture/patterns/sequential-convoy) by using the [Azure Service Bus connector](../connectors/connectors-create-api-servicebus.md). Correlated messages have a property that defines the relationship between those messages, such as the ID for the [session](../service-bus-messaging/message-sessions.md) in Service Bus.
 
 When you create a logic app, you can select the **Correlated in-order delivery using service bus sessions** template, which implements the sequential convoy pattern. For more information, see [Send related messages in order](../logic-apps/send-related-messages-sequential-convoy.md).
+
+## Delays in updates to your logic app taking effect
+
+If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your logic app might not take effect for up to 10 minutes. To work around this problem, you can temporarily increase the polling interval to a larger value, such as 30 seconds or 1 minute, before you update your logic app. After you make the update, you can reset the polling interval to the original value. 
 
 <a name="connector-reference"></a>
 
 ## Connector reference
 
-The Service Bus connector can save up to 1,500 unique sessions at a time from a service bus to the connector cache. If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
+From a service bus, the Service Bus connector can save up to 1,500 unique sessions at a time to the connector cache, per [Service Bus messaging entity, such as a subscription or topic](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). If the session count exceeds this limit, old sessions are removed from the cache. For more information, see [Message sessions](../service-bus-messaging/message-sessions.md).
 
 For other technical details about triggers, actions, and limits, which are described by the connector's Swagger description, review the [connector reference page](/connectors/servicebus/). For more about Azure Service Bus Messaging, see [What is Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)?
 

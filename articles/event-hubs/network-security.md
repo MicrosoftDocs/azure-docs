@@ -11,7 +11,7 @@ This article describes how to use the following security features with Azure Eve
 - Service tags
 - IP Firewall rules
 - Network service endpoints
-- Private endpoints (preview)
+- Private endpoints
 
 
 ## Service tags
@@ -27,7 +27,7 @@ You can use service tags to define network access controls on [network security
 ## IP firewall 
 By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 addresses or IPv4 address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.
 
-This feature is helpful in scenarios in which Azure Event Hubs should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Event Hubs with [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services), you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
+This feature is helpful in scenarios in which Azure Event Hubs should be only accessible from certain well-known sites. Firewall rules enable you to configure rules to accept traffic originating from specific IPv4 addresses. For example, if you use Event Hubs with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), you can create a **firewall rule** to allow traffic from only your on-premises infrastructure IP addresses. 
 
 The IP firewall rules are applied at the Event Hubs namespace level. Therefore, the rules apply to all connections from clients using any supported protocol. Any connection attempt from an IP address that does not match an allowed IP rule on the Event Hubs namespace is rejected as unauthorized. The response does not mention the IP rule. IP filter rules are applied in order, and the first rule that matches the IP address determines the accept or reject action.
 
@@ -69,9 +69,6 @@ A private endpoint is a network interface that connects you privately and secure
 
 > [!NOTE]
 > This feature is supported only with the **dedicated** tier. For more information about the dedicated tier, see [Overview of Event Hubs Dedicated](event-hubs-dedicated-overview.md). 
->
-> This feature is currently in **preview**. 
-
 
 For more information, see [How to configure private endpoints for an event hub](private-link-service.md)
 

@@ -2,14 +2,14 @@
 title: Automatic tuning email notifications how-to guide
 description: Enable e-mail notifications for Azure SQL Database automatic query tuning.  
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: jrasnik, carlrab
+ms.reviewer: jrasnik, sstein
 ms.date: 06/03/2019
 ---
 # Email notifications for automatic tuning
@@ -181,7 +181,7 @@ To complete the solution, as the final step, create an automation flow in Micros
 
 - "**Azure Automation - Create job**" – used to execute the PowerShell script to retrieve automatic tuning recommendations inside the Azure Automation runbook.
 - "**Azure Automation - Get job output**" – used to retrieve output from the executed PowerShell script.
-- "**Office 365 Outlook – Send an email**" – used to send out email. E-mails are sent out using the Office 365 account of the individual creating the flow.
+- "**Office 365 Outlook – Send an email**" – used to send out email. E-mails are sent out using the work or school account of the individual creating the flow.
 
 To learn more about Microsoft Flow capabilities, see [Getting started with Microsoft Flow](https://docs.microsoft.com/flow/getting-started).
 

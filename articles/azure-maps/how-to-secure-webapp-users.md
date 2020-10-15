@@ -2,13 +2,14 @@
 title: How to secure a web application with interactive single-sign-in
 titleSuffix: Azure Maps
 description: How to configure a web application which supports Azure AD single-sign-on with Azure Maps Web SDK using OpenID Connect protocol.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
+ms.custom: devx-track-js
 ---
 
 # Secure a web application with user sign-in
@@ -53,7 +54,7 @@ You must create the web application in Azure AD for users to sign in. This web a
    * For a non-AspNetCore implementation or other, see [Acquire token for the app](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token) from Azure AD documentation.
    * The secured token endpoint is responsible to return an access token for the authenticated and authorized user to call Azure Maps REST APIs.
 
-8. Configure Azure role based access control for users or groups. See [grant role based access for users](#grant-role-based-access-for-users-to-azure-maps).
+8. Configure Azure role-based access control (Azure RBAC) for users or groups. See [grant role-based access for users](#grant-role-based-access-for-users-to-azure-maps).
 
 9. Configure the web application page with the Azure Maps Web SDK to access the secure token endpoint. 
 
@@ -88,7 +89,7 @@ var map = new atlas.Map("map", {
     });
 ```
 
-[!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
+[!INCLUDE [grant role-based access to users](./includes/grant-rbac-users.md)]
 
 ## Next steps
 

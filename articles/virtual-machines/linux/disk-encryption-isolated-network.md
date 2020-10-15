@@ -1,10 +1,10 @@
 ---
 title: Azure Disk Encryption on an isolated network
-description: This article provides troubleshooting tips for Microsoft Azure Disk Encryption for Linux VMs.
+description: In this article, learn about troubleshooting tips for Microsoft Azure Disk Encryption on Linux VMs.
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 
@@ -39,7 +39,7 @@ Any network security group settings that are applied must still allow the endpoi
 
 If using [Azure Disk Encryption with Azure AD (previous version)](disk-encryption-overview-aad.md), the [Azure Active Directory Library](../../active-directory/azuread-dev/active-directory-authentication-libraries.md) will need to be installed manually for all distros (in addition to the packages appropriate for the distro, as [listed above](#package-management)).
 
-When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Office 365 URLs and IP address ranges](https://docs.microsoft.com/office365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
+When encryption is being enabled with [Azure AD credentials](disk-encryption-linux-aad.md), the target VM must allow connectivity to both Azure Active Directory endpoints and Key Vault endpoints. Current Azure Active Directory authentication endpoints are maintained in sections 56 and 59 of the [Microsoft 365 URLs and IP address ranges](/microsoft-365/enterprise/urls-and-ip-address-ranges) documentation. Key Vault instructions are provided in the documentation on how to [Access Azure Key Vault behind a firewall](../../key-vault/general/access-behind-firewall.md).
 
 ### Azure Instance Metadata Service 
 

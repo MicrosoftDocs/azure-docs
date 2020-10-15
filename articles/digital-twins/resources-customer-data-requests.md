@@ -8,12 +8,9 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 ---
 
-# Summary of customer data request features​
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
+# Azure Digital Twins customer data request features​
 
 Azure Digital Twins is a developer platform for creating secure digital representations of a business environment. Representations are driven by live state data from data sources selected by users.
 
@@ -33,7 +30,7 @@ Azure Digital Twins stores the [Azure Active Directory](../active-directory/fund
 
 ## Deleting customer data
 
-Azure Digital Twins administrators can use the Azure portal to delete data related to users. It is also possible to perform delete operations on individual digital twins using the Azure Digital Twins REST APIs. For more information about the APIs available, see [Azure Digital Twins REST APIs documentation](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+Azure Digital Twins administrators can use the Azure portal to delete data related to users. It is also possible to perform delete operations on individual digital twins using the Azure Digital Twins REST APIs. For more information about the APIs available, see [Azure Digital Twins REST APIs documentation](/rest/api/azure-digitaltwins/).
 
 ## Exporting customer data
 
@@ -43,4 +40,4 @@ Customer data, including user roles and role assignments, can be selected, copie
 
 ## Links to additional documentation
 
-For a full list of the Azure Digital Twins service APIs, see the [Azure Digital Twins REST APIs documentation](https://docs.microsoft.com/rest/api/azure-digitaltwins/).
+For a full list of the Azure Digital Twins service APIs, see the [Azure Digital Twins REST APIs documentation](/rest/api/azure-digitaltwins/).

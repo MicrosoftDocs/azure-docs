@@ -1,27 +1,18 @@
 ---
 title: Connect to Windows Virtual Desktop from Android - Azure
 description: How to connect to Windows Virtual Desktop using the Android client.
-services: virtual-desktop
-author: heidilohr
-
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
 ---
-# Connect with the Android client
+# Connect to Windows Virtual Desktop with the Android client
 
 > Applies to: Android 4.1 and later, Chromebooks with ChromeOS 53 and later.
 
 >[!IMPORTANT]
->This content applies to the Spring 2020 update with Azure Resource Manager Windows Virtual Desktop objects. If you're using the Windows Virtual Desktop Fall 2019 release without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/connect-android-2019.md).
->
-> The Windows Virtual Desktop Spring 2020 update is currently in public preview. This preview version is provided without a service level agreement, and we don't recommend using it for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
->[!NOTE]
-> The ability to access Windows Virtual Desktop resources from the Android client is currently available in preview.
+>This content applies to Windows Virtual Desktop with Azure Resource Manager Windows Virtual Desktop objects. If you're using Windows Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/connect-android-2019.md).
 
 You can access Windows Virtual Desktop resources from your Android device with our downloadable client. You can also use the Android client on Chromebook devices that support the Google Play Store. This guide will tell you how to set up the Android client.
 
@@ -39,6 +30,7 @@ To subscribe to a feed:
 2. Enter the feed URL into the **Feed URL** field. The feed URL can be either a URL or an email address.
    - If you use a URL, use the one your admin gave you, normally <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - To use email, enter your email address. The client will search for a URL associated with your email address if your admin configured the server that way.
+   - To connect through the US Gov portal, use <https://rdweb.wvd.azure.us/api/arm/feeddiscovery>.
 3. Tap **NEXT**.
 4. Provide your credentials when prompted.
    - For **User name**, give the user name with permission to access resources.

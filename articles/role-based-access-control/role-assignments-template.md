@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/26/2020
+ms.date: 09/29/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -47,6 +47,18 @@ $objectid = (Get-AzADGroup -DisplayName "{name}").id
 objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
 ```
 
+### Managed identities
+
+To get the ID of a managed identity, you can use [Get-AzAdServiceprincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp](/cli/azure/ad/sp) commands.
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName <Azure resource name>).id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name <Azure resource name> --query [].objectId --output tsv)
+```
+
 ### Application
 
 To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
@@ -63,7 +75,7 @@ objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output ts
 
 In Azure RBAC, to grant access, you add a role assignment.
 
-### Resource group (without parameters)
+### Resource group scope (without parameters)
 
 The following template shows a basic way to add a role assignment. Some values are specified within the template. The following template demonstrates:
 
@@ -72,7 +84,7 @@ The following template shows a basic way to add a role assignment. Some values a
 To use the template, you must do the following:
 
 - Create a new JSON file and copy the template
-- Replace `<your-principal-id>` with the ID of a user, group, or application to assign the role to
+- Replace `<your-principal-id>` with the ID of a user, group, managed identity, or application to assign the role to
 
 ```json
 {
@@ -106,7 +118,7 @@ The following shows an example of the Reader role assignment to a user for a res
 
 ![Role assignment at resource group scope](./media/role-assignments-template/role-assignment-template.png)
 
-### Resource group or subscription
+### Resource group or subscription scope
 
 The previous template isn't very flexible. The following template uses parameters and can be used at different scopes. The following template demonstrates:
 
@@ -115,7 +127,7 @@ The previous template isn't very flexible. The following template uses parameter
 
 To use the template, you must specify the following inputs:
 
-- The ID of a user, group, or application to assign the role to
+- The ID of a user, group, managed identity, or application to assign the role to
 - A unique ID that will be used for the role assignment, or you can use the default ID
 
 ```json
@@ -190,7 +202,7 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-### Resource
+### Resource scope
 
 If you need to add a role assignment at the level of a resource, the format of the role assignment is different. You provide the resource provider namespace and resource type of the resource to assign the role to. You also include the name of the resource in the name of the role assignment.
 
@@ -209,7 +221,7 @@ The following template demonstrates:
 
 To use the template, you must specify the following inputs:
 
-- The ID of a user, group, or application to assign the role to
+- The ID of a user, group, managed identity, or application to assign the role to
 
 ```json
 {
@@ -360,7 +372,7 @@ In Azure RBAC, to remove access to an Azure resource, you remove the role assign
 
 - [Azure portal](role-assignments-portal.md#remove-a-role-assignment)
 - [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+- [Azure CLI](role-assignments-cli.md#remove-role-assignment)
 - [REST API](role-assignments-rest.md#remove-a-role-assignment)
 
 ## Next steps

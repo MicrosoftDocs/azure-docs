@@ -4,7 +4,7 @@ description: Learn how to validate the encryption of the Azure Database for MySQ
 author: kummanish
 ms.author: manishku
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/28/2020
 ---
 
@@ -32,7 +32,7 @@ This article helps you validate that data encryption using customer managed key 
 
 2. On the Azure portal, if you can ensure that the encryption key is set, then data is encrypted using the customers key used in the Azure portal.
 
-  ![Access policy overview](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Access policy overview":::
 
 ### From CLI
 

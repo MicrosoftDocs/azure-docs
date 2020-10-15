@@ -1,10 +1,11 @@
-- name: VPN Gateway Documentation
+- name: VPN Gateway documentation
   href: index.yml
 - name: Overview
   items:
-  - name: About VPN Gateway
+  - name: What is VPN Gateway?
     href: vpn-gateway-about-vpngateways.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create and manage a VPN gateway
     href: vpn-gateway-tutorial-create-gateway-powershell.md
@@ -42,6 +43,10 @@
     href: vpn-gateway-about-point-to-site-routing.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: security-baseline.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -52,8 +57,6 @@
       href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json 
     - name: Data Plane Analysis
       href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json    
-  - name: Built-in security controls
-    href: vpn-gateway-security-controls.md
 - name: How-to guides
   items:
   - name: Create and manage a VPN gateway
@@ -92,8 +95,12 @@
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
-    - name: Site-to-Site and ExpressRoute coexisting connections
+  - name: Site-to-Site with ExpressRoute connections
+    items:
+    - name: Coexisting connections
       href: ../expressroute/expressroute-howto-coexist-resource-manager.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
+    - name: VPN over private peering
+      href: site-to-site-vpn-private-peering.md
   - name: VNet-to-VNet connections
     items:
     - name: Configure VNet-to-VNet connections
@@ -153,15 +160,19 @@
       - name: Configure a VPN client
         href: openvpn-azure-ad-client.md
       - name: About the client VPN profile download file
-        href: about-vpn-profile-download.md        
+        href: about-vpn-profile-download.md 
+      - name: Intune - Deploy VPN client profile
+        href: vpn-profile-intune.md       
     - name: OpenVPN
       items:
       - name: Configure OpenVPN for Point-to-Site connections
         href: vpn-gateway-howto-openvpn.md
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md
-    - name: Move to OpenVPN protocol or IKEv2 from SSTP
-      href: ikev2-openvpn-from-sstp.md      
+      - name: Move to OpenVPN protocol or IKEv2 from SSTP
+        href: ikev2-openvpn-from-sstp.md
+    - name: P2S session management
+      href: p2s-session-management.md      
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
     - name: Configure an Always On VPN device tunnel
@@ -170,16 +181,14 @@
       href: vpn-gateway-howto-always-on-user-tunnel.md
     - name: Advertise custom routes to P2S clients
       href: vpn-gateway-p2s-advertise-custom-routes.md
-  - name: Create a zone-redundant gateway
-    href: create-zone-redundant-vnet-gateway.md
-  - name: Configure IPsec/IKE policies on connections
-    href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-  - name: Configure active-active connections
-    href: vpn-gateway-activeactive-rm-powershell.md
+    - name: Create custom IPsec policies for P2S
+      href: create-custom-policies-p2s-ps.md
   - name: Routing, BGP, and VNet Peering
     items:
     - name: Configure BGP for a VPN gateway
       items:
+      - name: Azure portal
+        href: bgp-howto.md
       - name: Azure PowerShell
         href: vpn-gateway-bgp-resource-manager-ps.md
       - name: Azure CLI
@@ -215,9 +224,23 @@
     - name: Set up alerts based on metrics
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on resource logs
-      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md 
+      href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
   - name: Configure packet captures 
     href: packet-capture.md
+  - name: Zone redundant gateways
+    items:
+    - name: Create a zone-redundant gateway
+      href: create-zone-redundant-vnet-gateway.md
+  - name: Configure IPsec/IKE policies on connections
+    items:
+    - name: Azure portal
+      href: ipsec-ike-policy-howto.md 
+    - name: PowerShell
+      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+  - name: Configure active-active connections
+    items: 
+    - name: PowerShell
+      href: vpn-gateway-activeactive-rm-powershell.md
   - name: Troubleshoot
     href: vpn-gateway-troubleshoot.md
     items:
@@ -264,7 +287,7 @@
   - name: Azure PowerShell
     href: /powershell/module/az.network#vpn
   - name: Azure PowerShell (classic)
-    href: /powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure
+    href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
   - name: REST
     href: /rest/api/network/virtualnetworkgateways
   - name: REST (classic)

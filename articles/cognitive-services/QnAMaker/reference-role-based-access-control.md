@@ -1,6 +1,8 @@
 ---
 title: Role-based access control (RBAC) - QnA Maker
 description: Control access to QnA Maker with the Azure roles for your QnA Maker resource
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 05/15/2020
 ---

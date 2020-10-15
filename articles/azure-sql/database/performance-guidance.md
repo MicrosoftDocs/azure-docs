@@ -3,14 +3,14 @@ title: Performance tuning guidance for applications and databases
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Learn about tuning database applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance.
 services: sql-database
-ms.service: sql-database
+ms.service: sql-db-mi
 ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: carlrab; jrasnick
+author: stevestein
+ms.author: sstein
+ms.reviewer: jrasnick
 ms.date: 03/10/2020
 ---
 # Tune applications and databases for performance in Azure SQL Database and Azure SQL Managed Instance

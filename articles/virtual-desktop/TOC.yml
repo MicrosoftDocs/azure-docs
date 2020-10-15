@@ -1,4 +1,4 @@
-- name: Windows Virtual Desktop Spring 2020 Release
+- name: Windows Virtual Desktop
   href: index.yml
 - name: Overview
   items:
@@ -6,7 +6,7 @@
     href: overview.md
   - name: What's new?
     href: whats-new.md
-  - name: Fall 2019 Release documentation
+  - name: Windows Virtual Desktop (classic) documentation
     href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
   items:
@@ -20,10 +20,12 @@
     href: set-up-service-alerts.md
 - name: How-to
   items:
+  - name: Migrate manually
+    href: manual-migration.md
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-and-10.md
+        href: connect-windows-7-10.md
       - name: Connect with the web client
         href: connect-web.md
       - name: Connect with the Android client
@@ -32,18 +34,28 @@
         href: connect-macos.md
       - name: Connect with the iOS client
         href: connect-ios.md
+      - name: Connect with the Microsoft Store client
+        href: connect-microsoft-store.md
+      - name: Connect with Linux devices
+        href: linux-overview.md
+  - name: Configure device redirections
+    href: configure-device-redirections.md
   - name: Set up the PowerShell module
     href: powershell-module.md
   - name: Create a host pool and session hosts
     items:
       - name: PowerShell
         href: create-host-pools-powershell.md
+      - name: Deploy a Windows 7 virtual machine
+        href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
       - name: Expand an existing host pool
         href: expand-existing-host-pool.md
       - name: Manage app groups with PowerShell
         href: manage-app-groups-powershell.md
+  - name: Delete a host pool
+    href: delete-host-pool.md
   - name: Create a profile container
     items:
       - name: Use a VM-based file share
@@ -70,6 +82,8 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
+  - name: Scale session hosts automatically
+    href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
   - name: Use service diagnostics
@@ -88,8 +102,18 @@
     href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
+  - name: Use Azure Advisor
+    href: azure-advisor.md
+  - name: Resolve recommendations
+    href: azure-advisor-recommendations.md
+  - name: Set up a disaster recovery plan
+    href: disaster-recovery.md
 - name: Concepts
   items:
+  - name: Authentication
+    href: authentication.md
+  - name: Safe URL list
+    href: safe-url-list.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
   - name: Determine user connection latency
@@ -104,8 +128,18 @@
     href: store-fslogix-profile.md
   - name: Partner integrations
     href: partners.md
+  - name: Windows Virtual Desktop FAQ
+    href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
+  - name: MSIX app attach
+    items:
+      - name: What is MSIX app attach?
+        href: what-is-app-attach.md
+      - name: Glossary
+        href: app-attach-glossary.md
+      - name: FAQ
+        href: app-attach-faq.md
   - name: Data locations
     href: data-locations.md
 - name: Troubleshoot
@@ -133,11 +167,17 @@
   - name: Linux support
     href: linux-overview.md
   - name: Supported RDP file settings
-    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
+    href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Network guidance
-    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
+    href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance
-    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+    href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+  - name: Azure command-line interface (CLI)
+    href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+  - name: Azure example scenarios
+    href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+  - name: Email discovery
+    href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Resources
   items:
   - name: PowerShell
@@ -149,7 +189,7 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning path
-    href: https://docs.microsoft.com/learn/paths/m365-wvd/
+    href: /learn/paths/m365-wvd/
   - name: How-to videos
     href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group

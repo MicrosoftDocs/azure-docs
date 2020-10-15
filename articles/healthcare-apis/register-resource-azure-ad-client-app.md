@@ -2,12 +2,12 @@
 title: Register a resource app in Azure AD - Azure API for FHIR
 description: Register a resource (or API) app in Azure Active Directory, so that client applications can request access to the resource when authenticating.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
+ms.author: matjazl
 ---
 
 # Register a resource application in Azure Active Directory
@@ -103,7 +103,7 @@ The Azure API for FHIR and the OSS FHIR Server for Azure use [Azure Active Direc
 
 ## Next steps
 
-In this article, you've learned how to register a resource application in Azure Active Directory. Next, deploy the Azure API for FHIR.
+In this article, you've learned how to register a resource application in Azure Active Directory. Next, register your confidential client application.
  
 >[!div class="nextstepaction"]
->[Deploy Azure API for FHIR](fhir-paas-powershell-quickstart.md)
+>[Register Confidential Client Application](register-confidential-azure-ad-client-app.md)

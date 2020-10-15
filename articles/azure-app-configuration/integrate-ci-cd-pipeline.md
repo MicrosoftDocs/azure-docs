@@ -5,6 +5,7 @@ services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: tutorial
+ms.custom: devx-track-csharp
 ms.date: 01/30/2020
 ms.author: lcozzens
 
@@ -31,9 +32,9 @@ You can use any code editor to do the steps in this tutorial. [Visual Studio Cod
 
 ### Prerequisites
 
-If you build locally, download and install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven’t already.
+If you build locally, download and install the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven’t already.
 
-To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is installed in your build system.
+To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) is installed in your build system.
 
 ### Export an App Configuration store
 
@@ -66,23 +67,33 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 1. Set an environment variable named **ConnectionString**, and set it to the access key to your App Configuration store. 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
-        setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```console
+     setx ConnectionString "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use Windows PowerShell, run the following command:
 
-        $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```powershell
+     $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
+    ```
 
     If you use macOS or Linux, run the following command:
 
-        export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```console
+     export ConnectionString='connection-string-of-your-app-configuration-store'
+    ```
 
 2. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-        dotnet build
+    ```console
+     dotnet build
+    ```
 
 3. After the build successfully completes, run the following command to run the web app locally:
 
-        dotnet run
+    ```console
+     dotnet run
+    ```
 
 4. Open a browser window and go to `http://localhost:5000`, which is the default URL for the web app hosted locally.
 
@@ -93,4 +104,4 @@ To do a cloud build, with Azure DevOps for example, make sure the [Azure CLI](ht
 In this tutorial, you exported Azure App Configuration data to be used in a deployment pipeline. To learn more about how to use App Configuration, continue to the Azure CLI samples.
 
 > [!div class="nextstepaction"]
-> [Azure CLI](https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest)
+> [Azure CLI](/cli/azure/appconfig?view=azure-cli-latest)

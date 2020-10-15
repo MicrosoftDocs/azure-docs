@@ -1,21 +1,13 @@
 ---
 title: Implement Oracle Golden Gate on an Azure Linux VM | Microsoft Docs
 description: Quickly get an Oracle Golden Gate up and running in your Azure environment.
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: BorisB2015
-manager: gwallace
-editor: 
-tags: azure-resource-manager
-
-ms.assetid: 
+author: dbakevlar
 ms.service: virtual-machines-linux
-
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
 ms.date: 08/02/2018
-ms.author: borisb
+ms.author: kegorman
+ms.reviewer: cynthn
+
 ---
 
 # Implement Oracle Golden Gate on an Azure Linux VM 
@@ -24,7 +16,7 @@ The Azure CLI is used to create and manage Azure resources from the command line
 
 This document shows you step-by-step how to create, install, and configure Oracle Golden Gate on an Azure VM. In this tutorial, two virtual machines are setup in an availability set in a single region. The same tutorial can be used to setup OracleGolden Gate for VMs in different Availability Zones in a single Azure region or for VMs setup in two different regions.
 
-Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Before you start, make sure that the Azure CLI has been installed. For more information, see [Azure CLI installation guide](/cli/azure/install-azure-cli).
 
 ## Prepare the environment
 
@@ -65,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### Create an availability set
 
-The following step is optional but recommended. For more information, see [Azure availability sets guide](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+The following step is optional but recommended. For more information, see [Azure availability sets guide](/previous-versions/azure/virtual-machines/windows/infrastructure-example).
 
 ```azurecli
 az vm availability-set create \

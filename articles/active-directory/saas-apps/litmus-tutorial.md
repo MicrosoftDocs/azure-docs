@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Litmus | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Litmus.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 3b570512-f5b2-490e-8e72-b530c0b53956
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/06/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Litmus
@@ -131,11 +125,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Security** from the left navigation panel.
 
-    ![Litmus Configuration](./media/litmus-tutorial/security-img.png)
+    ![Screenshot shows the Security item selected.](./media/litmus-tutorial/security-img.png)
 
 1. On the **Configure SAML Authentication** section, perform the following steps:
 
-    ![Litmus Configuration](./media/litmus-tutorial/configure1.png)
+    ![Screenshot shows the Configure SAML Authentication section where you can enter the values described.](./media/litmus-tutorial/configure1.png)
 
     a. Switch on the **Enable SAML** toggle.
 
@@ -145,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Perform the following steps:
 
-	![Litmus Configuration](./media/litmus-tutorial/configure3.png)
+	![Screenshot shows the section where you can enter the values described.](./media/litmus-tutorial/configure3.png)
 
     a. In the **SAML 2.0 Endpoint(HTTP)** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
@@ -159,17 +153,17 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Accounts** from the left navigation panel.
 
-    ![Litmus Configuration](./media/litmus-tutorial/accounts-img.png)
+    ![Screenshot shows the Accounts item selected.](./media/litmus-tutorial/accounts-img.png)
 
 1. Click **Add New User** tab.
 
-    ![Litmus Configuration](./media/litmus-tutorial/add-new-user.png)
+    ![Screenshot shows the Add New User item selected.](./media/litmus-tutorial/add-new-user.png)
 
 1. On the **Add User** section, perform the following steps:
 
-    ![Litmus Configuration](./media/litmus-tutorial/user-profile.png)
+    ![Screenshot shows the Add User section where you can enter the values described.](./media/litmus-tutorial/user-profile.png)
 
-    a. In the **Email** textbox, enter the email address of the user like **B.Simon@contoso.com**
+    a. In the **Email** textbox, enter the email address of the user like **B.Simon\@contoso.com**
 
     b. In the **First Name** textbox, enter the first name of the user like **B**.
 

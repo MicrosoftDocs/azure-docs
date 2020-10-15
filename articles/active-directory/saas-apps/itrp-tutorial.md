@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with ITRP | Microsoft Docs'
 description: In this tutorial, you'll learn how to configure single sign-on between Azure Active Directory and ITRP.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e09716a3-4200-4853-9414-2390e6c10d98
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with ITRP
 
@@ -94,7 +88,7 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 3. On the **Set up Single Sign-On with SAML** page, select the **Edit** icon to open the **Basic SAML Configuration** dialog box:
 
-	![Edit icon](common/edit-urls.png)
+	![Screenshot shows the Set up Single Sign-On with SAML page with the edit icon selected.](common/edit-urls.png)
 
 4. In the **Basic SAML Configuration** dialog box, take the following steps.
 
@@ -113,7 +107,7 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 5. In the **SAML Signing Certificate** section, select the **Edit** icon to open the **SAML Signing Certificate** dialog box:
 
-	![Edit icon](common/edit-certificate.png)
+	![Screenshot shows the SAML Signing Certificate page with the edit icon selected.](common/edit-certificate.png)
 
 6. In the **SAML Signing Certificate** dialog box, copy the **Thumbprint** value and save it:
 
@@ -143,9 +137,9 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 1. In the **Single Sign-On** configuration section, take the following steps.
 
-    ![Single Sign-On section](./media/itrp-tutorial/ic775572.png "Single Sign-On section")
+    ![Screenshot shows the Single Sign-On section with Enabled selected.](./media/itrp-tutorial/ic775572.png "Single Sign-On section")
 
-    ![Single Sign-On section](./media/itrp-tutorial/ic775573.png "Single Sign-On section")
+    ![Screenshot shows the Single Sign-On section where you can add the information described in this step.](./media/itrp-tutorial/ic775573.png "Single Sign-On section")
 
 	1. Select **Enabled**.
 

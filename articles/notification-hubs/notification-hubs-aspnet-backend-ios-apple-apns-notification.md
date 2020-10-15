@@ -1,19 +1,18 @@
 ---
 title: Send push notifications to specific users using Azure Notification Hubs | Microsoft Docs
-description: Learn how to send push notifications to specific users by using Azure Notification Hubs. 
+description: Learn how to send push notifications to specific iOS users by using Azure Notification Hubs. 
 documentationcenter: ios
-author: sethm
+author: sethmanheim
 manager: femila
 services: notification-hubs
-
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/07/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ---
 
@@ -37,7 +36,7 @@ In this tutorial, you take the following steps:
 ## Prerequisites
 
 This tutorial assumes that you have created and configured your notification hub as described in [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md). This tutorial is also the prerequisite to the [Secure Push (iOS)](notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md) tutorial.
- If you want to use Mobile Apps as your backend service, see the [Mobile Apps Get Started with Push](../app-service-mobile/app-service-mobile-ios-get-started-push.md).
+ If you want to use Mobile Apps as your backend service, see the [Mobile Apps Get Started with Push](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
@@ -46,7 +45,7 @@ This tutorial assumes that you have created and configured your notification hub
 1. Open the Single Page view app you created in the [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md) tutorial.
 
    > [!NOTE]
-   > This section assumes that your project is configured with an empty organization name. If not, you need to prepend your organization name to all class names.
+   > This section assumes that your project is configured with an empty organization name. If not, prepend your organization name to all class names.
 
 2. In the `Main.storyboard` file, add the components shown in the screenshot from the object library.
 
@@ -62,7 +61,7 @@ This tutorial assumes that you have created and configured your notification hub
 
      Some components were added in the [Send push notifications to iOS apps using Azure Notification Hubs](ios-sdk-get-started.md) tutorial.
 
-3. **Ctrl** drag from the components in the view to `ViewController.h` and add these new outlets.
+3. **Ctrl** drag from the components in the view to `ViewController.h` and add these new outlets:
 
     ```objc
     @property (weak, nonatomic) IBOutlet UITextField *UsernameField;
@@ -82,13 +81,13 @@ This tutorial assumes that you have created and configured your notification hub
     - (IBAction)LogInAction:(id)sender;
     ```
 
-4. In `ViewController.h`, add the following `#define` after your import statements. Substitute the `<Enter Your Backend Endpoint>` placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, `http://your_backend.azurewebsites.net`.
+4. In `ViewController.h`, add the following `#define` after your import statements. Substitute the `<Your backend endpoint>` placeholder with the Destination URL you used to deploy your app backend in the previous section. For example, `http://your_backend.azurewebsites.net`:
 
     ```objc
-    #define BACKEND_ENDPOINT @"<Enter Your Backend Endpoint>"
+    #define BACKEND_ENDPOINT @"<Your backend endpoint>"
     ```
 
-5. In your project, create a new Cocoa Touch class named `RegisterClient` to interface with the ASP.NET back-end you created. Create the class inheriting from `NSObject`. Then add the following code in the `RegisterClient.h`.
+5. In your project, create a new Cocoa Touch class named `RegisterClient` to interface with the ASP.NET back-end you created. Create the class inheriting from `NSObject`. Then add the following code in the `RegisterClient.h`:
 
     ```objc
     @interface RegisterClient : NSObject
@@ -490,7 +489,7 @@ This tutorial assumes that you have created and configured your notification hub
 
 ## Next steps
 
-In this tutorial, you learned how to push notifications to specific users that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial: 
+In this tutorial, you learned how to push notifications to specific users that have tags associated with their registrations. To learn how to push location-based notifications, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
 >[Push location-based notifications](notification-hubs-push-bing-spatial-data-geofencing-notification.md)

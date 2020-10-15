@@ -38,7 +38,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.1'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.13.0'
 end
 ```
 

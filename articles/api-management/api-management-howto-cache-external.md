@@ -1,6 +1,6 @@
 ---
 title: Use an external cache in Azure API Management | Microsoft Docs
-description: Learn how to configure and use an external cache in Azure API Management.
+description: Learn how to configure and use an external cache in Azure API Management. Using an external cache lets you overcome some limitations of the built-in cache.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -19,7 +19,7 @@ ms.author: apimpm
 
 In addition to utilizing the built-in cache, Azure API Management allows for caching responses in an external Redis-compatible cache, e.g. Azure Cache for Redis.
 
-Using an external cache allows to overcome a few limitations of the built-in cache:
+Using an external cache allows you to overcome a few limitations of the built-in cache:
 
 * Avoid having your cache periodically cleared during API Management updates
 * Have more control over your cache configuration
@@ -102,5 +102,5 @@ Once the external cache is configured in Azure API Management, it can be used th
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * For information on caching items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
 
-[API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
-[Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
+[API Management policy reference]: ./api-management-policies.md
+[Caching policies]: ./api-management-caching-policies.md

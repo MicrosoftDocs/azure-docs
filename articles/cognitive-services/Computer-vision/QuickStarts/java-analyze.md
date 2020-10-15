@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, seo-java-august2019, seo-java-september2019
+ms.custom: seodec18, seo-java-august2019, seo-java-september2019, devx-track-java
 ---
 
 # Quickstart: Analyze a remote image using the Computer Vision REST API and Java
@@ -65,7 +65,7 @@ public class AnalyzeImage {
     private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
 
-    private static final String uriBase = endpoint + "vision/v3.0/analyze";
+    private static final String uriBase = endpoint + "vision/v3.1/analyze";
     private static final String imageToAnalyze =
             "https://upload.wikimedia.org/wikipedia/commons/" +
             "1/12/Broadway_and_Times_Square_by_night.jpg";
@@ -78,7 +78,6 @@ public class AnalyzeImage {
 
             // Request parameters. All of them are optional.
             builder.setParameter("visualFeatures", "Categories,Description,Color");
-            builder.setParameter("language", "en");
 
             // Prepare the URI for the REST API method.
             URI uri = builder.build();

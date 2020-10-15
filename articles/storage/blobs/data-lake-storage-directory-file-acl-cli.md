@@ -8,14 +8,15 @@ ms.subservice: data-lake-storage-gen2
 ms.topic: how-to
 ms.date: 05/18/2020
 ms.author: normesta
-ms.reviewer: prishet
+ms.reviewer: prishet 
+ms.custom: devx-track-azurecli
 ---
 
 # Use Azure CLI to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use the [Azure Command-Line Interface (CLI)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) to create and manage directories, files, and permissions in storage accounts that have a hierarchical namespace. 
 
-[Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
+[Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md) | [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 
 ## Prerequisites
 
@@ -60,39 +61,39 @@ This article shows you how to use the [Azure Command-Line Interface (CLI)](https
 > [!NOTE]
 > The example presented in this article show Azure Active Directory (AD) authorization. To learn more about authorization methods, see [Authorize access to blob or queue data with Azure CLI](../common/authorize-data-operations-cli.md).
 
-## Create a file system
+## Create a container
 
-A file system acts as a container for your files. You can create one by using the `az storage fs create` command. 
+A container acts as a file system for your files. You can create one by using the `az storage fs create` command. 
 
-This example creates a file system named `my-file-system`.
+This example creates a container named `my-file-system`.
 
 ```azurecli
 az storage fs create -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## Show file system properties
+## Show container properties
 
-You can print the properties of a file system to the console by using the `az storage fs show` command.
+You can print the properties of a container to the console by using the `az storage fs show` command.
 
 ```azurecli
 az storage fs show -n my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## List file system contents
+## List container contents
 
 List the contents of a directory by using the `az storage fs file list` command.
 
-This example lists the contents of a file system named `my-file-system`.
+This example lists the contents of a container named `my-file-system`.
 
 ```azurecli
 az storage fs file list -f my-file-system --account-name mystorageaccount --auth-mode login
 ```
 
-## Delete a file system
+## Delete a container
 
-Delete a file system by using the `az storage fs delete` command.
+Delete a container by using the `az storage fs delete` command.
 
-This example deletes a file system named `my-file-system`. 
+This example deletes a container named `my-file-system`. 
 
 ```azurecli
 az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mode login
@@ -102,7 +103,7 @@ az storage fs delete -n my-file-system --account-name mystorageaccount --auth-mo
 
 Create a directory reference by using the `az storage fs directory create` command. 
 
-This example adds a directory named `my-directory` to a file system named `my-file-system` that is located in an account named `mystorageaccount`.
+This example adds a directory named `my-directory` to a container named `my-file-system` that is located in an account named `mystorageaccount`.
 
 ```azurecli
 az storage fs directory create -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login
@@ -120,13 +121,13 @@ az storage fs directory show -n my-directory -f my-file-system --account-name my
 
 Rename or move a directory by using the `az storage fs directory move` command.
 
-This example renames a directory from the name `my-directory` to the name `my-new-directory` in the same file system.
+This example renames a directory from the name `my-directory` to the name `my-new-directory` in the same container.
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
 ```
 
-This example moves a directory to a file system named `my-second-file-system`.
+This example moves a directory to a container named `my-second-file-system`.
 
 ```azurecli
 az storage fs directory move -n my-directory -f my-file-system --new-directory "my-second-file-system/my-new-directory" --account-name mystorageaccount --auth-mode login
@@ -144,9 +145,9 @@ az storage fs directory delete -n my-directory -f my-file-system  --account-name
 
 ## Check if a directory exists
 
-Determine if a specific directory exists in the file system by using the `az storage fs directory exists` command.
+Determine if a specific directory exists in the container by using the `az storage fs directory exists` command.
 
-This example reveals whether a directory named `my-directory` exists in the `my-file-system` file system. 
+This example reveals whether a directory named `my-directory` exists in the `my-file-system` container. 
 
 ```azurecli
 az storage fs directory exists -n my-directory -f my-file-system --account-name mystorageaccount --auth-mode login 
@@ -166,7 +167,7 @@ az storage fs file download -p my-directory/upload.txt -f my-file-system -d "C:\
 
 List the contents of a directory by using the `az storage fs file list` command.
 
-This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` file system of a storage account named `mystorageaccount`. 
+This example lists the contents of a directory named `my-directory` that is located in the `my-file-system` container of a storage account named `mystorageaccount`. 
 
 ```azurecli
 az storage fs file list -f my-file-system --path my-directory --account-name mystorageaccount --auth-mode login
@@ -305,7 +306,7 @@ az storage fs access set --owner xxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p my-dir
 
 ## See also
 
-* [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
+* [Samples](https://github.com/Azure/azure-cli/blob/dev/src/azure-cli/azure/cli/command_modules/storage/docs/ADLS%20Gen2.md)
 * [Give feedback](https://github.com/Azure/azure-cli-extensions/issues)
 * [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 

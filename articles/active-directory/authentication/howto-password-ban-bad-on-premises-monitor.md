@@ -8,12 +8,13 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Monitor and review logs for on-premises Azure AD Password Protection environments
 
@@ -60,7 +61,7 @@ Discrete events to capture these situations are logged, based around the followi
 
 The key password-validation-related events are as follows:
 
-|   |Password change |Password set|
+| Event |Password change |Password set|
 | --- | :---: | :---: |
 |Pass |10014 |10015|
 |Fail (due to customer password policy)| 10016, 30002| 10017, 30003|

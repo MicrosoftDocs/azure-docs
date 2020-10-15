@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Pavaso Digital Close | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Pavaso Digital Close.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 23d83f82-39c3-4fc2-88c9-f8074cc44d43
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Pavaso Digital Close
 
@@ -100,7 +93,7 @@ To configure Azure AD single sign-on with [Application name], perform the follow
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Pavaso Digital Close Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" with the "Identifier" and "Reply U R L" text boxes highlighted and the "Save" action selected.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.pavaso.com/AuthServices`

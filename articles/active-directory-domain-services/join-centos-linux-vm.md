@@ -2,7 +2,7 @@
 title: Join a CentOS VM to Azure AD Domain Services | Microsoft Docs
 description: Learn how to configure and join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 16100caa-f209-4cb0-86d3-9e218aeb51c6
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/23/2020
-ms.author: iainfou
+ms.date: 07/13/2020
+ms.author: joflore
 
 ---
 # Join a CentOS Linux virtual machine to an Azure Active Directory Domain Services managed domain
@@ -102,7 +102,7 @@ Now that the required packages are installed on the VM, join the VM to the manag
     kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. Finally, join the machine to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
+1. Finally, join the VM to the managed domain using the `realm join` command. Use the same user account that's a part of the managed domain that you specified in the previous `kinit` command, such as `contosoadmin@AADDSCONTOSO.COM`:
 
     ```console
     sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'

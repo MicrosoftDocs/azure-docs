@@ -1,11 +1,9 @@
-- name: Application Gateway Documentation
+- name: Application Gateway documentation
   href: index.yml
 - name: Overview
   items:
   - name: About application gateways
     href: overview.md
-  - name: What's new?
-    href: whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -54,8 +52,20 @@
       href: how-application-gateway-works.md
     - name: Application Gateway components
       href: application-gateway-components.md
-    - name: Configuration overview
-      href: configuration-overview.md
+    - name: Configuration
+      items:
+      - name: Overview
+        href: configuration-overview.md
+      - name: Infrastructure
+        href: configuration-infrastructure.md
+      - name: Front-end IP address
+        href: configuration-front-end-ip.md
+      - name: Listeners
+        href: configuration-listeners.md
+      - name: Request routing rules
+        href: configuration-request-routing-rules.md
+      - name: HTTP settings
+        href: configuration-http-settings.md
   - name: High traffic support
     href: high-traffic-support.md
   - name: Autoscaling v2 SKU
@@ -68,8 +78,8 @@
       href: url-route-overview.md
     - name: Redirection
       href: redirect-overview.md
-    - name: Rewrite HTTP headers
-      href: rewrite-http-headers.md
+    - name: Rewrite HTTP headers and URL
+      href: rewrite-http-headers-url.md
   - name: SSL
     items:
     - name: SSL termination and end to end SSL
@@ -92,6 +102,8 @@
     href: application-gateway-web-app-overview.md
   - name: WebSocket support
     href: application-gateway-websocket.md
+  - name: Understanding pricing
+    href: understanding-pricing.md
   - name: FAQ
     href: application-gateway-faq.md
 - name: How-to guides
@@ -198,14 +210,20 @@
         href: redirect-internal-site-cli.md
     - name: Redirect web traffic using Azure PowerShell
       href: tutorial-url-redirect-powershell.md
-  - name: Rewrite HTTP headers
+  - name: Rewrite HTTP headers and URL
     items:
-    - name: Azure portal
-      href: rewrite-http-headers-portal.md
-    - name: Azure PowerShell
-      href: add-http-header-rewrite-rule-powershell.md
-    - name: Create and rewrite HTTP headers
-      href: tutorial-http-header-rewrite-powershell.md
+    - name: Header rewrite
+      items:
+        - name: Azure portal
+          href: rewrite-http-headers-portal.md
+        - name: Azure PowerShell
+          href: add-http-header-rewrite-rule-powershell.md
+        - name: Create and rewrite HTTP headers
+          href: tutorial-http-header-rewrite-powershell.md
+    - name: URL rewrite
+      items:
+        - name: Azure portal
+          href: rewrite-url-portal.md
   - name: Configure App service webapp and multi-tenant service
     items:
     - name: Portal
@@ -249,7 +267,7 @@
   - name: Azure CLI
     href: /cli/azure/network/application-gateway
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/azure/
   - name: .NET
     href: /dotnet/api
   - name: Java

@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial - Create and manage a gateway using Azure VPN Gateway'
-description: Tutorial - Create and Manage VPN gateway with the Azure PowerShell module
+description: Follow this tutorial to learn how to create, deploy, and manage an Azure VPN Gateway by using PowerShell.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 03/11/2020
+ms.date: 10/13/2020
 ms.author: cherylmc
 #Customer intent: I want to create a VPN gateway for my virtual network so that I can connect to my VNet and communicate with resources remotely.
 ---
@@ -25,7 +25,7 @@ The following diagram shows the virtual network and the VPN gateway created as p
 
 ![VNet and VPN gateway](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
 
-### Working with Azure Cloud Shell and Azure PowerShell
+## Prerequisites
 
 [!INCLUDE [working with cloud shell](../../includes/vpn-gateway-cloud-shell-powershell.md)]
 
@@ -181,9 +181,7 @@ In this tutorial, you learned about basic VPN gateway creation and management su
 > * Resize a VPN gateway
 > * Reset a VPN gateway
 
-Advance to the following tutorials to learn about S2S, VNet-to-VNet, and P2S connections.
+Next, proceed with the following tutorial:
 
 > [!div class="nextstepaction"]
-> * [Create S2S connections](vpn-gateway-tutorial-vpnconnection-powershell.md)
-> * [Create VNet-to-VNet connections](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [Create P2S connections](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Create a connection](vpn-gateway-tutorial-vpnconnection-powershell.md)

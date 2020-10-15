@@ -8,7 +8,6 @@ ms.author: baanders # Microsoft employees only
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ROBOTS: NOINDEX, NOFOLLOW
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -17,8 +16,6 @@ ROBOTS: NOINDEX, NOFOLLOW
 ---
 
 # Understand event data
-
-[!INCLUDE [Azure Digital Twins current preview status](../../includes/digital-twins-preview-status.md)]
 
 Different events in Azure Digital Twins produce **notifications**, which allow the solution backend to be aware when different actions are happening. These are then [routed](concepts-route-events.md) to different locations inside and outside of Azure Digital Twins that can use this information to take action.
 
@@ -34,7 +31,7 @@ In general, notifications are made up of two parts: the header and the body.
 
 Notification message headers are represented with key-value pairs. Depending on the protocol used (MQTT, AMQP, or HTTP), message headers will be serialized differently. This section discusses general header information for notification messages, regardless of the specific protocol and serialization chosen.
 
-Some notifications conform to the CloudEvents standard. CloudEvents conformance is as follows.
+Some notifications conform to the [CloudEvents](https://cloudevents.io/) standard. CloudEvents conformance is as follows.
 * Notifications emitted from devices continue to follow the existing specifications for notifications
 * Notifications processed and emitted by IoT Hub continue to follow the existing specifications for notification, except where IoT Hub chooses to support CloudEvents, such as through Event Grid
 * Notifications emitted from [digital twins](concepts-twins-graph.md) with a [model](concepts-models.md) conform to CloudEvents
@@ -111,7 +108,7 @@ Here are the fields in the body of a life-cycle notification.
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event. |
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Create`<br>`Microsoft.DigitalTwins.Twin.Delete` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID of the digital twin |
@@ -129,6 +126,7 @@ Here is an example of a body for an [IoT Plug and Play (PnP)](../iot-pnp/overvie
 ```json
 {
   "$dtId": "device-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "thermostat": {
     "temperature": 80,
     "humidity": 45,
@@ -161,6 +159,7 @@ Here is another example of a digital twin. This one is based on a [model](concep
 ```json
 {
   "$dtId": "logical-digitaltwin-01",
+  "$etag": "W/\"e59ce8f5-03c0-4356-aea9-249ecbdc07f9\"",
   "avgTemperature": 70,
   "comfortIndex": 85,
   "$metadata": {
@@ -195,10 +194,10 @@ Here are the fields in the body of an edge change notification.
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the Azure Digital Twins instance, like *mydigitaltwins.westus2.azuredigitaltwins.net* |
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Relationship.Create`<br>`Microsoft.DigitalTwins.Relationship.Update`<br>`Microsoft.DigitalTwins.Relationship.Delete`
 |`datacontenttype`| `application/json` |
-| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipName>` |
+| `subject` | ID of the relationship, like `<twinID>/relationships/<relationshipID>` |
 | `time` | Timestamp for when the operation occurred on the relationship |
 | `traceparent` | A W3C trace context for the event |
 
@@ -229,15 +228,13 @@ Here is an example of a create or delete relationship notification:
 
 ```json
 {
-    "$relationshipName": "RelationshipName1",
-    "$sourceId": "building11",
-    "$relationshipName": "Contains",
-    "$targetId": "floor11",
-    "ownershipUser": "user1",
-    "ownershipDepartment": "Operations"
+    "$relationshipId": "device_to_device",
+    "$etag": "W/\"72479873-0083-41a8-83e2-caedb932d881\"",
+    "$relationshipName": "Connected",
+    "$targetId": "device2",
+    "connectionType": "WIFI"
 }
 ```
-
 
 ### Digital twin change notifications
 
@@ -253,7 +250,7 @@ Here are the fields in the body of a digital twin change notification.
 | --- | --- |
 | `id` | Identifier of the notification, such as a UUID or a counter maintained by the service. `source` + `id` is unique for each distinct event |
 | `source` | Name of the IoT hub or Azure Digital Twins instance, like *myhub.azure-devices.net* or *mydigitaltwins.westus2.azuredigitaltwins.net*
-| `specversion` | 1.0 |
+| `specversion` | *1.0*<br>The message conforms to this version of the [CloudEvents spec](https://github.com/cloudevents/spec). |
 | `type` | `Microsoft.DigitalTwins.Twin.Update` |
 | `datacontenttype` | `application/json` |
 | `subject` | ID of the digital twin |
@@ -304,7 +301,7 @@ The corresponding notification (if synchronously executed by the service, such a
 ## Next steps
 
 See how to create endpoints and routes to deliver events:
-* [How-to: Manage endpoints and routes](how-to-manage-routes.md)
+* [*How-to: Manage endpoints and routes*](how-to-manage-routes-apis-cli.md)
 
 Or, learn more about the Azure Digital Twins APIs and SDK options:
-* [How-to: Use the Azure Digital Twins APIs and SDKs](how-to-use-apis-sdks.md)
+* [*How-to: Use the Azure Digital Twins APIs and SDKs*](how-to-use-apis-sdks.md)

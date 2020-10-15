@@ -103,4 +103,5 @@ Low **capacity metric** doesn't necessarily mean that your API Management instan
 
 ## Next steps
 
-[How to scale or upgrade an Azure API Management service instance](upgrade-and-scale.md)
+- [How to scale or upgrade an Azure API Management service instance](upgrade-and-scale.md)
+- [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

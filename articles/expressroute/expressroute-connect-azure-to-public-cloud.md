@@ -2,12 +2,12 @@
 title: 'Connecting Azure to public clouds | Microsoft Docs'
 description: Describe various ways to connect Azure to other public clouds 
 services: expressroute
-author: osamazia
+author: duongau
 
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
-ms.author: osamaz
+ms.author: duau
 ---
 
 # Connecting Azure with public clouds
@@ -30,7 +30,7 @@ Layer3 providers are commonly known as IP VPN or MPLS VPN providers. Customers l
  
 When connecting through Layer3 provider, Microsoft will advertise customer VNET routes to the service provider over BGP. The provider can have two different implementations.
 
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+![Diagram that shows a Layer3 provider.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
 Provider may be landing each cloud provider in a separate VRF, if traffic from all the cloud providers will reach at customer router. If customer is running BGP with service provider, then these routes will be re-advertised to other cloud providers by default. 
 
@@ -41,7 +41,7 @@ Each public cloud has different prefix limit so while distributing the routes se
 ### Layer2 Provider and Direct connection
 
 Although physical connectivity in both models is different, but at layer3 BGP is established directly between MSEE and the customer router. For ExpressRoute Direct customer connects to MSEE directly. While in case of Layer2, service provider extends VLAN from customer premises to the cloud. Customers run BGP on top of layer2 network to connect their DCs to the cloud.
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+![Diagram that shows a Layer2 provider and Direct connection.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
 In both cases, customer will have point-to-point connections to each of the public clouds. Customer will establish separate BGP connection to each public cloud. Routes received by one cloud provider will be advertised to other cloud provider by default. Each cloud provider has different prefix limit so while advertising the routes customer should take care of these limits. Customer can use usual BGP knobs with Microsoft while advertising routes from other public clouds.
 
 ## Direct connection with ExpressRoute

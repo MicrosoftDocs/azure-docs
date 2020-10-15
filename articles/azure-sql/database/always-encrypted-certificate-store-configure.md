@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: 
@@ -68,20 +68,22 @@ In this section, you will create a table to hold patient data. This will be a no
 1. Expand **Databases**.
 2. Right-click the **Clinic** database and click **New Query**.
 3. Paste the following Transact-SQL (T-SQL) into the new query window and **Execute** it.
-
-        CREATE TABLE [dbo].[Patients](
-         [PatientId] [int] IDENTITY(1,1),
-         [SSN] [char](11) NOT NULL,
-         [FirstName] [nvarchar](50) NULL,
-         [LastName] [nvarchar](50) NULL,
-         [MiddleName] [nvarchar](50) NULL,
-         [StreetAddress] [nvarchar](50) NULL,
-         [City] [nvarchar](50) NULL,
-         [ZipCode] [char](5) NULL,
-         [State] [char](2) NULL,
-         [BirthDate] [date] NOT NULL
-         PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
-         GO
+    
+    ```tsql
+    CREATE TABLE [dbo].[Patients](
+    [PatientId] [int] IDENTITY(1,1),
+    [SSN] [char](11) NOT NULL,
+    [FirstName] [nvarchar](50) NULL,
+    [LastName] [nvarchar](50) NULL,
+    [MiddleName] [nvarchar](50) NULL,
+    [StreetAddress] [nvarchar](50) NULL,
+    [City] [nvarchar](50) NULL,
+    [ZipCode] [char](5) NULL,
+    [State] [char](2) NULL,
+    [BirthDate] [date] NOT NULL
+    PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
+    GO
+    ```
 
 ## Encrypt columns (configure Always Encrypted)
 
@@ -120,7 +122,7 @@ You can encrypt the columns now or save a PowerShell script to run later. For th
 
 Verify that the settings are all correct and click **Finish** to complete the setup for Always Encrypted.
 
-![Summary](./media/always-encrypted-certificate-store-configure/summary.png)
+![Screenshot shows the results page with tasks marked as passed.](./media/always-encrypted-certificate-store-configure/summary.png)
 
 ### Verify the wizard's actions
 
@@ -159,19 +161,21 @@ You can set this directly in the connection string, or you can set it by using a
 
 Add the following keyword to your connection string:
 
-    Column Encryption Setting=Enabled
+`Column Encryption Setting=Enabled`
 
 ### Enable Always Encrypted with a SqlConnectionStringBuilder
 
 The following code shows how to enable Always Encrypted by setting the [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
-    // Instantiate a SqlConnectionStringBuilder.
-    SqlConnectionStringBuilder connStringBuilder =
-       new SqlConnectionStringBuilder("replace with your connection string");
+```csharp
+// Instantiate a SqlConnectionStringBuilder.
+SqlConnectionStringBuilder connStringBuilder =
+    new SqlConnectionStringBuilder("replace with your connection string");
 
-    // Enable Always Encrypted.
-    connStringBuilder.ColumnEncryptionSetting =
-       SqlConnectionColumnEncryptionSetting.Enabled;
+// Enable Always Encrypted.
+connStringBuilder.ColumnEncryptionSetting =
+    SqlConnectionColumnEncryptionSetting.Enabled;
+```
 
 ## Always Encrypted sample console application
 
@@ -495,7 +499,9 @@ You can quickly check that the actual data on the server is encrypted by queryin
 
 Run the following query on the Clinic database.
 
-    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```tsql
+SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+```
 
 You can see that the encrypted columns do not contain any plaintext data.
 
@@ -510,7 +516,9 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
     ![New console application](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Run the following query on the **Clinic** database.
 
-        SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```tsql
+    SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
+    ```
 
      You can now see the plaintext data in the encrypted columns.
 

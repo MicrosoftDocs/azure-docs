@@ -2,7 +2,7 @@
 title: Deploy Azure AD Application Proxy for Azure AD Domain Services | Microsoft Docs
 description: Learn how to provide secure access to internal applications for remote workers by deploying and configuring Azure Active Directory Application Proxy in an Azure Active Directory Domain Services managed domain
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/31/2020
-ms.author: iainfou
+ms.date: 07/09/2020
+ms.author: joflore
 
 ---
 # Deploy Azure AD Application Proxy for secure access to internal applications in an Azure Active Directory Domain Services managed domain
@@ -36,9 +36,9 @@ To complete this article, you need the following resources and privileges:
 
 ## Create a domain-joined Windows VM
 
-To route traffic to applications running in your environment, you install the Azure AD Application Proxy connector component. This Azure AD Application Proxy connector must be installed on Windows Server virtual machines (VM) that's joined to the managed domain. For some applications, you can deploy multiple servers that each have the connector installed. This deployment option gives you greater availability and helps handle heavier authentication loads.
+To route traffic to applications running in your environment, you install the Azure AD Application Proxy connector component. This Azure AD Application Proxy connector must be installed on a Windows Server virtual machine (VM) that's joined to the managed domain. For some applications, you can deploy multiple servers that each have the connector installed. This deployment option gives you greater availability and helps handle heavier authentication loads.
 
-The VM that runs the Azure AD Application Proxy connector must be on the same, or a peered, virtual network in which you have enabled Azure AD DS. The VMs that then host the applications you publish using the Application Proxy must also be deployed on the same Azure virtual network.
+The VM that runs the Azure AD Application Proxy connector must be on the same, or a peered, virtual network as your managed domain. The VMs that then host the applications you publish using the Application Proxy must also be deployed on the same Azure virtual network.
 
 To create a VM for the Azure AD Application Proxy connector, complete the following steps:
 
@@ -68,7 +68,7 @@ With a VM ready to be used as the Azure AD Application Proxy connector, now copy
         > [!NOTE]
         > The global administrator account used to register the connector must belong to the same directory where you enable the Application Proxy service.
         >
-        > For example, if the Azure AD domain is *aaddscontoso.com*, the global administrator should be `admin@aaddscontoso.com` or another valid alias on that domain.
+        > For example, if the Azure AD domain is *contoso.com*, the global administrator should be `admin@contoso.com` or another valid alias on that domain.
 
    * If Internet Explorer Enhanced Security Configuration is turned on for the VM where you install the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message, or turn off Internet Explorer Enhanced Security during the install process.
    * If connector registration fails, see [Troubleshoot Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -109,7 +109,7 @@ If you deploy multiple Azure AD Application Proxy connectors, you must configure
 
 ## Next steps
 
-With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-publish-azure-portal.md).
+With the Azure AD Application Proxy integrated with Azure AD DS, publish applications for users to access. For more information, see [publish applications using Azure AD Application Proxy](../active-directory/manage-apps/application-proxy-add-on-premises-application.md).
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

@@ -23,9 +23,9 @@ You can protect SAP NetWeaver application deployments by using [Azure Site Recov
 
 Before you begin, ensure that you know how to do the following tasks:
 
-* [Replicate a virtual machine to Azure](azure-to-azure-walkthrough-enable-replication.md)
-* [Design a recovery network](site-recovery-azure-to-azure-networking-guidance.md)
-* [Do a test failover to Azure](azure-to-azure-walkthrough-test-failover.md)
+* [Replicate a virtual machine to Azure](./azure-to-azure-tutorial-enable-replication.md)
+* [Design a recovery network](./azure-to-azure-about-networking.md)
+* [Do a test failover to Azure](./azure-to-azure-tutorial-dr-drill.md)
 * [Do a failover to Azure](site-recovery-failover.md)
 * [Replicate a domain controller](site-recovery-active-directory.md)
 * [Replicate a SQL Server instance](site-recovery-sql.md)
@@ -106,7 +106,7 @@ Following is the recommendation for disaster recovery of each tier used in this 
 
 ## Replicate virtual machines
 
-To start replicating all the SAP application virtual machines to the Azure disaster recovery datacenter, follow the guidance in [Replicate a virtual machine to Azure](azure-to-azure-walkthrough-enable-replication.md).
+To start replicating all the SAP application virtual machines to the Azure disaster recovery datacenter, follow the guidance in [Replicate a virtual machine to Azure](./azure-to-azure-tutorial-enable-replication.md).
 
 * For guidance on protecting Active Directory and DNS, learn [how to protect Active Directory and DNS](site-recovery-active-directory.md).
 

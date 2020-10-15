@@ -20,7 +20,7 @@ This chapter lists the minimum system requirements to work with *Azure Remote Re
 
 * Windows 10 version 1903 or higher.
 * Up-to-date graphics drivers.
-* Optional: H265 hardware video decoder, if you want to use local preview of remotely rendered content (for example in Unity).
+* Optional: [H265 hardware video decoder](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7), if you want to use local preview of remotely rendered content (for example in Unity).
 
 > [!IMPORTANT]
 > Windows update doesn't always deliver the very latest GPU drivers, check your GPU manufacturer's website for latest drivers:
@@ -48,7 +48,7 @@ It's important to use the latest HEVC codec, as newer versions have significant 
 1. Start the **Microsoft Store**.
 1. Click the **"..."** button in the top right.
 1. Select **Downloads and Updates**.
-1. Search the list for **HEVC Video Extensions from Device Manufacturer**.
+1. Search the list for **HEVC Video Extensions from Device Manufacturer**. If this item is not listed under updates, the most recent version is already installed.
 1. Make sure the listed codec has at least version **1.0.21821.0**.
 1. Click the **Get Updates** button and wait for it to install.
 
@@ -60,6 +60,17 @@ See dedicated chapter for [network requirements](../reference/network-requiremen
 
 For troubleshooting network issues, refer to the [Troubleshooting Guide](../resources/troubleshoot.md#unstable-holograms).
 
+### Network ports
+
+Make sure that your firewalls (on device, inside routers, etc.) don't block the following ports:
+
+| Port              | Protocol | Allow    | Description |
+|-------------------|----------|----------|-------------|
+| 50051             | TCP      | Outgoing | Initial connection (HTTP handshake) |
+| 8266              | UDP      | Outgoing | Data transfer |
+| 5000, 5433, 8443  | TCP      | Outgoing | Required for [ArrInspector tool](../resources/tools/arr-inspector.md)|
+
+
 ## Software
 
 The following software must be installed:
@@ -70,7 +81,7 @@ The following software must be installed:
   * **Universal Windows Platform (UWP) development**
 * **Windows SDK 10.0.18362.0** [(download)](https://developer.microsoft.com/windows/downloads/windows-10-sdk)
 * **GIT** [(download)](https://git-scm.com/downloads)
-* Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7).
+* Optional: To view the video stream from the server on a desktop PC, you need the **HEVC Video Extensions** [(Microsoft Store link)](https://www.microsoft.com/p/hevc-video-extensions/9nmzlz57r3t7). Ensure that the latest version is installed by checking for updates in the store.
 
 ## Unity
 

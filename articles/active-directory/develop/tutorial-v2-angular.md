@@ -1,9 +1,9 @@
 ---
-title: Angular single-page app tutorial - Azure
+title: "Tutorial: Create an Angular app that uses the Microsoft identity platform for authentication | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how Angular SPA applications can call an API that requires access tokens from the Microsoft identity platform endpoint.
+description: In this tutorial, you build an Angular single-page app (SPA) that uses the Microsoft identity platform to sign in users and get an access token to call the Microsoft Graph API on their behalf.
 services: active-directory
-author: hahamil
+author: hamiltonha
 manager: CelesteDG
 
 ms.service: active-directory
@@ -12,26 +12,32 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, devx-track-js
 ---
 
 # Tutorial: Sign in users and call the Microsoft Graph API from an Angular single-page application
 
-This tutorial demonstrates how an Angular single-page application (SPA) can:
-- Sign in personal accounts, work accounts, or school accounts.
-- Acquire an access token.
-- Call the Microsoft Graph API or other APIs that require access tokens from the *Microsoft identity platform endpoint*.
+This tutorial walks you through building an Angular single-page application (SPA) that can sign in users with personal Microsoft accounts and work or school accounts and call the Microsoft Graph API on their behalf.
 
->[!NOTE]
->This tutorial walks you through how to create a new Angular SPA by using Microsoft Authentication Library (MSAL). If you want to download a sample app, see the [quickstart](quickstart-v2-angular.md).
+In this tutorial:
+
+> [!div class="checklist"]
+> * Create an Angular project with `npm`
+> * Register the application in the Azure portal
+> * Add code to support user sign-in and sign-out
+> * Add code to call Microsoft Graph API
+> * Test the app
+
+## Prerequisites
+
+* [Node.js](https://nodejs.org/en/download/) for running a local web server.
+* [Visual Studio Code](https://code.visualstudio.com/download) or other editor for modifying project files.
 
 ## How the sample app works
 
-![Diagram that shows how the sample app generated in this tutorial works](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagram that shows how the sample app generated in this tutorial works](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
-### More information
-
-The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens from the Microsoft identity platform endpoint. The MSAL for Angular library is a wrapper of the core MSAL.js library. It enables Angular (6+) applications to authenticate enterprise users by using Microsoft Azure Active Directory, Microsoft account users, and social identity users (such as Facebook, Google, and LinkedIn). The library also enables the applications to get access to Microsoft cloud services or Microsoft Graph.
+The sample application created in this tutorial enables an Angular SPA to query the Microsoft Graph API or a web API that accepts tokens issued by the Microsoft identity platform. It uses the Microsoft Authentication Library (MSAL) for Angular, a wrapper of the core MSAL.js library. MSAL Angular enables Angular 6+ applications to authenticate enterprise users by using Azure Active Directory (Azure AD), and also users with Microsoft accounts and social identities like Facebook, Google, and LinkedIn. The library also enables applications to get access to Microsoft cloud services and Microsoft Graph.
 
 In this scenario, after a user signs in, an access token is requested and added to HTTP requests through the authorization header. Token acquisition and renewal are handled by MSAL.
 
@@ -45,28 +51,22 @@ This tutorial uses the following library:
 
 You can find the source code for the MSAL.js library in the [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) repository on GitHub.
 
-## Prerequisites
-
-To run this tutorial, you need:
-
-* A local web server, such as [Node.js](https://nodejs.org/en/download/). Instructions in this tutorial are based on Node.js.
-* An integrated development environment (IDE), such as [Visual Studio Code](https://code.visualstudio.com/download), to edit the project files.
-
 ## Create your project
 
 Generate a new Angular application by using the following npm commands:
 
-```Bash
+```bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
-npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
+cd my-application                                # Change to the app directory
+npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
 
 ## Register your application
 
-Follow the [instructions to register a single-page application](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) in the Azure portal.
+Follow the [instructions to register a single-page application](./scenario-spa-app-registration.md) in the Azure portal.
 
 On the app **Overview** page of your registration, note the **Application (client) ID** value for later use.
 
@@ -119,7 +119,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and enable im
     |Value name|About|
     |---------|---------|
     |Enter_the_Application_Id_Here|On the **Overview** page of your application registration, this is your **Application (client) ID** value. |
-    |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Cloud_Instance_Id_Here|This is the instance of the Azure cloud. For the main or global Azure cloud, enter **https://login.microsoftonline.com**. For national clouds (for example, China), see [National clouds](./authentication-national-cloud.md).|
     |Enter_the_Tenant_Info_Here| Set to one of the following options: If your application supports *accounts in this organizational directory*, replace this value with the directory (tenant) ID or tenant name (for example, **contoso.microsoft.com**). If your application supports *accounts in any organizational directory*, replace this value with **organizations**. If your application supports *accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *personal Microsoft accounts only*, replace this value with **consumers**. |
     |Enter_the_Redirect_Uri_Here|Replace with **http://localhost:4200**.|
 
@@ -134,7 +134,7 @@ Register your **Redirect URI** value as **http://localhost:4200/** and enable im
 3. Add the following import statements to the top of `src/app/app.component.ts`:
 
     ```javascript
-    import { MsalService } from '@azure/msal-angular';
+    import { MsalService, BroadcastService } from '@azure/msal-angular';
     import { Component, OnInit } from '@angular/core';
     ```
 ## Sign in a user
@@ -144,6 +144,8 @@ Add the following code to `AppComponent` to sign in a user:
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
+
+    ngOnInit() { }
 
     login() {
         const isIE = window.navigator.userAgent.indexOf('MSIE ') > -1 || window.navigator.userAgent.indexOf('Trident/') > -1;
@@ -188,7 +190,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Next, provide a map of protected resources to `MsalModule.forRoot()` as `protectedResourceMap` and include those scopes in `consentScopes`:
+Next, provide a map of protected resources to `MsalModule.forRoot()` as `protectedResourceMap` and include those scopes in `consentScopes`. The URLs you provide in the `protectedResourceMap` collection are case-sensitive.
 
 ```javascript
 @NgModule({
@@ -336,6 +338,7 @@ If a back-end API doesn't require a scope (not recommended), you can use *client
 
 ## Next steps
 
-If you're new to identity and access management, we have several articles to help you learn modern authentication concepts, starting with [authentication vs. authorization](authentication-vs-authorization.md).
+Delve deeper into single-page application (SPA) development on the Microsoft identity platform in our the multi-part article series.
 
-If you'd like to dive deeper into single-page application development on the Microsoft identity platform, the multi-part [Scenario: Single-page application](scenario-spa-overview.md) series of articles can help you get started.
+> [!div class="nextstepaction"]
+> [Scenario: Single-page application](scenario-spa-overview.md)

@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
+ms.date: 07/14/2020
 ---
 
 # Choose a pricing tier for Azure Cognitive Search
@@ -19,20 +19,23 @@ Most customers start with the Free tier so they can evaluate the service. Post-e
 
 ## Feature availability by tier
 
-Almost every feature is available on every tier, including Free, but a feature or workflow that is resource intensive might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
-
 The following table describes tier-related feature constraints.
 
 | Feature | Limitations |
 |---------|-------------|
 | [indexers](search-indexer-overview.md) | Indexers are not available on S3 HD. |
+| [AI enrichment](search-security-manage-encryption-keys.md) | Runs on the Free tier but not recommended. |
 | [Customer-managed encryption keys](search-security-manage-encryption-keys.md) | Not available on the Free tier. |
+| [IP firewall access](service-configure-firewall.md) | Not available on the Free tier. |
+| [Integration with Azure Private Link](service-create-private-endpoint.md) | Not available on the Free tier. |
+
+Most features are available on every tier, including Free, but resource-intensive features might not work well unless you give it sufficient capacity. For example, [AI enrichment](cognitive-search-concept-intro.md) has long-running skills that time out on a Free service unless the dataset is small.
 
 ## Tiers (SKUs)
 
 Tiers are differentiated by:
 
-+ Quantity of indexes and indexers you can create
++ Quantity of indexes and indexers (maximum limits)
 + Size and speed of partitions (physical storage)
 
 The tier you select determines the billable rate. The following screenshot from Azure portal shows the available tiers, minus pricing (which you can find in the portal and on the [pricing page](https://azure.microsoft.com/pricing/details/search/). **Free**, **Basic**, and **Standard** are the most common tiers.
@@ -53,10 +56,19 @@ You can find out more about the various tiers on the [pricing page](https://azur
 
 A solution built on Azure Cognitive Search can incur costs in the following ways:
 
-+ Fixed cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
-+ Incremental cost when scaling up (add replicas or partitions)
-+ Bandwidth charges (outbound data transfer) 
-+ Cognitive search (attaching Cognitive Services for AI enrichment, or using Azure storage for knowledge store)
++ Cost of the service itself, running 24x7, at minimum configuration (one partition and replica)
+
++ Adding capacity (replicas or partitions)
+
++ Bandwidth charges (outbound data transfer)
+
++ Add-on services required for specific capabilities or features:
+
+  + AI enrichment (requires [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + knowledge store (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + incremental enrichment (requires [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), applies to AI enrichment)
+  + customer-managed keys and double encryption (requires [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + private endpoints for a no-internet access model (requires [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### Service costs
 
@@ -68,7 +80,7 @@ When you're estimating the cost of a search solution, keep in mind that pricing 
 
 ### Bandwidth charges
 
-Using [Azure Cognitive Search indexers](search-indexer-overview.md) might affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Cognitive Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
+Using [indexers](search-indexer-overview.md) might affect billing, depending on the location of your services. You can eliminate data egress charges entirely if you create the Azure Cognitive Search service in the same region as your data. Here's some information from the [bandwidth pricing page](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Microsoft doesn't charge for any inbound data to any service on Azure, or for any outbound data from Azure Cognitive Search.
 + In multiservice solutions, there's no charge for data crossing the wire when all services are in the same region.
@@ -82,7 +94,7 @@ For [AI enrichment](cognitive-search-concept-intro.md), you should plan to [atta
 | Operation | Billing impact |
 |-----------|----------------|
 | Document cracking, text extraction | Free |
-| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
+| Document cracking, image extraction | Billed according to the number of images extracted from your documents. In an [indexer configuration](/rest/api/searchservice/create-indexer#indexer-parameters), **imageAction** is the parameter that triggers image extraction. If **imageAction** is set to "none" (the default), you won't be charged for image extraction. The rate for image extraction is documented on the [pricing details](https://azure.microsoft.com/pricing/details/search/) page for Azure Cognitive Search.|
 | [Built-in cognitive skills](cognitive-search-predefined-skills.md) | Billed at the same rate as if you had performed the task by using Cognitive Services directly. |
 | Custom skills | A custom skill is functionality you provide. The cost of using a custom skill depends entirely on whether custom code is calling other metered services. |
 
@@ -104,7 +116,7 @@ Most customers bring just a portion of total capacity online, holding the rest i
 
 ## How to manage costs
 
-The following suggestions can help you keep costs at a minimum:
+The following suggestions can help you lower costs or manage costs more effectively:
 
 + Create all resources in the same region, or in as few regions as possible, to minimize or eliminate bandwidth charges.
 
@@ -114,7 +126,7 @@ The following suggestions can help you keep costs at a minimum:
 
 + Scale up for resource-intensive operations like indexing, and then readjust downwards for regular query workloads. Start with the minimum configuration for Azure Cognitive Search (one SU composed of one partition and one replica), and then monitor user activity to identify usage patterns that would indicate a need for more capacity. If there is a predictable pattern, you might be able to synchronize scale with activity (you would need to write code to automate this).
 
-Additionally, visit [Billing and cost management](https://docs.microsoft.com/azure/billing/billing-getting-started) for built-in tools and features related to spending.
+Additionally, visit [Billing and cost management](../cost-management-billing/cost-management-billing-overview.md) for built-in tools and features related to spending.
 
 Shutting down a search service on a temporary basis is not possible. Dedicated resources are always operational, allocated for your exclusive use for the lifetime of your service. Deleting a service is permanent and also deletes its associated data.
 
@@ -137,7 +149,7 @@ Capacity and the costs of running the service go hand in hand. Tiers impose limi
 
 Business requirements typically dictate the number of indexes you'll need. For example, you might need a global index for a large repository of documents. Or you might need  multiple indexes based on region, application, or business niche.
 
-To determine the size of an index, you have to [build one](search-create-index-portal.md). Its size will be based on imported data and index configuration such as whether you enable suggesters, filtering, and sorting. For more information about configuration impact on size, see [Create a basic index ](search-what-is-an-index.md).
+To determine the size of an index, you have to [build one](search-what-is-an-index.md). Its size will be based on imported data and index configuration such as whether you enable suggesters, filtering, and sorting.
 
 For full text search, the primary data structure is an [inverted index](https://en.wikipedia.org/wiki/Inverted_index) structure, which has different characteristics than source data. For an inverted index, size and complexity are determined by content, not necessarily by the amount of data that you feed into it. A large data source with high redundancy could result in a smaller index than a smaller dataset that contains highly variable content. So it's rarely possible to infer index size based on the size of the original dataset.
 
@@ -151,7 +163,7 @@ One approach for estimating capacity is to start with the Free tier. Remember th
 
 + [Create a free service](search-create-service-portal.md).
 + Prepare a small, representative dataset.
-+ [Build an initial index in the portal](search-create-index-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
++ [Build an initial index in the portal](search-get-started-portal.md) and note its size. Features and attributes have an impact on storage. For example, adding suggesters (search-as-you-type queries) will increase storage requirements. Using the same data set, you might try creating multiple versions of an index, with different attributes on each field, to see how storage requirements vary. For more information, see ["Storage implications" in Create a basic index](search-what-is-an-index.md#index-size).
 
 With a rough estimate in hand, you might double that amount to budget for two indexes (development and production) and then choose your tier accordingly.
 
@@ -159,7 +171,7 @@ With a rough estimate in hand, you might double that amount to budget for two in
 
 Dedicated resources can accommodate larger sampling and processing times for more realistic estimates of index quantity, size, and query volumes during development. Some customers jump right in with a billable tier and then re-evaluate as the development project matures.
 
-1. [Review service limits at each tier](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
+1. [Review service limits at each tier](./search-limits-quotas-capacity.md#index-limits) to determine whether lower tiers can support the number of indexes you need. Across the Basic, S1, and S2 tiers, index limits are 15, 50, and 200, respectively. The Storage Optimized tier has a limit of 10 indexes because it's designed to support a low number of very large indexes.
 
 1. [Create a service at a billable tier](search-create-service-portal.md):
 
@@ -167,7 +179,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
     + Start high, at S2 or even S3, if you know you're going to have large-scale indexing and query loads.
     + Start with Storage Optimized, at L1 or L2, if you're indexing a large amount of data and query load is relatively low, as with an internal business application.
 
-1. [Build an initial index](search-create-index-portal.md) to determine how source data translates to an index. This is the only way to estimate index size.
+1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size.
 
 1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier. 
 

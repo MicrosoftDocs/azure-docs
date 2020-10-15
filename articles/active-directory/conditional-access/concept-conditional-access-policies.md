@@ -41,7 +41,7 @@ A policy can contain multiple [conditions](concept-conditional-access-conditions
 
 #### Sign-in risk
 
-For organizations with [Azure AD Identity Protection](../identity-protection/overview.md), the risk detections generated there can influence your Conditional Access policies.
+For organizations with [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md), the risk detections generated there can influence your Conditional Access policies.
 
 #### Device platforms
 
@@ -123,6 +123,8 @@ A Conditional Access policy must contain at minimum the following to be enforced
 The article [Common Conditional Access policies](concept-conditional-access-policy-common.md) includes some policies that we think would be useful to most organizations.
 
 ## Next steps
+
+[Create a Conditional Access policy](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json#create-a-conditional-access-policy)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 

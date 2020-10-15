@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.reviewer: carlrab
+ms.reviewer:
 ms.date: 08/20/2019
 ---
 # What is SQL Data Sync for Azure?
@@ -28,7 +28,7 @@ Data Sync uses a hub and spoke topology to synchronize data. You define one of t
 
 - The **Hub Database** must be an Azure SQL Database.
 - The **member databases** can be either databases in Azure SQL Database or in instances of SQL Server.
-- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Database is customer created and customer owned.
+- The **Sync Metadata Database** contains the metadata and log for Data Sync. The Sync Metadata Database has to be an Azure SQL Database located in the same region as the Hub Database. The Sync Metadata Database is customer created and customer owned. You can only have one Sync Metadata Database per region and subscription. Sync Metadata Database cannot be deleted or renamed while sync groups or sync agents exist. Microsoft recommends to create a new, empty database for use as the Sync Metadata Database. Data Sync creates tables in this database and runs a frequent workload.
 
 > [!NOTE]
 > If you're using an on premises database as a member database, you have to [install and configure a local sync agent](sql-data-sync-sql-server-configure.md#add-on-prem).
@@ -74,8 +74,8 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 | | Data Sync | Transactional Replication |
 |---|---|---|
-| Advantages | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration <br/>-Azure SQL Managed Instance support |
-| Disadvantages | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
+| **Advantages** | - Active-active support<br/>- Bi-directional between on-premises and Azure SQL Database | - Lower latency<br/>- Transactional consistency<br/>- Reuse existing topology after migration <br/>-Azure SQL Managed Instance support |
+| **Disadvantages** | - 5 min or more latency<br/>- No transactional consistency<br/>- Higher performance impact | - Can't publish from Azure SQL Database <br/>-    High maintenance cost |
 
 ## Get started 
 
@@ -120,16 +120,17 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 > - Data between hub and member can be lost even though sync does not report any issue.
 > - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
 
-- Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Snapshot isolation must be enabled for both Sync members and hub. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### General limitations
 
 - A table can't have an identity column that isn't the primary key.
+- A table must have a clustered index to use data sync.
 - A primary key can't have the following data types: sql_variant, binary, varbinary, image, xml.
 - Be cautious when you use the following data types as a primary key, because the supported precision is only to the second: time, datetime, datetime2, datetimeoffset.
 - The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 - Azure Active Directory authentication isn't supported.
-- Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
+- If there are tables with the same name but different schema (for example, dbo.customers and sales.customers) only one of the tables can be added into sync.
 - Columns with User-Defined Data Types aren't supported
 - Moving servers between different subscriptions isn't supported. 
 
@@ -229,6 +230,10 @@ Yes. SQL Data Sync supports collation in the following scenarios:
 ### Is federation supported in SQL Data Sync
 
 Federation Root Database can be used in the SQL Data Sync Service without any limitation. You can't add the Federated Database endpoint to the current version of SQL Data Sync.
+
+### Can I use Data Sync to sync data exported from Dynamics 365 using bring your own database (BYOD) feature?
+
+The Dynamics 365 bring your own database feature lets administrators export data entities from the application into their own Microsoft Azure SQL database. Data Sync can be used to sync this data into other databases if data is exported using **incremental push** (full push is not supported) and **enable triggers in target database** is set to **yes**.
 
 ## Next steps
 

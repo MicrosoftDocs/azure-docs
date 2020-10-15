@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2020
+ms.date: 10/14/2020
 ms.author: b-juche
 ---
 # Resource limits for Azure NetApp Files
@@ -28,6 +28,7 @@ The following table describes resource limits for Azure NetApp Files:
 |----------------|---------------------|--------------------------------------|
 |  Number of NetApp accounts per Azure region   |  10    |  Yes   |
 |  Number of capacity pools per NetApp account   |    25     |   Yes   |
+|  Number of volumes per subscription   |    500     |   Yes   |
 |  Number of volumes per capacity pool     |    500   |    Yes     |
 |  Number of snapshots per volume       |    255     |    No        |
 |  Number of subnets delegated to Azure NetApp Files (Microsoft.NetApp/volumes) per Azure Virtual Network    |   1   |    No    |
@@ -39,6 +40,9 @@ The following table describes resource limits for Azure NetApp Files:
 |  Maximum size of a single file     |    16 TiB    |    No    |    
 |  Maximum size of directory metadata in a single directory      |    320 MB    |    No    |    
 |  Maximum number of files ([maxfiles](#maxfiles)) per volume     |    100 million    |    Yes    |    
+|  Minimum assigned throughput for a manual QoS volume     |    1 MiB/s   |    No    |    
+|  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
+|  Number of cross-region replication data protection volumes (destination volumes)     |    5    |    Yes    |     
 
 For more information, see [Capacity management FAQs](azure-netapp-files-faqs.md#capacity-management-faqs).
 
@@ -50,13 +54,13 @@ The service dynamically adjusts the maxfiles limit for a volume based on its pro
 
 |    Volume size (quota)     |  Automatic readjustment of the maxfiles limit    |
 |----------------------------|-------------------|
-|    < 1 TiB                 |    20 million     |
-|    >= 1 TiB but < 2 TiB    |    40 million     |
-|    >= 2 TiB but < 3 TiB    |    60 million     |
-|    >= 3 TiB but < 4 TiB    |    80 million     |
-|    >= 4 TiB                |    100 million    |
+|    <= 1 TiB                |    20 million     |
+|    > 1 TiB but <= 2 TiB    |    40 million     |
+|    > 2 TiB but <= 3 TiB    |    60 million     |
+|    > 3 TiB but <= 4 TiB    |    80 million     |
+|    > 4 TiB                 |    100 million    |
 
-For any volume size, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million.
+If you have already allocated at least 4 TiB of quota for a volume, you can initiate a [support request](#limit_increase) to increase the maxfiles limit beyond 100 million. For every 100 million files you increase (or a fraction thereof), you need to increase the corresponding volume quota by 4 TiB.  For example, if you increase the maxfiles limit from 100 million files to 200 million files (or any number in between), you need to increase the volume quota from 4 TiB to 8 TiB.
 
 ## Request limit increase <a name="limit_increase"></a> 
 
@@ -77,9 +81,10 @@ From Azure portal navigation plane:
         |  Resource  |    Parent resources      |    Requested new limits     |    Reason for quota increase       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Account |  *Subscription ID*   |  *Requested new maximum **account** number*    |  *What scenario or use case prompted the request?*  |
-        |  Pool    |  *Subscription ID, Account URI*  |  *Requested new maximum **pool** number*   |  *What scenario or use case prompted the request?*  |
-        |  Volume  |  *Subscription ID, Account URI, Pool URI*   |  *Requested new maximum **volume** number*     |  *What scenario or use case prompted the request?*  |
-        |  Maxfiles  |  *Subscription ID, Account URI, Pool URI, Volume URI*   |  *Requested new maximum **maxfiles** number*     |  *What scenario or use case prompted the request?*  |    
+        |  Pool    |  *Subscription ID, NetApp account URI*  |  *Requested new maximum **pool** number*   |  *What scenario or use case prompted the request?*  |
+        |  Volume  |  *Subscription ID, NetApp account URI, capacity pool URI*   |  *Requested new maximum **volume** number*     |  *What scenario or use case prompted the request?*  |
+        |  Maxfiles  |  *Subscription ID, NetApp account URI, capacity pool URI, volume URI*   |  *Requested new maximum **maxfiles** number*     |  *What scenario or use case prompted the request?*  |    
+        |  Cross-region replication data protection volumes  |  *Subscription ID, destination NetApp account URI, destination capacity pool URI, source NetApp account URI, source capacity pool URI, source volume URI*   |  *Requested new maximum number of **cross-region replication data protection volumes (destination volumes)***     |  *What scenario or use case prompted the request?*  |    
 
     2. Specify the appropriate support method and provide your contract information.
 

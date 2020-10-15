@@ -42,8 +42,8 @@ Different versions of Azure diagnostics use different configuration schemas. Sch
 
 ### Diagnostics extension 1.11
 Added support for the Azure Monitor sink. This sink is only applicable to performance counters. Enables sending performance counters collected on your VM, VMSS, or cloud service to Azure Monitor as custom metrics. The Azure Monitor sink supports:
-* Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](https://docs.microsoft.com/rest/api/monitor/metrics/list)
-* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](../../azure-monitor/platform/alerts-overview.md) in Azure Monitor
+* Retrieving all performance counters sent to Azure Monitor via the [Azure Monitor metrics APIs.](/rest/api/monitor/metrics/list)
+* Alerting on all performance counters sent to Azure Monitor via the new [unified alerts experience](./alerts-overview.md) in Azure Monitor
 * Treating wildcard operator in performance counters as the "Instance" dimension on your metric. For example if you collected the "LogicalDisk(\*)/DiskWrites/sec" counter you would be able to filter and split on the "Instance" dimension to plot or alert on the Disk Writes/sec for each Logical Disk (C:, D:, etc.)
 
 Define Azure Monitor as a new sink in your diagnostics extension configuration
@@ -151,12 +151,12 @@ Added Storage Type to PublicConfig. StorageType can be *Table*, *Blob*, *TableAn
 Added the ability to route to EventHub.
 
 ### Diagnostics extension 1.5
-Added the sinks element and the ability to send diagnostics data to [Application Insights](../../azure-monitor/app/cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
+Added the sinks element and the ability to send diagnostics data to [Application Insights](../app/cloudservices.md) making it easier to diagnose issues across your application as well as the system and infrastructure level.
 
 ### Azure SDK 2.6 and diagnostics extension 1.3
 For Cloud Service projects in Visual Studio, the following changes were made. (These changes also apply to later versions of Azure SDK.)
 
-* The local emulator now supports diagnostics. This change means you can collect diagnostics data and ensure your application is creating the right traces while you're developing and testing in Visual Studio. The connection string `UseDevelopmentStorage=true` enables diagnostics data collection while you're running your cloud service project in Visual Studio by using the Azure storage emulator. All diagnostics data is collected in the (Development Storage) storage account.
+* The local emulator now supports diagnostics. This change means you can collect diagnostics data and ensure your application is creating the right traces while you're developing and testing in Visual Studio. The connection string `UseDevelopmentStorage=true` enables diagnostics data collection while you're running your cloud service project in Visual Studio by using the Azure Storage Emulator. All diagnostics data is collected in the (Development Storage) storage account.
 * The diagnostics storage account connection string (Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString) is stored once again in the service configuration (.cscfg) file. In Azure SDK 2.5 the diagnostics storage account was specified in the diagnostics.wadcfgx file.
 
 There are some notable differences between how the connection string worked in Azure SDK 2.4 and earlier and how it works in Azure SDK 2.6 and later.

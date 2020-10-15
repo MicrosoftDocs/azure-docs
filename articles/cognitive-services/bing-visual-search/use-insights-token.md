@@ -11,12 +11,20 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.custom: tracking-python
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
 # Use an insights token to get insights for an image
 
-Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](overview.md). This article demonstrates using an insights token. For examples that demonstrate how to upload an image to get insights, see the quickstarts ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
+Bing Visual Search API returns information about an image that you provide. You can provide the image by using the URL of the image, an insights token, or by uploading an image. For information about these options, see [What is Bing Visual Search API?](overview.md). This article demonstrates using an insights token. For examples that demonstrate how to upload an image to get insights, see the quickstarts:
+
+* ([C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [Node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)).
 
 If you send Bing Visual Search an image token or URL, the following shows the form data you must include in the body of the POST. The form data must include the `Content-Disposition` header, and you must set its `name` parameter to "knowledgeRequest". For details about the `imageInfo` object, see the request:
 
@@ -55,14 +63,23 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-For examples that use the insights token, see [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
+For examples that use the insights token, see:
+
+* [C#](#use-with-c)
+
+* [Java](#use-with-java)
+
+* [Node.js](#use-with-nodejs)
+
+* [Python](#use-with-python)
 
 ## Use with C#
 
 ### C# prerequisites
 
-- Any version of [Visual Studio 2019](https://www.visualstudio.com/downloads/) to get this code running on Windows.
-- An Azure subscription. For this quickstart, you can use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* Any version of [Visual Studio 2019](https://www.visualstudio.com/downloads/) to get this code running on Windows.
 
 ## Run the application
 
@@ -234,8 +251,10 @@ namespace VisualSearchInsightsToken
 
 ### Java prerequisites
 
-- You must use [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will suffice.
-- For this quickstart, you can use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You can use a Java IDE if you have a favorite, but a text editor will suffice.
+
 
 ## Run the Java application
 
@@ -348,8 +367,9 @@ public class InsightsToken {
 
 ### Node.js prerequisites
 
-- You must have [Node.js 6](https://nodejs.org/en/download/) to run this code.
-- For this quickstart, you can use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* You must have [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
 ## Run the JavaScript application
 
@@ -412,8 +432,9 @@ function requestCallback(err, res, body) {
 
 ### Python prerequisites
 
-- You must have [Python 3](https://www.python.org/) to run this code.
-- For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+* You must have [Python 3](https://www.python.org/) to run this code.
 
 ## Run the Python application
 
@@ -476,5 +497,4 @@ if __name__ == '__main__':
 [Create a Visual Search single-page web app](tutorial-bing-visual-search-single-page-app.md)  
 [What is the Bing Visual Search API?](overview.md)  
 [Try Cognitive Services](https://aka.ms/bingvisualsearchtryforfree)  
-[Get a free trial access key](https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api)  
 [Images - Visual Search](https://aka.ms/bingvisualsearchreferencedoc)

@@ -6,7 +6,7 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 ---
 
@@ -14,21 +14,21 @@ ms.custom: security-benchmark
 
 The Azure Security Baseline for Azure Functions contains recommendations that will help you improve the security posture of your deployment.
 
-The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
+The baseline for this service is drawn from the [Azure Security Benchmark version 1.0](../security/benchmarks/overview.md), which provides recommendations on how you can secure your cloud solutions on Azure with our best practices guidance.
 
-For more information, see the [Azure security baselines overview](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+For more information, see the [Azure security baselines overview](../security/benchmarks/security-baselines-overview.md).
 
 ## Network security
 
-*For more information, see [Security control: Network security](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*For more information, see [Security control: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect resources using Network Security Groups or Azure Firewall on your Virtual Network
 
 **Guidance**: Integrate your Azure Functions apps with an Azure virtual network. Function apps running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the "VNet Integration" feature.  Azure virtual networks allow you to place many of your Azure resources, such as Azure Functions, in a non-internet routable network.
 
-- [How to integrate Functions with an Azure Virtual Network](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet)
+- [How to integrate Functions with an Azure Virtual Network](./functions-create-vnet.md)
 
-- [Understand Vnet Integration for Azure Functions and Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+- [Understand Vnet Integration for Azure Functions and Azure App Service](../app-service/web-sites-integrate-with-vnet.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -40,11 +40,11 @@ For more information, see the [Azure security baselines overview](https://docs.m
 
 If using Network Security groups (NSGs) with your Azure Functions implementation, enable NSG flow logs and send logs into an Azure Storage Account for traffic audits. You may also send NSG flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
-- [Understand Network Security provided by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Understand Network Security provided by Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [How to Enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -61,9 +61,9 @@ In addition, ensure remote debugging has been disabled for your production Azure
 
 Consider deploying Azure Web Application Firewall (WAF) as part of the networking configuration for additional inspection of incoming traffic. Enable Diagnostic Setting for WAF and ingest logs into a Storage Account, Event Hub, or Log Analytics Workspace. 
 
-- [How to secure Azure Function endpoints in production](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [How to secure Azure Function endpoints in production](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [How to deploy Azure WAF](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [How to deploy Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -74,25 +74,25 @@ Consider deploying Azure Web Application Firewall (WAF) as part of the networkin
 **Guidance**: Enable DDoS Protection Standard on the Virtual Networks associated with your functions apps to guard against DDoS attacks. Use Azure Security Center Integrated Threat Intelligence to deny communications with known malicious or unused public IP addresses.
 In addition, configure a front-end gateway, such as Azure Web Application Firewall, to authenticate all incoming requests and filter out malicious traffic. Azure Web Application Firewall can help secure your Azure Function apps by inspecting inbound web traffic to block SQL injections, Cross-Site Scripting, malware uploads, and DDoS attacks. Introduction of a WAF requires either an App Service Environment or use of Private Endpoints (Preview). Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
 
-- [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
 
-- [Introduction to the App Service Environments](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introduction to the App Service Environments](../app-service/environment/intro.md)
 
-- [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Networking considerations for an App Service Environment](../app-service/environment/network-info.md)
 
-- [How to configure DDoS protection](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
-- [How to deploy Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Understand Azure Security Center Integrated Threat Intelligence](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
-- [Understand Azure Security Center Adaptive Network Hardening](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)
 
-- [Understand Azure Security Center Just In Time Network Access Control](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Understand Azure Security Center Just In Time Network Access Control](../security-center/security-center-just-in-time.md)
 
-- [Using Private Endpoints for Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Using Private Endpoints for Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -102,11 +102,11 @@ In addition, configure a front-end gateway, such as Azure Web Application Firewa
 
 **Guidance**: If using Network Security groups (NSGs) with your Azure Functions implementation, enable Network Security Group flow logs and send logs into a storage account for traffic audit. You may also send flow logs to a Log Analytics workspace and use Traffic Analytics to provide insights into traffic flow in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity and identify hot spots, identify security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
 
-- [How to Enable NSG Flow Logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [How to Enable NSG Flow Logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [How to Enable and use Traffic Analytics](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [How to Enable and use Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-- [How to enable Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [How to enable Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -118,19 +118,19 @@ In addition, configure a front-end gateway, such as Azure Web Application Firewa
 
 Alternatively, there are multiple marketplace options like the Barracuda WAF for Azure that are available on the Azure Marketplace which include IDS/IPS features.
 
-- [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
 
-- [Introduction to the App Service Environments](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introduction to the App Service Environments](../app-service/environment/intro.md)
 
-- [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Networking considerations for an App Service Environment](../app-service/environment/network-info.md)
 
-- [Understand Azure Web Application Firewall](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+- [Understand Azure Web Application Firewall](../web-application-firewall/index.yml)
 
-- [Using Private Endpoints for Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Using Private Endpoints for Azure Functions](../app-service/networking/private-endpoint.md)
 
-- [Understand Barracuda WAF Cloud Service](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Understand Barracuda WAF Cloud Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -140,19 +140,19 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 
 **Guidance**: Configure a front-end gateway for your network such as Azure Web Application Firewall with end-to-end TLS encryption. Introduction of a WAF requires either an App Service Environment or use of Private Endpoints (Preview). Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
 
-- [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
 
-- [Introduction to the App Service Environments](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introduction to the App Service Environments](../app-service/environment/intro.md)
 
-- [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Networking considerations for an App Service Environment](../app-service/environment/network-info.md)
 
-- [Understand Azure Web Application Firewall](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+- [Understand Azure Web Application Firewall](../web-application-firewall/index.yml)
 
-- [How to configure end-to-end TLS by using Application Gateway with the portal](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal)
+- [How to configure end-to-end TLS by using Application Gateway with the portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Using Private Endpoints for Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Using Private Endpoints for Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -162,7 +162,7 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 
 **Guidance**: Use Virtual Network service tags to define network access controls on Network Security Groups or Azure Firewall. You can use service tags in place of specific IP addresses when creating security rules. By specifying the service tag name (e.g., AzureAppService) in the appropriate source or destination field of a rule, you can allow or deny the traffic for the corresponding service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change.
 
-- [For more information about using service tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [For more information about using service tags](../virtual-network/service-tags-overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -175,11 +175,11 @@ Alternatively, there are multiple marketplace options like the Barracuda WAF for
 - Function App should only be accessible over HTTPS
 - Latest TLS version should be used in your Function App
 
-You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, role-based access control (RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
+You may also use Azure Blueprints to simplify large-scale Azure deployments by packaging key environment artifacts, such as Azure Resource Manager templates, Azure role-based access control (Azure RBAC), and policies in a single blueprint definition. You can easily apply the blueprint to new subscriptions, environments, and fine-tune control and management through versioning.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create an Azure Blueprint](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -193,7 +193,7 @@ Use any of the built-in Azure policy definitions related to tagging, such as "Re
 
 You may use Azure PowerShell or Azure CLI to look-up or perform actions on resources based on their tags.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -203,9 +203,9 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network settings and resources related to your Azure Functions deployments. Create alerts within Azure Monitor that will trigger when changes to critical network settings or resources takes place. 
 
-- [How to view and retrieve Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [How to create alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -213,7 +213,7 @@ You may use Azure PowerShell or Azure CLI to look-up or perform actions on resou
 
 ## Logging and monitoring
 
-*For more information, see [Security control: Logging and monitoring](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see [Security control: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.1: Use approved time synchronization sources
 
@@ -233,13 +233,13 @@ If you have built-in custom security/audit logging within your Azure Function ap
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-- [How to set up Azure Functions with Azure Application Insights](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [How to set up Azure Functions with Azure Application Insights](./functions-monitoring.md)
 
-- [How to enable Diagnostic Settings (user-generated logs) for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [How to enable Diagnostic Settings (user-generated logs) for Azure Functions](./functions-monitor-log-analytics.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -251,9 +251,9 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 If you have built-in custom security/audit logging within your Azure Function app, enable the diagnostics setting "FunctionAppLogs" and send the logs to a Log Analytics workspace, Azure event hub, or Azure storage account for archive. 
 
-- [How to enable Diagnostic Settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable Diagnostic Settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-- [How to enable Diagnostic Settings (user-generated logs) for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [How to enable Diagnostic Settings (user-generated logs) for Azure Functions](./functions-monitor-log-analytics.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -271,7 +271,7 @@ If you have built-in custom security/audit logging within your Azure Function ap
 
 **Guidance**: In Azure Monitor, set log retention period for Log Analytics workspaces associated with your Azure Functions apps according to your organization's compliance regulations.
 
-- [How to set log retention parameters](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [How to set log retention parameters](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -287,13 +287,13 @@ If you have built-in custom security/audit logging within your Azure Function ap
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable diagnostic settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-- [How to enable diagnostic settings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [How to enable diagnostic settings for Azure Functions](./functions-monitor-log-analytics.md)
 
-- [How to set up Azure Functions with Azure Application Insights and view the telemetry data](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [How to set up Azure Functions with Azure Application Insights and view the telemetry data](./functions-monitoring.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -307,15 +307,15 @@ Enable Application Insights for your Azure Functions apps to collect log, perfor
 
 Optionally, you may enable and on-board data to Azure Sentinel or a third-party SIEM. 
 
-- [How to enable diagnostic settings for Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [How to enable diagnostic settings for Azure Activity Log](../azure-monitor/platform/activity-log.md)
 
-- [How to enable diagnostic settings for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [How to enable diagnostic settings for Azure Functions](./functions-monitor-log-analytics.md)
 
-- [How to enable Application Insights for Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#enable-application-insights-integration)
+- [How to enable Application Insights for Azure Functions](./functions-monitoring.md#enable-application-insights-integration)
 
-- [How to create alerts within Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [How to create alerts within Azure](../azure-monitor/learn/tutorial-response.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -347,15 +347,15 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 ## Identity and access control
 
-*For more information, see [Security control: Identity and access control](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see [Security control: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
 **Guidance**: Azure Active Directory (AD) has built-in roles that must be explicitly assigned and are queryable. Use the Azure AD PowerShell module to perform ad hoc queries to discover accounts that are members of administrative groups. 
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -369,11 +369,11 @@ Data plane access can be controlled through several means, including authorizati
 
 Multiple deployment methods are available to function apps, some of which may leverage a set of generated credentials. Review the deployment methods that will be used for your application.
 
-- [Secure an HTTP endpoint](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Secure an HTTP endpoint](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [How to obtain and regenerate authorization keys](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#obtaining-keys)
+- [How to obtain and regenerate authorization keys](./functions-bindings-http-webhook-trigger.md?tabs=csharp#obtaining-keys)
 
-- [Deployment technologies in Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies)
+- [Deployment technologies in Azure Functions](./functions-deployment-technologies.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -388,9 +388,9 @@ There should be more than one owner assigned to your subscription
 Deprecated accounts with owner permissions should be removed from your subscription
 External accounts with owner permissions should be removed from your subscription
 
-- [How to use Azure Security Center to monitor identity and access (Preview)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to use Azure Security Center to monitor identity and access (Preview)](../security-center/security-center-identity-access.md)
 
-- [How to use Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to use Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -400,9 +400,9 @@ External accounts with owner permissions should be removed from your subscriptio
 
 **Guidance**: Wherever possible, use Azure Active Directory SSO instead than configuring individual stand-alone credentials for data access to your function app. Use Azure Security Center Identity and Access Management recommendations. Implement single sign-on for your Azure Functions apps using the App Service Authentication / Authorization feature.
 
-- [Understand authentication and authorization in Azure Functions](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Understand authentication and authorization in Azure Functions](../app-service/overview-authentication-authorization.md#identity-providers)
 
-- [Understand SSO with Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Understand SSO with Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -412,9 +412,9 @@ External accounts with owner permissions should be removed from your subscriptio
 
 **Guidance**: Enable Azure Active Directory (AD) Multi-Factor Authentication (MFA) and follow Azure Security Center Identity and Access Management recommendations.
 
-- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [How to monitor identity and access within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [How to monitor identity and access within Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -424,9 +424,9 @@ External accounts with owner permissions should be removed from your subscriptio
 
 **Guidance**: Use privileged access workstations (PAW) with Multi-Factor Authentication (MFA) configured to log into and configure Azure resources.
 
-- [Learn about Privileged Access Workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Learn about Privileged Access Workstations](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [How to enable MFA in Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [How to enable MFA in Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -438,9 +438,9 @@ External accounts with owner permissions should be removed from your subscriptio
 
 In addition, use Azure AD risk detections to view alerts and reports on risky user behavior.
 
-- [How to deploy Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [How to deploy Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Understand Azure AD risk detections](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Understand Azure AD risk detections](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -450,7 +450,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Conditional Access Named Locations to allow access to the Azure portal from only specific logical groupings of IP address ranges or countries/regions.
 
-- [How to configure Named Locations in Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [How to configure Named Locations in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -460,9 +460,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Functions apps. Azure AD protects data by using strong encryption for data at rest and in transit. Azure AD also salts, hashes, and securely stores user credentials.
 
-- [How to configure your Azure Functions app to use Azure AD login](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [How to configure your Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
-- [How to create and configure an AAD instance](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [How to create and configure an AAD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -472,9 +472,9 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 **Guidance**: Azure Active Directory (AD) provides logs to help you discover stale accounts. In addition, use Azure Identity Access Reviews to efficiently manage group memberships, access to enterprise applications, and role assignments. User access can be reviewed on a regular basis to make sure only the right Users have continued access. 
 
-- [Understand Azure AD reporting](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
-- [How to use Azure Identity Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [How to use Azure Identity Access Reviews](../active-directory/governance/access-reviews-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -488,11 +488,11 @@ You have access to Azure AD sign-in activity, audit and risk event log sources, 
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired log alerts within Log Analytics.
 
-- [How to configure your Azure Functions app to use Azure AD login](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [How to configure your Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
-- [How to integrate Azure Activity Logs into Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure Activity Logs into Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [How to on-board Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to on-board Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -502,11 +502,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Use Azure Active Directory (AD) as the central authentication and authorization system for your Azure Functions apps. For account login behavior deviation on the control plane (the Azure portal), use Azure Active Directory (AD) Identity Protection and risk detection features to configure automated responses to detected suspicious actions related to user identities. You can also ingest data into Azure Sentinel for further investigation.
 
-- [How to view Azure AD risky sign-ins](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [How to configure and enable Identity Protection risk policies](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [How to onboard Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -516,7 +516,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Not currently available; Customer Lockbox is not currently supported for Azure Functions.
 
-- [List of Customer Lockbox-supported services](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [List of Customer Lockbox-supported services](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -524,13 +524,13 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ## Data protection
 
-*For more information, see [Security control: Data protection](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see [Security control: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
 **Guidance**: Use tags to assist in tracking Azure resources that store or process sensitive information.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -542,19 +542,19 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 You may also use Private Endpoints to perform network isolation. An Azure Private Endpoint is a network interface that connects you privately and securely to a service (for example: Azure Functions app HTTPs endpoint) powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. Private endpoints are in (Preview) for function apps running in the Premium plan. Ensure that Private Endpoints are no longer in (Preview) before using them with production workloads.
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
 
-- [Understand Private Endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- [Understand Private Endpoint](../private-link/private-endpoint-overview.md)
 
-- [Using Private Endpoints for Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Using Private Endpoints for Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -566,7 +566,7 @@ You may also use Private Endpoints to perform network isolation. An Azure Privat
 
 Microsoft manages the underlying infrastructure for Azure Functions and has implemented strict controls to prevent the loss or exposure of customer data.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -586,7 +586,7 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 For the underlying platform which is managed by Microsoft, Microsoft treats all customer content as sensitive and goes to great lengths to guard against customer data loss and exposure. To ensure customer data within Azure remains secure, Microsoft has implemented and maintains a suite of robust data protection controls and capabilities.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -594,9 +594,9 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 ### 4.6: Use Azure RBAC to control access to resources
 
-**Guidance**: Use Azure Active Directory (AD) role-based access control (RBAC) to control access to the Azure Function control plane (the Azure portal). 
+**Guidance**: Use Azure role-based access control (Azure RBAC) to control access to the Azure Function control plane (the Azure portal). 
 
-- [How to configure RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -608,7 +608,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 Microsoft manages the underlying infrastructure for Azure Functions and has implemented strict controls to prevent the loss or exposure of customer data.
 
-- [Understand customer data protection in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Understand customer data protection in Azure](../security/fundamentals/protection-customer-data.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -618,9 +618,9 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 **Guidance**: When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. This is because Functions relies on Azure Storage for operations such as managing triggers and logging function executions. Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can supply customer-managed keys for encryption of blob and file data. These keys must be present in Azure Key Vault for the function app to be able to access the storage account.
 
-- [Understand storage considerations for Azure Functions](https://docs.microsoft.com/azure/azure-functions/storage-considerations)
+- [Understand storage considerations for Azure Functions](./storage-considerations.md)
 
-- [Understand Azure storage encryption for data at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Understand Azure storage encryption for data at rest](../storage/common/storage-service-encryption.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -630,7 +630,7 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 **Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production Azure Function apps as well as other critical or related resources.
 
-- [How to create alerts for Azure Activity Log events](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -638,7 +638,7 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 ## Vulnerability management
 
-*For more information, see [Security control: Vulnerability management](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see [Security control: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.1: Run automated vulnerability scanning tools
 
@@ -646,9 +646,9 @@ Microsoft manages the underlying infrastructure for Azure Functions and has impl
 
 In addition, follow recommendations from Azure Security Center to help secure your Azure Function apps.
 
-- [How to add continuous security validation to your CI/CD pipeline](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
+- [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -682,7 +682,7 @@ In addition, follow recommendations from Azure Security Center to help secure yo
 
 **Guidance**: Microsoft performs vulnerability management on the underlying systems that support Azure Functions, however you may use the severity of the recommendations within Azure Security Center as well as the Secure Score to measure risk within your environment. Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
 
-- [Security recommendations reference guide](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Security recommendations reference guide](../security-center/recommendations-reference.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -690,7 +690,7 @@ In addition, follow recommendations from Azure Security Center to help secure yo
 
 ## Inventory and asset management
 
-*For more information, see [Security control: Inventory and asset management](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see [Security control: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use Azure Asset Discovery
 
@@ -698,11 +698,11 @@ In addition, follow recommendations from Azure Security Center to help secure yo
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
-- [How to create queries with Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [How to view your Azure Subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [How to view your Azure Subscriptions](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Understand Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Understand Azure RBAC](../role-based-access-control/overview.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -712,7 +712,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -726,11 +726,11 @@ In addition, use Azure policy to put restrictions on the type of resources that 
 Not allowed resource types
 Allowed resource types
 
-- [How to create additional Azure subscriptions](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -750,9 +750,9 @@ Allowed resource types
 
 Use Azure Resource Graph to query/discover resources within their subscription(s).  Ensure that all Azure resources present in the environment are approved. 
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to create queries with Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [How to create queries with Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -788,9 +788,9 @@ Use Azure Resource Graph to query/discover resources within their subscription(s
 Not allowed resource types
 Allowed resource types
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [How to deny a specific resource type with Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -808,7 +808,7 @@ Allowed resource types
 
 **Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
 
-- [How to configure Conditional Access to block access to Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -828,19 +828,19 @@ Allowed resource types
 
 Deploy high risk Azure Function apps into their own Virtual Network (VNet). Perimeter security in Azure Functions is achieved through VNets. Functions running in the Premium plan or App Service Environment (ASE) can be integrated with VNets. Choose the best architecture for your use case.
 
-- [Azure Functions networking options](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Azure Functions networking options](./functions-networking-options.md)
 
-- [Azure Functions Premium Plan](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Azure Functions Premium Plan](./functions-scale.md#premium-plan)
 
-- [Networking considerations for an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Networking considerations for an App Service Environment](../app-service/environment/network-info.md)
 
-- [How to create an external ASE](https://docs.microsoft.com/azure/app-service/environment/create-external-ase)
+- [How to create an external ASE](../app-service/environment/create-external-ase.md)
 
 How to create an internal ASE:
 
-- [https://docs.microsoft.com/azure/app-service/environment/create-ilb-as](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [https://docs.microsoft.com/azure/app-service/environment/create-ilb-as](../virtual-network/quick-create-portal.md)
 
-- [How to create an NSG with a security config](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [How to create an NSG with a security config](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -848,7 +848,7 @@ How to create an internal ASE:
 
 ## Secure configuration
 
-*For more information, see [Security control: Secure configuration](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see [Security control: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -857,9 +857,9 @@ How to create an internal ASE:
 - Remote debugging should be turned off for Function Apps
 - Function App should only be accessible over HTTPS
 
-- [How to view available Azure Policy Aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy Aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -877,9 +877,9 @@ How to create an internal ASE:
 
 **Guidance**: Use Azure policy [deny] and [deploy if not exist] to enforce secure settings across your Azure resources.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Understand Azure Policy Effects](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Understand Azure Policy Effects](../governance/policy/concepts/effects.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -889,7 +889,7 @@ How to create an internal ASE:
 
 **Guidance**: Not applicable; while it is possible to deploy on-premises functions, this guideline is intended for IaaS compute resources. When deploying on premises functions, you are responsible for the secure configuration of your environment.
 
-- [Understand on-premises functions](https://docs.microsoft.com/azure/azure-functions/functions-runtime-install)
+- [Understand on-premises functions](./functions-runtime-install.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -899,13 +899,13 @@ How to create an internal ASE:
 
 **Guidance**: Store and manage ARM templates and custom Azure policy definitions securely in source control.
 
-- [What is infrastructure as code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
+- [What is infrastructure as code](/azure/devops/learn/what-is-infrastructure-as-code)
 
-- [Design policy as code workflows](https://docs.microsoft.com/azure/governance/policy/concepts/policy-as-code)
+- [Design policy as code workflows](../governance/policy/concepts/policy-as-code.md)
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -923,7 +923,7 @@ How to create an internal ASE:
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to alert, audit, and enforce system configurations. Additionally, develop a process and pipeline for managing policy exceptions.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -941,7 +941,7 @@ How to create an internal ASE:
 
 **Guidance**: Use built-in Azure Policy definitions as well as Azure Policy aliases in the "Microsoft.Web" namespace to create custom policies to alert, audit, and enforce system configurations. Use Azure policy [audit], [deny], and [deploy if not exist] to automatically enforce configurations for your Azure resources.
 
-- [How to configure and manage Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -959,13 +959,15 @@ How to create an internal ASE:
 
 **Guidance**: Use Managed Identities in conjunction with Azure Key Vault to simplify and secure secret management for your cloud applications. Managed Identities allows your function app to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-- [How to create a Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to use managed identities for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
 
-- [How to provide Key Vault authentication with a managed identity](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
 
-- [Use Key Vault references for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
+
+- [Use Key Vault references for App Service and Azure Functions](../app-service/app-service-key-vault-references.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -975,7 +977,7 @@ How to create an internal ASE:
 
 **Guidance**: Use Managed Identities to provide your Azure Function app with an automatically managed identity in Azure AD. Managed Identities allows you to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-- [How to use managed identities for App Service and Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [How to use managed identities for App Service and Azure Functions](../app-service/overview-managed-identity.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -993,7 +995,7 @@ How to create an internal ASE:
 
 ## Malware defense
 
-*For more information, see [Security control: Malware defense](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see [Security control: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.1: Use centrally managed anti-malware software
 
@@ -1026,7 +1028,7 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 ## Data recovery
 
-*For more information, see [Security control: Data recovery](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see [Security control: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -1034,13 +1036,13 @@ Microsoft anti-malware is enabled on the underlying host that supports Azure ser
 
 Also make use of a source control solution such as Azure Repos and Azure DevOps to securely store and manage your code. Azure DevOps Services leverages many of the Azure storage features to ensure data availability in the case of hardware failure, service disruption, or region disaster. Additionally, the Azure DevOps team follows procedures to protect data from accidental or malicious deletion.
 
-- [Back up your app in Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Back up your app in Azure](../app-service/manage-backup.md)
 
-- [Understand data availability in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+- [Understand data availability in Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1052,15 +1054,15 @@ Also make use of a source control solution such as Azure Repos and Azure DevOps 
 
 Also make use of a source control solution such as Azure Repos and Azure DevOps to securely store and manage your code. Azure DevOps Services leverages many of the Azure storage features to ensure data availability in the case of hardware failure, service disruption, or region disaster. Additionally, the Azure DevOps team follows procedures to protect data from accidental or malicious deletion.
 
-- [Back up your app in Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Back up your app in Azure](../app-service/manage-backup.md)
 
-- [How to backup key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+- [How to backup key vault keys in Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Understand data availability in Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+- [Understand data availability in Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1070,11 +1072,11 @@ Also make use of a source control solution such as Azure Repos and Azure DevOps 
 
 **Guidance**: Ensure ability to periodically perform restoration from the Backup and Restore feature. If using another offline location to backup your code, periodically ensure ability to perform complete restorations. Test restoration of backed up customer managed keys.
 
-- [Restore an app in Azure from a backup](https://docs.microsoft.com/azure/app-service/web-sites-restore)
+- [Restore an app in Azure from a backup](../app-service/web-sites-restore.md)
 
-- [Restore an app in Azure from a snapshot](https://docs.microsoft.com/azure/app-service/app-service-web-restore-snapshots)
+- [Restore an app in Azure from a snapshot](../app-service/app-service-web-restore-snapshots.md)
 
-- [How to restore key vault keys in Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1086,9 +1088,9 @@ Also make use of a source control solution such as Azure Repos and Azure DevOps 
 
 If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabled to protect keys against accidental or malicious deletion.
 
-- [Azure Storage encryption at rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Azure Storage encryption at rest](../storage/common/storage-service-encryption.md)
 
-- [How to enable Soft-Delete in Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1096,13 +1098,13 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 ## Incident response
 
-*For more information, see [Security control: Incident response](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see [Security control: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
 **Guidance**: Build out an incident response guide for your organization. Ensure that there are written incident response plans that define all roles of personnel as well as phases of incident handling/management from detection to post-incident review.
 
-- [How to configure Workflow Automations within Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [How to configure Workflow Automations within Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Guidance on building your own security incident response process](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1138,7 +1140,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Security incident contact information will be used by Microsoft to contact you if the Microsoft Security Response Center (MSRC) discovers that the customer's data has been accessed by an unlawful or unauthorized party.  Review incidents after the fact to ensure that issues are resolved.
 
-- [How to set the Azure Security Center Security Contact](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [How to set the Azure Security Center Security Contact](../security-center/security-center-provide-security-contact-details.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1148,9 +1150,9 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Export your Azure Security Center alerts and recommendations using the Continuous Export feature. Continuous Export allows you to export alerts and recommendations either manually or in an ongoing, continuous fashion. You may use the Azure Security Center data connector to stream the alerts to Azure Sentinel.
 
-- [How to configure continuous export](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [How to configure continuous export](../security-center/continuous-export.md)
 
-- [How to stream alerts into Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [How to stream alerts into Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1160,7 +1162,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 **Guidance**: Use the Workflow Automation feature in Azure Security Center to automatically trigger responses to security alerts and recommendations with Logic Apps.
 
-- [How to configure Workflow Automation and Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [How to configure Workflow Automation and Logic Apps](../security-center/workflow-automation.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1168,7 +1170,7 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Penetration tests and red team exercises
 
-*For more information, see [Security control: Penetration tests and red team exercises](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see [Security control: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -1184,5 +1186,5 @@ Additionally, clearly mark subscriptions (for ex. production, non-prod) and crea
 
 ## Next steps
 
-- See the [Azure security benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

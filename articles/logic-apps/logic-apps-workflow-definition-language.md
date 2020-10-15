@@ -198,7 +198,7 @@ You can also have values that don't exist until run time.
 To represent these values, you can use *expressions*, 
 which are evaluated at run time. An expression is a sequence 
 that can contain one or more [functions](#functions), 
-[operators](#operators), [variables](https://docs.microsoft.com/azure/logic-apps/logic-apps-create-variables-store-values), explicit values, 
+[operators](#operators), [variables](./logic-apps-create-variables-store-values.md), explicit values, 
 or constants. In your workflow definition, 
 you can use an expression anywhere in a JSON 
 string value by prefixing the expression with the at-sign (\@). 
@@ -327,7 +327,7 @@ Here is the general structure for an output definition:
 
 To get the output from a workflow run, review your logic 
 app's run history and details in the Azure portal or use the 
-[Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows). 
+[Workflow REST API](/rest/api/logic/workflows). 
 You can also pass output to external systems, for example, 
 Power BI so that you can create dashboards.
 
@@ -360,4 +360,4 @@ that the Workflow Definition Language provides.
 ## Next steps
 
 * Learn about [Workflow Definition Language actions and triggers](../logic-apps/logic-apps-workflow-actions-triggers.md)
-* Learn about programmatically creating and managing logic apps with the [Workflow REST API](https://docs.microsoft.com/rest/api/logic/workflows)
+* Learn about programmatically creating and managing logic apps with the [Workflow REST API](/rest/api/logic/workflows)

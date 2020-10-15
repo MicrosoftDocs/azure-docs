@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: carlrab
-ms.date: 12/04/2018
+ms.reviewer: sstein
+ms.date: 07/28/2020
 ---
 # Designing globally available services using Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -52,7 +52,13 @@ If an outage happens in region B, the replication process between the primary an
 > For disaster recovery, we recommend the configuration with application deployment limited to two regions. This is because most of the Azure geographies have only two regions. This configuration does not protect your application from a simultaneous catastrophic failure of both regions. In an unlikely event of such a failure, you can recover your databases in a third region using [geo-restore operation](disaster-recovery-guidance.md#recover-using-geo-restore).
 >
 
- Once the outage is mitigated, the secondary database automatically resynchronizes with the primary. During synchronization, performance of the primary can be impacted. The specific impact depends on the amount of data the new primary acquired since the failover. The following diagram illustrates an outage in the secondary region:
+ Once the outage is mitigated, the secondary database automatically resynchronizes with the primary. During synchronization, performance of the primary can be impacted. The specific impact depends on the amount of data the new primary acquired since the failover. 
+
+> [!NOTE]
+> After the outage is mitigated, Traffic  Manager will start routing the connections to the application in Region A as a higher priority end-point. If you intend to keep the primary in Region B for a while, you should change the priority table in the Trafic Manager profile accordingly. 
+>
+ 
+ The following diagram illustrates an outage in the secondary region:
 
 ![Scenario 1. Configuration after an outage in the secondary region.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 

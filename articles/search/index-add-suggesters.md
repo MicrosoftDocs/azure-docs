@@ -9,6 +9,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
+ms.custom: devx-track-csharp
 ---
 
 # Create a suggester to enable autocomplete and suggested results in a query
@@ -21,7 +22,7 @@ The following screenshot from [Create your first app in C#](tutorial-csharp-type
 
 You can use these features separately or together. To implement these behaviors in Azure Cognitive Search, there is an index and query component. 
 
-+ In the index, add a suggester to an index. You can use the portal, [REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), or [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). The remainder of this article is focused on creating a suggester.
++ In the index, add a suggester to an index. You can use the portal, [REST API](/rest/api/searchservice/create-index), or [.NET SDK](/dotnet/api/microsoft.azure.search.models.suggester). The remainder of this article is focused on creating a suggester.
 
 + In the query request, call one of the [APIs listed below](#how-to-use-a-suggester).
 
@@ -33,7 +34,7 @@ A suggester is an internal data structure that supports search-as-you-type behav
 
 ## Define a suggester
 
-To create a suggester, add one to an [index schema](https://docs.microsoft.com/rest/api/searchservice/create-index) and [set each property](#property-reference). The best time to create a suggester is when you are also defining the field that will use it.
+To create a suggester, add one to an [index schema](/rest/api/searchservice/create-index) and [set each property](#property-reference). The best time to create a suggester is when you are also defining the field that will use it.
 
 + Use string fields only
 
@@ -53,7 +54,7 @@ To satisfy both search-as-you-type experiences, add all of the fields that you n
 
 Your choice of an analyzer determines how fields are tokenized and subsequently prefixed. For example, for a hyphenated string like "context-sensitive", using a language analyzer will result in these token combinations: "context", "sensitive", "context-sensitive". Had you used the standard Lucene analyzer, the hyphenated string would not exist. 
 
-When evaluating analyzers, consider using the [Analyze Text API](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) for insight into how terms are tokenized and subsequently prefixed. Once you build an index, you can try various analyzers on a string to view token output.
+When evaluating analyzers, consider using the [Analyze Text API](/rest/api/searchservice/test-analyzer) for insight into how terms are tokenized and subsequently prefixed. Once you build an index, you can try various analyzers on a string to view token output.
 
 Fields that use [custom analyzers](index-add-custom-analyzers.md) or [predefined analyzers](index-add-custom-analyzers.md#predefined-analyzers-reference) (with the exception of standard Lucene) are explicitly disallowed to prevent poor outcomes.
 
@@ -68,7 +69,7 @@ If you try to create a suggester using pre-existing fields, the API will disallo
 
 ## Create using REST
 
-In the REST API, add suggesters through [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) or [Update Index](https://docs.microsoft.com/rest/api/searchservice/update-index). 
+In the REST API, add suggesters through [Create Index](/rest/api/searchservice/create-index) or [Update Index](/rest/api/searchservice/update-index). 
 
   ```json
   {
@@ -106,7 +107,7 @@ In the REST API, add suggesters through [Create Index](https://docs.microsoft.co
 
 ## Create using .NET
 
-In C#, define a [Suggester object](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` is a collection but it can only take one item. 
+In C#, define a [Suggester object](/dotnet/api/microsoft.azure.search.models.suggester). `Suggesters` is a collection but it can only take one item. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -133,7 +134,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 |--------------|-----------------|
 |`name`        |The name of the suggester.|
 |`searchMode`  |The strategy used to search for candidate phrases. The only mode currently supported is `analyzingInfixMatching`, which currently matches on the beginning of a term.|
-|`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Fields must be of type `Edm.String` and `Collection(Edm.String)`. If an analyzer is specified on the field, it must be a named analyzer from [this list](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) (not a custom analyzer).<p/> As a best practice, specify only those fields that lend themselves to an expected and appropriate response, whether it's a completed string in a search bar or a dropdown list.<p/>A hotel name is a good candidate because it has precision. Verbose fields like descriptions and comments are too dense. Similarly, repetitive fields, such as categories and tags, are less effective. In the examples, we include "category" anyway to demonstrate that you can include multiple fields. |
+|`sourceFields`|A list of one or more fields that are the source of the content for suggestions. Fields must be of type `Edm.String` and `Collection(Edm.String)`. If an analyzer is specified on the field, it must be a named analyzer from [this list](/dotnet/api/microsoft.azure.search.models.analyzername) (not a custom analyzer).<p/> As a best practice, specify only those fields that lend themselves to an expected and appropriate response, whether it's a completed string in a search bar or a dropdown list.<p/>A hotel name is a good candidate because it has precision. Verbose fields like descriptions and comments are too dense. Similarly, repetitive fields, such as categories and tags, are less effective. In the examples, we include "category" anyway to demonstrate that you can include multiple fields. |
 
 <a name="how-to-use-a-suggester"></a>
 
@@ -141,17 +142,17 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 
 A suggester is used in a query. After a suggester is created, call one of the following APIs for a search-as-you-type experience:
 
-+ [Suggestions REST API](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
-+ [Autocomplete REST API](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
-+ [SuggestWithHttpMessagesAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [AutocompleteWithHttpMessagesAsync method](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [Suggestions REST API](/rest/api/searchservice/suggestions) 
++ [Autocomplete REST API](/rest/api/searchservice/autocomplete) 
++ [SuggestWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?
++ [AutocompleteWithHttpMessagesAsync method](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync)
 
 In a search application, client code should leverage a library like [jQuery UI Autocomplete](https://jqueryui.com/autocomplete/) to collect the partial query and provide the match. For more information about this task, see [Add autocomplete or suggested results to client code](search-autocomplete-tutorial.md).
 
 API usage is illustrated in the following call to the Autocomplete REST API. There are two takeaways from this example. First, as with all queries, the operation is against the documents collection of an index and the query includes a **search** parameter, which in this case provides the partial query. Second, you must add **suggesterName** to the request. If a suggester is not defined in the index, a call to autocomplete or suggestions will fail.
 
 ```http
-POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
+POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 {
   "search": "minecraf",
   "suggesterName": "sg"
@@ -169,4 +170,4 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2019-05-06
 We recommend the following article to learn more about how requests formulation.
 
 > [!div class="nextstepaction"]
-> [Add autocomplete and suggestions to client code](search-autocomplete-tutorial.md) 
+> [Add autocomplete and suggestions to client code](search-autocomplete-tutorial.md)

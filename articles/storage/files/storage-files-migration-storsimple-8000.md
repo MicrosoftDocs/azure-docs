@@ -3,7 +3,7 @@ title: StorSimple 8000 series migration to Azure File Sync
 description: Learn how to migrate a StorSimple 8100 or 8600 appliance to Azure File Sync.
 author: fauhse
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/09/2020
 ms.author: fauhse
 ms.subservice: files
@@ -114,7 +114,7 @@ Now that you've completed phase 1, you will have done the following:
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
+        ![Illustration that shows it's now time to provision a VM and expose the volume clone (or multiple) to that VM over iSCSI.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-2.png)
     :::column-end:::
     :::column:::
         After your initial clone is available on the StorSimple 8020 virtual appliance in Azure, it is now time to provision a VM and expose the volume clone (or multiple) to that VM over iSCSI.
@@ -170,7 +170,7 @@ Only proceed to phase 3 when you have completed these steps for all the volumes 
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
+        ![Illustration that shows the need to  determine and provision a number of Azure file shares and create a Windows Server on-premises as a StorSimple appliance replacement.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-3.png)
     :::column-end:::
     :::column:::
         In this phase, you will be determining and provisioning a number of Azure file shares, creating a Windows Server on-premises as a StorSimple appliance replacement and configure that server for Azure File Sync. 
@@ -220,7 +220,7 @@ Your registered on-premises Windows Server must be ready and connected to the in
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
+        ![Illustration that shows how you'll get the VM connected via Azure File Sync and start a first round of moving files from your StorSimple volume clone(s).](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-4.png)
     :::column-end:::
     :::column:::
         This phase concerns your Azure VM with the iSCSI mounted, first volume clone(s). During this phase, you will get the VM connected via Azure File Sync and start a first round of moving files from your StorSimple volume clone(s).
@@ -276,7 +276,7 @@ From experience, we can assume that the bandwidth - therefore the actual data si
 
 :::row:::
     :::column:::
-        ![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
+        ![Illustration that shows how to minimize downtime by using multiple volume clones and telling when sync is done.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-5.png)
     :::column-end:::
     :::column:::
         As discussed in the previous phase, the initial sync can take a long time. Your users and applications are still accessing the on-premises StorSimple 8100 or 8600 appliance. That means that changes are accumulating, and with every day a larger delta between the live data and the initial volume clone, you are currently migration, forms. In this section, you'll learn how to minimize downtime by using multiple volume clones and telling when sync is done.
@@ -333,7 +333,7 @@ At this point, there are two differences between your on-premises Windows Server
 1. There may be files that haven't synced (see **PerItemErrors** from the event log above)
 2. The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time.
 
-![An image illustrating a part of the earlier, overview image that helps focus this subsection of the article.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
+![Illustration that shows how the cache of the Windows Server was brought up to the state of the appliance and ensures no file is left behind with a final RoboCopy.](media/storage-files-migration-storsimple-shared/storsimple-8000-migration-phase-6.png)
 
 We can bring the cache of the Windows Server up to the state of the appliance and ensure no file is left behind with a final RoboCopy.
 

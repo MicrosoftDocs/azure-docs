@@ -189,7 +189,7 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
 
 1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life. In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life, and the decision of the main approver(s) has to time-out after at least 4 days. If the request time-out is less or equal than 3, there is not enough time to forward the request to alternate approver(s). In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
 
 ## Enable requests
 
@@ -202,3 +202,33 @@ For example, if you listed Alice and Bob as the First Approver(s), list Carol an
     ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Click **Next**.
+
+## Add Requestor information (preview) to an access package
+
+1. Go to the **Requestor information** tab and click the **Questions** sub tab.
+ 
+1. Type in what you want to ask the requestor, also known as the display string, for the question in the **Question** box.
+
+    ![Access package - Policy- Enable Requestor information setting](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. If you would like to add your own localization options, click **add localization**.
+    1. Once in the **Add localizations for question** pane, select the **language code** for the language in which you are localizing the question.
+    1. In the language you configured, type the question in the **Localized Text** box.
+    1. Once you have added all the localizations needed, click **Save**.
+
+    ![Access package - Policy- Configure localized text](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Select the **Answer format** in which you would like requestors to answer. Answer formats include: *short text*, *multiple choice*, and *long text*.
+ 
+    ![Access package - Policy- Select view and edit multiple choice answer format](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. If selecting multiple choice, click on the **view and edit** button to configure the answer options.
+    1. After selecting view and edit the **View/edit question** pane will open.
+    1. Type in the response options you wish to give the requestor when answering the question in the **Answer values** boxes.
+    1. Type in as many responses as you need then click **Save**.
+    
+    ![Access package - Policy- Enter multiple choice options](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. To require requestors to answer this question when requesting access to an access package, click the check box under **Required**.
+
+1. Click Next

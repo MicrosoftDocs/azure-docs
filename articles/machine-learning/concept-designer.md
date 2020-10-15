@@ -1,5 +1,5 @@
 ---
-title: Build ML models with designer
+title: Build ML models with the designer
 titleSuffix: Azure Machine Learning
 description: Learn about the terms, concepts, and workflow that makes up the designer for Azure Machine Learning.
 services: machine-learning
@@ -8,12 +8,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
-ms.date: 11/12/2019
+ms.date: 06/28/2020
 ms.custom: designer
 ---
 
-# What is Azure Machine Learning designer (preview)? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# What is Azure Machine Learning designer? 
+
 
 Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 
@@ -76,7 +76,8 @@ A module is an algorithm that you can perform on your data. The designer has sev
 
 A module may have a set of parameters that you can use to configure the module's internal algorithms. When you select a module on the canvas, the module's parameters are displayed in the Properties pane to the right of the canvas. You can modify the parameters in that pane to tune your model. You can set the compute resources for individual modules in the designer. 
 
-![Module properties](./media/concept-designer/properties.png)
+:::image type="content" source="./media/concept-designer/properties.png"alt-text="Module properties":::
+
 
 For some help navigating through the library of machine learning algorithms available, see [Algorithm & module reference overview](algorithm-module-reference/module-reference.md). For help choosing an algorithm, see the [Azure Machine Learning Algorithm Cheat Sheet](algorithm-cheat-sheet.md).
 
@@ -108,28 +109,9 @@ Published pipelines are flexible, they can be used to train or retrain models, [
 
 A published pipeline runs on the compute resources you define in the pipeline draft for each module.
 
-The designer creates the same [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) object as the SDK.
-
-
-## Moving from the visual interface to the designer
-
-The visual interface (preview) has been updated and is now Azure Machine Learning designer (preview). The designer has been rearchitected to use a pipeline-based backend that fully integrates with the other features of Azure Machine Learning. 
-
-As a result of these updates, some concepts and terms for the visual interface have been changed or renamed. See the table below for the most important conceptual changes. 
-
-| Concept in the designer | Previously in the visual interface |
-| ---- |:----:|
-| Pipeline draft | Experiment |
-| Real-time endpoint | Web service |
-
-### Migrating to the designer
-
-You can convert existing visual interface experiments and web services to pipelines and real-time endpoints in the designer. Use the following steps to migrate your visual interface assets:
-
-[!INCLUDE [migrate from the visual interface](../../includes/aml-vi-designer-migration.md)]
-
+The designer creates the same [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) object as the SDK.
 
 ## Next steps
 
-* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+* Learn the fundamentals of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Learn how to modify existing [designer samples](samples-designer.md) to adapt them to your needs.

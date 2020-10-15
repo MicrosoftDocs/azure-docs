@@ -13,7 +13,7 @@ ms.custom: include file
 
 ## Create a Recovery Services vault
 
-A Recovery Services vault is a storage entity that stores the recovery points created over time. It also contains the backup policies that are associated with protected items.
+A Recovery Services vault is a management entity that stores recovery points created over time and provides an interface to perform backup related operations. These include taking on-demand backups, performing restores, and creating backup policies.
 
 To create a Recovery Services vault, follow these steps.
 
@@ -47,6 +47,10 @@ To create a Recovery Services vault, follow these steps.
       >
       >
 
+1. After providing the values, select **Review + create**.
+
+    ![Screenshot that shows the Review + create button in the create a Recovery Services vault process.](./media/backup-create-rs-vault/review-and-create.png)
+
 1. When you're ready to create the Recovery Services vault, select **Create**.
 
     ![Create the Recovery Services vault](./media/backup-create-rs-vault/click-create-button.png)
@@ -54,3 +58,6 @@ To create a Recovery Services vault, follow these steps.
     It can take a while to create the Recovery Services vault. Monitor the status notifications in the **Notifications** area at the upper-right corner of the portal. After your vault is created, it's visible in the list of Recovery Services vaults. If you don't see your vault, select **Refresh**.
 
      ![Refresh the list of backup vaults](./media/backup-create-rs-vault/refresh-button.png)
+
+>[!IMPORTANT]
+> We highly recommend you review the default settings for **Storage Replication type** and **Security settings** before configuring backups in the vault. For more information, see the [Set Storage redundancy](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) section.

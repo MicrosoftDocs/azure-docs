@@ -27,7 +27,7 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 
 1. Create an [access policy in Key Vault](../key-vault/general/secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy. Do not configure the "authorized application" or `applicationId` settings, as this is not compatible with a managed identity.
 
-    > [!NOTE]
+    > [!IMPORTANT]
     > Key Vault references are not presently able to resolve secrets stored in a key vault with [network restrictions](../key-vault/general/overview-vnet-service-endpoints.md).
 
 ## Reference syntax
@@ -69,7 +69,7 @@ To use a Key Vault reference for an application setting, set the reference as th
 
 When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Of note, you will need to define your application settings as their own resource, rather than using a `siteConfig` property in the site definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
 
-An example psuedo-template for a function app might look like the following:
+An example pseudo-template for a function app might look like the following:
 
 ```json
 {

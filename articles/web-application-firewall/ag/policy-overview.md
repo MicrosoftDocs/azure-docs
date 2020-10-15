@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 02/01/2020
+ms.date: 10/14/2020
 ms.author: victorh
 ---
 
@@ -14,7 +14,7 @@ ms.author: victorh
 Web Application Firewall Policies contain all the WAF settings and configurations. This includes exclusions, custom rules, managed rules, and so on. These policies are then associated to an application gateway (global), a listener (per-site), or a path-based rule (per-URI) for them to take effect.
 
 > [!NOTE]
-> Azure Web Application Firewall (WAF) per-site and per-URI policies are in Public Preview.
+> Azure Web Application Firewall (WAF) per-URI policies are in Public Preview.
 > 
 > This public preview is provided without a service-level agreement and shouldn't be used for production workloads. Certain features might not be supported, might have constrained capabilities, or might not be available in all Azure locations. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -57,4 +57,4 @@ All new Web Application Firewall's WAF settings (custom rules, managed rule set 
 
 ## Next steps
 
-Create per-site and per-URI policies using Azure PowerShell.
+- [Create per-site and per-URI policies using Azure PowerShell](per-site-policies.md).

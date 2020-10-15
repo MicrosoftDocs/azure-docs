@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cisco Webex | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco Webex.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 ms.reviewer: celested
-
-ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory Single sign-on (SSO) integration with Cisco Webex
@@ -152,13 +146,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Select **Settings** and under the **Authentication** section, click **Modify**.
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
+    ![Screenshot shows Authentication Settings where you can select Modify.](./media/cisco-spark-tutorial/tutorial-cisco-spark-10.png)
   
 5. Select **Integrate a 3rd-party identity provider. (Advanced)** and go to the next screen.
 
 6. On the **Import Idp Metadata** page, either drag and drop the Azure AD metadata file onto the page or use the file browser option to locate and upload the Azure AD metadata file. Then, select **Require certificate signed by a certificate authority in Metadata (more secure)** and click **Next**.
 
-	![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
+	![Screenshot shows Import I d P Metadata page.](./media/cisco-spark-tutorial/tutorial-cisco-spark-11.png)
 
 7. Select **Test SSO Connection**, and when a new browser tab opens, authenticate with Azure AD by signing in.
 
@@ -172,13 +166,13 @@ In this section, you create a user called B.Simon in Cisco Webex. In this sectio
 
 2. Click **Users** and then **Manage Users**.
    
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
+    ![Screenshot shows the Users page where you can Manage Users.](./media/cisco-spark-tutorial/tutorial-cisco-spark-12.png) 
 
 3. In the **Manage User** window, select **Manually add or modify users** and click **Next**.
 
 4. Select **Names and Email address**. Then, fill out the textbox as follows:
 
-    ![Configure Single Sign-On](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
+    ![Screenshot shows the Mange Users dialog box where you can manually add or modify users.](./media/cisco-spark-tutorial/tutorial-cisco-spark-13.png) 
 
 	a. In the **First Name** textbox, type first name of user like **B**.
 

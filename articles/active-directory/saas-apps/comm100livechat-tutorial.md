@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Comm100 Live Chat | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Comm100 Live Chat.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Comm100 Live Chat
@@ -147,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the left side of menu, click **Security** and then click **Agent Single Sign-On**.
 
-   ![Comm100 Live Chat security](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Screenshot that shows the left-side account menu with "Security" and "Agent Single Sign-On" highlighted.](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
 1. On the **Agent Single Sign-On** page, perform the following steps:
 

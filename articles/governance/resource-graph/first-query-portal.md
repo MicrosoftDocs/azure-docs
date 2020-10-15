@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first portal query"
 description: In this quickstart, you follow the steps to run your first query from Azure portal using Azure Resource Graph Explorer.
-ms.date: 05/20/2020
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using Azure Resource Graph Explorer
@@ -70,11 +70,11 @@ functions to achieve your intended results.
 
 ## Create a chart from the Resource Graph query
 
-After running the last query above, if you select the **Charts** tab, you get a message that "the
+After running the previous query, if you select the **Charts** tab, you get a message that "the
 result set isn't compatible with a pie chart visualization." Queries that list results can't be made
 into a chart, but queries that provide counts of resources can. Using the
-[Sample query - Count virtual machines by OS type](./samples/starter.md#count-os),
-let's create a visualization from the Resource Graph query.
+[Sample query - Count virtual machines by OS type](./samples/starter.md#count-os), let's create a
+visualization from the Resource Graph query.
 
 1. In the **Query 1** portion of the window, enter the following query and select **Run query**.
 
@@ -93,7 +93,7 @@ let's create a visualization from the Resource Graph query.
 ## Pin the query visualization to a dashboard
 
 When you have results from a query that can be visualized, that data visualization can then be
-pinned to one of your dashboards. After running the query above, follow these steps:
+pinned to one of your dashboards. After running the previous query, follow these steps:
 
 1. Select **Save** and provide the name "VMs by OS Type". Then select **Save** at the bottom of the
    right pane.
@@ -121,11 +121,11 @@ your Azure portal workflow, try out these example dashboards.
 
 - [Resource Graph Explorer - Sample Dashboard #1](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-1/resourcegraphexplorer-sample-1.json)
 
-  [![Example image for Sample Dashboard #1](./media/arge-sample1-small.png)](./media/arge-sample1-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample1-small.png" alt-text="Example image for Sample Dashboard #1" lightbox="./media/arge-sample1-large.png":::
 
 - [Resource Graph Explorer - Sample Dashboard #2](https://github.com/Azure-Samples/Governance/blob/master/src/resource-graph/portal-dashboards/sample-2/resourcegraphexplorer-sample-2.json)
 
-  [![Example image for Sample Dashboard #2](./media/arge-sample2-small.png)](./media/arge-sample2-large.png#lightbox)
+  :::image type="content" source="./media/arge-sample2-small.png" alt-text="Example image for Sample Dashboard #2" lightbox="./media/arge-sample2-large.png":::
 
 > [!NOTE]
 > Counts and charts in the above example dashboard screenshots vary depending on your Azure

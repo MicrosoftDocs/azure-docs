@@ -7,7 +7,7 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
-
+ms.custom: devx-track-java
 ---
 
 # Performance tips for Azure Cosmos DB Async Java SDK v2
@@ -18,7 +18,7 @@ ms.author: anfeldma
 > * [Sync Java SDK v2](performance-tips-java.md)
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
 > * [.NET SDK v2](performance-tips.md)
-> 
+
 
 > [!IMPORTANT]  
 > This is *not* the latest Java SDK for Azure Cosmos DB! You should upgrade your project to [Azure Cosmos DB Java SDK v4](sql-api-sdk-java-v4.md) and then read the Azure Cosmos DB Java SDK v4 [performance tips guide](performance-tips-java-sdk-v4-sql.md). Follow the instructions in the [Migrate to Azure Cosmos DB Java SDK v4](migrate-java-v4-sdk.md) guide and [Reactor vs RxJava](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/reactor-rxjava-guide.md) guide to upgrade. 
@@ -33,146 +33,140 @@ So if you're asking "How can I improve my database performance?" consider the fo
 ## Networking
 
 * **Connection mode: Use Direct mode**
-<a id="direct-connection"></a>
     
-    How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Azure Cosmos DB Async Java SDK v2, the two available ConnectionModes are:  
+  How a client connects to Azure Cosmos DB has important implications on performance, especially in terms of client-side latency. The *ConnectionMode* is a key configuration setting available for configuring the client *ConnectionPolicy*. For Azure Cosmos DB Async Java SDK v2, the two available ConnectionModes are:  
       
-    * [Gateway (default)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
-    * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
+  * [Gateway (default)](/java/api/com.microsoft.azure.cosmosdb.connectionmode)  
+  * [Direct](/java/api/com.microsoft.azure.cosmosdb.connectionmode)
+  
+  Gateway mode is supported on all SDK platforms and it is the configured option by default. If your applications run within a corporate   network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint.   The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure   Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
+  
+  The *ConnectionMode* is configured during the construction of the *DocumentClient* instance with the *ConnectionPolicy* parameter.
 
-    Gateway mode is supported on all SDK platforms and it is the configured option by default. If your applications run within a corporate network with strict firewall restrictions, Gateway mode is the best choice since it uses the standard HTTPS port and a single endpoint. The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read or written to Azure Cosmos DB. Because of this, Direct mode offers better performance due to fewer network hops.
+### <a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
-    The *ConnectionMode* is configured during the construction of the *DocumentClient* instance with the *ConnectionPolicy* parameter.
+```java
+    public ConnectionPolicy getConnectionPolicy() {
+        ConnectionPolicy policy = new ConnectionPolicy();
+        policy.setConnectionMode(ConnectionMode.Direct);
+        policy.setMaxPoolSize(1000);
+        return policy;
+    }
 
-    ### <a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
-
-    ```java
-        public ConnectionPolicy getConnectionPolicy() {
-          ConnectionPolicy policy = new ConnectionPolicy();
-          policy.setConnectionMode(ConnectionMode.Direct);
-          policy.setMaxPoolSize(1000);
-          return policy;
-        }
-
-        ConnectionPolicy connectionPolicy = new ConnectionPolicy();
-        DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
-    ```
+    ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+    DocumentClient client = new DocumentClient(HOST, MASTER_KEY, connectionPolicy, null);
+```
 
 * **Collocate clients in same Azure region for performance**
-   <a id="same-region"></a>
 
-    When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
+  When possible, place any applications calling Azure Cosmos DB in the same region as the Azure Cosmos database. For an approximate comparison, calls to Azure Cosmos DB within the same region complete within 1-2 ms, but the latency between the West and East coast of the US is >50 ms. This latency can likely vary from request to request depending on the route taken by the request as it passes from the client to the Azure datacenter boundary. The lowest possible latency is achieved by ensuring the calling application is located within the same Azure region as the provisioned Azure Cosmos DB endpoint. For a list of available regions, see [Azure Regions](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration of the Azure Cosmos DB connection policy" border="false":::
+  :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Illustration of the Azure Cosmos DB connection policy" border="false":::
 
 ## SDK Usage
+
 * **Install the most recent SDK**
 
-    The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
+  The Azure Cosmos DB SDKs are constantly being improved to provide the best performance. See the Azure Cosmos DB Async Java SDK v2 [Release Notes](sql-api-sdk-async-java.md) pages to determine the most recent SDK and review improvements.
 
 * **Use a singleton Azure Cosmos DB client for the lifetime of your application**
 
-    Each AsyncDocumentClient instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by AsyncDocumentClient, it is recommended to use a single instance of AsyncDocumentClient per AppDomain for the lifetime of the application.
-
-   <a id="max-connection"></a>
+  Each AsyncDocumentClient instance is thread-safe and performs efficient connection management and address caching. To allow efficient connection management and better performance by AsyncDocumentClient, it is recommended to use a single instance of AsyncDocumentClient per AppDomain for the lifetime of the application.
 
 * **Tuning ConnectionPolicy**
 
-    By default, Direct mode Cosmos DB requests are made over TCP when using the Azure Cosmos DB Async Java SDK v2. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
+  By default, Direct mode Cosmos DB requests are made over TCP when using the Azure Cosmos DB Async Java SDK v2. Internally the SDK uses a special Direct mode architecture to dynamically manage network resources and get the best performance.
 
-    In the Azure Cosmos DB Async Java SDK v2, Direct mode is the best choice to improve database performance with most workloads. 
+  In the Azure Cosmos DB Async Java SDK v2, Direct mode is the best choice to improve database performance with most workloads. 
 
-    * ***Overview of Direct mode***
+  * ***Overview of Direct mode***
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration of the Direct mode architecture" border="false":::
+  :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustration of the Direct mode   architecture" border="false":::
+  
+  The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB   replicas. The diagram above shows how Direct mode routes client requests to replicas in the Cosmos DB backend. The Direct mode   architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request   buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service   Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint   based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
 
-        The client-side architecture employed in Direct mode enables predictable network utilization and multiplexed access to Azure Cosmos DB replicas. The diagram above shows how Direct mode routes client requests to replicas in the Cosmos DB backend. The Direct mode architecture allocates up to 10 **Channels** on the client side per DB replica. A Channel is a TCP connection preceded by a request buffer, which is 30 requests deep. The Channels belonging to a replica are dynamically allocated as needed by the replica's **Service Endpoint**. When the user issues a request in Direct mode, the **TransportClient** routes the request to the proper service endpoint based on the partition key. The **Request Queue** buffers requests before the Service Endpoint.
+  * ***ConnectionPolicy Configuration options for Direct mode***
 
-    * ***ConnectionPolicy Configuration options for Direct mode***
+    As a first step, use the following recommended configuration settings below. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
 
-        As a first step, use the following recommended configuration settings below. Please contact the [Azure Cosmos DB team](mailto:CosmosDBPerformanceSupport@service.microsoft.com) if you run into issues on this particular topic.
-
-        If you are using Azure Cosmos DB as a reference database (that is, the database is used for many point read operations and few write operations), it may be acceptable to set *idleEndpointTimeout* to 0 (that is, no timeout).
+    If you are using Azure Cosmos DB as a reference database (that is, the database is used for many point read operations and few write operations), it may be acceptable to set *idleEndpointTimeout* to 0 (that is, no timeout).
 
 
-        | Configuration option       | Default    |
-        | :------------------:       | :-----:    |
-        | bufferPageSize             | 8192       |
-        | connectionTimeout          | "PT1M"     |
-        | idleChannelTimeout         | "PT0S"     |
-        | idleEndpointTimeout        | "PT1M10S"  |
-        | maxBufferCapacity          | 8388608    |
-        | maxChannelsPerEndpoint     | 10         |
-        | maxRequestsPerChannel      | 30         |
-        | receiveHangDetectionTime   | "PT1M5S"   |
-        | requestExpiryInterval      | "PT5S"     |
-        | requestTimeout             | "PT1M"     |
-        | requestTimerResolution     | "PT0.5S"   |
-        | sendHangDetectionTime      | "PT10S"    |
-        | shutdownTimeout            | "PT15S"    |
+    | Configuration option       | Default    |
+    | :------------------:       | :-----:    |
+    | bufferPageSize             | 8192       |
+    | connectionTimeout          | "PT1M"     |
+    | idleChannelTimeout         | "PT0S"     |
+    | idleEndpointTimeout        | "PT1M10S"  |
+    | maxBufferCapacity          | 8388608    |
+    | maxChannelsPerEndpoint     | 10         |
+    | maxRequestsPerChannel      | 30         |
+    | receiveHangDetectionTime   | "PT1M5S"   |
+    | requestExpiryInterval      | "PT5S"     |
+    | requestTimeout             | "PT1M"     |
+    | requestTimerResolution     | "PT0.5S"   |
+    | sendHangDetectionTime      | "PT10S"    |
+    | shutdownTimeout            | "PT15S"    |
 
-    * ***Programming tips for Direct mode***
+* ***Programming tips for Direct mode***
 
-        Review the Azure Cosmos DB Async Java SDK v2 [Troubleshooting](troubleshoot-java-async-sdk.md) article as a baseline for resolving any SDK issues.
-
-        Some important programming tips when using Direct mode:
-
-        + **Use multithreading in your application for efficient TCP data transfer** - After making a request, your application should subscribe to receive data on another thread. Not doing so forces unintended "half-duplex" operation and the subsequent requests are blocked waiting for the previous request's reply.
-
-        + **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex data processing are best placed in a separate thread. A request that pulls in data from another data store (for example if the thread utilizes Azure Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an additional thread that awaits a response from the other data store.
-
-            + The underlying network IO in the Azure Cosmos DB Async Java SDK v2 is managed by Netty, see these [tips for avoiding coding patterns that block Netty IO threads](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
-
-        + **Data modeling** - The Azure Cosmos DB SLA assumes document size to be less than 1KB. Optimizing your data model and programming to favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than 1KB, the recommended approach is for documents to link to data in Azure Blob Storage.
-
+  Review the Azure Cosmos DB Async Java SDK v2 [Troubleshooting](troubleshoot-java-async-sdk.md) article as a baseline for resolving any   SDK issues.
+  
+  Some important programming tips when using Direct mode:
+  
+  * **Use multithreading in your application for efficient TCP data transfer** - After making a request, your application should subscribe   to receive data on another thread. Not doing so forces unintended "half-duplex" operation and the subsequent requests are blocked waiting   for the previous request's reply.
+  
+  * **Carry out compute-intensive workloads on a dedicated thread** - For similar reasons to the previous tip, operations such as complex   data processing are best placed in a separate thread. A request that pulls in data from another data store (for example if the thread   utilizes Azure Cosmos DB and Spark data stores simultaneously) may experience increased latency and it is recommended to spawn an   additional thread that awaits a response from the other data store.
+  
+    * The underlying network IO in the Azure Cosmos DB Async Java SDK v2 is managed by Netty, see these [tips for avoiding coding   patterns that block Netty IO threads](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread).
+  
+  * **Data modeling** - The Azure Cosmos DB SLA assumes document size to be less than 1KB. Optimizing your data model and programming to   favor smaller document size will generally lead to decreased latency. If you are going to need storage and retrieval of docs larger than   1KB, the recommended approach is for documents to link to data in Azure Blob Storage.
 
 * **Tuning parallel queries for partitioned collections**
 
-    Azure Cosmos DB Async Java SDK v2 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
+  Azure Cosmos DB Async Java SDK v2 supports parallel queries, which enable you to query a partitioned collection in parallel. For more information, see [code samples](https://github.com/Azure/azure-cosmosdb-java/tree/master/examples/src/test/java/com/microsoft/azure/cosmosdb/rx/examples) related to working with the SDKs. Parallel queries are designed to improve query latency and throughput over their serial counterpart.
 
-    * ***Tuning setMaxDegreeOfParallelism\:***
+  * ***Tuning setMaxDegreeOfParallelism\:***
     
-        Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, use setMaxDegreeOfParallelism to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use setMaxDegreeOfParallelism to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
+    Parallel queries work by querying multiple partitions in parallel. However, data from an individual partitioned collection is fetched serially with respect to the query. So, use setMaxDegreeOfParallelism to set the number of partitions that has the maximum chance of achieving the most performant query, provided all other system conditions remain the same. If you don't know the number of partitions, you can use setMaxDegreeOfParallelism to set a high number, and the system chooses the minimum (number of partitions, user provided input) as the maximum degree of parallelism.
 
-        It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
+    It is important to note that parallel queries produce the best benefits if the data is evenly distributed across all partitions with respect to the query. If the partitioned collection is partitioned such a way that all or a majority of the data returned by a query is concentrated in a few partitions (one partition in worst case), then the performance of the query would be bottlenecked by those partitions.
 
-    * ***Tuning setMaxBufferedItemCount\:***
+  * ***Tuning setMaxBufferedItemCount\:***
     
-        Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
+    Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
-        Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
+    Pre-fetching works the same way irrespective of the MaxDegreeOfParallelism, and there is a single buffer for the data from all partitions.
 
 * **Implement backoff at getRetryAfterInMilliseconds intervals**
 
-    During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
+  During performance testing, you should increase load until a small rate of requests get throttled. If throttled, the client application should backoff for the server-specified retry interval. Respecting the backoff ensures that you spend minimal amount of time waiting between retries.
 
 * **Scale out your client-workload**
 
-    If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
+  If you are testing at high throughput levels (>50,000 RU/s), the client application may become the bottleneck due to the machine capping out on CPU or network utilization. If you reach this point, you can continue to push the Azure Cosmos DB account further by scaling out your client applications across multiple servers.
 
 * **Use name based addressing**
 
-    Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (\_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching them may not help.
-
-   <a id="tune-page-size"></a>
+  Use name-based addressing, where links have the format `dbs/MyDatabaseId/colls/MyCollectionId/docs/MyDocumentId`, instead of SelfLinks (\_self), which have the format `dbs/<database_rid>/colls/<collection_rid>/docs/<document_rid>` to avoid retrieving ResourceIds of all the resources used to construct the link. Also, as these resources get recreated (possibly with same name), caching them may not help.
 
 * **Tune the page size for queries/read feeds for better performance**
 
-    When performing a bulk read of documents by using read feed functionality (for example, readDocuments) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
+  When performing a bulk read of documents by using read feed functionality (for example, readDocuments) or when issuing a SQL query, the results are returned in a segmented fashion if the result set is too large. By default, results are returned in chunks of 100 items or 1 MB, whichever limit is hit first.
 
-    To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
+  To reduce the number of network round trips required to retrieve all applicable results, you can increase the page size using the [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) request header to up to 1000. In cases where you need to display only a few results, for example, if your user interface or application API returns only 10 results a time, you can also decrease the page size to 10 to reduce the throughput consumed for reads and queries.
 
-    You may also set the page size using the setMaxItemCount method.
+  You may also set the page size using the setMaxItemCount method.
 
 * **Use Appropriate Scheduler (Avoid stealing Event loop IO Netty threads)**
 
-    The Azure Cosmos DB Async Java SDK v2 uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
+  The Azure Cosmos DB Async Java SDK v2 uses [netty](https://netty.io/) for non-blocking IO. The SDK uses a fixed number of IO netty event loop threads (as many CPU cores your machine has) for executing IO operations. The Observable returned by API emits the result on one of the shared IO event loop netty threads. So it is important to not block the shared IO event loop netty threads. Doing CPU intensive work or blocking operation on the IO event loop netty thread may cause deadlock or significantly reduce SDK throughput.
 
-    For example the following code executes a cpu intensive work on the event loop IO netty thread:
+  For example the following code executes a cpu intensive work on the event loop IO netty thread:
 
-    ### <a id="asyncjava2-noscheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+  **Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)**
 
-    ```java
+  ```java
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
       collectionLink, document, null, true);
 
@@ -184,13 +178,13 @@ So if you're asking "How can I improve my database performance?" consider the fo
         // DON'T do this on eventloop IO netty thread.
         veryCpuIntensiveWork();
       });
-    ```
+  ```
 
-    After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
+  After result is received if you want to do CPU intensive work on the result you should avoid doing so on event loop IO netty thread. You can instead provide your own Scheduler to provide your own thread for running your work.
 
-    ### <a id="asyncjava2-scheduler"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
+  **Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)**
 
-    ```java
+  ```java
     import rx.schedulers;
 
     Observable<ResourceResponse<Document>> createDocObs = asyncDocumentClient.createDocument(
@@ -205,12 +199,12 @@ So if you're asking "How can I improve my database performance?" consider the fo
         //   2. You are not doing blocking IO, thread sleep, etc. in this thread against other resources.
         veryCpuIntensiveWork();
       });
-    ```
+  ```
 
-    Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
-    [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
+  Based on the type of your work you should use the appropriate existing RxJava Scheduler for your work. Read here
+  [``Schedulers``](http://reactivex.io/RxJava/1.x/javadoc/rx/schedulers/Schedulers.html).
 
-	For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Azure Cosmos DB Async Java SDK v2.
+  For More Information, Please look at the [GitHub page](https://github.com/Azure/azure-cosmosdb-java) for Azure Cosmos DB Async Java SDK v2.
 
 * **Disable netty's logging**
 
@@ -242,28 +236,6 @@ So if you're asking "How can I improve my database performance?" consider the fo
     * - nofile 100000
     ```
 
-* **Use native TLS/SSL implementation for netty**
-
-    Netty can use OpenSSL directly for TLS implementation stack to achieve better performance. In the absence of this configuration netty will fall back to Java's default TLS implementation.
-
-    on Ubuntu:
-    ```bash
-    sudo apt-get install openssl
-    sudo apt-get install libapr1
-    ```
-
-    and add the following dependency to your project maven dependencies:
-    ```xml
-    <dependency>
-      <groupId>io.netty</groupId>
-      <artifactId>netty-tcnative</artifactId>
-      <version>2.0.20.Final</version>
-      <classifier>linux-x86_64</classifier>
-    </dependency>
-    ```
-
-For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions https://netty.io/wiki/forked-tomcat-native.html
-
 ## Indexing Policy
  
 * **Exclude unused paths from indexing for faster writes**
@@ -284,8 +256,7 @@ For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions ht
 
     For more information, see [Azure Cosmos DB indexing policies](indexing-policies.md).
 
-## Throughput
-<a id="measure-rus"></a>
+## <a id="measure-rus"></a>Throughput
 
 * **Measure and tune for lower request units/second usage**
 
@@ -307,14 +278,15 @@ For other platforms (Red Hat, Windows, Mac, etc.) refer to these instructions ht
 
     The request charge returned in this header is a fraction of your provisioned throughput. For example, if you have 2000 RU/s provisioned, and if the preceding query returns 1000 1KB-documents, the cost of the operation is 1000. As such, within one second, the server honors only two such requests before rate limiting subsequent requests. For more information, see [Request units](request-units.md) and the [request unit calculator](https://www.documentdb.com/capacityplanner).
 
-<a id="429"></a>
 * **Handle rate limiting/request rate too large**
 
     When a client attempts to exceed the reserved throughput for an account, there is no performance degradation at the server and no use of throughput capacity beyond the reserved level. The server will preemptively end the request with RequestRateTooLarge (HTTP status code 429) and return the [x-ms-retry-after-ms](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers) header indicating the amount of time, in milliseconds, that the user must wait before reattempting the request.
 
-        HTTP Status 429,
-        Status Line: RequestRateTooLarge
-        x-ms-retry-after-ms :100
+   ```xml
+   HTTP Status 429,
+   Status Line: RequestRateTooLarge
+   x-ms-retry-after-ms :100
+   ```
 
     The SDKs all implicitly catch this response, respect the server-specified retry-after header, and retry the request. Unless your account is being accessed concurrently by multiple clients, the next retry will succeed.
 

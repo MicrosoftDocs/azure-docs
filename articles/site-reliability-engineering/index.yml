@@ -68,6 +68,8 @@ productDirectory:
            text: Books
          - url: resources/events.md
            text: Events
+         - url: articles/code.md
+           text: "FAQ: SRE and coding"
          - url: articles/devops.md
            text: "FAQ: SRE and DevOps"
          - url: resources/links.md

@@ -15,13 +15,13 @@ ms.collection: M365-identity-device-management
 
 # Migrate to cloud authentication using staged rollout (preview)
 
-By using a staged rollout approach you can avoid a cutover of your entire domain.  This allows you to selectively test groups of users with cloud authentication capabilities like Azure Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
-	
+Staged rollout allows you to selectively test groups of users with cloud authentication capabilities like Azure Multi-Factor Authentication (MFA), Conditional Access, Identity Protection for leaked credentials, Identity Governance, and others, before cutting over your domains.  This article discusses how to make the switch. Before you begin the staged rollout, however, you should consider the implications if one or more of the following conditions is true:
+    
 -  You're currently using an on-premises Multi-Factor Authentication server. 
 -  You're using smart cards for authentication. 
 -  Your current server offers certain federation-only features.
 
-Before you try this feature, we suggest that you review our guide on choosing the right authentication method. For more information, see the "Comparing methods" table in [Choose the right authentication method for your Azure Active Directory hybrid identity solution](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Before you try this feature, we suggest that you review our guide on choosing the right authentication method. For more information, see the "Comparing methods" table in [Choose the right authentication method for your Azure Active Directory hybrid identity solution](./choose-ad-authn.md#comparing-methods).
 
 For an overview of the feature, view this "Azure Active Directory: What is staged rollout?" video:
 
@@ -41,11 +41,13 @@ For an overview of the feature, view this "Azure Active Directory: What is stage
 
 -   You have configured all the appropriate tenant-branding and conditional access policies you need for users who are being migrated to cloud authentication.
 
--   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [converged registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
+-   If you plan to use Azure Multi-Factor Authentication, we recommend that you use [combined registration for self-service password reset (SSPR) and Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) to have your users register their authentication methods once.
 
 -   To use the staged rollout feature, you need to be a global administrator on your tenant.
 
 -   To enable *seamless SSO* on a specific Active Directory forest, you need to be a domain administrator.
+
+-  If you are deploying Hybrid Azure AD or Azure AD join, you must upgrade to Windows 10 1903 update.
 
 
 ## Supported scenarios
@@ -78,12 +80,14 @@ The following scenarios are not supported for staged rollout:
 
 - When you first add a security group for staged rollout, you're limited to 200 users to avoid a UX time-out. After you've added the group, you can add more users directly to it, as required.
 
+- While users are in Staged Rollout, when EnforceCloudPasswordPolicyForPasswordSyncedUsers is enabled, password expiration policy is set to 90 days with no option to customize it. 
+
 
 ## Get started with staged rollout
 
 To test the *password hash sync* sign-in by using staged rollout, follow the pre-work instructions in the next section.
 
-For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+For information about which PowerShell cmdlets to use, see [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## Pre-work for password hash sync
 
@@ -169,6 +173,7 @@ Do the following:
 
    >[!NOTE]
    >The members in a group are automatically enabled for staged rollout. Nested and dynamic groups are not supported for staged rollout.
+   >When adding a new group, users in the group (up to 200 users for a new group) will be updated to use managed auth immidiatly. Editing a group (adding or removing users), it can take up to 24 hours for changes to take effect.
 
 ## Auditing
 
@@ -216,7 +221,7 @@ To test sign-in with *seamless SSO*:
 
 1. Ensure that the sign-in successfully appears in the [Azure AD sign-in activity report](../reports-monitoring/concept-sign-ins.md) by filtering with the UserPrincipalName.
 
-   To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
+   To track user sign-ins that still occur on Active Directory Federation Services (AD FS) for selected staged rollout users, follow the instructions at [AD FS troubleshooting: Events and logging](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Check vendor documentation about how to check this on third-party federation providers.
 
 ## Remove a user from staged rollout
 
@@ -234,7 +239,7 @@ A: No, this feature is designed for migrating from federated to cloud authentica
 
 **Q: Can I use PowerShell to perform staged rollout?**
 
-A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A: Yes. To learn how to use PowerShell to perform staged rollout, see [Azure AD Preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## Next steps
-- [Azure AD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Azure AD 2.0 preview](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

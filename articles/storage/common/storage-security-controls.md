@@ -1,7 +1,7 @@
 ﻿---
 title: Security controls
 titleSuffix: Azure Storage
-description: A checklist of security controls for evaluating Azure Storage.
+description: View security control checklists for evaluating Azure Storage. Areas covered are data protection, network, monitoring and logging, identity, and configuration.
 services: storage
 author: msmbaldwin
 ms.author: mbaldwin
@@ -50,7 +50,7 @@ This article documents the security controls built into Azure Storage.
 | Security control | Yes/No | Notes|
 |---|---|--|
 | Authentication| Yes | Azure Active Directory, Shared key, Shared access token. |
-| Authorization| Yes | Support Authorization via RBAC, POSIX ACLs, and SAS Tokens |
+| Authorization| Yes | Support Authorization via Azure RBAC, POSIX ACLs, and SAS Tokens |
 
 ## Configuration management
 

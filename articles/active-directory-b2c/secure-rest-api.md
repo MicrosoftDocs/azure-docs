@@ -8,8 +8,8 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 04/20/2020
+ms.topic: how-to
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -308,7 +308,7 @@ After you add the above snippets, your technical profile should look like the fo
 
 ### Add the OAuth2 bearer token policy key
 
-Create a policy key to store the bearer token value.
+To configure a REST API technical profile with an OAuth2 bearer token, obtain an access token from the REST API owner. Then create the following cryptographic key to store the bearer token.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory + subscription** filter in the top menu and choose your Azure AD B2C directory.

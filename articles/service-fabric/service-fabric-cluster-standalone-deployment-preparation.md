@@ -1,11 +1,8 @@
 ---
 title: Standalone Cluster Deployment Preparation 
 description: Documentation related to preparing the environment and creating the cluster configuration, to be considered prior to deploying a cluster intended for handling a production workload.
-author: dkkapur
-
 ms.topic: conceptual
 ms.date: 9/11/2018
-ms.author: dekapur
 ---
 # Plan and prepare your Service Fabric Standalone cluster deployment
 
@@ -54,10 +51,10 @@ Here are recommended specs for machines in a Service Fabric cluster:
 * Connectivity to a secure network or networks for all machines
 * Windows Server OS installed (valid versions: 2012 R2, 2016, 1709, or 1803). Service Fabric version 6.4.654.9590 and later also supports Server 2019 and 1809.
 * [.NET Framework 4.5.1 or higher](https://www.microsoft.com/download/details.aspx?id=40773), full install
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
-* The [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) should be running on all the machines
+* [Windows PowerShell 3.0](/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7)
+* The [RemoteRegistry service](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754820(v=ws.11)) should be running on all the machines
 * **Service Fabric installation drive must be NTFS File System**
-* **Windows services *Performance Logs & Alerts* and *Windows Event Log* must [be enabled](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc755249(v=ws.11))**.
+* **Windows services *Performance Logs & Alerts* and *Windows Event Log* must [be enabled](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc755249(v=ws.11))**.
 
 > [!IMPORTANT]
 > The cluster administrator deploying and configuring the cluster must have [administrator privileges](https://social.technet.microsoft.com/wiki/contents/articles/13436.windows-server-2012-how-to-add-an-account-to-a-local-administrator-group.aspx) on each of the machines. You cannot install Service Fabric on a domain controller.
@@ -158,7 +155,7 @@ Passed                     : True
 Currently this configuration testing module does not validate the security configuration so this has to be done independently.
 
 > [!NOTE]
-> We are continually making improvements to make this module more robust, so if there is a faulty or missing case which you believe isn't currently caught by TestConfiguration, please let us know through our [support channels](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
+> We are continually making improvements to make this module more robust, so if there is a faulty or missing case which you believe isn't currently caught by TestConfiguration, please let us know through our [support channels](./service-fabric-support.md).
 >
 >
 

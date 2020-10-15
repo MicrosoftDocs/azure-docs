@@ -1,22 +1,10 @@
 ---
 title: Use Azure DevTest Labs for developers | Microsoft Docs
 description: Learn about Azure DevTest Labs features that can be used to meet developer requirements and the detailed steps that you can follow to set up a lab.
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-editor: ''
-
-ms.assetid: 22e070e5-3d1a-49fe-9d4c-5e07cb0b7fe2
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/24/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Use Azure DevTest Labs for developers
 Azure DevTest Labs can be used to implement many key scenarios, but one of the primary scenarios involves using DevTest Labs to host development machines for developers. In this scenario, DevTest Labs provides these benefits:
 
@@ -50,9 +38,9 @@ In this article, you learn about various Azure DevTest Labs features that can be
    
    | Task | What you learn |
    | --- | --- |
-   | [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) |Learn how you can whitelist Azure Marketplace images, making available for selection only the images you want for the developers.|
+   | [Configure Azure Marketplace images](devtest-lab-configure-marketplace-images.md) |Learn how you can allow Azure Marketplace images, making available for selection only the images you want for the developers.|
    | [Create a custom image](devtest-lab-create-template.md) |Create a custom image by pre-installing the software you need so that developers can quickly create a VM using the custom image.|
-   | [Learn about image factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Watch a video that describes how to set up and use an image factory.|
+   | [Learn about image factory](./devtest-lab-faq.md#blog-post) |Watch a video that describes how to set up and use an image factory.|
 
 3. **Create reusable templates for developer machines** 
    
@@ -131,4 +119,3 @@ In this article, you learn about various Azure DevTest Labs features that can be
    | [Create a lab using a Resource Manager template](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Create labs in Azure DevTest Labs using Resource Manager templates. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

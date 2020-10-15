@@ -17,7 +17,7 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
-ms.custom: 
+ms.custom: devx-track-azurecli
 ---
 
 # Restrict network access to PaaS resources with virtual network service endpoints using the Azure CLI

@@ -1,22 +1,10 @@
 ---
 title: Set up a classroom lab using Azure Lab Services | Microsoft Docs
 description: In this tutorial, you use Azure Lab Services to set up a classroom lab with virtual machines that are used by students in your class. 
-services: devtest-lab, lab-services, virtual-machines
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.custom: mvc
-ms.date: 05/19/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
+
 # Tutorial: Set up a classroom lab 
 In this tutorial, you set up a classroom lab with virtual machines that are used by students in the classroom.  
 
@@ -44,7 +32,7 @@ In this step, you create a lab for your class in Azure.
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. Select **New lab**. 
     
-    ![Create a classroom lab](./media/tutorial-setup-classroom-lab/new-lab-button.png)
+    ![Screenshot that shows "Azure Lab Services" with the "New lab" button selected.](./media/tutorial-setup-classroom-lab/new-lab-button.png)
 4. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab, and select **Next**.  
 
@@ -97,7 +85,7 @@ Create a scheduled event for the lab so that VMs in the lab are automatically st
 
 1. Switch to the **Schedules** page, and select **Add scheduled event** on the toolbar. 
 
-    ![Add schedule button on the Schedules page](./media/how-to-create-schedules/add-schedule-button.png)
+    ![Screenshot that shows the "Add scheduled event" button on the "Schedules" page.](./media/how-to-create-schedules/add-schedule-button.png)
 2. On the **Add scheduled event** page, do the following steps:
     1. Confirm that **Standard** is selected the **Event type**.  
     2. Select the **start date** for the class. 

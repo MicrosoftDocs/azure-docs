@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -51,7 +51,7 @@ Choose your names now, and write them down.
 
 1. To open the Wingtip Tickets SaaS database-per-tenant deployment template in the Azure portal, select **Deploy to Azure**.
 
-   <a href="https://aka.ms/deploywingtipdpt" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Image showing a button labeled "Deploy to Azure".](https://azuredeploy.net/deploybutton.png)](https://aka.ms/deploywingtipdpt)
 
 1. Enter values in the template for the required parameters.
 
@@ -219,7 +219,7 @@ Now that you've started running a load against the collection of tenants, let's 
 1. In the [Azure portal](https://portal.azure.com), browse to your list of SQL servers. Then open the **catalog-dpt-&lt;USER&gt;** server.
     - The catalog server contains two databases, **tenantcatalog** and **basetenantdb** (a template database that's copied to create new tenants).
 
-   ![Databases](./media/saas-dbpertenant-get-started-deploy/databases.png)
+   ![Screenshot shows a catalog server Overview page with the two databases.](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Go back to your list of SQL servers.
 

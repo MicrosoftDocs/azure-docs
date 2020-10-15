@@ -1,27 +1,27 @@
 ---
-title: Role-Based Access Control and Privileged Identity Management
+title: Azure role-based access control (Azure RBAC) and Privileged Identity Management
 titleSuffix: Azure Australia
-description: Guidance on Implementing Role Based Access Control and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
+description: Guidance on Implementing Azure role-based access control (Azure RBAC) and Privileged Identity Management within the Australian regions to meet the specific requirements of Australian Government policy, regulations, and legislation.
 author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
-# Role-Based Access Control (RBAC) and Privileged Identity Management (PIM)
+# Azure role-based access control (Azure RBAC) and Privileged Identity Management (PIM)
 
 Managing administrative privilege is a critical step in ensuring security within any IT environment. Restricting administrative privilege via the use of Least Privilege Security is a requirement of the [ACSC ISM](https://acsc.gov.au/infosec/ism/index.htm) and forms part of the [ACSC Essential 8](https://www.acsc.gov.au/infosec/mitigationstrategies.htm) list of security recommendations.
 
 Microsoft provides a suite of controls to implement Just-in-Time and Just-Enough-Access within Microsoft Azure. Understanding these controls is essential for an effective security posture in the Cloud. This guide will provide an overview of the controls themselves and the key design considerations when implementing them.
 
-## Role-Based Access Control (RBAC)
+## Azure RBAC
 
-Role-Based Access Control is central to the management of access to all resources within Microsoft Azure and the management of Azure Active Directory (Azure AD). RBAC can be implemented alongside a number of complementary features available in Azure. This article focuses on implementing effective RBAC using Azure Management Groups, Azure Active Directory Groups, and Azure Privileged Identity Management (PIM).
+Azure role-based access control (Azure RBAC) is central to the management of access to all resources within Microsoft Azure and the management of Azure Active Directory (Azure AD). Azure RBAC can be implemented alongside a number of complementary features available in Azure. This article focuses on implementing effective RBAC using Azure Management Groups, Azure Active Directory Groups, and Azure Privileged Identity Management (PIM).
 
-At a high level, implementing RBAC requires three components:
+At a high level, implementing Azure RBAC requires three components:
 
-![RBAC-Overview](media/rbac-overview.png)
+![Diagram shows the three components necessary for implementing R B A C, which are security principal, role definition, and scope, which all feed into role assigment.](media/rbac-overview.png)
 
 * **Security Principals**: A security principal can be any one of the following; a user, a group, [Service Principals](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals), or a [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Security Principals should be assigned privileges using Azure Active Directory Groups.
 
@@ -35,7 +35,7 @@ These three components combine to grant Security Principals the access defined i
 
 When assigning privileges to individuals or teams, whenever possible the assignment should be linked to an Azure Active Directory Group and not assigned directly to the user in question. This is the same recommended practice inherited from on-premises Active Directory implementations. Where possible Azure Active Directory Groups should be created per team, complementary to the logical structure of the Azure Management Groups you have created.
 
-In a hybrid cloud scenario, on-premises Windows Server Active Directory Security Groups can be synchronized to your Azure Active Directory instance. If you have already implemented RBAC on-premises using these Windows Server Active Directory Security Groups, these groups, once synchronized, can then be used to implement RBAC for your Azure Resources. Otherwise, your cloud environment can be seen as a clean slate to design and implement a robust privilege management plan built around your Azure Active Directory implementation.
+In a hybrid cloud scenario, on-premises Windows Server Active Directory Security Groups can be synchronized to your Azure Active Directory instance. If you have already implemented Azure RBAC on-premises using these Windows Server Active Directory Security Groups, these groups, once synchronized, can then be used to implement Azure RBAC for your Azure Resources. Otherwise, your cloud environment can be seen as a clean slate to design and implement a robust privilege management plan built around your Azure Active Directory implementation.
 
 ### Azure resource roles versus Azure Active Directory Administrator roles
 
@@ -137,14 +137,14 @@ The use of PIM prevents the common privilege assignment issues that can occur in
 
 ## Key design considerations
 
-When designing an RBAC strategy with the intention of enforcing Least Privilege Security, the following security requirements should be considered:
+When designing an Azure RBAC strategy with the intention of enforcing Least Privilege Security, the following security requirements should be considered:
 
 * Requests for privileged access are validated
 * Administrative privileges are restricted to the minimum access required to perform the specific duties
 * Administrative privileges are restricted to the minimum period of time required to perform the specific duties
 * Regular reviews of granted administrative privileges are undertaken
 
-The process of designing an RBAC strategy will necessitate a detailed review of business functions to understand the difference in access between distinct business roles, and the type and frequency of work that requires elevated privileges. The difference in function between a Backup Operator, a Security Administrator, and an Auditor will require different levels of access at different times with varying levels of ongoing review.
+The process of designing an Azure RBAC strategy will necessitate a detailed review of business functions to understand the difference in access between distinct business roles, and the type and frequency of work that requires elevated privileges. The difference in function between a Backup Operator, a Security Administrator, and an Auditor will require different levels of access at different times with varying levels of ongoing review.
 
 ## Validate requests for access
 

@@ -1,11 +1,11 @@
 ---
-title: 'Azure Virtual WAN: Create Site-to-Site connections'
+title: 'Tutorial: Use Azure Virtual WAN to Create Site-to-Site connections'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a Site-to-Site VPN connection to Azure.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/04/2019
+ms.date: 10/08/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
 ---
@@ -23,7 +23,7 @@ In this tutorial you learn how to:
 > * Connect a VPN site to a hub
 > * Connect a VNet to a hub
 > * Download a configuration file
-> * View your virtual WAN
+> * Configure your VPN gateway
 
 > [!NOTE]
 > If you have many sites, you typically would use a [Virtual WAN partner](https://aka.ms/virtualwan) to create this configuration. However, you can create this configuration yourself if you are comfortable with networking and proficient at configuring your own VPN device.
@@ -31,7 +31,7 @@ In this tutorial you learn how to:
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwan.png)
 
-## Before you begin
+## Prerequisites
 
 Verify that you have met the following criteria before beginning your configuration:
 
@@ -45,21 +45,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-From a browser, navigate to the Azure portal and sign in with your Azure account.
-
-1. Navigate to the Virtual WAN page. In the portal, click **+Create a resource**. Type **Virtual WAN** into the search box and select Enter.
-2. Select **Virtual WAN** from the results. On the Virtual WAN page, click **Create** to open the Create WAN page.
-3. On the **Create WAN** page, on the **Basics** tab, fill in the following fields:
-
-   ![Virtual WAN](./media/virtual-wan-site-to-site-portal/vwan.png)
-
-   * **Subscription** - Select the subscription that you want to use.
-   * **Resource group** - Create new or use existing.
-   * **Resource group location** - Choose a resource location from the dropdown. A WAN is a global resource and does not live in a particular region. However, you must select a region in order to more easily manage and locate the WAN resource that you create.
-   * **Name** - Type the Name that you want to call your WAN.
-   * **Type:** Basic or Standard. If you create a Basic WAN, you can create only a Basic hub. Basic hubs are capable of VPN site-to-site connectivity only.
-4. After you finish filling out the fields, select **Review +Create**.
-5. Once validation passes, select **Create** to create the virtual WAN.
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Create a hub
 
@@ -69,7 +55,7 @@ A hub is a virtual network that can contain gateways for site-to-site, ExpressRo
 
 ## <a name="site"></a>Create a site
 
-You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device, check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large-scale branch information into azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
+You are now ready to create the sites corresponding to your physical locations. Create as many sites as you need that correspond to your physical locations. For example, if you have a branch office in NY, a branch office in London, and a branch office and LA, you'd create three separate sites. These sites contain your on-premises VPN device endpoints. You can create up to 1000 sites per Virtual Hub in a Virtual WAN. If you had multiple hubs, you can create 1000 per each of those hubs. If you have Virtual WAN partner (link insert) CPE device, check with them to learn about their automation to Azure. Typically automation implies simple click experience to export large-scale branch information into Azure and setting up connectivity from the CPE to Azure Virtual WAN VPN gateway. For more information, see [Automation guidance from Azure to CPE partners](virtual-wan-configure-automation-providers.md).
 
 [!INCLUDE [Create a site](../../includes/virtual-wan-tutorial-s2s-site-include.md)]
 
@@ -81,17 +67,7 @@ In this step, you connect your VPN site to the hub.
 
 ## <a name="vnet"></a>Connect the VNet to the hub
 
-In this step, you create the connection between your hub and a VNet. Repeat these steps for each VNet that you want to connect.
-
-1. On the page for your virtual WAN, click **Virtual network connections**.
-2. On the virtual network connection page, click **+Add connection**.
-3. On the **Add connection** page, fill in the following fields:
-
-    * **Connection name** - Name your connection.
-    * **Hubs** - Select the hub you want to associate with this connection.
-    * **Subscription** - Verify the subscription.
-    * **Virtual network** - Select the virtual network you want to connect to this hub. The virtual network cannot have an already existing virtual network gateway.
-4. Click **OK** to create the virtual network connection.
+[!INCLUDE [Connect](../../includes/virtual-wan-connect-vnet-hub-include.md)]
 
 ## <a name="device"></a>Download VPN configuration
 
@@ -245,12 +221,32 @@ If you need instructions to configure your device, you can use the instructions 
 * A new Virtual WAN can support both IKEv1 and IKEv2.
 * Virtual WAN can use both policy based and route-based VPN devices and device instructions.
 
-## <a name="viewwan"></a>View your virtual WAN
+## <a name="gateway-config"></a>Configure your VPN gateway
 
-1. Navigate to the virtual WAN.
-2. On the **Overview** page, each point on the map represents a hub. Hover over any point to view the hub health summary, connection status, and bytes in and out.
-3. In the Hubs and connections section, you can view hub status, VPN sites, etc. You can click on a specific hub name and navigate to the VPN Site for additional details.
+You can view and configure your VPN gateway settings at any time by selecting **View/Configure**.
+
+:::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-1.png" alt-text="Screenshot that shows the 'VPN (Site-to-site)' page with an arrow pointing to the 'View/Configure' action." lightbox="media/virtual-wan-site-to-site-portal/view-configuration-1-expand.png":::
+
+On the **Edit VPN Gateway** page, you can see the following settings:
+
+* VPN Gateway Public IP address (assigned by Azure)
+* VPN Gateway Private IP address (assigned by Azure)
+* VPN Gateway Default BGP IP address (assigned by Azure)
+* Configuration option for Custom BGP IP Address: This field is reserved for APIPA (Automatic Private IP Addressing). Azure supports BGP IP in the ranges 169.254.21.* and 169.254.22.* . Azure accepts BGP connections in these ranges but will dial connection with the default BGP IP.
+
+   :::image type="content" source="media/virtual-wan-site-to-site-portal/view-configuration-2.png" alt-text="View configuration" lightbox="media/virtual-wan-site-to-site-portal/view-configuration-2-expand.png":::
+
+## <a name="cleanup"></a>Clean up resources
+
+When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
 
 ## Next steps
 
-To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
+Next, to learn more about Virtual WAN, see:
+
+> [!div class="nextstepaction"]
+> * [Virtual WAN FAQ](virtual-wan-faq.md)

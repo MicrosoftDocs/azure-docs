@@ -6,7 +6,8 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 02/27/2020 
+ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Create an Apache Kafka REST proxy enabled cluster in HDInsight using Azure CLI

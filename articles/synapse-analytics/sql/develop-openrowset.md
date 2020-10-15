@@ -25,8 +25,8 @@ The `OPENROWSET` function can optionally contain a `DATA_SOURCE` parameter to sp
 
     ```sql
     SELECT *
-    FROM OPENROWSET(BULK 'http://storage..../container/folder/*.parquet',
-                    TYPE = 'PARQUET') AS file
+    FROM OPENROWSET(BULK 'http://<storage account>.dfs.core.windows.net/container/folder/*.parquet',
+                    FORMAT = 'PARQUET') AS file
     ```
 
 This is a quick and easy way to read the content of the files without pre-configuration. This option enables you to use the basic authentication option to access the storage (Azure AD passthrough for Azure AD logins and SAS token for SQL logins). 
@@ -37,7 +37,7 @@ This is a quick and easy way to read the content of the files without pre-config
     SELECT *
     FROM OPENROWSET(BULK '/folder/*.parquet',
                     DATA_SOURCE='storage', --> Root URL is in LOCATION of DATA SOURCE
-                    TYPE = 'PARQUET') AS file
+                    FORMAT = 'PARQUET') AS file
     ```
 
 
@@ -110,9 +110,11 @@ The unstructured_data_path that establishes a path to the data may be an absolut
 
 | External Data Source       | Prefix | Storage account path                                 |
 | -------------------------- | ------ | ---------------------------------------------------- |
-| Azure Blob Storage         | https  | \<storage_account>.blob.core.windows.net             |
-| Azure Data Lake Store Gen1 | https  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
-| Azure Data Lake Store Gen2 | https  | \<storage_account>.dfs.core.windows.net              |
+| Azure Blob Storage         | http[s]  | \<storage_account>.blob.core.windows.net/path/file   |
+| Azure Blob Storage         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
+| Azure Data Lake Store Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
+| Azure Data Lake Store Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
+| Azure Data Lake Store Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -128,7 +130,7 @@ If you specify the unstructured_data_path to be a folder, a SQL on-demand query 
 > [!NOTE]
 > Unlike Hadoop and PolyBase, SQL on-demand doesn't return subfolders. Also, unlike Hadoop and PolyBase, SQL on-demand does return files for which the file name begins with an underline (_) or a period (.).
 
-In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they are located in a subfolder.
+In the example below, if the unstructured_data_path=`https://mystorageaccount.dfs.core.windows.net/webdata/`, a SQL on-demand query will return rows from mydata.txt and _hidden.txt. It won't return mydata2.txt and mydata3.txt because they're located in a subfolder.
 
 ![Recursive data for external tables](./media/develop-openrowset/folder-traversal.png)
 
@@ -177,7 +179,7 @@ The ESCAPE_CHAR parameter will be applied regardless of whether the FIELDQUOTE i
 
 FIRSTROW = 'first_row' 
 
-Specifies the number of the first row to load. The default is 1. This indicates the first row in the specified data file. The row numbers are determined by counting the row terminators. FIRSTROW is 1-based.
+Specifies the number of the first row to load. The default is 1 and indicates the first row in the specified data file. The row numbers are determined by counting the row terminators. FIRSTROW is 1-based.
 
 FIELDQUOTE = 'field_quote' 
 
@@ -196,7 +198,7 @@ Specifies parser version to be used when reading files. Currently supported CSV 
 - PARSER_VERSION = '1.0'
 - PARSER_VERSION = '2.0'
 
-CSV parser version 1.0 is default and feature rich, while 2.0 is built for performance and does not support all options and encodings. 
+CSV parser version 1.0 is default and feature rich. Version 2.0 is built for performance and does not support all options and encodings. 
 
 CSV parser version 2.0 specifics:
 
@@ -222,7 +224,7 @@ WITH (
 ) AS [r]
 ```
 
-The following example returns all columns of the first row from the census data set in Parquet format without specifying column names and data types: 
+The following example returns all columns of the first row from the census data set, in Parquet format, and without specifying column names and data types: 
 
 ```sql
 SELECT 

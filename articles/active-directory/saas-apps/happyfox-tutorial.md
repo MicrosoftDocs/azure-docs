@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with HappyFox | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and HappyFox.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 8204ee77-f64b-4fac-b64a-25ea534feac0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with HappyFox
 
@@ -135,19 +128,19 @@ To configure Azure AD single sign-on with HappyFox, perform the following steps:
 
 2. Navigate to **Manage**, click on **Integrations** tab.
 
-	![Configure Single Sign-On](./media/happyfox-tutorial/header.png) 
+	![Screenshot that shows the "Manage" page with the "Integrations" tab selected.](./media/happyfox-tutorial/header.png) 
 
 3. In the Integrations tab, click **Configure** under **SAML Integration** to open the Single Sign On Settings.
 
-	![Configure Single Sign-On](./media/happyfox-tutorial/configure.png)
+	![Screenshot that shows the "S A M L Integration" setting with the "configure" action selected.](./media/happyfox-tutorial/configure.png)
 
 4. Inside SAML configuration section, paste the **Login URL** value, which you have copied from Azure portal into **SSO Target URL** textbox.
 
-	![Configure Single Sign-On](./media/happyfox-tutorial/targeturl.png)
+	![Screenshot that shows the "S A M L Configuration" section with the "S S O Target U R L" textbox highlighted.](./media/happyfox-tutorial/targeturl.png)
 
 5. Open the certificate downloaded from Azure portal in notepad and paste its content in **IdP Signature** section.
 
-	![Configure Single Sign-On](./media/happyfox-tutorial/cert.png)
+	![Screenshot that shows the "I d P Signature" section highlighted.](./media/happyfox-tutorial/cert.png)
 
 6. Click **Save Settings** button.
 

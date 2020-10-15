@@ -1,6 +1,6 @@
 ---
 title: Offline backup for Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS) - previous versions
-description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for DPM and Azure Backup Server.
+description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for previous versions of DPM and Azure Backup Server.
 ms.topic: conceptual
 ms.date: 06/08/2020
 ---
@@ -39,6 +39,9 @@ Offline backup is supported for all deployment models of Azure Backup that back 
 > * Backup of all workloads and files with DPM.
 > * Backup of all workloads and files with MABS.
 
+>[!NOTE]
+>Azure CSP subscriptions aren't supported for use with offline seeding for DPM 2019 RTM and earlier versions, and MABS v3 RTM and earlier versions. Online backups over the network are still supported.
+
 ## Prerequisites
 
 Ensure that the following prerequisites are met before you start the offline backup workflow:
@@ -52,7 +55,7 @@ Ensure that the following prerequisites are met before you start the offline bac
     | United States | [Link](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | China | [Link](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* An Azure storage account with the Resource Manager deployment model has been created in the subscription from which you downloaded the publish settings file. In the storage account, create a new blob container which will be used as the destination.
+* An Azure storage account with the Resource Manager deployment model has been created in the subscription from which you downloaded the publish settings file. In the storage account, create a new blob container, which will be used as the destination.
 
   ![Create a storage account with Resource Manager development](./media/offline-backup-dpm-mabs-previous-versions/storage-account-resource-manager.png)
 
@@ -97,7 +100,7 @@ Follow these steps to manually upload the offline backup certificate to a previo
     ![Locate application on Owned applications tab](./media/offline-backup-dpm-mabs-previous-versions/owned-applications.png)
 
 1. Select the application. Under **Manage** on the left pane, go to **Certificates & secrets**.
-1. Check for preexisting certificates or public keys. If there are none, you can safely delete the application by selecting the **Delete** button on the application's **Overview** page. Then you can retry the steps to [prepare the server for the offline backup](#prepare-the-server-for-the-offline-backup-process) process, and skip the following steps. Otherwise, continue to follow these steps from the DPM instance or Azure Backup server where you want to configure offline backup.
+1. Check for pre-existing certificates or public keys. If there are none, you can safely delete the application by selecting the **Delete** button on the application's **Overview** page. Then you can retry the steps to [prepare the server for the offline backup](#prepare-the-server-for-the-offline-backup-process) process, and skip the following steps. Otherwise, continue to follow these steps from the DPM instance or Azure Backup server where you want to configure offline backup.
 1. From **Start** – **Run**, type *Certlm.msc*. In the **Certificates - Local Computer** window, select the **Certificates – Local Computer** > **Personal** tab. Look for the certificate with the name `CB_AzureADCertforOfflineSeeding_<ResourceId>`.
 1. Select the certificate, right-click **All Tasks**, and then select **Export**, without a private key, in the .cer format.
 1. Go to the Azure offline backup application in the Azure portal.
@@ -194,7 +197,7 @@ The *AzureOfflineBackupDiskPrep* utility is used to prepare the SATA drives that
 
 1. Enter the drive letter without the trailing colon for the mounted disk that you want to prepare for transfer to Azure. When prompted, provide confirmation for the formatting of the drive.
 
-    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool in case the provided disk doesn't have sufficient space for the backup data. <br/>
+    The tool then begins to prepare the disk and copy the backup data. You might need to attach additional disks when prompted by the tool if the provided disk doesn't have sufficient space for the backup data. <br/>
 
     After the tool finishes successfully, one or more disks that you provided are prepared for shipping to Azure. An import job with the name you provided during the workflow in the "Initiate offline backup" section also is created in Azure. Finally, the tool displays the shipping address to the Azure datacenter where the disks need to be shipped.
 

@@ -1,10 +1,10 @@
 ---
 title: Render custom data on a raster map | Microsoft Azure Maps
-description: In this article, you'll learn how to render custom data on a raster map by using Microsoft Azure Maps static image Service.
-author: philmea
-ms.author: philmea
+description: Learn how to add pushpins, labels, and geometric shapes to a raster map. See how to use the static image service in Azure Maps for this purpose.
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
@@ -24,7 +24,7 @@ To render custom pushpins, labels, and geometry overlays, you can use the Postma
 
 ### Create an Azure Maps account
 
-To complete the procedures in this article, you first need to create an Azure Maps account and get your maps account key. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-account-with-azure-maps) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
+To complete the procedures in this article, you first need to create an Azure Maps account and get your maps account key. Follow instructions in [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) to create an Azure Maps account subscription and follow the steps in [get primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account) to get the primary key for your account. For more information on authentication in Azure Maps, see [manage authentication in Azure Maps](./how-to-manage-authentication.md).
 
 
 ## Render pushpins with labels and a custom image

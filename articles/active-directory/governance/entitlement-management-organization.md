@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 09/28/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -42,8 +42,8 @@ In this case, you can configure two connected organizations. You create one conn
 How users from the Azure AD directory or domain authenticate depends on the authentication type. The authentication types for connected organizations are:
 
 - Azure AD
-- [Direct federation](../b2b/direct-federation.md)
-- [One-time passcode](../b2b/one-time-passcode.md) (domain)
+- [Direct federation](../external-identities/direct-federation.md)
+- [One-time passcode](../external-identities/one-time-passcode.md) (domain)
 
 For a demonstration of how to add a connected organization, watch the following video:
 
@@ -53,7 +53,7 @@ For a demonstration of how to add a connected organization, watch the following 
 
 To add an external Azure AD directory or domain as a connected organization, follow the instructions in this section.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -64,6 +64,8 @@ To add an external Azure AD directory or domain as a connected organization, fol
 1. Select the **Basics** tab, and then enter a display name and description for the organization.
 
     ![The "Add connected organization" Basics pane](./media/entitlement-management-organization/organization-basics.png)
+
+1. The state will automatically be set to **Configured** when you create a new connected organization. For more information about state properties, see [State properties of connected organizations](#state-properties-of-connected-organizations)
 
 1. Select the **Directory + domain** tab, and then select **Add directory + domain**.
 
@@ -78,7 +80,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 1. Select **Add** to add the Azure AD directory or domain. Currently, you can add only one Azure AD directory or domain per connected organization.
 
     > [!NOTE]
-    > All users from the Azure AD directory or domain will be able to request this access package. This includes users in Azure AD from all subdomains associated with the directory, unless those domains are blocked by the Azure AD business to business (B2B) allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../b2b/allow-deny-list.md).
+    > All users from the Azure AD directory or domain will be able to request this access package. This includes users in Azure AD from all subdomains associated with the directory, unless those domains are blocked by the Azure AD business to business (B2B) allow or deny list. For more information, see [Allow or block invitations to B2B users from specific organizations](../external-identities/allow-deny-list.md).
 
 1. After you've added the Azure AD directory or domain, select **Select**.
 
@@ -88,7 +90,7 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 1. Select the **Sponsors** tab, and then add optional sponsors for this connected organization.
 
-    Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and are already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package. For information about how to invite a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../b2b/add-users-administrator.md).
+    Sponsors are internal or external users already in your directory that are the point of contact for the relationship with this connected organization. Internal sponsors are member users in your directory. External sponsors are guest users from the connected organization that were previously invited and are already in your directory. Sponsors can be utilized as approvers when users in this connected organization request access to this access package. For information about how to invite a guest user to your directory, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
     When you select **Add/Remove**, a pane opens in which you can choose internal or external sponsors. The pane displays an unfiltered list of users and groups in your directory.
 
@@ -102,13 +104,13 @@ To add an external Azure AD directory or domain as a connected organization, fol
 
 If the connected organization changes to a different domain, the organization's name changes, or you want to change the sponsors, you can update the connected organization by following the instructions in this section.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
 1. In the left pane, select **Connected organizations**, and then select the connected organization to open it.
 
-1. In the connected organization's overview pane, select **Edit** to change the organization name or description.  
+1. In the connected organization's overview pane, select **Edit** to change the organization name, description, or state.  
 
 1. In the **Directory + domain** pane, select **Update directory + domain** to change to a different directory or domain.
 
@@ -119,7 +121,7 @@ If the connected organization changes to a different domain, the organization's 
 
 If you no longer have a relationship with an external Azure AD directory or domain, you can delete the connected organization.
 
-**Prerequisite role**: *Global administrator*, *User administrator*, or *Guest inviter*
+**Prerequisite role**: *Global administrator* or *User administrator*
 
 1. In the Azure portal, select **Azure Active Directory**, and then select **Identity Governance**.
 
@@ -131,7 +133,28 @@ If you no longer have a relationship with an external Azure AD directory or doma
 
     ![The connected organization Delete button](./media/entitlement-management-organization/organization-delete.png)
 
+## Managing a connected organization programmatically
+
+You can also create, list, update, and delete connected organizations using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to manage [connectedOrganization](/graph/api/resources/connectedorganization?view=graph-rest-beta) objects and set sponsors for them.
+
+## State properties of connected organizations
+
+There are two different types of state properties for connected organizations in Azure AD entitlement management currently, configured and proposed: 
+
+- A configured connected organization is a fully functional connected organization that allows users within that organization access to access packages. When an admin creates a new connected organization in the Azure portal, it will be in the **configured** state by default since the administrator created and wants to use this connected organization. Additionally, when a connected org is created programmatically via the API, the default state should be **configured** unless set to another state explicitly. 
+
+    Configured connected organizations will show up in the pickers for connected organizations and will be in scope for any policies that target “all” connected organizations.
+
+- A proposed connected organization is a connected organization that has been automatically created, but hasn't had an administrator create or approve the organization. When a user signs up for an access package outside of a configured connected organization, any automatically created connected organizations will be in the **proposed** state since no administrator in the tenant set-up that partnership. 
+    
+    Proposed connected organizations do not show up in the pickers for configured connected organizations, and are not in scope for the “all configured connected organizations” setting on any policies. 
+
+Only users from configured connected organizations can request access packages that are available to users from all configured organizations. Users from proposed connected organizations have an experience as if there is no connected organization for that domain, and won't have access to the access package until the state is changed by an administrator.
+
+> [!NOTE]
+> As part of rolling out this new feature, all connected organizations created before 09/09/20 were considered **configured**. If you had an access package that allowed users from any organization to sign up, you should review your list of connected organizations that were created before that date to ensure none are miscategorized as **configured**.  An admin can update the **State** property as appropriate. For guidance, see [Update a connected organization](#update-a-connected-organization).
+
 ## Next steps
 
-- [Govern access for external users](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users)
+- [Govern access for external users](./entitlement-management-external-users.md)
 - [Govern access for users not in your directory](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)

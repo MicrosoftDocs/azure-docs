@@ -1,3 +1,5 @@
+- name: Azure HDInsight documentation
+  href: index.yml
 - name: HDInsight service
   expanded: true
   items:
@@ -6,6 +8,7 @@
     - name: What is Azure HDInsight?
       href: ./hdinsight-overview.md
   - name: Tutorials
+    expanded: true
     items:
       - name: Create HDInsight clusters
         href: ./hdinsight-hadoop-provision-linux-clusters.md
@@ -61,8 +64,14 @@
       href: ./hdinsight-capacity-planning.md
     - name: Cluster management best practices
       href: ./cluster-management-best-practices.md
-    - name: Availability and reliability
-      href: ./hdinsight-high-availability-linux.md
+    - name: Business continuity
+      items:
+        - name: Business continuity overview
+          href: hdinsight-business-continuity.md
+        - name: Business continuity architecture
+          href: ./hdinsight-business-continuity-architecture.md
+        - name: High availability case study
+          href: ./hdinsight-high-availability-case-study.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
     - name: Compare storage options
@@ -74,7 +83,7 @@
         href: overview-data-lake-storage-gen1.md
       - name: Azure Data Lake Storage Gen2 overview 
         href: overview-data-lake-storage-gen2.md
-  - name: How to
+  - name: How-to guides
     items:
     - name: Create clusters
       items:
@@ -97,12 +106,16 @@
         iconUrl: 
     - name: Use cluster storage
       items:
-      - name: Using Azure Storage
+      - name: Use Azure Storage
         href: hdinsight-hadoop-use-blob-storage.md
-      - name: Using Azure Data Lake Storage Gen2
+      - name: Use Data Lake Storage Gen2
         href: hdinsight-hadoop-use-data-lake-storage-gen2.md
-      - name: Using Azure Data Lake Storage Gen1
-        href: hdinsight-hadoop-use-data-lake-store.md
+      - name: Use Data Lake Storage Gen2 in the portal
+        href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
+      - name: Use Data Lake Storage Gen2 with Azure CLI
+        href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
+      - name: Use Data Lake Storage Gen1
+        href: hdinsight-hadoop-use-data-lake-storage-gen1.md
     - name: Extend clusters
       items:
       - name: Install HDInsight apps
@@ -342,7 +355,7 @@
           href: ./spark/optimize-cluster-configuration.md
       - name: Migrate to Spark 2.3 or 2.4
         href: ./spark/migrate-versions.md
-  - name: How to
+  - name: How-to guides
     items:
     - name: Use tools
       items:
@@ -354,6 +367,8 @@
         href: ./set-up-pyspark-interactive-environment.md
     - name: Develop
       items:
+      - name: Optimize queries with SparkCruise
+        href: ./spark/spark-cruise.md
       - name: Use an interactive Apache Spark Shell
         href: ./spark/apache-spark-shell.md
       - name: Remote jobs with Apache Livy
@@ -388,14 +403,20 @@
           href: ./spark/apache-spark-analyze-application-insight-logs.md
     - name: Manage
       items:
+      - name: Manage dependencies
+        items:
+        - name: Manage Spark application dependencies
+          href: ./spark/apache-spark-manage-dependencies.md
+        - name: Safely manage jar dependencies
+          href: ./spark/safely-manage-jar-dependency.md
+        - name: Safely manage Python environment
+          href: ./spark/apache-spark-python-package-installation.md
       - name: Manage cluster resources
         href: ./spark/apache-spark-resource-manager.md
       - name: Manage Apache Spark applications using extended History Server
         href: ./spark/apache-azure-spark-history-server.md
       - name: Enable caching with IO Cache
         href: ./spark/apache-spark-improve-performance-iocache.md
-      - name: Manage Jar dependencies
-        href: ./spark/manage-jar-dependency.md
       - name: Use notebooks with Apache Spark
         items: 
         - name: Use a local Jupyter notebook
@@ -404,8 +425,6 @@
           href: ./spark/apache-spark-jupyter-notebook-kernels.md
         - name: Use external packages with Jupyter using cell magic
           href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-        - name: Safely manage Python environment on Azure HDInsight using Script Action
-          href: ./spark/apache-spark-python-package-installation.md
         - name: Use Apache Zeppelin notebooks
           href: ./spark/apache-spark-zeppelin-notebook.md
       - name: Use with other Azure services
@@ -428,8 +447,6 @@
         href: ./spark/apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
       - name: Apache Spark job fails - InvalidClassException
         href: ./spark/apache-spark-troubleshoot-job-fails-invalidclassexception.md
-      - name: Slow Apache Spark jobs - listStatus
-        href: ./spark/apache-spark-troubleshoot-job-slowness-liststatus.md
       - name: Slow Apache Spark jobs - storage container
         href: ./spark/apache-spark-troubleshoot-job-slowness-container.md
       - name: IllegalArgumentException exception
@@ -473,7 +490,7 @@
       href: ./hdinsight-hadoop-create-linux-clusters-adf.md
     - name: Submit Apache Hadoop jobs
       href: ./hadoop/submit-apache-hadoop-jobs-programmatically.md
-  - name: How to
+  - name: How-to guides
     items:
     - name: Use tools
       items:
@@ -531,6 +548,8 @@
         items:
         - name: Use empty edge nodes
           href: ./hdinsight-apps-use-edge-node.md
+        - name: Use edge nodes to scale HiveServer2
+          href: ./hdinsight-apps-install-hiveserver2.md
     - name: Troubleshoot
       items:
       - name: Common issues
@@ -618,7 +637,7 @@
       href: ./kafka/apache-kafka-performance-tuning.md
     - name: Kafka FAQ
       href: ./kafka/kafka-faq.md
-  - name: How to
+  - name: How-to guides
     items:
     - name: Develop
       items:
@@ -669,7 +688,7 @@
     items:
     - name: Use Apache HBase in HDInsight
       href: ./hbase/apache-hbase-tutorial-get-started-linux.md
-  - name: How to
+  - name: How-to guides
     items:
     - name: Develop
       items:
@@ -723,8 +742,6 @@
         href: ./hbase/hbase-troubleshoot-pegged-cpu-region-server.md
       - name: Timeouts with 'hbase hbck' command
         href: ./hbase/hbase-troubleshoot-timeouts-hbase-hbck.md
-      - name: Troubleshoot Apache HBase
-        href: ./hbase/apache-troubleshoot-hbase.md
       - name: REST API to query Apache HBase
         href: ./hbase/troubleshoot-rest-api.md
 - name: Interactive Query
@@ -750,7 +767,9 @@
       href: ./interactive-query/gateway-best-practices.md
     - name: Sizing guidelines
       href: ./interactive-query/sizing-guidelines.md
-  - name: How to
+    - name: Hive replication
+      href: ./interactive-query/apache-hive-replication.md
+  - name: How-to guides
     items:
     - name: Develop
       items:
@@ -847,7 +866,7 @@
         href: ./r-server/ml-services-tutorial-spark-compute.md
       - name: Use R tools for Visual Studio
         href: ./r-server/r-server-submit-jobs-r-tools-vs.md
-  - name: How to
+  - name: How-to guides
     items:
     - name: Develop
       items:
@@ -879,7 +898,7 @@
       href: ./storm/apache-storm-write-data-lake-store.md
     - name: Apache Kafka and Apache Storm (Java)
       href: ./hdinsight-apache-storm-with-kafka.md
-  - name: How to
+  - name: How-to guides
     items:
     - name: Migrate Storm to Spark
       href: ./storm/migrate-storm-to-spark.md
@@ -943,13 +962,13 @@
       href: ./control-network-traffic.md
     - name: Required IP Addresses for NSGs and UDRs
       href: ./hdinsight-management-ip-addresses.md
-    - name: Service tags for Azure firewall
-      href: ./hdinsight-service-tags.md
     - name: Customer-managed key disk encryption
       href: ./disk-encryption.md
     - name: LDAP sync in Ranger and Apache Ambari
       href: ./domain-joined/ldap-sync.md
-  - name: How to
+    - name: Double encryption in transit 
+      href: ./domain-joined/encryption-in-transit.md
+  - name: How-to guides
     items:
     - name: Use ID Broker for credential management
       href: ./domain-joined/identity-broker.md    
@@ -971,8 +990,12 @@
       href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
     - name: Use firewall to restrict outbound traffic
       href: ./hdinsight-restrict-outbound-traffic.md
+    - name: Create service endpoint policies
+      href: ./service-endpoint-policies.md
     - name: Configure network virtual appliance
       href: ./network-virtual-appliance.md
+    - name: Service tags for Azure firewall
+      href: ./hdinsight-service-tags.md
     - name: Troubleshoot
       items:
       - name: ESP Authentication issues

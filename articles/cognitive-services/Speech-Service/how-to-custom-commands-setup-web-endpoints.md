@@ -14,7 +14,7 @@ ms.author: xiaojul
 
 # Set up web endpoints
 
-In this article, you learn how to setup web endpoints in a Custom Commands application that allow you to make HTTP requests from a client application. You complete the following tasks:
+In this article, you will learn how to setup web endpoints in a Custom Commands application that allow you to make HTTP requests from a client application. You will complete the following tasks:
 
 - Set up web endpoints in Custom Commands application
 - Call web endpoints in Custom Commands application
@@ -25,7 +25,7 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 > * An Azure subscription key for Speech service:
-[Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com)
+[Get one for free](overview.md#try-the-speech-service-for-free) or create it on the [Azure portal](https://portal.azure.com)
 > * A previously [created Custom Commands app](quickstart-custom-commands-application.md)
 > * A Speech SDK enabled client app:
 [How-to: end activity to client application](./how-to-custom-commands-setup-speech-sdk.md)
@@ -43,11 +43,12 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
    | Name | UpdateDeviceState | Name for the web endpoint. |
    | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | The URL of the endpoint you wish your custom command app to talk to. |
    | Method | POST | The allowed interactions (such as GET, POST) with your endpoint.|
-   | Headers | Key: app, Value: a unique name for your app | The header parameters to include in the request header.|
+   | Headers | Key: app, Value: take the first 8 digits of your applicationId | The header parameters to include in the request header.|
 
     > [!NOTE]
     > - The example web endpoint created using [Azure Function](https://docs.microsoft.com/azure/azure-functions/), which hooks up with the database that saves the device state of the tv and fan
     > - The suggested header is only needed for the example endpoint
+    > - To make sure the value of the header is unique in our example endpoint, take the first 8 digits of your applicationId
     > - In real world, the web endpoint can be the endpoint to the [IOT hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) that manages your devices
 
 1. Click **Save**.
@@ -71,9 +72,11 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
     > - The suggested query parameters are only needed for the example endpoint
 
 1. In **On Success - Action to execute**, select **Send speech response**.
+    
+    In **Simple editor**, enter `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action On Success](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Screenshot that shows the On Success - Action to execute screen.](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Setting | Suggested value | Description |
    | ------- | --------------- | ----------- |
@@ -83,6 +86,9 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
    > - You can also directly access the fields in the http response by using `{YourWebEndpointName.FieldName}`. For example: `{UpdateDeviceState.TV}`
 
 1. In **On Failure - Action to execute**, select **Send speech response**
+
+    In **Simple editor**, enter `Sorry, {WebEndpointErrorMessage}`.
+
    > [!div class="mx-imgBorder"]
    > ![Call web endpoints action On Fail](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 
@@ -98,7 +104,7 @@ In this article, you learn how to setup web endpoints in a Custom Commands appli
 - On Success response\
 Save, train and test
    > [!div class="mx-imgBorder"]
-   > ![Call web endpoints action On Success](media/custom-commands/setup-web-endpoint-on-success-response.png)
+   > ![Screenshot that shows the On Success response.](media/custom-commands/setup-web-endpoint-on-success-response.png)
 - On Fail response\
 Remove one of the query parameters, save, retrain, and test
    > [!div class="mx-imgBorder"]

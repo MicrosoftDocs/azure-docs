@@ -8,6 +8,7 @@ ms.date: 02/19/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.custom: devx-track-js
 ---
 
 # Azure Storage samples using v12 JavaScript client libraries

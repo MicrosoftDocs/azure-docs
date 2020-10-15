@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer:
@@ -30,7 +30,7 @@ In this tutorial you learn how to:
 > -	Query the analytics database.
 > -	Use Power BI for data visualization to highlight trends in tenant data and make recommendation for improvements.
 
-![architectureOverView](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
+![Diagram shows an overview of the architecture used for this article.](./media/saas-multitenantdb-tenant-analytics/architectureOverview.png)
 
 ## Offline tenant analytics pattern
 
@@ -38,7 +38,7 @@ SaaS applications you develop have access to a vast amount of tenant data stored
 
 Accessing the data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across thousands of databases. One way to tame the complexity is to extract the data to an analytics database or a data warehouse. You then query the data warehouse to gather insights from the tickets data of all tenants.
 
-This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is commended.
+This tutorial presents a complete analytics scenario for this sample SaaS application. First, elastic jobs are used to schedule the extraction of data from each tenant database. The data is sent to an analytics store. The analytics store could either be an SQL Database or a Azure Synapse Analytics (formerly SQL Data Warehouse). For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is commended.
 
 Next, the aggregated data is shredded into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables:
 
@@ -47,7 +47,7 @@ Next, the aggregated data is shredded into a set of [star-schema](https://www.wi
 
 Together the central and dimension tables enable efficient analytical processing. The star-schema used in this tutorial is displayed in the following image:
  
-![StarSchema](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
+![Database diagram shows four database objects connected to a central database object.](./media/saas-multitenantdb-tenant-analytics/StarSchema.png)
 
 Finally, the star-schema tables are queried. The query results are displayed visually to highlight insights into tenant behavior and their use of the application. With this star-schema, you can run queries that help discover items like the following:
 
@@ -105,7 +105,7 @@ See the following database items in the SSMS Object Explorer by expanding the an
 - The star-schema tables are **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events**, and **dim_Dates**.
 - The **sp_ShredRawExtractedData** stored procedure is used to populate the star-schema tables from the raw data tables.
 
-![tenantAnalytics](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
+![Screenshot shows the S S M S Object Explorer for the analytics store node, including Tables, Views, and nodes.](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
 
 ## Data extraction 
 
@@ -133,7 +133,7 @@ Each job extracts its data, and posts it into the analytics store. There a separ
 4. Press **F5** to run the script that creates and runs the job that extracts tickets and customers data from each tenant database. The job saves the data into the analytics store.
 5. Query the TicketsRawData table in the tenantanalytics database, to ensure that the table is populated with tickets information from all tenants.
 
-![ticketExtracts](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
+![Screenshot shows the ExtractTickets database with the TicketsRawData d b o selected in Object Explorer.](./media/saas-multitenantdb-tenant-analytics/ticketExtracts.png)
 
 Repeat the preceding steps, except this time replace **\ExtractTickets.sql** with **\ExtractVenuesEvents.sql** in step 2.
 
@@ -153,7 +153,7 @@ In this section of the tutorial, you define and run a job that merges the extrac
 4. Allow enough time for the job to run successfully.
     - Check the **Lifecycle** column of jobs.jobs_execution table for the status of job. Ensure that the job **Succeeded** before proceeding. A successful run displays data similar to the following chart:
 
-![shreddingJob](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
+![Screenshot shows the successful result of running the sp_ShredRawExtractedData procedure.](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
 ## Data exploration
 
@@ -168,11 +168,11 @@ Use the following steps to connect to Power BI, and to import the views you crea
 3. In the **Get Data** window, select Azure SQL Database.
 4. In the database login window, enter your server name (catalog-mt-\<User\>.database.windows.net). Select **Import** for **Data Connectivity Mode**, and then click OK. 
 
-    ![powerBISignIn](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
+    ![Screenshot shows SQL Server database dialog box where you can enter the Server and Database.](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
 5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.  
 
-    ![DatabaseSignIn](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
+    ![Screenshot shows the SQL Server database dialog where you can enter a User name and Password.](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
 6. In the **Navigator** pane, under the analytics database, select the star-schema tables: fact_Tickets, dim_Events, dim_Venues, dim_Customers and dim_Dates. Then select **Load**. 
 
@@ -180,13 +180,13 @@ Congratulations! You have successfully loaded the data into Power BI. Now you ca
 
 You start by analyzing ticket sales data to see the variation in usage across the venues. Select the following options in Power BI to plot a bar chart of the total number of tickets sold by each venue. Due to random variation in the ticket generator, your results may be different.
  
-![TotalTicketsByVenues](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
+![Screenshot shows a Power B I visualization and controls for the data visualization on the right side.](./media/saas-multitenantdb-tenant-analytics/TotalTicketsByVenues.PNG)
 
 The preceding plot confirms that the number of tickets sold by each venue varies. Venues that sell more tickets are using your service more heavily than venues that sell fewer tickets. There may be an opportunity here to tailor resource allocation according to different tenant needs.
 
 You can further analyze the data to see how ticket sales vary over time. Select the following options in Power BI to plot the total number of tickets sold each day for a period of 60 days.
  
-![SaleVersusDate](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
+![Screenshot shows Power B I visualization titled Ticket Sale Distribution versus Sale Day.](./media/saas-multitenantdb-tenant-analytics/SaleVersusDate.PNG)
 
 The preceding chart displays that ticket sales spike for some venues. These spikes reinforce the idea that some venues might be consuming system resources disproportionately. So far there is no obvious pattern in when the spikes occur.
 

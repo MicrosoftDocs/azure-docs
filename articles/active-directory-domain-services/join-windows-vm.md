@@ -1,15 +1,15 @@
 ---
 title: Join a Windows Server VM to an Azure AD Domain Services managed domain | Microsoft Docs
 description: In this tutorial, learn how to join a Windows Server virtual machine to an Azure Active Directory Domain Services managed domain.
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/30/2020
-ms.author: iainfou
+ms.date: 07/06/2020
+ms.author: joflore
 
 #Customer intent: As an server administrator, I want to learn how to join a Windows Server VM to an Azure Active Directory Domain Services managed domain to provide centralized identity and policy.
 ---
@@ -69,7 +69,7 @@ If you already have a VM that you want to domain-join, skip to the section to [j
     | Username             | Enter a username for the local administrator account to create on the VM, such as *azureuser* |
     | Password             | Enter, and then confirm, a secure password for the local administrator to create on the VM. Don't specify a domain user account's credentials. |
 
-1. By default, VMs created in Azure are accessible from the Internet using RDP. When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts.
+1. By default, VMs created in Azure are accessible from the Internet using RDP. When RDP is enabled, automated sign-in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign-in attempts.
 
     RDP should only be enabled when required, and limited to a set of authorized IP ranges. This configuration helps improve the security of the VM and reduces the area for potential attack. Or, create and use an Azure Bastion host that allows access only through the Azure portal over TLS. In the next step of this tutorial, you use an Azure Bastion host to securely connect to the VM.
 
@@ -107,7 +107,7 @@ If you already have a VM that you want to domain-join, skip to the section to [j
 
 1. It takes a few seconds to create the subnet. Once it's created, select the *X* to close the subnet window.
 1. Back in the **Networking** pane to create a VM, choose the subnet you created from the drop-down menu, such as *management*. Again, make sure you choose the correct subnet and don't deploy your VM in the same subnet as your managed domain.
-1. For **Public IP**, select *None* from the drop-down menu, as you use Azure Bastion to connect to the management and don't need a public IP address assigned.
+1. For **Public IP**, select *None* from the drop-down menu. As you use Azure Bastion in this tutorial to connect to the management, you don't need a public IP address assigned to the VM.
 1. Leave the other options as their default values, then select **Management**.
 1. Set **Boot diagnostics** to *Off*. Leave the other options as their default values, then select **Review + create**.
 1. Review the VM settings, then select **Create**.
@@ -118,7 +118,7 @@ It takes a few minutes to create the VM. The Azure portal shows the status of th
 
 ## Connect to the Windows Server VM
 
-To securely connect to your VMs, use an Azure Bastion host. With Azure Bastion, a managed host is deployed into your virtual network and provides web-based RDP or SSH connections to VMs. No public IP addresses are required for the VMs, and you don't need to open network security group rules for external remote traffic. You connect to VMs using the Azure portal from your web browser.
+To securely connect to your VMs, use an Azure Bastion host. With Azure Bastion, a managed host is deployed into your virtual network and provides web-based RDP or SSH connections to VMs. No public IP addresses are required for the VMs, and you don't need to open network security group rules for external remote traffic. You connect to VMs using the Azure portal from your web browser. If needed, [create an Azure Bastion host][azure-bastion].
 
 To use a Bastion host to connect to your VM, complete the following steps:
 
@@ -149,7 +149,9 @@ With the VM created and a web-based RDP connection established using Azure Basti
 
     ![Specify the managed domain to join](./media/join-windows-vm/join-domain.png)
 
-1. Enter domain credentials to join the domain. Use the credentials for a user that's a part of the managed domain. The account must be part of the managed domain or Azure AD tenant - accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process. Account credentials can be specified in one of the following ways:
+1. Enter domain credentials to join the domain. Provide credentials for a user that's a part of the managed domain. The account must be part of the managed domain or Azure AD tenant - accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
+
+    Account credentials can be specified in one of the following ways:
 
     * **UPN format** (recommended) - Enter the user principal name (UPN) suffix for the user account, as configured in Azure AD. For example, the UPN suffix of the user *contosoadmin* would be `contosoadmin@aaddscontoso.onmicrosoft.com`. There are a couple of common use-cases where the UPN format can be used reliably to sign in to the domain rather than the *SAMAccountName* format:
         * If a user's UPN prefix is long, such as *deehasareallylongname*, the *SAMAccountName* may be autogenerated.
@@ -171,13 +173,13 @@ With the VM created and a web-based RDP connection established using Azure Basti
 >
 > To domain-join a VM without connecting to it and manually configuring the connection, you can use the [Set-AzVmAdDomainExtension][set-azvmaddomainextension] Azure PowerShell cmdlet.
 
-Once the Windows Server VM has restarted, any policies applied in the managed domain are be pushed to the VM. You can also now sign in to the Windows Server VM using appropriate domain credentials.
+Once the Windows Server VM has restarted, any policies applied in the managed domain are pushed to the VM. You can also now sign in to the Windows Server VM using appropriate domain credentials.
 
 ## Clean up resources
 
 In the next tutorial, you use this Windows Server VM to install the management tools that let you administer the managed domain. If you don't want to continue in this tutorial series, review the following clean up steps to [delete the VM](#delete-the-vm). Otherwise, [continue to the next tutorial](#next-steps).
 
-### Un-join the VM from the managed domain
+### Unjoin the VM from the managed domain
 
 To remove the VM from the managed domain, follow through the steps again to [join the VM to a domain](#join-the-vm-to-the-managed-domain). Instead of joining the managed domain, choose to join a workgroup, such as the default *WORKGROUP*. After the VM has rebooted, the computer object is removed from the managed domain.
 
@@ -217,7 +219,7 @@ After trying each of these troubleshooting steps, try to join the Windows Server
 * Make sure that the user account you specify belongs to the managed domain.
 * Confirm that the account is part of the managed domain or Azure AD tenant. Accounts from external directories associated with your Azure AD tenant can't correctly authenticate during the domain-join process.
 * Try using the UPN format to specify credentials, such as `contosoadmin@aaddscontoso.onmicrosoft.com`. If there are many users with the same UPN prefix in your tenant or if your UPN prefix is overly long, the *SAMAccountName* for your account may be autogenerated. In these cases, the *SAMAccountName* format for your account may be different from what you expect or use in your on-premises domain.
-* Check that you have [enabled password synchronization][password-sync] to your managed domain. Without this configuration step, the required password hashes won't be present in the managed domain to correctly authenticate your sign in attempt.
+* Check that you have [enabled password synchronization][password-sync] to your managed domain. Without this configuration step, the required password hashes won't be present in the managed domain to correctly authenticate your sign-in attempt.
 * Wait for password synchronization to be completed. When a user account's password is changed, an automatic background synchronization from Azure AD updates the password in Azure AD DS. It takes some time for the password to be available for domain-join use.
 
 ## Next steps
@@ -239,7 +241,7 @@ To administer your managed domain, configure a management VM using the Active Di
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
-[password-sync]: active-directory-ds-getting-started-password-sync.md
+[password-sync]: ./tutorial-create-instance.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
 [azure-bastion]: ../bastion/bastion-create-host-portal.md
 [set-azvmaddomainextension]: /powershell/module/az.compute/set-azvmaddomainextension

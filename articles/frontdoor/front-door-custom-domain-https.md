@@ -3,15 +3,15 @@ title: Tutorial - Configure HTTPS on a custom domain for Azure Front Door | Micr
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure Front Door configuration for a custom domain.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2018
-ms.author: sharadag
+ms.date: 09/09/2020
+ms.author: duau
 # As a website owner, I want to enable HTTPS on the custom domain in my Front Door so that my users can use my custom domain to access their content securely.
 
 ---
@@ -65,6 +65,9 @@ To enable HTTPS on a custom domain, follow these steps:
 4. Click Save.
 
 5. Proceed to [Validate the domain](#validate-the-domain).
+
+> [!NOTE]
+> For AFD managed certificates, DigiCert’s 64 character limit is enforced. Validation will fail if that limit is exceeded.
 
 
 ### Option 2: Use your own certificate
@@ -213,9 +216,29 @@ If an error occurs before the request is submitted, the following error message 
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+## Frequently asked questions
 
+1. *Who is the certificate provider and what type of certificate is used?*
 
-## Clean up resources - disable HTTPS
+    A dedicated/single certificate, provided by Digicert, is used for your custom domain. 
+
+2. *Do you use IP-based or SNI TLS/SSL?*
+
+    Azure Front Door uses SNI TLS/SSL.
+
+3. *What if I don't receive the domain verification email from DigiCert?*
+
+    If you have a CNAME entry for your custom domain that points directly to your endpoint hostname (and you are not using the afdverify subdomain name), you won't receive a domain verification email. Validation occurs automatically. Otherwise, if you don't have a CNAME entry and you haven't received an email within 24 hours, contact Microsoft support.
+
+4. *Is using a SAN certificate less secure than a dedicated certificate?*
+    
+    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
+
+5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
+
+    No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
+
+## Clean up resources
 
 In the preceding steps, you enabled the HTTPS protocol on your custom domain. If you no longer want to use your custom domain with HTTPS, you can disable HTTPS by performing theses steps:
 
@@ -241,30 +264,15 @@ The following table shows the operation progress that occurs when you disable HT
 | 2 Certificate deprovisioning | Deleting certificate |
 | 3 Complete | Certificate deleted |
 
-## Frequently asked questions
-
-1. *Who is the certificate provider and what type of certificate is used?*
-
-    A dedicated/single certificate, provided by Digicert, is used for your custom domain. 
-
-2. *Do you use IP-based or SNI TLS/SSL?*
-
-    Azure Front Door uses SNI TLS/SSL.
-
-3. *What if I don't receive the domain verification email from DigiCert?*
-
-    If you have a CNAME entry for your custom domain that points directly to your endpoint hostname (and you are not using the afdverify subdomain name), you won't receive a domain verification email. Validation occurs automatically. Otherwise, if you don't have a CNAME entry and you haven't received an email within 24 hours, contact Microsoft support.
-
-4. *Is using a SAN certificate less secure than a dedicated certificate?*
-    
-    A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
-
-5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
-
-    No, a Certificate Authority Authorization record is not currently required. However, if you do have one, it must include DigiCert as a valid CA.
-
-
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
-- Learn [how Front Door works](front-door-routing-architecture.md).
+In this tutorial, you learned how to:
+
+* Upload a certificate to Key Vault.
+* Validate a domain.
+* Enable HTTPS for you custom domain.
+
+To learn how to set up a geo-filtering policy for you Front Door, continue to the next tutorial.
+
+> [!div class="nextstepaction"]
+> [Set up a geo-filtering policy](front-door-geo-filtering.md)

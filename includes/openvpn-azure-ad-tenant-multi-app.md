@@ -78,7 +78,7 @@ Register the VPN client in the Azure AD tenant.
 
 6. Select **Accept** when prompted.
 
-    ![Accept](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
+    ![Screenshot shows a window with the message Permissions requested Accept for you organization and information about the request.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
 7. Under your Azure AD, in **Enterprise applications**, you will see **Azure VPN** listed.
 

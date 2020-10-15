@@ -1,11 +1,11 @@
 ---
 title: Roles and requirements for Azure Data Share   
 description: Learn about the permissions required to share and receive data using Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/02/2020
 ---
 
 # Roles and requirements for Azure Data Share 
@@ -25,21 +25,18 @@ To share or receive data from an Azure data store, user needs at least the follo
 
 Below is a summary of the roles assigned to Data Share resource's managed identity:
 
-| |  |  |
-|---|---|---|
 |**Data Store Type**|**Data Provider Source Data Store**|**Data Consumer Target Data Store**|
+|---|---|---|
 |Azure Blob Storage| Storage Blob Data Reader | Storage Blob Data Contributor
 |Azure Data Lake Gen1 | Owner | Not Supported
 |Azure Data Lake Gen2 | Storage Blob Data Reader | Storage Blob Data Contributor
-|Azure SQL Server | SQL DB Contributor | SQL DB Contributor
 |Azure Data Explorer Cluster | Contributor | Contributor
 |
 
-For SQL-based sharing, a SQL user needs to be created from an external provider in Azure SQL Database with the same name as the Azure Data Share resource. Below is a summary of the permission required by the SQL user.
+For SQL-based sharing, a SQL user needs to be created from an external provider in Azure SQL Database with the same name as the Azure Data Share resource. Azure Active Directory admin permission is required to create this user. Below is a summary of the permission required by the SQL user.
 
-| |  |  |
-|---|---|---|
 |**SQL Database Type**|**Data Provider SQL User Permission**|**Data Consumer SQL User Permission**|
+|---|---|---|
 |Azure SQL Database | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |Azure Synapse Analytics (formerly SQL DW) | db_datareader | db_datareader, db_datawriter, db_ddladmin
 |
@@ -87,7 +84,13 @@ To learn more about how to add a role assignment, refer to [this documentation,]
 
 ## Resource provider registration 
 
-To view Azure Data Share invitation for the first time in your Azure tenant, you may need to manually register the Microsoft.DataShare resource provider into your Azure subscription. Follow these steps to register the Microsoft.DataShare resource provider into your Azure Subscription. You need *Contributor* access to the Azure subscription to register resource provider.
+You may need to manually register the Microsoft.DataShare resource provider into your Azure subscription in the following scenarios: 
+
+* View Azure Data Share invitation for the first time in your Azure tenant
+* Share data from an Azure data store in a different Azure subscription from your Azure Data Share resource
+* Receive data into an Azure data store in a different Azure subscription from your Azure Data Share resource
+
+Follow these steps to register the Microsoft.DataShare resource provider into your Azure Subscription. You need *Contributor* access to the Azure subscription to register resource provider.
 
 1. In the Azure portal, navigate to **Subscriptions**.
 1. Select the subscription that you're using for Azure Data Share.
@@ -98,4 +101,3 @@ To view Azure Data Share invitation for the first time in your Azure tenant, you
 ## Next steps
 
 - Learn more about roles in Azure - [Understand role definitions](../role-based-access-control/role-definitions.md)
-

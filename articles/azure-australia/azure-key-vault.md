@@ -5,7 +5,7 @@ author: emilyre
 ms.service: azure-australia
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.author: v-emread
+ms.author: yvettep
 ---
 
 # Azure Key Vault in Azure Australia
@@ -47,7 +47,7 @@ There are several personas involved in Azure Key Vault:
 
 Azure Key Vault is secured with two separate interfaces:
 
-- **Management Plane:** This plane deals with managing the vault and it secured by RBAC.
+- **Management Plane:** This plane deals with managing the vault and it secured by Azure RBAC.
 - **Data Plane:** This plane deals with managing and accessing the artifacts in the vault.  Secured using Key Vault access policy.
 
 As required by the ISM, proper authentication and authorisation are required before a caller (a user or an application) before they can get access to key vault by either plane.

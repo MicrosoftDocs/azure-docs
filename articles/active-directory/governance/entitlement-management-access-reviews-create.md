@@ -3,7 +3,7 @@ title: Create an access review of an access package in Azure AD entitlement mana
 description: Learn how to create an access review policy for entitlement management access packages in Azure Active Directory access reviews (Preview).
 services: active-directory
 documentationCenter: ''
-author: msaburnley
+author: ajburnle
 manager: daveba
 editor: 
 ms.service: active-directory

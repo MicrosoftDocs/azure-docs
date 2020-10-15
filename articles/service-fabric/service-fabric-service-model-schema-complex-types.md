@@ -2867,10 +2867,9 @@ The value of the driver option.
 
 #### Type
 
-              This value defines the protection of the value of the attribute. It may be SecretsStoreRef/Encrypted/PlainText.
-              If set to SecretsStoreRef, the value references a secret stored encrypted in the cluster's SecureStore, which is de-referenced and decrypted upon activation.
-              If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
-            
+This value defines the protection of the value of the attribute. It may be SecretsStoreRef/Encrypted/PlainText.
+If set to SecretsStoreRef, the value references a secret stored encrypted in the cluster's SecureStore, which is de-referenced and decrypted upon activation.
+If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
 
 |Attribute|Value|
 |---|---|
@@ -3526,10 +3525,9 @@ Name of environment variable.
 
 #### Type
 
-          The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
-          If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
-          If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
-        
+The type for the Environment Variable. It can be PlainText/Encrypted/SecretsStoreRef.
+If set to SecretsStoreRef, we retrieve  the reference value from the SecretStore.
+If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
 
 |Attribute|Value|
 |---|---|
@@ -5313,10 +5311,9 @@ Specifies if password is encrypted or plain text. This attribute is deprecated. 
 
 #### Type
 
-          This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
-          If set to SecretsStoreRef, we retrieve the reference value from the SecretStore.
-          If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
-        
+This value defines the type of password you have specified in the 'Password' Attribute. It can be SecretsStoreRef/Encrypted/PlainText.
+If set to SecretsStoreRef, we retrieve the reference value from the SecretStore.
+If set to Encrypted, the application developer is responsible for creating a certificate and using the Invoke-ServiceFabricEncryptSecret cmdlet to encrypt sensitive information.
 
 |Attribute|Value|
 |---|---|

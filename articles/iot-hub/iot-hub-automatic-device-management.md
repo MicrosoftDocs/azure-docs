@@ -7,6 +7,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: robinsh
+ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Automatic IoT device and module management using the Azure portal

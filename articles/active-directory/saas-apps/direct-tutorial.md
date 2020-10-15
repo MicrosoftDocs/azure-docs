@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with direct | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and direct.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 7c2cd1f0-d14c-42f0-94a8-9b800008b285
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with direct
 

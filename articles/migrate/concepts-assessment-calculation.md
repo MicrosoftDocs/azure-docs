@@ -1,11 +1,11 @@
 ---
-title: Assessments in Azure Migrate Server Assessment
+title: Azure VM assessments in Azure Migrate Server Assessment
 description: Learn about assessments in Azure Migrate Server Assessment
 ms.topic: conceptual
 ms.date: 05/27/2020
 ---
 
-# Assessments in Azure Migrate: Server Assessment
+# Server assessment overview (migrate to Azure VMs)
 
 This article provides an overview of assessments in the [Azure Migrate: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) tool. The tool can assess on-premises VMware virtual machines, Hyper-V VMs, and physical servers for migration to Azure.
 
@@ -18,7 +18,14 @@ An assessment with the Server Assessment tool measures the readiness and estimat
 
 ## Types of assessments
 
-Assessments you create with Server Assessment are a point-in-time snapshot of data. Server Assessment provides two types of assessments.
+There are two types of assessments you can create using Azure Migrate: Server Assessment.
+
+**Assessment Type** | **Details**
+--- | --- 
+**Azure VM** | Assessments to migrate your on-premises servers to Azure virtual machines. <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md), [Hyper-V VMs](how-to-set-up-appliance-hyper-v.md), and [physical servers](how-to-set-up-appliance-physical.md) for migration to Azure using this assessment type.
+**Azure VMware Solution (AVS)** | Assessments to migrate your on-premises servers to [Azure VMware Solution (AVS)](../azure-vmware/introduction.md). <br/><br/> You can assess your on-premises [VMware VMs](how-to-set-up-appliance-vmware.md) for migration to Azure VMware Solution (AVS) using this assessment type.[Learn more](concepts-azure-vmware-solution-assessment-calculation.md)
+
+Assessments you create with Server Assessment are a point-in-time snapshot of data. An Azure VM assessment in Server Assessment provides two sizing criteria options:
 
 **Assessment type** | **Details** | **Data**
 --- | --- | ---
@@ -40,7 +47,7 @@ If you're deploying an Azure Migrate appliance to discover on-premises servers, 
 1. For your first assessment, create an Azure project and add the Server Assessment tool to it.
 1. Deploy a lightweight Azure Migrate appliance. The appliance continuously discovers on-premises machines and sends machine metadata and performance data to Azure Migrate. Deploy the appliance as a VM or a physical machine. You don't need to install anything on machines that you want to assess.
 
-After the appliance begins machine discovery, you can gather machines you want to assess into a group and run an assessment for the group.
+After the appliance begins machine discovery, you can gather machines you want to assess into a group and run an assessment for the group with assessment type **Azure VM**.
 
 Follow our tutorials for [VMware](tutorial-prepare-vmware.md), [Hyper-V](tutorial-prepare-hyper-v.md), or [physical servers](tutorial-prepare-physical.md) to try out these steps.
 
@@ -52,7 +59,7 @@ If you're assessing servers by using a CSV file, you don't need an appliance. In
 1. For your first assessment, create an Azure project and add the Server Assessment tool to it.
 1. Download a CSV template and add server data to it.
 1. Import the template into Server Assessment.
-1. Discover servers added with the import, gather them into a group, and run an assessment for the group.
+1. Discover servers added with the import, gather them into a group, and run an assessment for the group with assessment type **Azure VM**.
 
 ## What data does the appliance collect?
 
@@ -68,7 +75,7 @@ If you use the appliance for discovery, it collects performance data for compute
     - **Hyper-V VMs**: A sample point is collected every 30 seconds.
     - **Physical servers**: A sample point is collected every five minutes.
 
-1. The appliance combines the sample points to create a single data point every 10 minutes. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
+1. The appliance combines the sample points to create a single data point every 10 minutes for VMware and Hyper-V servers, and every 5 minutes for physical servers. To create the data point, the appliance selects the peak values from all samples. It then sends the data point to Azure.
 1. Server Assessment stores all the 10-minute data points for the last month.
 1. When you create an assessment, Server Assessment identifies the appropriate data point to use for rightsizing. Identification is based on the percentile values for *performance history* and *percentile utilization*.
 
@@ -84,7 +91,7 @@ If you use the appliance for discovery, it collects performance data for compute
     - Disk throughput (read and write)
     - Network throughput (in and out)
 
-## How are assessments calculated?
+## How are Azure VM assessments calculated?
 
 Server Assessment uses the on-premises machines' metadata and performance data to calculate assessments. If you deploy the Azure Migrate appliance, assessment uses the data the appliance collects. But if you run an assessment imported using a CSV file, you provide the metadata for the calculation.
 
@@ -96,11 +103,11 @@ Calculations occur in these three stages:
 
 Calculations are in the preceding order. A machine server moves to a later stage only if it passes the previous one. For example, if a server fails the Azure readiness stage, it's marked as unsuitable for Azure. Sizing and cost calculations aren't done for that server.
 
-## What's in an assessment?
+## What's in an Azure VM assessment?
 
-Here's what's included in an assessment in Server Assessment:
+Here's what's included in an Azure VM assessment in Server Assessment:
 
-Property | Details
+**Property** | **Details**
 --- | ---
 **Target location** | The location to which you want to migrate. Server Assessment currently supports these target Azure regions:<br/><br/> Australia East, Australia Southeast, Brazil South, Canada Central, Canada East, Central India, Central US, China East, China North, East Asia, East US, East US 2, Germany Central, Germany Northeast, Japan East, Japan West, Korea Central, Korea South, North Central US, North Europe, South Central US, Southeast Asia, South India, UK South, UK West, US Gov Arizona, US Gov Texas, US Gov Virginia, West Central US, West Europe, West India, West US, and West US 2.
 **Target storage disk (as-is sizing)** | The type of disk to use for storage in Azure. <br/><br/> Specify the target storage disk as Premium-managed, Standard SSD-managed, or Standard HDD-managed.
@@ -110,7 +117,7 @@ Property | Details
 **Performance history** | Used with performance-based sizing. Performance history specifies the duration used when performance data is evaluated.
 **Percentile utilization** | Used with performance-based sizing. Percentile utilization specifies the percentile value of the performance sample used for rightsizing.
 **VM series** | The Azure VM series that you want to consider for rightsizing. For example, if you don't have a production environment that needs A-series VMs in Azure, you can exclude A-series from the list of series.
-**Comfort factor** | The buffer used during assessment. It's applied to the CPU, RAM, disk, and network utilization data for VMs. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0, the result is a four-core VM instead.
+**Comfort factor** | The buffer used during assessment. It's applied to the CPU, RAM, disk, and network data for VMs. It accounts for issues like seasonal usage, short performance history, and likely increases in future usage.<br/><br/> For example, a 10-core VM with 20% utilization normally results in a two-core VM. With a comfort factor of 2.0, the result is a four-core VM instead.
 **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. Server Assessment estimates the cost for that offer.
 **Currency** | The billing currency for your account.
 **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%.
@@ -123,7 +130,7 @@ Property | Details
 
 ## Calculate readiness
 
-Not all machines are suitable to run in Azure. Server Assessment assesses all on-premises machines and assigns them a readiness category.
+Not all machines are suitable to run in Azure. An Azure VM Assessment assesses all on-premises machines and assigns them a readiness category.
 
 - **Ready for Azure**: The machine can be migrated as-is to Azure without any changes. It will start in Azure with full Azure support.
 - **Conditionally ready for Azure**: The machine might start in Azure but might not have full Azure support. For example, Azure doesn't support a machine that's running an old version of Windows Server. You must be careful before you migrate these machines to Azure. To fix any readiness problems, follow the remediation guidance the assessment suggests.
@@ -134,22 +141,22 @@ To calculate readiness, Server Assessment reviews the machine properties and ope
 
 ### Machine properties
 
-Server Assessment reviews the following properties of an on-premises VM to determine whether it can run on Azure.
+For an Azure VM Assessment, Server Assessment reviews the following properties of an on-premises VM to determine whether it can run on Azure VMs.
 
 Property | Details | Azure readiness status
 --- | --- | ---
 **Boot type** | Azure supports VMs with a boot type of BIOS, not UEFI. | Conditionally ready if the boot type is UEFI
-**Cores** | Each machine must have no more than 128 cores, which is the maximum number an Azure VM supports.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores without applying the comfort factor. | Ready if the number of cores is within the limit
-**RAM** | Each machine must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br/><br/> If there's no history, the allocated RAM is used without application of a comfort factor.<br/><br/> | Ready if the amount of RAM is within the limit
+**Cores** | Each machine must have no more than 128 cores, which is the maximum number an Azure VM supports.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If the assessment settings specify a comfort factor, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores to apply the comfort factor. | Ready if the number of cores is within the limit
+**RAM** | Each machine must have no more than 3,892 GB of RAM, which is the maximum size an Azure M-series Standard_M128m&nbsp;<sup>2</sup> VM supports. [Learn more](../virtual-machines/sizes.md).<br/><br/> If performance history is available, Azure Migrate considers the utilized RAM for comparison. If a comfort factor is specified, the utilized RAM is multiplied by the comfort factor.<br/><br/> If there's no history, the allocated RAM is used to apply a comfort factor.<br/><br/> | Ready if the amount of RAM is within the limit
 **Storage disk** | The allocated size of a disk must be no more than 32 TB. Although Azure supports 64-TB disks with Azure Ultra SSD disks, Azure Migrate: Server Assessment currently checks for 32 TB as the disk-size limit because it doesn't support Ultra SSD yet. <br/><br/> The number of disks attached to the machine, including the OS disk, must be 65 or fewer. | Ready if the disk size and number are within the limits
 **Networking** | A machine must have no more than 32 network interfaces (NICs) attached to it. | Ready if the number of NICs is within the limit
 
 ### Guest operating system
 
-Along with reviewing VM properties, Server Assessment looks at the guest operating system of a machine to determine whether it can run on Azure.
+For an Azure VM Assessment, along with reviewing VM properties, Server Assessment looks at the guest operating system of a machine to determine whether it can run on Azure.
 
 > [!NOTE]
-> To handle guest analysis for VMware VMs, Server Assessment uses the operating system specified for the VM in vCenter Server. However, vCenter Server doesn't provide the kernel version for Linux VM operating systems. To discover the version, you need to set up [application discovery](https://docs.microsoft.com/azure/migrate/how-to-discover-applications). Then, the appliance discovers version information using the guest credentials you specify when you set up app-discovery.
+> To handle guest analysis for VMware VMs, Server Assessment uses the operating system specified for the VM in vCenter Server. However, vCenter Server doesn't provide the kernel version for Linux VM operating systems. To discover the version, you need to set up [application discovery](./how-to-discover-applications.md). Then, the appliance discovers version information using the guest credentials you specify when you set up app-discovery.
 
 
 Server Assessment uses the following logic to identify Azure readiness based on the operating system:
@@ -163,8 +170,8 @@ Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Az
 Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure.
 Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1, and MS-DOS | These operating systems have passed their end-of-support dates. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
-Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Conditionally ready for Azure.
-Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Conditionally ready for Azure.
+Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure.
+Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure.
 Windows Vista and Windows XP Professional | These operating systems have passed their end-of-support dates. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
 Linux | See the [Linux operating systems](../virtual-machines/linux/endorsed-distros.md) that Azure endorses. Other Linux operating systems might start in Azure. But we recommend that you upgrade the OS to an endorsed version before you migrate to Azure. | Ready for Azure if the version is endorsed.<br/><br/>Conditionally ready if the version isn't endorsed.
 Other operating systems like Oracle Solaris, Apple macOS, and FreeBSD | Azure doesn't endorse these operating systems. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you install a supported OS before migrating to Azure.  
@@ -173,11 +180,11 @@ OS specified as **Other** in vCenter Server | Azure Migrate can't identify the O
 
 ## Calculating sizing
 
-After the machine is marked as ready for Azure, Server Assessment makes sizing recommendations. These recommendations identify the Azure VM and disk SKU. Sizing calculations depend on whether you're using as-is on-premises sizing or performance-based sizing.
+After the machine is marked as ready for Azure, Server Assessment makes sizing recommendations in the Azure VM assessment. These recommendations identify the Azure VM and disk SKU. Sizing calculations depend on whether you're using as-is on-premises sizing or performance-based sizing.
 
 ### Calculate sizing (as-is on-premises)
 
- If you use as-is on-premises sizing, Server Assessment doesn't consider the performance history of the VMs and disks.
+ If you use as-is on-premises sizing, Server Assessment doesn't consider the performance history of the VMs and disks in the Azure VM assessment.
 
 - **Compute sizing**: Server Assessment allocates an Azure VM SKU based on the size allocated on-premises.
 - **Storage and disk sizing**: Server Assessment looks at the storage type specified in assessment properties and recommends the appropriate disk type. Possible storage types are Standard HDD, Standard SSD, and Premium. The default storage type is Premium.
@@ -185,7 +192,7 @@ After the machine is marked as ready for Azure, Server Assessment makes sizing r
 
 ### Calculate sizing (performance-based)
 
-If you use performance-based sizing, Server Assessment makes sizing recommendations as follows:
+If you use performance-based sizing in an Azure VM assessment, Server Assessment makes sizing recommendations as follows:
 
 - Server Assessment considers the performance history of the machine to identify the VM size and disk type in Azure.
 - If you import servers by using a CSV file, the values you specify are used. This method is especially helpful if you've overallocated the on-premises machine, utilization is low, and you want to rightsize the Azure VM to save costs.
@@ -193,7 +200,7 @@ If you use performance-based sizing, Server Assessment makes sizing recommendati
 
 #### Calculate storage sizing
 
-For storage sizing, Azure Migrate tries to map each disk that is attached to the machine to an Azure disk. Sizing works as follows:
+For storage sizing in an Azure VM assessment, Azure Migrate tries to map each disk that is attached to the machine to an Azure disk. Sizing works as follows:
 
 1. Server Assessment adds the read and write IOPS of a disk to get the total IOPS required. Similarly, it adds the read and write throughput values to get the total throughput of each disk. In the case of import-based assessments, you have the option to provide the total IOPS, total throughput and total no. of disks in the imported file without specifying individual disk settings. If you do this, individual disk sizing is skipped and the supplied data is used directly to compute sizing, and select an appropriate VM SKU.
 
@@ -206,7 +213,7 @@ For storage sizing, Azure Migrate tries to map each disk that is attached to the
 
 #### Calculate network sizing
 
-Server Assessment tries to find an Azure VM that supports the number and required performance of network adapters attached to the on-premises machine.
+For an Azure VM assessment, Server Assessment tries to find an Azure VM that supports the number and required performance of network adapters attached to the on-premises machine.
 
 - To get the effective network performance of the on-premises VM, Server Assessment aggregates the data transmission rate out of the machine (network out) across all network adapters. It then applies the comfort factor. It uses the resulting value to find an Azure VM that can support the required network performance.
 - Along with network performance, Server Assessment also considers whether the Azure VM can support the required number of network adapters.
@@ -223,7 +230,7 @@ After it calculates storage and network requirements, Server Assessment consider
 
 ## Confidence ratings (performance-based)
 
-Each performance-based assessment in Azure Migrate is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
+Each performance-based Azure VM assessment in Azure Migrate is associated with a confidence rating. The rating ranges from one (lowest) to five (highest) stars. The confidence rating helps you estimate the reliability of the size recommendations Azure Migrate provides.
 
 - The confidence rating is assigned to an assessment. The rating is based on the availability of data points that are needed to compute the assessment.
 - For performance-based sizing, Server Assessment needs:
@@ -261,7 +268,7 @@ Here are a few reasons why an assessment could get a low confidence rating:
 
 ## Calculate monthly costs
 
-After sizing recommendations are complete, Azure Migrate calculates compute and storage costs for after migration.
+After sizing recommendations are complete, an Azure VM assessment in Azure Migrate calculates compute and storage costs for after migration.
 
 - **Compute cost**: Azure Migrate uses the recommended Azure VM size and the Azure Billing API to calculate the monthly cost for the VM.
 

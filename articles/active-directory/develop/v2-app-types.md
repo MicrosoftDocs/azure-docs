@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, fasttrack-edit
 ---
 
 # Application types for Microsoft identity platform
@@ -38,9 +38,9 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## Single-page apps (JavaScript)
 
-Many modern apps have a single-page app front end written primarily in JavaScript, often with a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md).
+Many modern apps have a single-page app front end written primarily in JavaScript, often with a framework like Angular, React, or Vue. The Microsoft identity platform endpoint supports these apps by using the [OpenID Connect](v2-protocols-oidc.md) protocol for authentication and either [OAuth 2.0 implicit grant flow](v2-oauth2-implicit-grant-flow.md) or the more recent [OAuth 2.0 authorization code + PKCE flow](v2-oauth2-auth-code-flow.md) for authorization (see below).
 
-In this flow, the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for tokens and refresh tokens using cross-site web requests. The refresh token expires every 24 hours, and the app must request another code.
+The flow diagram below demonstrates the OAuth 2.0 authorization code grant (with details around PKCE omitted), where the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for tokens and refresh tokens using cross-site web requests. The refresh token expires every 24 hours, and the app must request another code. In addition to the access token, an `id_token` that represents the signed-in user to the client application is typically also requested through the same flow and/or a separate OpenID Connect request (not shown here).
 
 ![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 
@@ -79,7 +79,7 @@ You can ensure the user's identity by validating the ID token with a public sign
 
 To see this scenario in action, try one of the web app sign-in code samples in the [Microsoft identity platform getting started](v2-overview.md#getting-started) section.
 
-In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, read about [getting started with web apps and Web APIs](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
+In addition to simple sign-in, a web server app might need to access another web service, such as a REST API. In this case, the web server app engages in a combined OpenID Connect and OAuth 2.0 flow, by using the [OAuth 2.0 authorization code flow](v2-oauth2-auth-code-flow.md). For more information about this scenario, read about [getting started with web apps and Web APIs](https://github.com/AzureADQuickStarts/AppModelv2-WebApp-WebAPI-OpenIDConnect-DotNet).
 
 
 ## Web APIs
@@ -113,6 +113,9 @@ Device-installed apps, such as mobile and desktop apps, often need to access bac
 In this flow, the app receives an authorization code from the Microsoft identity platform endpoint when the user signs in. The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in. The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token. The app can use the access token to authenticate to web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.
 
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
+
+> [!NOTE]
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-aadsts-error-codes.md).
 
 ## Daemons and server-side apps
 

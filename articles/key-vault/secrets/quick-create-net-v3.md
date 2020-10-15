@@ -17,15 +17,7 @@ Get started with the Azure Key Vault client library for .NET. Follow the steps b
 > [!NOTE]
 > This quickstart uses the v3.0.4 version of the Microsoft.Azure.KeyVault client library. To use the most up-to-date version of the Key Vault client library, see [Azure Key Vault client library for .NET (SDK v4)](quick-create-net.md). 
 
-Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud applications and services. Use the Key Vault client library for .NET to:
-
-- Increase security and control over keys and passwords.
-- Create and import encryption keys in minutes.
-- Reduce latency with cloud scale and global redundancy.
-- Simplify and automate tasks for TLS/SSL certificates.
-- Use FIPS 140-2 Level 2 validated HSMs.
-
-[API reference documentation](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
+[API reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/keyvault/v3) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault/Microsoft.Azure.KeyVault) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.KeyVault/)
 
 > [!NOTE]
 > Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
@@ -35,11 +27,26 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
 
 * An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * The [.NET Core 3.1 SDK or later](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) or [Azure PowerShell](/powershell/azure/overview)
+* [Azure CLI](/cli/azure/install-azure-cli)
 
-This quickstart assumes you are running `dotnet`, [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest), and Windows commands in a Windows terminal (such as [PowerShell Core](/powershell/scripting/install/installing-powershell-core-on-windows?view=powershell-6), [Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6), or the [Azure Cloud Shell](https://shell.azure.com/)).
+This quickstart is using `dotnet` and Azure CLI
 
 ## Setting up
+
+### Sign in to Azure
+
+1. Run the `login` command.
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    If the CLI can open your default browser, it will do so and load an Azure sign-in page.
+
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
+    authorization code displayed in your terminal.
+
+2. Sign in with your account credentials in the browser.
 
 ### Create new .NET console app
 
@@ -66,10 +73,11 @@ Build succeeded.
 
 ### Install the package
 
-From the console window, install the Azure Key Vault client library for .NET:
+From the console window, install the Azure Key Vault client library for .NET and [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) library:
 
 ```console
 dotnet add package Microsoft.Azure.KeyVault
+dotnet add package Microsoft.Azure.Services.AppAuthentication
 ```
 
 For this quickstart, you will need to install the following packages as well:
@@ -82,60 +90,19 @@ dotnet add package Microsoft.Azure.Management.ResourceManager.Fluent
 
 ### Create a resource group and key vault
 
-This quickstart uses a pre-created Azure key vault. You can create a key vault by following the steps in the [Azure CLI quickstart](quick-create-cli.md), [Azure PowerShell quickstart](quick-create-powershell.md), or [Azure portal quickstart](quick-create-portal.md). Alternatively, you can simply run the Azure CLI commands below.
+[!INCLUDE [Create a resource group and key vault](../../../includes/key-vault-rg-kv-creation.md)]
 
-> [!Important]
-> Each key vault must have a unique name. Replace <your-unique-keyvault-name> with the name of your key vault in the following examples.
+#### Grant access to your key vault
 
-```azurecli
-az group create --name "myResourceGroup" -l "EastUS"
-
-az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
-```
-
-### Create a service principal
-
-The simplest way to authenticate a cloud-based .NET application is with a managed identity; see [Use an App Service managed identity to access Azure Key Vault](../general/managed-identity.md) for details. 
-
-For the sake of simplicity however, this quickstart creates a .NET console application, which requires the use of a service principal and an access control policy. Your service principal requires a unique name in the format "http://&lt;my-unique-service-principal-name&gt;".
-
-Create a service principal using the Azure CLI [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command:
-
-```azurecli
-az ad sp create-for-rbac -n "http://&lt;my-unique-service-principal-name&gt;" --sdk-auth
-```
-
-This operation will return a series of key / value pairs. 
+Create an access policy for your key vault that grants secret permission to your user account
 
 ```console
-{
-  "clientId": "7da18cae-779c-41fc-992e-0527854c6583",
-  "clientSecret": "b421b443-1669-4cd7-b5b1-394d5c945002",
-  "subscriptionId": "443e30da-feca-47c4-b68f-1636b75e16b3",
-  "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
-  "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
-  "resourceManagerEndpointUrl": "https://management.azure.com/",
-  "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
-  "galleryEndpointUrl": "https://gallery.azure.com/",
-  "managementEndpointUrl": "https://management.core.windows.net/"
-}
-```
-
-Take note of the clientId and clientSecret, as we will use them in the [Authenticate to your key vault](#authenticate-to-your-key-vault) step below.
-
-#### Give the service principal access to your key vault
-
-Create an access policy for your key vault that grants permission to your service principal by passing the clientId to the [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) command. Give the service principal get, list, and set permissions for both keys and secrets.
-
-```azurecli
-az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
+az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
 ```
 
 ## Object model
 
 The Azure Key Vault client library for .NET allows you to manage keys and related assets such as certificates and secrets. The code samples below will show you how to set a secret and retrieve a secret.
-
-The entire console app is available at https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet.
 
 ## Code examples
 
@@ -143,38 +110,26 @@ The entire console app is available at https://github.com/Azure-Samples/key-vaul
 
 Add the following directives to the top of your code:
 
-[!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=directives)]
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.Azure.KeyVault;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
+using Microsoft.Azure.Services.AppAuthentication;
+```
 
 ### Authenticate to your key vault
 
-This .NET quickstart relies on environment variables to store credentials that should not be put in code. 
+Configure authentication to your application in [KeyVaultClient class](/dotnet/api/microsoft.azure.keyvault.keyvaultclient). In our example, it will use token provided by `AzureServiceTokenProvider` from currently logged in user:
 
-Before you build and run your app, use the `setx` command to set the `akvClientId`, `akvClientSecret`, `akvTenantId`, and `akvSubscriptionId` environment variables to the values you noted above.
-
-**Windows**
-
-```console
-setx akvClientId "<your-clientID>"
-setx akvClientSecret "<your-clientSecret>"
+```csharp
+var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));
 ```
 
-**Linux**
-
-```bash
-export akvClientId = "<your-clientID>"
-export akvClientSecret = "<your-clientSecret>"
-```
-
-**MacOS**
-
-```bash
-export akvClientId = "<your-clientID>"
-export akvClientSecret = "<your-clientSecret>"
-```
-
-Assign these environment variables to strings in your code, and then authenticate your application by passing them to the [KeyVaultClient class](/dotnet/api/microsoft.azure.keyvault.keyvaultclient):
-
-[!code-csharp[Authentication](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=authentication)]
+For more information about `AzureServiceTokenProvider`, see [Authenticating to Azure Services](https://docs.microsoft.com/azure/key-vault/general/service-to-service-authentication#authenticating-to-azure-services)
 
 ### Save a secret
 
@@ -182,7 +137,7 @@ Now that your application is authenticated, you can put a secret into your keyva
 
 [!code-csharp[Set secret](~/samples-key-vault-dotnet-quickstart/akvdotnet/Program.cs?name=setsecret)]
 
-You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) command:
+You can verify that the secret has been set with the [az keyvault secret show](/cli/azure/keyvault/secret?#az-keyvault-secret-show) command:
 
 ```azurecli
 az keyvault secret show --vault-name <your-unique-keyvault-name> --name mySecret
@@ -208,9 +163,68 @@ az group delete -g "myResourceGroup"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## Next steps
+## Sample code
 
-In this quickstart you created a key vault, stored a secret, and retrieved that secret. See the [entire console app in GitHub](https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/akvdotnet).
+Modify the .NET Core console app to interact with the Key Vault by completing the following steps:
+
+1. Replace the code in *Program.cs* with the following code:
+```csharp
+using System;
+using System.Threading.Tasks;
+using Microsoft.Azure.KeyVault;
+using Microsoft.IdentityModel.Clients.ActiveDirectory;
+using Microsoft.Azure.Services.AppAuthentication;
+using Microsoft.Azure.Management.ResourceManager.Fluent;
+using Microsoft.Azure.Management.ResourceManager.Fluent.Authentication;
+// </directives>
+
+namespace akvdotnet
+{
+    class Program
+    {
+        static async Task Main(string[] args)
+        {
+            Program P = new Program();
+            string secretName = "mySecret";
+
+            // kvURL must be updated to the URL of your key vault
+            string kvURL = "https://myKV.vault.azure.net";
+
+            // <authentication>
+
+            var azureServiceTokenProvider1 = new AzureServiceTokenProvider();
+            var kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider1.KeyVaultTokenCallback));        
+            // </authentication>
+
+
+            Console.Write("Input the value of your secret > ");
+            string secretValue = Console.ReadLine();
+
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+
+            Console.Write("Saving the value of your secret to your key vault ...");
+
+            //set secret
+            await kvClient.SetSecretAsync($"{kvURL}", secretName, secretValue);
+
+            Console.WriteLine("done.");
+
+            Console.WriteLine("Forgetting your secret.");
+            secretValue = "";
+            Console.WriteLine("Your secret is '" + secretValue + "'.");
+            Console.WriteLine("Retrieving your secret from key vault.");
+
+            //retrieve secret
+            var keyvaultSecret = await kvClient.GetSecretAsync($"{kvURL}", secretName).ConfigureAwait(false);
+
+            secretValue = keyvaultSecret.Result;
+            Console.WriteLine("Your secret is " + secretValue);
+        }
+    }
+}
+```
+
+## Next steps
 
 To learn more about Key Vault and how to integrate it with your applications, continue on to the articles below.
 

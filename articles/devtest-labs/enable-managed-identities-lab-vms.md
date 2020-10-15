@@ -1,20 +1,8 @@
 ---
 title: Enable managed identities on your lab VMs in Azure DevTest Labs
 description: This article shows how a lab owner can enable user-assigned managed identities on your lab virtual machines. 
-services: lab-services
-documentationcenter: na
-author: spelluru
-manager: 
-editor: ''
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 01/03/2020
-ms.author: spelluru
-
+ms.date: 06/26/2020
 ---
 
 # Enable user-assigned managed identities on lab virtual machines in Azure DevTest Labs
@@ -32,14 +20,16 @@ To add a user assigned managed identity for lab VMs, follow these steps:
 
 1. [Create a user-assigned managed identity in your subscription](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity)
 1. Navigate to the **Configuration and policies** page for your lab.
-2. Select **Identity (Preview)** on the left menu.
-3. Select the **Virtual machine** tab.
-4. Select **Add** to select an existing identity from a pre-populated dropdown list. 
+1. Select **Identity (Preview)** on the left menu.
+1. Select the **Virtual machine** tab.
+1. Select **Add** to select an existing identity from a pre-populated dropdown list. 
 
-    ![Add identity button](./media/enable-managed-identities-lab-vms/add-identity-button.png)
-5. Select an existing **user-managed identity** from the dropped-down list, and select **OK**. 
+    > [!div class="mx-imgBorder"]
+    > ![Add identity button](./media/enable-managed-identities-lab-vms/add-identity-button.png)
+1. Select an existing **user-managed identity** from the dropped-down list, and select **OK**. 
 
-    ![Add identity](./media/enable-managed-identities-lab-vms/add-identity.png)
+    > [!div class="mx-imgBorder"]
+    > ![Add identity](./media/enable-managed-identities-lab-vms/add-identity.png)
 
 ## Use API
 

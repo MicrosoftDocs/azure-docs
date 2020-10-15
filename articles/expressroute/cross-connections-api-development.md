@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute CrossConnnections API development and integration'
 description: This article provides a detailed overview for ExpressRoute partners about the expressRouteCrossConnections resource type.
 services: expressroute
-author: mialdrid
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
-ms.author: mialdrid
+ms.author: duau
 
 ---
 
@@ -28,7 +28,7 @@ Benefits of moving to the expressRouteCrossConnections resource:
 
 * Any future enhancements for ExpressRoute partners will be made available on the ExpressRouteCrossConnection resource.
 
-* Partners can apply [Role-Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
+* Partners can apply [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) to the expressRouteCrossConnection resource. These controls can define permissions for which users accounts can modify the expressRouteCrossConnection resource and add/update/delete peering configurations.
 
 * The expressRouteCrossConnection resource exposes APIs that can be helpful in troubleshooting ExpressRoute connections. This includes ARP table, BGP Route Table Summary, and BGP Route Table details. This capability is not supported by classic deployment APIs.
 

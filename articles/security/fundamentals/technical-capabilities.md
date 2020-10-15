@@ -3,20 +3,15 @@
 title: Security technical capabilities in Azure - Microsoft Azure
 description: Introduction to security services in Azure that help you protect you data, resources, and applications in the cloud.
 services: security
-documentationcenter: na
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
+author: terrylanfear
 
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/31/2019
-ms.author: TomSh
+ms.date: 07/13/2020
+ms.author: terrylan
 
 ---
 # Azure security technical capabilities
@@ -86,7 +81,7 @@ The following are core Azure identity management capabilities:
 
 [Single sign-on (SSO)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/) means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all the applications you need without being required to authenticate (for example, type a password) a second time.
 
-Many organizations rely upon software as a service (SaaS) applications such as Office 365, Box, and Salesforce for end-user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
+Many organizations rely upon software as a service (SaaS) applications such as Microsoft 365, Box, and Salesforce for end-user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
 [Azure AD extends on-premises Active Directory into the cloud](../../active-directory/manage-apps/what-is-single-sign-on.md), enabling users to use their primary organizational account to not only sign in to their domain-joined devices and company resources, but also all the web and SaaS applications needed for their job.
 
@@ -128,15 +123,15 @@ When combined with a [mobile device management (MDM)](https://www.microsoft.com/
 
 #### Privileged identity management
 
-[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) lets you manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services like Office 365 or Microsoft Intune.
+[Azure Active Directory (AD) Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md) lets you manage, control, and monitor your privileged identities and access to resources in Azure AD as well as other Microsoft online services like Microsoft 365 or Microsoft Intune.
 
-Sometimes users need to carry out privileged operations in Azure or Office 365 resources, or other SaaS apps. This often means organizations have to give them permanent privileged access in Azure AD. This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their admin privileges. Additionally, if a user account with privileged access is compromised, that one breach could impact their overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk.
+Sometimes users need to carry out privileged operations in Azure or Microsoft 365 resources, or other SaaS apps. This often means organizations have to give them permanent privileged access in Azure AD. This is a growing security risk for cloud-hosted resources because organizations can't sufficiently monitor what those users are doing with their admin privileges. Additionally, if a user account with privileged access is compromised, that one breach could impact their overall cloud security. Azure AD Privileged Identity Management helps to resolve this risk.
 
 Azure AD Privileged Identity Management lets you:
 
 - See which users are Azure AD admins
 
-- Enable on-demand, "just in time" administrative access to Microsoft Online Services like Office 365 and Intune
+- Enable on-demand, "just in time" administrative access to Microsoft Online Services like Microsoft 365 and Intune
 
 - Get reports about administrator access history and changes in administrator assignments
 
@@ -154,7 +149,7 @@ Access control in Azure starts from a billing perspective. The owner of an Azure
 
 Subscriptions also have an association with a directory. The directory defines a set of users. These can be users from the work or school that created the directory, or they can be external users (that is, Microsoft Accounts). Subscriptions are accessible by a subset of those directory users who have been assigned as either Service Administrator (SA) or Co-Administrator (CA); the only exception is that, for legacy reasons, Microsoft Accounts (formerly Windows Live ID) can be assigned as SA or CA without being present in the directory.
 
-Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions can expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. [Azure Role-Based Access Control (RBAC)](../../role-based-access-control/overview.md) helps address this problem by offering fine-grained access management for Azure.
+Security-oriented companies should focus on giving employees the exact permissions they need. Too many permissions can expose an account to attackers. Too few permissions mean that employees can't get their work done efficiently. [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) helps address this problem by offering fine-grained access management for Azure.
 
 ![Secured resource access](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -167,77 +162,11 @@ Using RBAC, you can segregate duties within your team and grant only the amount 
 One of the keys to data protection in the cloud is accounting for the possible states in which your data may occur, and what controls are available for that state. For Azure data security and encryption best practices the recommendations be around the following data’s states.
 
 - At-rest: This includes all information storage objects, containers, and types that exist statically on physical media, be it magnetic or optical disk.
-
 - In-transit: When data is being transferred between components, locations or programs, such as over the network, across a service bus (from on-premises to cloud and vice-versa, including hybrid connections such as ExpressRoute), or during an input/output process, it is thought of as being in-motion.
 
 ### Encryption at rest
 
-To achieve encryption at rest, do each of the following:
-
-Support at least one of the recommended encryption models detailed in the following table to encrypt data.
-
-| Encryption Models |  |  |  |
-| ----------------  | ----------------- | ----------------- | --------------- |
-| Server Encryption | Server Encryption | Server Encryption | Client Encryption
-| Server-Side Encryption using Service Managed Keys | Server-side encryption using Customer-Managed Keys in Azure Key Vault | Server-side encryption using on premises customer managed keys |
-| •	Azure Resource Providers perform the encryption and decryption operations <br> •	Microsoft manages the keys <br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations<br>•	Customer controls keys via Azure Key Vault<br>•	Full cloud functionality | •	Azure Resource Providers perform the encryption and decryption operations <br>•	Customer controls keys On-premises <br> •	Full cloud functionality| •	Azure services cannot see decrypted data <br>•	Customers keep keys on-premises (or in other secure stores). Keys are not available to Azure services <br>•	Reduced cloud functionality|
-
-### Enabling encryption at rest
-
-**Identify All Locations Your Stores Data**
-
-The goal of encryption at rest is to encrypt all data. Doing so eliminates the possibility of missing important data or all persisted locations. Enumerate all data stored by your application.
-
-> [!Note]
-> Not just "application data" or "PII' but any data relating to application including account metadata (subscription mappings, contract info, PII).
-
-Consider what stores you are using to store data. For example:
-
-- External storage (for example, SQL Azure, Document DB, HDInsights, Data Lake, etc.)
-
-- Temporary storage (any local cache that includes tenant data)
-
-- In-memory cache (could be put into the page file.)
-
-### Leverage the existing encryption at rest support in Azure
-
-For each store you use, leverage the existing encryption at rest support.
-
-- Azure Storage: See [Azure Storage Service Encryption for Data at Rest](../../storage/common/storage-service-encryption.md),
-
-- SQL Azure: See [Transparent Data Encryption (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
-
-- VM & Local disk storage ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
-
-For VM and Local disk storage use Azure Disk Encryption where supported:
-
-#### IaaS
-
-Services with IaaS VMs (Windows or Linux) should use [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) to encrypt volumes containing customer data.
-
-#### PaaS v2
-
-Services running on PaaS v2 using Service Fabric can use Azure disk encryption for Virtual Machine Scale Set [VMSS] to encrypt their PaaS v2 VMs.
-
-#### PaaS v1
-
-Azure Disk Encryption currently is not supported on PaaS v1. Therefore, you must use application level encryption to encrypt persisted data at rest.  This includes, but is not limited to, application data, temporary files, logs, and crash dumps.
-
-Most services should attempt to leverage the encryption of a storage resource provider. Some services have to do explicit encryption, for example, any persisted key material (Certificates, root / master keys) must be stored in Key Vault.
-
-If you support service-side encryption with customer-managed keys there needs to be a way for the customer to get the key to us. The supported and recommended way to do that by integrating with Azure Key Vault (AKV). In this case customers can add and manage their keys in Azure Key Vault. A customer can learn how to use AKV via [Getting Started with Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
-
-To integrate with Azure Key Vault, you'd add code to request a key from AKV when needed for decryption.
-
-- See [Azure Key Vault – Step by Step](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) for info on how to integrate with AKV.
-
-If you support customer managed keys, you need to provide a UX for the customer to specify which Key Vault (or Key Vault URI) to use.
-
-As Encryption at Rest involves the encryption of host, infrastructure and tenant data, the loss of the keys due to system failure or malicious activity could mean all the encrypted data is lost. It is therefore critical that your Encryption at Rest solution has a comprehensive disaster recovery story resilient to system failures and malicious activity.
-
-Services that implement Encryption at Rest are usually still susceptible to the encryption keys or data being left unencrypted on the host drive (for example, in the page file of the host OS.) Therefore, services must ensure the host volume for their services is encrypted. To facilitate this Compute team has enabled the deployment of Host Encryption, which uses [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP and extensions to the DCM service and agent to encrypt the host volume.
-
-Most services are implemented on standard Azure VMs. Such services should get [Host Encryption](../azure-security-disk-encryption-overview.md) automatically when Compute enables it. For services running in Compute managed clusters host encryption is enabled automatically as Windows Server 2016 is rolled out.
+Encryption at rest is discussed in detail in [Azure Data Encryption-at-Rest](encryption-atrest.md).
 
 ### Encryption in-transit
 

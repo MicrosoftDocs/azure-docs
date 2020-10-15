@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with BlueJeans for Azure AD | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and BlueJeans for Azure AD.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with BlueJeans for Azure AD
@@ -35,6 +29,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * BlueJeans for Azure AD single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -151,7 +148,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **ADMIN \> GROUP SETTINGS \> SECURITY**.
 
-	![Admin](./media/bluejeans-tutorial/ic785868.png "Admin")
+	![Screenshot shows part of a browser window with the Admin tab selected, with Group Setting and Security selected.](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. In the **SECURITY** section, perform the following steps:
 
@@ -193,14 +190,14 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 2. Go to **ADMIN \> MANAGE USERS \> ADD USER**.
 
-	![Admin](./media/bluejeans-tutorial/ic785877.png "Admin")
+	![Screenshot shows part of a browser window with the Admin tab selected, with Manage Users and Add Users selected.](./media/bluejeans-tutorial/ic785877.png "Admin")
 
 	> [!IMPORTANT]
 	> The **ADD USER** tab is only available if, in the **SECUTIRY tab**, **Enable automatic provisioning** is unchecked.
 
 3. In the **ADD USER** section, perform the following steps:
 
-	![Add User](./media/bluejeans-tutorial/ic785886.png "Add User")
+	![Screenshot shows the Add user section where you enter the information described in this step.](./media/bluejeans-tutorial/ic785886.png "Add User")
 
 	a. In **First Name** text box, enter the first name of user like **B**.
 
@@ -220,7 +217,7 @@ The objective of this section is to create a user called B.Simon in BlueJeans fo
 
 	i. Click **CONTINUE**.
 
-	![Add User](./media/bluejeans-tutorial/ic785887.png "Add User")
+	![Screenshot shows the Add user section where you can view settings and features, with the Add User button selected.](./media/bluejeans-tutorial/ic785887.png "Add User")
 
 	J. Click **ADD USER**.
 

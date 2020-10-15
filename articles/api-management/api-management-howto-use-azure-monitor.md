@@ -39,7 +39,7 @@ The following video shows how to monitor API Management using Azure Monitor.
 
 ## View metrics of your APIs
 
-API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Below are the two most frequently used metrics. For a list of all available metrics, please see [supported metrics](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftapimanagementservice).
+API Management emits metrics every minute, giving you near real-time visibility into the state and health of your APIs. Below are the two most frequently used metrics. For a list of all available metrics, please see [supported metrics](../azure-monitor/platform/metrics-supported.md#microsoftapimanagementservice).
 
 * Capacity: helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
 * Requests: helps you to analyze API traffic going through your APIM services. The metric is emitted per minute and reports the number of gateway requests with dimensions including response codes, location, hostname, and errors. 
@@ -71,18 +71,18 @@ To configure alerts:
 
 1. Select **Alerts** from the menu bar near the bottom of the page.
 
-    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
+    ![Screenshot that shows Alerts in the menu near the bottom of the page.](./media/api-management-azure-monitor/alert-menu-item.png)
 
 2. Click on a **New alert rule** for this alert.
 3. Click on **Add condition**.
 4. Select **Metrics** in the Signal type drop down.
 5. Select **Unauthorized Gateway Request** as the signal to monitor.
 
-    ![alerts](./media/api-management-azure-monitor/signal-type.png)
+    ![Screenshot that highlights the Signal Type field  and Unauthorized Gateway Requests signal name.](./media/api-management-azure-monitor/signal-type.png)
 
 6. In the **Configure signal logic** view, specify a threshold after which the alert should be triggered and click **Done**.
 
-    ![alerts](./media/api-management-azure-monitor/threshold.png)
+    ![Screenshot that shows the Configure signal logic view.](./media/api-management-azure-monitor/threshold.png)
 
 7. Select an existing Action Group or create a new one. In the example below, an email will be sent to the admins. 
 

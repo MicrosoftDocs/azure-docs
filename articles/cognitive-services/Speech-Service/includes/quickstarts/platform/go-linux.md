@@ -2,7 +2,7 @@
 author: glecaros
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/30/2020
+ms.date: 10/15/2020
 ms.author: gelecaro
 ---
 
@@ -19,7 +19,7 @@ Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8)
 To complete this quickstart, you'll need:
 
 * gcc
-* go (1.13 or later)
+* [Go binary (1.13 or later)](https://golang.org/dl/)
 
 * Supported Linux platforms will require certain libraries installed (`libssl` for secure sockets layer support and `libasound2` for sound support). Refer to your distribution below for the commands needed to install the correct versions of these libraries.
 

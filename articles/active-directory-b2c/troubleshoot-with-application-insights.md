@@ -8,8 +8,9 @@ manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: troubleshooting
+ms.date: 10/12/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -84,7 +85,7 @@ If you don't already have one, create an instance of Application Insights in you
 There is a short delay, typically less than five minutes, before you can see new logs in Application Insights.
 
 1. Open the Application Insights resource that you created in the [Azure portal](https://portal.azure.com).
-1. In the **Overview** menu, select **Analytics**.
+1. On the **Overview** page, select **Logs**.
 1. Open a new tab in Application Insights.
 
 Here is a list of queries you can use to see the logs:

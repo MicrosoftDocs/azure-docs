@@ -1,25 +1,25 @@
 ---
-title: Azure Front Door 
+title: Azure Front Door Rules Engines match conditions
 description: This article provides a list of the various match conditions available with Azure Front Door Rules Engine.
 services: frontdoor
 documentationcenter: ''
-author: megan-beatty
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 4/30/2020
-ms.author: mebeatty
+ms.date: 09/14/2020
+ms.author: duau
 # customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
 
-# Azure Front Door Rules Engine Match Conditions
+# Azure Front Door Rules Engine match conditions
 
-In [AFD Rules Engine](front-door-rules-engine.md) a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in AFD Rules Engine.
+In [AFD Rules Engine](front-door-rules-engine.md), a rule consists of zero or more match conditions and an action. This article provides detailed descriptions of the match conditions you can use in AFD Rules Engine.
 
-The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are performed. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values (noted below as "space-separated"), the "OR" operator is assumed.
+The first part of a rule is a match condition or set of match conditions. A rule can consist of up to 10 match conditions. A match condition identifies specific types of requests for which defined actions are done. If you use multiple match conditions, the match conditions are grouped together by using AND logic. For all match conditions that support multiple values (noted as "space-separated"), the "OR" operator is assumed.
 
 For example, you can use a match condition to:
 
@@ -80,7 +80,7 @@ Not IP Match | IP address (space-separated)
   - **IPv6 example**: *1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80* matches any requests that arrive from either address 1:2:3:4:5:6:7:8 or 10:20:30:40:50:60:70:80.
 - The syntax for an IP address block is the base IP address followed by a forward slash and the prefix size. For example:
   - **IPv4 example**: *5.5.5.64/26* matches any requests that arrive from addresses 5.5.5.64 through 5.5.5.127.
-  - **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3:ffff:ffff:ffff:ffff:ffff.
+  - **IPv6 example**: *1:2:3:/48* matches any requests that arrive from addresses 1:2:3:0:0:0:0:0 through 1:2:3: ffff:ffff:ffff:ffff:ffff.
 
 ## Request body
 
@@ -200,11 +200,11 @@ For rules that accept values from the standard operator list, the following oper
 - Not greater than
 - Not greater than or equals
 
-For numeric operators like *Less than* and *Greater than or equals*, the comparison used is based on length. In this case, the value in the match condition should be an integer that's equal to the length you want to compare. 
+For numeric operators like *Less than* and *Greater than or equals*, the comparison used is based on length. The value in the match condition should be an integer that equals the length you want to compare. 
 
 
 ## Next steps
 
-- Learn how to set up your first [Rules Engine configuration](front-door-tutorial-rules-engine.md). 
+- Learn how to configure your first [Rules Engine](front-door-tutorial-rules-engine.md). 
 - Learn more about [Rules Engine actions](front-door-rules-engine-actions.md)
 - Learn more about [Azure Front Door Rules Engine](front-door-rules-engine.md)

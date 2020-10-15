@@ -2,11 +2,38 @@
   href: index.yml
 - name: Introduction
   href: introduction.md
-- name: Security Controls
+- name: Security Controls (v2)
   expanded: true
   items:
   - name: Overview of Azure security controls
     href: overview.md
+  - name: Network security
+    href: security-controls-v2-network-security.md
+  - name: Identity management 
+    href: security-controls-v2-identity-management.md
+  - name: Privileged access
+    href: security-controls-v2-privileged-access.md
+  - name: Data protection
+    href: security-controls-v2-data-protection.md
+  - name: Asset management
+    href: security-controls-v2-asset-management.md
+  - name: Logging and threat detection
+    href: security-controls-v2-logging-threat-detection.md
+  - name: Incident response
+    href: security-controls-v2-incident-response.md
+  - name: Posture and vulnerability management
+    href: security-controls-v2-posture-vulnerability-management.md
+  - name: Endpoint security
+    href: security-controls-v2-endpoint-security.md
+  - name: Backup and recovery
+    href: security-controls-v2-backup-recovery.md
+  - name: Governance and Strategy
+    href: security-controls-v2-governance-strategy.md
+
+- name: Security Controls (v1)
+  items:
+  - name: Overview of Azure security controls (v1)
+    href: overview-v1.md
   - name: Network security
     href: security-control-network-security.md
   - name: Logging and monitoring
@@ -39,12 +66,68 @@
     href: ../../application-gateway/security-baseline.md
   - name: Automation security baseline
     href: ../../automation/security-baseline.md
+  - name: Azure Backup security baseline
+    href: ../../backup/security-baseline.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
-  - name: Backup security baseline
-    href: ../../backup/security-baseline.md
+  - name: Azure Cognitive Search security baseline
+    href: ../../search/security-baseline.md
+  - name: Azure Data Box security baseline
+    href: ../../databox/security-baseline.md
+  - name: Azure Data Explorer security baseline
+    href: /azure/data-explorer/security-baseline
+  - name: Azure Data Factory security baseline
+    href: ../../data-factory/security-baseline.md
+  - name: Azure Database for MySQL security baseline
+    href: ../../mysql/security-baseline.md
+  - name: Azure Database for MariaDB security baseline
+    href: ../../mariadb/security-baseline.md
+  - name: Azure Database for PostgreSQL - Single Server security baseline
+    href: ../../postgresql/security-baseline.md
+  - name: Azure Database for PostgreSQL - Hyperscale security baseline
+    href: ../../postgresql/postgresql-hyperscale-security-baseline.md
+  - name: Azure Databricks security baseline
+    href: ../../azure-databricks/security-baseline.md
+  - name: Azure DNS security baseline
+    href: ../../dns/security-baseline.md
+  - name: Azure DevTest Labs security baseline
+    href: ../../devtest-labs/security-baseline.md
+  - name: Azure Firewall security baseline
+    href: ../../firewall/security-baseline.md
+  - name: Azure Functions security baseline
+    href: ../../azure-functions/security-baseline.md
+  - name: Azure IoT Hub security baseline
+    href: ../../iot-hub/security-baseline.md
+  - name: Azure Kubernetes Service security baseline
+    href: ../../aks/security-baseline.md
+  - name: Azure Load Balancer security baseline
+    href: ../../load-balancer/security-baseline.md
+  - name: Azure Monitor security baseline
+    href: ../../azure-monitor/security-baseline.md
+  - name: Azure Machine Learning security baseline
+    href: ../../machine-learning/security-baseline.md
+  - name: Azure Policy security baseline
+    href: ../../governance/policy/concepts/azure-security-benchmark-baseline.md
+  - name: Azure Private Link security baseline
+    href: ../../private-link/security-baseline.md
+  - name: Azure Public IP security baseline
+    href: ../../virtual-network/public-ip-security-baseline.md
+  - name: Azure Resource Graph security baseline
+    href: ../../governance/resource-graph/concepts/azure-security-benchmark-baseline.md
+  - name: Azure Sentinel security baseline
+    href: ../../sentinel/security-baseline.md
+  - name: Azure SQL Database security baseline
+    href: ../../sql-database/security-baseline.md
+  - name: Azure Storage security baseline
+    href: ../../storage/common/security-baseline.md
+  - name: Azure Traffic Manager security baseline
+    href: ../../traffic-manager/security-baseline.md
+  - name: Azure Web Application Firewall security baseline
+    href: ../../web-application-firewall/security-baseline.md
   - name: Batch security baseline
     href: ../../batch/security-baseline.md
+  - name: Cognitive Services security baseline
+    href: ../../cognitive-services/security-baseline.md
   - name: Container Instances security baseline
     href: ../../container-instances/security-baseline.md
   - name: Container Registry security baseline
@@ -52,38 +135,42 @@
   - name: Cosmos DB security baseline
     href: ../../cosmos-db/security-baseline.md  
   - name: Customer Lockbox security baseline
-    href: ../fundamentals/customer-lockbox-security-baseline.md  
-  - name: Databox security baseline
-    href: ../../databox/security-baseline.md
-  - name: Data Explorer security baseline
-    href: /azure/data-explorer/security-baseline
-  - name: Data Factory security baseline
-    href: ../../data-factory/security-baseline.md
-  - name: Databricks security baseline
-    href: ../../azure-databricks/security-baseline.md
+    href: ../fundamentals/customer-lockbox-security-baseline.md
+  - name: Data Lake Analytics security baseline
+    href: ../../data-lake-analytics/security-baseline.md  
+  - name: DDOS Protection security baseline
+    href: ../fundamentals/ddos-protection-security-baseline.md
+  - name: Event Grid security baseline
+    href: ../../event-grid/security-baseline.md
   - name: Event Hubs security baseline
     href: ../../event-hubs/security-baseline.md
   - name: ExpressRoute security baseline
     href: ../../expressroute/security-baseline.md
-  - name: Functions security baseline
-    href: ../../azure-functions/security-baseline.md
   - name: HDInsight security baseline
     href: ../../hdinsight/security-baseline.md
   - name: Key Vault security baseline
     href: ../../key-vault/security-baseline.md
   - name: Logic Apps security baseline
     href: ../../logic-apps/security-baseline.md
-  - name: MariaDB security baseline
-    href: ../../mariadb/security-baseline.md
-  - name: MySQL security baseline
-    href: ../../mysql/security-baseline.md
   - name: Network Watcher security baseline
     href: ../../network-watcher/security-baseline.md
-  - name: PostgreSQL security baseline
-    href: ../../postgresql/security-baseline.md
-  - name: SQL Database security baseline
-    href: ../../sql-database/security-baseline.md
+  - name: Security Center baseline
+    href: ../../security-center/security-baseline.md
+  - name: Service Bus baseline
+    href: ../../service-bus-messaging/security-baseline.md
+  - name: Service Fabric baseline
+    href: ../../service-fabric/security-baseline.md
   - name: Stream Analytics baseline
     href: ../../stream-analytics/security-baseline.md
-  - name: Storage security baseline
-    href: ../../storage/common/security-baseline.md
+  - name: Synapse Analytics security baseline
+    href: ../../synapse-analytics/security-baseline.md
+  - name: Virtual Machine Scale Sets security baseline
+    href: ../../virtual-machine-scale-sets/security-baseline.md
+  - name: Virtual Machines Linux security baseline
+    href: ../../virtual-machines/linux/security-baseline.md
+  - name: Virtual Machines Windows security baseline
+    href: ../../virtual-machines/windows/security-baseline.md
+  - name: Virtual Network security baseline
+    href: ../../virtual-network/security-baseline.md
+  - name: VPN Gateway security baseline
+    href: ../../vpn-gateway/security-baseline.md

@@ -1,20 +1,9 @@
 ---
 title: Adopt Azure DevTest Labs for your enterprise
 description: This article provides prescriptive guidance for using Azure DevTest Labs in your enterprise. 
-services: devtest-lab,virtual-machines,lab-services
-documentationcenter: na
-author: spelluru
-manager: femila
-
-ms.service: lab-services
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
-ms.author: spelluru
+ms.date: 06/26/2020
 ms.reviewer: christianreddington,anthdela,juselph
-
 ---
 
 # DevTest Labs in the enterprise

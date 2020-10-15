@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-java
 ---
 # Quickstart: Generate a thumbnail using the Computer Vision REST API and Java
 
@@ -84,7 +84,7 @@ public class GenerateThumbnail {
     private static String subscriptionKey = System.getenv("COMPUTER_VISION_SUBSCRIPTION_KEY");
     private static String endpoint = System.getenv("COMPUTER_VISION_ENDPOINT");
     // The endpoint path
-    private static final String uriBase = endpoint + "vision/v3.0/generateThumbnail";
+    private static final String uriBase = endpoint + "vision/v3.1/generateThumbnail";
     // It's optional if you'd like to use your own image instead of this one.
     private static final String imageToAnalyze = "https://upload.wikimedia.org/wikipedia/commons/9/94/Bloodhound_Puppy.jpg";
 

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with CS Stars | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and CS Stars.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5704d151-afb8-40a4-b286-8bacd4f279ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with CS Stars
 

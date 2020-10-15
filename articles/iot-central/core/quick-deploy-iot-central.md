@@ -1,9 +1,9 @@
 ---
-title: Create an Azure IoT Central application | Microsoft Docs
-description: Create a new Azure IoT Central application. Create the application using either the free pricing plan or one of the standard pricing plans.
+title: Quickstart - Create an Azure IoT Central application | Microsoft Docs
+description: Quickstart - Create a new Azure IoT Central application. Create the application using either the free pricing plan or one of the standard pricing plans.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/12/2020
+ms.date: 07/30/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: corywink
 ---
 
-# Create an Azure IoT Central application
+# Quickstart - Create an Azure IoT Central application
 
 This quickstart shows you how to create an Azure IoT Central application.
 
@@ -38,8 +38,11 @@ To create a new Azure IoT Central application from the **Custom application** te
     ![Azure IoT Central billing info](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > If you chose **Custom app** on the previous page, you see an **Application template** dropdown. From here you can switch between custom and legacy templates. You might also see other templates that have been made available for your organization.
+    > If you chose **Custom app** on the previous page, you will see an **Application template** dropdown. The dropdown might show other templates that have been made available to you by your organization. 
 
+    >[!IMPORTANT]
+    >The **Custom application (legacy)** template (V2) has been retired as all capabilities previously available in the legacy application template are now available in the latest **Custom application** template (V3). 
+    
 1. Choose to create this application using the 7-day free trial pricing plan, or one of the standard pricing plans:
 
     - Applications you create using the *free* plan are free for seven days and support up to five devices. You can convert them to use a standard pricing plan at any time before they expire.

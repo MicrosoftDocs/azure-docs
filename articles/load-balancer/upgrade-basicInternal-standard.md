@@ -5,7 +5,7 @@ services: load-balancer
 author: irenehua
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 02/23/2020
+ms.date: 08/07/2020
 ms.author: irenehua
 ---
 
@@ -43,7 +43,7 @@ An Azure PowerShell script is available that does the following:
 
 ## Download the script
 
-Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/3.0).
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureILBUpgrade/5.0).
 ## Use the script
 
 There are two options for you depending on your local PowerShell environment setup and preferences:

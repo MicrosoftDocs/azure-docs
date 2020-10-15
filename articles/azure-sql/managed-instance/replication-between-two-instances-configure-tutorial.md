@@ -7,7 +7,7 @@ ms.service: sql-managed-instance
 ms.subservice: data-movement
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
@@ -17,24 +17,32 @@ ms.date: 04/28/2020
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Transactional replication allows you to replicate data from one database to another hosted on either SQL Server or [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) (public preview). SQL Managed Instance can be a publisher, distributor or subscriber in the replication topology. See [transactional replication configurations](replication-transactional-overview.md#common-configurations) for available configurations.
+Transactional replication allows you to replicate data from one database to another hosted on either SQL Server or [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md). SQL Managed Instance can be a publisher, distributor or subscriber in the replication topology. See [transactional replication configurations](replication-transactional-overview.md#common-configurations) for available configurations. 
 
-> [!NOTE]
-> This article describes the use of [transactional replication](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Managed Instance. It is unrelated to [failover groups](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), an Azure SQL Managed Instance feature that allows you to create complete readable replicas of individual instances.
+Transactional replication is currently in public preview for SQL Managed Instance. 
 
-This tutorial teaches you to configure one managed instance as the publisher and distributor, and then a second managed instance as the subscriber.  
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+>
+> - Configure a managed instance as a replication publisher and distributor.
+> - Configure a managed instance as a replication distributor.
 
 ![Replicate between two managed instances](./media/replication-between-two-instances-configure-tutorial/sqlmi-sqlmi-repl.png)
 
-  > [!NOTE]
-  > - This article is intended to guide an advanced user in configuring replication with SQL Managed Instance from end to end, starting with creating the resource group. If you already have managed instances deployed, skip ahead to [Step 4](#4---create-a-publisher-database) to create your publisher database, or [Step 6](#6---configure-distribution) if you already have a publisher and subscriber database, and are ready to start configuring replication.  
-  > - This article configures your publisher and distributor on the same managed instance. To place the distributor on a separate managed instance, see the tutorial [Configure transactional replication between Azure SQL Managed Instance and SQL Server](replication-two-instances-and-sql-server-configure-tutorial.md). 
+This tutorial is intended for an experienced audience and assumes that the user is familiar with deploying and connecting to both managed instances and SQL Server VMs within Azure. 
+
+
+> [!NOTE]
+> - This article describes the use of [transactional replication](/sql/relational-databases/replication/transactional/transactional-replication) in Azure SQL Managed Instance. It is unrelated to [failover groups](../database/auto-failover-group-overview.md), an Azure SQL Managed Instance feature that allows you to create complete readable replicas of individual instances. There are additional considerations when configuring [transactional replication with failover groups](replication-transactional-overview.md#with-failover-groups).
+
+
 
 ## Requirements
 
 Configuring SQL Managed Instance to function as a publisher and/or a distributor requires:
 
-- That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [virtual network peering](../../virtual-network/tutorial-connect-virtual-networks-powershell.md) has been configured between the virtual networks of all three entities. 
+- That the publisher managed instance is on the same virtual network as the distributor and the subscriber, or [VPN gateways](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) have been configured between the virtual networks of all three entities. 
 - Connectivity uses SQL Authentication between replication participants.
 - An Azure storage account share for the replication working directory.
 - Port 445 (TCP outbound) is open in the security rules of NSG for the managed instances to access the Azure file share.  If you encounter the error `failed to connect to azure storage \<storage account name> with os error 53`, you will need to add an outbound rule to the NSG of the appropriate SQL Managed Instance subnet.

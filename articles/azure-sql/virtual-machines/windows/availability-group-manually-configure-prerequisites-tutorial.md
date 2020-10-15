@@ -3,18 +3,18 @@ title: "Tutorial: Prerequisites for an availability group"
 description: "This tutorial shows how to configure the prerequisites for creating a SQL Server Always On availability group on Azure Virtual Machines."
 services: virtual-machines
 documentationCenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 
 ms.assetid: c492db4c-3faa-4645-849f-5a1a663be55a
 ms.service: virtual-machines-sql
 
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/29/2018
-ms.author: mikeray
+ms.author: mathoma
 ms.custom: "seo-lt-2019"
 
 ---
@@ -378,7 +378,7 @@ Before you proceed consider the following design decisions.
 
 * **Storage - Azure Managed Disks**
 
-   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/linux/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
+   For the virtual machine storage, use Azure Managed Disks. Microsoft recommends Managed Disks for SQL Server virtual machines. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For additional information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use Managed Disks for VMs in an availability set](../../../virtual-machines/linux/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
 * **Network - Private IP addresses in production**
 
@@ -418,6 +418,10 @@ You're now able to join the VMs to **corp.contoso.com**. Do the following steps 
 7. When you see the "Welcome to the corp.contoso.com domain" message, select **OK**.
 8. Select **Close**, and then select **Restart Now** in the popup dialog.
 
+## Add accounts
+
+Add the installation account as an administrator on each VM, grant permission to the installation account and local accounts within SQL Server, and update the SQL Server service account. 
+
 ### Add the Corp\Install user as an administrator on each cluster VM
 
 After each virtual machine restarts as a member of the domain, add **CORP\Install** as a member of the local administrators group.
@@ -436,16 +440,6 @@ After each virtual machine restarts as a member of the domain, add **CORP\Instal
 7. Select **OK** to close the **Administrator Properties** dialog.
 8. Repeat the previous steps on **sqlserver-1** and **cluster-fsw**.
 
-### <a name="setServiceAccount"></a>Set the SQL Server service accounts
-
-On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
-
-1. Open **SQL Server Configuration Manager**.
-2. Right-click the SQL Server service, and then select **Properties**.
-3. Set the account and password.
-4. Repeat these steps on the other SQL Server VM.  
-
-For SQL Server availability groups, each SQL Server VM needs to run as a domain account.
 
 ### Create a sign-in on each SQL Server VM for the installation account
 
@@ -465,13 +459,54 @@ Use the installation account (CORP\install) to configure the availability group.
 
 1. Enter the domain administrator network credentials.
 
-1. Use the installation account.
+1. Use the installation account (CORP\install).
 
 1. Set the sign-in to be a member of the **sysadmin** fixed server role.
 
 1. Select **OK**.
 
 Repeat the preceding steps on the other SQL Server VM.
+
+### Configure system account permissions
+
+To create an account for the system account and grant appropriate permissions, complete the following steps on each SQL Server instance:
+
+1. Create an account for `[NT AUTHORITY\SYSTEM]` on each SQL Server instance. The following script creates this account:
+
+   ```sql
+   USE [master]
+   GO
+   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
+   GO 
+   ```
+
+1. Grant the following permissions to `[NT AUTHORITY\SYSTEM]` on each SQL Server instance:
+
+   - `ALTER ANY AVAILABILITY GROUP`
+   - `CONNECT SQL`
+   - `VIEW SERVER STATE`
+
+   The following script grants these permissions:
+
+   ```sql
+   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
+   GO
+   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
+   GO 
+   ```
+
+### <a name="setServiceAccount"></a>Set the SQL Server service accounts
+
+On each SQL Server VM, set the SQL Server service account. Use the accounts that you created when you configured the domain accounts.
+
+1. Open **SQL Server Configuration Manager**.
+2. Right-click the SQL Server service, and then select **Properties**.
+3. Set the account and password.
+4. Repeat these steps on the other SQL Server VM.  
+
+For SQL Server availability groups, each SQL Server VM needs to run as a domain account.
 
 ## Add Failover Clustering features to both SQL Server VMs
 
@@ -522,35 +557,6 @@ The method of opening the ports depends on the firewall solution that you use. T
 
 Repeat these steps on the second SQL Server VM.
 
-## Configure system account permissions
-
-To create an account for the system account and grant appropriate permissions, complete the following steps on each SQL Server instance:
-
-1. Create an account for `[NT AUTHORITY\SYSTEM]` on each SQL Server instance. The following script creates this account:
-
-   ```sql
-   USE [master]
-   GO
-   CREATE LOGIN [NT AUTHORITY\SYSTEM] FROM WINDOWS WITH DEFAULT_DATABASE=[master]
-   GO 
-   ```
-
-1. Grant the following permissions to `[NT AUTHORITY\SYSTEM]` on each SQL Server instance:
-
-   - `ALTER ANY AVAILABILITY GROUP`
-   - `CONNECT SQL`
-   - `VIEW SERVER STATE`
-
-   The following script grants these permissions:
-
-   ```sql
-   GRANT ALTER ANY AVAILABILITY GROUP TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT CONNECT SQL TO [NT AUTHORITY\SYSTEM]
-   GO
-   GRANT VIEW SERVER STATE TO [NT AUTHORITY\SYSTEM]
-   GO 
-   ```
 
 ## Next steps
 

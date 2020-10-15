@@ -4,19 +4,22 @@ description: Use Azure Private Link to securely connect networks to Azure Automa
 author: mgoedtel
 ms.author: magoedte
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 07/09/2020
 ms.subservice: 
 ---
 
-# Use Azure Private Link to securely connect networks to Azure Automation
+# Use Azure Private Link to securely connect networks to Azure Automation (preview)
 
 Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the Automation service into your VNet. Network traffic between the machines on the VNet and the Automation account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
-For example, you have a VNet where you have disabled outbound internet access. However, you want to access your Automation account privately and use Automation features like Webhooks, State Configuration, and runbook jobs on Hybrid Runbook Workers. Moreover, you want users to have access to the Automation account only through the VNET. This can be achieved by deploying private endpoints.
+For example, you have a VNet where you have disabled outbound internet access. However, you want to access your Automation account privately and use Automation features like Webhooks, State Configuration, and runbook jobs on Hybrid Runbook Workers. Moreover, you want users to have access to the Automation account only through the VNET.  Deploying private endpoint achieves these goals.
 
-This article covers when to use and how to set up a private endpoint with your Automation account.
+This article covers when to use and how to set up a private endpoint with your Automation account (preview).
 
 ![Conceptual overview of Private Link for Azure Automation](./media/private-link-security/private-endpoints-automation.png)
+
+>[!NOTE]
+> Private Link support with Azure Automation (preview) is available only in Azure Commercial and Azure US Government clouds.
 
 ## Advantages
 
@@ -41,25 +44,27 @@ Azure Automation Private Link connects one or more private endpoints (and theref
 
 After you create private endpoints for Automation, each of the public facing Automation URLs, which you or a machine can directly contact, is mapped to one private endpoint in your VNet.
 
+As part of the preview release, an Automation account cannot access Azure resources that are secured using private endpoint. For example, Azure Key Vault, Azure SQL, Azure Storage Account, etc.
+
 ### Webhook scenario
 
-You can start runbooks by doing a POST on the webhook URL. For example, the URL looks like this: `https://<automationAccountId>.webhooks. <region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
+You can start runbooks by doing a POST on the webhook URL. For example, the URL looks like: `https://<automationAccountId>.webhooks.<region>.azure-automation.net/webhooks?token=gzGMz4SMpqNo8gidqPxAJ3E%3d`
 
 ### State Configuration (agentsvc) scenario
 
 State Configuration provides you with Azure configuration management service that allows you to write, manage, and compile PowerShell Desired State Configuration (DSC) configurations for nodes in any cloud or on-premises datacenter.
 
-The agent on the machine registers with DSC service and then uses the service endpoint to pull DSC configuration. The agent service endpoint looks like this: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net`.
+The agent on the machine registers with DSC service and then uses the service endpoint to pull DSC configuration. The agent service endpoint looks like: `https://<automationAccountId>.agentsvc.<region>.azure-automation.net`.
 
 The URL for public & private endpoint would be the same, however, it would be mapped to a private IP address when Private link is enabled.
 
 ## Planning based on your network
 
-Before setting up your Automation account resource, consider your network isolation requirements. Evaluate your virtual networks' access to public internet, and the access restrictions to your Automation account (including setting up a Private Link Group Scope to Azure Monitor Logs if integrated with your Automation account).
+Before setting up your Automation account resource, consider your network isolation requirements. Evaluate your virtual networks' access to public internet, and the access restrictions to your Automation account (including setting up a Private Link Group Scope to Azure Monitor Logs if integrated with your Automation account). Also include a review of the Automation service [DNS records](./automation-region-dns-records.md) as part of your plan to ensure the supported features work without issue.
 
 ### Connect to a private endpoint
 
-Create a private endpoint to connect our network. You can do this task in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and private link are applied, it can take up to 35 minutes for them to take effect.
+Create a private endpoint to connect our network. You can create it in the [Azure portal Private Link center](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints). Once your changes to publicNetworkAccess and private link are applied, it can take up to 35 minutes for them to take effect.
 
 In this section, you'll create a private endpoint for your Automation account.
 
@@ -67,7 +72,7 @@ In this section, you'll create a private endpoint for your Automation account.
 
 2. In **Private Link Center - Overview**, on the option to **Build a private connection to a service**, select **Start**.
 
-3. In **Create a virtual machine - Basics**, enter or select this information:
+3. In **Create a virtual machine - Basics**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -81,7 +86,7 @@ In this section, you'll create a private endpoint for your Automation account.
 
 4. Select **Next: Resource**.
 
-5. In **Create a private endpoint - Resource**, enter or select this information:
+5. In **Create a private endpoint - Resource**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -89,12 +94,12 @@ In this section, you'll create a private endpoint for your Automation account.
     | Subscription| Select your subscription. |
     | Resource type | Select **Microsoft.Automation/automationAccounts**. |
     | Resource |Select *myAutomationAccount*|
-    |Target sub-resource |Select *Webhook* or *DSCAndHybridWorker* depending on your scenario.|
+    |Target subresource |Select *Webhook* or *DSCAndHybridWorker* depending on your scenario.|
     |||
 
 6. Select **Next: Configuration**.
 
-7. In **Create a private endpoint - Configuration**, enter or select this information:
+7. In **Create a private endpoint - Configuration**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -118,25 +123,25 @@ Select the resource to see all the details. This creates a new private endpoint 
 
 Similarly, a unique fully qualified domain name (FQDN) is created for the State Configuration (agentsvc) and for the Hybrid Runbook Worker job runtime (jrds). Each of them are assigned a separate IP from your VNet and the **Connection status** shows as **approved**.
 
-If the service consumer has RBAC permissions on the Automation resource, they can choose the automatic approval method. In this case, when the request reaches the Automation provider resource, no action is required from the service provider and the connection is automatically approved.
+If the service consumer has Azure RBAC permissions on the Automation resource, they can choose the automatic approval method. In this case, when the request reaches the Automation provider resource, no action is required from the service provider and the connection is automatically approved.
 
 ## Set public network access flags
 
-You can configure an Automation account to deny all public configurations and allow only connections through private endpoints to further enhance the network security. If you want to restrict access to the Automation account from only within the VNet and not allow access from public internet, you can set `publicNetworkAccess` property to `$true`.
+You can configure an Automation account to deny all public configurations and allow only connections through private endpoints to further enhance the network security. If you want to restrict access to the Automation account from only within the VNet and not allow access from public internet, you can set `publicNetworkAccess` property to `$false`.
 
-When **Deny public network access** setting is set to `true`, only connections via private endpoints are allowed and all connections via public endpoints are denied with an error message.
+When the **Public Network Access** setting is set to `$false`, only connections via private endpoints are allowed and all connections via public endpoints are denied with an unathorized error message and HTTP status of 401. 
 
 The following PowerShell script shows how to `Get` and `Set` the **Public Network Access** property at the Automation account level:
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 
 ## DNS configuration
 
-When connecting to a private link resource using an FQDN as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. This needs to be overridden to connect using your private endpoint.
+When connecting to a private link resource using a fully qualified domain name (FQDN) as part of the connection string, it's important to correctly configure your DNS settings to resolve to the allocated private IP address. Existing Azure services might already have a DNS configuration to use when connecting over a public endpoint. Your DNS configuration should be reviewed and updated to connect using your private endpoint.
 
 The network interface associated with the private endpoint contains the complete set of information required to configure your DNS, including FQDN and private IP addresses allocated for a given private link resource.
 

@@ -13,14 +13,14 @@ ms.reviewer: jamesbak
 
 # Tutorial: Extract, transform, and load data by using Azure HDInsight
 
-In this tutorial, you perform an ETL operation: extract, transform, and load data. You take a raw CSV data file, import it into an Azure HDInsight cluster, transform it with Apache Hive, and load it into an Azure SQL database with Apache Sqoop.
+In this tutorial, you perform an ETL operation: extract, transform, and load data. You take a raw CSV data file, import it into an Azure HDInsight cluster, transform it with Apache Hive, and load it into Azure SQL Database with Apache Sqoop.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Extract and upload the data to an HDInsight cluster.
 > * Transform the data by using Apache Hive.
-> * Load the data to an Azure SQL database by using Sqoop.
+> * Load the data to Azure SQL Database by using Sqoop.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
     See [Quickstart: Get started with Apache Hadoop and Apache Hive in Azure HDInsight using the Azure portal](https://docs.microsoft.com/azure/hdinsight/hadoop/apache-hadoop-linux-create-cluster-get-started-portal).
 
-* **Azure SQL Database**: You use an Azure SQL database as a destination data store. If you don't have a SQL database, see [Create an Azure SQL database in the Azure portal](../../sql-database/sql-database-get-started.md).
+* **Azure SQL Database**: You use Azure SQL Database as a destination data store. If you don't have a database in SQL Database, see [Create a database in Azure SQL Database in the Azure portal](../../sql-database/sql-database-get-started.md).
 
 * **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -220,7 +220,7 @@ As part of the Apache Hive job, you import the data from the .csv file into an A
 
 ## Create a SQL database table
 
-You need the server name from your SQL database for this operation. Complete these steps to find your server name.
+You need the server name from SQL Database for this operation. Complete these steps to find your server name.
 
 1. Go to the [Azure portal](https://portal.azure.com).
 
@@ -296,7 +296,7 @@ You need the server name from your SQL database for this operation. Complete the
 
 ## Export and load the data
 
-In the previous sections, you copied the transformed data at the location  `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in the Azure SQL database.
+In the previous sections, you copied the transformed data at the location  `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output`. In this section, you use Sqoop to export the data from `abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/tutorials/flightdelays/output` to the table you created in the Azure SQL Database.
 
 1. Use the following command to verify that Sqoop can see your SQL database:
 

@@ -9,9 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, tracking-python
+ms.custom: seodec18, devx-track-python
 ---
 # Quickstart: Analyze a local image using the Computer Vision REST API and Python
 
@@ -63,7 +63,7 @@ else:
 if 'COMPUTER_VISION_ENDPOINT' in os.environ:
     endpoint = os.environ['COMPUTER_VISION_ENDPOINT']
 
-analyze_url = endpoint + "vision/v3.0/analyze"
+analyze_url = endpoint + "vision/v3.1/analyze"
 
 # Set image_path to the local path of an image that you want to analyze.
 # Sample images are here, if needed:

@@ -4,27 +4,24 @@ description: Learn how to use proximity placement groups to reduce latency for y
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 07/10/2020
+author: jluk
 ---
 
 # Reduce latency with proximity placement groups (Preview)
 
 > [!Note]
-> When you use proximity placement groups with AKS, colocation only applies to the agent nodes. Node to node and the corresponding hosted pod to pod latency is improved. The colocation does not affect the placement of a cluster's control plane.
+> When using proximity placement groups on AKS, colocation only applies to the agent nodes. Node to node and the corresponding hosted pod to pod latency is improved. The colocation does not affect the placement of a cluster's control plane.
 
-When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to each other. Some applications like gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that complete quickly. For high-performance computing (HPC) scenarios such as these, consider using [proximity placement groups](https://docs.microsoft.com/azure/virtual-machines/linux/co-location#proximity-placement-groups) for your cluster's node pools.
+When deploying your application in Azure, spreading Virtual Machine (VM) instances across regions or availability zones creates network latency, which may impact the overall performance of your application. A proximity placement group is a logical grouping used to make sure Azure compute resources are physically located close to each other. Some applications like gaming, engineering simulations, and high-frequency trading (HFT) require low latency and tasks that complete quickly. For high-performance computing (HPC) scenarios such as these, consider using [proximity placement groups](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) for your cluster's node pools.
 
 ## Limitations
 
-* The proximity placement group spans a single availability zone.
-* There's no current support for AKS clusters that use Virtual Machine Availability Sets.
-* You can't modify existing node pools to use a proximity placement group.
+* A proximity placement group can map to at most one availability zone.
+* A node pool must use Virtual Machine Scale Sets to associate a proximity placement group.
+* A node pool can associate a proximity placement group at node pool create time only.
 
-> [!IMPORTANT]
-> AKS preview features are available on a self-service, opt-in basis. Previews are provided "as-is" and "as available," and are excluded from the Service Level Agreements and limited warranty. AKS previews are partially covered by customer support on a best-effort basis. As such, these features are not meant for production use. For more information, see the following support articles:
->
-> - [AKS Support Policies](support-policies.md)
-> - [Azure Support FAQ](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## Before you begin
 
@@ -35,7 +32,7 @@ You must have the following resources installed:
 ### Set up the preview feature for proximity placement groups
 
 > [!IMPORTANT]
-> When you use proximity placement groups with AKS, colocation only applies to the agent nodes. Node to node and the corresponding hosted pod to pod latency is improved. The colocation does not affect the placement of a cluster's control plane.
+> When using proximity placement groups with AKS node pools, colocation only applies to the agent nodes. Node to node and the corresponding hosted pod to pod latency is improved. The colocation does not affect the placement of a cluster's control plane.
 
 ```azurecli-interactive
 # register the preview feature
@@ -58,6 +55,7 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
 ## Node pools and proximity placement groups
 
 The first resource you deploy with a proximity placement group attaches to a specific data center. Additional resources deployed with the same proximity placement group are colocated in the same data center. Once all resources using the proximity placement group have been stopped (deallocated) or deleted, it's no longer attached.
@@ -65,13 +63,23 @@ The first resource you deploy with a proximity placement group attaches to a spe
 * Many node pools can be associated with a single proximity placement group.
 * A node pool may only be associated with a single proximity placement group.
 
+### Configure proximity placement groups with availability zones
+
+> [!NOTE]
+> While proximity placement groups require a node pool to use at most one availability zone, the [baseline Azure VM SLA of 99.9%](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) is still in effect for VMs in a single zone.
+
+Proximity placement groups are a node pool concept and associated with each individual node pool. Using a PPG resource has no impact on AKS control plane availability. This can impact how a cluster should be designed with zones. To ensure a cluster is spread across multiple zones the following design is recommended.
+
+* Provision a cluster with the first system pool using 3 zones and no proximity placement group associated. This ensures the system pods land in a dedicated node pool which will spread across multiple zones.
+* Add additional user node pools with a unique zone and proximity placement group associated to each pool. An example is nodepool1 in zone 1 and PPG1, nodepool2 in zone 2 and PPG2, nodepool3 in zone 3 with PPG3. This ensures at a cluster level, nodes are spread across multiple zones and each individual node pool is colocated in the designated zone with a dedicated PPG resource.
+
 ## Create a new AKS cluster with a proximity placement group
 
-The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *centralus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. 
+The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *centralus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command.
 
-Accelerated networking greatly improves networking performance of virtual machines. Ideally, use proximity placement groups in conjunction with accelerated networking. By default, AKS uses accelerated networking on [supported virtual machine instances](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), which include most Azure virtual machine with two or more vCPUs.
+Accelerated networking greatly improves networking performance of virtual machines. Ideally, use proximity placement groups in conjunction with accelerated networking. By default, AKS uses accelerated networking on [supported virtual machine instances](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), which include most Azure virtual machine with two or more vCPUs.
 
-Create a new AKS cluster with a proximity placement group:
+Create a new AKS cluster with a proximity placement group associated to the first system node pool:
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -105,7 +113,7 @@ The command produces output, which includes the *id* value you need for upcoming
 Use the proximity placement group resource ID for the *myPPGResourceID* value in the below command:
 
 ```azurecli-interactive
-# Create an AKS cluster that uses a proximity placement group for the initial node pool
+# Create an AKS cluster that uses a proximity placement group for the initial system node pool only. The PPG has no effect on the cluster control plane.
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \
@@ -152,11 +160,10 @@ az group delete --name myResourceGroup --yes --no-wait
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
-[proximity-placement-groups]: /virtual-machines/windows/co-location.md#proximity-placement-groups/virtual-machines/linux/co-location
+[proximity-placement-groups]: ../virtual-machines/linux/co-location.md#proximity-placement-groups
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [system-pool]: ./use-system-pools.md
 [az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-group-create]: /cli/azure/group#az-group-create
 [az-group-delete]: /cli/azure/group#az-group-delete
-

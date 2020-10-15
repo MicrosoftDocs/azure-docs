@@ -1,10 +1,10 @@
-﻿---
+---
 title: Create a Windows VM from a specialized VHD in Azure 
 description: Create a new Windows VM by attaching a specialized managed disk as the OS disk by using the Resource Manager deployment model.
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/10/2019
 ms.author: cynthn
 
@@ -22,13 +22,13 @@ You have several options:
 
 You can also use the Azure portal to [create a new VM from a specialized VHD](create-vm-specialized-portal.md).
 
-This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](sa-create-vm-specialized.md).
+This article shows you how to use managed disks. If you have a legacy deployment that requires using a storage account, see [Create a VM from a specialized VHD in a storage account](/previous-versions/azure/virtual-machines/windows/sa-create-vm-specialized).
 
 We recommend that you limit the number of concurrent deployments to 20 VMs from a single VHD or snapshot. 
 
 ## Option 1: Use an existing disk
 
-If you had a VM that you deleted and you want to reuse the OS disk to create a new VM, use [Get-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/get-azdisk).
+If you had a VM that you deleted and you want to reuse the OS disk to create a new VM, use [Get-AzDisk](/powershell/module/az.compute/get-azdisk).
 
 ```powershell
 $resourceGroupName = 'myResourceGroup'
@@ -63,7 +63,7 @@ If you want to copy an existing VM to another region, you might want to use azco
 
 ### Take a snapshot of the OS disk
 
-You can take a snapshot of an entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM with the [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet. 
+You can take a snapshot of an entire VM (including all disks) or of just a single disk. The following steps show you how to take a snapshot of just the OS disk of your VM with the [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot) cmdlet. 
 
 First, set some parameters. 
 
@@ -111,7 +111,7 @@ To use this snapshot to create a VM that needs to be high-performing, add the pa
 
 ### Create a new disk from the snapshot
 
-Create a managed disk from the snapshot by using [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk). This example uses *myOSDisk* for the disk name.
+Create a managed disk from the snapshot by using [New-AzDisk](/powershell/module/az.compute/new-azdisk). This example uses *myOSDisk* for the disk name.
 
 Create a new resource group for the new VM.
 
@@ -231,7 +231,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
 
 ### Add the OS disk 
 
-Add the OS disk to the configuration by using [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk). This example sets the size of the disk to *128 GB* and attaches the managed disk as a *Windows* OS disk.
+Add the OS disk to the configuration by using [Set-AzVMOSDisk](/powershell/module/az.compute/set-azvmosdisk). This example sets the size of the disk to *128 GB* and attaches the managed disk as a *Windows* OS disk.
  
 ```powershell
 $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Standard_LRS `
@@ -240,7 +240,7 @@ $vm = Set-AzVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -StorageAccountType Stand
 
 ### Complete the VM 
 
-Create the VM by using [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) with the configurations that we just created.
+Create the VM by using [New-AzVM](/powershell/module/az.compute/new-azvm) with the configurations that we just created.
 
 ```powershell
 New-AzVM -ResourceGroupName $destinationResourceGroup -Location $location -VM $vm
@@ -265,4 +265,3 @@ $vmList.Name
 
 ## Next steps
 Sign in to your new virtual machine. For more information, see [How to connect and log on to an Azure virtual machine running Windows](connect-logon.md).
-

@@ -47,7 +47,7 @@ If possible, you can prepare files for better performance:
 
 ## Push wildcards to lower levels in the path
 
-You can use wildcards in your path to [query multiple files and folders](develop-storage-files-overview.md#query-multiple-files-or-folders). SQL on-demand lists files in your storage account, starting from the first * using storage API. It eliminates files that don't match the specified path. Reducing the initial list of files can improve performance if there are many files that match the specified path up to the first wildcard.
+You can use wildcards in your path to [query multiple files and folders](query-data-storage.md#query-multiple-files-or-folders). SQL on-demand lists files in your storage account, starting from the first * using storage API. It eliminates files that don't match the specified path. Reducing the initial list of files can improve performance if there are many files that match the specified path up to the first wildcard.
 
 ## Use appropriate data types
 
@@ -108,7 +108,7 @@ FROM
 
 Data is often organized in partitions. You can instruct SQL on-demand to query particular folders and files. Doing so will reduce the number of files and the amount of data the query needs to read and process. An added bonus is that you'll achieve better performance.
 
-For more information, read about the [filename](develop-storage-files-overview.md#filename-function) and [filepath](develop-storage-files-overview.md#filepath-function) functions and see the examples for [querying specific files](query-specific-files.md).
+For more information, read about the [filename](query-data-storage.md#filename-function) and [filepath](query-data-storage.md#filepath-function) functions and see the examples for [querying specific files](query-specific-files.md).
 
 > [!TIP]
 > Always cast the results of the filepath and filename functions to appropriate data types. If you use character data types, be sure to use the appropriate length.

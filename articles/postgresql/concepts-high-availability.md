@@ -1,7 +1,7 @@
 ---
 title: High availability - Azure Database for PostgreSQL - Single Server
 description: This article provides information on high availability in Azure Database for PostgreSQL - Single Server
-author: sr-pg20
+author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
@@ -23,8 +23,11 @@ Azure Database for PostgreSQL is suitable for running mission critical databases
 ## Planned downtime mitigation
 Azure Database for PostgreSQL is architected to provide high availability during planned downtime operations. 
 
-![view of Elastic Scaling in Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-elastic-scaling.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-elastic-scaling.png" alt-text="view of Elastic Scaling in Azure PostgreSQL":::
 
+1. Scale up and down PostgreSQL database servers in seconds
+2. Gateway that acts as a proxy to route client connects to the proper database server
+3. Scaling up of storage can be performed without any downtime. Remote storage enables fast detach/re-attach after the failover.
 Here are some planned maintenance scenarios:
 
 | **Scenario** | **Description**|
@@ -40,14 +43,19 @@ Here are some planned maintenance scenarios:
 Unplanned downtime can occur as a result of unforeseen failures, including underlying hardware fault, networking issues, and software bugs. If the database server goes down unexpectedly, a new database server is automatically provisioned in seconds. The remote storage is automatically attached to the new database server. PostgreSQL engine performs the recovery operation using WAL and database files, and opens up the database server to allow clients to connect. Uncommitted transactions are lost, and they have to be retried by the application. While an unplanned downtime cannot be avoided, Azure Database for PostgreSQL mitigates the downtime by automatically performing recovery operations at both database server and storage layers without requiring human intervention. 
 
 
-![view of High Availability in Azure PostgreSQL](./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png)
+:::image type="content" source="./media/concepts-high-availability/azure-postgresql-built-in-high-availability.png" alt-text="view of High Availability in Azure PostgreSQL":::
 
+1. Azure PostgreSQL servers with fast-scaling capabilities.
+2. Gateway that acts as a proxy to route client connections to the proper database server
+3. Azure storage with three copies for reliability, availability, and redundancy.
+4. Remote storage also enables fast detach/re-attach after the server failover.
+   
 ### Unplanned downtime: failure scenarios and service recovery
 Here are some failure scenarios and how Azure Database for PostgreSQL automatically recovers:
 
 | **Scenario** | **Automatic recovery** |
 | ---------- | ---------- |
-| <B>Database server failure | If the database server is down because of some underlying hardware fault, active connections are dropped, and any inflight transactions are aborted. A new database server is automatically deployed, and the remote data storage is attached to the new database server. After the database recovery is complete, clients can connect to the new database server through the Gateway. <br /> <br /> Applications using the PostgreSQL databases need to be built in a way that they detect and retry dropped connections and failed transactions.  When the application retries, the Gateway transparently redirects the connection to the newly created database server. |
+| <B>Database server failure | If the database server is down because of some underlying hardware fault, active connections are dropped, and any inflight transactions are aborted. A new database server is automatically deployed, and the remote data storage is attached to the new database server. After the database recovery is complete, clients can connect to the new database server through the Gateway. <br /> <br /> The recovery time (RTO) is dependent on various factors including the activity at the time of fault such as large transaction and the amount of recovery to be performed during the database server startup process. <br /> <br /> Applications using the PostgreSQL databases need to be built in a way that they detect and retry dropped connections and failed transactions.  When the application retries, the Gateway transparently redirects the connection to the newly created database server. |
 | <B>Storage failure | Applications do not see any impact for any storage-related issues such as a disk failure or a physical block corruption. As the data is stored in 3 copies, the copy of the data is  served by the surviving storage. Block corruptions are automatically corrected. If a copy of data is lost, a new copy of the data is automatically created. |
 
 Here are some failure scenarios that require user action to recover:

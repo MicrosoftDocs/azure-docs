@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Train & deploy models: VS Code"
+title: "Tutorial: Train & deploy models: VS Code (preview)"
 titleSuffix: Azure Machine Learning
 description: Learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension
 services: machine-learning
@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: tutorial
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 04/13/2020
+ms.date: 07/09/2020
 ms.custom: contperfq4 
 
 #Customer intent: As a professional data scientist, I want to learn how to train and deploy an image classification model using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 ---
 
-# Train and deploy an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension
+# Train and deploy an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code Extension (preview)
 
 Learn how to train and deploy an image classification model to recognize hand-written numbers using TensorFlow and the Azure Machine Learning Visual Studio Code Extension.
 
@@ -58,7 +58,7 @@ The first thing you have to do to build an application in Azure Machine Learning
 1. Select **Create a new resource group**. 
 1. Name your resource group "TeamWorkspace-rg" and press **Enter**. 
 1. Choose a location for your workspace. It's recommended to choose a location that is closest to the location you plan to deploy your model. For example, "West US 2".
-1. When prompted to select the type of workspace, select **Basic** to create a basic workspace. For more information on different workspace offerings, see [Azure Machine Learning overview](./overview-what-is-azure-ml.md#sku).
+1. When prompted to select the type of workspace, choose **basic**.
 
 At this point, a request to Azure is made to create a new workspace in your account. After a few minutes, the new workspace appears in your subscription node. 
 
@@ -88,7 +88,7 @@ To create a compute target:
 1. On the Visual Studio Code activity bar, select the **Azure** icon. The Azure Machine Learning view appears. 
 1. Expand your subscription node. 
 1. Expand the **TeamWorkspace** node. 
-1. Under the workspace node, right-click the **Compute** node and choose **Create Compute**. 
+1. Under the workspace node, right-click the **Compute clusters** node and choose **Create Compute**. 
 
     > [!div class="mx-imgBorder"]
     > ![Create a compute target](./media/tutorial-train-deploy-image-classification-model-vscode/create-compute.png)
@@ -112,17 +112,8 @@ To create a compute target:
                 "scaleSettings": {
                     "maxNodeCount": 4,
                     "minNodeCount": 0,
-                    "nodeIdleTimeBeforeScaleDown": 120
-                },
-                "userAccountCredentials": {
-                    "adminUserName": "",
-                    "adminUserPassword": "",
-                    "adminUserSshPublicKey": ""
-                },
-                "subnetName": "",
-                "vnetName": "",
-                "vnetResourceGroupName": "",
-                "remoteLoginPortPublicAccess": ""
+                    "nodeIdleTimeBeforeScaleDown": "PT120S"
+                }
             }
         }
     }
@@ -135,7 +126,7 @@ To create a compute target:
     Azure ML: Save and Continue
     ```
 
-After a few minutes, the new compute target appears in the *Compute* node of your workspace.
+After a few minutes, the new compute target appears in the *Compute clusters* node of your workspace.
 
 ## Create a run configuration
 
@@ -145,7 +136,7 @@ To create a run configuration:
 
 1. On the Visual Studio Code activity bar, select the **Azure** icon. The Azure Machine Learning view appears. 
 1. Expand your subscription node. 
-1. Expand the **TeamWorkspace > Compute** node. 
+1. Expand the **TeamWorkspace > Compute clusters** node. 
 1. Under the compute node, right-click the **TeamWkspc-com** compute node and choose **Create Run Configuration**.
 
     > [!div class="mx-imgBorder"]
@@ -211,6 +202,7 @@ To create a run configuration:
     Azure ML: Save and Continue
     ```
 
+1. This sample does not use a dataset registered in Azure Machine Learning. Instead, it's loaded when *train.py* runs. When prompted to create a data reference for your training run, enter "n" into the prompt and press **Enter**.
 1. Press **Enter** to browse the script file to run on the compute. In this case, the script to train the model is the `train.py` file inside the `vscode-tools-for-ai/mnist-vscode-docs-sample` directory.
 
     A file called `MNIST-rc.runconfig` appears in VS Code with content similar to the one below:
@@ -218,6 +210,7 @@ To create a run configuration:
     ```json
     {
         "script": "train.py",
+        "arguments": [],
         "framework": "Python",
         "communicator": "None",
         "target": "TeamWkspc-com",

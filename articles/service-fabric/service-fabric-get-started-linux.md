@@ -4,6 +4,7 @@ description: Install the runtime and SDK and create a local development cluster 
 
 ms.topic: conceptual
 ms.date: 2/23/2018
+ms.custom: devx-track-js
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
@@ -63,7 +64,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
     sudo dpkg -i packages-microsoft-prod.deb
     ```
 
-3. Add the new Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
+3. Add the new MS Open Tech Gnu Privacy Guard (GnuPG or GPG) key to your APT keyring.
 
     ```bash
     sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | sudo apt-key add -
@@ -75,26 +76,20 @@ To install the SDK and associated runtime package via the apt-get command-line t
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
     ```
 
-5. Add the MS Open Tech GPG key to your APT keyring.
-
-    ```bash
-    sudo curl -fsSL https://packages.microsoft.com/keys/msopentech.asc | apt-key add -
-    ```
-
-6. Set up the Docker repository.
+5. Set up the Docker repository.
 
     ```bash
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     ```
 
-7. Add Azul JDK Key to your APT keyring and setup its repository.
+6. Add Azul JDK Key to your APT keyring and setup its repository.
 
     ```bash
     sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 0xB1998361219BD9C9
     sudo apt-add-repository "deb http://repos.azul.com/azure-only/zulu/apt stable main"
     ```
 
-8. Refresh your package lists based on the newly added repositories.
+7. Refresh your package lists based on the newly added repositories.
 
     ```bash
     sudo apt-get update
@@ -162,8 +157,8 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 
  | | DotNetCore | Java | Python | NodeJS | 
 --- | --- | --- | --- |---
-Ubuntu | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
-RHEL | - | OpenJDK 1.8 | Implicit from npm | latest |
+**Ubuntu** | 2.0.0 | AzulJDK 1.8 | Implicit from npm | latest |
+**RHEL** | - | OpenJDK 1.8 | Implicit from npm | latest |
 
 ## Set up a local cluster
 Start a local cluster after the installation finishes.

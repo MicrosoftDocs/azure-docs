@@ -7,6 +7,7 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: robinsh
+ms.custom: ['Role: Cloud Development','Role: IoT Device','Role: Technical Support']
 ---
 
 # IoT Hub Device Streams (preview)

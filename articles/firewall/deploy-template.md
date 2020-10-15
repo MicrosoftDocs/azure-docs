@@ -1,18 +1,18 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with Availability Zones - Resource Manager template'
-description: Deploy Azure Firewall using a template. The virtual network has one VNet with three subnets. Two Windows Server virtual machines are deployed; a jump box and a server.
+description: In this quickstart, you deploy Azure Firewall using a template. The virtual network has one VNet with three subnets. Two Windows Server virtual machines are deployed; a jump box and a server.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 04/30/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ---
 
-# Quickstart: Deploy Azure Firewall with Availability Zones - Resource Manager template
+# Quickstart: Deploy Azure Firewall with Availability Zones - ARM template
 
-In this quickstart, you use a Resource Manager template to deploy an Azure Firewall in three Availability Zones. 
+In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall in three Availability Zones.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -24,19 +24,21 @@ A user-defined route points network traffic from the *ServersSubnet* subnet thro
 
 For more information about Azure Firewall, see [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md).
 
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurefirewall-with-zones-sandbox%2Fazuredeploy.json)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## Create an Azure Firewall with Availability Zones
+## Review the template
 
 This template creates an Azure Firewall with Availability Zones, along with the necessary resources to support the Azure Firewall.
 
-### Review the template
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
 
-The template used in this quickstart is from [Azure Quickstart templates](https://azure.microsoft.com/resources/templates/101-azurefirewall-with-zones-sandbox).
-
-:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json" range="001-444" highlight="369-442":::
+:::code language="json" source="~/quickstart-templates/101-azurefirewall-with-zones-sandbox/azuredeploy.json":::
 
 Multiple Azure resources are defined in the template:
 
@@ -49,9 +51,9 @@ Multiple Azure resources are defined in the template:
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines)
 - [**Microsoft.Network/azureFirewalls**](/azure/templates/microsoft.network/azureFirewalls)
 
-### Deploy the template
+## Deploy the template
 
-Deploy the Resource Manager template to Azure:
+Deploy the ARM template to Azure:
 
 1. Select **Deploy to Azure** to sign in to Azure and open the template. The template creates an Azure Firewall, the network infrastructure, and two virtual machines.
 
@@ -59,9 +61,9 @@ Deploy the Resource Manager template to Azure:
 
 2. In the portal, on the **Create a sandbox setup of Azure Firewall with Zones** page, type or select the following values:
    - **Resource group**: Select **Create new**, type a name for the resource group, and select **OK**. 
-   - **Virtual Network Name**: Type a name for the new VNet. 
+   - **Virtual Network Name**: Type a name for the new VNet.
    - **Admin Username**: Type a username for the administrator user account.
-   - **Admin Password**: Type an administrator password. 
+   - **Admin Password**: Type an administrator password.
 
 3. Read the terms and conditions, and then select **I agree to the terms and conditions stated above** and then select **Purchase**. The deployment can take 10 minutes or longer to complete.
 
@@ -73,7 +75,7 @@ To learn about the JSON syntax and properties for a firewall in a template, see 
 
 ## Clean up resources
 
-When you no longer need them, you can remove the resource group, firewall, and all related resources by running the `Remove-AzResourceGroup` PowerShell command. To remove a resource group named *MyResourceGroup*, run: 
+When you no longer need them, you can remove the resource group, firewall, and all related resources by running the `Remove-AzResourceGroup` PowerShell command. To remove a resource group named *MyResourceGroup*, run:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup

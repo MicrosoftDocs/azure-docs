@@ -53,30 +53,30 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 2. At the start of your logic app, select the **Request / Response - Request** trigger: 
 
-    ![](./media/connectors-create-api-oracledatabase/request-trigger.png)
+    ![A dialog box has a box to search all triggers. There is also a single trigger shown, "Request / Response-Request", with a selection button.](./media/connectors-create-api-oracledatabase/request-trigger.png)
 
 3. Select **Save**. When you save, a request URL is automatically generated. 
 
 4. Select **New step**, and select **Add an action**. Type in `oracle` to see the available actions: 
 
-    ![](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
+    ![A search box contains "oracle". The search produces one hit labeled "Oracle Database". There is a tabbed page, one tab showing "TRIGGERS (0)", another showing "ACTIONS (6)". Six actions are listed. The first of these is "Get row Preview".](./media/connectors-create-api-oracledatabase/oracledb-actions.png)
 
     > [!TIP]
     > This is also the quickest way to see the triggers and actions available for any connector. Type in part of the connector name, such as `oracle`. The designer lists any triggers and any actions. 
 
 5. Select one of the actions, such as **Oracle Database - Get row**. Select **Connect via on-premises data gateway**. Enter the Oracle server name, authentication method, username, password, and select the gateway:
 
-    ![](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
+    ![The dialog box is titled "Oracle Database - Get row". There is a box, checked, labeled "Connect via on-premise data gateway". Below that are the five other text boxes.](./media/connectors-create-api-oracledatabase/create-oracle-connection.png)
 
 6. Once connected, select a table from the list, and enter the row ID to your table. You need to know the identifier to the table. If you don't know, contact your Oracle DB administrator, and get the output from `select * from yourTableName`. This gives you the identifiable information you need to proceed.
 
     In the following example, job data is being returned from a Human Resources database: 
 
-    ![](./media/connectors-create-api-oracledatabase/table-rowid.png)
+    ![The dialog box titled "Get row (Preview)" has two text boxes: "Table name", which contains "H R JOBS" and has a drop-down list, and "Row i d", which contains "S A _ REP".](./media/connectors-create-api-oracledatabase/table-rowid.png)
 
-7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such Office 365 Outlook. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
+7. In this next step, you can use any of the other connectors to build your workflow. If you want to test getting data from Oracle, then send yourself an email with the Oracle data using one of the send email connectors, such as Office 365 Outlook. Use the dynamic tokens from the Oracle table to build the `Subject` and `Body` of your email:
 
-    ![](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
+    ![There are two dialog boxes. The "Send an email box" has boxes to specify the "Body", "Subject", and "To" address of the email. The "Add dynamic content" dialog box provides a search of dynamic content from the apps and services of the flow.](./media/connectors-create-api-oracledatabase/oracle-send-email.png)
 
 8. **Save** your logic app, and then select **Run**. Close the designer, and look at the runs history for the status. If it fails, select the failed message row. The designer opens, and shows you which step failed, and also shows the error information. If it succeeds, then you should receive an email with the information you added.
 
@@ -85,11 +85,11 @@ This article shows you how to use the Oracle Database connector in a logic app.
 
 * You want to monitor the #oracle hashtag, and put the tweets in a database so they can be queried, and used within other applications. In a logic app, add the `Twitter - When a new tweet is posted` trigger, and enter the **#oracle** hashtag. Then, add the `Oracle Database - Insert row` action, and select your table:
 
-    ![](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
+    ![The "When a new tweet is posted" dialog box shows "hashtag oracle" as search text and lets you specify checking frequency. This dialog box leads to the "Oracle Database" dialog box that lets you select the action.](./media/connectors-create-api-oracledatabase/twitter-oracledb.png)
 
 * Messages are sent to a Service Bus queue. You want to get these messages, and put them in a database. In a logic app, add the `Service Bus - when a message is received in a queue` trigger, and select the queue. Then, add the `Oracle Database - Insert row` action, and select your table:
 
-    ![](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
+    ![The "When a message is received..." dialog box shows "orders" as the "Queue name" and lets you specify checking frequency. This box leads to the "Insert row (Preview)" dialog box that lets you select "Table name".](./media/connectors-create-api-oracledatabase/sbqueue-oracledb.png)
 
 ## Common errors
 
@@ -117,10 +117,11 @@ View any triggers and actions defined in the swagger, and also see any limits in
 
 ## Get some help
 
-The [Microsoft Q&A question page for Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
+The [Microsoft Q&A question page for Azure Logic Apps](/answers/topics/azure-logic-apps.html) is a great place to ask questions, answer questions, and see what other Logic Apps users are doing. 
 
 You can help improve Logic Apps and connectors by voting and submitting your ideas at [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## Next steps
 [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), and explore the available connectors in Logic Apps at [APIs list](apis-list.md).
+
