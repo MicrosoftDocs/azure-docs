@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Monitor for VMs guest health (preview)
-description: 
+description: Describes troubleshooting steps that you can take when you have issues with Azure Monitor for VMs health.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -20,14 +20,14 @@ This article describes troubleshooting steps that you can take when you have iss
 ### Verify that the virtual machine meets configuration requirements
 
 1. Verify that the virtual machine is an Azure virtual machine. Azure Arc for servers is not currently supported.
-2. Verify that the virtual machine is running a [supported operating system](insights/vminsights-health-enable.md?current-limitations).
-3. Verify that the virtual machine is installed in a [supported region](insights/vminsights-health-enable.md?current-limitations).
-4. Verify that the Log Analytics workspace is installed in a [supported region](insights/vminsights-health-enable.md?current-limitations).
+2. Verify that the virtual machine is running a [supported operating system](vminsights-health-enable.md?current-limitations.md).
+3. Verify that the virtual machine is installed in a [supported region](vminsights-health-enable.md?current-limitations.md).
+4. Verify that the Log Analytics workspace is installed in a [supported region](vminsights-health-enable.md?current-limitations.md).
 
 ### Verify that the VM is properly onboarded
 Verify that the Azure Monitor agent extension and Guest VM Health agent are successfully provisioned on the virtual machine. Select **Extensions** from the virtual machine's menu in the Azure portal. If the two agents are listed, then see []().
 
-[![Extensions](media/vminsights-health-troubleshoot/extensions.png)](media/vminsights-health-troubleshoot/extensions.png)
+[![VM extensions](media/vminsights-health-troubleshoot/extensions.png)](media/vminsights-health-troubleshoot/extensions.png)
 
 ### Verify the system assigned identity is enabled on the virtual machine
 Verify that the system assigned identity is enabled on the virtual machine. Select **Identity** from the virtual machine's menu in the Azure portal. If the two agents are listed, then see []().
