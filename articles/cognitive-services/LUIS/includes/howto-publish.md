@@ -15,8 +15,9 @@ ms.topic: include
 In order to receive a LUIS prediction in a chat bot or other client application, you need to publish the app to the prediction endpoint.
 
 1. Select **Publish** in the top-right navigation.
-
-    ![Screenshot of LUIS publish to endpoint button in top right menu](../media/howto-publish/publish-button.png)
+    
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot of LUIS publish to endpoint button in top right menu](../media/howto-publish/publish-button.png)
 
 1. Select the **Production** slot, then select **Done**.
 
