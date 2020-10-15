@@ -52,7 +52,7 @@ To return container metadata with the results, specify the **Metadata** value fo
 
 ## Example: List containers
 
-The following example asynchronously lists the containers in a storage account that begin with a specified prefix. The example lists containers in increments of 5 results at a time, and uses the continuation token to get the next segment of results. The example also returns container metadata with the results.
+The following example asynchronously lists the containers in a storage account that begin with a specified prefix. The example lists containers that begin with the specified prefix and returns the specified number of results per call to the listing operation. It then uses the continuation token to get the next segment of results. The example also returns container metadata with the results.
 
 # [.NET v12](#tab/dotnet)
 
@@ -117,5 +117,5 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 ## See also
 
-[List Containers](/rest/api/storageservices/list-containers2)
-[Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
+- [List Containers](/rest/api/storageservices/list-containers2)
+- [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
