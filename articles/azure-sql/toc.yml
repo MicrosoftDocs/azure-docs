@@ -1091,7 +1091,7 @@
             - name: VNN listener
               href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
             - name: DNN listener
-              displayName: distributed
+              displayName: distributed network name
               href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
             - name: DNN interoperability
               href: virtual-machines/windows/availability-group-dnn-interoperability.md
