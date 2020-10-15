@@ -1,6 +1,6 @@
 ---
-title: VM certification FAQ for Azure Marketplace
-description: This article covers frequently asked questions when testing and certifying VM images for Azure Marketplace.
+title: VM certification troubleshooting for Azure Marketplace
+description: This article covers troubleshooting topics common to testing and certifying VM images for Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 10/14/2020
 ---
 
-# VM certification FAQ
+# VM certification troubleshooting
 
 When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
 
@@ -432,7 +432,7 @@ Continue with the next section below to republish the offer.
 2. If you need to provide any information to the certification team, add it to the **Notes for certification** box.
 3. Select **Publish**.
 
-To complete the publishing process, see [Review and publish a virtual machine offer](azure-vm-create-review-publish.md).
+To complete the publishing process, see [Review and publish offers](review-publish-offer.md).
 
 ## Next steps
 

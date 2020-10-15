@@ -129,7 +129,7 @@
           href: azure-vm-sas-failure-messages.md
         - name: VM creation FAQ
           href: azure-vm-create-faq.md
-        - name: VM certification FAQ
+        - name: VM certification troubleshooting
           href: azure-vm-create-certification-faq.md
       - name: Configure VM offer properties
         href: azure-vm-create-properties.md
@@ -139,8 +139,6 @@
         href: azure-vm-create-plans.md
       - name: Add a preview audience
         href: azure-vm-create-preview.md
-    - name: Review and publish a VM offer
-      href: azure-vm-create-review-publish.md
   - name: Consulting services
     items: 
     - name: Plan a consulting services offer

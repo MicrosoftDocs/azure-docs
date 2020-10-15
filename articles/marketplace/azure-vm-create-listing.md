@@ -40,7 +40,7 @@ Provide a longer description of your offer, to be displayed in Azure Marketplace
 
 [!INCLUDE [Long description-2](includes/long-description-2.md)]
 
-[!INCLUDE [Long description-3](includes/long-description-3.md)]
+Use HTML tags to format your description so it's more engaging. For a list of allowed tags, see [Supported HTML tags](supported-html-tags.md).
 
 ### Privacy policy link
 

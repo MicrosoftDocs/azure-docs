@@ -27,4 +27,4 @@ Select **Save draft** before you proceed to the next section.
 
 ## Next steps
 
-- [Review and publish a VM offer](azure-vm-create-review-publish.md)
+- [Review and publish offers](review-publish-offer.md)

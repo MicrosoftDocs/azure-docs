@@ -1,6 +1,6 @@
 ---
-title: VM FAQ for Azure Marketplace
-description: Frequently asked questions when creating a virtual machine in Azure Marketplace.
+title: Common questions about VM in Azure Marketplace
+description: Common questions encountered when creating a virtual machine in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
@@ -9,7 +9,7 @@ ms.author: iqshah
 ms.date: 10/15/2020
 ---
 
-# VM FAQ for Azure Marketplace
+# Common questions about VM in Azure Marketplace
 
 These frequently asked questions (FAQ) cover common issues you might encounter when creating a virtual machine (VM) offer in Azure Marketplace.
 
@@ -47,4 +47,4 @@ This issue usually appears if you created a VM from a VHD that has a lock on it.
 
 ## Next steps
 
-- [VM certification FAQ](azure-vm-create-certification-faq.md)
+- [VM certification troubleshooting](azure-vm-create-certification-faq.md)
