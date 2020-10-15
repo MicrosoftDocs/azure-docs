@@ -90,7 +90,7 @@ To change the Log Analytics pricing tier of your workspace,
 
 3. After reviewing the estimated costs based on the last 31 days of usage, if you decide to change the pricing tier, click **Select**.  
 
-You can also [set the pricing tier via Azure Resource Manager](../samples/resource-manager-workspace.md#configure-a-log-analytics-workspace) using the `sku` parameter (`pricingTier` in the Azure Resource Manager template). 
+You can also [set the pricing tier via Azure Resource Manager](../samples/resource-manager-workspace.md) using the `sku` parameter (`pricingTier` in the Azure Resource Manager template). 
 
 ## Legacy pricing tiers
 
@@ -142,7 +142,7 @@ To set the default retention for your workspace,
 
 When the retention is lowered, there is a several day grace period before the data older than the new retention setting is removed. 
 
-The retention can also be [set via Azure Resource Manager](../samples/resource-manager-workspace.md#configure-a-log-analytics-workspace) using the `retentionInDays` parameter. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the several day grace period). This may be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager. 
+The retention can also be [set via Azure Resource Manager](../samples/resource-manager-workspace.md) using the `retentionInDays` parameter. When you set the data retention to 30 days, you can trigger an immediate purge of older data using the `immediatePurgeDataOn30Days` parameter (eliminating the several day grace period). This may be useful for compliance-related scenarios where immediate data removal is imperative. This immediate purge functionality is only exposed via Azure Resource Manager. 
 
 Workspaces with 30 days retention may actually retain data for 31 days. If it is imperative that data be kept for only 30 days, use the Azure Resource Manager to set the retention to 30 days and with the `immediatePurgeDataOn30Days` parameter.  
 

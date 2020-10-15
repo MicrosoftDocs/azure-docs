@@ -93,7 +93,7 @@ If we select the edit button immediately under the grid of request data we can s
 
 ![Screenshot of underlying Kusto query](./media/workbooks-overview/kusto.png)
 
-Clicking the other **Edit** buttons on the right will reveal a number of the core components that make up workbooks like markdown-based [text boxes](#text), [parameter selection](workbooks-parameters.md) UI elements, and other [chart/visualization types](#visualizations). 
+Clicking the other **Edit** buttons on the right will reveal a number of the core components that make up workbooks like markdown-based [text boxes](workbooks-text-visualizations.md), [parameter selection](workbooks-parameters.md) UI elements, and other [chart/visualization types](#visualizations). 
 
 Exploring the pre-built templates in edit-mode and then modifying them to fit your needs and save your own custom workbook is an excellent way to start to learn about what is possible with Azure Monitor workbooks.
 
