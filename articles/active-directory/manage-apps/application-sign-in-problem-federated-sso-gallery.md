@@ -144,6 +144,12 @@ On the SAML-based SSO configuration page, in the **Reply URL (Assertion Consumer
 ## Problem when customizing the SAML claims sent to an application
 To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
 
+## Errors related to misconfigured apps
+
+Verify both the configurations in the portal match what you have in your app. Specifically, compare Client/Application ID, Reply URLs, Client Secrets/Keys, and App ID URI.
+
+Compare the resource you’re requesting access to in code with the configured permissions in the **Required Resources** tab to make sure you only request resources you’ve configured.
+
 ## Next steps
 - [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 - [Azure AD Single Sign-on SAML protocol requirements](../develop/active-directory-single-sign-on-protocol-reference.md)
