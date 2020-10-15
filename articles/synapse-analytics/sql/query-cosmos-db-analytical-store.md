@@ -265,8 +265,10 @@ List of possible errors and troubleshooting actions are listed in the following 
 | --- | --- |
 | Syntax errors:<br/> - Incorrect syntax near 'Openrowset'<br/> - `...` is not a recognized BULK OPENROWSET provider option.<br/> - Incorrect syntax near `...` | Possible root causes<br/> - Not using 'CosmosDB' as first parameter,<br/> - Using string literal instead of identifier in third parameter,<br/> - Not specifying third parameter (container name) |
 | There was an error in CosmosDB connection string | - Account, Database, Key is not specified <br/> - There is some option in connection string that is not recognized.<br/> - Semicolon `;` is placed at the end of connection string |
-| Resolving CosmosDB path has failed with error 'Incorrect account/database name' | Specified account name or database name cannot be found. |
-| Resolving CosmosDB path has failed with error 'Incorrect secret value' 'Secret is null or empty' | Account key is not valid or missing. |
+| Resolving CosmosDB path has failed with error 'Incorrect account name' or 'Incorrect database name' | Specified account name, database name, or container cannot be found, or analytical storage has not been enabled o the specified collection|
+| Resolving CosmosDB path has failed with error 'Incorrect secret value' or 'Secret is null or empty' | Account key is not valid or missing. |
+| Column `column name` of type `type name` is not compatible with external data type `type name` | Specified column type in `WITH` clause doesn't match type in Cosmos DB container. Try to change the column type as it is described in the section [Azure Cosmos DB to SQL type mappings](#azure-cosmos-db-to-sql-type-mappings) or use `VARCHAR` type. |
+| Column contains `NULL` values in all cells. | Possibly wrong column name or path expression in `WITH` clause. Column name (or path expression after the column type) in `WITH` clause must match some property name in Cosmos DB collection. Comparison is **case sensitive**  (for example, `productCode` and `ProductCode` are different properties). |
 
 You can report suggestions and issues on [Azure Synapse feedback page](https://feedback.azure.com/forums/307516-azure-synapse-analytics?category_id=387862).
 
