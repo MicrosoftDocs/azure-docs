@@ -140,7 +140,11 @@
   - name: Managing peerings
     items:
     - name: Enable and disable peerings
-      href: expressroute-howto-reset-peering.md
+      items:
+      - name: Azure portal 
+        href: expressroute-howto-reset-peering-portal.md
+      - name: Azure PowerShell
+        href: expressroute-howto-reset-peering.md
     - name: Move from public peering to Microsoft peering
       href: how-to-move-peering.md
   - name: Encrypt traffic over circuits
