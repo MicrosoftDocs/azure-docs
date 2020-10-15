@@ -10,7 +10,7 @@ ms.date: 10/15/2020
 ms.author: duau
 ---
 
-# Reset ExpressRoute circuit peerings
+# Reset ExpressRoute circuit peerings use the Azure portal
 
 This article describes how to disable and enable peerings of an ExpressRoute circuit using the Azure portal. When you disable a peering, the BGP session on both the primary and the secondary connection of your ExpressRoute circuit will be shut down. You'll lose connectivity through this peering to Microsoft. When you enable a peering, the BGP session on both the primary and the secondary connection of your ExpressRoute circuit will be brought up. You'll regain connectivity through this peering to Microsoft. You can enable and disable Microsoft Peering and Azure Private Peering on an ExpressRoute circuit independently. The first time you configure the peerings on your ExpressRoute circuit, the peerings are enabled by default.
 
