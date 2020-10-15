@@ -81,8 +81,8 @@ Fees for phone number leasing are charged upfront and then recur on a month-to-m
 
 |Number type   |Monthly fee   |
 |--------------|-----------|
-|Local     |$1/mo        |
-|Toll-free |$2/mo |
+|Local (United States)     |$1/mo        |
+|Toll-free (United States) |$2/mo |
 
 
 ### Telephone calling
