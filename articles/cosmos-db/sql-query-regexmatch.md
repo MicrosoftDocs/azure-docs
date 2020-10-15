@@ -75,7 +75,7 @@ With RegexMatch, you can use metacharacters to do more complex string searches t
 > [!NOTE] 
 > If you need to use a metacharacter in a regular expression and don't want it to have special meaning, you should escape the metacharacter using `\`.
 
-**Check items that have a description that contains the "salt" exactly once**
+**Check items that have a description that contains the word "salt" exactly once:**
 
 ```sql
 SELECT * 
@@ -83,7 +83,7 @@ FROM c
 WHERE RegexMatch (c.description, "salt{1}","")
 ```
 
-**Check items that have a description that contain a number between 0 and 99**
+**Check items that have a description that contain a number between 0 and 99:**
 
 ```sql
 SELECT * 
@@ -91,7 +91,7 @@ FROM c
 WHERE RegexMatch (c.description, "[0-99]","")
 ```
 
-**Check items that have a description that contain four letter words starting with "S" or "s"**
+**Check items that have a description that contain four letter words starting with "S" or "s":**
 
 ```sql
 SELECT * 
