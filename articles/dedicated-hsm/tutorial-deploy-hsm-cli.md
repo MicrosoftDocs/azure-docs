@@ -16,7 +16,7 @@ ms.date: 11/11/2019
 ms.author: mbaldwin
 ---
 
-# Tutorial: Deploying HSMs into an existing virtual network using CLI
+# Tutorial: Deploying HSMs into an existing virtual network using the Azure CLI
 
 Azure Dedicated HSM provides a physical device for sole customer use, with complete administrative control and full management responsibility. The use of physical devices creates the need for Microsoft to control device allocation to ensure capacity is managed effectively. As a result, within an Azure subscription, the Dedicated HSM service will not normally be visible for resource provisioning. Any Azure customer requiring access to the Dedicated HSM service, must first contact their Microsoft account executive to request registration for the Dedicated HSM service. Only once this process completes successfully will provisioning be possible. 
 
@@ -71,8 +71,8 @@ Before you create HSM resources, there are some pre-requisite resources you need
 az network vnet create \
   --name myHSM-vnet \
   --resource-group myRG \
-  --address-prefix 10.2.0.0/16
-  --subnet-name compute
+  --address-prefix 10.2.0.0/16 \
+  --subnet-name compute \
   --subnet-prefix 10.2.0.0/24
 ```
 
@@ -96,7 +96,7 @@ az network vnet subnet create \
 >[!NOTE]
 >The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to "Microsoft.HardwareSecurityModules/dedicatedHSMs".  The HSM provisioning will not work without this option being set.
 
-After you configure your network, use this procedure to provision your HSMs.
+After you configure your network, use these Azure CLI commands to provision your HSMs.
 
 1. Use the [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) command to provision the first HSM. The HSM is named hsm1. Substitute your subscription:
 
@@ -110,7 +110,7 @@ After you configure your network, use this procedure to provision your HSMs.
 1. To see a current HSM, run the [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show) command:
 
    ```azurecli
-   az dedicated-hsm show  --resource group myRG --name hsm1
+   az dedicated-hsm show --resource group myRG --name hsm1
    ```
 
 1. Provision the second HSM by using this command:
@@ -150,7 +150,49 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![provisioning output](media/tutorial-deploy-hsm-cli/progress-status2.png)
+The output looks something like the following output:
+
+```json
+{
+    "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSMl",
+    "identity": null,
+    "kind": null,
+    "location": "westus",
+    "managedBy": null,
+    "name": "HSM1",
+    "plan": null,
+    "properties": {
+        "networkProfile": {
+            "networkInterfaces": [
+            {
+            "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/networkInterfaces/HSMl_HSMnic", "privatelpAddress": "10.0.2.5",
+            "resourceGroup": "HSM-RG"
+            }
+            L
+            "subnet": {
+                "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/virtualNetworks/demo-vnet/subnets/hsmsubnet", "resourceGroup": "HSM-RG"
+            }
+        },
+        "provisioningState": "Succeeded",
+        "stampld": "stampl",
+        "statusMessage": "The Dedicated HSM device is provisioned successfully and ready to use."
+    },
+    "resourceGroup": "HSM-RG",
+    "sku": {
+        "capacity": null,
+        "family": null,
+        "model": null,
+        "name": "SafeNet Luna Network HSM A790",
+        "size": null,
+        "tier": null
+    },
+    "tags": {
+        "Environment": "prod",
+        "resourceType": "Hsm"
+    },
+    "type": "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+}
+```
 
 You will also now be able to see the resources using the [Azure resource explorer](https://resources.azure.com/).   Once in the explorer, expand "subscriptions" on the left, expand your specific subscription for Dedicated HSM, expand "resource groups", expand the resource group you used and finally select the "resources" item.
 
@@ -196,15 +238,13 @@ If you have finished with just the HSM device, then it can be deleted as a resou
 > [!NOTE]
 > if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
 
-
 If you have finished with all resources in this resource group, then you can remove them all with the following command:
 
 ```azurecli
-az group deployment delete \
+az group delete \
    --resource-group myRG \
    --name HSMdeploy \
    --verbose
-
 ```
 
 ## Next steps
