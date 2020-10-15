@@ -21,6 +21,7 @@ ms.author: yelevin
 
 
 In this step, you will designate and configure the Linux machine that will forward the logs from your security solution to your Azure Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. Using the link provided, you will run a script on the designated machine that performs the following tasks:
+
 - Installs the Log Analytics agent for Linux (also known as the OMS agent) and configures it for the following purposes:
     - listening for CEF messages from the built-in Linux Syslog daemon on TCP port 25226
     - sending the messages securely over TLS to your Azure Sentinel workspace, where they are parsed and enriched
@@ -32,18 +33,28 @@ In this step, you will designate and configure the Linux machine that will forwa
 ## Prerequisites
 
 - You must have elevated permissions (sudo) on your designated Linux machine.
-- You must have python installed on the Linux machine.<br>Use the `python -version` command to check.
+
+- You must have **python 2.7** installed on the Linux machine.<br>Use the `python -version` command to check.
+
 - The Linux machine must not be connected to any Azure workspaces before you install the Log Analytics agent.
+
+- You may need the Workspace ID and Workspace Primary Key at some point in this process. You can find them in the workspace resource, under **Agents management**.
 
 ## Run the deployment script
  
 1. From the Azure Sentinel navigation menu, click **Data connectors**. From the list of connectors, click the **Common Event Format (CEF)** tile, and then the **Open connector page** button on the lower right. 
 
-1. Under **1.2 Install the CEF collector on the Linux machine**, copy the link provided under **Run the following script to install and apply the CEF collector**, or from the text below:
+1. Under **1.2 Install the CEF collector on the Linux machine**, copy the link provided under **Run the following script to install and apply the CEF collector**, or from the text below (applying the Workspace ID and Primary Key in place of the placeholders):
 
-     `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```bash
+    sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_installer.py&&sudo python cef_installer.py [WorkspaceID] [Workspace Primary Key]`
+    ```
 
 1. While the script is running, check to make sure you don't get any error or warning messages.
+    - <a name="mapping-command"></a>You may get a message about the incorrect or missing mapping of the *Computer* field. If that happens, run the following command (applying the Workspace ID in place of the placeholder), which ensures the correct mapping and restarts the agent.
+        ```bash
+        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/plugin/filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        ```
 
 > [!NOTE]
 > **Using the same machine to forward both plain Syslog *and* CEF messages**
@@ -118,12 +129,11 @@ Choose a syslog daemon to see the appropriate description.
 
 1. **Verifying the mapping of the *Computer* field as expected:**
 
-    - Ensures that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent by running this command and restarting the agent.
+    - Ensures that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent. If it isn't, the script will produce an error message directing you to run [the command mentioned above](#mapping-command) to fix the mapping.
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        # (This is the command the script uses to check the mapping, not the command to fix the mapping!)
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
 
 # [syslog-ng daemon](#tab/syslogng)
@@ -183,15 +193,12 @@ Choose a syslog daemon to see the appropriate description.
 
 1. **Verifying the mapping of the *Computer* field as expected:**
 
-    - Ensures that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent by running this command and restarting the agent.
+    - Ensures that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent. If it isn't, the script will produce an error message directing you to run [the command mentioned above](#mapping-command) to fix the mapping.
 
         ```bash
-        sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
-            -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
-            filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+        # (This is the command the script uses to check the mapping, not the command to fix the mapping!)
+        grep -i "'Host' => record\['host'\]"  /opt/microsoft/omsagent/plugin/filter_syslog_security.rb
         ```
-
-
 
 ## Next steps
 In this document, you learned how to deploy the Log Analytics agent to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
