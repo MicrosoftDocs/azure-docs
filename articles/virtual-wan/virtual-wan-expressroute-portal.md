@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial - Create ExpressRoute connections using Azure Virtual WAN'
+title: 'Tutorial: Create ExpressRoute connections using Azure Virtual WAN'
 description: In this tutorial, learn how to use Azure Virtual WAN to create ExpressRoute connections to Azure and on-premises environments.
 services: virtual-wan
 author: cherylmc
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 > * Change a gateway size
 > * Advertise a default route
 
-## Before you begin
+## Prerequisites
 
 Verify that you have met the following criteria before beginning your configuration:
 
@@ -148,6 +148,17 @@ If you would like the Azure virtual hub to advertise the default route 0.0.0.0/0
 
    ![Propagate default route](./media/virtual-wan-expressroute-portal/defaultroute2.png "Propagate default route")
 
+## <a name="cleanup"></a>Clean up resources
+
+When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+
+```azurepowershell-interactive
+Remove-AzResourceGroup -Name myResourceGroup -Force
+```
+
 ## Next steps
 
-To learn more about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md) page.
+Next, to learn more about Virtual WAN, see:
+
+> [!div class="nextstepaction"]
+> * [Virtual WAN FAQ](virtual-wan-faq.md)

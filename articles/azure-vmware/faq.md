@@ -70,8 +70,13 @@ Yes, provided the system it is installed on can access the private cloud vCenter
 No, use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) and fulfill the VM prerequisites specified in those instructions. 
 
 #### Is VMware HCX supported on VPNs?
-No.
+No, because of bandwidth and latency requirements.
 
+#### Can Azure Bastion be used for connecting to AVS VMs?
+Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You cannot use Azure Bastion to connect to Azure VMware Solution VMs since they are not Azure IaaS objects.
+
+#### Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
+Yes, you can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.
 
 ## Compute, network, storage, and backup
 
