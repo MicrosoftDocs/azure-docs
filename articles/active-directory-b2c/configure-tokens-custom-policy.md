@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/07/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -83,6 +83,18 @@ The following values are set in the previous example:
     ```xml
     <OutputClaim ClaimTypeReferenceId="sub" />
     ```
+## Provide optional claims to your app
+
+The [Relying party policy technical profile](relyingparty.md#technicalprofile) output cliams are values that are returned to the application. Update the relying party (RP) file that initiates the user journey that you created.
+
+1. Open your custom policy file. For example, SignUpOrSignin.xml.
+1. Find the OutputClaims element. Add the OutputClaim you want to be included in the token. 
+1. Set the output cliam attributes.
+  - **ClaimTypeReferenceId** - The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.
+  - **PartnerClaimType** - Alows you to change the name of the claim. For example, the first claim name is 'givenName', while your application uses a claim.
+  - **DefaultValue** - A default value. You may want to set the default value to a [claim resolver](claim-resolver-overview.md), such as tenant ID, or correlation ID.
+  - **AlwaysUseDefaultValue** - Force the use of the default value.
+
 
 ## Next steps
 
