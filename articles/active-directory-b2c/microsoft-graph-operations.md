@@ -102,7 +102,7 @@ The top-level resource for policy keys in the Microsoft Graph API is the [Truste
 
 - [List extension properties](https://docs.microsoft.com/graph/api/application-list-extensionproperty)
 
-Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](custom-policy-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you the first time the policy writes a value to the extension property.
+Azure AD B2C provides a directory that can hold 100 custom attributes per user. For user flows, these extension properties are [managed by using the Azure portal](custom-policy-custom-attributes.md). For custom policies, Azure AD B2C creates the property for you, the first time the policy writes a value to the extension property.
 
 ## Audit logs
 
