@@ -79,7 +79,6 @@ Application Proxy requires Windows Server 2012 R2 or later. There is currently a
 	HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
 	```
 
-
 ## Application configuration
 
 ### I am receiving an error about an invalid certificate or possible wrong password
@@ -120,7 +119,7 @@ For more information, see the whitepaper [Understanding Kerberos Constrained Del
 
 NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
 
-### Can I use the logon identity “On-premises user principal name” or “On-premises SAM account name” in a B2B IWA Single sing-on scenario?
+### Can I use the logon identity “On-premises user principal name” or “On-premises SAM account name” in a B2B IWA single sign-on scenario?
 
 No, this won’t work, because a guest user in Azure AD doesn't have the attribute that is required by any of the logon identities mentioned above.
 
