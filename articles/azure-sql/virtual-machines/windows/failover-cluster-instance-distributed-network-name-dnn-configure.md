@@ -25,7 +25,7 @@ This article teaches you to configure a DNN resource to route traffic to your fa
 
 The DNN feature is currently in preview and only available on SQL Server 2019 CU2 and later on Windows Server 2016 and later. 
 
-For an alternative connectivity option for customers, consider a [virtual network name & Azure Load Balancer](failover-cluster-instsance-vnn-azure-load-balancer-configure.md) instead. 
+For an alternative connectivity option, consider a [virtual network name and Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) instead. 
 
 ## Overview
 

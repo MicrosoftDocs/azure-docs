@@ -182,7 +182,7 @@ You can **Add more replicas** to the availability group, **Configure the Listene
 
 ## Remove cluster
 
-Remove all of the SQL Server VMs from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the latest version of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or PowerShell. 
+Remove all of the SQL Server VMs from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the latest version of the [Azure CLI](/cli/azure/install-azure-cli) or PowerShell. 
 
 # [Azure CLI](#tab/azure-cli)
 

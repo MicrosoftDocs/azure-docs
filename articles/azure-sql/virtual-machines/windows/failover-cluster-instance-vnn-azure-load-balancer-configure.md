@@ -23,7 +23,7 @@ On Azure Virtual Machines, clusters use a load balancer to hold an IP address th
 
 This article teaches you to configure a load balancer by using the Azure Load Balancer service. The load balancer will route traffic to your [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
-For an alternative connectivity option for customers that are on SQL Server 2019 CU2 and later, consider a [distributed network name](failover-cluster-instsance-vnn-azure-load-balancer-configure.md) instead for simplified configuration and improved failover. 
+For an alternative connectivity option for SQL Server 2019 CU2 and later, consider a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) instead for simplified configuration and improved failover. 
 
 
 ## Prerequisites

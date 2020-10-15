@@ -61,7 +61,7 @@ You need an Azure account. You can [open a free Azure account](https://signup.az
 8. Select a location. The location is the Azure region where you want to create the availability group. This article builds all resources in one Azure location.
 9. Verify that **Pin to dashboard** is checked. This optional setting places a shortcut for the resource group on the Azure portal dashboard.
 
-   ![Resource group](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
+   ![Resource group shortcut for the Azure portal](./media/availability-group-manually-configure-prerequisites-tutorial-/01-resourcegroup.png)
 
 10. Select **Create** to create the resource group.
 
@@ -119,13 +119,13 @@ The new virtual network has one subnet, named **Admin**. The domain controllers 
 
     Note the subnet that you already created.
 
-   ![Configure the virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
+   ![Note the subnet that you already created](./media/availability-group-manually-configure-prerequisites-tutorial-/07-addsubnet.png)
 
 5. To create a second subnet, select **+ Subnet**.
 6. On **Add subnet**, configure the subnet by typing **sqlsubnet** under **Name**. Azure automatically specifies a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment, you might require more addresses.
 7. Select **OK**.
 
-    ![Configure the virtual network](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
+    ![Condfigure subnet](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
 The following table summarizes the network configuration settings:
 
