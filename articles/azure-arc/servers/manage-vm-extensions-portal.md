@@ -5,9 +5,9 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ---
 
-# Deploy Azure VM extensions from the Azure portal
+# Enable Azure VM extensions from the Azure portal
 
-This article shows you how to deploy Azure VM extensions supported by Azure Arc enabled servers to a Linux or Windows hybrid machine through the Azure portal.
+This article shows you how to deploy and uninstall Azure VM extensions, supported by Azure Arc enabled servers, to a Linux or Windows hybrid machine through the Azure portal.
 
 ## Enable extensions from the portal
 

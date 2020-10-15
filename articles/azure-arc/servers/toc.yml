@@ -45,7 +45,7 @@
           href: manage-vm-extensions.md
         - name: Manage extensions from portal
           href: manage-vm-extensions-portal.md
-        - name: Manage extensions using ARM template
+        - name: Deploy extensions using ARM template
           href: manage-vm-extensions-template.md
     - name: Manage agent
       href: manage-agent.md

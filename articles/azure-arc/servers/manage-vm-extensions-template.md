@@ -5,9 +5,9 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ---
 
-# Deploy Azure VM extensions by using ARM template
+# Enable Azure VM extensions by using ARM template
 
-This article shows you how to deploy an Azure Resource Manager template (ARM template) that deploys Azure VM extensions supported by Azure Arc enabled servers.
+This article shows you how to use an Azure Resource Manager template (ARM template) to deploy Azure VM extensions, supported by Azure Arc enabled servers.
 
 VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. With the VM extensions supported by Arc enabled servers, you can deploy the supported VM extension on Linux or Windows machines using Azure PowerShell. Each sample below includes a template file and a parameters file with sample values to provide to the template.
 
