@@ -114,7 +114,7 @@ The following table lists the current available monitor names.
 | logical-disks\|\<disk-name\>\|free-space | Disk free space monitor on Windows VM. | logical-disks\|C:\|free-space |
 | filesystems | Aggregate monitor for health of all filesystems on Linux VM. |
 | filesystems\|\<mount-point\> | Aggregate monitor tracking health of a filesystem of Linux virtual machine. | filesystems|/var/log |
-| filesystem\|\<mount-point\>|free-space | Disk free space monitor on Linux virtual machine filesystem. | filesystems|/var/log|free-space |
+| filesystem\|\<mount-point\>\|free-space | Disk free space monitor on Linux virtual machine filesystem. | filesystems\|/var/log\|free-space |
 | memory | Aggregate monitor for health of virtual machine memory. | |
 | memory\|available | Monitor tracking available memory on the virtual machine. | |
 
