@@ -4,8 +4,8 @@ description: Learn how to create an Azure Red Hat OpenShift private cluster runn
 ms.service: container-service
 ms.topic: article
 ms.date: 03/12/2020
-author: ms-jasondel
-ms.author: jasondel
+author: georgewallace
+ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
 #Customer intent: As an operator, I need to create a private Azure Red Hat OpenShift cluster

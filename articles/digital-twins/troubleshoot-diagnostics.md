@@ -69,7 +69,7 @@ Each log category consists of operations of write, read, delete, and action.  Th
 | Delete | DELETE |
 | Action | POST |
 
-Here is a comprehensive list of the operations and corresponding [Azure Digital Twins REST API calls](https://docs.microsoft.com/rest/api/azure-digitaltwins/) that are logged in each category. 
+Here is a comprehensive list of the operations and corresponding [Azure Digital Twins REST API calls](/rest/api/azure-digitaltwins/) that are logged in each category. 
 
 >[!NOTE]
 > Each log category contains several operations/REST API calls. In the table below, each log category maps to all operations/REST API calls underneath it until the next log category is listed. 

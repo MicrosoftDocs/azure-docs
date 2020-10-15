@@ -217,7 +217,7 @@ groups:
 # To be enabled later.
 #  - id: programmer-tool-spx
 #    title: CLI
-- id: programming-languages-set-eighteen
+- id: programming-languages-set-twenty-three
 # Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language or CLI
@@ -226,6 +226,8 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -238,7 +240,7 @@ groups:
     title: REST
   - id: programmer-tool-spx
     title: CLI
-- id: programming-languages-set-nineteen
+- id: programming-languages-set-twenty-four
 # Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language or CLI
@@ -247,8 +249,6 @@ groups:
     title: C#
   - id: programming-language-cpp
     title: C++
-  - id: programming-language-go
-    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript

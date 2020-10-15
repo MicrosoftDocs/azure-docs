@@ -100,7 +100,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: REST API for IoT Hub
-            url: https://docs.microsoft.com/rest/api/iothub/
+            url: /rest/api/iothub/
   - title:  Deploy AI to the edge
     linkLists: 
       - linkListType: tutorial
