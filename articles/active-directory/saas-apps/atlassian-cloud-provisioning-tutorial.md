@@ -100,7 +100,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to Atlassian Cloud**.
 
-9. Review the user attributes that are synchronized from Azure AD to Atlassian Cloud in the **Attribute Mapping**    section. The email attribute will be used to match an Atlassian Cloud on create. Updates to the email attribute will try to update the email of the linked Atlassian Account. Select the **Save** button to commit any changes.
+9. Review the user attributes that are synchronized from Azure AD to Atlassian Cloud in the **Attribute Mapping** section.
+   The email attribute will be used to match Atlassian Cloud accounts with your Azure AD accounts.
+   Select the **Save** button to commit any changes.
 
    |Attribute|Type|
    |---|---|
@@ -112,7 +114,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to Atlassian Cloud**.
 
-11. Review the group attributes that are synchronized from Azure AD to Atlassian Cloud in the **Attribute Mapping** section. The display name attribute will be used to match the groups in Atlassian Cloud for create operations. Updates to the display name attribute will try to update the display name of the linked Atlassian group. Select the **Save** button to commit any changes.
+11. Review the group attributes that are synchronized from Azure AD to Atlassian Cloud in the **Attribute Mapping** section.
+    The display name attribute will be used to match Atlassian Cloud groups with your Azure AD groups.
+    Select the **Save** button to commit any changes.
 
       |Attribute|Type|
       |---|---|
