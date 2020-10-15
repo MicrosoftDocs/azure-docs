@@ -37,7 +37,7 @@ The list below are the possible operations or route values that can be returned 
 
 Operation – (All routes) - GetChatMessage, ListChatMessages, SendChatMessage, UpdateChatMessage, DeleteChatMessage, GetChatThread, ListChatThreads, UpdateChatThread,  CreateChatThread, DeleteChatThread, GetReadReceipts, SendTypingIndicator, ListChatThreadParticipants, AddChatThreadParticipants and RemoveChatThreadParticipant.
 
-:::image type="content" source="./media/chatmetric.png" alt-text="Chat API Request Metric.":::
+:::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
 ### SMSGatewayAPIRequests
 
@@ -51,7 +51,7 @@ The list below are the possible operations or route values that can be returned 
 
 Operation – (All routes) - SMSMessageSent, SMSDeliveryReportsReceived, and SMSMessagesReceived
 
-:::image type="content" source="./media/smsmetric.png" alt-text="SMS API Request Metric.":::
+:::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
 
 ## References
 
