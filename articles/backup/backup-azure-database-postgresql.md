@@ -12,7 +12,7 @@ Azure Backup and Azure Database Services have come together to build an enterpri
 
 Besides long-term retention, the solution also has many other capabilities as listed below:
 
-- RBAC-based access to the database using Azure Active Directory and Managed Service Identity (MSI) authentication.
+- Azure role-based access control (Azure RBAC) to the database using Azure Active Directory and Managed Service Identity (MSI) authentication.
 - Customer controlled scheduled and on-demand backup at the individual database level.
 - Database-level restores to any Postgres server or directly to blob storage.
 - Long-term retention.
