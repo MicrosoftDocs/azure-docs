@@ -6,7 +6,7 @@ ms.author: yegu
 ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
-ms.date: 05/15/2017
+ms.date: 10/09/2020
 ---
 # How to configure Virtual Network Support for a Premium Azure Cache for Redis
 Azure Cache for Redis has different cache offerings, which provide flexibility in the choice of cache size and features, including Premium tier features such as clustering, persistence, and virtual network support. A VNet is a private network in the cloud. When an Azure Cache for Redis instance is configured with a VNet, it is not publicly addressable and can only be accessed from virtual machines and applications within the VNet. This article describes how to configure virtual network support for a premium Azure Cache for Redis instance.
@@ -22,22 +22,38 @@ Azure Cache for Redis has different cache offerings, which provide flexibility i
 ## Virtual network support
 Virtual Network (VNet) support is configured on the **New Azure Cache for Redis** blade during cache creation. 
 
-[!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
+1. To create a premium cache, sign in to the [Azure portal](https://portal.azure.com) and select **Create a resource**. Note, in addition to creating caches in the Azure portal, you can also create them using Resource Manager templates, PowerShell, or Azure CLI. For more information about creating an Azure Cache for Redis, see [Create a cache](cache-dotnet-how-to-use-azure-redis-cache.md#create-a-cache).
 
-Once you have selected a premium pricing tier, you can configure Redis VNet integration by selecting a VNet that is in the same subscription and location as your cache. To use a new VNet, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and then return to the **New Azure Cache for Redis** blade to create and configure your premium cache.
+    :::image type="content" source="media/cache-private-link/1-create-resource.png" alt-text="Create resource.":::
+   
+2. On the **New** page, select **Databases** and then select **Azure Cache for Redis**.
 
-To configure the VNet for your new cache, click **Virtual Network** on the **New Azure Cache for Redis** blade, and select the desired VNet from the drop-down list.
+    :::image type="content" source="media/cache-private-link/2-select-cache.png" alt-text="Select Azure Cache for Redis.":::
 
-![Virtual network][redis-cache-vnet]
+3. On the **New Redis Cache** page, configure the settings for your new premium cache.
+   
+   | Setting      | Suggested value  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **DNS name** | Enter a globally unique name. | The cache name must be a string between 1 and 63 characters that contains only numbers, letters, or hyphens. The name must start and end with a number or letter, and can't contain consecutive hyphens. Your cache instance's *host name* will be *\<DNS name>.redis.cache.windows.net*. | 
+   | **Subscription** | Drop-down and select your subscription. | The subscription under which to create this new Azure Cache for Redis instance. | 
+   | **Resource group** | Drop-down and select a resource group, or select **Create new** and enter a new resource group name. | Name for the resource group in which to create your cache and other resources. By putting all your app resources in one resource group, you can easily manage or delete them together. | 
+   | **Location** | Drop-down and select a location. | Select a [region](https://azure.microsoft.com/regions/) near other services that will use your cache. |
+   | **Cache type** | Drop-down and select a premium cache to configure premium features. For details, see [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/). |  The pricing tier determines the size, performance, and features that are available for the cache. For more information, see [Azure Cache for Redis Overview](cache-overview.md). |
 
-Select the desired subnet from the **Subnet** drop-down list.  If desired, specify a **Static IP address**. The **Static IP address** field is optional, and if none is specified, one is chosen from the selected subnet.
+4. Select the **Networking** tab or click the **Networking** button at the bottom of the page.
+
+5. In the **Networking** tab, select **Virtual Networks** as your connectivity method. To use a new virtual network, create it first by following the steps in [Create a virtual network using the Azure portal](../virtual-network/manage-virtual-network.md#create-a-virtual-network) or [Create a virtual network (classic) by using the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) and then return to the **New Azure Cache for Redis** blade to create and configure your premium cache.
 
 > [!IMPORTANT]
 > When deploying an Azure Cache for Redis to a Resource Manager VNet, the cache must be in a dedicated subnet that contains no other resources except for Azure Cache for Redis instances. If an attempt is made to deploy an Azure Cache for Redis to a Resource Manager VNet to a subnet that contains other resources, the deployment fails.
 > 
 > 
 
-![Virtual network][redis-cache-vnet-ip]
+   | Setting      | Suggested value  | Description |
+   | ------------ |  ------- | -------------------------------------------------- |
+   | **Virtual Network** | Drop-down and select your virtual network. | Select a virtual network that is in the same subscription and location as your cache. | 
+   | **Subnet** | Drop-down and select your subnet. | The subnet's address range should be in CIDR notation (e.g. 192.168.1.0/24). It must be contained by the address space of the virtual network. | 
+   | **Static IP address** | (Optional) Enter a static IP address. | If you don't specify a static IP then an IP address is chosen automatically. | 
 
 > [!IMPORTANT]
 > Azure reserves some IP addresses within each subnet, and these addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, along with three more addresses used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
@@ -46,7 +62,19 @@ Select the desired subnet from the **Subnet** drop-down list.  If desired, speci
 > 
 > 
 
-After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Resource menu**.
+6. Select the **Next: Advanced** tab or click the **Next: Advanced** button on the bottom of the page.
+
+7. In the **Advanced** tab for a premium cache instance, configure the settings for non-TLS port, clustering, and data persistence. 
+
+8. Select the **Next: Tags** tab or click the **Next: Tags** button at the bottom of the page.
+
+9. Optionally, in the **Tags** tab, enter the name and value if you wish to categorize the resource. 
+
+10. Select **Review + create**. You're taken to the Review + create tab where Azure validates your configuration.
+
+11. After the green Validation passed message appears, select **Create**.
+
+It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use. After the cache is created, you can view the configuration for the VNet by clicking **Virtual Network** from the **Resource menu**.
 
 ![Virtual network][redis-cache-vnet-info]
 

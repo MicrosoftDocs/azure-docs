@@ -139,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CylancePROTECT SSO
 
-To configure single sign-on on **CylancePROTECT** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CylancePROTECT support team](https://www.cylance.com/en-us/resources/support/support-overview.html). They set this setting to have the SAML SSO connection set properly on both sides. For more information, use Cylance documentation: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4).
+To configure single sign-on on **CylancePROTECT** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CylancePROTECT support team](https://www.cylance.com/en-us/resources/support/support-overview.html). They set this setting to have the SAML SSO connection set properly on both sides. For more information, use Cylance documentation: [https://support.cylance.com/s/](https://support.cylance.com/s/).
 
 ### Create CylancePROTECT test user
 
