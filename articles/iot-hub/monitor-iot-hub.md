@@ -157,7 +157,64 @@ Following are queries that you can use to help you monitor your IoT hub.
 
 <!-- Put in a code section here. -->  
 ```Kusto
-   
+// Connectvity errors 
+// Identify device connection errors. 
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections" and Level == "Error"
+```
+
+```kusto
+// Devices with most throttling errors 
+// Identify devices that made the most requests resulting in throttling errors.
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where ResultType == "429001"
+| extend DeviceId = tostring(parse_json(properties_s).deviceId)
+| summarize count() by DeviceId, Category, _ResourceId
+| order by count_ desc
+```
+
+```kusto
+// Dead endpoints 
+// Identify dead or unhealthy endpoints by the number times the issue was reported, as well as the reason why.
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Routes" and OperationName in ("endpointDead", "endpointUnhealthy")
+| extend parsed_json = parse_json(properties_s)
+| extend Endpoint = tostring(parsed_json.endpointName), Reason = tostring(parsed_json.details) 
+| summarize count() by Endpoint, OperationName, Reason, _ResourceId
+| order by count_ desc
+```
+
+```kusto
+// Error summary 
+// Count of errors across all operations by type.
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Level == "Error"
+| summarize count() by ResultType, ResultDescription, Category, _ResourceId
+```
+
+```kusto
+// Recently connected devices
+// List of devices that IoT Hub saw connect in the specified time period.
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections" and OperationName == "deviceConnect"
+| extend DeviceId = tostring(parse_json(properties_s).deviceId)
+| summarize max(TimeGenerated) by DeviceId, _ResourceId
+```
+
+```kusto
+// SDK version of devices 
+// List of devices and their SDK versions for device connections or device to cloud twin operations
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections" or Category == "D2CTwinOperations"
+| extend parsed_json = parse_json(properties_s) 
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
 ```
 
 ## Alerts
@@ -166,7 +223,9 @@ Following are queries that you can use to help you monitor your IoT hub.
 This information is the BIGGEST request we get in Azure Monitor so do not avoid it long term. People don't know what to monitor for best results. Be prescriptive  
 -->
 
-Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
+
+For platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [IoT Hub metrics supported aggregations](monitor-service-reference.md#supported-aggregations).
 
 The following table lists common and recommended alert rules for [service-name].
 
