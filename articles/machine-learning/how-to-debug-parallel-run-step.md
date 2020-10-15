@@ -20,7 +20,7 @@ In this article, you learn how to debug and troubleshoot the [ParallelRunStep](h
 
 ## Testing scripts locally
 
-See the [Testing scripts locally section](how-to-debug-pipelines.md#debug-scripts-locally) for machine learning pipelines. Your ParallelRunStep runs as a step in ML pipelines so the same answer applies to both.
+See the [Testing scripts locally section](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-machine-learning-pipelines) for machine learning pipelines. Your ParallelRunStep runs as a step in ML pipelines so the same answer applies to both.
 
 ## Debugging scripts from remote context
 
