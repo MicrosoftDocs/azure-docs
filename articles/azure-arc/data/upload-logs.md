@@ -88,7 +88,7 @@ SET SPN_TENANT_ID=<tenant>
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
-On a macOS or Linux console, `appId`, `password`, and `tenant` values in an environment variable for use later:
+Save the `appId`, `password`, and `tenant` values in an environment variable for use later:
 
 ```console
 export SPN_CLIENT_ID='<appId>'
@@ -100,7 +100,7 @@ export SPN_TENANT_ID='<tenant>'
 
 ::: zone pivot="client-operating-system-powershell"
 
-With PowerShell, `appId`, `password`, and `tenant` values in an environment variable for use later:
+Save the `appId`, `password`, and `tenant` values in an environment variable for use later:
 
 ```console
 $Env:SPN_CLIENT_ID="<appId>"
