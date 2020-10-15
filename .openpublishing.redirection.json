@@ -34264,7 +34264,7 @@
     },
     {
       "source_path": "articles/stream-analytics/stream-analytics-data-lake-output.md",
-      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#azure-data-lake-store",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs",
       "redirect_document_id": false
     },
     {
