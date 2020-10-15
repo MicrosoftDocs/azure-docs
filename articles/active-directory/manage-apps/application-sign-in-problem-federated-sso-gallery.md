@@ -150,6 +150,6 @@ Verify both the configurations in the portal match what you have in your app. Sp
 Compare the resource you’re requesting access to in code with the configured permissions in the **Required Resources** tab to make sure you only request resources you’ve configured.
 
 ## Next steps
-- [Quickstart Series on Applicatioin Management](add-application-portal-assign-users.md)
+- [Quickstart Series on Application Management](add-application-portal-assign-users.md)
 - [How to debug SAML-based single sign-on to applications in Azure AD](../azuread-dev/howto-v1-debug-saml-sso-issues.md)
 - [Azure AD Single Sign-on SAML protocol requirements](../develop/active-directory-single-sign-on-protocol-reference.md)
