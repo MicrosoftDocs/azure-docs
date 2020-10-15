@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/13/2020
+ms.date: 10/15/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -129,12 +129,12 @@ In this example, the `userLanguage` will be sent to the REST service as `lang` w
 
 ### Configure the RESTful API technical profile 
 
-After you deploy your REST API, set the metadata of the `REST-ValidateProfile` technical profile to accommodate with your own REST API, including:
+After you deploy your REST API, set the metadata of the `REST-ValidateProfile` technical profile to reflect your own REST API, including:
 
-- **ServiceUrl**, Set the URL of the REST API endpoint.
-- **SendClaimsIn**, Specify how the input claims are sent to the RESTful claims provider.
-- **AuthenticationType**, Set the type of authentication being performed by the RESTful claims provider. 
-- **AllowInsecureAuthInProduction**, in production environment, make sure to set this metadata to `true`
+- **ServiceUrl**. Set the URL of the REST API endpoint.
+- **SendClaimsIn**. Specify how the input claims are sent to the RESTful claims provider.
+- **AuthenticationType**. Set the type of authentication being performed by the RESTful claims provider. 
+- **AllowInsecureAuthInProduction**. In a production environment, make sure to set this metadata to `true`
 	
 See the [RESTful technical profile metadata](restful-technical-profile.md#metadata) for more configurations.
 
