@@ -1,6 +1,6 @@
 ---
 title: Problem installing the Application Proxy Agent Connector
-description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector.
+description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector for Azure Active Directory.
 services: active-directory
 author: kenwith
 manager: celestedg
@@ -15,13 +15,13 @@ ms.reviewer: japere
 
 # Problem installing the Application Proxy Agent Connector
 
-Microsoft AAD Application Proxy Connector is an internal domain component that uses outbound connections to establish the connectivity from the cloud available endpoint to the internal domain.
+Microsoft Azure Active Directory Application Proxy Connector is an internal domain component that uses outbound connections to establish the connectivity from the cloud available endpoint to the internal domain.
 
 ## General Problem Areas with Connector installation
 
 When the installation of a connector fails, the root cause is usually one of the following areas:
 
-1.  **Connectivity** – to complete a successful installation, the new connector needs to register and establish future trust properties. This is done by connecting to the AAD Application Proxy cloud service.
+1.  **Connectivity** – to complete a successful installation, the new connector needs to register and establish future trust properties. This is done by connecting to the Azure Active Directory Application Proxy cloud service.
 
 2.  **Trust Establishment** – the new connector creates a self-signed cert and registers to the cloud service.
 
@@ -32,7 +32,7 @@ When the installation of a connector fails, the root cause is usually one of the
 
 ## Verify connectivity to the Cloud Application Proxy service and Microsoft Login page
 
-**Objective:** Verify that the connector machine can connect to the AAD Application Proxy registration endpoint as well as Microsoft login page.
+**Objective:** Verify that the connector machine can connect to the Application Proxy registration endpoint as well as Microsoft login page.
 
 1.  On the connector server, run a port test by using [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) or other port testing tool to verify that ports 443 and 80 are open.
 
@@ -57,7 +57,7 @@ When the installation of a connector fails, the root cause is usually one of the
 
 **To verify the client certificate:**
 
-Verify the thumbprint of the current client certificate. The certificate store can be found in %ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml
+Verify the thumbprint of the current client certificate. The certificate store can be found in `%ProgramData%\microsoft\Microsoft AAD Application Proxy Connector\Config\TrustSettings.xml`.
 
 ```
 <?xml version="1.0" encoding="utf-8"?>
