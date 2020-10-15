@@ -153,7 +153,7 @@ When creating the cluster:
 
 1. Right-click on the **FabrikamFiber.CallCenterApplication** application project in the Solution Explorer and choose **Publish**.
 2. Sign in by using your Azure account so that you can have access to your subscription(s).
-3. Select the dropdown for the **Connection Endpoint** and select the **Create New Cluster...** option.
+3. Below the dropdown for the **Connection Endpoint**, select the **Create New Cluster...** option.
 4. In the **Create cluster** dialog, modify the following settings:
 
     a. Specify the name of your cluster in the **Cluster Name** field, as well as the subscription and location you want to use. Take note of the name of your cluster resource group.
@@ -165,7 +165,7 @@ When creating the cluster:
     d. Select the **VM Detail** tab. Specify the password you would like to use for the Virtual Machines (VM) that make up the cluster. The user name and password can be used to remotely connect to the VMs. You must also select a VM machine size and can change the VM image if needed.
 
     > [!IMPORTANT]
-    > Choose a SKU that supports running containers. The Windows Server OS on your cluster nodes must be compatible with the Windows Server OS of your container. To learn more, see [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). By default, this tutorial creates a Docker image based on Windows Server 2016 LTSC. Containers based on this image will run on clusters created with Windows Server 2016 Datacenter with Containers. However, if you create a cluster or use an existing cluster based on Windows Server Datacenter Core 1709 with Containers, you must change the Windows Server OS image that the container is based on. Open the **Dockerfile** in the **FabrikamFiber.Web** project, comment out the existing `FROM` statement (based on `windowsservercore-ltsc`) and uncomment the `FROM` statement based on `windowsservercore-1709`.
+    > Choose a SKU that supports running containers. The Windows Server OS on your cluster nodes must be compatible with the Windows Server OS of your container. To learn more, see [Windows Server container OS and host OS compatibility](service-fabric-get-started-containers.md#windows-server-container-os-and-host-os-compatibility). By default, this tutorial creates a Docker image based on Windows Server 2016 LTSC. Containers based on this image will run on clusters created with Windows Server 2016 Datacenter with Containers. However, if you create a cluster or use an existing cluster based on Windows Server Datacenter Core 1709 or with Containers, you must change the Windows Server OS image that the container is based on. Open the **Dockerfile** in the **FabrikamFiber.Web** project, comment out the existing `FROM` statement (based on `windowsservercore-ltsc`) and uncomment the `FROM` statement based on `windowsservercore-1710`.
 
     e. In the **Advanced** tab, list the application port to open in the load balancer when the cluster deploys. This is the port that you took note of before starting creating the cluster. You can also add an existing Application Insights key to be used to route application log files to.
 
