@@ -1,5 +1,5 @@
 ---
-title: Communication Service Logs
+title: Communication Services Logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging in Azure Communication Services
 author: mikben
@@ -12,27 +12,27 @@ ms.topic: overview
 ms.service: azure-communication-services
 
 ---
-# Communication Service Logs
 
-https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema
+# Communication Services logs
+
+Azure Communication Services offers logging capabilities that you can use to monitor and debug your Communication Services solution. These capabilities can be configured through the Azure portal.
 
 ## Enable diagnostic logs in your resource
 
-Logging is turned off by default when a resource is created, and you'll need to go into the resource to enable it. 
+Logging is turned off by default when a resource is created. To enable logging, navigate to the **Diagnostic settings** blade in the resource menu under the **Monitoring** section. Then click on **Add diagnostic setting**.
 
-Navigate to the **Diagnostic settings** blade in the resource menu under the **Monitoring** section. Then click on **Add diagnostic setting**. 
-
-Next, select the archive target you want. Currently, we support Archive to a storage account and Send to Log Analytics. Now choose the type of logs you wish to enable, and save the diagnostic settings.
+Next, select the archive target you want. Currently, we support storage accounts and Log Analytics as archive targets. After selecting the types of logs that you'd like to capture, save the diagnostic settings.
  
-New settings take effect in about 10 minutes. After that, logs appear in the configured archival target, in the Logs pane.
+New settings take effect in about ten minutes. Logs will begin appearing in the the configured archival target within the Logs pane of your Communication Services resource.
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="ACS Diagnostic Settings Options.":::
 
 For more information about configuring diagnostics, see the overview of [Azure resource logs](https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview).
 
-## Resource Log categories
+## Resource log categories
 
-Communication Services has three types of logs you can enable:
+Communication Services offers three types of logs that you can enable:
+
 * **Usage logs** - shows the usage for each billed service offering
 * **Chat operational logs** - shows basic information related to the chat service
 * **SMS operational logs** - shows basic information related to the SMS service
