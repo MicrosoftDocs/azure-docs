@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 10/15/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
@@ -25,9 +25,14 @@ This feature helps applications handle scenarios such as the following:
 
 ## Set multi-factor authentication
 
-When you create a user flow, you have the option to enable multi-factor authentication.
+1. Sign in to the [Azure portal](https://portal.azure.com)
+1. Use the **Directory + subscription** filter in the top menu to select the directory that contains your Azure AD B2C tenant.
+1. In the left menu, select **Azure AD B2C**. Or, select **All services** and search for and select **Azure AD B2C**.
+1. Select **User flows**.
+1. Select the user flow for which you want to enable MFA. For example, *B2C_1_signinsignup*.
+1. Select **Properties**.
+1. In the **Multifactor authentication** section, select the desired **MFA method**, and then under **MFA enforcement** select Always on, or [Conditional](conditional-access-user-flow.md) (Recommended). For Conditional, create a [Conditional Access policy](conditional-access-identity-protection-setup.md) policy, and specify the apps you want the policy to apply to. 
 
-![Set multi-factor authentication](./media/custom-policy-multi-factor-authentication/add-policy.png)
 
 Set **Multifactor authentication** to **Enabled**.
 
