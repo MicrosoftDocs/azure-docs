@@ -53,7 +53,7 @@ It is also important to note that Automanage only supports Windows VMs located i
 
 See [Azure Automanage for Virtual Machines Best Practices](virtual-machines-best-practices.md) for the complete list of participating Azure services, as well as their supported configuration profiles.
 
- We will automatically onboard you to these participating services. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](https://docs.microsoft.com/azure/cloud-adoption-framework/manage/azure-server-management).
+ We will automatically onboard you to these participating services. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).
 
 For all of these services, we will auto-onboard, autoconfigure, monitor for drift, and mediate if drift is detected.
 
