@@ -31,7 +31,7 @@ This feature helps applications handle scenarios such as the following:
 1. Select **User flows**.
 1. Select the user flow for which you want to enable MFA. For example, *B2C_1_signinsignup*.
 1. Select **Properties**.
-1. In the **Multifactor authentication** section, select the desired **MFA method**, and then under **MFA enforcement** select Always on, or [Conditional](conditional-access-user-flow.md) (Recommended). For Conditional, create a [Conditional Access policy](conditional-access-identity-protection-setup.md) policy, and specify the apps you want the policy to apply to. 
+1. In the **Multifactor authentication** section, select the desired **MFA method**, and then under **MFA enforcement** select **Always on**, or **[Conditional](conditional-access-user-flow.md) (Recommended)**. For Conditional, create a [Conditional Access policy](conditional-access-identity-protection-setup.md) policy, and specify the apps you want the policy to apply to. 
 
 
 Set **Multifactor authentication** to **Enabled**.
