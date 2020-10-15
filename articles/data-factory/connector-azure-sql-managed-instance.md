@@ -645,16 +645,14 @@ When transforming data in mapping data flow, you can read and write to tables fr
 
 The below table lists the properties supported by Azure SQL Managed Instance source. You can edit these properties in the **Source options** tab.
 
-Settings specific to Azure SQL Managed Instance are available in the **Source Options** tab of the source transformation.
-
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Table | If you select Table as input, data flow fetches all the data from the table specified in the dataset, equivalent of `Select * from <table-name>`. | No | - |- |
-| Query | If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups.<br>SQL Example: ```Select * from MyTable where customerId > 1000 and customerId < 2000```| No | String | query |
+| Query | If you select Query as input, enter a SQL query to fetch data from source. This setting overrides any table that you've chosen in dataset. Using queries is a great way to reduce rows for testing or for lookups.<br>**Order By** clause is not supported, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow.<br>Example: `Select * from MyTable where customerId > 1000 and customerId < 2000`| No | String | query |
 | Batch size | Enter a batch size to chunk large data into reads. | No | Integer | batchSize |
-| Isolation Level | The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:<br>- Read Committed<br>- Read Uncommitted<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE |isolationLevel |
+| Isolation Level | Specify the isolation level to one of these values:<br>- Read Committed<br>- Read Uncommitted (default)<br>- Repeatable Read<br>- Serializable<br>- None (ignore isolation level) | No | READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE |isolationLevel |
 
-#### Azure SQL Managed Instance source script examples
+#### Azure SQL Managed Instance source script example
 
 When you use Azure SQL Managed Instance as source type, the associated data flow script is:
 
@@ -673,13 +671,13 @@ The below table lists the properties supported by Azure SQL Managed Instance sin
 | Name | Description | Required | Allowed values | Data flow script property |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Update method | Specify what operations are allowed on your database destination. The default is to only allow inserts.<br>To update, upsert, or delete rows, an [Alter row transformation](data-flow-alter-row.md) is required to tag rows for those actions. | Yes | `true` or `false` | deletable <br/>insertable <br/>updateable <br/>upsertable |
-| Key columns | For updates, upserts and deletes, a key column or columns must be set to determine which row to alter.<br>The column name that you pick as the key here will be used by ADF as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. | No | Array | keys |
+| Key columns | For updates, upserts and deletes, key column(s) must be set to determine which row to alter.<br>The column name that you pick as the key will be used as part of the subsequent update, upsert, delete. Therefore, you must pick a column that exists in the Sink mapping. | No | Array | keys |
 | Skip writing key columns | If you wish to not write the value to the key column, select "Skip writing key columns". | No | `true` or `false` | skipKeyWrites |
 | Table action |Determines whether to recreate or remove all rows from the destination table prior to writing.<br>- **None**: No action will be done to the table.<br>- **Recreate**: The table will get dropped and recreated. Required if creating a new table dynamically.<br>- **Truncate**: All rows from the target table will get removed. | No | `true` or `false` | recreate<br/>truncate |
 | Batch size | Controls how many rows are being written in each bucket. Larger batch sizes improve compression and memory optimization, but risk out of memory exceptions when caching data. | No | Integer | batchSize |
 | Pre and Post SQL scripts | Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database. | No | String | preSQLs<br>postSQLs |
 
-#### Azure SQL Managed Instance sink script examples
+#### Azure SQL Managed Instance sink script example
 
 When you use Azure SQL Managed Instance as sink type, the associated data flow script is:
 

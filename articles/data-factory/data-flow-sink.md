@@ -42,7 +42,7 @@ Mapping Data Flow follows an extract, load, transform (ELT) approach and works w
 | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#mapping-data-flow-properties) | [JSON](format-json.md#mapping-data-flow-properties) <br> [Avro](format-avro.md#mapping-data-flow-properties) <br> [Delimited text](format-delimited-text.md#mapping-data-flow-properties) <br> [Delta (preview)](format-delta.md) <br> [ORC](format-orc.md#mapping-data-flow-properties)<br/> [Parquet](format-parquet.md#mapping-data-flow-properties)  <br> [Common Data Model (preview)](format-common-data-model.md#sink-properties) | ✓/- <br> ✓/- <br> ✓/- <br> -/✓ <br>✓/✓<br> ✓/- <br> -/✓ |
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure SQL Database](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
-| [Azure SQL Managed Instance](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) (preview) | | ✓/- |
+| [Azure SQL Managed Instance (preview)](connector-azure-sql-managed-instance.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure CosmosDB (SQL API)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
 | [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
