@@ -619,7 +619,7 @@ public class ApiExample {
     try(CloseableHttpClient httpClient = HttpClients.createDefault()){
       HttpResponse response = httpClient.execute(httpPost);
       int statusCode = response.getStatusLine().getStatusCode();
-      System.out.println(("Status code: " + statusCode));
+      System.out.println("Status code: " + statusCode);
     }
   }
 
