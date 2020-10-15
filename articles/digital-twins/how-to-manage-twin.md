@@ -28,7 +28,9 @@ This article focuses on managing digital twins; to work with relationships and t
 
 To create a twin, you use the `CreateDigitalTwin` method on the service client like this:
 
-```await client.CreateDigitalTwinAsync("myTwinID", initData);```
+```csharp
+await client.CreateDigitalTwinAsync("myTwinID", initData);
+```
 
 To create a digital twin, you need to provide:
 * The desired ID for the digital twin
@@ -39,16 +41,17 @@ Optionally, you can provide initial values for all properties of the digital twi
 The model and initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
 
 > [!TIP]
-> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay. If you need an instant response, use the API call instead of querying to see your newly-created twins. 
+> After creating or updating a twin, there may be a latency of up to 10 seconds before the changes will be reflected in [queries](how-to-query-graph.md). The `GetDigitalTwin` API (described [later in this article](#get-data-for-a-digital-twin)) does not experience this delay, so if you need an instant response, use the API call instead of querying to see your newly-created twins. 
 
 ### Initialize model and properties
 
 The twin creation API accepts an object that is serialized into a valid JSON description of the twin properties. See [*Concepts: Digital twins and the twin graph*](concepts-twins-graph.md) for a description of the JSON format for a twin. 
 
-So first, you can create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter like this:
+First, you can create a data object to represent the twin and its property data. Then you can use `JsonSerializer` to pass a serialized version of this object into the API call for the `initdata` parameter, like this:
 
-```await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));```
-
+```csharp
+await client.CreateDigitalTwinAsync(srcId, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+```
 You can create a parameter object either manually, or by using a provided helper class. Here is an example of each.
 
 #### Create twins using manually created data
@@ -73,7 +76,7 @@ client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<Dictionary<string,
 
 #### Create twins with the helper class
 
-The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object directly. You may still want to build the list of properties using a `Dictionary<string, object>`. It can then be added to the twin object as its `CustomProperties` directly.
+The helper class of `BasicDigitalTwin` allows you to store property fields in a "twin" object directly. You may still want to build the list of properties using a `Dictionary<string, object>`, which can then be added to the twin object as its `CustomProperties` directly.
 
 ```csharp
 BasicDigitalTwin twin = new BasicDigitalTwin();
@@ -98,12 +101,12 @@ Console.WriteLine("The twin is created successfully");
 
 ## Get data for a digital twin
 
-You can access the details of any digital twin by calling GetDigitalTwin() method like this:
+You can access the details of any digital twin by calling the GetDigitalTwin() method like this:
 
 ```csharp
 object result = await client.GetDigitalTwin(id);
 ```
-This call returns twin data as a JSON string. Now, you can use the below code sample to view the twin details.
+This call returns twin data as a JSON string. Here's an example of how to use this to view twin details:
 
 ```csharp
 Response<string> res = client.GetDigitalTwin("myRoomID");
@@ -145,7 +148,6 @@ Consider the following model (written in [Digital Twins Definition Language (DTD
     ]
 }
 ```
-
 The result of calling `object result = await client.GetDigitalTwinAsync("my-moon");` on a *Moon*-type twin might look like this:
 
 ```json
@@ -187,7 +189,7 @@ You can parse the returned JSON for the twin using a JSON parsing library of you
 You can also use the serialization helper class `BasicDigitalTwin` that is included with the SDK, which will return the core twin metadata and properties in pre-parsed form. Here is an example:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin("twin_id");
+Response<string> res = client.GetDigitalTwin(twin_Id);
 BasicDigitalTwin twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 foreach (string prop in twin.CustomProperties.Keys)
@@ -228,7 +230,6 @@ Here is an example of JSON Patch code. This document replaces the *mass* and *ra
   }
 ]
 ```
-
 You can create patches manually, or by using a serialization helper class in the [SDK](how-to-use-apis-sdks.md). Here is an example of each.
 
 #### Create patches manually
@@ -243,7 +244,7 @@ twinData.Add(new Dictionary<string, object>() {
 
 await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
 Console.WriteLine("Updated twin properties");
-FetchAndPrintTwin(Twin_id, Client);
+FetchAndPrintTwin(twin_Id, client);
 }
 ```
 
@@ -257,7 +258,7 @@ await client.UpdateDigitalTwinAsync(twin_Id, uou.Serialize());
 
 ### Update properties in digital twin components
 
-Recall that a model may contain components, allowing it to be made of other models. 
+Recall that a model may contain components, allowing it to be made up of other models. 
 
 To patch properties in a digital twin's components, you can use path syntax in JSON Patch:
 
@@ -326,7 +327,7 @@ The two calls that modify *Twin1* are executed one after another, and change mes
 
 ## Delete a digital twin
 
-You can delete twins using `DeleteDigitalTwin()` method. However, you can only delete a twin when it has no more relationships. So, delete the twin's incoming and outgoing relationships first.
+You can delete twins using the `DeleteDigitalTwin()` method. However, you can only delete a twin when it has no more relationships. So, delete the twin's incoming and outgoing relationships first.
 
 Here is an example of the code to delete twins and its relationships:
 
@@ -387,14 +388,15 @@ async Task FindAndDeleteIncomingRelationshipsAsync(string dtId)
     }
 }
 ```
+### Delete all digital twins
+
+For an example of how to delete all twins at once, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins` function.
 
 ## Manage twins using runnable code sample
 
-You can use the runnable code sample below to create a twin, update its details and delete twin. 
+You can use the runnable code sample below to create a twin, update its details, and delete the twin. 
 
-You can refer to [this](https://docs.microsoft.com/azure/digital-twins/tutorial-command-line-app#explore-with-the-sample-solution) link for a sample model code.
-
-Replace the placeholders  _clientId_, _tenantId_ and _adtInstanceUrl_ with the details of your Azure-digital-twins-instance and run the sample.
+[!INCLUDE [Azure Digital Twins: sample models](../../includes/digital-twins-manage-twins-model-code.md)]
 
 ```csharp
 using System;
@@ -424,7 +426,7 @@ namespace minimal
             Console.WriteLine($"Upload a model");
             BasicDigitalTwin twin = new BasicDigitalTwin();
             var typeList = new List<string>();
-            string twin_id = "myNewRoomID";
+            string twin_Id = "myNewRoomID";
             string dtdl = File.ReadAllText("room.json");
             typeList.Add(dtdl);
             // Upload the model to the service
@@ -438,9 +440,9 @@ namespace minimal
             props.Add("Temperature", 35.0);
             props.Add("Humidity", 55.0);
             twin.CustomProperties = props;
-            await client.CreateDigitalTwinAsync(twin_id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+            await client.CreateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize<BasicDigitalTwin>(twin));
             Console.WriteLine("Twin created successfully");
-            twin = FetchAndPrintTwin(twin_id, client);
+            twin = FetchAndPrintTwin(twin_Id, client);
             List<object> twinData = new List<object>();
             twinData.Add(new Dictionary<string, object>() 
             {
@@ -449,16 +451,16 @@ namespace minimal
                 { "value", 25.0}
             });
 
-            await client.UpdateDigitalTwinAsync(twin_id, JsonSerializer.Serialize(twinData));
+            await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
             Console.WriteLine("Updated Twin Properties");
-            FetchAndPrintTwin(twin_id, client);
-            await DeleteTwin(client, twin_id);
+            FetchAndPrintTwin(twin_Id, client);
+            await DeleteTwin(client, twin_Id);
         }
 
-        private static BasicDigitalTwin FetchAndPrintTwin(string twin_id, DigitalTwinsClient client)
+        private static BasicDigitalTwin FetchAndPrintTwin(string twin_Id, DigitalTwinsClient client)
         {
             BasicDigitalTwin twin;
-            Response<string> res = client.GetDigitalTwin(twin_id);
+            Response<string> res = client.GetDigitalTwin(twin_Id);
             twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
             Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
             foreach (string prop in twin.CustomProperties.Keys)
@@ -534,11 +536,7 @@ namespace minimal
 ```
 Here is the console output of the above program: 
 
-:::image type="content" source="media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated and deleted":::
-
-### Delete all digital twins
-
-For an example of how to delete all twins at once, download the sample app used in the [*Tutorial: Explore the basics with a sample client app*](tutorial-command-line-app.md). The *CommandLoop.cs* file does this in a `CommandDeleteAllTwins` function.
+:::image type="content" source="./media/how-to-manage-twin/console-output-manage-twins.png" alt-text="Console output showing that the twin is created, updated and deleted" lightbox="./media/how-to-manage-twin/console-output-manage-twins.png":::
 
 ## Manage twins with CLI
 
