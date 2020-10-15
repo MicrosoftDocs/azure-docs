@@ -259,7 +259,7 @@ A mapping is expressed from left to right: [\source path] \> [\target path].
 |:---------------------------|:---------|
 | **\\**                     | root level indicator        |
 | **\>**                     | [source] and [target] mapping operator        |
-|**\|** or RETURN (new line) | separator of two folder mapping instructions. </br>Alternatively, you can omit this character and press enter to get the next mapping expression on it own line.        |
+|**\|** or RETURN (new line) | separator of two folder-mapping instructions. </br>Alternatively, you can omit this character and press enter to get the next mapping expression on its own line.        |
 
 ### Examples
 Moves the content of folder “User data” to the root of the target file share:
@@ -416,13 +416,7 @@ At this point, there are differences between your on-premises Windows Server and
 
 1. You need to catch up with the changes that users/apps produced on the StorSimple side while the migration was ongoing.
 1. For cases where you use Azure File Sync: The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time. So the final RoboCopy can help jump-start your local AFS cache by pulling over locally cached file content as much as is available and can fit on the AFS server.
-1. There may be files that got left behind by the DTS job, due to invalid characters in file names or other reasons. At this point, you want to copy them to the AFS enabled Windows Server and you fix them later. When these files are fixed, they will then start to sync. If you don't use AFS for a particular share, you'd be better off renaming the files with invalid characters on the StorSimple volume and then run the RoboCopy directly against the Azure file share. The DTS job run has a copy log column, where you can retrieve a list of files that have failed and the reason for them failing, that number should generally be small. If it is not, then fixing these issues on the StorSimple side might be best.
-
-If you find yourself in the situation where you want to start from scratch, use the following sequence:
-* Fix files with invalid characters or other issues on the StorSimple volume and give it some time to sync to the cloud.
-* Take another volume backup manually to capture your changes that synced to the cloud.
-* In the file share that is the target of this copy job, you have a partial set of files. You need to discard the migration progress by deleting the share and recreating it with the same name in the same storage account.
-* Restart the migration job.
+1. There may be files that got left behind by the DTS job, due to invalid characters in file names or other reasons. At this point, you want to copy them to the AFS enabled Windows Server and you fix them later. When these files are fixed, they will then start to sync. If you don't use AFS for a particular share, you'd be better off renaming the files with invalid characters on the StorSimple volume and then run the RoboCopy directly against the Azure file share. 
 
 > [!WARNING]
 > You **must not start the RoboCopy** before the server has the namespace for an Azure file share downloaded fully!
