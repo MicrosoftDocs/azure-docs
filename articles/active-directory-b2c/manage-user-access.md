@@ -110,7 +110,7 @@ The following image shows the recommended user flow:
 
 ![Flow chart diagram showing the recommended acceptance user flow](./media/manage-user-access/user-flow.png)
 
-The following is an example of a date based terms of use consent in a claim. If the `extension_termsOfUseConsentDateTime` claim is older than `2025-01-15T00:00:00`, force a new acceptance by checking the `termsOfUseConsentRequired` Boolean claim, and displaying a self-asserted screen. 
+The following is an example of a date-based terms of use consent in a claim. If the `extension_termsOfUseConsentDateTime` claim is older than `2025-01-15T00:00:00`, force a new acceptance by checking the `termsOfUseConsentRequired` Boolean claim, and displaying a self-asserted screen. 
 
 ```xml
 <ClaimsTransformations>
@@ -133,7 +133,7 @@ The following is an example of a date based terms of use consent in a claim. If 
 </ClaimsTransformations>
 ```
 
-The following is an example of a Version based terms of use consent in a claim. If the `extension_termsOfUseConsentVersion` claim is not equal to `V1`, force a new acceptance by checking the `termsOfUseConsentRequired` Boolean claim, and displaying a self-asserted screen.
+The following is an example of a version-based terms of use consent in a claim. If the `extension_termsOfUseConsentVersion` claim is not equal to `V1`, force a new acceptance by checking the `termsOfUseConsentRequired` Boolean claim, and displaying a self-asserted screen.
 
 ```xml
 <ClaimsTransformations>
