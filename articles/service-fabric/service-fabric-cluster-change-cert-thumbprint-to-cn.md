@@ -159,6 +159,11 @@ To
         ...
 ```
 
+   > [!NOTE]
+   > The 'certificateIssuerThumbprint' field allows specifying the expected direct issuers of certificates with a given subject common name. This field accepts a comma-separated enumeration of SHA1 thumbprints. Note this is a strengthening of the certificate validation - in the case when the issuer is not specified or empty, the certificate will be accepted for authentication if its chain can be built, and ends up in a root trusted by the validator. If the issuer is specified, the certificate will be accepted if the thumbprint of its direct issuer matches any of the values specified in this field - irrespective of whether the root is trusted or not. Please note that a PKI may use different certification authorities to issue certificates for the same subject, and so it is important to specify all expected issuer thumbprints for a given subject.
+   >
+   > Specifying the issuer is considered a best practice; while omitting it will continue to work - for certificates chaining up to a trusted root - this behavior has limitations and may be phased out in the near future. Also note that clusters deployed in Azure, and secured with X509 certificates issued by a private PKI and declared by subject may not be able to be validated by the Azure Service Fabric service (for cluster-to-service communication), if the PKI's Certificate Policy is not discoverable, available and accessible. 
+
 For more information, see [Deploy a Service Fabric cluster that uses certificate common name instead of thumbprint.](./service-fabric-create-cluster-using-cert-cn.md)
 
 ## Deploy the updated template
