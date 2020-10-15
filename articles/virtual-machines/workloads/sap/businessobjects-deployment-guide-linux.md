@@ -25,7 +25,7 @@ This article describes the strategy to deploy SAP BOBI Platform on Azure for Lin
 
 This type of architecture is effective for small deployment or non-production environment. For Production or large-scale deployment, you can have separate hosts for Web Application and can as well have multiple BOBI applications hosts allowing server to process more information.
 
-![SAP BOBI Deployment on Azure for Linux](media/bobi-deployment-guide/bobi-deployment-linux.png)
+![SAP BOBI Deployment on Azure for Linux](media/businessobjects-deployment-guide/businessobjects-deployment-linux.png)
 
 In this example, below product version and file system layout is used
 
@@ -304,7 +304,7 @@ By default the server created is protected with a firewall and isn't accessible 
 
 2. Connect to server by using MySQL Workbench. Follow the instruction mentioned in this [article](../../../mysql/connect-workbench.md#get-connection-information). If the connection test is successful, you'll get following message -
 
-   ![SQL Workbench Connection](media/bobi-deployment-guide/bobi-sql-workbench.png)
+   ![SQL Workbench Connection](media/businessobjects-deployment-guide/businessobjects-sql-workbench.png)
 
 3. In SQL query tab, run below query to create schema for CMS and Audit database.
 
@@ -471,11 +471,11 @@ Follow [SAP BOBI Platform](https://help.sap.com/viewer/product/SAP_BUSINESSOBJEC
 
 - Enter CMS database information in **Configure CMS Repository Database - MySQL**. Example input for CMS database information for Linux installation. Azure Database for MySQL is used on default port 3306
   
-  ![SAP BOBI Deployment on Linux - CMS Database](media/bobi-deployment-guide/bobi-deployment-linux-sql-cms.png)
+  ![SAP BOBI Deployment on Linux - CMS Database](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cms.png)
 
 - (Optional) Enter Audit database information in **Configure Audit Repository Database - MySQL**. Example input for Audit database information for Linux installation.
 
-  ![SAP BOBI Deployment on Linux - Audit Database](media/bobi-deployment-guide/bobi-deployment-linux-sql-audit.png)
+  ![SAP BOBI Deployment on Linux - Audit Database](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-audit.png)
 
 - Follow the instructions and enter required inputs to complete the installation.
 
@@ -483,7 +483,7 @@ For multi-instance deployment, run the installation setup on second host (azusbo
 
 In Azure database for MySQL offering, a gateway is used to redirect the connections to server instances. After the connection is established, the MySQL client displays the version of MySQL set in the gateway, not the actual version running on your MySQL server instance. To determine the version of your MySQL server instance, use the `SELECT VERSION();` command at the MySQL prompt. So in Central Management Console (CMC), you'll find different database version that is basically the version set on gateway. Check [Supported Azure Database for MySQL server versions](../../../mysql/concepts-supported-versions.md) for more details.
 
-![SAP BOBI Deployment on Linux - CMC Settings](media/bobi-deployment-guide/bobi-deployment-linux-sql-cmc.png)
+![SAP BOBI Deployment on Linux - CMC Settings](media/businessobjects-deployment-guide/businessobjects-deployment-linux-sql-cmc.png)
 
 ```sql
 # Run direct query to the database using MySQL Workbench
@@ -520,7 +520,7 @@ Refer to Internal Load Balancer section in below figure where web application se
 > [!NOTE]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](high-availability-guide-standard-load-balancer-outbound-connections.md).
 
-![Azure Load Balancer to balance traffic across Web Servers](media/bobi-deployment-guide/bobi-deployment-load-balancer.png)
+![Azure Load Balancer to balance traffic across Web Servers](media/businessobjects-deployment-guide/businessobjects-deployment-load-balancer.png)
 
 #### Azure Application Gateway (Web Application Load Balancer)
 
@@ -528,7 +528,7 @@ Refer to Internal Load Balancer section in below figure where web application se
 
 In SAP BI Platform, application gateway directs application web traffic to the specified resources in a backend pool - azusbosl1 or azusbos2. You assign a listener to port, create rules, and add resources to a backend pool. In below figure, application gateway with private frontend IP address (10.31.3.20) act as entry point for the users, handles incoming TLS/SSL (HTTPS - TCP/443) connections, decrypt the TLS/SSL and passing on the unencrypted request (HTTP - TCP/8080) to the servers in the backend pool. With in-built TLS/SSL termination feature, we just need to maintain one TLS/SSL certificate on application gateway, which simplifies operations.
 
-![Application Gateway to balance traffic across Web Servers](media/bobi-deployment-guide/bobi-deployment-application-gateway.png)
+![Application Gateway to balance traffic across Web Servers](media/businessobjects-deployment-guide/businessobjects-deployment-application-gateway.png)
 
 To configure Application Gateway for SAP BOBI Web Server, you can refer to [Load Balancing SAP BOBI Web Servers using Azure Application Gateway](https://blogs.sap.com/2020/09/17/sap-on-azure-load-balancing-web-application-servers-for-sap-bobi-using-azure-application-gateway/) on SAP blog.
 
@@ -634,7 +634,7 @@ Below reference architecture describe the setup of SAP BOBI Platform using avail
 
 In below figure, the incoming traffic (HTTPS - TCP/443) is load balanced using Azure Application Gateway v1 SKU, which is highly available when deployed on two or more instances. Multiple instances of web server, management servers, and processing servers are deployed in separate Virtual Machines to achieve redundancy and each tier is deployed in separate Availability Sets. Azure NetApp Files has built-in redundancy within data center, so your ANF volumes for File Repository Server will be highly available. CMS Database is provisioned on Azure Database for MySQL (DBaaS) which has inherent high availability. For more information, see [High availability in Azure Database for MySQL](../../../mysql/concepts-high-availability.md) guide.
 
-![SAP BusinessObjects BI Platform Redundancy using Availability Sets](media/bobi-deployment-guide/bobi-deployment-ha-as.png)
+![SAP BusinessObjects BI Platform Redundancy using Availability Sets](media/businessobjects-deployment-guide/businessobjects-deployment-high-availability.png)
 
 The above architecture provides insight on how SAP BOBI deployment on Azure can be done. But it doesn't cover all possible configuration options for SAP BOBI Platform on Azure. Customer can tailor their deployment based on their business requirement, by choosing different products/services for different components like Load Balancer, File Repository Server, and DBMS.
 
@@ -648,7 +648,7 @@ The instruction in this section explains the strategy to provide disaster recove
 
 This reference architecture is running multi-instance deployment of SAP BOBI Platform with redundant application servers. For disaster recovery, you should fail over all tier to a secondary region. Each tier uses a different strategy to provide disaster recovery protection.
 
-![SAP BusinessObjects BI Platform Disaster Recovery](media/bobi-deployment-guide/bobi-deployment-dr.png)
+![SAP BusinessObjects BI Platform Disaster Recovery](media/businessobjects-deployment-guide/businessobjects-deployment-disaster-recovery.png)
 
 #### Load Balancer
 
