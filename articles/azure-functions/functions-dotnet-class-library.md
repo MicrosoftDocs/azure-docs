@@ -2,8 +2,9 @@
 title: Azure Functions C# developer reference
 description: Understand how to develop Azure Functions using C#.
 
-ms.topic: reference
-ms.date: 09/12/2018
+ms.topic: conceptual
+ms.custom: devx-track-csharp
+ms.date: 07/24/2020
 
 ---
 # Azure Functions C# developer reference
@@ -27,7 +28,7 @@ Versions of the Functions runtime work with specific versions of .NET. The follo
 | ---- | ---- |
 | Functions 3.x | .NET Core 3.1 |
 | Functions 2.x | .NET Core 2.2 |
-| Functions 1.x | .NET Framework 4.6 |
+| Functions 1.x | .NET Framework 4.7 |
 
 To learn more, see [Azure Functions runtime versions overview](functions-versions.md)
 
@@ -198,9 +199,31 @@ If you install the Core Tools by using npm, that doesn't affect the Core Tools v
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
 ```
 
+## ReadyToRun
+
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the impact of [cold-start](functions-scale.md#cold-start) when running in a [Consumption plan](functions-scale.md#consumption-plan).
+
+ReadyToRun is available in .NET 3.0 and requires [version 3.0 of the Azure Functions runtime](functions-versions.md).
+
+To compile your project as ReadyToRun, update your project file by adding the `<PublishReadyToRun>` and `<RuntimeIdentifier>` elements. The following is the configuration for publishing to a Windows 32-bit function app.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <PublishReadyToRun>true</PublishReadyToRun>
+  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+</PropertyGroup>
+```
+
+> [!IMPORTANT]
+> ReadyToRun currently doesn't support cross-compilation. You must build your app on the same platform as the deployment target. Also, pay attention to the "bitness" that is configured in your function app. For example, if your function app in Azure is Windows 64-bit, you must compile your app on Windows with `win-x64` as the [runtime identifier](/dotnet/core/rid-catalog).
+
+You can also build your app with ReadyToRun from the command line. For more information, see the `-p:PublishReadyToRun=true` option in [`dotnet publish`](/dotnet/core/tools/dotnet-publish).
+
 ## Supported types for bindings
 
-Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob.md#trigger---usage) lists all supported parameter types. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
+Each binding has its own supported types; for instance, a blob trigger attribute can be applied to a string parameter, a POCO parameter, a `CloudBlockBlob` parameter, or any of several other supported types. The [binding reference article for blob bindings](functions-bindings-storage-blob-trigger.md#usage) lists all supported parameter types. For more information, see [Triggers and bindings](functions-triggers-bindings.md) and the [binding reference docs for each binding type](functions-triggers-bindings.md#next-steps).
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
@@ -234,7 +257,7 @@ public static class ICollectorExample
 
 ## Logging
 
-To log output to your streaming logs in C#, include an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`, as in the following example:  
+To log output to your streaming logs in C#, include an argument of type [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`, as in the following example:  
 
 ```csharp
 public static class SimpleExample
@@ -253,7 +276,7 @@ Avoid using `Console.Write` in Azure Functions. For more information, see [Write
 
 ## Async
 
-To make a function [asynchronous](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
+To make a function [asynchronous](/dotnet/csharp/programming-guide/concepts/async/), use the `async` keyword and return a `Task` object.
 
 ```csharp
 public static class AsyncExample
@@ -326,7 +349,7 @@ public static class EnvironmentVariablesExample
 
 App settings can be read from environment variables both when developing locally and when running in Azure. When developing locally, app settings come from the `Values` collection in the *local.settings.json* file. In both environments, local and Azure, `GetEnvironmentVariable("<app setting name>")` retrieves the value of the named app setting. For instance, when you're running locally, "My Site Name" would be returned if your *local.settings.json* file contains `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
-The [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
+The [System.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) property is an alternative API for getting app setting values, but we recommend that you use `GetEnvironmentVariable` as shown here.
 
 ## Binding at runtime
 
@@ -350,7 +373,7 @@ Define an imperative binding as follows:
 
 ### Single attribute example
 
-The following example code creates a [Storage blob output binding](functions-bindings-storage-blob.md#output)
+The following example code creates a [Storage blob output binding](functions-bindings-storage-blob-output.md)
 with blob path that's defined at run time, then writes a string to the blob.
 
 ```cs

@@ -1,22 +1,18 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, Node.js - QnA Maker"
-titleSuffix: Azure Cognitive Services
 description: This Node.js REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
-services: cognitive-services
-author: diberry
-manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 12/16/2019
-ms.author: diberry
+ms.date: 02/08/2020
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27
+ms.topic: how-to
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using Node.js.
 ---
 
 # Quickstart: Get answers to a question from a knowledge base with Node.js
 
-This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. The knowledge base contains questions and answers from [data sources](../Concepts/data-sources-supported.md) such as FAQs. The [question](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) is sent to the QnA Maker service. The [response](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) includes the top-predicted answer.
+This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. The knowledge base contains questions and answers from [data sources](../Concepts/knowledge-base.md) such as FAQs. The [question](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) is sent to the QnA Maker service. The [response](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) includes the top-predicted answer.
 
 [Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime) | [Sample](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/get-answer/get-answer.js)
 
@@ -39,29 +35,19 @@ Open VSCode and create a new file named `get-answer.js`.
 
 At the top of the `get-answer.js` file, add necessary dependencies to the project:
 
-[!code-nodejs[Add the required dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=1-4 "Add the required dependencies")]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="dependencies":::
 
 ## Add the required constants
 
 Next, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base.
 
-[!code-nodejs[Add the required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=6-22 "Add the required constants")]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="constants":::
 
 ## Add a POST request to send question and get an answer
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the knowledge base and receives the response:
 
-[!code-nodejs[Add a POST request to send question to knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=24-49 "Add a POST request to send question to knowledge base")]
-
-The `Authorization` header's value includes the string `EndpointKey`.
-
-## Install the dependencies
-
-Install the dependencies from the command line:
-
-```bash
-npm install request request-promise
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/query-kb.js" id="query":::
 
 ## Run the program
 

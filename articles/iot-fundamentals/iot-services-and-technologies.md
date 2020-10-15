@@ -1,15 +1,15 @@
 ---
 title: Azure Internet of Things (IoT) technologies and solutions
 description: Describes the collection of technologies and services you can use to build an Azure IoT solution.
-author: robinsh
+author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
-ms.topic: overview
-ms.date: 10/09/2018
-ms.author: robinsh
+ms.topic: conceptual
+ms.date: 01/15/2020
+ms.author: dobett
 ---
 
-# Azure technologies and services for creating IoT solutions
+# What Azure technologies and services can you use to create IoT solutions?
 
 Azure IoT technologies and services provide you with options to create a wide variety of IoT solutions that enable digital transformation for your organization. For example, you can:
 
@@ -52,7 +52,7 @@ To build an IoT solution from scratch, or extend a solution created using IoT Ce
 
 Develop your IoT devices using one of the [Azure IoT Starter Kits](https://catalog.azureiotsolutions.com/kits) or choose a device to use from the [Azure Certified for IoT device catalog](https://catalog.azureiotsolutions.com). Implement your embedded code using the open-source [device SDKs](../iot-hub/iot-hub-devguide-sdks.md). The device SDKs support multiple operating systems, such as Linux, Windows, and real-time operating systems. There are SDKs for multiple programming languages, such as [C](https://github.com/Azure/azure-iot-sdk-c), [Node.js](https://github.com/Azure/azure-iot-sdk-node), [Java](https://github.com/Azure/azure-iot-sdk-java), [.NET](https://github.com/Azure/azure-iot-sdk-csharp), and [Python](https://github.com/Azure/azure-iot-sdk-python).
 
-You can further simplify how you create the embedded code for your devices by using the [IoT Plug and Play Preview](../iot-pnp/overview-iot-plug-and-play.md) service. IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play, is a _device capability model_ schema that describes device capabilities. Use the device capability model to generate your embedded device code and configure a cloud-based solution such as an IoT Central application.
+You can further simplify how you create the embedded code for your devices by using the [IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) service. IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play, is a _device capability model_ schema that describes device capabilities. Use the device capability model to generate your embedded device code and configure a cloud-based solution such as an IoT Central application.
 
 [Azure IoT Edge](../iot-edge/about-iot-edge.md) lets you offload parts of your IoT workload from your Azure cloud services to your devices. IoT Edge can reduce latency in your solution, reduce the amount of data your devices exchange with the cloud, and enable off-line scenarios. You can manage IoT Edge devices from IoT Central and some solution accelerators.
 
@@ -78,6 +78,8 @@ Iot Central uses digital twins to synchronize devices and data in the real world
 ### Data and analytics
 
 IoT devices typically generate large amounts of time series data, such as temperature readings from sensors. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md) can connect to an IoT hub, read the telemetry stream from your devices, store that data, and enable you to query and visualize it.
+
+[Azure Maps](/azure/azure-maps) is a collection of geospatial services that use fresh mapping data to provide accurate geographic context to web and mobile applications. You can use a REST API, a web-based JavaScript control, or an Android SDK to build your applications.
 
 ## Next steps
 

@@ -1,22 +1,12 @@
 ---
-title: Azure Service Bus messaging samples overview | Microsoft Docs
-description: Describes Service Bus messaging samples with links to each
-services: service-bus-messaging
-documentationcenter: na
-author: axisc
-manager: timlt
-editor: spelluru
-
-ms.assetid: 0b420343-2d2a-4c65-98f1-ee0e39ef55c8
-ms.service: service-bus-messaging
-ms.devlang: na
+title: Azure Service Bus messaging samples overview
+description: The Service Bus messaging samples demonstrate key features in Azure Service Bus messaging. Provides links to samples on GitHub. 
+author: spelluru
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/13/2019
-ms.author: aschhab
-
+ms.date: 06/23/2020
+ms.author: spelluru
 ---
+
 # Service Bus messaging samples
 The Service Bus messaging samples demonstrate key features in [Service Bus messaging](https://azure.microsoft.com/services/service-bus/). Currently, you can find the samples in the following places:
 
@@ -25,6 +15,7 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | .NET, Java, and Management | https://github.com/Azure/azure-service-bus/ |
 | Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
 | Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
+| Go| https://github.com/Azure/azure-service-bus-go/ |
 
 ## Service Bus Explorer
 
@@ -35,5 +26,4 @@ In addition, the [Service Bus Explorer](https://github.com/paolosalvatori/Servic
 See the following topics for conceptual overviews of Service Bus.
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
-* [Service Bus architecture](service-bus-architecture.md)
-
+* [Service Bus architecture](./service-bus-messaging-overview.md)

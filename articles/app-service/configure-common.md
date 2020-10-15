@@ -5,7 +5,7 @@ keywords: azure app service, web app, app settings, environment variables
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
-ms.custom: seodec18
+ms.custom: "devx-track-csharp, seodec18"
 
 ---
 # Configure an App Service app in the Azure portal
@@ -28,18 +28,18 @@ For ASP.NET and ASP.NET Core developers, setting app settings in App Service are
 
 Other language stacks, likewise, get the app settings as environment variables at runtime. For language-stack specific steps, see:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Custom containers](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#configure-data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 App settings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> App settings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
+> App settings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
 
 ### Show hidden values
 
@@ -79,37 +79,64 @@ App settings have the following JSON formatting:
 ]
 ```
 
+### Automate app settings with the Azure CLI
+
+You can use the Azure CLI to create and manage settings from the command line.
+
+- Assign a value to a setting with [az webapp config app settings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set):
+
+    ```azurecli-interactive
+    az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings <setting-name>="<value>"
+    ```
+        
+    Replace `<setting-name>` with the name of the setting, and `<value>` with the value to assign to it. This command creates the setting if it doesn't already exist.
+    
+- Show all settings and their values with [az webapp config appsettings list](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_list):
+    
+    ```azurecli-interactive
+    az webapp config appsettings list --name <app-name> --resource-group <resource-group-name>
+    ```
+    
+- Remove one or more settings with [az webapp config app settings delete](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_delete):
+
+    ```azurecli-interactive
+    az webapp config appsettings delete --name <app-name> --resource-group <resource-group-name> --setting-names {<names>}
+    ```
+    
+    Replace `<names>` with a space-separated list of setting names.
+
 ## Configure connection strings
 
 In the [Azure portal], search for and select **App Services**, and then select your app. In the app's left menu, select **Configuration** > **Application settings**.
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
-For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting connection strings in App Service are like setting them in `<connectionStrings>` in *Web.config*, but the values you set in App Service override the ones in *Web.config*. You can keep development settings (for example, a database file) in *Web.config* and production secrets (for example, SQL Database credentials) safely in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 For other language stacks, it's better to use [app settings](#configure-app-settings) instead, because connection strings require special formatting in the variable keys in order to access the values. Here's one exception, however: certain Azure database types are backed up along with the app if you configure their connection strings in your app. For more information, see [What gets backed up](manage-backup.md#what-gets-backed-up). If you don't need this automated backup, then use app settings.
 
 At runtime, connection strings are available as environment variables, prefixed with the following connection types:
 
-* SQL Server: `SQLCONNSTR_`
-* MySQL: `MYSQLCONNSTR_`
-* SQL Database: `SQLAZURECONNSTR_`
+* SQLServer: `SQLCONNSTR_`  
+* MySQL: `MYSQLCONNSTR_` 
+* SQLAzure: `SQLAZURECONNSTR_` 
 * Custom: `CUSTOMCONNSTR_`
+* PostgreSQL: `POSTGRESQLCONNSTR_`  
 
 For example, a MySql connection string named *connectionstring1* can be accessed as the environment variable `MYSQLCONNSTR_connectionString1`. For language-stack specific steps, see:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
-- [PHP](containers/configure-language-php.md#access-environment-variables)
-- [Python](containers/how-to-configure-python.md#access-environment-variables)
-- [Java](containers/configure-language-java.md#data-sources)
-- [Ruby](containers/configure-language-ruby.md#access-environment-variables)
-- [Custom containers](containers/configure-custom-container.md#configure-environment-variables)
+- [ASP.NET Core](configure-language-dotnetcore.md#access-environment-variables)
+- [Node.js](configure-language-nodejs.md#access-environment-variables)
+- [PHP](configure-language-php.md#access-environment-variables)
+- [Python](configure-language-python.md#access-environment-variables)
+- [Java](configure-language-java.md#configure-data-sources)
+- [Ruby](configure-language-ruby.md#access-environment-variables)
+- [Custom containers](configure-custom-container.md#configure-environment-variables)
 
 Connection strings are always encrypted when stored (encrypted-at-rest).
 
 > [!NOTE]
-> Connection strings can also be resolved from [Key Vault](/azure/key-vault/) using [Key Vault references](app-service-key-vault-references.md).
+> Connection strings can also be resolved from [Key Vault](../key-vault/index.yml) using [Key Vault references](app-service-key-vault-references.md).
 
 ### Show hidden values
 
@@ -158,17 +185,24 @@ In the [Azure portal], search for and select **App Services**, and then select y
 
 Here, you can configure some common settings for the app. Some settings require you to [scale up to higher pricing tiers](manage-scale-up.md).
 
-- **Stack settings**: The software stack to run the app, including the language and SDK versions. For Linux apps and custom container apps, you can also set an optional start-up command or file.
+- **Stack settings**: The software stack to run the app, including the language and SDK versions.
+
+    For Linux apps and custom container apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+
+    ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
+
 - **Platform settings**: Lets you configure settings for the hosting platform, including:
     - **Bitness**: 32-bit or 64-bit.
     - **WebSocket protocol**: For [ASP.NET SignalR] or [socket.io](https://socket.io/), for example.
-    - **Always On**: Keep the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
+    - **Always On**: Keeps the app loaded even when there's no traffic. It's required for continuous WebJobs or for WebJobs that are triggered using a CRON expression.
+      > [!NOTE]
+      > With the Always On feature, the front end load balancer sends a request to the application root. This application endpoint of the App Service can't be configured.
     - **Managed pipeline version**: The IIS [pipeline mode]. Set it to **Classic** if you have a legacy app that requires an older version of IIS.
     - **HTTP version**: Set to **2.0** to enable support for [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) protocol.
     > [!NOTE]
-    > Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, [secure your custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md).
+    > Most modern browsers support HTTP/2 protocol over TLS only, while non-encrypted traffic continues to use HTTP/1.1. To ensure that client browsers connect to your app with HTTP/2, secure your custom DNS name. For more information, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
     - **ARR affinity**: In a multi-instance deployment, ensure that the client is routed to the same instance for the life of the session. You can set this option to **Off** for stateless applications.
-- **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](containers/configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
+- **Debugging**: Enable remote debugging for [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure), or [Node.js](configure-language-nodejs.md#debug-remotely) apps. This option turns off automatically after 48 hours.
 - **Incoming client certificates**: require client certificates in [mutual authentication](app-service-web-configure-tls-mutual-auth.md).
 
 ## Configure default documents
@@ -207,7 +241,7 @@ To configure virtual applications and directories, specify each virtual director
 
 ### Containerized apps
 
-You can [add custom storage for your containerized app](containers/how-to-serve-content-from-azure-storage.md). Containerized apps include all Linux apps and also the Windows and Linux custom containers running on App Service. Click **New Azure Storage Mount** and configure your custom storage as follows:
+You can [add custom storage for your containerized app](configure-connect-to-azure-storage.md). Containerized apps include all Linux apps and also the Windows and Linux custom containers running on App Service. Click **New Azure Storage Mount** and configure your custom storage as follows:
 
 - **Name**: The display name.
 - **Configuration options**: **Basic** or **Advanced**.
@@ -220,28 +254,28 @@ You can [add custom storage for your containerized app](containers/how-to-serve-
 - **Access key**: For advanced configuration, the access key.
 - **Mount path**: The absolute path in your container to mount the custom storage.
 
-For more information, see [Serve content from Azure Storage in App Service on Linux](containers/how-to-serve-content-from-azure-storage.md).
+For more information, see [Access Azure Storage as a network share from a container in App Service](configure-connect-to-azure-storage.md).
 
 ## Configure language stack settings
 
 For Linux apps, see:
 
-- [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.js](containers/configure-language-nodejs.md)
-- [PHP](containers/configure-language-php.md)
-- [Python](containers/how-to-configure-python.md)
-- [Java](containers/configure-language-java.md)
-- [Ruby](containers/configure-language-ruby.md)
+- [ASP.NET Core](configure-language-dotnetcore.md)
+- [Node.js](configure-language-nodejs.md)
+- [PHP](configure-language-php.md)
+- [Python](configure-language-python.md)
+- [Java](configure-language-java.md)
+- [Ruby](configure-language-ruby.md)
 
 ## Configure custom containers
 
-See [Configure a custom Linux container for Azure App Service](containers/configure-custom-container.md)
+See [Configure a custom Linux container for Azure App Service](configure-custom-container.md)
 
 ## Next steps
 
 - [Configure a custom domain name in Azure App Service]
 - [Set up staging environments in Azure App Service]
-- [Secure a custom DNS name with an SSL binding in Azure App Service](configure-ssl-bindings.md)
+- [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
 - [Enable diagnostic logs](troubleshoot-diagnostic-logs.md)
 - [Scale an app in Azure App Service]
 - [Monitoring basics in Azure App Service]

@@ -1,17 +1,13 @@
 ---
 title: Troubleshoot Azure payment issues
 description: Resolving an issue when updating payment information account in the Microsoft Azure portal or account center.
-services: azure
 author: v-miegge
-manager: dcscontentpm
-editor: v-jesits
+ms.reviewerr: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: billing
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/12/2019
+ms.date: 08/20/2020
 ms.author: jaserano
 ---
 
@@ -21,6 +17,23 @@ You may experience an issue or error when you try to update the payment informat
 
 To resolve your issue, select the topic below which most closely resembles your error.
 
+## My credit card was declined when I tried to sign up for Azure
+
+To troubleshoot issues regarding a declined card, see [Troubleshoot a declined card at Azure sign-up](troubleshoot-declined-card.md).
+
+## Unable to see subscriptions under my account to update the payment method
+
+You might be using an email ID that differs from the one that is used for the subscriptions.
+
+To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal or Azure account center](no-subscriptions-found.md).
+
+## Unable to use a virtual or prepaid credit or debit card as a payment method.
+
+*	Virtual or prepaid credit cards aren't accepted as payment for Azure subscriptions.
+*	Debit cards aren't accepted as payment for Azure subscriptions.
+
+For more information, see [Troubleshoot a declined card at Azure sign-up](troubleshoot-declined-card.md).
+
 ## Unable to remove a credit card from a saved billing payment method
 
 By design you cannot remove a credit card from the Active subscription.
@@ -29,19 +42,11 @@ If an existing card has to be deleted, either a new card must be added to the su
 
 ## Unable to delete an old payment method after adding a new payment method
 
-The new payment instrument might not be associated with the subscription. To help associate the payment instrument with the subscription, see [Add, update, or remove a credit or debit card for Azure](change-credit-card.md).
-
-To troubleshoot issues regarding a declined card, see [How to troubleshoot a declined card at Azure sign-up](troubleshoot-declined-card.md).
+The new payment instrument might not be associated with the subscription. To help associate the payment instrument with the subscription, see [Add, update, or remove a credit card for Azure](change-credit-card.md).
 
 ## Unable to delete a payment method because of *Cannot delete payment method* error
 
 This occurs because of an outstanding balance. Clear any outstanding balances before you delete the payment method.
-
-## Unable to see subscriptions under my account to update the payment method
-
-You might be using an email ID that differs from the one that is used for the subscriptions.
-
-To troubleshoot this issue, see [No subscriptions found sign-in error for Azure portal or Azure account center](no-subscriptions-found.md).
 
 ## Unable to make payment for a subscription
 

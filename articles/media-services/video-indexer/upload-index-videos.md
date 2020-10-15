@@ -9,8 +9,9 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/13/2020
+ms.date: 02/18/2020
 ms.author: juliako
+ms.custom: devx-track-csharp
 ---
 
 # Upload and index your videos  
@@ -19,7 +20,7 @@ When uploading videos with Video Indexer API, you have the following upload opti
 
 * upload your video from a URL (preferred),
 * send the video file as a byte array in the request body,
-* Use existing Azure Media Services asset by providing the [asset ID](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supported in paid accounts only).
+* Use existing Azure Media Services asset by providing the [asset ID](../latest/assets-concept.md) (supported in paid accounts only).
 
 Once your video has been uploaded, Video Indexer (optionally) encodes the video (discussed in the article). When creating a Video Indexer account, you can choose a free trial account (where you get a certain number of free indexing minutes) or a paid option (where you are not limited by the quota). With free trial, Video Indexer provides up to 600 minutes of free indexing to website users and up to 2400 minutes of free indexing to API users. With paid option, you create a Video Indexer account that is [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for minutes indexed as well as the Media Account related charges. 
 
@@ -43,7 +44,7 @@ The article shows how to upload and index your videos with these options:
 
     If it is a private URL, the access token need to be provided in the request.
 - The URL has to point to a valid media file and not to a webpage, such as a link to the `www.youtube.com` page.
-- You can upload up to 60 movies per minute.
+- In a paid account you can upload up to 50 movies per minute, and in a trial account up to 5 movies per minute.
 
 > [!Tip]
 > It is recommended to use .NET framework version 4.6.2. or higher because older .NET frameworks do not default to TLS 1.2.
@@ -54,7 +55,14 @@ The article shows how to upload and index your videos with these options:
 
 See the [input container/file formats](../latest/media-encoder-standard-formats.md#input-containerfile-formats) article for a list of file formats that you can use with Video Indexer.
 
-## <a id="website"/>Upload and index a video using the Video Indexer website
+## Video files storage
+
+- With a paid Video Indexer account, you create a Video Indexer account that's connected to your Azure subscription and an Azure Media Services account. For more information, see [Create a Video Indexer account connected to Azure](connect-to-azure.md).
+- Video files are stored in Azure storage by Azure Media Services. There is no time limitation.
+- You can always delete your video and audio files as well as any metadata and insights extracted from them by Video Indexer. Once you delete a file from Video Indexer, the file and its metadata and insights are permanently removed from Video Indexer. However, if you have implemented your own backup solution in Azure storage, the file remains in your Azure storage.
+- The persistency of a video is identical, regardless if the upload is done form the Video Indexer website or using the Upload API.
+   
+## <a name="website"></a>Upload and index a video using the Video Indexer website
 
 > [!NOTE]
 > A name of the video must be no greater than 80 characters.
@@ -70,7 +78,7 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
     Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
-## <a id="apis"/>Upload and index with API
+## <a name="apis"></a>Upload and index with API
 
 Use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample that follows includes the commented out code that shows how to upload the byte array. 
 
@@ -120,6 +128,10 @@ Use this parameter if raw or external recordings contain background noise. This 
 - `Default` – Index and extract insights using both audio and video
 - `DefaultWithNoiseReduction` – Index and extract insights from both audio and video, while applying noise reduction algorithms on audio stream
 
+> [!NOTE]
+> Video Indexer covers up to two tracks of audio. If there are more audio tracks in the file, they will be treated as one track.<br/>
+If you want to index the tracks separately, you will need to extract the relevant audio file and index it as `AudioOnly`.
+
 Price depends on the selected indexing option.  
 
 #### priority
@@ -134,7 +146,10 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video. 
 
 When using the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) or [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, one of the optional parameters is `streamingPreset`. If you set `streamingPreset` to `Default`, `SingleBitrate`, or `AdaptiveBitrate`, the encoding process is triggered. Once the indexing and encoding jobs are done, the video is published so you can also stream your video. The Streaming Endpoint from which you want to stream the video must be in the **Running** state.
 
-In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
+For SingleBitrate, standard encoder cost will apply per the output. If the video height is greater or equal to 720, Video Indexer encodes it as 1280x720. Otherwise, as 640x468.
+The Default setting is [content aware encoding](../latest/content-aware-encoding.md).
+
+In order to run the indexing and encoding jobs, the [Azure Media Services account connected to your Video Indexer account](connect-to-azure.md), requires Reserved Units. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). Since these are compute intensive jobs, S3 unit type is highly recommended. The number of RUs defines the max number of jobs that can run in parallel. The baseline recommendation is 10 S3 RUs. 
 
 If you only want to index your video but not encode it, set `streamingPreset`to `NoStreaming`.
 
@@ -148,7 +163,7 @@ If the `videoUrl` is not specified, the Video Indexer expects you to pass the fi
 
 The following C# code snippet demonstrates the usage of all the Video Indexer APIs together.
 
-#### Instructions for running this code sample
+**Instructions for running the following code sample**
 
 After copying this code into your development platform you will need to provide two parameters: API Management authentication key and video URL.
 
@@ -344,6 +359,7 @@ The status codes listed in the following table may be returned by the Upload ope
 |---|---|---|
 |409|VIDEO_INDEXING_IN_PROGRESS|Same video is already in progress of being processed in the given account.|
 |400|VIDEO_ALREADY_FAILED|Same video failed to process in the given account less than 2 hours ago. API clients should wait at least 2 hours before re-uploading a video.|
+|429||Trial accounts are allowed 5 uploads per minute. Paid accounts are allowed 50 uploads per minute.|
 
 ## Next steps
 

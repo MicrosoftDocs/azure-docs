@@ -3,9 +3,8 @@ title: Manage federation certificates in Azure AD | Microsoft Docs
 description: Learn how to customize the expiration date for your federation certificates, and how to renew certificates that will soon expire.
 services: active-directory
 documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -13,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
-ms.author: mimart
+ms.author: kenwith
 ms.reviewer: jeedes
-
 ms.collection: M365-identity-device-management
 ---
+
 # Manage certificates for federated single sign-on in Azure Active Directory
 
 In this article, we cover common questions and information related to certificates that Azure Active Directory (Azure AD) creates to establish federated single sign-on (SSO) to your software as a service (SaaS) applications. Add applications from the Azure AD app gallery or by using a non-gallery application template. Configure the application by using the federated SSO option.
@@ -107,4 +106,4 @@ If a certificate is about to expire, you can renew it using a procedure that res
 - [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
 - [Application management with Azure Active Directory](what-is-application-management.md)
 - [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md)
-- [Debug SAML-based single sign-on to applications in Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)
+- [Debug SAML-based single sign-on to applications in Azure Active Directory](../azuread-dev/howto-v1-debug-saml-sso-issues.md)

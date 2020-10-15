@@ -14,7 +14,7 @@ ms.date: 12/09/2019
 
 Learn how to configure the number of managed disks used by [Apache Kafka](https://kafka.apache.org/) on HDInsight.
 
-Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight cluster. Since Kafka is very I/O heavy, [Azure Managed Disks](../../virtual-machines/windows/managed-disks-overview.md) is used to provide high throughput and provide more storage per node. If traditional virtual hard drives (VHD) were used for Kafka, each node is limited to 1 TB. With managed disks, you can use multiple disks to achieve 16 TB for each node in the cluster.
+Kafka on HDInsight uses the local disk of the virtual machines in the HDInsight cluster. Since Kafka is very I/O heavy, [Azure Managed Disks](../../virtual-machines/managed-disks-overview.md) is used to provide high throughput and provide more storage per node. If traditional virtual hard drives (VHD) were used for Kafka, each node is limited to 1 TB. With managed disks, you can use multiple disks to achieve 16 TB for each node in the cluster.
 
 The following diagram provides a comparison between Kafka on HDInsight before managed disks, and Kafka on HDInsight with managed disks:
 
@@ -29,7 +29,7 @@ The following diagram provides a comparison between Kafka on HDInsight before ma
     > [!NOTE]  
     > The type of managed disk can be either __Standard__ (HDD) or __Premium__ (SSD). Premium disks are used with DS and GS series VMs. All other VM types use standard.
 
-    ![cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka.png)
+    ![cluster size section with the disks per worker node highlighted](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
 
 ## Configure managed disks: Resource Manager template
 

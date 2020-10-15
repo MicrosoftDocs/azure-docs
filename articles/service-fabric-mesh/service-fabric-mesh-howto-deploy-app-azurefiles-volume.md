@@ -1,10 +1,10 @@
 ---
 title: Use an Azure Files based volume in a Service Fabric Mesh app 
 description: Learn how to store state in an Azure Service Fabric Mesh application by mounting an Azure Files based volume inside a service using the Azure CLI.
-author: dkkapur
+author: georgewallace
 ms.topic: conceptual
 ms.date: 11/21/2018
-ms.author: dekapur
+ms.author: gwallace
 ms.custom: mvc, devcenter 
 ---
 
@@ -12,7 +12,7 @@ ms.custom: mvc, devcenter
 
 This article describes how to mount an Azure Files based volume in a service of a Service Fabric Mesh application.  The Azure Files volume driver is a Docker volume driver used to mount an Azure Files share to a container, which you use to persist service state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs.  To learn more about volumes and options for storing application data, read [storing state](service-fabric-mesh-storing-state.md).
 
-To mount a volume in a service, create a volume resource in your Service Fabric Mesh application and then reference that volume in your service.  Declaring the volume resource and referencing it in the service resource can be done either in the [YAML-based resource files](#declare-a-volume-resource-and-update-the-service-resource-yaml) or the [JSON-based deployment template](#declare-a-volume-resource-and-update-the-service-resource-json). Before mounting the volume, first create an Azure storage account and a [file share in Azure Files](/azure/storage/files/storage-how-to-create-file-share).
+To mount a volume in a service, create a volume resource in your Service Fabric Mesh application and then reference that volume in your service.  Declaring the volume resource and referencing it in the service resource can be done either in the [YAML-based resource files](#declare-a-volume-resource-and-update-the-service-resource-yaml) or the [JSON-based deployment template](#declare-a-volume-resource-and-update-the-service-resource-json). Before mounting the volume, first create an Azure storage account and a [file share in Azure Files](../storage/files/storage-how-to-create-file-share.md).
 
 ## Prerequisites
 > [!NOTE]

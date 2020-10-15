@@ -1,14 +1,12 @@
 ---
-title: Get started with Microsoft Customer Agreement billing - Azure
-description: Understand your Microsoft Customer Agreement billing account
+title: Get started with Microsoft Customer Agreement billing account - Azure
+description: Learn about your Microsoft Customer Agreement billing account, including billing profiles and invoice payment methods.
 author: bandersmsft
-manager: amberbhargava
+ms.reviewer: amberbhargava
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/10/2019
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -32,7 +30,7 @@ Roles on the billing account have the highest level of permissions. By default, 
 
 Use a billing profile to manage your invoice and payment methods. A monthly invoice is generated at the beginning of the month for each billing profile in your account. The invoice contains respective charges for all Azure subscriptions and other purchases from the previous month.
 
-A billing profile is automatically created for your billing account. It contains one invoice section by default. You may create additional sections to easily track and organize costs based on your needs whether is it per project, department, or development environment. You’ll see these sections on the billing profile's invoice reflecting the usage of each subscription and purchases you’ve assigned to it.
+A billing profile is automatically created for your billing account. It contains one invoice section by default. You may create additional sections to easily track and organize costs based on your needs whether is it per project, department, or development environment. You'll see these sections on the billing profile's invoice reflecting the usage of each subscription and purchases you've assigned to it.
 
 Roles on the billing profiles have permissions to view and manage invoices and payment methods. Assign these roles to users who pay invoices like members of the accounting team in your organization. For more information, see [billing profile roles and tasks](../manage/understand-mca-roles.md#billing-profile-roles-and-tasks).
 

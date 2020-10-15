@@ -6,7 +6,7 @@ author: anthonychu
 ms.topic: tutorial
 ms.date: 01/15/2020
 ms.author: antchu
-ms.custom: mvc
+ms.custom: mvc, devx-track-python, devx-track-azurepowershell
 ---
 
 # Tutorial: Apply machine learning models in Azure Functions with Python and TensorFlow
@@ -82,7 +82,7 @@ cd start
 ```
 
 ```powershell
-py -m venv .venv
+py -3.7 -m venv .venv
 ```
 
 ```powershell
@@ -96,7 +96,7 @@ cd start
 ```
 
 ```cmd
-py -m venv .venv
+py -3.7 -m venv .venv
 ```
 
 ```cmd
@@ -129,7 +129,7 @@ In Azure Functions, a function project is a container for one or more individual
     func new --name classify --template "HTTP trigger"
     ```
 
-    This command creates a folder matching the name of the function, *classify*. In that folder are two files: *\_\_init\_\_.py*, which contains the function code, and *function.json*, which describes the function's trigger and its input and output bindings. For details on the contents of these files, see [Create an HTTP triggered Python function in Azure - Examine the file contents](functions-create-first-function-python.md#optional-examine-the-file-contents).
+    This command creates a folder matching the name of the function, *classify*. In that folder are two files: *\_\_init\_\_.py*, which contains the function code, and *function.json*, which describes the function's trigger and its input and output bindings. For details on the contents of these files, see [Examine the file contents](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#optional-examine-the-file-contents) in the Python quickstart.
 
 
 ## Run the function locally
@@ -149,8 +149,10 @@ In Azure Functions, a function project is a container for one or more individual
 
 To modify the `classify` function to classify an image based on its contents, you use a pre-built TensorFlow model that was trained with and exported from Azure Custom Vision Service. The model, which is contained in the *resources* folder of the sample you cloned earlier, classifies an image based on whether it contains a dog or a cat. You then add some helper code and dependencies to your project.
 
+To build your own model using the free tier of the Custom Vision Service, follow the instructions in the [sample project repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+
 > [!TIP]
-> If you want to build your own model using the free tier of the Custom Vision Service, follow the instructions in the [sample project repository](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md).
+> If you want to host your TensorFlow model independent of the function app, you can instead mount a file share containing your model to your Linux function app. To learn more, see [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md).
 
 1. In the *start* folder, run following command to copy the model files into the *classify* folder. Be sure to include `\*` in the command. 
 
@@ -311,3 +313,4 @@ See also:
 
 - [Deploy the function to Azure using Visual Studio Code](https://code.visualstudio.com/docs/python/tutorial-azure-functions).
 - [Azure Functions Python Developer Guide](./functions-reference-python.md)
+- [Mount a file share to a Python function app using Azure CLI](./scripts/functions-cli-mount-files-storage-linux.md)

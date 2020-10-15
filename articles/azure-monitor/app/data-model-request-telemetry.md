@@ -1,11 +1,7 @@
 ---
 title: Data model for request telemetry - Azure Application Insights
 description: Application Insights data model for request telemetry
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/07/2019
 
 ms.reviewer: sergkanz
@@ -13,7 +9,7 @@ ms.reviewer: sergkanz
 
 # Request telemetry: Application Insights data model
 
-A request telemetry item (in [Application Insights](../../azure-monitor/app/app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
+A request telemetry item (in [Application Insights](./app-insights-overview.md)) represents the logical sequence of execution triggered by an external request to your application. Every request execution is identified by unique `ID` and `url` containing all the execution parameters. You can group requests by logical `name` and define the `source` of this request. Code execution can result in `success` or `fail` and has a certain `duration`. Both success and failure executions may be grouped further by `resultCode`. Start time for the request telemetry defined on the envelope level.
 
 Request telemetry supports the standard extensibility model using custom `properties` and `measurements`.
 
@@ -21,13 +17,13 @@ Request telemetry supports the standard extensibility model using custom `proper
 
 Name of the request represents code path taken to process the request. Low cardinality value to allow better grouping of requests. For HTTP requests it represents the HTTP method and URL path template like `GET /values/{id}` without the actual `id` value.
 
-Application Insights web SDK sends request name "as is" with regards to letter case. Grouping on UI is case-sensitive so `GET /Home/Index` is counted separately from `GET /home/INDEX` even though often they result in the same controller and action execution. The reason for that is that urls in general are [case-sensitive](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). You may want to see if all `404` happened for the urls typed in uppercase. You can read more on request name collection by ASP.NET Web SDK in the [blog post](https://apmtips.com/blog/2015/02/23/request-name-and-url/).
+Application Insights web SDK sends request name "as is" with regards to letter case. Grouping on UI is case-sensitive so `GET /Home/Index` is counted separately from `GET /home/INDEX` even though often they result in the same controller and action execution. The reason for that is that urls in general are [case-sensitive](https://www.w3.org/TR/WD-html40-970708/htmlweb.html). You may want to see if all `404` happened for the urls typed in uppercase. You can read more on request name collection by ASP.NET Web SDK in the [blog post](https://apmtips.com/posts/2015-02-23-request-name-and-url/).
 
 Max length: 1024 characters
 
 ## ID
 
-Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](../../azure-monitor/app/correlation.md) page.
+Identifier of a request call instance. Used for correlation between request and other telemetry items. ID should be globally unique. For more information, see [correlation](./correlation.md) page.
 
 Max length: 128 characters
 
@@ -39,7 +35,7 @@ Max length: 2048 characters
 
 ## Source
 
-Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](../../azure-monitor/app/correlation.md) page.
+Source of the request. Examples are the instrumentation key of the caller or the ip address of the caller. For more information, see [correlation](./correlation.md) page.
 
 Max length: 1024 characters
 
@@ -61,7 +57,7 @@ For the web applications, Application Insights define a request as successful wh
 
 Partially accepted content `206` may indicate a failure of an overall request. For instance, Application Insights endpoint receives a batch of telemetry items as a single request. It returns `206` when some items in the batch were not processed successfully. Increasing rate of `206` indicates a problem that needs to be investigated. Similar logic applies to `207` Multi-Status where the success may be the worst of separate response codes.
 
-You can read more on request result code and status code in the [blog post](https://apmtips.com/blog/2016/12/03/request-success-and-response-code/).
+You can read more on request result code and status code in the [blog post](https://apmtips.com/posts/2016-12-03-request-success-and-response-code/).
 
 ## Custom properties
 
@@ -73,7 +69,8 @@ You can read more on request result code and status code in the [blog post](http
 
 ## Next steps
 
-- [Write custom request telemetry](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Write custom request telemetry](./api-custom-events-metrics.md#trackrequest)
 - See [data model](data-model.md) for Application Insights types and data model.
-- Learn how to [configure ASP.NET Core](../../azure-monitor/app/asp-net.md) application with Application Insights.
-- Check out [platforms](../../azure-monitor/app/platforms.md) supported by Application Insights.
+- Learn how to [configure ASP.NET Core](./asp-net.md) application with Application Insights.
+- Check out [platforms](./platforms.md) supported by Application Insights.
+

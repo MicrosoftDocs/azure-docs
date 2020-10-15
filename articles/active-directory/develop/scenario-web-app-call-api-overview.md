@@ -2,19 +2,16 @@
 title: Build a web app that calls web APIs - Microsoft identity platform | Azure
 description: Learn how to build a web app that calls web APIs (overview)
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -24,12 +21,7 @@ Learn how to build a web app that signs users in to the Microsoft identity platf
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-This scenario assumes that you've already gone through the following scenario:
-
-> [!div class="nextstepaction"]
-> [Web app that signs in users](scenario-web-app-sign-user-overview.md)
+This scenario assumes you've already completed [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md).
 
 ## Overview
 
@@ -45,12 +37,16 @@ That's why they register a secret (an application password or certificate) with 
 > [!NOTE]
 > Adding sign-in to a web app is about protecting the web app itself. That protection is achieved by using *middleware* libraries, not the Microsoft Authentication Library (MSAL). The preceding scenario, [Web app that signs in users](scenario-web-app-sign-user-overview.md), covered that subject.
 >
-> This scenario covers how to call web APIs from a web app. You must get access tokens for those web APIs. To acquire those tokens, you use MSAL libraries to acquire these tokens.
+> This scenario covers how to call web APIs from a web app. You must get access tokens for those web APIs. You use MSAL libraries to acquire these tokens.
 
 Development for this scenario involves these specific tasks:
 
-- During [application registration](scenario-web-app-call-api-app-registration.md), you must provide a reply URI, secret, or certificate to be shared with Azure AD. If you deploy your app to several locations, you'll provide this information for each location.
+- During [application registration](scenario-web-app-call-api-app-registration.md), you must provide a reply URI, secret, or certificate to be shared with Azure AD. If you deploy your app to several locations, you'll provide a reply URI for each location.
 - The [application configuration](scenario-web-app-call-api-app-configuration.md) must provide the client credentials that were shared with Azure AD during application registration.
+
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## Next steps
 

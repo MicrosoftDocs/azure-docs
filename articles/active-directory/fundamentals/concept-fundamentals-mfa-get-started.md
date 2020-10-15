@@ -1,12 +1,12 @@
 ---
-title: Enable Multi-Factor Authentication for your organization - Azure Active Directory
-description: Enable Azure MFA for your organization based on your license
+title: Azure Multi-Factor Authentication for your organization - Azure Active Directory
+description: Learn about the available features of Azure Multi-Factor Authentication for your organization based on your license model
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/06/2019
+ms.date: 03/18/2020
 
 ms.author: iainfou
 author: iainfoulds
@@ -15,51 +15,50 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Enable Multi-Factor Authentication for your organization
+# Overview of Azure Multi-Factor Authentication for your organization
 
-There are multiple ways to enable Azure Multi-Factor Authentication (MFA) for your Azure Active Directory (AD) users based on the licenses that your organization owns. 
+There are multiple ways to enable Azure Multi-Factor Authentication for your Azure Active Directory (AD) users based on the licenses that your organization owns. 
 
 ![Investigate signals and enforce MFA if needed](./media/concept-fundamentals-mfa-get-started/verify-signals-and-perform-mfa-if-required.png)
 
-Based on our studies, your account is more than 99.9% less likely to be compromised if you use MFA.
+Based on our studies, your account is more than 99.9% less likely to be compromised if you use multi-factor authentication (MFA).
 
-So how does your organization turn on multi-factor authentication even for free, before becoming a statistic?
+So how does your organization turn on MFA even for free, before becoming a statistic?
 
 ## Free option
 
 Customers who are utilizing the free benefits of Azure AD can use [security defaults](../fundamentals/concept-fundamentals-security-defaults.md) to enable multi-factor authentication in their environment.
 
-## Office 365
+## Microsoft 365 Business, E3, or E5
 
-For customers with Office 365, there are two options:
+For customers with Microsoft 365, there are two options:
 
-- [Security defaults](concept-fundamentals-security-defaults.md) can be enabled through Azure AD to protect all of your users with Azure Multi-Factor Authentication.
-- If your organization requires more granularity in providing multi-factor authentication, your Office licenses include [per-user MFA](../authentication/howto-mfa-userstates.md) capabilities. Per-user MFA is enabled and enforced on each user individually by administrators.
+* Azure Multi-Factor Authentication is either enabled or disabled for all users, for all sign-in events. There is no ability to only enable multi-factor authentication for a subset of users, or only under certain scenarios. Management is through the Office 365 portal. 
+* For an improved user experience, upgrade to Azure AD Premium P1 or P2 and use Conditional Access. For more information, see secure Microsoft 365 resources with multi-factor authentication.
 
 ## Azure AD Premium P1
 
 For customers with Azure AD Premium P1 or similar licenses that include this functionality such as Enterprise Mobility + Security E3, Microsoft 365 F1, or Microsoft 365 E3: 
 
-The recommendation is to use [Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md) for the best user experience.
+Use [Azure AD Conditional Access](../authentication/tutorial-enable-azure-mfa.md) to prompt users for multi-factor authentication during certain scenarios or events to fit your business requirements.
 
 ## Azure AD Premium P2
 
 For customers with Azure AD Premium P2 or similar licenses that include this functionality such as Enterprise Mobility + Security E5 or Microsoft 365 E5: 
 
-The recommendation is to use [Conditional Access policies](../conditional-access/concept-conditional-access-policy-common.md) along with [Identity Protection](../identity-protection/overview-v2.md) risk policies for the best user experience and enforcement flexibility.
+Provides the strongest security position and improved user experience. Adds [risk-based Conditional Access](../conditional-access/howto-conditional-access-policy-risk.md) to the Azure AD Premium P1 features that adapts to user's patterns and minimizes multi-factor authentication prompts.
 
 ## Authentication methods
 
-|   | Security defaults | All other methods |
+| Method | Security defaults | All other methods |
 | --- | --- | --- |
 | Notification through mobile app | X | X |
 | Verification code from mobile app or hardware token |   | X |
 | Text message to phone |   | X |
 | Call to phone |   | X |
-| App passwords |   | X** |
-
-** App passwords are only available in per-user MFA with legacy authentication scenarios only if enabled by administrators.
 
 ## Next steps
 
-[Azure AD pricing page](https://azure.microsoft.com/pricing/details/active-directory/)
+To get started, see the tutorial to [secure user sign-in events with Azure Multi-Factor Authentication](../authentication/tutorial-enable-azure-mfa.md).
+
+For more information on licensing, see [Features and licenses for Azure Multi-Factor Authentication](../authentication/concept-mfa-licensing.md).

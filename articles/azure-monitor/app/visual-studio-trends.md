@@ -1,14 +1,8 @@
 ---
 title: Analyzing Trends in Visual Studio | Microsoft Docs
 description: Analyze, visualize, and explore trends in your Application Insights telemetry in Visual Studio.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: NumberByColors
-ms.author: daviste
 ms.date: 03/17/2017
-
-ms.reviewer: mbullwin
 ms.custom: vs-azure
 ---
 
@@ -19,7 +13,7 @@ The Application Insights Trends tool visualizes how your web application's impor
 
 ## Configure your web app for Application Insights
 
-If you haven't done this already, [configure your web app for Application Insights](../../azure-monitor/app/app-insights-overview.md). This allows it to send telemetry to the Application Insights portal. The Trends tool reads the telemetry from there.
+If you haven't done this already, [configure your web app for Application Insights](./app-insights-overview.md). This allows it to send telemetry to the Application Insights portal. The Trends tool reads the telemetry from there.
 
 Application Insights Trends is available in Visual Studio 2015 Update 3 and later.
 
@@ -46,7 +40,7 @@ Get started by choosing from one of five common trend analyses, each analyzing d
 These pre-built analyses are available later from the **View common types of telemetry analysis** button in the upper-left corner of the Trends window.
 
 ## Visualize trends in your application
-Application Insights Trends creates a time series visualization from your app's telemetry. Each time series visualization displays one type of telemetry, grouped by one property of that telemetry, over some time range. For example, you might want to view server requests, grouped by the country from which they originated, over the last 24 hours. In this example, each bubble on the visualization would represent a count of the server requests for some country/region during one hour.
+Application Insights Trends creates a time series visualization from your app's telemetry. Each time series visualization displays one type of telemetry, grouped by one property of that telemetry, over some time range. For example, you might want to view server requests, grouped by the country/region from which they originated, over the last 24 hours. In this example, each bubble on the visualization would represent a count of the server requests for some country/region during one hour.
 
 Use the controls at the top of the window to adjust what types of telemetry you view. First, choose the telemetry types in which you're interested:
 
@@ -94,9 +88,6 @@ The Trends tool can highlight bubbles of events that are anomalous compared to o
 > 
 
 ## <a name="next"></a>Next steps
-|  |  |
-| --- | --- |
-| **[Working with Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. |![Right-click the project and choose Application Insights, Search](./media/visual-studio-trends/34.png) |
-| **[Add more data](../../azure-monitor/app/asp-net-more.md)**<br/>Monitor usage, availability, dependencies, exceptions. Integrate traces from logging frameworks. Write custom telemetry. |![Visual studio](./media/visual-studio-trends/64.png) |
-| **[Working with the Application Insights portal](../../azure-monitor/app/overview-dashboard.md)**<br/>Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. |![Visual studio](./media/visual-studio-trends/62.png) |
+* **[Working with Application Insights in Visual Studio](./visual-studio.md)**. Search telemetry, see data in CodeLens, and configure Application Insights. All within Visual Studio. 
+* **[Working with the Application Insights portal](./overview-dashboard.md)**. Dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export. 
 

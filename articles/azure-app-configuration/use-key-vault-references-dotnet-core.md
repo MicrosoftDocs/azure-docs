@@ -12,9 +12,9 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 01/21/2020
+ms.date: 04/08/2020
 ms.author: lcozzens
-ms.custom: mvc
+ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: I want to update my ASP.NET Core application to reference values stored in Key Vault through App Configuration.
 ---
@@ -107,7 +107,6 @@ To add a secret to the vault, you need to take just a few additional steps. In t
     "tenantId": "35ad10f1-7799-4766-9acf-f2d946161b77",
     "activeDirectoryEndpointUrl": "https://login.microsoftonline.com",
     "resourceManagerEndpointUrl": "https://management.azure.com/",
-    "activeDirectoryGraphResourceId": "https://graph.windows.net/",
     "sqlManagementEndpointUrl": "https://management.core.windows.net:8443/",
     "galleryEndpointUrl": "https://gallery.azure.com/",
     "managementEndpointUrl": "https://management.core.windows.net/"
@@ -158,18 +157,16 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 1. Add a reference to the required NuGet packages by running the following command:
 
     ```dotnetcli
-    dotnet add package Microsoft.Azure.KeyVault
     dotnet add package Azure.Identity
     ```
 
 1. Open *Program.cs*, and add references to the following required packages:
 
     ```csharp
-    using Microsoft.Azure.KeyVault;
     using Azure.Identity;
     ```
 
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `UseAzureKeyVault` option to pass in a new `KeyVaultClient` reference to your Key Vault.
+1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `config.AddAzureAppConfiguration` method. Include the `ConfigureKeyVault` option, and pass the correct credentials to your Key Vault.
 
     #### [.NET Core 2.x](#tab/core2x)
 
@@ -214,7 +211,7 @@ To add a secret to the vault, you need to take just a few additional steps. In t
             .UseStartup<Startup>());
     ```
 
-1. When you initialized the connection to App Configuration, you passed the `KeyVaultClient` reference to the `UseAzureKeyVault` method. After the initialization, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys.
+1. When you initialized the connection to App Configuration, you set up the connection to Key Vault by calling the `ConfigureKeyVault` method. After the initialization, you can access the values of Key Vault references in the same way you access the values of regular App Configuration keys.
 
     To see this process in action, open *Index.cshtml* in the **Views** > **Home** folder. Replace its contents with the following code:
 
@@ -242,13 +239,13 @@ To add a secret to the vault, you need to take just a few additional steps. In t
 
 1. To build the app by using the .NET Core CLI, run the following command in the command shell:
 
-    ```
+    ```dotnetcli
     dotnet build
     ```
 
 1. After the build is complete, use the following command to run the web app locally:
 
-    ```
+    ```dotnetcli
     dotnet run
     ```
 

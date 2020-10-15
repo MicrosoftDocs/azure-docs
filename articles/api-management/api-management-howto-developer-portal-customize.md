@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/22/2019
+ms.date: 03/05/2020
 ms.author: apimpm
 ---
 
@@ -122,7 +122,12 @@ To make your portal and its latest changes available to visitors, you need to pu
 
 After you publish the portal, you can access it at the same URL as the administrative panel, for example `https://contoso-api.developer.azure-api.net`. View it in a separate browser session (incognito / private browsing mode) as an external visitor.
 
+## Apply the CORS policy on APIs
+
+You need to enable CORS (cross-origin resource sharing) on your APIs to let the visitors of your portal test the APIs through the built-in interactive console. Refer to [this documentation article](api-management-howto-developer-portal.md#cors) for more details.
+
 ## Next steps
+- [Optimize and save on your cloud spending](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 Learn more about the developer portal:
 

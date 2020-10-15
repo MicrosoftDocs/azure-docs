@@ -2,14 +2,12 @@
 title: Change Azure subscription offer
 description: Learn about how to change your Azure subscription and switch to a different offer using the Azure Account Center.
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -43,16 +41,16 @@ You can switch from an individual subscription with pay-as-you-go rates to:
 
 1. Sign in at [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 1. Select your individual subscription with pay-as-you-go rates.
-1. Click **Switch to another offer**. The option is only available if you have a individual subscription with pay-as-you-go rates and have completed your first billing period.
+1. Click **Switch to another offer**. The option is only available if you have an individual subscription with pay-as-you-go rates and have completed your first billing period.
 
    ![Notice the Switch offer button on the right side of the page](./media/switch-azure-offer/switchbutton.png)
 1. **Select the offer you want** from the list of offers your subscription can be switched to. This list varies based on the memberships that your account is associated with. If nothing is available, check the [list of available offers you can switch to](#whats-supported) and make sure you have the right memberships.
 
    ![Select an offer that you want to switch to](./media/switch-azure-offer/selectoffer.png)
-1. Depending on the offer you’re switching to, you may see a note about the impact of switching. Go through this list carefully and follow the instructions before you proceed.
+1. Depending on the offer you’re switching to, you may see a note about the impact of switching. Go through the list carefully and follow the instructions before you continue.
 
    ![Review the notes](./media/switch-azure-offer/thingstonote.png)
-1. You can rename your subscription. By default, it is set to the new offer name. Click **Switch Offer** to complete the process.
+1. You can rename your subscription. By default, it isn't set to the new offer name. Click **Switch Offer** to complete the process.
 
    ![Click the green button](./media/switch-azure-offer/confirmpage.png)
 1. Success! Your subscription is now switched to the new offer.
@@ -94,11 +92,11 @@ When you switch offers, any [limit or quota increases above the default limit](.
 
 #### Billing
 
-On the day you switch, an invoice is generated for all outstanding charges. Then, your subscription is billed per the new offer’s pricing terms. Your subscription billing anniversary changes to the date on which you changed offers. Usage and billing data before the offer change is not retained, so we recommend that you download a copy before switching.
+On the day you switch, an invoice is generated for all outstanding charges. Then, your subscription is billed per the new offer’s pricing terms. Your subscription billing anniversary changes to the date on which you changed offers. Usage and billing data before the offer change isn't kept, so we recommend that you download a copy before switching.
 
 ### Can I migrate from a subscription with pay-as-you-go rates to Cloud Solution Provider (CSP) or Enterprise Agreement (EA)?
 
-* To migrate to CSP, see [Azure Pay-As-You-Go Subscription Migration to CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
+* To migrate to CSP, see [Transfer Azure subscriptions between subscribers and CSPs](transfer-subscriptions-subscribers-csp.md).
 * To migrate to EA, have your Enrollment Admin add your account into the EA. Follow instructions in the invitation email to have your subscriptions moved under EA enrollment. To learn more, see [Associate an Existing Account](https://ea.azure.com/helpdocs/associateExistingAccount) in the EA portal.
 
 ### Can I migrate data and services to a new subscription?

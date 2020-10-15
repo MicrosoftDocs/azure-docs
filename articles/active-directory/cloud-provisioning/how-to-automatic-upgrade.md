@@ -8,7 +8,7 @@ manager: daveba
 editor: ''
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/02/2019
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 ---
 # Azure AD Connect cloud provisioning agent: Automatic upgrade
 
-Making sure your Azure Active Directory (Azure AD) Connect cloud provisioning agent installation is always up to date is easy with the automatic upgrade feature. This feature is enabled by default and can't be disabled.
+Making sure your Azure Active Directory (Azure AD) Connect cloud provisioning agent installation is always up to date is easy with the automatic upgrade feature.
 
 The agent is installed here: "Program files\Azure AD Connect Provisioning Agent\AADConnectProvisioningAgent.exe"
 

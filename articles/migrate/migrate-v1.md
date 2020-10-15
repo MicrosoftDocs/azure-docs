@@ -12,13 +12,13 @@ ms.custom: mvc
 
 # Work with the previous version of Azure Migrate
 
-This article provides information about working with the previous version of Azure Migrate.
+This article provides information about working with the previous version of Azure Migrate. 
 
 
 There are two versions of the Azure Migrate service:
 
 - **Current version**: Use this version to create Azure Migrate projects, discover on-premises machines, and orchestrate assessments and migrations. [Learn more](whats-new.md) about what's new in this version.
-- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. If you still need to use Azure Migrate projects created in the previous version, this is what you can and can't do:
+- **Previous version**: If you're using the previous version of Azure Migrate (only assessment of on-premises VMware VMs was supported), you should now use the current version. The previous version projects are referred to as Classic projects in this article. If you still need to use Azure Migrate projects created in the previous version, this is what you can and can't do:
     - You can no longer create migration projects.
     - We recommend that you don't perform new discoveries.
     - You can still access existing projects.
@@ -27,7 +27,7 @@ There are two versions of the Azure Migrate service:
 
 ## Upgrade between versions
 
-You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](how-to-add-tool-first-time.md), and add assessment and migration tools to it.
+You can't upgrade projects or components in the previous version to the new version. You need to [create a new Azure Migrate project](create-manage-projects.md), and [add assessment and migration tools](how-to-add-tool-first-time.md) to it. Use the tutorials to understand how to use the assessment and migration tools available. If you had a Log Analytics workspace attached to a Classic project, you can attach it to a project of current version after you delete the Classic project.
 
 ## Find projects from previous version
 
@@ -35,7 +35,16 @@ Find projects from the previous version as follows:
 
 1. In the Azure portal > **All services**, search for and select **Azure Migrate**. 
 2. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
-3. Click the link to open v1 projects.
+3. Click the link to open Classic projects.
+
+## Delete projects from previous version
+
+Find and delete projects from the previous version as follows:
+
+1. In the Azure portal > **All services**, search for and select **Azure Migrate**. 
+2. On the Azure Migrate dashboard, there's a notification and a link to access old Azure Migrate projects.
+3. Click the link to open Classic projects.
+4. Select the project you would like to delete and delete it. 
 
 
 ## Create an assessment
@@ -88,7 +97,7 @@ Readiness takes into account a number of VM properties, to identify whether  the
 --- | --- | ---
 **Boot type** | BIOS supported. UEFI not supported. | Conditionally ready if boot type is UEFI.
 **Cores** | Machines core <= the maximum number of cores (128) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores.<br/>If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores, without applying the comfort factor. | Ready if less than or equal to limits.
-**Memory** | The machine memory size <= the maximum memory (3892 GB on Azure M series Standard_M128m&nbsp;<sup>2</sup>) for an Azure VM. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> If performance history is available, Azure Migrate considers the utilized memory.<br/><br/>If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated  memory is used, without applying the comfort factor.<br/><br/> | Ready if within limits.
+**Memory** | The machine memory size <= the maximum memory (3892 GB on Azure M series Standard_M128m&nbsp;<sup>2</sup>) for an Azure VM. [Learn more](../virtual-machines/sizes.md).<br/><br/> If performance history is available, Azure Migrate considers the utilized memory.<br/><br/>If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history the allocated  memory is used, without applying the comfort factor.<br/><br/> | Ready if within limits.
 **Storage disk** | Allocated size of a disk must be 4 TB (4096 GB) or less.<br/><br/> The number of disks attached to the machine must be 65 or less, including the OS disk. | Ready if within limits.
 **Networking** | A machine must have 32 or less NICs attached to it. | Ready if within limits.
 
@@ -110,11 +119,11 @@ Windows Server 2008 R2 and all SPs | Azure provides full support.| Ready for Azu
 Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure
 Windows Server 2003, 2003 R2 | Out-of-support and need a [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement) for support in Azure. | Conditionally ready for Azure, consider upgrading the OS before migrating to Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | Out-of-support. The machine might boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
-Windows Client 7, 8 and 10 | Azure provides support with [Visual Studio subscription only.](https://docs.microsoft.com/azure/virtual-machines/windows/client-images) | Conditionally ready for Azure
-Windows 10 Pro Desktop | Azure provides support with [Multitenant Hosting Rights.](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment) | Conditionally ready for Azure
+Windows Client 7, 8 and 10 | Azure provides support with [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure
+Windows 10 Pro Desktop | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure
 Windows Vista, XP Professional | Out-of-support. The machine might boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to upgrade the OS before migrating to Azure.
 Linux | Azure endorses these [Linux operating systems](../virtual-machines/linux/endorsed-distros.md). Other Linux operating systems might boot in Azure, but we recommend upgrading the OS to an endorsed version, before migrating to Azure. | Ready for Azure if the version is endorsed.<br/><br/>Conditionally ready if the version is not endorsed.
-Other operating systems<br/><br/> For example,  Oracle Solaris, Apple Mac OS etc., FreeBSD, etc. | Azure doesn't endorse these operating systems. The machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to install a supported OS before migrating to Azure.  
+Other operating systems<br/><br/> For example,  Oracle Solaris, Apple macOS etc., FreeBSD, etc. | Azure doesn't endorse these operating systems. The machine may boot in Azure, but no OS support is provided by Azure. | Conditionally ready for Azure, it is recommended to install a supported OS before migrating to Azure.  
 OS specified as **Other** in vCenter Server | Azure Migrate cannot identify the OS in this case. | Unknown readiness. Ensure that the OS running inside the VM is supported in Azure.
 32-bit operating systems | The machine may boot in Azure, but Azure may not provide full support. | Conditionally ready for Azure, consider upgrading the OS of the machine from 32-bit OS to 64-bit OS before migrating to Azure.
 
@@ -197,7 +206,7 @@ To use dependency visualization, you associate a Log Analytics workspace with a 
 1. To attach a Log Analytics workspace to a project, in **Overview**, > **Essentials**, click **Requires configuration**.
 2. You can create a new workspace, or attach an existing one:
   - To create a new workspace, specify a name. The workspace is created in a region in the same [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) as the migration project.
-  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). To attach a workspace, ensure that you have 'Reader' access to the workspace.
+  - When you attach an existing workspace, you can pick from all the available workspaces in the same subscription as the migration project. Only those workspaces are listed which were created in a [supported Service Map region](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions). To attach a workspace, ensure that you have 'Reader' access to the workspace.
 
 > [!NOTE]
 > You can't change the workspace associated with a migration project.
@@ -212,7 +221,7 @@ After you configure a workspace, you download and install agents on each on-prem
 4. Copy the workspace ID and key. You need these when you install the MMA on the on-premises machine.
 
 > [!NOTE]
-> To automate the installation of agents you can use a deployment tool such as Configuration Manager or a partner tool such a, [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), that provides an agent deployment solution for Azure Migrate.
+> To automate the installation of agents you can use a deployment tool such as Configuration Manager or a partner tool such a, [Intigua](https://www.intigua.com/intigua-for-azure-migration), that provides an agent deployment solution for Azure Migrate.
 
 
 #### Install the MMA agent on a Windows machine
@@ -225,7 +234,7 @@ To install the agent on a Windows machine:
 4. In **Agent Setup Options**, select **Azure Log Analytics** > **Next**.
 5. Click **Add** to add a new Log Analytics workspace. Paste in the workspace ID and key that you copied from the portal. Click **Next**.
 
-You can install the agent from the command line or using an automated method such as Configuration Manager. [Learn more](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) about using these methods to install the MMA agent.
+You can install the agent from the command line or using an automated method such as Configuration Manager. [Learn more](../azure-monitor/platform/log-analytics-agent.md#installation-options) about using these methods to install the MMA agent.
 
 #### Install the MMA agent on a Linux machine
 
@@ -236,11 +245,11 @@ To install the agent on a Linux machine:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Learn more](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) about the list of Linux operating systems support by MMA.
+[Learn more](../azure-monitor/platform/agents-overview.md#supported-operating-systems) about the list of Linux operating systems support by MMA.
 
 ### Install the MMA agent on a machine monitored by Operations Manager
 
-For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites). The Dependency agent does need to be installed.
+For machines monitored by System Center Operations Manager 2012 R2 or later, there is no need to install the MMA agent. Service Map integrates with the Operations Manager MMA to gather the necessary dependency data. [Learn more](../azure-monitor/insights/service-map-scom.md#prerequisites). The Dependency agent does need to be installed.
 
 ### Install the Dependency agent
 
@@ -250,7 +259,7 @@ For machines monitored by System Center Operations Manager 2012 R2 or later, the
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Learn more about the [Dependency agent support](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) for the Windows and Linux operating systems.
-- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) about how you can use scripts to install the Dependency agent.
+- [Learn more](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) about how you can use scripts to install the Dependency agent.
 
 >[!NOTE]
 > The Azure Monitor for VMs article referenced to provide an overview of the system prerequisites and methods to deploy the Dependency agent are also applicable to the Service Map solution.
@@ -270,7 +279,7 @@ For machines monitored by System Center Operations Manager 2012 R2 or later, the
 4. You can view dependencies for different time durations by clicking on the time duration in the time range label. By default the range is an hour. You can modify the time range, or specify start and end dates, and duration.
 
    > [!NOTE]
-   >    A time range of up to an hour is supported. Use Azure Monitor logs to [query dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
+   >    A time range of up to an hour is supported. Use Azure Monitor logs to [query dependency data](./how-to-create-group-machine-dependencies.md) over a longer duration.
 
 5. After you've identified dependent machines that you want to group together, use Ctrl+Click to select multiple machines on the map, and click **Group machines**.
 6. Specify a group name. Verify that the dependent machines are discovered by Azure Migrate.
@@ -285,7 +294,7 @@ Once the group is created, it is recommended to install agents on all the machin
 
 ## Query dependency data from Azure Monitor logs
 
-Dependency data captured by Service Map is available for querying in the Log Analytics workspace associated with your Azure Migrate project. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) about the Service Map data tables to query in Azure Monitor logs. 
+Dependency data captured by Service Map is available for querying in the Log Analytics workspace associated with your Azure Migrate project. [Learn more](../azure-monitor/insights/service-map.md#log-analytics-records) about the Service Map data tables to query in Azure Monitor logs. 
 
 To run the Kusto queries:
 
@@ -295,15 +304,15 @@ To run the Kusto queries:
 4. Write your query to gather dependency data using Azure Monitor logs. Find sample queries in the next section.
 5. Run your query by clicking on Run. 
 
-[Learn more](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) about how to write Kusto queries. 
+[Learn more](../azure-monitor/log-query/get-started-portal.md) about how to write Kusto queries. 
 
 ### Sample Azure Monitor logs queries
 
-Following are sample queries you can use to extract dependency data. You can modify the queries to extract your preferred data points. An exhaustive list of the fields in dependency data records is available [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Find more sample queries [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+Following are sample queries you can use to extract dependency data. You can modify the queries to extract your preferred data points. An exhaustive list of the fields in dependency data records is available [here](../azure-monitor/insights/service-map.md#log-analytics-records). Find more sample queries [here](../azure-monitor/insights/service-map.md#sample-log-searches).
 
 #### Summarize inbound connections on a set of machines
 
-The records in the table for connection metrics, VMConnection, do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection. [Learn more](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) about how physical network connection data is aggregated into a single logical record in VMConnection. 
+The records in the table for connection metrics, VMConnection, do not represent individual physical network connections. Multiple physical network connections are grouped into a logical connection. [Learn more](../azure-monitor/insights/service-map.md#connections) about how physical network connection data is aggregated into a single logical record in VMConnection. 
 
 ```
 // the machines of interest

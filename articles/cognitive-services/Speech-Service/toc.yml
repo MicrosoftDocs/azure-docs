@@ -1,558 +1,598 @@
 - name: Speech service documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: Speech service overview
     href: overview.md
-  - name: Language and region support
+  - name: Language and voice support
+    displayName: languages,locales,voice,gender,language code,locale,locale code,neural voice,standard voice
     href: language-support.md
-    displayName: "languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice"
+  - name: Region support
+    href: regions.md
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+  - name: Quotas and limits
+    href: speech-services-quotas-and-limits.md
+  - name: What's new in docs? 
+    href: whats-new.md
 - name: Speech-to-text
-  expanded: false
   items:
-  - name: Overview
-    items:
-    - name: What is speech-to-text?
+    - name: Speech-to-text documentation
+      href: index-speech-to-text.yml
+    - name: Speech-to-text overview
       href: speech-to-text.md
-  - name: Quickstarts
-    items:
-    - name: Recognize speech from an audio file
-      href: quickstarts/speech-to-text-from-file.md
-    - name: Recognize speech with microphone input
-      href: quickstarts/speech-to-text-from-microphone.md
-    - name: Recognize speech stored in blob storage
-      href: quickstarts/from-blob.md
-  - name: How-to guides
-    items:
-    - name: Change speech recognition source language
-      href: how-to-specify-source-language.md
-    - name: Choose speech recognition mode
-      href: how-to-choose-recognition-mode.md
-    - name: Improve accuracy with Custom Speech
-      href: how-to-custom-speech.md
-    - name: Improve accuracy with Phrase Lists
-      href: how-to-phrase-lists.md
-    - name: Improve accuracy with tenant models
-      href: tutorial-tenant-model.md
-    - name: Select a specific microphone input device
-      href: how-to-select-audio-input-devices.md
-    - name: Use automatic source language detection
-      href: how-to-automatic-language-detection.md
-    - name: Use compressed audio input formats
-      href: how-to-use-codec-compressed-audio-input-streams.md
-    - name: Use compressed audio input formats (iOS)
-      href: how-to-use-codec-compressed-audio-input-streams-ios.md
-    - name: Use compressed audio input formats (Android)
-      href: how-to-use-codec-compressed-audio-input-streams-android.md
-    - name: Use speech recognition with Docker containers
-      href: speech-container-howto.md?tabs=stt
-  - name: Reference
-    items:
-    - name: Speech SDK APIs
-      items:
-      - name: C++
-        href: https://aka.ms/csspeech/cppref
-        displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
-      - name: C#
-        href: https://aka.ms/csspeech/csharpref
-        displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
-      - name: Java
-        href: https://aka.ms/csspeech/javaref
-        displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
-      - name: JavaScript
-        href: https://aka.ms/csspeech/javascriptref
-        displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
-      - name: Objective-C
-        href: https://aka.ms/csspeech/objectivecref
-        displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
-      - name: Python
-        href: https://aka.ms/csspeech/pythonref
-        displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
-      - name: Release notes
-        href: releasenotes.md
-        displayName: "release notes,updates,what's new,what is new,changes"
-    - name: REST APIs
-      items:
-      - name: Speech-to-text REST API
-        href: rest-speech-to-text.md
-      - name: Batch transcription REST API
-        href: batch-transcription.md
-  - name: Resources
-    items:
-    - name: Speech-to-text FAQ
-      href: faq-stt.md
-      displayName: "FAQ,STT FAQ,SR FAQ,frequently asked questions"
-- name: Text-to-speech
-  expanded: false
-  items:
-  - name: Overview
-    items:
-    - name: What is text-to-speech?
-      href: text-to-speech.md
-  - name: Quickstarts
-    items:
-    - name: Synthesize speech into an audio file
-      href: quickstarts/text-to-speech-audio-file.md
-    - name: Synthesize speech to a speaker
-      href: quickstarts/text-to-speech.md
-    - name: Async synthesis for long-form audio
-      href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
-  - name: How-to guides
-    items:
-    - name: Improve output with SSML
-      href: speech-synthesis-markup.md
-    - name: Improve output with Custom Voices
-      href: how-to-custom-voice.md
-      displayName: "custom voice"
-    - name: Synthesize speech with Long Audio API
-      href: long-audio-api.md
-    - name: Use speech synthesis with Docker containers
-      href: speech-container-howto.md?tabs=tts
-  - name: Reference
-    items:
-    - name: Speech SDK
-      items:
-      - name: C++
-        href: https://aka.ms/csspeech/cppref
-        displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
-      - name: C#
-        href: https://aka.ms/csspeech/csharpref
-        displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
-      - name: Java
-        href: https://aka.ms/csspeech/javaref
-        displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
-      - name: JavaScript
-        href: https://aka.ms/csspeech/javascriptref
-        displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
-      - name: Objective-C
-        href: https://aka.ms/csspeech/objectivecref
-        displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
-      - name: Python
-        href: https://aka.ms/csspeech/pythonref
-        displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
-      - name: Release notes
-        href: releasenotes.md
-        displayName: "release notes,updates,what's new,what is new,changes"
-    - name: REST APIs
-      items:
-      - name: Text-to-speech REST API
-        href: rest-text-to-speech.md
-  - name: Resources
-    items:
-    - name: Text-to-speech FAQ
-      href: faq-text-to-speech.md
-      displayName: "FAQ,TTS FAQ,SS FAQ,frequently asked questions"
-- name: Intent recognition
-  expanded: false
-  items:
-  - name: Quickstarts
-    items:
-    - name: Recognize speech, intents, and entities
-      href: quickstarts/intent-recognition.md
-      displayName: Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains
-  - name: How-to guides
-    items:
-    - name: Recognize speech intents with LUIS, C#
-      href: how-to-recognize-intents-from-speech-csharp.md
-  - name: Reference
-    items:
-    - name: Speech SDK
-      items:
-      - name: C++
-        href: https://aka.ms/csspeech/cppref
-        displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
-      - name: C#
-        href: https://aka.ms/csspeech/csharpref
-        displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
-      - name: Java
-        href: https://aka.ms/csspeech/javaref
-        displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
-      - name: JavaScript
-        href: https://aka.ms/csspeech/javascriptref
-        displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
-      - name: Objective-C
-        href: https://aka.ms/csspeech/objectivecref
-        displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
-      - name: Python
-        href: https://aka.ms/csspeech/pythonref
-        displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
-      - name: Release notes
-        href: releasenotes.md
-        displayName: "release notes,updates,what's new,what is new,changes"
-    - name: LUIS service
-      items:
-      - name: LUIS developer resources
-        href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
-- name: Speech translation
-  expanded: false
-  items:
-  - name: Overview
-    items:
-    - name: What is speech translation?
-      href: speech-translation.md
-  - name: Quickstarts
-    items:
-    - name: Translate speech-to-text
-      href: quickstarts/translate-speech-to-text.md
-    - name: Translate speech to multiple target languages
-      href: quickstarts/translate-speech-to-text-multiple-languages.md
-    - name: Translate speech-to-speech
-      href: quickstarts/translate-speech-to-speech.md
-  - name: Tutorials
-    items:
-    - name: Build a Flask app to translate and synthesize text with REST APIs
-      href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
-  - name: Reference
-    items:
-    - name: Speech SDK
-      items:
-      - name: C++
-        href: https://aka.ms/csspeech/cppref
-        displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
-      - name: C#
-        href: https://aka.ms/csspeech/csharpref
-        displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
-      - name: Java
-        href: https://aka.ms/csspeech/javaref
-        displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
-      - name: JavaScript
-        href: https://aka.ms/csspeech/javascriptref
-        displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
-      - name: Objective-C
-        href: https://aka.ms/csspeech/objectivecref
-        displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
-      - name: Python
-        href: https://aka.ms/csspeech/pythonref
-        displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
-      - name: Release notes
-        href: releasenotes.md
-        displayName: "release notes,updates,what's new,what is new,changes"
-  - name: Resources
-    items:
-    - name: Speech translation FAQ
-      href: https://www.microsoft.com/translator/faq.aspx
-- name: Conversation scenarios
-  expanded: false
-  items:      
-  - name: Conversation transcription
-    items:
-    - name: Overview
-      items:
-      - name: What is conversation transcription?
-        href: conversation-transcription.md
+    - name: Speech-to-text quickstart
+      href: get-started-speech-to-text.md
     - name: How-to guides
       items:
-      - name: Real time Conversation Transcription
-        href: how-to-use-conversation-transcription.md
-      - name: Asynchronous Conversation Transcription
-        href: how-to-async-conversation-transcription.md
+        - name: Change speech recognition source language
+          href: how-to-specify-source-language.md
+        - name: Improve accuracy with Custom Speech
+          href: how-to-custom-speech.md
+        - name: Use compressed audio input formats
+          href: how-to-use-codec-compressed-audio-input-streams.md
+          displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
+        - name: Select a specific microphone input device
+          href: how-to-select-audio-input-devices.md
+        - name: Use automatic source language detection
+          href: how-to-automatic-language-detection.md
+        - name: Use the batch transcription API
+          href: batch-transcription.md
+    - name: Tutorials
+      items:
+        - name: Recognize speech stored in blob storage
+          href: quickstarts/from-blob.md
+        - name: Improve accuracy with tenant models
+          href: tutorial-tenant-model.md
+    - name: Customization
+      items:
+        - name: Test a model using audio files in Speech Studio
+          href: quickstarts/speech-studio-test-model.md
+        - name: Prepare data for Custom Speech
+          href: how-to-custom-speech-test-and-train.md
+        - name: Inspect Custom Speech data
+          href: how-to-custom-speech-inspect-data.md
+        - name: Evaluate Custom Speech accuracy
+          href: how-to-custom-speech-evaluate-data.md
+        - name: Improve Custom Speech accuracy
+          href: how-to-custom-speech-improve-accuracy.md
+        - name: Train a model for Custom Speech
+          href: how-to-custom-speech-train-model.md
+        - name: Deploy a custom model
+          href: how-to-custom-speech-deploy-model.md
+        - name: CI/CD for Custom Speech
+          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+        - name: Create human-labeled transcriptions
+          href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Reference
       items:
-      - name: Speech SDK
-        items:
         - name: C++
-          href: https://aka.ms/csspeech/cppref
-          displayName: "C++ SDK,C++ dev kit,reference,reference docs,ref documentation"
-        - name: C#
-          href: https://aka.ms/csspeech/csharpref
-          displayName: "CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation"
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: 'C#'
+          displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/csharpref'
         - name: Java
-          href: https://aka.ms/csspeech/javaref
-          displayName: "Java SDK,Java dev kit,reference,reference docs,ref documentation"
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javaref'
         - name: JavaScript
-          href: https://aka.ms/csspeech/javascriptref
-          displayName: "JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation"
+          displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/javascriptref'
         - name: Objective-C
-          href: https://aka.ms/csspeech/objectivecref
-          displayName: "Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation"
+          displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/objectivecref'
         - name: Python
-          href: https://aka.ms/csspeech/pythonref
-          displayName: "Python SDK,Python dev kit,reference,reference docs,ref documentation"
+          displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/pythonref'
         - name: Release notes
+          displayName: 'release notes,updates,what''s new,what is new,changes'
           href: releasenotes.md
-          displayName: "release notes,updates,what's new,what is new,changes"
-      - name: REST APIs
-        items:
-        - name: Conversation transcription REST APIs
-          href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
-  - name: Multi-device conversation
-    items:
-    - name: Overview
+        - name: Speech-to-text REST API
+          href: rest-speech-to-text.md
+    - name: Resources
       items:
-      - name: What is multi-device conversation?
-        href: multi-device-conversation.md
-    - name: Quickstarts
+        - name: Language support
+          href: language-support.md#speech-to-text
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: Speech-to-text FAQ
+          displayName: 'FAQ,STT FAQ,SR FAQ,frequently asked questions'
+          href: faq-stt.md
+- name: Text-to-speech
+  items:
+    - name: Text-to-speech documentation
+      href: index-text-to-speech.yml
+    - name: Text-to-speech overview
+      href: text-to-speech.md
+    - name: Text-to-speech quickstart
+      href: get-started-text-to-speech.md
+    - name: How-to guides
       items:
-      - name: Start and join a conversation
-        href: quickstarts/multi-device-conversation.md
+        - name: Improve synthesis with SSML
+          href: speech-synthesis-markup.md
+        - name: Synthesize speech with Long Audio API
+          href: long-audio-api.md
+    - name: Customization
+      items:
+        - name: Responsible deployment
+          items:
+            - name: Gating of Custom Voice
+              href: concepts-gating-overview.md
+            - name: Deployment of synthetic technology
+              href: concepts-guidelines-responsible-deployment-synthetic.md
+            - name: Disclosure for voice talent
+              href: 'https://aka.ms/disclosure-voice-talent'
+            - name: Disclosure design guidelines
+              href: concepts-disclosure-guidelines.md
+            - name: Disclosure design patterns
+              href: concepts-disclosure-patterns.md
+            - name: Code of conduct
+              href: 'https://aka.ms/custom-neural-code-of-conduct'
+        - name: Custom Voice portal
+          items:
+            - name: Get started with Custom Voice
+              displayName: 'custom voice, neural voice'
+              href: how-to-custom-voice.md
+            - name: Prepare data
+              href: how-to-custom-voice-prepare-data.md
+            - name: Create and use Custom Voice models
+              href: how-to-custom-voice-create-voice.md
+            - name: Record voice samples
+              href: record-custom-voice-samples.md
+        - name: Audio Content Creation
+          items:
+            - name: Audio Content Creation
+              href: how-to-audio-content-creation.md
     - name: Reference
       items:
-      - name: Speech SDK
-        items:
         - name: C++
-          href: https://aka.ms/csspeech/cppref
-        - name: C#
-          href: https://aka.ms/csspeech/csharpref
-- name: Voice assistants
-  expanded: false
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: 'C#'
+          displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/csharpref'
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javaref'
+        - name: JavaScript
+          displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/javascriptref'
+        - name: Objective-C
+          displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/objectivecref'
+        - name: Python
+          displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/pythonref'
+        - name: Release notes
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
+        - name: Text-to-speech REST API
+          href: rest-text-to-speech.md
+    - name: Resources
+      items:
+        - name: Standard voice support
+          href: language-support.md#standard-voices
+        - name: Neural voice support
+          href: language-support.md#neural-voices
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: SSML phonetic sets
+          href: speech-ssml-phonetic-sets.md
+        - name: Text-to-speech FAQ
+          displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
+          href: faq-text-to-speech.md
+- name: Speech translation
   items:
-  - name: Overview
-    items:
-    - name: What is a voice assistant?
-      href: voice-assistants.md
-  - name: Building your assistant
-    items:
-    - name: Custom Commands (preview)
-      href: custom-commands.md
-    - name: Direct Line Speech
-      href: direct-line-speech.md
-  - name: Quickstarts
-    items:
-    - name: C# (UWP)
-      href: quickstart-voice-assistant-csharp-uwp.md
-    - name: Java (Windows, macOS, Linux)
-      href: quickstart-voice-assistant-java-jre.md
-    - name: Java (Android)
-      href: quickstart-voice-assistant-java-android.md
-    - name: Create a Custom Command (preview)
-      href: quickstart-custom-speech-commands-create-new.md
-    - name: Create a Custom Command with parameters (preview)
-      href: quickstart-custom-speech-commands-create-parameters.md
-    - name: Use Custom Commands with Custom Voice (preview)
-      href: quickstart-custom-speech-commands-select-custom-voice.md
-    - name: Use Custom Commands with the Speech SDK (preview)
-      href: quickstart-custom-speech-commands-speech-sdk.md
-  - name: How-to guides
-    items:
-    - name: Fulfill Custom Commands with the Speech SDK
-      href: how-to-custom-speech-commands-fulfill-sdk.md
-    - name: Add parameter validation to a Custom Command
-      href: how-to-custom-speech-commands-validations.md
-    - name: Add a confirmation to a Custom Command
-      href: how-to-custom-speech-commands-confirmations.md
-    - name: Add a one-step correction to a Custom Command
-      href: how-to-custom-speech-commands-one-step-correction.md
-  - name: Tutorials
-    items:
-    - name: Voice enable your bot with Speech SDK
-      href: tutorial-voice-enable-your-bot-speech-sdk.md
-  - name: Resources
-    items:
-    - name: Voice assistants FAQ
-      href: faq-voice-assistants.md
-- name: Customization
-  expanded: false
+    - name: Speech translation documentation
+      href: index-speech-translation.yml
+    - name: Speech translation overview
+      href: speech-translation.md
+    - name: Speech translation quickstart
+      href: get-started-speech-translation.md
+    - name: How-to guides
+      items:
+        - name: Translate and synthesize text with REST APIs
+          href: ../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json
+    - name: Reference
+      items:
+        - name: C++
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: 'C#'
+          displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/csharpref'
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javaref'
+        - name: JavaScript
+          displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/javascriptref'
+        - name: Objective-C
+          displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/objectivecref'
+        - name: Python
+          displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+          href: 'https://aka.ms/csspeech/pythonref'
+        - name: Release notes
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
+    - name: Resources
+      items:
+        - name: Language support
+          href: language-support.md#speech-translation
+        - name: Region support
+          href: regions.md#speech-to-text-text-to-speech-and-translation
+        - name: Speech translation FAQ
+          href: 'https://www.microsoft.com/translator/faq.aspx'
+- name: Intent recognition
   items:
-  - name: Speech-to-text
-    items:
-    - name: Custom Speech portal
+    - name: Intent recognition documentation
+      href: index-intent-recognition.yml
+    - name: Intent recognition quickstart
+      href: quickstarts/intent-recognition.md
+    - name: How-to guides
       items:
-      - name: Get started with Custom Speech
-        href: how-to-custom-speech.md
-      - name: Prepare data
-        href: how-to-custom-speech-test-data.md
-      - name: Inspect data
-        href: how-to-custom-speech-inspect-data.md
-      - name: Evaluate accuracy
-        href: how-to-custom-speech-evaluate-data.md
-      - name: Train a custom model
-        href: how-to-custom-speech-train-model.md
-      - name: Deploy a custom model
-        href: how-to-custom-speech-deploy-model.md
-      - name: Create human-labeled transcriptions
-        href: how-to-custom-speech-human-labeled-transcriptions.md
-    - name: Tenant models
+        - name: 'Recognize speech intents with LUIS, C#'
+          href: how-to-recognize-intents-from-speech-csharp.md
+    - name: Reference
       items:
-      - name: Create, publish, and use a model
-        href: tutorial-tenant-model.md
-  - name: Text-to-speech
-    items:
-    - name: Responsible deployment
+        - name: Speech SDK
+          items:
+            - name: C++
+              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/cppref'
+            - name: 'C#'
+              displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+              href: 'https://aka.ms/csspeech/csharpref'
+            - name: Java
+              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+              href: 'https://aka.ms/csspeech/javaref'
+            - name: JavaScript
+              displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+              href: 'https://aka.ms/csspeech/javascriptref'
+            - name: Objective-C
+              displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+              href: 'https://aka.ms/csspeech/objectivecref'
+            - name: Python
+              displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+              href: 'https://aka.ms/csspeech/pythonref'
+            - name: Release notes
+              displayName: 'release notes,updates,what''s new,what is new,changes'
+              href: releasenotes.md
+        - name: LUIS service
+          items:
+            - name: LUIS developer resources
+              href: https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource
+    - name: Resources
       items:
-      - name: Gating of Custom Voice
-        href: concepts-gating-overview.md
-      - name: Deployment of synthetic technology
-        href: concepts-guidelines-responsible-deployment-synthetic.md
-      - name: Disclosure for voice talent
-        href: https://aka.ms/disclosure-voice-talent
-      - name: Disclosure design guidelines
-        href: concepts-disclosure-guidelines.md
-      - name: Disclosure design patterns
-        href: concepts-disclosure-patterns.md
-      - name: Code of conduct
-        href: https://aka.ms/custom-neural-code-of-conduct
-    - name: Custom Voice portal
-      items:
-      - name: Get started with Custom Voice
-        href: how-to-custom-voice.md
-        displayName: "custom voice, neural voice"
-      - name: Prepare data
-        href: how-to-custom-voice-prepare-data.md
-      - name: Create and use Custom Voice models
-        href: how-to-custom-voice-create-voice.md
-      - name: Record voice samples
-        href: record-custom-voice-samples.md
-    - name: Audio Content Creation
-      items:
-      - name: Audio Content Creation
-        href: how-to-audio-content-creation.md
-  - name: Custom keyword naming guidelines
-    href: speech-devices-sdk-kws-guidelines.md
-  - name: Custom keyword spotting
-    href: speech-devices-sdk-create-kws.md
-- name: Speech service
-  expanded: false
+        - name: Language support
+          href: ../luis/luis-language-support.md
+        - name: Region support
+          href: regions.md#intent-recognition
+- name: Speaker Recognition
   items:
-  - name: Scenarios
-    items:
-    - name: Call centers
-      href: call-center-transcription.md
-      displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
-  - name: How-to guides
-    items:
-    - name: Try Speech service for free
-      href: get-started.md
-    - name: Create Speech service resource
-      href: get-started.md#create-a-speech-resource-in-azure
-    - name: Containers
-      expanded: false
+    - name: Speaker Recognition overview
+      href: speaker-recognition-overview.md
+    - name: Speaker Recognition quickstart
+      href: get-started-speaker-recognition.md 
+    - name: Reference
       items:
-      - name: Install and run containers
-        href: speech-container-howto.md
-        displayName: "containers,install container,run container"
-      - name: Configure containers
-        href: speech-container-configuration.md
-        displayName: "containers,configure containers,container config,configuration"
-      - name: Kubernetes and Helm
-        href: speech-container-howto-on-premises.md
-        displayName: "containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises"
-      - name: Azure container instances
-        href: deploy-speech-on-container-instances.md
-        displayName: "ACI,azure container instances,container instances,containers"
-  - name: Samples
-    items:
-    - name: Text-to-speech REST samples
-      href: https://github.com/Azure-Samples/Cognitive-Speech-TTS
-    - name: Batch transcription REST samples
-      href: https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch
-  - name: Reference
-    items:
-    - name: REST APIs
-      items:
-      - name: Batch transcription and customization REST API
-        href: https://westus.cris.ai/swagger/ui/index
-      - name: Conversation transcription REST API
-        href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
-      - name: Speech-to-text REST API
-        href: rest-speech-to-text.md
-      - name: Text-to-speech REST API
-        href: rest-text-to-speech.md
-    - name: Swagger documentation
-      href: swagger-documentation.md
-- name: Speech SDK
-  expanded: false
+        - name: Speaker Recognition REST API
+          href: https://docs.microsoft.com/rest/api/speakerrecognition/
+- name: Custom Keyword
   items:
-  - name: Overview
+    - name: Custom keyword overview
+      href: custom-keyword-overview.md
+    - name: Custom keyword basics
+      href: custom-keyword-basics.md
+- name: Scenario deep-dives
+  items:
+    - name: Conversation scenarios
+      items:
+        - name: Conversation scenarios documentation
+          displayName: meeting, meetings, conversation, call center, transcription, multi-device conversation
+          href: index-conversation-scenarios.yml
+        - name: Conversation transcription
+          items:
+            - name: Overview
+              items:
+                - name: What is conversation transcription?
+                  href: conversation-transcription.md
+            - name: How-to guides
+              items:
+                - name: Handle call center scenarios
+                  displayName: IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers
+                  href: call-center-transcription.md
+                - name: Real-time Conversation transcription
+                  href: how-to-use-conversation-transcription.md
+                - name: Asynchronous Conversation transcription
+                  href: how-to-async-conversation-transcription.md
+            - name: Reference
+              items:
+                - name: Speech SDK
+                  items:
+                    - name: C++
+                      displayName: C++ SDK,C++ dev kit,reference,reference docs,ref documentation
+                      href: 'https://aka.ms/csspeech/cppref'
+                    - name: 'C#'
+                      displayName: CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation
+                      href: 'https://aka.ms/csspeech/csharpref'
+                    - name: Java
+                      displayName: Java SDK,Java dev kit,reference,reference docs,ref documentation
+                      href: 'https://aka.ms/csspeech/javaref'
+                    - name: JavaScript
+                      displayName: Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation
+                      href: 'https://aka.ms/csspeech/javascriptref'
+                    - name: Objective-C
+                      displayName: Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation
+                      href: 'https://aka.ms/csspeech/objectivecref'
+                    - name: Python
+                      displayName: Python SDK,Python dev kit,reference,reference docs,ref documentation
+                      href: 'https://aka.ms/csspeech/pythonref'
+                    - name: Release notes
+                      displayName: 'release notes,updates,what''s new,what is new,changes'
+                      href: releasenotes.md
+                - name: REST APIs
+                  items:
+                    - name: Conversation transcription REST APIs
+                      href: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+        - name: Multi-device conversation
+          items:
+            - name: Overview
+              items:
+                - name: What is multi-device conversation?
+                  href: multi-device-conversation.md
+            - name: Quickstart
+              items:
+                - name: Start and join a conversation
+                  href: quickstarts/multi-device-conversation.md
+            - name: Reference
+              items:
+                - name: Speech SDK
+                  items:
+                    - name: C++
+                      href: 'https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-transcription-namespace'
+                    - name: 'C#'
+                      href: 'https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription'
+                    - name: 'Java'
+                      href: 'https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.transcription'
+    - name: Voice assistants
+      items:
+        - name: Voice assistants documentation
+          href: index-voice-assistants.yml
+        - name: Overview
+          items:
+            - name: What is a voice assistant?
+              href: voice-assistants.md
+            - name: Voice Assistant samples (GitHub)
+              href: https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant
+        - name: Custom Commands
+          items:
+            - name: What is Custom Commands?
+              href: custom-commands.md
+            - name: Quickstarts
+              items:
+                - name: Build a Custom Commands app
+                  href: quickstart-custom-commands-application.md
+            - name: How-to guides
+              items:
+                - name: Develop
+                  items:
+                    - name: Create application with simple commands  
+                      href: how-to-custom-commands-create-application-with-simple-commands.md
+                    - name: Add parameters to commands
+                      href: how-to-custom-commands-add-parameters-to-commands.md
+                    - name: Add configurations to commands parameters
+                      href: how-to-custom-commands-add-parameter-configuration.md
+                    - name: Add interaction rules
+                      href: how-to-custom-commands-add-interaction-rules.md
+                    - name: Add language generation templates for speech responses
+                      href: how-to-custom-commands-add-language-generation-templates.md
+                    - name: Use Custom Voice
+                      href: how-to-custom-commands-use-custom-voice.md
+                - name: Integrate
+                  items:
+                    - name: Integrate with a client app using Speech SDK
+                      href: how-to-custom-commands-setup-speech-sdk.md
+                    - name: Send activity to client application
+                      href: how-to-custom-commands-send-activity-to-client.md
+                    - name: Set up web endpoints
+                      href: how-to-custom-commands-setup-web-endpoints.md
+                - name: Deploy
+                  items:
+                    - name: Continuous Deployment with Azure DevOps
+                      href: how-to-custom-commands-deploy-cicd.md
+                - name: Test
+                  items:
+                  - name: Test your Custom Commands app
+                    href: how-to-custom-commands-developer-flow-test.md
+                - name: Debug
+                  items:
+                  - name: Debug errors when authoring the app
+                    href: how-to-custom-commands-debug-build-time.md
+                  - name: Debug errors when running the app
+                    href: how-to-custom-commands-debug-runtime.md
+                - name: References
+                  items:
+                    - name: Custom Commands concepts
+                      href: custom-commands-references.md
+            - name: Resources
+              items:
+                - name: Custom Commands Samples (GitHub)
+                  href: https://aka.ms/speech/cc-samples
+                - name: Voice Assistants Samples (GitHub)
+                  href: http://aka.ms/speech/va-samples
+                - name: Voice assistants FAQ
+                  href: faq-voice-assistants.md
+                - name: Speech SDK
+                  href: speech-sdk.md
+                - name: Custom Commands encryption of data at rest
+                  href: custom-commands-encryption-of-data-at-rest.md
+        - name: Direct Line Speech
+          items:
+            - name: What is Direct Line Speech?
+              href: direct-line-speech.md
+            - name: Quickstarts
+              items:
+                - name: 'Create a custom voice assistant'
+                  href: quickstarts/voice-assistants.md
+            - name: Tutorials
+              items:
+                - name: Voice enable your bot with Speech SDK
+                  href: tutorial-voice-enable-your-bot-speech-sdk.md
+            - name: Resources
+              items:
+                - name: Voice assistants FAQ
+                  href: faq-voice-assistants.md
+        - name: Voice assistants on Windows
+          items:
+            - name: Overview of voice assistants on Windows
+              href: windows-voice-assistants-overview.md
+            - name: How-to guides
+              items:
+                - name: 'Start developing your assistant with Windows'
+                  href: how-to-windows-voice-assistants-get-started.md
+                - name: 'Enable voice activation'
+                  href: windows-voice-assistants-implementation-guide.md
+            - name: Resources
+              items:
+                - name: 'Privacy requirements and guidelines'
+                  href: windows-voice-assistants-automatic-enablement-guidelines.md
+                - name: 'Best practices for assistant experiences'
+                  href: windows-voice-assistants-best-practices.md
+                - name: 'Samples and frequently asked questions'
+                  href: windows-voice-assistants-faq.md
+- name: Tools
+  items:
+  - name: Speech SDK
     items:
-    - name: About the Speech SDK
-      href: speech-sdk.md
-    - name: Scenario availability
-      href: scenario-availability.md
-  - name: Quickstarts
+      - name: Speech SDK overview
+        href: speech-sdk.md
+      - name: Setup Speech SDK
+        href: quickstarts/setup-platform.md
+      - name: Speech SDK Release notes
+        href: releasenotes.md
+      - name: Reference
+        items:
+          - name: C++
+            href: 'https://aka.ms/csspeech/cppref'
+          - name: 'C#'
+            href: 'https://aka.ms/csspeech/csharpref'
+          - name: Java
+            href: 'https://aka.ms/csspeech/javaref'
+          - name: JavaScript
+            href: 'https://aka.ms/csspeech/javascriptref'
+          - name: Objective-C
+            href: 'https://aka.ms/csspeech/objectivecref'
+          - name: Python
+            href: 'https://aka.ms/csspeech/pythonref'
+          - name: Go
+            href: 'https://github.com/microsoft/cognitive-services-speech-sdk-go'
+  - name: Speech CLI
+    displayName: SPX
     items:
-    - name: Create a project
-      href: quickstarts/create-project.md
-    - name: Setup Speech SDK
-      href: quickstarts/setup-platform.md
-      displayName: install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript
-  - name: How-to guides
+      - name: Speech CLI overview
+        displayName: What is SPX?
+        href: spx-overview.md
+      - name: Speech CLI Basics
+        displayName: SPX basics
+        href: spx-basics.md
+  - name: Speech Studio
     items:
+      - name: Speech Studio overview
+        href: https://speech.microsoft.com
+      - name: Create a Custom Commands app with Speech Studio
+        href: quickstart-custom-speech-commands-create-new.md
+- name: Deploy
+  items:
     - name: Enable logging
       href: how-to-use-logging.md
     - name: Track memory usage
       href: how-to-track-speech-sdk-memory-usage.md
     - name: Configure OpenSSL for Linux
+      displayName: memory usage, memory consumption, object logging, object tracking, memory, openssl
       href: how-to-configure-openssl-linux.md
-      displayName: "memory usage, memory consumption, object logging, object tracking, memory, openssl"
-  - name: Samples
-    items:
-    - name: Speech SDK samples (GitHub)
-      href: https://github.com/Azure-Samples/cognitive-services-speech-sdk
-    - name: Speech Devices SDK samples (GitHub)
-      href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
-  - name: Reference
-    items:
-    - name: C++
-      href: https://aka.ms/csspeech/cppref
-    - name: C#
-      href: https://aka.ms/csspeech/csharpref
-    - name: Java
-      href: https://aka.ms/csspeech/javaref
-    - name: JavaScript
-      href: https://aka.ms/csspeech/javascriptref
-    - name: Objective-C
-      href: https://aka.ms/csspeech/objectivecref
-    - name: Python
-      href: https://aka.ms/csspeech/pythonref
-    - name: Speech SDK Release notes
-      href: releasenotes.md
+    - name: Configure RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
+    - name: Containers
+      items:
+        - name: Install and run Speech containers
+          displayName: 'containers,install container,run container'
+          href: speech-container-howto.md
+        - name: Configure speech containers
+          displayName: 'containers,configure containers,container config,configuration'
+          href: speech-container-configuration.md
+        - name: Batch processing with speech containers
+          href: speech-container-batch-processing.md
+        - name: Speech containers with Kubernetes and Helm
+          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
+          href: speech-container-howto-on-premises.md
+        - name: Speech containers on Azure container instances
+          displayName: 'ACI,azure container instances,container instances,containers'
+          href: deploy-speech-on-container-instances.md
+        - name: Containers FAQ
+          href: speech-container-faq.md
 - name: Devices
-  expanded: false
   items:
-  - name: Overview
-    items:
-    - name: About the Speech Devices SDK
-      href: speech-devices-sdk.md
-    - name: Get the Speech Devices SDK
-      href: get-speech-devices-sdk.md
-  - name: Hardware
-    items:
-    - name: Microphone array recommendations
-      href: speech-devices-sdk-microphone.md
-    - name: Roobo v1 kit
-      href: speech-devices-sdk-roobo-v1.md
-  - name: Quickstarts
-    items:
-    - name: Windows
-      href: speech-devices-sdk-windows-quickstart.md
-    - name: Linux
-      href: speech-devices-sdk-linux-quickstart.md
-    - name: Android
-      href: speech-devices-sdk-android-quickstart.md
-  - name: Resources
-    items:
-    - name: Troubleshoot the Speech Devices SDK
-      href: speech-devices-sdk-troubleshooting.md
-  - name: Reference
-    items:
-    - name: Speech Devices SDK release notes
-      href: devices-sdk-release-notes.md
+    - name: Speech devices documentation
+      href: index-devices.yml
+    - name: Overview
+      items:
+        - name: What is the Speech devices SDK?
+          href: speech-devices-sdk.md
+        - name: Get the Speech devices SDK
+          href: get-speech-devices-sdk.md
+        - name: Speech devices SDK samples (GitHub)
+          href: https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK
+    - name: Hardware
+      items:
+        - name: Microphone array recommendations
+          href: speech-devices-sdk-microphone.md
+        - name: Roobo v1 details
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Roobo v2 details
+          href: speech-devices-sdk-roobo-v2.md
+    - name: How-to guides
+      items:
+        - name: How to configure a Microphone Array
+          href: how-to-devices-microphone-array-configuration.md
+    - name: Quickstart
+      items:
+        - name: Use Speech devices SDK
+          href: speech-devices-sdk-quickstart.md
+    - name: Resources
+      items:
+        - name: Troubleshoot the Speech devices SDK
+          href: speech-devices-sdk-troubleshooting.md
+    - name: Reference
+      items:
+        - name: Speech devices SDK release notes
+          href: devices-sdk-release-notes.md
 - name: Migration
-  expanded: false
   items:
   - name: From Bing Speech
     href: how-to-migrate-from-bing-speech.md
-  - name: From the Custom Speech service
-    href: how-to-migrate-from-custom-speech-service.md
   - name: From the Translator Speech API
     href: how-to-migrate-from-translator-speech-api.md
 - name: Resources
-  expanded: false
   items:
-  - name: Support
-    href: support.md
-    displayName: "support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice"
-  - name: Regions
-    href: regions.md
-  - name: Sovereign Clouds
-    href: sovereign-clouds.md    
-    displayName: "fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china"
-  - name: Pricing and limits
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
-  - name: Compliance
-    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
-  - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
-  - name: Privacy and cookies
-    href: https://privacy.microsoft.com/privacystatement
+    - name: Support
+      displayName: support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice
+      href: support.md
+    - name: Swagger documentation
+      href: swagger-documentation.md
+    - name: Sovereign Clouds
+      displayName: fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china
+      href: sovereign-clouds.md
+    - name: Pricing calculator
+      href: https://azure.microsoft.com/pricing/calculator/#cognitive-services
+    - name: Compliance
+      href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
+    - name: Encryption
+      href: speech-encryption-of-data-at-rest.md
+    - name: Azure roadmap
+      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
+    - name: Privacy and cookies
+      href: 'https://privacy.microsoft.com/privacystatement'

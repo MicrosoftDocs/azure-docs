@@ -8,10 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 01/02/2020
+ms.date: 04/30/2020
 ---
 
 # Data Flow activity in Azure Data Factory
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
 
@@ -50,13 +52,21 @@ Use the Data Flow activity to transform and move data via mapping data flows. If
 Property | Description | Allowed values | Required
 -------- | ----------- | -------------- | --------
 dataflow | The reference to the Data Flow being executed | DataFlowReference | Yes
-integrationRuntime | The compute environment the data flow runs on. If not specified, the auto-resolve Azure Integration runtime will be used | IntegrationRuntimeReference | No
+integrationRuntime | The compute environment the data flow runs on. If not specified, the auto-resolve Azure integration runtime will be used. | IntegrationRuntimeReference | No
 compute.coreCount | The number of cores used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | 8, 16, 32, 48, 80, 144, 272 | No
 compute.computeType | The type of compute used in the spark cluster. Can only be specified if the auto-resolve Azure Integration runtime is used | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging.linkedService | If you're using a SQL DW source or sink, the storage account used for PolyBase staging | LinkedServiceReference | Only if the data flow reads or writes to a SQL DW
-staging.folderPath | If you're using a SQL DW source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to a SQL DW
+staging.linkedService | If you're using an Azure Synapse Analytics source or sink, the storage account used for PolyBase staging | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
+staging.folderPath | If you're using an Azure Synapse Analytics source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to Azure Synapse Analytics
 
 ![Execute Data Flow](media/data-flow/activity-data-flow.png "Execute Data Flow")
+
+### Dynamically size data flow compute at runtime
+
+The Core Count and Compute Type properties can be set dynamically to adjust to the size of your incoming source data at runtime. Use pipeline activities like Lookup or Get Metadata in order to find the size of the source dataset data. Then, use Add Dynamic Content in the Data Flow activity properties.
+
+![Dynamic Data Flow](media/data-flow/dyna1.png "Dynamic data flow")
+
+[Here is a brief video tutorial explaining this technique](https://www.youtube.com/watch?v=jWSkJdtiJNM)
 
 ### Data Flow integration runtime
 
@@ -66,12 +76,12 @@ For pipeline executions, the cluster is a job cluster, which takes several minut
 
 ![Azure Integration Runtime](media/data-flow/ir-new.png "Azure Integration Runtime")
 
-> [!NOTE]
+> [!IMPORTANT]
 > The Integration Runtime selection in the Data Flow activity only applies to *triggered executions* of your pipeline. Debugging your pipeline with data flows runs on the cluster specified in the debug session.
 
 ### PolyBase
 
-If you're using an Azure SQL Data Warehouse as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into the SQL DW.
+If you're using an Azure Synapse Analytics (formerly SQL Data Warehouse) as a sink or source, you must choose a staging location for your PolyBase batch load. PolyBase allows for batch loading in bulk instead of loading the data row-by-row. PolyBase drastically reduces the load time into Azure Synapse Analytics.
 
 ## Parameterizing Data Flows
 
@@ -83,9 +93,7 @@ If your data flow uses parameterized datasets, set the parameter values in the *
 
 ### Parameterized data flows
 
-If your data flow is parameterized, set the dynamic values of the data flow parameters in the **Parameters** tab. You can use either the ADF pipeline expression language (only for String types) or the data flow expression language to assign dynamic or literal parameter values. For more information, see [Data Flow Parameters](parameters-data-flow.md).
-
-![Execute Data Flow Parameter Example](media/data-flow/parameter-example.png "Parameter Example")
+If your data flow is parameterized, set the dynamic values of the data flow parameters in the **Parameters** tab. You can use either the ADF pipeline expression language or the data flow expression language to assign dynamic or literal parameter values. For more information, see [Data Flow Parameters](parameters-data-flow.md).
 
 ### Parameterized compute properties.
 

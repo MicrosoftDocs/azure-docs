@@ -1,21 +1,22 @@
 ---
-title: Connect a Google Cloud Platform account to Cloudyn in Azure | Microsoft Docs
+title: Connect a Google Cloud Platform account to Cloudyn in Azure
 description: Connect a Google Cloud Platform account to view cost and usage data in Cloudyn reports.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.subservice: cloudyn
+ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Connect a Google Cloud Platform account
 
 You can connect your existing Google Cloud Platform account to Cloudyn. After you connect your account to Cloudyn, cost and usage data is available in Cloudyn reports. This article helps you to configure and connect your Google account with Cloudyn.
 
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Collect project information
 

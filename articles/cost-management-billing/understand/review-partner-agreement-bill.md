@@ -1,15 +1,13 @@
 ---
-title: Review your Microsoft Partner Agreement's invoice - Azure
+title: Review your Microsoft Partner Agreement invoice - Azure
 description: Learn how to review your bill and resource usage and to verify charges for your Microsoft Partner Agreement invoice.
-author: jureid
-manager: jureid
+author: bandersmsft
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2019
+ms.subservice: billing
+ms.topic: tutorial
+ms.date: 08/20/2020
 ms.author: banders
 ---
 # Tutorial: Review your Microsoft Partner Agreement invoice
@@ -35,7 +33,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at https://portal.azure.com.
+- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Check access to a Microsoft Customer Agreement
 
@@ -66,7 +64,7 @@ The All transactions page displays the following information:
 |Date     | The date of transaction  |
 |Invoice ID     | The identifier for the invoice on which the transaction got billed. If you submit a support request, share the ID with Azure support to expedite your support request |
 |Transaction type     |  The type of transaction like purchase, cancel, and usage charges  |
-|Product family     | The category of product like compute for Virtual machines or database for Azure SQL database|
+|Product family     | The category of product like compute for Virtual machines or database for Azure SQL Database|
 |Product SDKU     | A unique code identifying the instance of your product |
 |Amount     |  The amount of transaction      |
 |Billing profile     | The transaction shows up on this billing profile's invoice |

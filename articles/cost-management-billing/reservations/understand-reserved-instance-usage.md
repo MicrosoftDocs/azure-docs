@@ -2,17 +2,15 @@
 title: Azure reservation usage for an individual subscription
 description: Learn how to read your usage to understand how the Azure reservation for your individual subscription with pay-as-you-go rates is applied.
 author: bandersmsft
-manager: yashr
+ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: reservations
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-
 ---
+
 # Understand Azure reservation usage for your individual subscription with pay-as-you-go rates subscription
 
 Use the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure Accounts portal](https://account.azure.com) to evaluate your reservation usage.
@@ -69,9 +67,9 @@ Assume that you are running a SQL Database Gen 4 in the east US region and your 
 
 ### Statement section of CSV file
 
-Filter on **Reserved Instance Usage** meter name, and choose the required **Meter Category** - Azure SQL database or Azure Cosmos DB. You see something like the following screenshot:
+Filter on **Reserved Instance Usage** meter name, and choose the required **Meter Category** - Azure SQL Database or Azure Cosmos DB. You see something like the following screenshot:
 
-![CSV file for SQL Database reserved capacity](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
+![Screenshot shows a Meter Category entry.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-statements.png)
 
 The **Reserved Instance Usage** line has the total number of core hours covered by the reservation. The rate is $0 for this line as the reservation covered the cost.
 
@@ -79,9 +77,9 @@ The **Reserved Instance Usage** line has the total number of core hours covered 
 
 Filter on **Additional Info** and type in your **Reservation ID**. The following screenshot shows the fields related to the SQL Database reserved capacity reservation.
 
-![CSV file for SQL Database reserved capacity](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
+![Screenshot shows details of a C S V file for reserved capacity.](./media/understand-reserved-instance-usage/billing-payg-sql-db-reserved-capacity-csv-details.png)
 
-1. **ReservationId** in the **Additional Info** field is the SQL Database reserved capacity reservation that's applied to the SQL database resource.
+1. **ReservationId** in the **Additional Info** field is the SQL Database reserved capacity reservation that's applied to the SQL Database resource.
 2. **ConsumptionMeter** is the meter ID for the SQL Database resource.
 3. The **Meter Id** is the reservation meter. The cost of this meter is $0. Any SQL Database resources that qualify for the reservation discount shows this meter ID in the CSV file.
 
@@ -95,7 +93,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand how the reservation discount is applied](../manage/understand-vm-reservation-charges.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

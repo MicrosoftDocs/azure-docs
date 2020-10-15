@@ -2,22 +2,15 @@
 title: Troubleshoot Kerberos constrained delegation - App Proxy
 description: Troubleshoot Kerberos Constrained Delegation configurations for Application Proxy
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
-ms.assetid: 
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 04/23/2019
-ms.author: mimart
-ms.reviewer: asteen
-
-ms.collection: M365-identity-device-management
+ms.author: kenwith
+ms.reviewer: asteen, japere
 ---
 
 # Troubleshoot Kerberos constrained delegation configurations for Application Proxy
@@ -53,7 +46,7 @@ The best place to position connectors is as close as possible to their targets. 
 
 What shows a KCD problem? There are several common indications that KCD SSO is failing. The first signs of an issue appear in the browser.
 
-![Example: Incorrect KCD configuration error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Example: Incorrect KCD config error](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Example: Authorization failed because of missing permissions](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -162,7 +155,7 @@ If you still can't make progress, Microsoft support can assist you. Create a sup
 
 ## Other scenarios
 
-- Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications don't like this method of authenticating. These applications expect the more conventional negotiations to take place. The first request is anonymous, which allows the application to respond with the authentication types that it supports through a 401.
+- Azure Application Proxy requests a Kerberos ticket before sending its request to an application. Some third-party applications don't like this method of authenticating. These applications expect the more conventional negotiations to take place. The first request is anonymous, which allows the application to respond with the authentication types that it supports through a 401. This type of Kerberos negotiation can be enabled using the steps outlined in this document: [Kerberos Constrained Delegation for single sign-on](application-proxy-configure-single-sign-on-with-kcd.md).
 - Multi-hop authentication is commonly used in scenarios where an application is tiered, with a back end and front end, where both require authentication, such as SQL Server Reporting Services. To configure the multi-hop scenario, see the support article [Kerberos Constrained Delegation May Require Protocol Transition in Multi-hop Scenarios](https://support.microsoft.com/help/2005838/kerberos-constrained-delegation-may-require-protocol-transition-in-mul).
 
 ## Next steps

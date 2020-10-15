@@ -1,15 +1,15 @@
 ---
-title: Tutorial - Review usage and costs with Cloudyn in Azure | Microsoft Docs
+title: Tutorial - Review usage and costs with Cloudyn in Azure
 description: In this tutorial, you review usage and costs to track trends, detect inefficiencies, and create alerts.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.custom: seodec18
-manager: benshy
+ms.reviewer: benshy
+ROBOTS: NOINDEX
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -29,6 +29,8 @@ In this tutorial, you learn how to:
 > * Export data
 
 If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Prerequisites
 
@@ -69,7 +71,7 @@ The problem is that their existing infrastructure was already paid for. Users co
 
 The Cost Effective Sizing Recommendations report identifies potential annual savings by comparing VM instance type capacity to their historical CPU and memory usage data.  
 
-On the menu at the top of the portal, click **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations**. If useful, apply a filter to reduce results. Here’s an example image.
+On the menu at the top of the portal, click **Optimizer** > **Sizing Optimization** > **Cost Effective Sizing Recommendations**. If useful, apply a filter to reduce results. Here's an example image.
 
 ![Cost effective sizing recommendation report for Azure VMs](./media/tutorial-review-usage/sizing01.png)
 

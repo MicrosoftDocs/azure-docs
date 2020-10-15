@@ -18,7 +18,9 @@ ms.author: juliako
 ---
 # Migrate from Media Indexer and Media Indexer 2 to Video Indexer
 
-The [Azure Media Indexer](media-services-index-content.md) media processor and [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) media processors are being retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
+The [Azure Media Indexer](media-services-index-content.md) media processor and [Azure Media Indexer 2 Preview](./legacy-components.md) media processors are being retired. For the retirement dates, see this [legacy components](legacy-components.md) topic. [Azure Media Services Video Indexer](../video-indexer/index.yml) replaces these legacy media processors.
 
 Azure Media Services Video Indexer is built on Azure Media Analytics, Azure Cognitive Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models. To see what scenarios Video Indexer can be used in, what features it offers, and how to get started, see [Video Indexer video and audio models](../video-indexer/video-indexer-overview.md). 
 
@@ -38,13 +40,13 @@ This article discusses the steps for migrating from the Azure Media Indexer and 
 
 ## Getting started with Video Indexer
 
-The following section points you to relevant links: [How can I get started with Video Indexer?](https://docs.microsoft.com/azure/media-services/video-indexer/video-indexer-overview#how-can-i-get-started-with-video-indexer) 
+The following section points you to relevant links: [How can I get started with Video Indexer?](../video-indexer/video-indexer-overview.md#how-can-i-get-started-with-video-indexer) 
 
 ## Getting started with Media Services v3 APIs
 
 Azure Media Services v3 API enables you to extract insights from your video and audio files through the [Azure Media Services v3 analyzer presets](../latest/analyzing-video-audio-files-concept.md). 
 
-**AudioAnalyzerPreset** enables you to extract multiple audio insights from an audio or video file. The output includes a VTT or TTML file for the audio transcript and a JSON file (with all the additional audio insights). The audio insights include keywords, speaker indexing, and speech sentiment analysis. AudioAnalyzerPreset also supports language detection for specific languages. For detailed information, see [Transforms](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
+**AudioAnalyzerPreset** enables you to extract multiple audio insights from an audio or video file. The output includes a VTT or TTML file for the audio transcript and a JSON file (with all the additional audio insights). The audio insights include keywords, speaker indexing, and speech sentiment analysis. AudioAnalyzerPreset also supports language detection for specific languages. For detailed information, see [Transforms](/rest/api/media/transforms/createorupdate#audioanalyzerpreset).
 
 ### Get started
 
@@ -56,12 +58,12 @@ To get started see:
 
 ## Getting started with Cognitive Services Speech Services
 
-[Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/) provides a speech-to-text service that transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. You can  use speech-to-text to [customize your own acoustic model, language model, or pronunciation model](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md). For more information, see [Cognitive Services speech-to-text](../../cognitive-services/speech-service/speech-to-text.md). 
+[Azure Cognitive Services](../../cognitive-services/index.yml) provides a speech-to-text service that transcribes audio streams to text in real time that your applications, tools, or devices can consume or display. You can  use speech-to-text to [customize your own acoustic model, language model, or pronunciation model](../../cognitive-services/speech-service/how-to-custom-speech-train-model.md). For more information, see [Cognitive Services speech-to-text](../../cognitive-services/speech-service/speech-to-text.md). 
 
 > [!NOTE] 
-> The speech-to-text service does not take video file formats and only takes [certain audio formats](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#audio-formats). 
+> The speech-to-text service does not take video file formats and only takes [certain audio formats](../../cognitive-services/speech-service/rest-speech-to-text.md#audio-formats). 
 
-For more information about the text-to-speech service and how to get started, see [What is speech-to-text?](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-to-text)
+For more information about the text-to-speech service and how to get started, see [What is speech-to-text?](../../cognitive-services/speech-service/speech-to-text.md)
 
 ## Known differences from deprecated services 
 
@@ -79,5 +81,3 @@ You can open a support ticket by navigating to [New support request](https://por
 
 * [Legacy components](legacy-components.md)
 * [Pricing page](https://azure.microsoft.com/pricing/details/media-services/#encoding)
-
-

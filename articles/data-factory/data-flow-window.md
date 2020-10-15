@@ -1,5 +1,5 @@
 ---
-title: Mapping data flow Window Transformation
+title: Window transformation in mapping data flow
 description: Azure Data Factory mapping data flow Window Transformation
 author: kromerm
 ms.author: makromer
@@ -10,9 +10,9 @@ ms.custom: seo-lt-2019
 ms.date: 01/30/2019
 ---
 
-# Azure Data Factory Window Transformation
+# Window transformation in mapping data flow
 
-
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 The Window transformation is where you will define window-based aggregations of columns in your data streams. In the Expression Builder, you can define different types of aggregations that are based on data or time windows (SQL OVER clause) such as LEAD, LAG, NTILE, CUMEDIST, RANK, etc.). A new field will be generated in your output that includes these aggregations. You can also include optional group-by fields.
 

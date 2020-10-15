@@ -2,19 +2,15 @@
 title: Best practices for templates
 description: Describes recommended approaches for authoring Azure Resource Manager templates. Offers suggestions to avoid common problems when using templates. 
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/10/2020
 ---
-# Azure Resource Manager template best practices
+# ARM template best practices
 
-This article gives recommendations about how to construct your Resource Manager template. These recommendations help you avoid common problems when using a template to deploy a solution.
-
-For recommendations about how to govern your Azure subscriptions, see [Azure enterprise scaffold: Prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
-
-For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
+This article shows you how to use recommended practices when constructing your ARM template. These recommendations help you avoid common problems when using an ARM template to deploy a solution.
 
 ## Template limits
 
-Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
+Limit the size of your template to 4 MB, and each parameter file to 64 KB. The 4-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters.
 
 You're also limited to:
 
@@ -150,7 +146,7 @@ The following information can be helpful when you work with [variables](template
 
 * Include variables for resource names that must be unique.
 
-* Use a [copy loop in variables](create-multiple-instances.md#variable-iteration) to create a repeated pattern of JSON objects.
+* Use a [copy loop in variables](copy-variables.md) to create a repeated pattern of JSON objects.
 
 * Remove unused variables.
 
@@ -158,7 +154,7 @@ The following information can be helpful when you work with [variables](template
 
 When deciding what [dependencies](define-resource-dependency.md) to set, use the following guidelines:
 
-* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies.
+* Use the **reference** function and pass in the resource name to set an implicit dependency between resources that need to share a property. Don't add an explicit `dependsOn` element when you've already defined an implicit dependency. This approach reduces the risk of having unnecessary dependencies. For an example of setting an implicit dependency, see [implicit dependency](define-resource-dependency.md#reference-and-list-functions).
 
 * Set a child resource as dependent on its parent resource.
 
@@ -224,11 +220,11 @@ The following information can be helpful when you work with [resources](template
    
      For more information about connecting to virtual machines, see:
    
-   * [Run VMs for an N-tier architecture in Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Run VMs for an N-tier architecture in Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Set up WinRM access for VMs in Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Allow external access to your VM by using the Azure portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Allow external access to your VM by using PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)
-   * [Allow external access to your Linux VM by using Azure CLI](../../virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Allow external access to your Linux VM by using Azure CLI](../../virtual-machines/linux/nsg-quickstart.md)
 
 * The **domainNameLabel** property for public IP addresses must be unique. The **domainNameLabel** value must be between 3 and 63 characters long, and follow the rules specified by this regular expression: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Because the **uniqueString** function generates a string that is 13 characters long, the **dnsPrefixString** parameter is limited to 50 characters:
 
@@ -269,9 +265,14 @@ The following information can be helpful when you work with [resources](template
    > [!NOTE]
    > To ensure that secrets are encrypted when they are passed as parameters to VMs and extensions, use the **protectedSettings** property of the relevant extensions.
    > 
-   > 
+
+## Use test toolkit
+
+The ARM template test toolkit is a script that checks whether your template uses recommended practices. When your template isn't compliant with recommended practices, it returns a list of warnings with suggested changes. The test toolkit can help you learn how to implement best practices in your template.
+
+After you've completed your template, run the test toolkit to see if there are ways you can improve it implementation. For more information, see [ARM template test toolkit](test-toolkit.md).
 
 ## Next steps
 
-* For information about the structure of the Resource Manager template file, see [Understand the structure and syntax of Azure Resource Manager Templates](template-syntax.md).
-* For recommendations about how to build templates that work in all Azure cloud environments, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
+* For information about the structure of the template file, see [Understand the structure and syntax of ARM templates](template-syntax.md).
+* For recommendations about how to build templates that work in all Azure cloud environments, see [Develop ARM templates for cloud consistency](templates-cloud-consistency.md).

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Civic Platform | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Civic Platform.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1d790454-143e-40ac-b3cb-5a256977b4db
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Civic Platform with Azure Active Directory
@@ -94,7 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Set up Single Sign-On with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
-	![The Certificate download link](common/copy-metadataurl.png)
+	![Screenshot shows SAML Signing Certificate page where you can copy App Federation Metadata U r l.](common/copy-metadataurl.png)
 
 1. Navigate to **Azure Active Directory** > **App registrations** in Azure AD, select your application.
 
@@ -123,21 +116,21 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Click on **Standard Choices**.
 
-    ![The Certificate download link](media/civic-platform-tutorial/standard-choices.png)
+    ![Screenshot shows Atlassian Cloud site with Standard Choices called out under Administrator Tools.](media/civic-platform-tutorial/standard-choices.png)
 
 1. Create a standard choice **ssoconfig**.
 
 1. Search for **ssoconfig**  and submit.
 
-    ![The Certificate download link](media/civic-platform-tutorial/sso-config.png)
+    ![Screenshot shows Standard Choices Search with the name s s o config entered.](media/civic-platform-tutorial/sso-config.png)
 
 1. Expand SSOCONFIG by clicking on red dot.
 
-    ![The Certificate download link](media/civic-platform-tutorial/sso-config01.png)
+    ![Screenshot shows Standard Choices Browse with S S O CONFIG available.](media/civic-platform-tutorial/sso-config01.png)
 
 1. Provide SSO related configuration information in the following step:
 
-    ![The Certificate download link](media/civic-platform-tutorial/sso-config02.png)
+    ![Screenshot shows Standard Choices Item Edit for S S O CONFIG.](media/civic-platform-tutorial/sso-config02.png)
 
     1. In the **applicationid** field, enter the **Application ID** value, which you have copied from the Azure portal.
 

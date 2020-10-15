@@ -1,22 +1,17 @@
 ---
-title: Download Azure billing invoice and daily usage data | Microsoft Docs
+title: Download Azure billing invoice and daily usage data
 description: Describes how to download or view your Azure billing invoice and daily usage data.
 keywords: billing invoice,invoice download,azure invoice,azure usage
-services: 'billing'
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
+ms.reviewer: dcscontentpm
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Download or view your Azure billing invoice and daily usage data
 
 For most subscriptions, you can download your invoice from the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) or have it sent in email. If you're an Azure customer with an Enterprise Agreement (EA customer), you can't download your organization's invoices. Invoices are sent to whoever is set up to receive invoices for the enrollment.
@@ -49,7 +44,7 @@ For most subscriptions, you can download your invoice from the Azure portal. If 
 
     ![Screenshot that shows Download invoice and usage page](./media/download-azure-invoice-daily-usage-date/usageandinvoice.png)
 
-For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md). For help managing your costs, see [Prevent unexpected costs with Azure billing and cost management](getting-started.md).
+For more information about your invoice, see [Understand your bill for Microsoft Azure](../understand/review-individual-bill.md). For help managing your costs, see [Analyze unexpected charges](../understand/analyze-unexpected-charges.md).
 
 ### Download invoices for a Microsoft Customer Agreement
 

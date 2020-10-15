@@ -63,7 +63,7 @@ All users and operators benefit when using a secure workstation. An attacker who
 * Highly sensitive workstation, such as a SWIFT payment terminal
 * Workstation handling trade secrets
 
-To reduce risk, you should implement elevated security controls for privileged workstations that make use of these accounts. For more information, see the [Azure Active Directory feature deployment guide](../fundamentals/active-directory-deployment-checklist-p2.md), [Office 365 roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
+To reduce risk, you should implement elevated security controls for privileged workstations that make use of these accounts. For more information, see the [Azure Active Directory feature deployment guide](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 roadmap](/microsoft-365/security/office-365-security/security-roadmap), and [Securing Privileged Access roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access)).
 
 ## Why use dedicated workstations?
 
@@ -72,7 +72,7 @@ While it's possible to add security to an existing device, it's better to start 
 A growing number of attack vectors through email and web browsing makes it increasingly hard to be sure that a device can be trusted. This guide assumes that a dedicated workstation is isolated from standard productivity, browsing, and email. Removal of productivity, web browsing, and email from a device can have a negative impact on productivity. However, this safeguard is typically acceptable for scenarios where the job tasks don’t explicitly require it and risk of a security incident is high.
 
 > [!NOTE]
-> Web browsing here refers to general access to arbitrary websites which can be a high risk activity. Such browsing is distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Office 365, other cloud providers, and SaaS applications.
+> Web browsing here refers to general access to arbitrary websites which can be a high risk activity. Such browsing is distinctly different from using a web browser to access a small number of well-known administrative websites for services like Azure, Microsoft 365, other cloud providers, and SaaS applications.
 
 Containment strategies tighten security by increasing the number and type of controls that deter an attacker from gaining access sensitive assets. The model described in this article uses a tiered privilege design and restricts administrative privileges to specific devices.
 
@@ -80,18 +80,18 @@ Containment strategies tighten security by increasing the number and type of con
 
 Essential to a secured workstation is a supply chain solution where you use a trusted workstation called the 'root of trust'. Technology that must be considered in the selection of the root of trust hardware should include the following technologies included in modern laptops: 
 
-* [Trusted Platform Module (TPM) 2.0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
-* [BitLocker Drive Encryption](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
-* [UEFI Secure Boot](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
-* [Drivers and Firmware Distributed through Windows Update](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
-* [Virtualization and HVCI Enabled](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
-* [Drivers and Apps HVCI-Ready](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
-* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
-* [DMA I/O Protection](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
-* [System Guard](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
-* [Modern Standby](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+* [Trusted Platform Module (TPM) 2.0](/windows-hardware/design/device-experiences/oem-tpm)
+* [BitLocker Drive Encryption](/windows-hardware/design/device-experiences/oem-bitlocker)
+* [UEFI Secure Boot](/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Drivers and Firmware Distributed through Windows Update](/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [Virtualization and HVCI Enabled](/windows-hardware/design/device-experiences/oem-vbs)
+* [Drivers and Apps HVCI-Ready](/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [DMA I/O Protection](/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [System Guard](/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [Modern Standby](/windows-hardware/design/device-experiences/modern-standby)
 
-For this solution, root of trust will be deployed using [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) technology with hardware that meets the modern technical requirements. To secure a workstation, Autopilot lets you leverage Microsoft OEM-optimized Windows 10 devices. These devices come in a known good state from the manufacturer. Instead of reimaging a potentially insecure device, Autopilot can transform a Windows device into a “business-ready” state. It applies settings and policies, installs apps, and even changes the edition of Windows 10. For example, Autopilot might change a device's Windows installation from Windows 10 Pro to Windows 10 Enterprise so that it can use advanced features.
+For this solution, root of trust will be deployed using [Microsoft Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) technology with hardware that meets the modern technical requirements. To secure a workstation, Autopilot lets you leverage Microsoft OEM-optimized Windows 10 devices. These devices come in a known good state from the manufacturer. Instead of reimaging a potentially insecure device, Autopilot can transform a Windows device into a “business-ready” state. It applies settings and policies, installs apps, and even changes the edition of Windows 10. For example, Autopilot might change a device's Windows installation from Windows 10 Pro to Windows 10 Enterprise so that it can use advanced features.
 
 ![Secure workstation Levels](./media/concept-azure-managed-workstation/supplychain.png)
 
@@ -104,7 +104,7 @@ This guidance references several security profiles and roles that can help you c
 
 * **Enhanced Security** – This entry-level, protected solution is good for home users, small business users, and general developers.
 
-   The enhanced workstation is a policy-based way to increase the security of the low security profile. It provides a secure means to work with customer data while also using productivity tools like email and web browsing. You can use audit policies and Intune to monitor an enhanced workstation for user behavior and profile usage. You deploy the enhanced workstation profile with the Windows10 (1809) script, and it takes advantage of advanced malware protection using [Advanced Threat Protection (ATP)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
+   The enhanced workstation is a policy-based way to increase the security of the low security profile. It provides a secure means to work with customer data while also using productivity tools like email and web browsing. You can use audit policies and Intune to monitor an enhanced workstation for user behavior and profile usage. You deploy the enhanced workstation profile with the Windows10 (1809) script, and it takes advantage of advanced malware protection using [Advanced Threat Protection (ATP)](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection).
 
 * **High Security** – The most effective means to reduce the attack surface of a workstation is to remove the ability to self-administer the workstation. Removing local administrative rights is a step that improves security, but it can impact productivity if implemented incorrectly. The high security profile builds on the enhanced security profile with one considerable change: the removal of the local admin. This profile is designed for high profile users: executives, payroll and sensitive data users, approvers for services and processes.
 
@@ -120,8 +120,8 @@ This guidance references several security profiles and roles that can help you c
 
 * **Isolated** – This custom, offline scenario represents the extreme end of the spectrum. No installation scripts are provided for this case. You might need to manage a business-critical function that requires an unsupported or unpatched legacy operating system. For example, a high value production line or a life-support system. Because security is critical and cloud services are unavailable, you can manage and update these computers manually or with an isolated Active Directory forest architecture such as the Enhanced Security Admin Environment (ESAE). In these circumstances, consider removing all access except basic Intune and ATP health checks.
 
-   * [Intune network communications requirement](https://docs.microsoft.com/intune/network-bandwidth-use)
-   * [ATP network communications requirement](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Intune network communications requirement](/intune/network-bandwidth-use)
+   * [ATP network communications requirement](/azure-advanced-threat-protection/configure-proxy)
 
 ## Next steps
 

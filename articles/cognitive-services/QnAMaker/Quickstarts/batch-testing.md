@@ -1,15 +1,10 @@
 ---
 title: "Quickstart: Test knowledge base with batch questions"
-titleSuffix: Azure Cognitive Services
-description:
-services: cognitive-services
-author: diberry
-manager: nitinme
+description: Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Maker resource for expected answers, confidence scores, and multi-turn prompts.
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 12/19/2019
-ms.author: diberry
+ms.topic: tutorial
+ms.date: 05/26/2020
 ---
 
 # Quickstart: Test knowledge base with batch questions and expected answers
@@ -18,8 +13,8 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Either [create a QnA Maker service](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) or use an existing service, which uses the English language for the sample doc used in this quickstart.
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Either [create a QnA Maker service](create-publish-knowledge-base.md) or use an existing service, which uses the English language.
 * Download the [multi-turn sample `.docx` file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)
 * Download the [batch testing tool](https://aka.ms/qnamakerbatchtestingtool), extract the executable file from the `.zip` file.
 
@@ -36,9 +31,16 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
     * Azure QnA Service Name
     * Language - the English language
 1. Enter the name `Multi-turn batch test quickstart` as the name of your knowledge base.
-1. In **Step 4**, check **Enable multi-turn extraction from URLs, .pdf or .docx files**.
-1. Enter the **Default answer text** of `Quickstart - can't find answer`. In a production knowledge base, this information should be more instructive to the user but for this quickstart, a simple response works.
-1. Still in **Step 4**, select **+ Add file** then select the downloaded `.docx` file listing in the prerequisites.
+
+1. In **Step 4**, configure the settings with the following table:
+
+    |Setting|Value|
+    |--|--|
+    |**Enable multi-turn extraction from URLs, .pdf or .docx files.**|Checked|
+    |**Default answer text**| `Batch test - default answer not found.`|
+    |**+ Add File**|Select the downloaded `.docx` file listing in the prerequisites.|
+    |**Chit-chat**|Select **Professional**|
+
 1. In **Step 5**, select **Create your KB**.
 
     When the creation process finishes, the portal displays the editable knowledge base.
@@ -56,7 +58,7 @@ Use the QnA Maker batch testing tool to test the knowledge bases in your QnA Mak
 
 ## Create batch test file with question IDs
 
-In order to use the batch test tool, create a file named `batch-test-data-1.tsv` with a text editor. The file needs to have the following columns separated by a tab.
+In order to use the batch test tool, create a file named `batch-test-data-1.tsv` with a text editor. The file should be in UTF-8 format and it needs to have the following columns separated by a tab.
 
 |TSV input file fields|Notes|Example|
 |--|--|--|
@@ -137,7 +139,7 @@ Use the following chart to understand how to find the field values for optional 
     |Charge your Surface Pro 4|
     |Check the battery level|
 
-    Two QnA sets have the metadata set.
+    Two QnA pairs have the metadata set.
 
     > [!TIP]
     > To see the metadata and QnA IDs of each set, export the knowledge base. Select the **Settings** page, then select **Export** as a `.xls` file. Find this downloaded file and open with Excel reviewing for metadata and ID.
@@ -155,9 +157,9 @@ There are two main scenarios for batch testing:
 * **Process chat log files** - Determine the top answer for a previously unseen question - the most common situation is when you need to process are log file of queries, such as a chat bot's user questions. Create a batch file test, with only the required columns. The test returns the top answer for each question. That doesn't mean it the top answer is the correct answer. Once you complete this test, move on to the validation test.
 * **Validation test** - Validate the expected answer. This test requires that all the questions and matching expected answers in the batch test have been validated. This may require some manual process.
 
-The following procedure assumes the scenario is to process chat logs with 
+The following procedure assumes the scenario is to process chat logs with
 
-1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA set ID for each row.
+1. Create a new batch test file to include optional data, `batch-test-data-2.tsv`. Add the 6 rows from the original batch test input file, then add the metadata, top, and QnA pair ID for each row.
 
     To simulate the automated process of checking new text from chat logs against the knowledge base, set the metadata for each column to the same value: `topic:power`.
 

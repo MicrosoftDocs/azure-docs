@@ -3,7 +3,7 @@ title: Logging in MSAL apps | Azure
 titleSuffix: Microsoft identity platform
 description: Learn about logging in Microsoft Authentication Library (MSAL) applications.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,9 +11,9 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/11/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-python
 #Customer intent: As an application developer, I want to learn about logging so I can diagnose and troubleshoot my apps.
 ---
 

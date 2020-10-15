@@ -2,12 +2,13 @@
 title: Tutorial - Add resource to template
 description: Describes the steps to create your first Azure Resource Manager template. You learn about the template file syntax and how to deploy a storage account.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 03/27/2020
 ms.topic: tutorial
-ms.author: jgao
+ms.author: jgao 
+ms.custom:
 ---
 
-# Tutorial: Add a resource to your Resource Manager template
+# Tutorial: Add a resource to your ARM template
 
 In the [previous tutorial](template-tutorial-create-first-template.md), you learned how to create a blank template and deploy it. Now, you're ready to deploy an actual resource. In this tutorial, you add a storage account. It takes about **9 minutes** to complete this tutorial.
 
@@ -21,15 +22,18 @@ You must have Visual Studio Code with the Resource Manager Tools extension, and 
 
 To add a storage account definition to the existing template, look at the highlighted JSON in the following example. Instead of trying to copy sections of the template, copy the whole file and replace your template with its contents.
 
-Replace **{provide-unique-name}** with a unique storage account name. The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. You might try a naming pattern like using **store1** as a prefix and then adding your initials and today's date. For example, the name you use could look like **store1abc09092019**.
+Replace **{provide-unique-name}** (including the curly brackets) with a unique storage account name.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json?range=1-19&highlight=5-17)]
+> [!IMPORTANT]
+> The storage account name must be unique across Azure. The name must have only lowercase letters or numbers. It can be no longer than 24 characters. You might try a naming pattern like using **store1** as a prefix and then adding your initials and today's date. For example, the name you use could look like **store1abc09092019**.
+
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
 Guessing a unique name for a storage account isn't easy and doesn't work well for automating large deployments. Later in this tutorial series, you'll use template features that make it easier to create a unique name.
 
 ## Resource properties
 
-You may be wondering how to find the properties to use for each resource type. You can use the [Resource Manager template reference](/azure/templates/) to find the resource types you want to deploy.
+You may be wondering how to find the properties to use for each resource type. You can use the [ARM template reference](/azure/templates/) to find the resource types you want to deploy.
 
 Every resource you deploy has at least the following three properties:
 
@@ -64,14 +68,19 @@ New-AzResourceGroupDeployment `
 
 # [Azure CLI](#tab/azure-cli)
 
+To run this deployment command, you must have the [latest version](/cli/azure/install-azure-cli) of Azure CLI.
+
 ```azurecli
-az group deployment create \
+az deployment group create \
   --name addstorage \
   --resource-group myResourceGroup \
   --template-file $templateFile
 ```
 
 ---
+
+> [!NOTE]
+> If the deployment failed, use the **verbose** switch to get information about the resources being created. Use the **debug** switch to get more information for debugging.
 
 Two possible deployment failures that you might encounter:
 

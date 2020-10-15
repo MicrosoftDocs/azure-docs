@@ -1,19 +1,19 @@
 ---
-title: Run batch predictions using Azure Machine Learning designer (preview)
+title: Run batch predictions using Azure Machine Learning designer
 titleSuffix: Azure Machine Learning
 description: Learn how to train a model and set up a batch prediction pipeline using the designer. Deploy the pipeline as a parameterized web service, which can be triggered from any HTTP library.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 01/13/2020
-ms.custom: Ignite2019
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
+ms.topic: conceptual
+ms.custom: how-to, designer
 ---
 
 # Run batch predictions using Azure Machine Learning designer
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to use the designer to create a batch prediction pipeline. Batch prediction lets you continuously score large datasets on-demand using a web service that can be triggered from any HTTP library.
 
@@ -30,21 +30,23 @@ To learn how to set up batch scoring services using the SDK, see the accompanyin
 
 This how-to assumes you already have a training pipeline. For a guided introduction to the designer, complete [part one of the designer tutorial](tutorial-designer-automobile-price-train-score.md). 
 
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
+
 ## Create a batch inference pipeline
 
 Your training pipeline must be run at least once to be able to create an inferencing pipeline.
 
 1. Go to the **Designer** tab in your workspace.
 
-1. Select the training pipeline that trains the model want to use to make prediction.
+1. Select the training pipeline that trains the model you want to use to make prediction.
 
-1. **Run** the pipeline.
+1. **Submit** the pipeline.
 
-    ![Run the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
+    ![Submit the pipeline](./media/how-to-run-batch-predictions-designer/run-training-pipeline.png)
 
 Now that the training pipeline has been run, you can create a batch inference pipeline.
 
-1. Next to **Run**, select the new dropdown **Create inference pipeline**.
+1. Next to **Submit**, select the new dropdown **Create inference pipeline**.
 
 1. Select **Batch inference pipeline**.
 
@@ -64,9 +66,12 @@ In this section, you create a dataset parameter to specify a different dataset t
    
     Enter a name for the parameter, or accept the default value.
 
-## Publish your batch inferencing pipeline
+    > [!div class="mx-imgBorder"]
+    > ![Set dataset as pipeline parameter](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
 
-Now you're ready to deploy the inferencing pipeline. This will deploy the pipeline and make it available for others to use.
+## Publish your batch inference pipeline
+
+Now you're ready to deploy the inference pipeline. This will deploy the pipeline and make it available for others to use.
 
 1. Select the **Publish** button.
 
@@ -105,13 +110,13 @@ In this section, you will set up a manual pipeline run and alter the pipeline pa
 
     The pipeline details page shows you a detailed run history and connection string information for your pipeline. 
     
-1. Select **Run** to create a manual run of the pipeline.
+1. Select **Submit** to create a manual run of the pipeline.
 
     ![Pipeline details](./media/how-to-run-batch-predictions-designer/submit-manual-run.png)
     
 1. Change the parameter to use a different dataset.
     
-1. Select **Run** to run the pipeline.
+1. Select **Submit** to run the pipeline.
 
 ### Use the REST endpoint
 
@@ -119,9 +124,7 @@ You can find information on how to consume pipeline endpoints and published pipe
 
 You can find the REST endpoint of a pipeline endpoint in the run overview panel. By calling the endpoint, you are consuming its default published pipeline.
 
-You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and find the REST endpoint of it. 
-
-![Rest endpoint details](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+You can also consume a published pipeline in the **Published pipelines** page. Select a published pipeline and you can find the REST endpoint of it in the **Published pipeline overview** panel to the right of the graph. 
 
 To make a REST call, you will need an OAuth 2.0 bearer-type authentication header. See the following [tutorial section](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) for more detail on setting up authentication to your workspace and making a parameterized REST call.
 
@@ -135,8 +138,9 @@ When you publish a pipeline, you can choose to make it the new default pipeline 
 
 You can also set a new default pipeline in the **Published pipelines** tab of your endpoint.
 
-![Set default pipeline](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Set default pipeline in published pipeline page](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## Next steps
 
 Follow the designer [tutorial](tutorial-designer-automobile-price-train-score.md) to train and deploy a regression model.
+''

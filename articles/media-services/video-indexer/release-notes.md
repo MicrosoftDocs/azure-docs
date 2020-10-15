@@ -11,7 +11,7 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 01/07/2020
+ms.date: 09/03/2020
 ms.author: juliako
 ---
 
@@ -25,6 +25,122 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Known issues
 * Bug fixes
 * Deprecated functionality
+
+## August 2020
+
+### Mobile design for the Video Indexer website
+
+The Video Indexer website experience is now supporting mobile devices. The user experience is responsive to adapt to your mobile screen size (excluding customization UIs). 
+
+### Accessibility improvements and bug fixes 
+
+As part of WCAG (Web Content Accessibility guidelines), the Video Indexer website experiences is aligned with grade C, as part of Microsoft Accessibility standards. Several bugs and improvements related to keyboard navigation, programmatic access, and screen reader were solved. 
+
+## July 2020
+
+### GA for multi-language identification
+
+Multi-language identification is moved from preview to GA and ready for productive use.
+
+There is no pricing impact related to the "Preview to GA" transition.
+
+### Video Indexer website improvements
+
+#### Adjustments in the video gallery
+
+New search bar for deep insights search with additional filtering capabilities was added. Search results were also enhanced.
+
+New list view with ability to sort and manage video archive with multiple files.
+
+#### New panel for easy selection and configuration
+
+Side panel for easy selection and user configuration was added, allowing simple and quick account creation and sharing as well as setting configuration.
+
+Side panel is also used for user preferences and help.
+
+## June 2020
+
+### Search by topics
+
+You can now use the search API to search for videos with specific topics (API only).
+
+Topics is added as part of the `textScope` (optional parameter). See [API](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Search-Videos) for details.  
+
+### Labels enhancement
+
+The label tagger was upgraded and now includes more visual labels that can be identified.
+
+## May 2020
+
+### Video Indexer deployed in the East US
+
+You can now create a Video Indexer paid account in the East US region.
+ 
+### Video Indexer URL
+
+Video Indexer regional endpoints were all unified to start only with www. No action item is required.
+
+From now on, you reach www.videoindexer.ai whether it is for embedding widgets or logging into Video Indexer web applications.
+
+Also wus.videoindexer.ai would be redirected to www. More information is available in [Embed Video Indexer widgets in your apps](video-indexer-embed-widgets.md).
+
+## April 2020
+
+### New widget parameters capabilities
+
+The **Insights** widget includes new parameters: `language` and `control`.
+
+The **Player** widget has a new `locale` parameter. Both `locale` and `language` parameters control the player’s language.
+
+For more information, see the [widget types](video-indexer-embed-widgets.md#widget-types) section. 
+
+### New player skin
+
+A new player skin launched with updated design.
+
+### Prepare for upcoming changes
+
+* Today, the following APIs return an account object:
+
+    * [Create-Paid-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Paid-Account)
+    * [Get-Account](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account)
+    * [Get-Accounts-Authorization](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-Authorization)
+    * [Get-Accounts-With-Token](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Accounts-With-Token)
+ 
+    The Account object has a `Url` field pointing to the location of the [Video Indexer website](https://www.videoindexer.ai/).
+For paid accounts the `Url` field is currently pointing to an internal URL instead of the public website.
+In the coming weeks we will change it and return the [Video Indexer website](https://www.videoindexer.ai/) URL for all accounts (trial and paid).
+
+    Do not use the internal URLs, you should be using the [Video Indexer public APIs](https://api-portal.videoindexer.ai/).
+* If you are embedding Video Indexer URLs in your applications and the URLs are not pointing to the [Video Indexer website](https://www.videoindexer.ai/) or the Video Indexer API endpoint (`https://api.videoindexer.ai`) but rather to a regional endpoint (for example, `https://wus2.videoindexer.ai`), regenerate the URLs.
+
+   You can do it it by either:
+
+    * Replacing the URL with a URL pointing to the Video Indexer widget APIs (for example, the [insights widget](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
+    * Using the Video Indexer website to generate a new embedded URL:
+         
+         Press **Play** to get to your video's page -> click the **&lt;/&gt; Embed** button -> copy the URL into your application:
+   
+    The regional URLs are not supported and will be blocked in the coming weeks.
+
+## January 2020
+ 
+### Custom language support for additional languages
+
+Video Indexer now supports custom language models for `ar-SY` , `en-UK`, and `en-AU` (API only).
+ 
+### Delete account timeframe action update
+
+Delete account action now deletes the account within 90 days instead of 48 hours.
+ 
+### New Video Indexer GitHub repository
+
+A new Video Indexer GitHub with different projects, getting started guides and code samples is now available:
+https://github.com/Azure-Samples/media-services-video-indexer
+ 
+### Swagger update
+
+Video Indexer unified **authentications** and **operations** into a single [Video Indexer OpenAPI Specification (swagger)](https://api-portal.videoindexer.ai/docs/services/Operations/export?DocumentFormat=OpenApiJson). Developers can find the APIs in [Video Indexer Developer Portal](https://api-portal.videoindexer.ai/).
 
 ## December 2019
 

@@ -26,10 +26,10 @@
     "azure-docs-publish@microsoft.com"
   ],
   "sync_notification_subscribers": [
-    "tysonn@microsoft.com"
+    "angrobe_extended_dir@microsoft.com"
   ],
   "branches_to_filter": [],
-  "git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
+  "git_repository_url_open_to_public_contributors": "https://github.com/MicrosoftDocs/azure-docs",
   "git_repository_branch_open_to_public_contributors": "master",
   "skip_source_output_uploading": false,
   "need_preview_pull_request": true,
@@ -151,10 +151,61 @@
       "url": "https://github.com/Azure-Samples/functions-python-tensorflow-tutorial",
       "branch": "master",
       "branch_mapping": {}
-    },    
+    },
+    {
+      "path_to_root": "functions-pytorch",
+      "url": "https://github.com/Azure-Samples/functions-python-pytorch-tutorial",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "functions-quickstart-templates",
+      "url": "https://github.com/Azure/azure-functions-templates",
+      "branch": "dev"
+    },
+    {
+        "path_to_root": "azure-functions-samples-java",
+        "url": "https://github.com/Azure-Samples/azure-functions-samples-java",
+        "branch": "master"
+    },
+    {
+      "path_to_root": "functions-quickstart-java",
+      "url": "https://github.com/Azure-Samples/functions-quickstarts-java",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-csharp",
+      "url": "https://github.com/Azure-Samples/functions-docs-csharp",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-javascript",
+      "url": "https://github.com/Azure-Samples/functions-docs-javascript",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-typescript",
+      "url": "https://github.com/Azure-Samples/functions-docs-typescript",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-python",
+      "url": "https://github.com/Azure-Samples/functions-docs-python",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "functions-docs-powershell",
+      "url": "https://github.com/Azure-Samples/functions-docs-powershell",
+      "branch": "master"
+    },
     {
       "path_to_root": "samples-personalizer",
       "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cognitive-services-data-files",
+      "url": "https://github.com/Azure-Samples/cognitive-services-sample-data-files",
       "branch": "master"
     },
     {
@@ -185,6 +236,11 @@
     {
       "path_to_root": "iot-samples-node",
       "url": "https://github.com/Azure-Samples/azure-iot-samples-node",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-iot-sdk-node",
+      "url": "https://github.com/Azure/azure-iot-sdk-node",
       "branch": "master"
     },
     {
@@ -235,6 +291,11 @@
     {
       "path_to_root": "remote-monitoring-webui",
       "url": "https://github.com/Azure/pcs-remote-monitoring-webui.git",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "MachineLearningNotebooks",
+      "url": "https://github.com/Azure/MachineLearningNotebooks",
       "branch": "master"
     },
     {
@@ -313,6 +374,41 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-sdk-for-java-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-java-cosmos-db",
+      "url": "https://github.com/Azure/azure-sdk-for-java/",
+      "branch": "master"
+    },    
+    {
+      "path_to_root": "azure-sdk-for-java-script-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-js/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-net-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-python-event-hubs",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "spring-data-azure-cosmos-db-sql-tutorial",
+      "url": "https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/",
+      "branch": "main"
+    },    
+    {
+      "path_to_root": "azure-cosmos-spark",
+      "url": "https://github.com/Azure/azure-cosmosdb-spark",
+      "branch": "2.4"
+    },     
+    {
       "path_to_root": "cosmos-dotnet-getting-started",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-getting-started",
       "branch": "master",
@@ -344,6 +440,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-cosmosdb-java-v4-web-app",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-todo-app",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-cosmosdb-dotnet-change-feed-processor",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-change-feed-processor",
       "branch": "master"
@@ -356,6 +457,16 @@
     {
       "path_to_root": "samples-cosmosdb-xamarin",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmosdb-python-sdk",
+      "url": "https://github.com/Azure/azure-sdk-for-python/",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cosmosdb-cassandra-python-sample",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-cassandra-python-getting-started",
       "branch": "master"
     },
     {
@@ -420,8 +531,38 @@
       "branch": "master"
     },
     {
+      "path_to_root": "azure-cosmosdb-graph-dotnet",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-graph-gremlindotnet-getting-started",
+      "branch": "master"
+    },
+    {
       "path_to_root": "azure-cosmosdb-java-v4-getting-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-java-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmosdb-dotnet-table",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-cosmos-java-sql-api-samples",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples",
+      "branch": "master"
+    }, 
+    {
+      "path_to_root": "azure-cosmos-java-sql-app-example",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-java-sql-app-example",
+      "branch": "master"
+    },         
+    {
+      "path_to_root": "azure-storage-snippets",
+      "url": "https://github.com/azure-samples/AzureStorageSnippets",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "azure-sdk-for-net",
+      "url": "https://github.com/Azure/azure-sdk-for-net/",
       "branch": "master"
     }
   ],
@@ -433,14 +574,6 @@
     "master": [
       "Publish",
       "PDF"
-    ],
-    "release-event-grid": [
-      "Publish",
-      "PDF"
-    ],
-    "hd-insight-pdf": [
-      "Publish",
-      "PDF"
     ]
   },
   "need_generate_pdf_url_template": true,
@@ -448,5 +581,8 @@
     "Pdf": {
       "template_folder": "_themes.pdf"
     }
+  },
+  "docs_build_engine": {
+    "name": "docfx_v3"
   }
 }

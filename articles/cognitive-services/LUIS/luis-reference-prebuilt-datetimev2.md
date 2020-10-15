@@ -3,14 +3,14 @@ title: DatetimeV2 Prebuilt entities - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article has datetimeV2 prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
-author: diberry
+
 manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/07/2020
-ms.author: diberry
+ms.topic: reference
+ms.date: 04/13/2020
+
 ---
 
 # DatetimeV2 prebuilt entity for a LUIS app
@@ -140,7 +140,7 @@ Each element of the `values` array may have the following fields:
 
 |Property name|Property description|
 |--|--|
-|timex|time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) and the TIMEX3 attributes for annotation using the TimeML language. This annotation is described in the [TIMEX guidelines](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf).|
+|timex|time, date, or date range expressed in TIMEX format that follows the [ISO 8601 standard](https://en.wikipedia.org/wiki/ISO_8601) and the TIMEX3 attributes for annotation using the TimeML language.|
 |mod|term used to describe how to use the value such as `before`, `after`.|
 |type|The subtype, which can be one of the following items: `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`.|
 |value|**Optional.** A datetime object in the Format yyyy-MM-dd  (date), HH:mm:ss (time) yyyy-MM-dd HH:mm:ss (datetime). If `type` is `duration`, the value is the number of seconds (duration) <br/> Only used if `type` is `datetime` or `date`, `time`, or `duration.|

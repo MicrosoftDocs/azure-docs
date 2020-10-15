@@ -3,8 +3,8 @@
 #Intent: I want to use my existing containers as is and deploy them to Azure. (Windows or Linux) 
 title: Quickstart - Deploy Hello World to Azure Service Fabric Mesh 
 description: This quickstart shows you how to deploy a Service Fabric Mesh application to Azure Service Fabric Mesh.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: quickstart
 ---
@@ -106,4 +106,4 @@ To learn more about creating and deploying Service Fabric Mesh applications, con
 
 <!-- Links / Internal -->
 [az-group-delete]: /cli/azure/group
-[azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
+[azure-cli-install]: /cli/azure/install-azure-cli?view=azure-cli-latest

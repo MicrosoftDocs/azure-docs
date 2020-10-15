@@ -17,9 +17,8 @@ ms.author: chlandsi
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=python)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=python)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=python)
 
 ## Add sample code
 
@@ -33,7 +32,7 @@ Before you get started, make sure to:
     def translate_speech_to_speech():
 
         # Creates an instance of a speech translation config with specified subscription key and service region.
-        # Replace with your own subscription key and service region (e.g., "westus").
+        # Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
         translation_config = speechsdk.translation.SpeechTranslationConfig(subscription=speech_key, region=service_region)
 
         # Sets source and target languages.
@@ -84,7 +83,7 @@ Before you get started, make sure to:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](../../../../regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](../../../../regions.md) associated with your subscription.
 
 1. Save the changes you've made to `quickstart.py`.
 

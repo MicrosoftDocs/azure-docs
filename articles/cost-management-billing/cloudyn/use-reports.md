@@ -1,15 +1,15 @@
 ---
-title: Use Cloudyn reports in Azure | Microsoft Docs
+title: Use Cloudyn reports in Azure
 description: This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal to help you effectively use them.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.subservice: cloudyn
+ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Reports available in the Cloudyn portal
@@ -17,6 +17,8 @@ ms.custom: seodec18
 This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal. It also describes how you can effectively use the reports. Most reports are intuitive and have a uniform look and feel. Most of the actions that you can do in one report, you can also do in other reports. For an overview about how to use Cloudyn reports, including how to customize and save or to schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
 
 Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](../cost-management-billing-overview.md).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Report types
 

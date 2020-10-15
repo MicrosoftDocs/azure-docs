@@ -6,14 +6,17 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
 ---
 
 # Secure Azure Cosmos keys using Azure Key Vault 
 
-When using Azure Cosmos DB for your applications, you can access the database, collections, documents by using the endpoint and the key within the app’s configuration file.  However, it’s not safe to put keys and URL directly in the application code because they are available in clear text format to all the users. You want to make sure that the endpoint and keys are available but through a secured mechanism. This is where Azure Key Vault can help you to securely store and manage application secrets.
+>[!IMPORTANT]
+> The recommended solution to access Azure Cosmos DB keys is to use a [system-assigned managed identity](managed-identity-based-authentication.md). If your service cannot take advantage of managed identities then use the [cert based solution](certificate-based-authentication.md). If both the managed identity solution and cert based solution do not meet your needs, please use the key vault solution below.
+
+When using Azure Cosmos DB for your applications, you can access the database, collections, documents by using the endpoint and the key within the app's configuration file.  However, it's not safe to put keys and URL directly in the application code because they are available in clear text format to all the users. You want to make sure that the endpoint and keys are available but through a secured mechanism. This is where Azure Key Vault can help you to securely store and manage application secrets.
 
 The following steps are required to store and read Azure Cosmos DB access keys from Key Vault:
 
@@ -25,7 +28,7 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 
 ## Create a Key Vault
 
-1. Sign in to [Azure Portal](https://portal.azure.com/).  
+1. Sign in to [Azure portal](https://portal.azure.com/).  
 2. Select **Create a resource > Security > Key Vault**.  
 3. On the **Create key vault** section provide the following information:  
    * **Name:** Provide a unique name for your Key Vault.  
@@ -43,7 +46,7 @@ The following steps are required to store and read Azure Cosmos DB access keys f
    * Provide a **Name** for your secret
    * Provide the connection string of your Cosmos DB account into the **Value** field. And then select **Create**.
 
-   ![Create a secret](./media/access-secrets-from-keyvault/create-a-secret.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Create a secret":::
 
 4. After the secret is created, open it and copy the **Secret Identifier that is in the following format. You will use this identifier in the next section. 
 
@@ -62,11 +65,11 @@ The following steps are required to store and read Azure Cosmos DB access keys f
 
 5. Once the application is deployed. From the Azure portal, navigate to web app that you deployed, and turn on the **Managed service identity** of this application.  
 
-   ![Managed service identity](./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Managed service identity":::
 
 If you will run the application now, you will see the following error, as you have not given any permission to this application in Key Vault.
 
-![App deployed without access](./media/access-secrets-from-keyvault/app-deployed-without-access.png)
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="App deployed without access":::
 
 ## Register the application & grant permissions to read the Key Vault
 
@@ -76,11 +79,11 @@ In this section, you register the application with Azure Active Directory and gi
 
 2. Open **Access policies**, select **+Add New** find the web app you deployed, select permissions and select **OK**.  
 
-   ![Add access policy](./media/access-secrets-from-keyvault/add-access-policy.png)
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Add access policy":::
 
 Now, if you run the application, you can read the secret from Key Vault.
 
-![App deployed with secret](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="App deployed with secret":::
  
 Similarly, you can add a user to access the key Vault. You need to add yourself to the Key Vault by selecting **Access Policies** and then grant all the permissions you need to run the application from Visual studio. When this application is running from your desktop, it takes your identity.
 

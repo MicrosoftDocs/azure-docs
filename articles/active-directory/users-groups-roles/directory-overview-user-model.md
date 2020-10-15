@@ -1,12 +1,12 @@
 ---
-title: Users, groups, licensing, and roles overview - Azure AD | Microsoft Docs
+title: Users, groups, licensing, and roles in Azure Active Directory
 description: The relationship between users and licenses assigned, administrator roles, group membership in Azure Active Directory
 keywords:
 author: curtand
 manager: daveba
 ms.author: curtand
 ms.reviewer: vincesm
-ms.date: 11/08/2019
+ms.date: 06/16/2020
 ms.topic: overview
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -17,9 +17,9 @@ ms.custom: "it-pro;seo-update-azuread-jan"
 #As a new Azure AD identity administrator, user management is at the core of my work so I need to understand the user management tools such as groups, administrator roles, and licenses to manage users.
 ms.collection: M365-identity-device-management
 ---
-# Users, groups, licensing, and roles for large organizations
+# What is enterprise user management?
 
-This article introduces the Azure AD administrator to the relationship between top [identity management](/azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context) tasks for users in terms of their groups, licenses, deployed enterprise apps, and administrator roles. As your organization grows, you can use Azure AD groups and administrator roles to:
+This article introduces the Azure AD administrator to the relationship between top [identity management](../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) tasks for users in terms of their groups, licenses, deployed enterprise apps, and administrator roles. As your organization grows, you can use Azure AD groups and administrator roles to:
 
 * Assign licenses to groups instead of to individually
 * Delegate permissions to distribute the work of Azure AD management to less-privileged roles
@@ -27,13 +27,13 @@ This article introduces the Azure AD administrator to the relationship between t
 
 ## Assign users to groups
 
-You can use groups in Azure AD to assign licenses to large numbers of users, or to assign user access to deployed enterprise apps. You can use groups to assign administrator roles in Azure AD, or you can grant access to resources that are external, such as SaaS applications or SharePoint sites.
+You can use groups in Azure AD to assign licenses to large numbers of users, or to assign user access to deployed enterprise apps. You can use groups to assign all administrator roles except for Global Administrator in Azure AD, or you can grant access to resources that are external, such as SaaS applications or SharePoint sites.
 
 For additional flexibility and to reduce the work of managing group membership, you can use [dynamic groups](groups-create-rule.md) in Azure AD to expand and contract group membership automatically. You'll need an Azure AD Premium P1 license for each unique user that is a member of one or more dynamic groups.
 
 ## Assign licenses to groups
 
-Assigning or removing licenses from users individually can demand time and attention. If you [assign licenses to groups](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) instead, you can make your large-scale license management easier.
+Assigning or removing licenses from users individually can demand time and attention. If you [assign licenses to groups](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) instead, you can make your large-scale license management easier.
 
 In Azure AD, when users join a licensed group, they're automatically assigned the appropriate licenses. When users leave the group, Azure AD removes their license assignments. Without Azure AD groups, you'd have to write a PowerShell script or use Graph API to bulk add or remove user licenses for users joining or leaving the organization.
 
@@ -56,7 +56,7 @@ New Azure AD administrator roles are being added. Check the Azure portal or the 
 
 ## Assign app access
 
-You can use Azure AD to assign group access to the [enterprise apps that are deployed in your Azure AD tenant](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). If you combine dynamic groups with group assignment to apps, you can automate your user app access assignments as your organization grows. You'll need an Azure Active Directory Premium P1 or Premium P2 license to assign access to enterprise apps.
+You can use Azure AD to assign group access to the [enterprise apps that are deployed in your Azure AD organization](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context). If you combine dynamic groups with group assignment to apps, you can automate your user app access assignments as your organization grows. You'll need an Azure Active Directory Premium P1 or Premium P2 license to assign access to enterprise apps.
 
 Azure AD also gives you granular control of the data that flows between the app and the groups to whom you assign access. In [Enterprise Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps), open an app and select **Provisioning** to:
 
@@ -68,6 +68,6 @@ Azure AD also gives you granular control of the data that flows between the app 
 
 ## Next steps
 
-If you're a beginning Azure AD administrator, get the basics down in [Azure Active Directory Fundamentals](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
+If you're a beginning Azure AD administrator, get the basics down in [Azure Active Directory Fundamentals](../fundamentals/index.yml).
 
-Or you can start [creating groups](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigning licenses](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [assigning app access](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) or [assigning administrator roles](directory-assign-admin-roles.md).
+Or you can start [creating groups](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning licenses](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assigning app access](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) or [assigning administrator roles](directory-assign-admin-roles.md).

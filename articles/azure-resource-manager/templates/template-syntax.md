@@ -2,14 +2,14 @@
 title: Template structure and syntax
 description: Describes the structure and properties of Azure Resource Manager templates using declarative JSON syntax.
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 06/22/2020
 ---
 
-# Understand the structure and syntax of Azure Resource Manager templates
+# Understand the structure and syntax of ARM templates
 
-This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections.
+This article describes the structure of an Azure Resource Manager (ARM) template. It presents the different sections of a template and the properties that are available in those sections.
 
-This article is intended for users who have some familiarity with Resource Manager templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
+This article is intended for users who have some familiarity with ARM templates. It provides detailed information about the structure of the template. For a step-by-step tutorial that guides you through the process of creating a template, see [Tutorial: Create and deploy your first Azure Resource Manager template](template-tutorial-create-first-template.md).
 
 ## Template format
 
@@ -17,7 +17,7 @@ In its simplest structure, a template has the following elements:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "",
   "apiProfile": "",
   "parameters": {  },
@@ -30,7 +30,7 @@ In its simplest structure, a template has the following elements:
 
 | Element name | Required | Description |
 |:--- |:--- |:--- |
-| $schema |Yes |Location of the JSON schema file that describes the version of the template language.<br><br> For resource group deployments, use: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Yes |Location of the JSON schema file that describes the version of the template language. The version number you use depends on the scope of the deployment and your JSON editor.<br><br>If you're using [VS Code with the Azure Resource Manager tools extension](quickstart-create-templates-use-visual-studio-code.md), use the latest version for resource group deployments:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Other editors (including Visual Studio) may not be able to process this schema. For those editors, use:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>For subscription deployments, use:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>For management group deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>For tenant deployments, use:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
 | contentVersion |Yes |Version of the template (such as 1.0.0.0). You can provide any value for this element. Use this value to document significant changes in your template. When deploying resources using the template, this value can be used to make sure that the right template is being used. |
 | apiProfile |No | An API version that serves as a collection of API versions for resource types. Use this value to avoid having to specify API versions for each resource in the template. When you specify an API profile version and don't specify an API version for the resource type, Resource Manager uses the API version for that resource type that is defined in the profile.<br><br>The API profile property is especially helpful when deploying a template to different environments, such as Azure Stack and global Azure. Use the API profile version to make sure your template automatically uses versions that are supported in both environments. For a list of the current API profile versions and the resources API versions defined in the profile, see [API Profile](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>For more information, see [Track versions using API profiles](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |No |Values that are provided when deployment is executed to customize resource deployment. |
@@ -86,7 +86,7 @@ When specifying boolean and integer values in your template, don't surround the 
 
 Objects start with a left brace and end with a right brace. Arrays start with a left bracket and end with a right bracket.
 
-Secure strings and secure objects can't be read after resource deployment.
+When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 For samples of formatting data types, see [Parameter type formats](parameter-files.md#parameter-type-formats).
 
@@ -121,7 +121,7 @@ The following example shows the available options for defining a variable:
 }
 ```
 
-For information about using `copy` to create several values for a variable, see [Variable iteration](create-multiple-instances.md#variable-iteration).
+For information about using `copy` to create several values for a variable, see [Variable iteration](copy-variables.md).
 
 For examples of how to use variables, see [Variables in Azure Resource Manager template](template-variables.md).
 
@@ -242,7 +242,7 @@ You define resources with the following structure:
 | tags |No |Tags that are associated with the resource. Apply tags to logically organize resources across your subscription. |
 | sku | No | Some resources allow values that define the SKU to deploy. For example, you can specify the type of redundancy for a storage account. |
 | kind | No | Some resources allow a value that defines the type of resource you deploy. For example, you can specify the type of Cosmos DB to create. |
-| copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](create-multiple-instances.md). |
+| copy |No |If more than one instance is needed, the number of resources to create. The default mode is parallel. Specify serial mode when you don't want all or the resources to deploy at the same time. For more information, see [Create several instances of resources in Azure Resource Manager](copy-resources.md). |
 | plan | No | Some resources allow values that define the plan to deploy. For example, you can specify the marketplace image for a virtual machine. |
 | properties |No |Resource-specific configuration settings. The values for the properties are the same as the values you provide in the request body for the REST API operation (PUT method) to create the resource. You can also specify a copy array to create several instances of a property. To determine available values, see [template reference](/azure/templates/). |
 | resources |No |Child resources that depend on the resource being defined. Only provide resource types that are permitted by the schema of the parent resource. Dependency on the parent resource isn't implied. You must explicitly define that dependency. See [Set name and type for child resources](child-resource-name-type.md). |
@@ -255,10 +255,14 @@ The following example shows the structure of an output definition:
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -268,11 +272,12 @@ The following example shows the structure of an output definition:
 | output-name |Yes |Name of the output value. Must be a valid JavaScript identifier. |
 | condition |No | Boolean value that indicates whether this output value is returned. When `true`, the value is included in the output for the deployment. When `false`, the output value is skipped for this deployment. When not specified, the default value is `true`. |
 | type |Yes |Type of the output value. Output values support the same types as template input parameters. If you specify **securestring** for the output type, the value isn't displayed in the deployment history and can't be retrieved from another template. To use a secret value in more than one template, store the secret in a Key Vault and reference the secret in the parameter file. For more information, see [Use Azure Key Vault to pass secure parameter value during deployment](key-vault-parameter.md). |
-| value |Yes |Template language expression that is evaluated and returned as output value. |
+| value |No |Template language expression that is evaluated and returned as output value. Specify either **value** or **copy**. |
+| copy |No | Used to return more than one value for an output. Specify **value** or **copy**. For more information, see [Output iteration in Azure Resource Manager templates](copy-outputs.md). |
 
 For examples of how to use outputs, see [Outputs in Azure Resource Manager template](template-outputs.md).
 
-<a id="comments" />
+<a id="comments"></a>
 
 ## Comments and metadata
 
@@ -280,10 +285,10 @@ You have a few options for adding comments and metadata to your template.
 
 ### Comments
 
-For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. You can't use the portal template editor to work on templates with inline comments. If you add this style of comment, be sure the tools you use support inline JSON comments.
+For inline comments, you can use either `//` or `/* ... */` but this syntax doesn't work with all tools. If you add this style of comment, be sure the tools you use support inline JSON comments.
 
 > [!NOTE]
-> To deploy templates with comments by using Azure CLI, you must use the `--handle-extended-json-format` switch.
+> To deploy templates with comments by using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.
 
 ```json
 {
@@ -297,7 +302,7 @@ For inline comments, you can use either `//` or `/* ... */` but this syntax does
   ],
 ```
 
-In Visual Studio Code, the [Azure Resource Manager Tools extension](use-vs-code-to-create-template.md#install-resource-manager-tools-extension) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
+In Visual Studio Code, the [Azure Resource Manager Tools extension](quickstart-create-templates-use-visual-studio-code.md) can automatically detect Resource Manager template and change the language mode accordingly. If you see **Azure Resource Manager Template** at the bottom-right corner of VS Code, you can use the inline comments. The inline comments are no longer marked as invalid.
 
 ![Visual Studio Code Azure Resource Manager template mode](./media/template-syntax/resource-manager-template-editor-mode.png)
 
@@ -307,7 +312,7 @@ You can add a `metadata` object almost anywhere in your template. Resource Manag
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "metadata": {
     "comments": "This template was developed for demonstration purposes.",
@@ -374,7 +379,7 @@ You can't add a metadata object to user-defined functions.
 
 ## Multi-line strings
 
-You can break a string into multiple lines. For example the location property and one of the comments in the following JSON example.
+You can break a string into multiple lines. For example, see the location property and one of the comments in the following JSON example.
 
 ```json
 {
@@ -394,7 +399,7 @@ You can break a string into multiple lines. For example the location property an
   ],
 ```
 
-To deploy templates with multi-line strings by using Azure CLI, you must use the `--handle-extended-json-format` switch.
+To deploy templates with multi-line strings by using Azure CLI with version 2.3.0 or older, you must use the `--handle-extended-json-format` switch.
 
 ## Next steps
 
@@ -402,4 +407,4 @@ To deploy templates with multi-line strings by using Azure CLI, you must use the
 * For details about the functions you can use from within a template, see [Azure Resource Manager Template Functions](template-functions.md).
 * To combine several templates during deployment, see [Using linked templates with Azure Resource Manager](linked-templates.md).
 * For recommendations about creating templates, see [Azure Resource Manager template best practices](template-best-practices.md).
-* For recommendations on creating Resource Manager templates that you can use across all Azure environments and Azure Stack, see [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md).
+* For answers to common questions, see [Frequently asked questions about ARM templates](frequently-asked-questions.md).

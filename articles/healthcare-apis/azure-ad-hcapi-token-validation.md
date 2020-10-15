@@ -3,7 +3,7 @@ title: Azure API for FHIR access token validation
 description: Walks through token validation and gives tips on how to troubleshoot access issues
 services: healthcare-apis
 author: caitlinv39
-ms.reviewer: mihansen
+ms.reviewer: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
@@ -99,9 +99,9 @@ Once the server has verified the authenticity of the token, the FHIR server will
 When using the Azure API for FHIR, the server will validate:
 
 1. The token has the right `Audience` (`aud` claim).
-1. The `oid` claim contains an identity object ID, which is in the list of allowed object IDs.
+1. The user or principal that the token was issued for is allowed to access the FHIR server data plane. The `oid` claim of the token contains an identity object ID, which uniquely identifies the user or principal.
 
-See details on [finding identity object IDs](find-identity-object-ids.md). 
+We recommend that the FHIR service be [configured to use Azure RBAC](configure-azure-rbac.md) to manage data plane role assignments. But you can also [configure local RBAC](configure-local-rbac.md) if your FHIR service uses an external or secondary Azure Active Directory tenant. 
 
 When using the OSS Microsoft FHIR server for Azure, the server will validate:
 
@@ -113,7 +113,7 @@ Consult details on how to [define roles on the FHIR server](https://github.com/m
 A FHIR server may also validate that an access token has the scopes (in token claim `scp`) to access the part of the FHIR API that a client is trying to access. Currently, the Azure API for FHIR and the FHIR server for Azure do not validate token scopes.
 
 ## Next steps
-Now that you know how to walk through token validation, you can complete the tutorial to create a javascript application and read FHIR data.
+Now that you know how to walk through token validation, you can complete the tutorial to create a JavaScript application and read FHIR data.
 
 >[!div class="nextstepaction"]
 >[Web application tutorial](tutorial-web-app-fhir-server.md)

@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: alkohli
 ---
@@ -32,7 +32,7 @@ A.  Azure Data Box service is designed for offline data ingestion. This service 
 ### Q. What are Azure Data Box Disks?
 A. The Azure Data Box Disks allow a quick, inexpensive, and secure transfer of terabytes of data into and out of Azure. Microsoft ships you 1 to 5 disks, with a maximum storage capacity of 35 TB. You can easily configure, connect, and unlock these disks via the Data Box service in Azure portal.  
 
-Disks are encrypted using Microsoft BitLocker drive encryption, and your encryption keys are managed on the Azure portal. You then copy the data from the customer’s servers. In the datacenter, Microsoft migrates your data from drive to cloud using a fast, private network upload link and uploads it to Azure.
+Disks are encrypted using Microsoft BitLocker drive encryption, and your encryption keys are managed on the Azure portal. You then copy the data from the customer's servers. In the datacenter, Microsoft migrates your data from drive to cloud using a fast, private network upload link and uploads it to Azure.
 
 ### Q. When should I use Data Box Disks?
 A. If you have 40 TB of data (or less) that you want to transfer to Azure, you would benefit from using Data Box Disks.
@@ -52,8 +52,25 @@ A.  To see where the Data Box Disks are currently available, go to the [Region a
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
 
-### Q. Will my Data Box Disk cross country borders during shipping?
-A. Data Box Disk are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where disks can ship to and from any EU country.
+### Q. Which regions can I store data in with Data Box Disks?
+A. Data Box Disk is supported for all regions within US, Canada, Australia, West Europe and North Europe, Korea and Japan. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
+
+### Q. How can I import source data present at my location in one country/region to an Azure region in a different country?
+A. Data Box Disk supports data ingestion only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Box Disks can ship to and from any EU country/region.
+
+For example, if you wanted to move data at your location in Canada to an Azure WestUS storage account, then you could achieve it in the following way:
+
+### Option 1: 
+
+Ship a [supported disk](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements?toc=/azure/storage/blobs/toc.json#supported-disks) containing data using the [Azure Import/Export service](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) from the source location in Canada to the Azure WestUS datacenter.
+
+### Option 2:
+
+1. Order Data Box Disk in Canada by choosing a storage account say in Cananda Central. The SSD disk(s) are shipped from the Azure datacenter in Canada Central to the shipping address (in Canada) provided during order creation.
+
+2. After the data from your on-premises server is copied to the disks, return them to the Azure datacenter in Canada using Microsoft provided return labels. The data present on the Data Box Disk(s) then get uploaded to the destination storage account in the Canada Azure region chosen during order creation.
+
+3. You can then use a tool like AzCopy to copy the data to a storage account in WestUS . This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box Disk billing.
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please [contact Microsoft Support](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -134,7 +151,7 @@ A.  To speed up the copy process:
 
 - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
 - Mount it to a VM.
-- Copy files to the VM’s disk.
+- Copy files to the VM's disk.
 
 ### Q. Can I use multiple storage accounts with Data Box Disks?
 A.  No. Only one storage account, general or classic, is currently supported with Data Box Disks. Both hot and cool blob are supported. Currently, only the storage accounts in US, West Europe, and North Europe in the Azure public cloud are supported.
@@ -155,7 +172,7 @@ A. Azure Files are supported with Data Box Disk but will not work well with Azur
 
 ## Verify and upload
 
-### Q. How soon can I access my data in Azure once I’ve shipped the disks back? 
+### Q. How soon can I access my data in Azure once I've shipped the disks back? 
 A.  Once the order status for Data Copy shows as complete, you should be able to access your data right away.
 
 ### Q. Where is my data located in Azure after the upload?

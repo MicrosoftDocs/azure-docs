@@ -4,18 +4,14 @@ titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Elastic Stack.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor:
-
-ms.assetid: e9b2dcad-4da4-4d6b-aee2-6d0afade0cb8
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
+ms.author: damendo
 ---
 
 # Visualize Azure Network Watcher NSG flow logs using open source tools
@@ -24,14 +20,11 @@ Network Security Group flow logs provide information that can be used understand
 
 These flow logs can be difficult to manually parse and gain insights from. However, there are several open source tools that can help visualize this data. This article will provide a solution to visualize these logs using the Elastic Stack, which will allow you to quickly index and visualize your flow logs on a Kibana dashboard.
 
-> [!Warning]  
-> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
-
 ## Scenario
 
 In this article, we will set up a solution that will allow you to visualize Network Security Group flow logs using the Elastic Stack.  A Logstash input plugin will obtain the flow logs directly from the storage blob configured for containing the flow logs. Then, using the Elastic Stack, the flow logs will be indexed and used to create a Kibana dashboard to visualize the information.
 
-![scenario][scenario]
+![Diagram shows a scenario that allows you to visualize Network Security Group flow logs using the Elastic Stack.][scenario]
 
 ## Steps
 
@@ -137,6 +130,11 @@ For further instructions on installing Elastic search, refer to [Installation in
                   "protocol" => "%{[records][properties][flows][flows][flowTuples][5]}"
                   "trafficflow" => "%{[records][properties][flows][flows][flowTuples][6]}"
                   "traffic" => "%{[records][properties][flows][flows][flowTuples][7]}"
+                  "flowstate" => "%{[records][properties][flows][flows][flowTuples][8]}"
+	               "packetsSourceToDest" => "%{[records][properties][flows][flows][flowTuples][9]}"
+	               "bytesSentSourceToDest" => "%{[records][properties][flows][flows][flowTuples][10]}"
+	               "packetsDestToSource" => "%{[records][properties][flows][flows][flowTuples][11]}"
+	               "bytesSentDestToSource" => "%{[records][properties][flows][flows][flowTuples][12]}"
                    }
       convert => {"unixtimestamp" => "integer"}
       convert => {"srcPort" => "integer"}
@@ -212,27 +210,27 @@ The sample dashboard provides several visualizations of the flow logs:
 
 1. Flows by Decision/Direction Over Time - time series graphs showing the number of flows over the time period. You can edit the unit of time and span of both these visualizations. Flows by Decision shows the proportion of allow or deny decisions made, while Flows by Direction shows the proportion of inbound and outbound traffic. With these visuals you can examine traffic trends over time and look for any spikes or unusual patterns.
 
-   ![figure2][2]
+   ![Screenshot shows a sample dashboard with flows by decision and direction over time.][2]
 
 2. Flows by Destination/Source Port – pie charts showing the breakdown of flows to their respective ports. With this view you can see your most commonly used ports. If you click on a specific port within the pie chart, the rest of the dashboard will filter down to flows of that port.
 
-   ![figure3][3]
+   ![Screenshot shows a sample dashboard with flows by destination and source port.][3]
 
 3. Number of Flows and Earliest Log Time – metrics showing you the number of flows recorded and the date of the earliest log captured.
 
-   ![figure4][4]
+   ![Screenshot shows a sample dashboard with the number of flows and the earliest log time.][4]
 
 4. Flows by NSG and Rule – a bar graph showing you the distribution of flows within each NSG, as well as the distribution of rules within each NSG. From here you can see which NSG and rules generated the most traffic.
 
-   ![figure5][5]
+   ![Screenshot shows a sample dashboard with flows by N S G and rule.][5]
 
 5. Top 10 Source/Destination IPs – bar charts showing the top 10 source and destination IPs. You can adjust these charts to show more or less top IPs. From here you can see the most commonly occurring IPs as well as the traffic decision (allow or deny) being made towards each IP.
 
-   ![figure6][6]
+   ![Screenshot shows a sample dashboard with flows by top ten source and destination I P addresses.][6]
 
 6. Flow Tuples – this table shows you the information contained within each flow tuple, as well as its corresponding NGS and rule.
 
-   ![figure7][7]
+   ![Screenshot shows flow tuples in a table.][7]
 
 Using the query bar at the top of the dashboard, you can filter down the dashboard based on any parameter of the flows, such as subscription ID, resource groups, rule, or any other variable of interest. For more about Kibana's queries and filters, refer to the [official documentation](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 

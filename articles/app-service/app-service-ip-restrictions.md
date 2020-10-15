@@ -10,7 +10,7 @@ ms.author: ccompy
 ms.custom: seodec18
 
 ---
-# Azure App Service Access Restrictions #
+# Azure App Service access restrictions
 
 Access restrictions enable you to define a priority ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, there is then an implicit "deny all" that exists at the end of the list.
 
@@ -38,7 +38,7 @@ The list will show all of the current restrictions that are on your app. If you 
 
 ## Adding IP address rules
 
-You can click on **[+] Add** to add a new access restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule.
+You can click on **[+] Add rule** to add a new access restriction rule. Once you add a rule, it will become effective immediately. Rules are enforced in priority order starting from the lowest number and going up. There is an implicit deny all that is in effect once you add even a single rule.
 
 When creating a rule, you must select allow/deny and also the type of rule. You are also required to provide the priority value and what you are restricting access to.  You can optionally add a name, and description to the rule.  
 
@@ -56,6 +56,10 @@ Service endpoints cannot be used to restrict access to apps that run in an App S
 
 With service endpoints, you can configure your app with Application Gateways or other WAF devices. You can also configure multi-tier applications with secure backends. For more details on some of the possibilities, read [Networking features and App Service](networking-features.md) and [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md).
 
+> [!NOTE]
+> Service endpoints currently are not supported for web apps that use IP SSL virtual IP (VIP). 
+>
+
 ## Managing access restriction rules
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
@@ -66,13 +70,13 @@ When you edit a rule, you cannot change the type between an IP address rule and 
 
 ![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
-To delete a rule, click the **...** on your rule and then click **remove**.
+To delete a rule, click the **...** on your rule and then click **Remove**.
 
 ![delete access restriction rule](media/app-service-ip-restrictions/access-restrictions-delete.png)
 
-## Blocking a single IP Address ##
+## Blocking a single IP address ##
 
-When adding your first IP Restriction rule, the service will add an explicit **deny all** rule with a priority of 2147483647. In practice, the explicit **deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
+When adding your first IP Restriction rule, the service will add an explicit **Deny all** rule with a priority of 2147483647. In practice, the explicit **Deny all** rule will be last rule executed and will block access to any IP address that is not explicitly allowed using an **Allow** rule.
 
 For the scenario where users want to explicitly block a single IP address or IP address block, but allow everything else access, it is necessary to add an explicit **Allow All** rule.
 
@@ -86,7 +90,7 @@ In addition to being able to control access to your app, you can also restrict a
 
 ## Programmatic manipulation of access restriction rules ##
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) and [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) has support for editing access restrictions. 
+[Azure CLI](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) and [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) has support for editing access restrictions. 
 Example of adding an access restriction using Azure CLI:
 
 ```azurecli-interactive
@@ -100,7 +104,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName
     -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
 ```
 
-Values can also be set manually with an [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT operation on the app configuration in Resource Manager or using an Azure Resource Manager template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
+Values can also be set manually with an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Resource Manager or using an Azure Resource Manager template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
 
 The location for this information in Resource Manager is:
 
@@ -122,14 +126,14 @@ The JSON syntax for the earlier example is:
 }
 ```
 
-## Azure Function App Access Restrictions
+## Azure Functions access restrictions
 
-Access restrictions are available for both Function Apps with the same functionality as App Service plans. Enabling access restrictions will disable the portal code editor for any disallowed IPs.
+Access restrictions are also available for function apps with the same functionality as App Service plans. Enabling access restrictions will disable the portal code editor for any disallowed IPs.
 
 ## Next steps
-[Access restrictions for Azure Function Apps](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
+[Access restrictions for Azure Functions](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)
 
 [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
-[serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[serviceendpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md

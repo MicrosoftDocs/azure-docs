@@ -1,12 +1,11 @@
 ---
 title: Agent Health solution in Azure Monitor | Microsoft Docs
 description: This article is intended to help you understand how to use this solution to monitor the health of your agents reporting directly to Log Analytics or System Center Operations Manager.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/19/2017
+ms.date: 02/06/2020
 
 ---
 
@@ -14,7 +13,7 @@ ms.date: 03/19/2017
 The Agent Health solution in Azure helps you understand, for all of the agents reporting directly to the Log Analytics workspace in Azure Monitor or a System Center Operations Manager management group  connected to Azure Monitor, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
 
 ## Prerequisites
-Before you deploy this solution, confirm you have currently supported [Windows agents](../../log-analytics/log-analytics-windows-agent.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../../azure-monitor/platform/om-agents.md) integrated with your workspace.
+Before you deploy this solution, confirm you have currently supported [Windows agents](../platform/agent-windows.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../platform/om-agents.md) integrated with your workspace.
 
 ## Solution components
 This solution consists of the following resources that are added to your workspace and directly connected agents or Operations Manager connected management group.
@@ -25,7 +24,7 @@ If your System Center Operations Manager management group is connected to a Log 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../../azure-monitor/platform/om-agents.md).
+For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../platform/om-agents.md).
 
 ## Configuration
 Add the Agent Health solution to your Log Analytics workspace using the process described in [Add solutions](solutions.md). There is no further configuration required.
@@ -75,7 +74,7 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 | `Version` | Log Analytics Agent or Operations Manager Agent version.|
 | `SCAgentChannel` | Value is *Direct* and/or *SCManagementServer*.|
 | `IsGatewayInstalled` | If Log Analytics gateway is installed, value is *true*, otherwise value is *false*.|
-| `ComputerIP` | IP address of the computer.|
+| `ComputerIP` | The public IP address of the computer. On Azure VMs, this will show the public IP if one is available. For VMs using private IPs, this will display the Azure SNAT address (not the private IP address). |
 | `RemoteIPCountry` | Geographic location where computer is deployed.|
 | `ManagementGroupName` | Name of Operations Manager management group.|
 | `SourceComputerId` | Unique ID of computer.|
@@ -108,3 +107,4 @@ The following table provides sample log searches for records collected by this s
 ## Next steps
 
 * Learn about [Alerts in Azure Monitor](../platform/alerts-overview.md) for details on generating alerts from log queries. 
+

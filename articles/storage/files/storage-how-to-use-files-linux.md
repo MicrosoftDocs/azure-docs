@@ -1,9 +1,9 @@
 ---
 title: Use Azure Files with Linux | Microsoft Docs
-description: Learn how to mount an Azure file share over SMB on Linux.
+description: Learn how to mount an Azure file share over SMB on Linux. See the list of prerequisites. Review SMB security considerations on Linux clients.
 author: roygara
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
@@ -14,14 +14,14 @@ ms.subservice: files
 
 The recommended way to mount an Azure file share on Linux is using SMB 3.0. By default, Azure Files requires encryption in transit, which is only supported by SMB 3.0. Azure Files also supports SMB 2.1, which does not support encryption in transit, but you may not mount Azure file shares with SMB 2.1 from another Azure region or on-premises for security reasons. Unless your application specifically requires SMB 2.1, there is little reason to use it since most popular, recently released Linux distributions support SMB 3.0:  
 
-| | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
+| Linux distribution | SMB 2.1 <br>(Mounts on VMs within same Azure region) | SMB 3.0 <br>(Mounts from on premises and cross-region) |
 | --- | :---: | :---: |
 | Ubuntu | 14.04+ | 16.04+ |
 | Red Hat Enterprise Linux (RHEL) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
 | Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
-| SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
+| SUSE Linux Enterprise Server | 12+ | 12 SP2+ |
 
 If you're using a Linux distribution not listed in the above table, you can check to see if your Linux distribution supports SMB 3.0 with encryption by checking the Linux kernel version. SMB 3.0 with encryption was added to Linux kernel version 4.11. The `uname` command will return the version of the Linux kernel in use:
 
@@ -64,7 +64,7 @@ uname -r
 
 * **The most recent version of the Azure Command Line Interface (CLI).** For more information on how to install the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and select your operating system. If you prefer to use the Azure PowerShell module in PowerShell 6+, you may, however the instructions below are presented for the Azure CLI.
 
-* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.  Replace **<your-resource-group>** and **<your-storage-account>**
+* **Ensure port 445 is open**: SMB communicates over TCP port 445 - check to see if your firewall is not blocking TCP ports 445 from client machine.  Replace `<your-resource-group>` and `<your-storage-account>` then run the following script:
     ```bash
     resourceGroupName="<your-resource-group>"
     storageAccountName="<your-storage-account>"
@@ -109,6 +109,7 @@ You can mount the same Azure file share to multiple mount points if desired.
 1. **Use the mount command to mount the Azure file share**. In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia. 
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -171,6 +172,7 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
 1. **Use the following command to append the following line to `/etc/fstab`**: In the example below, the local Linux file and folder permissions default 0755, which means read, write, and execute for the owner (based on the file/directory Linux owner), read and execute for users in owner group, and read and execute for others on the system. You can use the `uid` and `gid` mount options to set the user ID and group ID for the mount. You can also use `dir_mode` and `file_mode` to set custom permissions as desired. For more information on how to set permissions, see [UNIX numeric notation](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) on Wikipedia.
 
     ```bash
+    # This command assumes you have logged in with az login
     httpEndpoint=$(az storage account show \
         --resource-group $resourceGroupName \
         --name $storageAccountName \
@@ -189,10 +191,57 @@ When you are done using the Azure file share, you may use `sudo umount $mntPath`
     > [!Note]  
     > The above mount command mounts with SMB 3.0. If your Linux distribution does not support SMB 3.0 with encryption or if it only supports SMB 2.1, you may only mount from an Azure VM within the same region as the storage account. To mount your Azure file share on a Linux distribution that does not support SMB 3.0 with encryption, you will need to [disable encryption in transit for the storage account](../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
+### Using autofs to automatically mount the Azure file share(s)
+
+1. **Ensure the autofs package is installed.**  
+
+    The autofs package can be installed using the package manager on the Linux distribution of your choice. 
+
+    On **Ubuntu** and **Debian-based** distributions, use the `apt` package manager:
+    ```bash
+    sudo apt update
+    sudo apt install autofs
+    ```
+    On **Fedora**, **Red Hat Enterprise Linux 8+**, and **CentOS 8 +**, use the `dnf` package manager:
+    ```bash
+    sudo dnf install autofs
+    ```
+    On older versions of **Red Hat Enterprise Linux** and **CentOS**, use the `yum` package manager:
+    ```bash
+    sudo yum install autofs 
+    ```
+    On **openSUSE**, use the `zypper` package manager:
+    ```bash
+    sudo zypper install autofs
+    ```
+2. **Create a mount point for the share(s)**:
+   ```bash
+    sudo mkdir /fileshares
+    ```
+3. **Crete a new custom autofs configuration file**
+    ```bash
+    sudo vi /etc/auto.fileshares
+    ```
+4. **Add the following entries to /etc/auto.fileshares**
+   ```bash
+   echo "$fileShareName -fstype=cifs,credentials=$smbCredentialFile :$smbPath"" > /etc/auto.fileshares
+   ```
+5. **Add the following entry to /etc/auto.master**
+   ```bash
+   /fileshares /etc/auto.fileshares --timeout=60
+   ```
+6. **Restart autofs**
+    ```bash
+    sudo systemctl restart autofs
+    ```
+7.  **Access the folder designated for the share**
+    ```bash
+    cd /fileshares/$filesharename
+    ```
 ## Securing Linux
 In order to mount an Azure file share on Linux, port 445 must be accessible. Many organizations block port 445 because of the security risks inherent with SMB 1. SMB 1, also known as CIFS (Common Internet File System), is a legacy file system protocol included with many Linux distributions. SMB 1 is an outdated, inefficient, and most importantly insecure protocol. The good news is that Azure Files does not support SMB 1, and starting with Linux kernel version 4.18, Linux makes it possible to disable SMB 1. We always [strongly recommend](https://aka.ms/stopusingsmb1) disabling the SMB 1 on your Linux clients before using SMB file shares in production.
 
-Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentation), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
+Starting with Linux kernel 4.18, the SMB kernel module, called `cifs` for legacy reasons, exposes a new module parameter (often referred to as *parm* by various external documentations), called `disable_legacy_dialects`. Although introduced in Linux kernel 4.18, some vendors have backported this change to older kernels that they support. For convenience, the following table details the availability of this module parameter on common Linux distributions.
 
 | Distribution | Can disable SMB 1 |
 |--------------|-------------------|
@@ -221,7 +270,7 @@ sudo modinfo -p cifs | grep disable_legacy_dialects
 
 This command should output the following message:
 
-```Output
+```output
 disable_legacy_dialects: To improve security it may be helpful to restrict the ability to override the default dialects (SMB2.1, SMB3 and SMB3.02) on mount with old dialects (CIFS/SMB1 and SMB2) since vers=1.0 (CIFS/SMB1) and vers=2.0 are weaker and less secure. Default: n/N/0 (bool)
 ```
 
@@ -267,11 +316,6 @@ You can verify that this has worked by loading the SMB module:
 sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
-
-## Feedback
-Linux users, we want to hear from you!
-
-The Azure Files for Linux users' group provides a forum for you to share feedback as you evaluate and adopt File storage on Linux. Email [Azure Files Linux Users](mailto:azurefileslinuxusers@microsoft.com) to join the users' group.
 
 ## Next steps
 See these links for more information about Azure Files:

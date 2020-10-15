@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 11/27/2019
+ms.date: 03/09/2020
 ---
 
 # Monitor cluster performance in Azure HDInsight
@@ -28,7 +28,7 @@ To get a high-level look at the nodes of your cluster and their loading, sign in
 | Orange | At least one secondary component on the host is down. Hover to see a tooltip that lists affected components. |
 | Yellow | Ambari Server hasn't received a heartbeat from the host for more than 3 minutes. |
 | Green | Normal running state. |
- 
+
 You'll also see columns showing the number of cores and amount of RAM for each host, and the disk usage and load average.
 
 ![Apache Ambari hosts tab overview](./media/hdinsight-key-scenarios-to-monitor/apache-ambari-hosts-tab.png)
@@ -47,7 +47,7 @@ YARN divides the two responsibilities of the JobTracker, resource management and
 
 The Resource Manager is a *pure scheduler*, and solely arbitrates available resources between all competing applications. The Resource Manager ensures that all resources are always in use, optimizing for various constants such as SLAs, capacity guarantees, and so forth. The ApplicationMaster negotiates resources from the Resource Manager, and works with the NodeManager(s) to execute and monitor the containers and their resource consumption.
 
-When multiple tenants share a large cluster, there's competition for the cluster's resources. The CapacityScheduler is a pluggable scheduler that assists in resource sharing by queueing up requests. The CapacityScheduler also supports *hierarchical queues* to ensure that resources are shared between the sub-queues of an organization, before other applications' queues are allowed to use free resources.
+When multiple tenants share a large cluster, there's competition for the cluster's resources. The CapacityScheduler is a pluggable scheduler that assists in resource sharing by queueing up requests. The CapacityScheduler also supports *hierarchical queues* to ensure that resources are shared between the subqueues of an organization, before other applications' queues are allowed to use free resources.
 
 YARN allows us to allocate resources to these queues, and shows you whether all of your available resources are assigned. To view information about your queues, sign in to the Ambari Web UI, then select **YARN Queue Manager** from the top menu.
 
@@ -76,6 +76,46 @@ If your cluster's backing store is Azure Data Lake Storage (ADLS), your throttli
 * [Performance tuning guidance for Apache Hive on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-hive.md)
 * [Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-mapreduce.md)
 * [Performance tuning guidance for Apache Storm on HDInsight and Azure Data Lake Storage](../data-lake-store/data-lake-store-performance-tuning-storm.md)
+
+## Troubleshoot sluggish node performance
+
+In some cases, sluggishness can occur because of low disk space on the cluster. Investigate with these steps:
+
+1. Use [ssh command](./hdinsight-hadoop-linux-use-ssh-unix.md) to connect into each of the nodes.
+
+1. Check the disk usage by running one of the following commands:
+
+    ```bash
+    df -h
+    du -h --max-depth=1 / | sort -h
+    ```
+
+1. Review the output, and check for the presence of any large files in the `mnt` folder or other folders. Typically, the `usercache`, and `appcache` (mnt/resource/hadoop/yarn/local/usercache/hive/appcache/) folders contain large files.
+
+1. If there are large files, either a current job is causing the file growth or a failed previous job may have contributed to this issue. To check whether this behavior is caused by a current job, run the following command:
+
+    ```bash
+    sudo du -h --max-depth=1 /mnt/resource/hadoop/yarn/local/usercache/hive/appcache/
+    ```
+
+1. If this command indicates a specific job, you can choose to terminate the job by using a command that resembles the following:
+
+    ```bash
+    yarn application -kill -applicationId <application_id>
+    ```
+
+    Replace `application_id` with the application ID. If no specific jobs are indicated, go to the next step.
+
+1. After the command above completes, or if no specific jobs are indicated, delete the large files you identified by running a command that resembles the following:
+
+    ```bash
+    rm -rf filecache usercache
+    ```
+
+For more information regarding disk space issues, see [Out of disk space](./hadoop/hdinsight-troubleshoot-out-disk-space.md).
+
+> [!NOTE]  
+> If you have large files that you want to keep but are contributing to the low disk space issue, you have to scale up your HDInsight cluster and restart your services. After you complete this procedure and wait for a few minutes, you will notice that the storage is freed up and the node's usual performance is restored.
 
 ## Next steps
 

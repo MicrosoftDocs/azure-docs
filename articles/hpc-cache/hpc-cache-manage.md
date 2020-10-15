@@ -1,16 +1,18 @@
 ---
 title: Manage and update Azure HPC Cache
-description: How to manage and update Azure HPC Cache using the Azure portal 
+description: How to manage and update Azure HPC Cache using the Azure portal or Azure CLI
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
-ms.date: 1/08/2020
-ms.author: rohogue
+ms.topic: how-to
+ms.date: 08/31/2020
+ms.author: v-erkel
 ---
 
-# Manage your cache from the Azure portal
+# Manage your cache
 
-The cache overview page in the Azure portal shows project details, cache status, and basic statistics for your cache. It also has controls to delete the cache, flush data to long-term storage, or update software.
+The cache overview page in the Azure portal shows project details, cache status, and basic statistics for your cache. It also has controls to stop or start the cache, delete the cache, flush data to long-term storage, and update software.
+
+This article also explains how to do these basic tasks with the Azure CLI.
 
 To open the overview page, select your cache resource in the Azure portal. For example, load the **All resources** page and click the cache name.
 
@@ -18,12 +20,72 @@ To open the overview page, select your cache resource in the Azure portal. For e
 
 The buttons at the top of the page can help you manage the cache:
 
+* **Start** and [**Stop**](#stop-the-cache) - Resumes or suspends cache operation
 * [**Flush**](#flush-cached-data) - Writes changed data to storage targets
 * [**Upgrade**](#upgrade-cache-software) - Updates the cache software
+* [**Collect diagnostics**](#collect-diagnostics) - Uploads debugging information
 * **Refresh** - Reloads the overview page
 * [**Delete**](#delete-the-cache) - Permanently destroys the cache
 
 Read more about these options below.
+
+Click the image below to watch a [video](https://azure.microsoft.com/resources/videos/managing-hpc-cache/) that demonstrates cache management tasks.
+
+[![video thumbnail: Azure HPC Cache: Manage (click to visit the video page)](media/video-5-manage.png)](https://azure.microsoft.com/resources/videos/managing-hpc-cache/)
+
+## Stop the cache
+
+You can stop the cache to reduce costs during an inactive period. You are not charged for uptime while the cache is stopped, but you are charged for the cache's allocated disk storage. (See the [pricing](https://aka.ms/hpc-cache-pricing) page for details.)
+
+A stopped cache does not respond to client requests. You should unmount clients before stopping the cache.
+
+### [Portal](#tab/azure-portal)
+
+The **Stop** button suspends an active cache. The **Stop** button is available when a cache's status is **Healthy** or **Degraded**.
+
+![screenshot of the top buttons with Stop highlighted and a pop-up message describing the stop action and asking 'do you want to continue?' with Yes (default) and No buttons](media/stop-cache.png)
+
+After you click Yes to confirm stopping the cache, the cache automatically flushes its contents to the storage targets. This process might take some time, but it ensures data consistency. Finally, the cache status changes to **Stopped**.
+
+To reactivate a stopped cache, click the **Start** button. No confirmation is needed.
+
+![screenshot of the top buttons with Start highlighted](media/start-cache.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Temporarily suspend a cache with the [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop) command. This action is only valid when a cache's status is **Healthy** or **Degraded**.
+
+The cache automatically flushes its contents to the storage targets before stopping. This process might take some time, but it ensures data consistency.
+
+When the action is complete, the cache status changes to **Stopped**.
+
+Reactivate a stopped cache with [az hpc-cache start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+
+When you issue the start or stop command, the command line shows a "Running" status message until the operation completes.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+ - Running ..
+```
+
+At completion, the message updates to "Finished" and shows return codes and other information.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+{- Finished ..
+  "endTime": "2020-07-01T18:46:43.6862478+00:00",
+  "name": "c48d320f-f5f5-40ab-8b25-0ac065984f62",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-01T18:40:28.5468983+00:00",
+  "status": "Succeeded"
+}
+```
+
+---
 
 ## Flush cached data
 
@@ -32,13 +94,47 @@ The **Flush** button on the overview page tells the cache to immediately write a
 > [!NOTE]
 > During the flush process, the cache can't serve client requests. Cache access is suspended and resumes after the operation finishes.
 
-![screenshot of the top buttons with Flush highlighted and a pop-up message describing the flush action and asking 'do you want to continue?' with Yes (default) and No buttons](media/hpc-cache-flush.png)
-
 When you start the cache flush operation, the cache stops accepting client requests, and the cache status on the overview page changes to **Flushing**.
 
 Data in the cache is saved to the appropriate storage targets. Depending on how much data needs to be flushed, the process can take a few minutes or over an hour.
 
 After all the data is saved to storage targets, the cache automatically starts taking client requests again. The cache status returns to **Healthy**.
+
+### [Portal](#tab/azure-portal)
+
+To flush the cache, click the **Flush** button and then click **Yes** to confirm the action.
+
+![screenshot of the top buttons with Flush highlighted and a pop-up message describing the flush action and asking 'do you want to continue?' with Yes (default) and No buttons](media/hpc-cache-flush.png)
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Use [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) to force the cache to write all changed data to the storage targets.
+
+Example:
+
+```azurecli
+$ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
+ - Running ..
+```
+
+When the flush finishes, a success message is returned.
+
+```azurecli
+{- Finished ..
+  "endTime": "2020-07-09T17:26:13.9371983+00:00",
+  "name": "c22f8e12-fcf0-49e5-b897-6a6e579b6489",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-09T17:25:21.4278297+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## Upgrade cache software
 
@@ -52,7 +148,60 @@ The software update can take several hours. Caches configured with higher throug
 
 When a software upgrade is available, you will have a week or so to apply it manually. The end date is listed in the upgrade message. If you don't upgrade during that time, Azure automatically applies the update to your cache. The timing of the automatic upgrade is not configurable. If you are concerned about the cache performance impact, you should upgrade the software yourself before the time period expires.
 
+If your cache is stopped when the end date passes, the cache will automatically upgrade software the next time it is started. (The update might not start immediately, but it will start in the first hour.)
+
+### [Portal](#tab/azure-portal)
+
 Click the **Upgrade** button to begin the software update. The cache status changes to **Upgrading** until the operation completes.
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+On the Azure CLI, new software information is included at the end of the cache status report. (Use [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) to check.) Look for the string "upgradeStatus" in the message.
+
+Use [az hpc-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) to apply the update, if any exists.
+
+If no update is available, this operation has no effect.
+
+This example shows the cache status (no update is available) and the results of the upgrade-firmware command.
+
+```azurecli
+$ az hpc-cache show --name doc-cache0629
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+
+<...>
+
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.61",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-06-29T22:18:32.004822+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+$ az hpc-cache upgrade-firmware --name doc-cache0629
+$
+```
+
+---
+
+## Collect diagnostics
+
+The **Collect diagnostics** button manually starts the process to collect system information and upload it to Microsoft Service and Support for troubleshooting. Your cache automatically collects and uploads the same diagnostic information if a serious cache problem occurs.
+
+Use this control if Microsoft Service and Support requests it.
+
+After clicking the button, click **Yes** to confirm the upload.
+
+![screenshot of the 'Start diagnostics collection' pop-up confirmation message. The default button 'yes' is highlighted.](media/diagnostics-confirm.png)
 
 ## Delete the cache
 
@@ -63,13 +212,35 @@ The back-end storage volumes used as storage targets are unaffected when you del
 > [!NOTE]
 > Azure HPC Cache does not automatically write changed data from the cache to the back-end storage systems before deleting the cache.
 >
-> To make sure that all data in the cache has been written to long-term storage, follow this procedure:
->
-> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
-> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
-> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
->
-> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.
+> To make sure that all data in the cache has been written to long-term storage, [stop the cache](#stop-the-cache) before you delete it. Make sure that it shows the status **Stopped** before deleting.
+
+### [Portal](#tab/azure-portal)
+
+After stopping the cache, click the **Delete** button to permanently remove the cache.
+
+### [Azure CLI](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Use the Azure CLI command [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) to permanently remove the cache.
+
+Example:
+```azurecli
+$ az hpc-cache delete --name doc-cache0629
+ - Running ..
+
+<...>
+
+{- Finished ..
+  "endTime": "2020-07-09T22:24:35.1605019+00:00",
+  "name": "7d3cd0ba-11b3-4180-8298-d9cafc9f22c1",
+  "startTime": "2020-07-09T22:13:32.0732892+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## Cache metrics and monitoring
 
@@ -81,6 +252,5 @@ These charts are part of Azure's built-in monitoring and analytics tools. Additi
 
 ## Next steps
 
-<!-- * Learn more about metrics and statistics for hpc cache -->
 * Learn more about [Azure metrics and statistics tools](../azure-monitor/index.yml)
 * Get [help with your Azure HPC Cache](hpc-cache-support-ticket.md)

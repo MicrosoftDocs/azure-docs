@@ -1,17 +1,10 @@
 ﻿---
 title: MATLAB clusters on virtual machines 
 description: Use Microsoft Azure virtual machines to create MATLAB Distributed Computing Server clusters to run your compute-intensive parallel MATLAB workloads
-services: virtual-machines-windows
-documentationcenter: ''
 author: mscurrell
-manager: gwallace
-editor: ''
-
-ms.assetid: e9980ce9-124a-41f1-b9ec-f444c8ea5c72
 ms.service: virtual-machines-windows
-
-ms.topic: article
-ms.tgt_pltfrm: Windows
+ms.subservice: workloads
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
@@ -20,6 +13,9 @@ ms.author: markscu
 # Create MATLAB Distributed Computing Server clusters on Azure VMs
 Use Microsoft Azure virtual machines to create one or more MATLAB Distributed Computing Server clusters to run your compute-intensive parallel MATLAB workloads. Install your MATLAB Distributed Computing Server software on a VM to use as a base image and use an Azure quickstart template or Azure PowerShell script (available on [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) to deploy and manage the cluster. After deployment, connect to the cluster to run your workloads.
 
+> [!IMPORTANT]
+> Since this article was written, there is now formal support for using MATLAB applications in Azure. It is recommended that these more recent capabilities are used instead of the template and scripts referenced in this article. Search the [Azure Marketplace](https://azuremarketplace.microsoft.com/) for "matlab"; further information about running MATLAB applications on Azure is available from [MathWorks](https://www.mathworks.com/solutions/cloud.html#public-cloud).
+
 ## About MATLAB and MATLAB Distributed Computing Server
 The [MATLAB](https://www.mathworks.com/products/matlab/) platform is optimized for solving engineering and scientific problems. MATLAB users with large-scale simulations and data processing tasks can use MathWorks parallel computing products to speed up their compute-intensive workloads by taking advantage of compute clusters and grid services. [Parallel Computing Toolbox](https://www.mathworks.com/products/parallel-computing/) lets MATLAB users parallelize applications and take advantage of multi-core processors, GPUs, and compute clusters. [MATLAB Distributed Computing Server](https://www.mathworks.com/products/distriben/) enables MATLAB users to utilize many computers in a compute cluster.
 
@@ -27,7 +23,7 @@ By using Azure virtual machines, you can create MATLAB Distributed Computing Ser
 
 ## Prerequisites
 * **Client computer** - You'll need a Windows-based client computer to communicate with Azure and the MATLAB Distributed Computing Server cluster after deployment.
-* **Azure PowerShell** - See [How to install and configure Azure PowerShell](/powershell/azure/overview) to install it on your client computer.
+* **Azure PowerShell** - See [How to install and configure Azure PowerShell](/powershell/azure/) to install it on your client computer.
 * **Azure subscription** - If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
 * **vCPUs quota** - You might need to increase the vCPU quota to deploy a large cluster or more than one MATLAB Distributed Computing Server cluster. To increase a quota, [open an online customer support request](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) at no charge.
 * **MATLAB, Parallel Computing Toolbox, and MATLAB Distributed Computing Server licenses** - The scripts assume that the [MathWorks Hosted License Manager](https://www.mathworks.com/help/install/license-management.html) is used for all licenses.  

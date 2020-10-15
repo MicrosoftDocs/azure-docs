@@ -8,6 +8,7 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
+ms.custom: [amqp, mqtt, fasttrack-edit, iot]
 ---
 
 # Trace Azure IoT device-to-cloud messages with distributed tracing (preview)
@@ -124,6 +125,9 @@ These instructions are for building the sample on Windows. For other environment
     ```
 
 ### Edit the send telemetry sample to enable distributed tracing
+
+> [!div class="button"]
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Get the sample on GitHub</a>
 
 1. Use an editor to open the `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` source file.
 
@@ -272,7 +276,7 @@ To understand the different types of logs, see [Azure IoT Hub diagnostic logs](i
 To visualize the flow of IoT messages, set up the Application Map sample app. The sample app sends the distributed tracing logs to [Application Map](../application-insights/app-insights-app-map.md) using an Azure Function and an Event Hub.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on Github</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Get the sample on GitHub</a>
 
 This image below shows distributed tracing in App Map with three routing endpoints:
 
@@ -296,12 +300,12 @@ Once enabled, distributed tracing support for IoT Hub will follow this flow:
 
 1. A message is generated on the IoT device.
 1. The IoT device decides (with help from cloud) that this message should be assigned with a trace context.
-1. The SDK adds a `tracestate` to the message application property, containing the message creation timestamp.
+1. The SDK adds a `tracestate` to the message property, containing the message creation timestamp.
 1. The IoT device sends the message to IoT Hub.
 1. The message arrives at IoT hub gateway.
-1. IoT Hub looks for the `tracestate` in the message application properties, and checks to see if it's in the correct format.
-1. If so, IoT Hub generates and logs the `trace-id` and `span-id` to Azure Monitor diagnostic logs under the category `DiagnosticIoTHubD2C`.
-1. Once the message processing is finished, IoT Hub generates another `span-id` and logs it along with the existing `trace-id` under the category `DiagnosticIoTHubIngress`.
+1. IoT Hub looks for the `tracestate` in the message properties, and checks to see if it's in the correct format.
+1. If so, IoT Hub generates a globally unique `trace-id` for the message, a `span-id` for the "hop", and logs them to Azure Monitor diagnostic logs under the operation `DiagnosticIoTHubD2C`.
+1. Once the message processing is finished, IoT Hub generates another `span-id` and logs it along with the existing `trace-id` under the operation `DiagnosticIoTHubIngress`.
 1. If routing is enabled for the message, IoT Hub writes it to the custom endpoint, and logs another `span-id` with the same `trace-id` under the category `DiagnosticIoTHubEgress`.
 1. The steps above are repeated for each message generated.
 

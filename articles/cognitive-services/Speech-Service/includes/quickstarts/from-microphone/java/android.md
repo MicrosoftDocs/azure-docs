@@ -17,8 +17,8 @@ ms.author: wolfma
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=android&pivots=programming-language-java)
 > * Make sure that you have access to a microphone for audio capture
 
 ## Create a user interface
@@ -53,7 +53,7 @@ The text and graphical representation of your UI should now look like this:
 
 1. In the same file, replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Also replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. For example, use `westus` for the free trial subscription.
+1. Also replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription.
 
 ## Build and run the app
 
@@ -73,5 +73,4 @@ Select the button in the application to begin a speech recognition section. The 
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
-
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

@@ -1,20 +1,22 @@
 ---
-title: Understanding Cloudyn cost management reports in Azure | Microsoft Docs
+title: Understanding Cloudyn cost management reports in Azure
 description: This article helps you understand Cloudyn cost management reports basic structure and functions.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.subservice: cloudyn
+ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Understanding Cloudyn cost management reports
 
 This article helps you understand Cloudyn cost management reports basic structure and functions. Most Cloudyn reports are intuitive and have a uniform look and feel. After you read this article, are ready to use all the cost management reports. Many standard features are available throughout the various reports, allowing you to navigate the reports with ease. Reports are customizable, and you can select from several options to calculate and display results.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Report fields and options
 
@@ -85,7 +87,7 @@ Each numbered area in the preceding image is described in detail in the followin
      - **Account Name**
        - The account or subscription name. In Azure, it is the name of the Azure subscription.
      - **Account No**
-       - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription’s GUID.
+       - Select an account, multiple accounts, or all accounts. In Azure, it is the Azure subscription's GUID.
      - **Parent Account**
        - Select the parent account, multiple accounts, or select all.
      - **Service**

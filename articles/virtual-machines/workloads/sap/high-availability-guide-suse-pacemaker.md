@@ -1,10 +1,10 @@
 ---
-title: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure | Microsoft Docs
+title: Setting up Pacemaker on SLES in Azure | Microsoft Docs
 description: Setting up Pacemaker on SUSE Linux Enterprise Server in Azure
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,8 +14,8 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/16/2018
-ms.author: sedusch
+ms.date: 08/04/2020
+ms.author: radeltch
 
 ---
 
@@ -32,14 +32,14 @@ ms.author: sedusch
 
 There are two options to set up a Pacemaker cluster in Azure. You can either use a fencing agent, which takes care of restarting a failed node via the Azure APIs or you can use an SBD device.
 
-The SBD device requires at least one additional virtual machine that acts as an iSCSI target server and provides an SBD device. These iSCSI target servers can however be shared with other Pacemaker clusters. The advantage of using an SBD device is a faster failover time and, if you are using SBD devices on-premises, doesn't require any changes on how you operate the pacemaker cluster. You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable, for example during OS patching of the iSCSI target server. If you want to use more than one SBD device per Pacemaker, make sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker will not be able to automatically fence a cluster node if you only configure two SBD devices and one of them is not available. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and therefore three iSCSI target servers.
+The SBD device requires at least one additional virtual machine that acts as an iSCSI target server and provides an SBD device. These iSCSI target servers can however be shared with other Pacemaker clusters. The advantage of using an SBD device is, if you are already using SBD devices on-premises, doesn't require any changes on how you operate the pacemaker cluster. You can use up to three SBD devices for a Pacemaker cluster to allow an SBD device to become unavailable, for example during OS patching of the iSCSI target server. If you want to use more than one SBD device per Pacemaker, make sure to deploy multiple iSCSI target servers and connect one SBD from each iSCSI target server. We recommend using either one SBD device or three. Pacemaker will not be able to automatically fence a cluster node if you only configure two SBD devices and one of them is not available. If you want to be able to fence when one iSCSI target server is down, you have to use three SBD devices and therefore three iSCSI target servers, which is the most resilient configuration when using SBDs.
 
-If you don't want to invest in one additional virtual machine, you can also use the Azure Fence agent. The downside is that a failover can take between 10 to 15 minutes if a resource stop fails or the cluster nodes cannot communicate which each other anymore.
+Azure Fence agent doesn't require deploying additional virtual machine(s).   
 
 ![Pacemaker on SLES overview](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> When planning and deploying Linux Pacemaker clustered nodes and SBD devices, it is essential for the overall reliability of the complete cluster configuration that the routing between the VMs involved and the VM(s) hosting the SBD device(s) is not passing through any other devices like [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Otherwise, issues and maintenance events with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. In order to avoid such obstacles, don't define routing rules of NVAs or [User Defined Routing rules](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) that route traffic between clustered nodes and SBD devices through NVAs and similar devices when planning and deploying Linux Pacemaker clustered nodes and SBD devices. 
+> When planning and deploying Linux Pacemaker clustered nodes and SBD devices, it is essential for the overall reliability of the complete cluster configuration that the routing between the VMs involved and the VM(s) hosting the SBD device(s) is not passing through any other devices like [NVAs](https://azure.microsoft.com/solutions/network-appliances/). Otherwise, issues and maintenance events with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. In order to avoid such obstacles, don't define routing rules of NVAs or [User Defined Routing rules](../../../virtual-network/virtual-networks-udr-overview.md) that route traffic between clustered nodes and SBD devices through NVAs and similar devices when planning and deploying Linux Pacemaker clustered nodes and SBD devices. 
 >
 
 ## SBD fencing
@@ -58,6 +58,9 @@ Run the following commands on all **iSCSI target virtual machines**.
 
    <pre><code>sudo zypper update
    </code></pre>
+
+   > [!NOTE]
+   > You might need to reboot the OS after you upgrade or update the OS. 
 
 1. Remove packages
 
@@ -216,17 +219,17 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
-   sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> --op=update --name=node.startup --value=automatic
+   sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    
    # If you want to use multiple SBD devices, also connect to the second iSCSI target server
    sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.18:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.18:3260</b>
-   sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> --op=update --name=node.startup --value=automatic
+   sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    
    # If you want to use multiple SBD devices, also connect to the third iSCSI target server
    sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.19:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.19:3260</b>
-   sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> --op=update --name=node.startup --value=automatic
+   sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
    Make sure that the iSCSI devices are available and note down the device name (in the following example /dev/sde)
@@ -296,7 +299,6 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    [...]
    <b>SBD_STARTMODE="always"</b>
    [...]
-   <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
    Create the `softdog` configuration file
@@ -322,6 +324,16 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
    <pre><code>sudo zypper in socat
    </code></pre>
+
+1. **[A]** Install azure-lb component, needed for cluster resources
+
+   <pre><code>sudo zypper in resource-agents
+   </code></pre>
+
+   > [!NOTE]
+   > Check the version of package resource-agents and make sure the minimum version requirements are met:  
+   > - For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
+   > - For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
 
 1. **[A]** Configure the operating system
 
@@ -351,6 +363,9 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[A]** Configure cloud-netconfig-azure for HA Cluster
+
+   >[!NOTE]
+   > Check the installed version of package **cloud-netconfig-azure** by running **zypper info cloud-netconfig-azure**. If the version in your environment is 1.3 or higher, it is no longer necessary to suppress the management of network interfaces by the cloud network plugin. If the version is lower than 1.3, we suggest to update package **cloud-netconfig-azure** to the latest available version.  
 
    Change the configuration file for the network interface as shown below to prevent the cloud network plugin from removing the virtual IP address (Pacemaker must control the VIP assignment). For more information, see [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
 
@@ -396,39 +411,48 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo vi /root/.ssh/authorized_keys
    </code></pre>
 
-1. **[A]** Install Fence agents
+1. **[A]** Install Fence agents package, if using STONITH device, based on Azure Fence Agent.  
    
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
    >[!IMPORTANT]
-   > If using Suse Linux Enterprise Server for SAP 15, be aware that you need to activate additional module and install additional component, that is prerequisite for using Azure Fence Agent. To learn more about SUSE modules and extensions see [Modules and Extensions explained](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Follow the instructions bellow to install Azure Python SDK. 
+   > The installed version of package **fence-agents** must be at least **4.4.0**  to benefit from the faster failover times with Azure Fence Agent, if a cluster nodes needs to be fenced. We recommend that you update the package, if running a lower version.  
 
-   The following instructions on how to install Azure Python SDK are only applicable for Suse Enterprise Server for SAP **15**.  
 
-    - If you are using Bring-Your-Own-Subscription, follow these instructions  
+1. **[A]** Install Azure Python SDK 
+   - On SLES 12 SP4 or SLES 12 SP5
+   <pre><code>
+    # You may need to activate the Public cloud extention first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install python-azure-mgmt-compute
+   </code></pre> 
 
-    <pre><code>
-    #Activate module PackageHub/15/x86_64
-    sudo SUSEConnect -p PackageHub/15/x86_64
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
-
-     - If you are using Pay-As-You-Go subscription, follow these instructions  
-
-    <pre><code>#Activate module PackageHub/15/x86_64
-    zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
-    #Install Azure Python SDK
-    sudo zypper in python3-azure-sdk
-    </code></pre>
+   - On SLES 15 and higher 
+   <pre><code>
+    # You may need to activate the Public cloud extention first. In this example the SUSEConnect command is for SLES 15 SP1
+    SUSEConnect -p sle-module-public-cloud/15.1/x86_64
+    sudo zypper install python3-azure-mgmt-compute
+   </code></pre> 
+ 
+   >[!IMPORTANT]
+   >Depending on your version and image type, you may need to activate the Public cloud extension for your OS release, before you can install Azure Python SDK.
+   >You can check the extension, by running SUSEConnect ---list-extensions.  
+   >To achieve the faster failover times with Azure Fence Agent:
+   > - on SLES 12 SP4 or SLES 12 SP5 install version **4.6.2** or higher of package python-azure-mgmt-compute  
+   > - on SLES 15 install version **4.6.2** or higher of package python**3**-azure-mgmt-compute 
 
 1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
-   Replace the IP address and the hostname in the following commands. The benefit of using /etc/hosts is that your cluster becomes independent of DNS, which could be a single point of failures too.
+   Replace the IP address and the hostname in the following commands.
 
+   >[!IMPORTANT]
+   > If using host names in the cluster configuration, it is vital to have reliable host name resolution. The cluster communication will fail, if the names are not available and that can lead to cluster failover delays.
+   > The benefit of using /etc/hosts is that your cluster becomes independent of DNS, which could be a single point of failures too.  
+     
    <pre><code>sudo vi /etc/hosts
+
    </code></pre>
 
    Insert the following lines to /etc/hosts. Change the IP address and hostname to match your environment   
@@ -440,7 +464,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    </code></pre>
 
 1. **[1]** Install Cluster
-
+- if using SBD devices for fencing
    <pre><code>sudo ha-cluster-init -u
    
    # ! NTP is not configured to start at system boot.
@@ -449,6 +473,19 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
    # Port for ring0 [5405] <b>Press ENTER</b>
    # SBD is already configured to use /dev/disk/by-id/scsi-36001405639245768818458b930abdf69;/dev/disk/by-id/scsi-36001405afb0ba8d3a3c413b8cc2cca03;/dev/disk/by-id/scsi-36001405f88f30e7c9684678bc87fe7bf - overwrite (y/n)? <b>n</b>
+   # Do you wish to configure an administration IP (y/n)? <b>n</b>
+   </code></pre>
+
+- if *not using* SBD devices for fencing
+   <pre><code>sudo ha-cluster-init -u
+   
+   # ! NTP is not configured to start at system boot.
+   # Do you want to continue anyway (y/n)? <b>y</b>
+   # /root/.ssh/id_rsa already exists - overwrite (y/n)? <b>n</b>
+   # Address for ring0 [10.0.0.6] <b>Press ENTER</b>
+   # Port for ring0 [5405] <b>Press ENTER</b>
+   # Do you wish to use SBD (y/n)? <b>n</b>
+   #WARNING: Not configuring SBD - STONITH will be disabled.
    # Do you wish to configure an administration IP (y/n)? <b>n</b>
    </code></pre>
 
@@ -511,8 +548,27 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo service corosync restart
    </code></pre>
 
+## Default Pacemaker configuration for SBD
+
+The configuration in this section is only applicable, if using SBD STONITH.  
+
+1. **[1]** Enable the use of a STONITH device and set the fence delay
+
+<pre><code>sudo crm configure property stonith-timeout=144
+sudo crm configure property stonith-enabled=true
+
+# List the resources to find the name of the SBD device
+sudo crm resource list
+sudo crm resource stop stonith-sbd
+sudo crm configure delete <b>stonith-sbd</b>
+sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
+   params pcmk_delay_max="15" \
+   op monitor interval="15" timeout="15"
+</code></pre>
+
 ## Create Azure Fence agent STONITH device
 
+This section of the documentation is only applicable, if using STONITH, based on Azure Fence agent.
 The STONITH device uses a Service Principal to authorize against Microsoft Azure. Follow these steps to create a Service Principal.
 
 1. Go to <https://portal.azure.com>
@@ -530,28 +586,32 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 
 ### **[1]** Create a custom role for the fence agent
 
-The Service Principal doesn't have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) or [Azure CLI](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli)
+The Service Principal doesn't have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster. If you did not already create the custom role, you can create it using [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) or [Azure CLI](../../../role-based-access-control/custom-roles-cli.md)
 
 Use the following content for the input file. You need to adapt the content to your subscriptions that is, replace c276fc76-9cd4-44c9-99a7-4fd71546436e and e91d47c4-76f3-4271-a796-21b4ecfe3624 with the Ids of your subscription. If you only have one subscription, remove the second entry in AssignableScopes.
 
 ```json
 {
-  "Name": "Linux Fence Agent Role",
-  "Id": null,
-  "IsCustom": true,
-  "Description": "Allows to deallocate and start virtual machines",
-  "Actions": [
-    "Microsoft.Compute/*/read",
-    "Microsoft.Compute/virtualMachines/deallocate/action",
-    "Microsoft.Compute/virtualMachines/start/action", 
-    "Microsoft.Compute/virtualMachines/powerOff/action" 
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
-    "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
-  ]
+    "properties": {
+        "roleName": "Linux Fence Agent Role",
+        "description": "Allows to power-off and start virtual machines",
+        "assignableScopes": [
+            "/subscriptions/c276fc76-9cd4-44c9-99a7-4fd71546436e",
+            "/subscriptions/e91d47c4-76f3-4271-a796-21b4ecfe3624"
+        ],
+        "permissions": [
+            {
+                "actions": [
+                    "Microsoft.Compute/*/read",
+                    "Microsoft.Compute/virtualMachines/powerOff/action",
+                    "Microsoft.Compute/virtualMachines/start/action"
+                ],
+                "notActions": [],
+                "dataActions": [],
+                "notDataActions": []
+            }
+        ]
+    }
 }
 ```
 
@@ -574,37 +634,31 @@ Repeat the steps above for the second cluster node.
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
-<pre><code># replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
+<pre><code>sudo crm configure property stonith-enabled=true
+crm configure property concurrent-fencing=true
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
+  params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>" \
+  pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 \ 
+  op monitor interval=3600 timeout=120
 
 sudo crm configure property stonith-timeout=900
-sudo crm configure property stonith-enabled=true
+
 </code></pre>
 
-## Default Pacemaker configuration for SBD
+> [!IMPORTANT]
+> The monitoring and fencing operations are de-serialized. As a result, if there is a longer running monitoring operation and simultaneous fencing event, there is no delay to the cluster failover, due to the already running monitoring operation.
 
-1. **[1]** Enable the use of a STONITH device and set the fence delay
-
-<pre><code>sudo crm configure property stonith-timeout=144
-sudo crm configure property stonith-enabled=true
-
-# List the resources to find the name of the SBD device
-sudo crm resource list
-sudo crm resource stop stonith-sbd
-sudo crm configure delete <b>stonith-sbd</b>
-sudo crm configure primitive <b>stonith-sbd</b> stonith:external/sbd \
-   params pcmk_delay_max="15" \
-   op monitor interval="15" timeout="15"
-</code></pre>
+> [!TIP]
+>Azure Fence Agent requires outbound connectivity to public end points as documented, along with possible solutions, in [Public endpoint connectivity for VMs using standard ILB](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## Pacemaker configuration for Azure scheduled events
 
-Azure offers [scheduled events](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
+Azure offers [scheduled events](../../linux/scheduled-events.md). Scheduled events are provided via meta-data service and allow time for the application to prepare for events like VM shutdown, VM redeployment, etc. Resource agent **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** monitors for scheduled Azure events. If events are detected, the agent will attempt to stop all resources on the impacted VM and move them to another node in the cluster. To achieve that additional Pacemaker resources must be configured. 
 
-1. **[A]** Install the **azure-events** agent. 
+1. **[A]** Make sure the package for the **azure-events** agent is already installed and up to date. 
 
-<pre><code>sudo zypper install resource-agents
+<pre><code>sudo zypper info resource-agents
 </code></pre>
 
 2. **[1]** Configure the resources in Pacemaker. 

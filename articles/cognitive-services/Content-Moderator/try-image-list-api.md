@@ -74,15 +74,17 @@ After you make changes to an image list, you must refresh its index for changes 
 
 6. Use key-value pair placeholders to assign more descriptive metadata to your list.
 
-       {
-          "Name": "MyExclusionList",
-          "Description": "MyListDescription",
-          "Metadata": 
-          {
+    ```json
+    {
+        "Name": "MyExclusionList",
+        "Description": "MyListDescription",
+        "Metadata": 
+        {
             "Category": "Competitors",
             "Type": "Exclude"
-          }
-       }
+        }
+    }
+    ```
 
    Add list metadata as key-value pairs, and not the actual images.
  

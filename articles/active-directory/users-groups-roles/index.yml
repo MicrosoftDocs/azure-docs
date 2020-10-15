@@ -33,8 +33,8 @@ landingContent:
         links:
           - text: Delegate administration
             url: roles-concept-delegation.md
-          - text: Compare Azure RBAC roles and Azure AD administrator roles
-            url: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+          - text: Compare Azure roles and Azure AD administrator roles
+            url: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
 
   # Card
   - title: Get started
@@ -42,11 +42,11 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Add a user
-            url: https://review.docs.microsoft.com/en-us/azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+            url: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
           - text: Set expiration policy for groups
             url: groups-quickstart-expiration.md
           - text: Assign licenses to users
-            url: https://docs.microsoft.com/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+            url: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
 
   # Card
   - title: Assign Azure AD admin roles
@@ -89,6 +89,6 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Add a custom domain name
-            url: https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain?context=azure/active-directory/users-groups-roles/context/ugr-context
+            url: ../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
           - text: Managing custom domain names
             url: domains-manage.md

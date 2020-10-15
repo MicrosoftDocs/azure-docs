@@ -1,9 +1,9 @@
 ---
 title: Integrate Time Series Insights with Remote Monitoring - Azure | Microsoft Docs
 description: In this how-to you will learn how to configure Time Series Insights for an existing Remote Monitoring solution that doesn't already include Time Series Insights.
-author: aditidugar
+author: Philmea
 manager: timlt
-ms.author: adugar
+ms.author: philmea
 ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
@@ -121,7 +121,7 @@ To make sure all users who have access to your Remote Monitoring solution are ab
 1. Choose **Save** to create the role assignment. After a few moments, the security principal is assigned the role in data access policies.
 
 > [!NOTE]
-> If you need to grant additional users access to the Time Series Insights explorer, you can use these steps to [grant data access](../time-series-insights/time-series-insights-data-access.md#grant-data-access).
+> If you need to grant additional users access to the Time Series Insights explorer, you can use these steps to [grant data access](../time-series-insights/concepts-access-policies.md#grant-data-access).
 
 ## Configure Azure Stream Analytics 
 
@@ -212,7 +212,7 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 1. Pull the [latest docker compose yaml file](https://github.com/Azure/pcs-cli/tree/5a9b4e0dbe313172eff19236e54a4d461d4f3e51/solutions/remotemonitoring/single-vm) from GitHub repo using the latest tag. 
 
-1. SSH into the VM by following the steps outlined on [how to create and use SSH Keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows).
+1. SSH into the VM by following the steps outlined on [how to create and use SSH Keys](../virtual-machines/linux/ssh-from-windows.md).
 
 1. Once connected, type `cd /app`.
 
@@ -239,7 +239,7 @@ Configure the environment of `basic` deployment for the updated microservices.
 
 Configure the environment of `standard` deployment for the updated micro services above
 
-1. At the command line, run `kubectl proxy`. For more information, see [accessing the Kubernetes API](https://kubernetes.io/docs/tasks/access-kubernetes-api/http-proxy-access-api/#using-kubectl-to-start-a-proxy-server).
+1. At the command line, run `kubectl proxy`. For more information, see [accessing the Kubernetes API](https://kubernetes.io/docs/reference/access-authn-authz/#using-kubectl-to-start-a-proxy-server).
 
 1. Open the Kubernetes management console.
 
@@ -295,4 +295,4 @@ Configure the environment of `standard` deployment for the updated micro service
 
 * To learn about how to explore your data and diagnose an alert in the Time Series Insights explorer, see our tutorial on [conducting a root cause analysis](iot-accelerators-remote-monitoring-root-cause-analysis.md).
 
-* To learn how to explore and query data in the Time Series Insights explorer, see documentation on the [Azure Time Series Insights explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-explorer).
+* To learn how to explore and query data in the Time Series Insights explorer, see documentation on the [Azure Time Series Insights explorer](../time-series-insights/time-series-insights-explorer.md).

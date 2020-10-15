@@ -84,7 +84,7 @@ The Azure connector can use a Service Principal to authorize against Microsoft A
 1. Click on New registration
 1. Enter a name and click on Register
 1. Select the new App and click on Certificates & secrets in the Settings tab
-1. Create a new client secret, enter a description for a new key, select when the secret should exire and click on Save
+1. Create a new client secret, enter a description for a new key, select when the secret should expire and click on Save
 1. Write down the Value. It is used as the password for the Service Principal
 1. Write down the Application ID. It is used as the username of the Service Principal
 
@@ -126,7 +126,7 @@ Open the SAP LaMa website and navigate to Infrastructure. Go to tab Cloud Manage
 * Label: Choose a name for the connector instance
 * User Name: Service Principal Application ID or ID of the user assigned identity of the virtual machine. See [Using a System or User Assigned Identity] for more information
 * Password: Service Principal key/password. You can leave this field empty if you use a system or user assigned identity.
-* URL: Keep default https://management.azure.com/
+* URL: Keep default `https://management.azure.com/`
 * Monitoring Interval (Seconds): Should be at least 300
 * Use Managed Identity: SAP LaMa can use a system or user assigned identity to authenticate against the Azure API. See chapter [Use a Managed Identity to get access to the Azure API](lama-installation.md#af65832e-6469-4d69-9db5-0ed09eac126d) in this guide.
 * Subscription ID: Azure subscription ID
@@ -257,14 +257,14 @@ In the examples below, we assume that you install SAP HANA with system ID HN1 an
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the ASCS. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
-![Linux][Logo_Linux] Linux
+![Linux logo.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-ascs -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows logo.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
@@ -273,7 +273,7 @@ C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i "Ethernet 3" -h ah1-as
 
 Run SWPM and use *ah1-ascs* for the *ASCS Instance Host Name*.
 
-![Linux][Logo_Linux] Linux  
+![Linux logo.][Logo_Linux] Linux  
 Add the following profile parameter to the SAP Host Agent profile, which is located at /usr/sap/hostctrl/exe/host_profile. For more information, see SAP Note [2628497].
 ```
 acosprep/nfs_paths=/home/ah1adm,/usr/sap/trans,/sapmnt/AH1,/usr/sap/AH1
@@ -385,14 +385,14 @@ Run the database instance installation of SWPM on the application server virtual
 
 Before you start the SAP Software Provisioning Manager (SWPM), you need to mount the IP address of virtual hostname of the application server. The recommended way is to use sapacext. If you mount the IP address using sapacext, make sure to remount the IP address after a reboot.
 
-![Linux][Logo_Linux] Linux
+![Linux logo.][Logo_Linux] Linux
 
 ```bash
 # /usr/sap/hostctrl/exe/sapacext -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>
 /usr/sap/hostctrl/exe/sapacext -a ifup -i eth0 -h ah1-di-0 -n 255.255.255.128
 ```
 
-![Windows][Logo_Windows] Windows
+![Windows logo.][Logo_Windows] Windows
 
 ```bash
 # C:\Program Files\SAP\hostctrl\exe\sapacext.exe -a ifup -i <network interface> -h <virtual hostname or IP address> -n <subnet mask>

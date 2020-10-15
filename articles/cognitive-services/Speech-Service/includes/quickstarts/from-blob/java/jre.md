@@ -1,9 +1,9 @@
 ---
-author: IEvangelist
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/13/2020
-ms.author: dapine
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -11,9 +11,8 @@ ms.author: dapine
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?pivots=programmming-language-java)
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programmming-language-java)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Upload a source file to an Azure blob](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
 
 
@@ -27,7 +26,8 @@ The first step is to make sure that you have your project open in Eclipse.
 ## Add a reference to Gson
 We'll be using an external JSON serializer / deserializer in this quickstart. For Java we've chosen [Gson](https://github.com/google/gson).
 
-Open your pom.xml and add the following reference:
+Open your pom.xml and add the following reference.
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/from-blob/pom.xml?range=19-25)]
 
 ## Start with some boilerplate code

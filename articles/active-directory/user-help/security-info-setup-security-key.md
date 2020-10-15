@@ -2,16 +2,16 @@
 title: Set up a security key as your verification method - Azure AD
 description: How to set up your Security info (preview) page to verify your identity to use a Fast Identity Online (FIDO2) security key as your verification method.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 07/18/2019
-ms.author: lizross
+ms.author: curtand
 ---
 
 # Set up a security key as your verification method
@@ -59,7 +59,7 @@ Before you are able to register your security key, the following must be true:
 
 You must create your security key and give it a unique PIN before you can sign in to your work or school account using the key. You may have up to 10 keys registered with your account. 
 
-1. Go to the **My Profile** page at https://myprofile.microsoft.com and sign in if you haven't already done so.
+1. Go to the **My Profile** page at https://myaccount.microsoft.com and sign in if you haven't already done so.
 
 2. Select **Security Info**, select **Add method**, and then select **Security key** from the **Add a method** drop-down list.
 
@@ -154,13 +154,13 @@ You can create a new security key PIN for your security key.
 
 ## Additional security info methods
 
-In order to register a security key, you must have at least one additional security verification method registered. See the [Overview section](security-info-add-update-methods-overview.md) for more information. 
+In order to register a security key, you must have at least one additional security verification method registered. See the [Overview section](./security-info-setup-auth-app.md) for more information. 
 
 ## Next steps
 
 - For more information about passwordless verification methods, read the [Microsoft’s Azure AD begins public preview of FIDO2 security keys, enabling passwordless logins](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) blog, or read the [What is the Microsoft Authenticator app?](user-help-auth-app-overview.md) and [Windows Hello overview](https://www.microsoft.com/windows/windows-hello) articles.
 
-- For more detailed info about [Microsoft-compliant security keys](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
+- For more detailed info about [Microsoft-compliant security keys](/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key).
 
 - Reset your password if you've lost or forgotten it, from the [Password reset portal](https://passwordreset.microsoftonline.com/) or follow the steps in the [Reset your work or school password](active-directory-passwords-update-your-own-password.md) article.
 

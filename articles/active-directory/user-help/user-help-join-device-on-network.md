@@ -2,16 +2,16 @@
 title: Join your work device to your organization's network - AD
 description: Learn how to join your work device to your organization's network.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 08/03/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 
 ---
@@ -23,9 +23,9 @@ While you're joining your Windows 10 device to your organization's network, the 
 
 - Windows registers your device to your organization's network, letting you access your resources using your personal account. After your device is registered, Windows then joins your device to the network, so you can use your organization's username and password to sign in and access restricted resources.
 
-- Optionally, based on your organization's choices, you might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](user-help-security-info-overview.md).
+- Optionally, based on your organization's choices, you might be asked to set up two-step verification through either [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) or [security info](./security-info-setup-signin.md).
 
-- Optionally, based on your organization's choices, you might be automatically enrolled in mobile device management, such as Microsoft Intune. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](https://docs.microsoft.com/intune-user-help/enroll-your-device-in-intune-all).
+- Optionally, based on your organization's choices, you might be automatically enrolled in mobile device management, such as Microsoft Intune. For more info about enrolling in Microsoft Intune, see [Enroll your device in Intune](/intune-user-help/enroll-your-device-in-intune-all).
 
 - You'll go through the sign-in process, using automatic sign-in with your organizational account.
 
@@ -44,13 +44,13 @@ If your device is brand-new and hasn't been set up yet, you can go through the W
 
 4. On your mobile device, approve your device so it can access your account. 
 
-    ![Mobile notification screen](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
+    ![Screenshot that shows the "Enter your password" notification screen.](./media/user-help-join-device-on-network/join-device-oobe-mobile.png)
 
 5. Complete the OOBE process, including setting your privacy settings and setting up Windows Hello (if necessary).
 
     Your device is now joined to your organization's network.
 
-## To make sure you're joined
+## To make sure you're joined (new device)
 You can make sure that you're joined by looking at your settings.
 
 1. Open **Settings**, and then select **Accounts**.
@@ -59,7 +59,7 @@ You can make sure that you're joined by looking at your settings.
 
 2. Select **Access work or school**, and make sure you see text that says something like, **Connected to *\<your_organization>* Azure AD**.
 
-    ![Access work or school screen with connected contoso account](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
+    ![Screenshot that shows the "Access work or school" window with the "Connected to (your organization) Azure AD" account selected.](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
 
 ## To join an already configured Windows 10 device
@@ -111,4 +111,4 @@ After you join your device to your organization's network, you should be able to
 
 - If your organization wants you to register your personal device, such as your phone, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
 
-- If your organization is managed using Microsoft Intune and you have questions about enrollment, sign-in, or any other Intune-related issue, see the [Intune user help content](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).
+- If your organization is managed using Microsoft Intune and you have questions about enrollment, sign-in, or any other Intune-related issue, see the [Intune user help content](/intune-user-help/use-managed-devices-to-get-work-done).

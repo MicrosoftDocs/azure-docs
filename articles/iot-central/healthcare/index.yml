@@ -31,65 +31,77 @@ landingContent:
             url: tutorial-continuous-patient-monitoring.md
 
   # Card (optional)
-  - title: Get connected
+  - title: Connect and develop devices
     linkLists:
+      - linkListType: overview
+        links:
+          - text: Overview for device developers
+            url: ../core/overview-iot-central-developer.md
       - linkListType: tutorial
         links:
-          - text: Set up a device template
-            url: ../preview/howto-set-up-template.md
-          - text: Connect an IoT Plug and Play device
-            url: ../preview/tutorial-connect-pnp-device.md
+          - text: Connect a device (Node.js)
+            url: ../core/tutorial-connect-device-nodejs.md
+          - text: Connect a device (Python)
+            url: ../core/tutorial-connect-device-python.md
+      - linkListType: concept
+        links:
+          - text: Device connectivity
+            url: ../core/concepts-get-connected.md
+          - text: Device templates
+            url: ../core/concepts-device-templates.md
       - linkListType: how-to-guide
         links:
-          - text: Prepare and connect an MX Chip IoT DevKit
-            url: ../preview/howto-connect-devkit.md
-          - text: Connect other IoT clouds
-            url: ../core/howto-build-iotc-device-bridge.md
+          - text: Set up a template
+            url: ../core/howto-set-up-template.md
+          - text: Connect an Azure Sphere device
+            url: ../core/howto-connect-sphere.md
+          - text: Troubleshoot device connectivity
+            url: ../core/troubleshoot-connection.md
   - title: Stay connected
     linkLists:
       - linkListType: tutorial
         links:
           - text: Use device groups
-            url: ../preview/tutorial-use-device-groups.md
+            url: ../core/tutorial-use-device-groups.md
       - linkListType: how-to-guide
         links:
           - text: Manage your devices
-            url: ../preview/howto-manage-devices.md
+            url: ../core/howto-manage-devices.md
           - text: Run a job
             url: ../core/howto-run-a-job.md
           - text: Analyze your device data
-            url: ../preview/howto-create-analytics.md
+            url: ../core/howto-create-analytics.md
   - title: Transform
     linkLists:
       - linkListType: tutorial
         links:
           - text: Create a rule
-            url: ../preview/quick-configure-rules.md
+            url: ../core/quick-configure-rules.md
           - text: Create telemetry rules
-            url: ../preview/tutorial-create-telemetry-rules.md
+            url: ../core/tutorial-create-telemetry-rules.md
           - text: Export to Blob Storage
-            url: ../preview/howto-export-data.md                   
+            url: ../core/howto-export-data.md                   
       - linkListType: how-to-guide
         links:
           - text: Create custom rules
-            url: ../preview/howto-create-custom-rules.md
+            url: ../core/howto-create-custom-rules.md
           - text: Create custom analytics
-            url: ../preview/howto-create-custom-analytics.md
+            url: ../core/howto-create-custom-analytics.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Manage your application
-            url: ../preview/howto-administer.md
+            url: ../core/howto-administer.md
           - text: Manage users and roles
-            url: ../preview/howto-manage-users-roles.md 
+            url: ../core/howto-manage-users-roles.md 
           - text: View your bill
-            url: ../preview/howto-view-bill.md
+            url: ../core/howto-view-bill.md
           - text: Customize application UI
-            url: ../preview/howto-customize-ui.md  
+            url: ../core/howto-customize-ui.md  
           - text: Configure personal dashboards
             url: ../core/howto-create-personal-dashboards.md
           - text: Use dashboard tiles
             url: ../core/howto-add-tiles-to-your-dashboard.md
           - text: Use application templates
-            url: ../preview/howto-use-app-templates.md
+            url: ../core/howto-use-app-templates.md

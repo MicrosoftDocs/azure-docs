@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
 ---
@@ -51,7 +51,7 @@ In this article, we use the portal to install the toolkit, after the cluster has
 
 ### Using the Azure portal
 
-For instructions on how to use the Azure portal to run script action, see [Customize HDInsight clusters using Script Action](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Make sure you provide the following inputs to install Microsoft Cognitive Toolkit. Use the following values for your script action:
+For instructions on how to use the Azure portal to run script action, see [Customize HDInsight clusters using Script Action](../hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation). Make sure you provide the following inputs to install Microsoft Cognitive Toolkit. Use the following values for your script action:
 
 |Property |Value |
 |---|---|

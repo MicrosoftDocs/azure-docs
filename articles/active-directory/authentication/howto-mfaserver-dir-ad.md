@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -22,7 +22,11 @@ ms.collection: M365-identity-device-management
 Use the Directory Integration section of the Azure MFA Server to integrate with Active Directory or another LDAP directory. You can configure attributes to match the directory schema and set up automatic user synchronization.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure Multi-Factor Authentication.
+>
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 ## Settings
 
@@ -45,7 +49,7 @@ The following table describes the LDAP configuration settings.
 
 | Feature | Description |
 | --- | --- |
-| Server |Enter the hostname or IP address of the server running the LDAP directory.  A backup server may also be specified separated by a semi-colon. <br>Note: When Bind Type is SSL, a fully qualified hostname is required. |
+| Server |Enter the hostname or IP address of the server running the LDAP directory.  A backup server may also be specified separated by a semi-colon. <br>Note: When Bind Type is SSL (TLS), a fully qualified hostname is required. |
 | Base DN |Enter the distinguished name of the base directory object from which all directory queries start.  For example, dc=abc,dc=com. |
 | Bind type - Queries |Select the appropriate bind type for use when binding to search the LDAP directory.  This is used for imports, synchronization, and username resolution. <br><br>  Anonymous - An anonymous bind is performed.  Bind DN and Bind Password are not used.  This only works if the LDAP directory allows anonymous binding and permissions allow the querying of the appropriate records and attributes.  <br><br> Simple - Bind DN and Bind Password are passed as plain text to bind to the LDAP directory.  This is for testing purposes, to verify that the server can be reached and that the bind account has the appropriate access. After the appropriate cert has been installed, use SSL instead.  <br><br> SSL - Bind DN and Bind Password are encrypted using SSL to bind to the LDAP directory.  Install a cert locally that the LDAP directory trusts.  <br><br> Windows - Bind Username and Bind Password are used to securely connect to an Active Directory domain controller or ADAM directory.  If Bind Username is left blank, the logged-on user's account is used to bind. |
 | Bind type - Authentications |Select the appropriate bind type for use when performing LDAP bind authentication.  See the bind type descriptions under Bind type - Queries.  For example, this allows for Anonymous bind to be used for queries while SSL bind is used to secure LDAP bind authentications. |

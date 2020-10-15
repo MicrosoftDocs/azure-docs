@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with AwardSpring | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and AwardSpring.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2f115be6-4fbe-42aa-9319-7462e7a75736
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with AwardSpring
@@ -104,7 +98,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	| First Name | user.givenname |
 	| Last Name | user.surname |
 	| Email | user.mail |
-	| Username | user.userprinicipalname |
+	| Username | user.userprincipalname |
 	| StudentID | < Student ID > |
 
 	> [!NOTE]
@@ -157,7 +151,7 @@ To configure single sign-on on **AwardSpring** side, you need to send the downlo
 In this section, a user called B.Simon is created in AwardSpring. AwardSpring supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in AwardSpring, a new one is created after authentication.
 
 > [!Note]
-> If you need to create a user manually, contact [AwardSpring support team](maito:support@awardspring.com).
+> If you need to create a user manually, contact [AwardSpring support team](mailto:support@awardspring.com).
 
 ## Test SSO
 

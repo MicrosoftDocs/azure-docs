@@ -15,16 +15,16 @@
     href: quick-backup-vm-powershell.md
   - name: Back up a VM - CLI
     href: quick-backup-vm-cli.md
-  - name: Back up a VM - Resource Manager template
-    displayName: ARM
+  - name: Back up a VM - ARM template
+    displayName: Resource Manager
     href: quick-backup-vm-template.md
 - name: Tutorials
   items:
-  - name: Back up Azure VMs at scale
+  - name: Back up multiple Azure VMs
     href: tutorial-backup-vm-at-scale.md
   - name: Back up Azure VMs with PowerShell
     href: tutorial-backup-azure-vm.md
-  - name: Restore a disk
+  - name: Restore a VM with Azure CLI
     href: tutorial-restore-disk.md
   - name: Restore individual files
     href: tutorial-restore-files.md
@@ -32,19 +32,17 @@
     href: tutorial-sql-backup.md
   - name: Back up SAP HANA databases in Azure VMs
     href: tutorial-backup-sap-hana-db.md
-  - name: Back up Azure Files file shares
-    href: tutorial-backup-azure-files.md
   - name: Back up Windows Server
     href: tutorial-backup-windows-server-to-azure.md
   - name: Restore files to Windows Server
     href: tutorial-backup-restore-files-windows-server.md
   - name: SAP HANA databases on Azure VMs – using CLI
     items:
-    - name: Backup SAP HANA databases - CLI  
+    - name: Backup SAP HANA databases - CLI
       href: tutorial-sap-hana-backup-cli.md
     - name: Restore SAP HANA databases - CLI
       href: tutorial-sap-hana-restore-cli.md
-    - name: Manage backed up SAP HANA databases - CLI 
+    - name: Manage backed up SAP HANA databases - CLI
       href: tutorial-sap-hana-manage-cli.md
 - name: Concepts
   items:
@@ -52,20 +50,28 @@
     items:
     - name: Azure Backup support matrix
       href: backup-support-matrix.md
+    - name: Backup Center support matrix
+      href: backup-center-support-matrix.md
     - name: Azure VM backup support matrix
       href: backup-support-matrix-iaas.md
     - name: DPM/Azure Backup Server (MABS) support matrix
       href: backup-support-matrix-mabs-dpm.md
     - name: MARS agent support matrix
       href: backup-support-matrix-mars-agent.md
+    - name: SQL Server Backup support matrix
+      href: sql-support-matrix.md
     - name: SAP HANA Backup support matrix
       href: sap-hana-backup-support-matrix.md
+    - name: Azure file share backup support matrix
+      href: azure-file-share-support-matrix.md
     - name: Supported VM SKUs for Azure Policy  
       href: backup-azure-policy-supported-skus.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
       href: backup-azure-backup-faq.md
+    - name: FAQ-Backup Center
+      href: backup-center-faq.md
     - name: FAQ-Azure VM backup
       href: backup-azure-vm-backup-faq.md
     - name: FAQ-MARS agent
@@ -82,20 +88,40 @@
       href: backup-azure-monitor-alert-faq.md
   - name: Backup architecture
     href: backup-architecture.md
+  - name: Guidance and best practices
+    href: guidance-best-practices.md
 - name: How to guides
   items:
-  - name: Recovery Services vault
+  - name: Vaults
+    items:
+    - name: Recovery Services vault
+      items:
+      - name: Overview
+        href: backup-azure-recovery-services-vault-overview.md
+      - name: Create
+        href: backup-create-rs-vault.md
+      - name: Delete
+        href: backup-azure-delete-vault.md
+      - name: Move
+        href: backup-azure-move-recovery-services-vault.md
+      - name: Manage
+        href: backup-azure-manage-windows-server.md
+    - name: Backup vault
+      items:
+      - name: Overview
+        href: backup-vault-overview.md
+  - name: Backup Center
     items:
     - name: Overview
-      href: backup-azure-recovery-services-vault-overview.md
-    - name: Create 
-      href: backup-create-rs-vault.md
-    - name: Delete
-      href: backup-azure-delete-vault.md
-    - name: Move 
-      href: backup-azure-move-recovery-services-vault.md
-    - name: Manage 
-      href: backup-azure-manage-windows-server.md
+      href: backup-center-overview.md
+    - name: Monitor and Operate
+      href: backup-center-monitor-operate.md
+    - name: Obtain insights
+      href: backup-center-obtain-insights.md
+    - name: Govern environment
+      href: backup-center-govern-environment.md
+    - name: Perform actions
+      href: backup-center-actions.md
   - name: Azure VM backup
     items:
     - name: Overview
@@ -114,8 +140,12 @@
         href: backup-azure-vms-encryption.md
       - name: Configure app-consistent backups of Azure VMs running Linux
         href: backup-azure-linux-app-consistent.md
+      - name: Selective disk backup
+        href: selective-disk-backup-restore.md
     - name: Restore
       items:
+      - name: About Azure VM restore
+        href: about-azure-vm-restore.md
       - name: Restore Azure VMs in the portal
         href: backup-azure-arm-restore-vms.md
       - name: Recover files from Azure VM backups
@@ -133,19 +163,33 @@
     - name: Overview
       href: backup-azure-sql-database.md
     - name: Backup
-      href: backup-sql-server-database-azure-vms.md
+      items:
+      - name: Back up multiple SQL Server VMs from the vault
+        href: backup-sql-server-database-azure-vms.md
+      - name: Backup a SQL Server VM from the VM pane
+        href: backup-sql-server-vm-from-vm-pane.md
     - name: Restore
       href: restore-sql-database-azure-vm.md
     - name: Manage
       href: manage-monitor-sql-database-backup.md
+  - name: Azure Database for PostgreSQL backup
+    items:
+    - name: Backup
+      href: backup-azure-database-postgresql.md
   - name: Windows backup using MARS agent
     items:
     - name: Overview
       href: backup-azure-about-mars.md
+    - name: Install or upgrade
+      items:
+      - name: Install MARS agent
+        href: install-mars-agent.md
+      - name: Upgrade MARS agent
+        href: upgrade-mars-agent.md
     - name: Backup
       items:
       - name: Back up Windows Server files and folders
-        href: backup-configure-vault.md
+        href: backup-windows-with-mars-agent.md
       - name: Back up Windows Server System State
         href: backup-azure-system-state.md
     - name: Restore
@@ -158,6 +202,8 @@
       href: backup-azure-manage-mars.md
   - name: Azure File share backup
     items:
+    - name: Overview
+      href: azure-file-share-backup-overview.md
     - name: From the Azure portal
       items:
       - name: Backup
@@ -178,6 +224,18 @@
       items:
       - name: Backup
         href: backup-azure-afs-automation.md
+      - name: Restore
+        href: restore-afs-powershell.md
+      - name: Manage
+        href: manage-afs-powershell.md
+    - name: With REST API
+      items:
+      - name: Backup
+        href: backup-azure-file-share-rest-api.md
+      - name: Restore
+        href: restore-azure-file-share-rest-api.md
+      - name: Manage
+        href: manage-azure-file-share-rest-api.md
   - name: SAP HANA database on Azure VM backup
     items:
     - name: Overview
@@ -186,12 +244,16 @@
       href: backup-azure-sap-hana-database.md
     - name: Restore
       href: sap-hana-db-restore.md
-    - name: Manage 
+    - name: Manage
       href: sap-hana-db-manage.md
   - name: Azure Backup Server (MABS)
     items:
-    - name: Azure Backup Server protection matrix
-      href: backup-mabs-protection-matrix.md
+    - name: Protection matrices
+      items:
+      - name: MABS V3 UR1 protection matrix
+        href: backup-mabs-protection-matrix.md
+      - name: MABS V3 RTM protection matrix
+        href: microsoft-azure-backup-server-protection-v3.md
     - name: Install or upgrade
       items:
       - name: Install Azure Backup Server
@@ -200,7 +262,7 @@
         href: backup-mabs-add-storage.md
       - name: What's New in MABS
         href: backup-mabs-whats-new-mabs.md
-      - name: Release notes MABS V3
+      - name: Release notes MABS 
         href: backup-mabs-release-notes-v3.md
       - name: Unattended installation
         href: backup-mabs-unattended-install.md
@@ -222,6 +284,8 @@
       href: backup-azure-alternate-dpm-server.md
     - name: Restore VMware VMs with Azure Backup Server
       href: restore-azure-backup-server-vmware.md
+    - name: Back up the MABS server
+      href: backup-the-mabs-server.md
   - name: Azure Backup Server on Azure Stack
     items:
     - name: Install Azure Backup Server
@@ -248,12 +312,22 @@
       href: backup-azure-backup-cloud-as-tape.md
   - name: Offline backup
     items:
-     - name: Configure offline-backup
-       href: backup-azure-backup-import-export.md
-     - name: Offline backup for DPM and Azure Backup Server
-       href: backup-azure-backup-server-import-export-.md
+    - name: Overview
+      href: offline-backup-overview.md
+    - name: Offline Backup with Azure Data Box (MARS)
+      href: offline-backup-azure-data-box.md
+    - name: Offline Backup with Azure Data Box (DPM/MABS)
+      href: offline-backup-azure-data-box-dpm-mabs.md
+    - name: Offline Backup with Import/Export (MARS)
+      href: backup-azure-backup-import-export.md
+    - name: Offline Backup with Import/Export (DPM/MABS)
+      href: backup-azure-backup-server-import-export.md
+    - name: Offline Backup for DPM and MABS (previous versions)
+      href: offline-backup-server-previous-versions.md
   - name: Monitor and Alerts
     items:
+    - name: Using Backup Explorer
+      href: monitor-azure-backup-with-backup-explorer.md
     - name: Using the Azure portal
       href: backup-azure-monitoring-built-in-monitor.md
     - name: Using Azure Monitor
@@ -263,30 +337,30 @@
     - name: Configure Azure Backup reports
       items:
       - name: Configure Azure Backup reports
-        href: backup-azure-configure-reports.md
-      - name: Data model for Azure Backup reports
-        href: backup-azure-reports-data-model.md
-      - name: Log Analytics data model for Azure Backup
-        href: backup-azure-log-analytics-data-model.md
+        href: configure-reports.md
     - name: Configure Diagnostics Events for Recovery Services Vaults
       items:
       - name: Using Diagnostics Settings for Recovery Services Vaults
         href: backup-azure-diagnostic-events.md
       - name: Log Analytics Data Model for Resource Specific Diagnostics Events
-        href: backup-azure-log-analytics-new-data-model.md
+        href: backup-azure-reports-data-model.md
+      - name: Log Analytics Data Model for Azure Backup (Azure Diagnostics mode)
+        href: backup-azure-diagnostics-mode-data-model.md
   - name: Automation
     items:
     - name: Built-in Azure Policy for Azure Backup
       items:
       - name: Auto-Enable Backup on VM Creation using Azure Policy
         href: backup-azure-auto-enable-backup.md
+      - name: Configure vault diagnostics settings at scale
+        href: azure-policy-configure-diagnostics.md
     - name: PowerShell
       items:
-      - name: Azure VMs in the Azure portal
+      - name: Azure VMs
         href: backup-azure-vms-automation.md
-      - name: DPM in the Azure portal
+      - name: Data Protection Manager (DPM)
         href: backup-dpm-automation.md
-      - name: Windows Server in the Azure portal
+      - name: Windows Server using the MARS agent
         href: backup-client-automation.md
       - name: SQL in Azure VM backups
         href: backup-azure-sql-automation.md
@@ -310,28 +384,49 @@
       href: backup-rm-template-samples.md
   - name: Security
     items:
-    - name: Role-Based Access Control
+    - name: Overview
+      href: security-overview.md
+    - name: Azure role-based access control
       href: backup-rbac-rs-vault.md
-    - name: Security for cloud workloads
-      href: backup-azure-security-feature-cloud.md
+    - name: Soft delete 
+      items:
+      - name: Overview
+        href: backup-azure-security-feature-cloud.md
+      - name: For virtual machines
+        href: soft-delete-virtual-machines.md
+      - name: For SQL Server and SAP HANA in Azure VMs
+        href: soft-delete-sql-saphana-in-azure-vm.md
+    - name: Delete protection for Azure file shares
+      href: soft-delete-azure-file-share.md
     - name: Security for hybrid backups
       href: backup-azure-security-feature.md
+    - name: Private Endpoints
+      href: private-endpoints.md
+    - name: Encryption in Azure Backup
+      href: backup-encryption.md
+    - name: Encryption using customer-managed keys
+      href: encryption-at-rest-with-cmk.md
     - name: Built-in security controls
       href: backup-security-controls.md
+    - name: Security controls by Azure Policy
+      displayName: regulatory, compliance, standards, domains
+      href: ./security-controls-policy.md
+    - name: Security baseline
+      href: security-baseline.md
   - name: Troubleshoot
     items:
     - name: Azure VM
       href: backup-azure-vms-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+    - name: Azure Backup agent
+      href: backup-azure-mars-troubleshoot.md
     - name: Files and folders backup is slow
       href: backup-azure-troubleshoot-slow-backup-performance-issue.md
     - name: Azure Backup Server
       href: backup-azure-mabs-troubleshoot.md
     - name: System Center DPM
       href: backup-azure-scdpm-troubleshooting.md
-    - name: Azure Backup agent
-      href: backup-azure-mars-troubleshoot.md
     - name: Azure File share
       href: troubleshoot-azure-files.md
     - name: SQL Server
@@ -345,23 +440,30 @@
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.recoveryservices.backup
   - name: Azure CLI
-    href: /cli/azure/backup?view=azure-cli-latest
-  - name: PowerShell
+    href: /cli/azure/backup
+  - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices
+  - name: PowerShell – Azure Backup agent
+    href: /powershell/module/msonlinebackup
   - name: REST - Backup
     href: /rest/api/backup/
   - name: REST - Recovery Services vault
     href: /rest/api/recoveryservices/
   - name: Resource Manager template
     href: /azure/templates/microsoft.recoveryservices/allversions
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
+  - name: Compliance 
+    href: compliance-offerings.md
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-backup.html
   - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+    href: azure-backup-pricing.md
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=backup
   - name: Videos

@@ -2,13 +2,11 @@
 title: Get started with your Microsoft Partner Agreement billing account - Azure CSP
 description: Understand your Microsoft Partner Agreement billing account (CSP)
 author: bandersmsft
-manager: amberbhargava
+ms.reviewer: amberb
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/24/2019
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -52,7 +50,7 @@ To turn on the policy:
 
 1. Search on **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search](./media/mpa-overview/search-cmb.png)
+   ![Screenshot shows Azure portal search for Cost Management + Billing.](./media/mpa-overview/search-cmb.png)
 
 1. Select **Customers** from the left-hand side and then select a customer from the list.
 

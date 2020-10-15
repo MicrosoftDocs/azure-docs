@@ -45,7 +45,7 @@ It also includes **ML and AI tools** like xgboost, mxnet, and Vowpal Wabbit.
 
 Currently DSVM is available in **Windows** and **Linux CentOS** operating systems. Choose the size of your DSVM (number of CPU cores and the amount of memory) based on the needs of the data science projects that you are planning to execute on it. 
 
-For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-windows) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm/).
+For more information on Windows edition of DSVM, see [Microsoft Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019) on the Azure Marketplace. For the Linux edition of the DSVM, see [Linux Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804).
 
 To learn how to execute some of the common data science tasks on the DSVM efficiently, see [10 things you can do on the Data science Virtual Machine](../data-science-virtual-machine/vm-do-ten-things.md)
 
@@ -59,11 +59,11 @@ When you create a Spark cluster in HDInsight, you create Azure compute resources
 TDSP team from Microsoft has published two end-to-end walkthroughs on how to use Azure HDInsight Spark Clusters to build data science solutions, one using Python and the other Scala. For more information on Azure HDInsight **Spark Clusters**, see [Overview: Apache Spark on HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). To learn how to build a data science solution using **Python** on an Azure HDInsight Spark Cluster, see [Overview of Data Science using Spark on Azure HDInsight](spark-overview.md). To learn how to build a data science solution using **Scala** on an Azure HDInsight Spark Cluster, see [Data Science using Scala and Spark on Azure](scala-walkthrough.md). 
 
 
-##  Azure SQL Data Warehouse
+##  Azure Synapse Analytics
 
-Azure SQL Data Warehouse allows you to scale compute resources easily and in seconds, without over-provisioning or over-paying. It also offers the unique option to pause the use of compute resources, giving you the freedom to better manage your cloud costs. The ability to deploy scalable compute resources makes it possible to bring all your data into Azure SQL Data Warehouse. Storage costs are minimal and you can run compute only on the parts of datasets that you want to analyze. 
+Azure Synapse Analytics allows you to scale compute resources easily and in seconds, without over-provisioning or over-paying. It also offers the unique option to pause the use of compute resources, giving you the freedom to better manage your cloud costs. The ability to deploy scalable compute resources makes it possible to bring all your data into Azure Synapse Analytics. Storage costs are minimal and you can run compute only on the parts of datasets that you want to analyze. 
 
-For more information on Azure SQL Data Warehouse, see the [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) website. To learn how to build end-to-end advanced analytics solutions with SQL Data Warehouse, see [The Team Data Science Process in action: using SQL Data Warehouse](sqldw-walkthrough.md).
+For more information on Azure Synapse Analytics, see the [Azure Synapse Analytics](https://azure.microsoft.com/services/sql-data-warehouse) website. To learn how to build end-to-end advanced analytics solutions with Azure Synapse Analytics, see [The Team Data Science Process in action: using Azure Synapse Analytics](sqldw-walkthrough.md).
 
 
 ## Azure Data Lake
@@ -106,16 +106,18 @@ The TDSP team from Microsoft has published two end-to-end walkthroughs that show
 
 If you are following the TDSP on **Windows**, you need to install the **Git Credential Manager (GCM)** to communicate with the Git repositories. To install GCM, you first need to install **Chocolaty**. To install Chocolaty and the GCM, run the following commands in Windows PowerShell as an **Administrator**:  
 
-	iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
-	choco install git-credential-manager-for-windows -y
-	
+```powershell
+iwr https://chocolatey.org/install.ps1 -UseBasicParsing | iex
+choco install git-credential-manager-for-windows -y
+```  
 
 ### Install Git on Linux (CentOS) machines
 
 Run the following bash command to install Git on Linux (CentOS) machines:
 
-	sudo yum install git
-
+```powershell
+sudo yum install git
+```
 
 ### Generate public SSH key on Linux (CentOS) machines
 
@@ -133,7 +135,7 @@ If you are using Linux (CentOS) machines to run the git commands, you need to ad
 1. Copy the entire ssh key including *ssh-rsa*. 
 1. Log in to your Azure DevOps Services. 
 1. Click **<Your Name\>** at the top-right corner of the page and click **security**. 
-	
+    
    ![Click your name and then click security](./media/platforms-and-tools/resources-2-user-setting.png)
 
 1. Click **SSH public keys**, and click **+Add**. 

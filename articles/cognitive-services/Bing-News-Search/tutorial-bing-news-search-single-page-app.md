@@ -5,13 +5,12 @@ description: Use this tutorial to build a single-page web application that can s
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: tutorial
-ms.date: 12/12/2019
+ms.date: 06/23/2020
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, devx-track-js
 ---
 # Tutorial: Create a single-page web app
 
@@ -34,6 +33,14 @@ The tutorial app illustrates how to:
 > * Handle errors that might occur
 
 The tutorial page is entirely self-contained; it does not use any external frameworks, style sheets, or image files. It uses only widely supported JavaScript language features and works with current versions of all major Web browsers.
+
+
+## Prerequisites
+
+To follow along with the tutorial, you need subscription keys for the Bing Search API. If you don't have these, you'll need to create them:
+
+* An Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
+* Once you have your Azure subscription, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7"  title="Create a Bing Search resource"  target="_blank">create a Bing Search resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
 
 ## App components
 Like any single-page Web app, this tutorial application includes three parts:
@@ -325,8 +332,8 @@ In the JavaScript code the object, `searchItemRenderers`, contains *renderers:* 
 
 ```javascript
 searchItemRenderers = {
-	news: function(item) { ... },
-	webPages: function (item) { ... }, 
+    news: function(item) { ... },
+    webPages: function (item) { ... }, 
     images: function(item, index, count) { ... },
     relatedSearches: function(item) { ... }
 }
@@ -341,7 +348,7 @@ A renderer function can accept the following parameters:
 
 The `index` and `count` parameters can be used to number results, to generate special HTML for the beginning or end of a collection, to insert line breaks after a certain number of items, and so on. If a renderer does not need this functionality, it does not need to accept these two parameters.
 
-The `news` renderer is shown in the following javascript excerpt:
+The `news` renderer is shown in the following JavaScript excerpt:
 ```javascript
     // render news story
     news: function (item) {
@@ -396,15 +403,18 @@ For development purposes, you can make the Bing Web Search API request through a
 
 It's easy to install a CORS proxy to allow our tutorial app to access the client ID header. First, if you don't already have it, [install Node.js](https://nodejs.org/en/download/). Then issue the following command in a command window:
 
-    npm install -g cors-proxy-server
+```console
+npm install -g cors-proxy-server
+```
 
-Next, change the Bing Web Search endpoint in the HTML file to:
-
-    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
+Next, change the Bing Web Search endpoint in the HTML file to:\
+`http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search`
 
 Finally, start the CORS proxy with the following command:
 
-    cors-proxy-server
+```console
+cors-proxy-server
+```
 
 Leave the command window open while you use the tutorial app; closing the window stops the proxy. In the expandable HTTP Headers section below the search results, you can now see the `X-MSEdge-ClientID` header (among others) and verify that it is the same for each request.
 

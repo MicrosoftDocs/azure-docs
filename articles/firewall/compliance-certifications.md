@@ -1,17 +1,17 @@
 ---
-title: Azure Firewall compliance certifications
-description: A list of Azure Firewall compliance certifications for PCI, SOC, and ISO
+title: Azure Firewall certifications
+description: A list of Azure Firewall certifications for PCI, SOC, ISO, and ICSA Labs
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 01/17/2020
+ms.date: 06/30/2020
 ms.author: victorh
 ---
 
-# Azure Firewall compliance certifications
+# Azure Firewall certifications
 
-Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO), and HITRUST compliant.
+Azure Firewall is Payment Card Industry (PCI), Service Organization Controls (SOC), International Organization for Standardization (ISO), ICSA Labs, and HITRUST compliant.
 
 The following certifications are for global Azure and Azure Government.
 
@@ -43,6 +43,8 @@ The following Azure Firewall certifications are for global Azure:
 - GLBA (US)
 - Germany C5
 - GxP (FDA 21 CFR Part 11)
+- HIPPA
+- HITECH Act (US)
 - HITRUST
 - ISO 20000-1:2011
 - ISO 22301:2012
@@ -86,6 +88,8 @@ The following Azure Firewall certifications are for Azure Government:
 - EAR
 - FIPS 140-2
 - FedRAMP High
+- HIPAA
+- HITECH Act (US)
 - HITRUST
 - IRS 1075
 - ITAR
@@ -98,6 +102,14 @@ The following Azure Firewall certifications are for Azure Government:
 - SOC 3
 - SOX (US)
 - Section 508 VPATs
+
+## ICSA Labs Corporate Firewall Certification
+
+![ICSA certification](media/overview/icsa-cert-firewall-small.png)
+
+ICSA Labs is a leading vendor in third-party testing and certification of security and health IT products, as well as network-connected devices. They measure product compliance, reliability, and performance for most of the world’s top technology vendors.
+
+Azure Firewall is the first cloud firewall service to attain the ICSA Labs Corporate Firewall Certification. For the Azure Firewall certification report, see the [ICSA Labs Certification Testing and Audit Report](https://aka.ms/ICSALabsCertification). For more information, see the [ICSA Labs Firewall Certification Program](https://www.icsalabs.com/technology-program/firewalls) page.
 
 
 ## Next steps

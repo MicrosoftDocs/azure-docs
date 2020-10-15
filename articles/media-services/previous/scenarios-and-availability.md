@@ -17,8 +17,10 @@ ms.author: juliako
 ---
 # Scenarios and availability of Media Services features across datacenters
 
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft Azure Media Services (AMS) enables you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
@@ -44,7 +46,7 @@ The following image shows some of the most commonly used objects when developing
 
 Click the image to view it full size.  
 
-<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+[![Diagram showing some of the most commonly used objects when developing against the Azure Media Services object data model.](./media/media-services-overview/media-services-overview-object-model-small.png)](./media/media-services-overview/media-services-overview-object-model.png#lightbox)
 
 You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.15).  
 
@@ -82,10 +84,10 @@ For information about availability in datacenters, see the [Availability](#avail
 
 ## Use Media Analytics to derive actionable insights from your videos
 
-Media Analytics is a collection of speech and vision components that make it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
+Media Analytics is a collection of speech and vision components that make it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](./legacy-components.md).
 
 1. Upload a high-quality media file into an asset.
-2. Process your videos with one of the Media Analytics services described in the [Media Analytics overview](media-services-analytics-overview.md) section.
+2. Process your videos with one of the Media Analytics services described in the [Media Analytics overview](./legacy-components.md) section.
 3. Media Analytics media processors produce MP4 files or JSON files. If a media processor produced an MP4 file, you can progressively download the file. If a media processor produced a JSON file, you can download the file from the Azure blob storage.
 
 For information about availability in datacenters, see the [Availability](#availability) section.
@@ -132,7 +134,7 @@ For information about availability in datacenters, see the [Availability](#avail
 
 ## Consuming content
 
-Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. The following topic provides links to SDKs and Player Frameworks that you can use to develop your own client applications that can consume streaming media from Media Services. For more information, see [Developing video payer applications](media-services-develop-video-players.md)
+Azure Media Services provides the tools you need to create rich, dynamic client player applications for most platforms including: iOS Devices, Android Devices, Windows, Windows Phone, Xbox, and Set-top boxes. 
 
 ## Enabling Azure CDN
 
@@ -154,7 +156,7 @@ AMS customers can scale streaming endpoints, media processing, and storage in th
 	>RUs work for parallelizing all media processing, including indexing jobs using Azure Media Indexer. However, unlike encoding, indexing jobs do not get processed faster with faster reserved units.
 
     For more information see, [Scale media processing](media-services-portal-scale-media-processing.md).
-* You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account. For more information, see [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md).
+* You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account. For more information, see [Manage storage accounts](./media-services-managing-multiple-storage-accounts.md).
 
 ## <a id="availability"></a> Availability of Media Services features across datacenters
 
@@ -164,7 +166,7 @@ This section provides details about availability of Media Services features acro
 
 #### Availability
 
-To determine if Media Services is available in a datacenter, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
+Use [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=media-services&regions=all) to determine whether Media Services is available in a specific datacenter.
 
 ### Streaming endpoints 
 
@@ -196,7 +198,10 @@ AMS offers two on-demand encoders **Media Encoder Standard** and **Media Encoder
 
 ### Analytics media processors
 
-Media Analytics is a collection of speech and vision components that makes it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](media-services-analytics-overview.md).
+Media Analytics is a collection of speech and vision components that makes it easier for organizations and enterprises to derive actionable insights from their video files. For more information, see [Azure Media Services Analytics Overview](./legacy-components.md).
+
+> [!NOTE]
+> Some analytics media processors will be retired. For the retirement dates, see the [legacy components](legacy-components.md) topic.
 
 #### Availability
 
@@ -206,9 +211,8 @@ Media Analytics is a collection of speech and vision components that makes it ea
 |Azure Media Indexer|GA|All|
 |Azure Media Motion Detector|Preview|All|
 |Azure Media OCR|Preview|All|
-|Azure Media Redactor|Preview|All|
+|Azure Media Redactor|GA|All|
 |Azure Media Video Thumbnails|Preview|All|
-|Azure Media Indexer 2|Preview|All except China and Federal Government region|
 
 ### Protection
 
@@ -260,4 +264,3 @@ Review Media Services learning paths.
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

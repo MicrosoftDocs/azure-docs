@@ -12,7 +12,7 @@ metadata:
   ms.collection: collection
   author: memildin #Required; your GitHub user alias, with correct capitalization.
   ms.author: memildin #Required; microsoft alias of author; optional team alias.
-  ms.date: 11/04/2019 #Required; mm/dd/yyyy format.
+  ms.date: 08/17/2020 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -25,53 +25,61 @@ landingContent:
       - linkListType: overview
         links:
           - text: What are the key capabilities of Security Center?
-            url: security-center-intro.md
+            url: security-center-introduction.md
           - text: Which versions of Windows server and Linux are supported?
             url: security-center-os-coverage.md
+          - text: What's Azure Defender?
+            url: azure-defender.md
+
  
   # Card
   - title: Stay current
     linkLists:
       - linkListType: whats-new
         links:
-          - text: Protect your containers
-            url: container-security.md
-          - text: Add dynamic compliance packages
-            url: update-regulatory-compliance-packages.md
-          - text: Integrate with Windows Admin Center
-            url: windows-admin-center-integration.md
-          - text: Automate responses to alerts and recommendations
-            url: workflow-automation.md
-          - text: Export security alerts and recommendations
-            url: continuous-export.md
-          - text: Set up advanced threat protection for Azure Key Vault 
-            url: advanced-threat-protection-key-vault.md
+          - text: Release notes for Security Center
+            url: release-notes.md
+          - text: Explore the new overview page
+            url: overview-page.md
+          - text: Protect your Kubernetes workloads
+            url: kubernetes-workload-protections.md
+          - text: Respond to Azure Defender for Key Vault alerts
+            url: defender-for-key-vault-usage.md
+          - text: Secure score API
+            url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
  
   # Card
   - title: Get started
     linkLists:
       - linkListType: get-started
         links:
+          - text: Get started with Security Center
+            url: security-center-get-started.md
           - text: Configure your security policies
             url: tutorial-security-policy.md
           - text: Evaluate your security posture
-            url: security-center-secure-score.md
-          - text: Upgrade to advanced security
-            url: security-center-onboarding.md
+            url: secure-score-security-controls.md
+          - text: Connect your AWS account
+            url: quickstart-onboard-aws.md
+          - text: Connect your GCP account
+            url: quickstart-onboard-gcp.md
+
 
   # Card
-  - title: Improve your secure score
+  - title: Improve your Secure Score
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: What is a secure score?
-            url: security-center-secure-score.md
+          - text: Understanding secure score
+            url: secure-score-security-controls.md
           - text: Remediate security recommendations
             url: security-center-remediate-recommendations.md
-          - text: Customize your security recommendations
-            url: tutorial-security-policy.md
+          - text: Exempt a resource from a recommendation
+            url: exempt-resource.md
           - text: Use recommendations to enhance security
             url: security-center-using-recommendations.md
+          - text: Track with the secure score API
+            url: secure-score-security-controls.md#get-your-secure-score-from-the-rest-api
 
   # Card
   - title: Mitigate threats
@@ -84,3 +92,7 @@ landingContent:
             url: security-center-adaptive-application.md
           - text: Implement Adaptive Network Hardening
             url: security-center-adaptive-network-hardening.md
+          - text: Try Azure Defender free for 30 days
+            url: security-center-pricing.md#try-azure-defender-free-for-30-days
+          - text: Use the Azure Defender dashboard
+            url: azure-defender-dashboard.md

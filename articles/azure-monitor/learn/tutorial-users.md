@@ -1,7 +1,6 @@
 ---
 title: Understand your customers in Azure Application Insights | Microsoft Docs
 description: Tutorial on using Azure Application Insights to understand how customers are using your application.
-ms.service:  azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
@@ -33,9 +32,9 @@ To complete this tutorial:
 	- ASP.NET and web development
 	- Azure development
 - Download and install the [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Deploy a .NET application to Azure and [enable the Application Insights SDK](../../azure-monitor/app/asp-net.md). 
-- [Send telemetry from your application](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) for adding custom events/page views
-- Send [user context](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) to track what a user does over time and fully utilize the usage features.
+- Deploy a .NET application to Azure and [enable the Application Insights SDK](../app/asp-net.md). 
+- [Send telemetry from your application](../app/usage-overview.md#send-telemetry-from-your-app) for adding custom events/page views
+- Send [user context](../app/usage-send-user-context.md) to track what a user does over time and fully utilize the usage features.
 
 ## Log in to Azure
 Log in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -99,16 +98,16 @@ While the previous panels are focused on what users of your application did, **F
 
 1. Select **Funnels** in the menu and then click **New**. 
 
-	![](media/tutorial-users/funnelsnew.png)
+	![Screenshot showing how to create a new funnel.](media/tutorial-users/funnelsnew.png)
 
 2. Type in a **Funnel Name**.
 3. Create a funnel with at least two steps by selecting an action for each step.  The list of actions is built from usage data collected by Application Insights.
 
-	![](media/tutorial-users/funnelsedit.png)
+	![Screenshot showing how to create steps in a new funnel.](media/tutorial-users/funnelsedit.png)
 
 4. Click **Save** to save the funnel and then view its results.  The window to the right of the funnel shows the most common events before the first activity and after the last activity to help you understand user tendencies around the particular sequence.
 
-	![](media/tutorial-users/funnelsright.png)
+	![Screenshot showing the event results of a newly created funnel.](media/tutorial-users/funnelsright.png)
 
 
 ## Learn which customers return
@@ -117,11 +116,11 @@ While the previous panels are focused on what users of your application did, **F
 1. Select **Retention** in the menu.
 2. By default, the analyzed information includes users who performed any action and then returned to perform any action.  You can change this filter to any include, for example, only those users who returned after completing a purchase.
 
-	![](media/tutorial-users/retentionquery.png)
+	![Screenshot showing how to set a retention filter.](media/tutorial-users/retentionquery.png)
 
 3. The returning users that match the criteria are shown in graphical and table form for different time durations.  The typical pattern is for a gradual drop in returning users over time.  A sudden drop from one time period to the next might raise a concern. 
 
-	![](media/tutorial-users/retentiongraph.png)
+	![Screenshot showing a graph for users that match the criteria set for a retention filter.](media/tutorial-users/retentiongraph.png)
 
 ## Analyze user navigation
 A **User flow** visualizes how users navigate between the pages and features of your application.  This helps you answer questions such as where users typically move from a particular page, how they typically exit your application, and if there are any actions that are regularly repeated.
@@ -130,15 +129,15 @@ A **User flow** visualizes how users navigate between the pages and features of 
 2.  Click **New** to create a new user flow and then click **Edit** to edit its details.
 3.  Increase the **Time Range** to 7 days and then select an initial event.  The flow will track user sessions that start with that event.
 
-	![](media/tutorial-users/flowsedit.png)
+	![Screenshot showing how to create a new user flow.](media/tutorial-users/flowsedit.png)
 
 4.  The user flow is displayed, and you can see the different user paths and their session counts.  Blue lines indicate an action that the user performed after the current action.  A red line indicates the end of the user session.
 
-	![](media/tutorial-users/flows.png)
+	![Screenshot showing the display of user paths and session counts for a user flow.](media/tutorial-users/flows.png)
 
 5.  To remove an event from the flow, click the **x** in the corner of the action and then click **Create Graph**.  The graph is redrawn with any instances of that event removed.  Click **Edit** to see that the event is now added to **Excluded events**.
 
-	![](media/tutorial-users/flowsexclude.png)
+	![Screenshot showing the list of excluded events for a user flow.](media/tutorial-users/flowsexclude.png)
 
 ## Consolidate usage data
 **Workbooks** combine data visualizations, Analytics queries, and text into interactive documents.  You can use workbooks to group together common usage information, consolidate information from a particular incident, or report back to your team on your application's usage.
@@ -147,12 +146,12 @@ A **User flow** visualizes how users navigate between the pages and features of 
 2.  Click **New** to create a new workbook.
 3.  A query is already provided that includes all usage data in the last day displayed as a bar chart.  You can use this query, manually edit it, or click **Sample queries** to select from other useful queries.
 
-	![](media/tutorial-users/samplequeries.png)
+	![Screenshot showing a list of sample queries that you can use.](media/tutorial-users/samplequeries.png)
 
 4.  Click **Done editing**.
 5.  Click **Edit** in the top pane to edit the text at the top of the workbook.  This is formatted using markdown.
 
-	![](media/tutorial-users/markdown.png)
+	![Screenshot showing how to edit the text at the top of the workbook.](media/tutorial-users/markdown.png)
 
 6.  Click **Add users** to add a graph with user information.  Edit the details of the graph if you want and then click **Done editing** to save it.
 
@@ -161,4 +160,5 @@ A **User flow** visualizes how users navigate between the pages and features of 
 Now that you've learned how to analyze your users, advance to the next tutorial to learn how to create custom dashboards that combine this information with other useful data about your application.
 
 > [!div class="nextstepaction"]
-> [Create custom dashboards](../../azure-monitor/learn/tutorial-app-dashboards.md)
+> [Create custom dashboards](./tutorial-app-dashboards.md)
+

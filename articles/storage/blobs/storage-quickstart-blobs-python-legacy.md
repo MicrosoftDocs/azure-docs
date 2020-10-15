@@ -3,28 +3,28 @@ title: 'Quickstart: Azure Blob storage client library v2.1 for Python'
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library v2.1 for Python to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/11/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: seo-python-october2019
+ms.custom: seo-python-october2019, devx-track-python
 ---
 
-# Quickstart: Azure Blob storage client library v2.1 for Python
+# Quickstart: Manage blobs with Python v2.1 SDK
 
-In this article, you use Python to upload, download, and list block blobs in a container in Azure Blob storage. Blobs are simply objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. Blobs in Azure Storage are different from file shares, schema-less tables, and message queues.  For more info, see [Introduction to Azure Storage](/azure/storage/common/storage-introduction).
+In this quickstart, you learn to manage blobs by using Python. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, and list blobs, and you'll create and delete containers.
 
-[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Manage blobs with Python v12 SDK](storage-quickstart-blobs-python.md).
 
 ## Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
+- [Python](https://www.python.org/downloads/).
+- [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python).
 
-Make sure you have the following additional prerequisites installed:
-
-* [Python](https://www.python.org/downloads/)
-
-* [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Download the sample application
 

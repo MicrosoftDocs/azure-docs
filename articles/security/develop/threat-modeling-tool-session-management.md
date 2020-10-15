@@ -1,6 +1,6 @@
 ---
 title: Session Management - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
-description: mitigations for threats exposed in the Threat Modeling Tool 
+description: Learn about session management mitigation for threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,14 +16,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-
+ms.custom: "has-adal-ref, devx-track-js, devx-track-csharp"
 ---
 
 # Security Frame: Session Management
 | Product/Service | Article |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implement proper logout using ADAL methods when using Azure AD](#logout-adal)</li></ul> |
-| IoT Device | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
+| **IoT Device** | <ul><li>[Use finite lifetimes for generated SaS tokens](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[Use minimum token lifetimes for generated Resource tokens](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implement proper logout using WsFederation methods when using ADFS](#wsfederation-logout)</li></ul> |
 | **Identity Server** | <ul><li>[Implement proper logout when using Identity Server](#proper-logout)</li></ul> |
@@ -218,7 +218,7 @@ All HTTP-based applications that use cookies should specify HttpOnly in the cook
 | **Applicable Technologies** | Web Forms |
 | **Attributes**              | N/A  |
 | **References**              | [FormsAuthentication.RequireSSL Property](https://msdn.microsoft.com/library/system.web.security.formsauthentication.requiressl.aspx) |
-| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether SSL (Secure Sockets Layer) is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
+| **Steps** | The RequireSSL property value is set in the configuration file for an ASP.NET application by using the requireSSL attribute of the configuration element. You can specify in the Web.config file for your ASP.NET application whether Transport Layer Security (TLS), previously known as SSL (Secure Sockets Layer), is required to return the forms-authentication cookie to the server by setting the requireSSL attribute.|
 
 ### Example 
 The following code example sets the requireSSL attribute in the Web.config file.

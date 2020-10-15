@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: overview
-ms.date: 09/17/2019
+ms.date: 10/12/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -14,10 +14,13 @@ manager: daveba
 ms.reviewer: calebb
 
 ms.collection: M365-identity-device-management
+ms.custom: contperfq4, azuread-video-2020
 ---
 # What is Conditional Access?
 
 The modern security perimeter now extends beyond an organization's network to include user and device identity. Organizations can utilize these identity signals as part of their access control decisions. 
+
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-AD-Conditional-Access/player]
 
 Conditional Access is the tool used by Azure Active Directory to bring signals together, to make decisions, and enforce organizational policies. Conditional Access is at the heart of the new identity driven control plane.
 
@@ -30,11 +33,12 @@ Administrators are faced with two primary goals:
 - Empower users to be productive wherever and whenever
 - Protect the organization's assets
 
-By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure and stay out of your user’s way when not needed.
+By using Conditional Access policies, you can apply the right access controls when needed to keep your organization secure and stay out of your user's way when not needed.
 
 ![Conceptual Conditional Access process flow](./media/overview/conditional-access-overview-how-it-works.png)
 
-Conditional Access policies are enforced after the first-factor authentication has been completed. Conditional Access is not intended as an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but can use signals from these events to determine access.
+> [!IMPORTANT]
+> Conditional Access policies are enforced after first-factor authentication is completed. Conditional Access isn't intended to be an organization's first line of defense for scenarios like denial-of-service (DoS) attacks, but it can use signals from these events to determine access.
 
 ## Common signals
 
@@ -44,7 +48,7 @@ Common signals that Conditional Access can take in to account when making a poli
    - Policies can be targeted to specific users and groups giving administrators fine-grained control over access.
 - IP Location information
    - Organizations can create trusted IP address ranges that can be used when making policy decisions. 
-   - Administrators can specify entire countries IP ranges to block or allow traffic from.
+   - Administrators can specify entire countries/regions IP ranges to block or allow traffic from.
 - Device
    - Users with devices of specific platforms or marked with a specific state can be used when enforcing Conditional Access policies.
 - Application
@@ -68,7 +72,7 @@ Common signals that Conditional Access can take in to account when making a poli
 
 ## Commonly applied policies
 
-Many organizations have common access concerns that Conditional Access policies can help with such as:
+Many organizations have [common access concerns that Conditional Access policies can help with](concept-conditional-access-policy-common.md) such as:
 
 - Requiring multi-factor authentication for users with administrative roles
 - Requiring multi-factor authentication for Azure management tasks
@@ -89,16 +93,14 @@ Discover how other organizations use Azure AD Conditional Access to define and i
 
 [!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
-Customers with [Microsoft 365 Business licenses](https://docs.microsoft.com/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features. 
+Customers with [Microsoft 365 Business Premium licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features. 
+
+[Sign-in Risk](concept-conditional-access-conditions.md#sign-in-risk) requires access to [Identity Protection](../identity-protection/overview-identity-protection.md)
 
 ## Next steps
 
-[Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
-
-To learn how to implement Conditional Access in your environment, see [Plan your Conditional Access deployment in Azure Active Directory](plan-conditional-access.md).
-
-[Learn about Identity Protection](../identity-protection/overview-v2.md)
-
-[Learn about Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security)
-
-[Learn about Microsoft Intune](https://docs.microsoft.com/intune/index)
+- [Building a Conditional Access policy piece by piece](concept-conditional-access-policies.md)
+- [Plan your Conditional Access deployment](plan-conditional-access.md)
+- [Learn about Identity Protection](../identity-protection/overview-identity-protection.md)
+- [Learn about Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
+- [Learn about Microsoft Intune](/intune/index)

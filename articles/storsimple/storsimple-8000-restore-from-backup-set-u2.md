@@ -4,16 +4,12 @@ description: Explains how to use the StorSimple Device Manager service Backup Ca
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
-editor: ''
 
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 05/23/2017
+ms.topic: how-to
+ms.date: 07/15/2020
 ms.author: alkohli
 
 ---
@@ -22,8 +18,6 @@ ms.author: alkohli
 ## Overview
 
 This tutorial describes the restore operation performed on a StorSimple 8000 series device using an existing backup set. Use the **Backup catalog** blade to restore a volume from a local or cloud backup. The **Backup catalog** blade displays all the backup sets that are created when manual or automated backups are taken. The restore operation from a backup set brings the volume online immediately while data is downloaded in the background.
-
-An alternate method to start restore is to go to **Devices > [Your device] > Volumes**. In the **Volumes** blade, select a volume, right-click to invoke the context menu, and then select **Restore**.
 
 ## Before you restore
 
@@ -117,7 +111,7 @@ You can use the **Backup Catalog** blade to restore your StorSimple volume from 
    
 4. Navigate back to the **Backup Catalog** tab and select a backup set. Right-click and then from the context menu, select **Restore**.
 
-    ![Backup set list](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
+    ![Backup set list 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu1.png)
 
 5. You will be prompted for confirmation. Review the restore information, and then select the confirmation check box.
    
@@ -125,7 +119,7 @@ You can use the **Backup Catalog** blade to restore your StorSimple volume from 
 
 7. Click **Restore**. This initiates a restore job that you can view by accessing the **Jobs** page.
 
-   ![Confirmation page](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
+   ![Confirmation page 2](./media/storsimple-8000-restore-from-backup-set-u2/restorebu5.png)
 
 8. After the restore is complete, verify that the contents of your volumes are replaced by volumes from the backup.
 

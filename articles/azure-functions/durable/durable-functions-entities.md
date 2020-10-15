@@ -14,7 +14,7 @@ Entity functions define operations for reading and updating small pieces of stat
 Entities provide a means for scaling out applications by distributing the work across many entities, each with a modestly sized state.
 
 > [!NOTE]
-> Entity functions and related functionality is only available in Durable Functions 2.0 and above.
+> Entity functions and related functionality are only available in Durable Functions 2.0 and above. They are currently supported in .NET and JavaScript.
 
 ## General concepts
 
@@ -37,7 +37,7 @@ To invoke an operation on an entity, specify the:
 * **Entity ID** of the target entity.
 * **Operation name**, which is a string that specifies the operation to perform. For example, the `Counter` entity could support `add`, `get`, or `reset` operations.
 * **Operation input**, which is an optional input parameter for the operation. For example, the add operation can take an integer amount as the input.
-* **Scheduled time*, which is an optional parameter for specifying the delivery time of the operation. For example, an operation can be reliably scheduled to run several days in the future.
+* **Scheduled time**, which is an optional parameter for specifying the delivery time of the operation. For example, an operation can be reliably scheduled to run several days in the future.
 
 Operations can return a result value or an error result, such as a JavaScript error or a .NET exception. This result or error can be observed by orchestrations that called the operation.
 
@@ -227,7 +227,7 @@ const df = require("durable-functions");
 module.exports = async function (context) {
     const client = df.getClient(context);
     const entityId = new df.EntityId("Counter", "myCounter");
-    const stateResponse = await context.df.readEntityState(entityId);
+    const stateResponse = await client.readEntityState(entityId);
     return stateResponse.entityState;
 };
 ```

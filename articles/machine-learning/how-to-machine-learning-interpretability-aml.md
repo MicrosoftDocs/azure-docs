@@ -1,38 +1,48 @@
 ---
-title: Model interpretability for local and remote runs
+title: Interpret & explain ML models in Python (preview)
 titleSuffix: Azure Machine Learning
 description: Learn how to get explanations for how your machine learning model determines feature importance and makes predictions when using the Azure Machine Learning SDK.
 services: machine-learning
-services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
+ms.author: mithigpe
+author: minthigpen
+ms.reviewer: Luis.Quintanilla
+ms.date: 07/09/2020
 ms.topic: conceptual
-ms.author: mesameki
-author: mesameki
-ms.reviewer: trbye
-ms.date: 10/25/2019
+ms.custom: how-to, devx-track-python
 ---
 
-# Model interpretability for local and remote runs
+# Use the interpretability package to explain ML models & predictions in Python (preview)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In this article, you learn to use the interpretability package of the Azure Machine Learning Python SDK to understand why your model made its predictions. You learn how to:
 
-* Interpret machine learning models trained both locally and on remote compute resources.
-* Store local and global explanations on Azure Run History.
-* View interpretability visualizations in [Azure Machine Learning studio](https://ml.azure.com).
-* Deploy a scoring explainer with your model.
+In this how-to guide, you learn to use the interpretability package of the Azure Machine Learning Python SDK to perform the following tasks:
 
-For more information, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md).
 
-## Local interpretability
+* Explain the entire model behavior or individual predictions on your personal machine locally.
 
-The following example shows how to use the interpretability package locally without contacting Azure services.
+* Enable interpretability techniques for engineered features.
 
-1. If needed, use `pip install azureml-interpret` to get the interpretability package.
+* Explain the behavior for the entire model and individual predictions in Azure.
 
-1. Train a sample model in a local Jupyter notebook.
+* Use a visualization dashboard to interact with your model explanations.
+
+* Deploy a scoring explainer alongside your model to observe explanations during inferencing.
+
+
+
+For more information on the supported interpretability techniques and machine learning models, see [Model interpretability in Azure Machine Learning](how-to-machine-learning-interpretability.md) and [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model).
+
+## Generate feature importance value on your personal machine 
+The following example shows how to use the interpretability package on your personal machine without contacting Azure services.
+
+1. Install the `azureml-interpret` package.
+    ```bash
+    pip install azureml-interpret
+    ```
+
+2. Train a sample model in a local Jupyter notebook.
 
     ```python
     # load breast cancer dataset, a well-known small dataset that comes with scikit-learn
@@ -52,7 +62,7 @@ The following example shows how to use the interpretability package locally with
     model = clf.fit(x_train, y_train)
     ```
 
-1. Call the explainer locally.
+3. Call the explainer locally.
    * To initialize an explainer object, pass your model and some training data to the explainer's constructor.
    * To make your explanations and visualizations more informative, you can choose to pass in feature names and output class names if doing classification.
 
@@ -107,17 +117,17 @@ The following example shows how to use the interpretability package locally with
                              classes=classes)
     ```
 
-### Overall, global feature importance values
+### Explain the entire model behavior (global explanation) 
 
-Refer to the following example to help you get the global feature importance values.
+Refer to the following example to help you get the aggregate (global) feature importance values.
 
 ```python
 
-# you can use the training data or the test data here
-global_explanation = explainer.explain_global(x_train)
+# you can use the training data or the test data here, but test data would allow you to use Explanation Exploration
+global_explanation = explainer.explain_global(x_test)
 
 # if you used the PFIExplainer in the previous step, use the next line of code instead
-# global_explanation = explainer.explain_global(x_train, true_labels=y_test)
+# global_explanation = explainer.explain_global(x_train, true_labels=y_train)
 
 # sorted feature importance values and feature names
 sorted_global_importance_values = global_explanation.get_ranked_global_values()
@@ -128,9 +138,8 @@ dict(zip(sorted_global_importance_names, sorted_global_importance_values))
 global_explanation.get_feature_importance_dict()
 ```
 
-### Instance-level, local feature importance values
-
-Get the local feature importance values by calling explanations for an individual instance or a group of instances.
+### Explain an individual prediction (local explanation)
+Get the individual feature importance values of different datapoints by calling explanations for an individual instance or a group of instances.
 > [!NOTE]
 > `PFIExplainer` does not support local explanations.
 
@@ -143,67 +152,7 @@ sorted_local_importance_names = local_explanation.get_ranked_local_names()
 sorted_local_importance_values = local_explanation.get_ranked_local_values()
 ```
 
-## Interpretability for remote runs
-
-The following example shows how you can use the `ExplanationClient` class to enable model interpretability for remote runs. It's conceptually similar to the local process, except you:
-
-* Use the `ExplanationClient` in the remote run to upload the interpretability context.
-* Download the context later in a local environment.
-
-1. If needed, use `pip install azureml-contrib-interpret` to get the necessary package.
-
-1. Create a training script in a local Jupyter notebook. For example, `train_explain.py`.
-
-    ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
-    from azureml.core.run import Run
-    from interpret.ext.blackbox import TabularExplainer
-
-    run = Run.get_context()
-    client = ExplanationClient.from_run(run)
-
-    # write code to get and split your data into train and test sets here
-    # write code to train your model here 
-
-    # explain predictions on your local machine
-    # "features" and "classes" fields are optional
-    explainer = TabularExplainer(model, 
-                                 x_train, 
-                                 features=feature_names, 
-                                 classes=classes)
-
-    # explain overall model predictions (global explanation)
-    global_explanation = explainer.explain_global(x_test)
-    
-    # uploading global model explanation data for storage or visualization in webUX
-    # the explanation can then be downloaded on any compute
-    # multiple explanations can be uploaded
-    client.upload_model_explanation(global_explanation, comment='global explanation: all features')
-    # or you can only upload the explanation object with the top k feature info
-    #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
-    ```
-
-1. Set up an Azure Machine Learning Compute as your compute target and submit your training run. See [setting up compute targets for model training](how-to-set-up-training-targets.md#amlcompute) for instructions. You might also find the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) helpful.
-
-1. Download the explanation in your local Jupyter notebook.
-
-    ```python
-    from azureml.contrib.interpret.explanation.explanation_client import ExplanationClient
-    
-    client = ExplanationClient.from_run(run)
-    
-    # get model explanation data
-    explanation = client.download_model_explanation()
-    # or only get the top k (e.g., 4) most important features with their importance values
-    explanation = client.download_model_explanation(top_k=4)
-    
-    global_importance_values = explanation.get_ranked_global_values()
-    global_importance_names = explanation.get_ranked_global_names()
-    print('global importance values: {}'.format(global_importance_values))
-    print('global importance names: {}'.format(global_importance_names))
-    ```
-
-## Raw feature transformations
+### Raw feature transformations
 
 You can opt to get explanations in terms of raw, untransformed features rather than engineered features. For this option, you pass your feature transformation pipeline to the explainer in `train_explain.py`. Otherwise, the explainer provides explanations in terms of engineered features.
 
@@ -277,31 +226,95 @@ tabular_explainer = TabularExplainer(clf.steps[-1][1],
                                      transformations=transformations)
 ```
 
+## Generate feature importance values via remote runs
+
+The following example shows how you can use the `ExplanationClient` class to enable model interpretability for remote runs. It is conceptually similar to the local process, except you:
+
+* Use the `ExplanationClient` in the remote run to upload the interpretability context.
+* Download the context later in a local environment.
+
+1. Install the `azureml-interpret` package.
+    ```bash
+    pip install azureml-interpret
+    ```
+1. Create a training script in a local Jupyter notebook. For example, `train_explain.py`.
+
+    ```python
+    from azureml.interpret import ExplanationClient
+    from azureml.core.run import Run
+    from interpret.ext.blackbox import TabularExplainer
+
+    run = Run.get_context()
+    client = ExplanationClient.from_run(run)
+
+    # write code to get and split your data into train and test sets here
+    # write code to train your model here 
+
+    # explain predictions on your local machine
+    # "features" and "classes" fields are optional
+    explainer = TabularExplainer(model, 
+                                 x_train, 
+                                 features=feature_names, 
+                                 classes=classes)
+
+    # explain overall model predictions (global explanation)
+    global_explanation = explainer.explain_global(x_test)
+    
+    # uploading global model explanation data for storage or visualization in webUX
+    # the explanation can then be downloaded on any compute
+    # multiple explanations can be uploaded
+    client.upload_model_explanation(global_explanation, comment='global explanation: all features')
+    # or you can only upload the explanation object with the top k feature info
+    #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
+    ```
+
+1. Set up an Azure Machine Learning Compute as your compute target and submit your training run. See [Create and manage Azure Machine Learning compute clusters](how-to-create-attach-compute-cluster.md) for instructions. You might also find the [example notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) helpful.
+
+1. Download the explanation in your local Jupyter notebook.
+
+    ```python
+    from azureml.interpret import ExplanationClient
+    
+    client = ExplanationClient.from_run(run)
+    
+    # get model explanation data
+    explanation = client.download_model_explanation()
+    # or only get the top k (e.g., 4) most important features with their importance values
+    explanation = client.download_model_explanation(top_k=4)
+    
+    global_importance_values = explanation.get_ranked_global_values()
+    global_importance_names = explanation.get_ranked_global_names()
+    print('global importance values: {}'.format(global_importance_values))
+    print('global importance names: {}'.format(global_importance_names))
+    ```
+
+
 ## Visualizations
 
 After you download the explanations in your local Jupyter notebook, you can use the visualization dashboard to understand and interpret your model.
 
-### Global visualizations
+### Understand entire model behavior (global explanation) 
 
-The following plots provide a global view of the trained model along with its predictions and explanations.
+The following plots provide an overall view of the trained model along with its predictions and explanations.
 
 |Plot|Description|
 |----|-----------|
 |Data Exploration| Displays an overview of the dataset along with prediction values.|
-|Global Importance|Shows top K (configurable K) important features globally. Helps understanding of underlying model's global behavior.|
-|Explanation Exploration|Demonstrates how a feature affects a change in model’s prediction values, or the probability of prediction values. Shows impact of feature interaction.|
-|Summary Importance|Uses local, feature importance values across all data points to show the distribution of each feature's impact on the prediction value.|
+|Global Importance|Aggregates feature importance values of individual datapoints to show the model's overall top K (configurable K) important features. Helps understanding of underlying model's overall behavior.|
+|Explanation Exploration|Demonstrates how a feature affects a change in model's prediction values, or the probability of prediction values. Shows impact of feature interaction.|
+|Summary Importance|Uses individual feature importance values across all data points to show the distribution of each feature's impact on the prediction value. Using this diagram, you investigate in what direction the feature values affects the prediction values.
+|
 
 [![Visualization Dashboard Global](./media/how-to-machine-learning-interpretability-aml/global-charts.png)](./media/how-to-machine-learning-interpretability-aml/global-charts.png#lightbox)
 
-### Local visualizations
+### Understand individual predictions (local explanation) 
 
-You can load the local, feature importance plot for any data point by selecting the individual data point in the plot.
+You can load the individual feature importance plot for any data point by clicking on any of the individual data points in any of the overall plots.
 
 |Plot|Description|
 |----|-----------|
-|Local Importance|Shows the top K (configurable K) important features globally. Helps illustrate the local behavior of the underlying model on a specific data point.|
-|Perturbation Exploration|Allows changes to feature values of the selected data point and observe resulting changes to prediction value.|
+|Local Importance|Shows the top K (configurable K) important features for an individual prediction. Helps illustrate the local behavior of the underlying model on a specific data point.|
+|Perturbation Exploration (what if analysis)|Allows changes to feature values of the selected data point and observe resulting changes to prediction value.|
 |Individual Conditional Expectation (ICE)| Allows feature value changes from a minimum value to a maximum value. Helps illustrate how the data point's prediction changes when a feature changes.|
 
 [![Visualization Dashboard Local Feature Importance](./media/how-to-machine-learning-interpretability-aml/local-charts.png)](./media/how-to-machine-learning-interpretability-aml/local-charts.png#lightbox)
@@ -312,41 +325,19 @@ You can load the local, feature importance plot for any data point by selecting 
 
 [![Visualization Dashboard ICE Plots](./media/how-to-machine-learning-interpretability-aml/ice-plot.png)](./media/how-to-machine-learning-interpretability-aml/ice-plot.png#lightbox)
 
-> [!NOTE]
-> Before the Jupyter kernel starts, make sure you enable widget extensions for the visualization dashboard.
-
-* Jupyter notebooks
-
-    ```shell
-    jupyter nbextension install --py --sys-prefix azureml.contrib.interpret.visualize
-    jupyter nbextension enable --py --sys-prefix azureml.contrib.interpret.visualize
-    ```
-
-* JupyterLab
-
-    ```shell
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager
-    jupyter labextension install microsoft-mli-widget
-    ```
-
 To load the visualization dashboard, use the following code.
 
 ```python
 from interpret_community.widget import ExplanationDashboard
 
-ExplanationDashboard(global_explanation, model, x_test)
+ExplanationDashboard(global_explanation, model, datasetX=x_test)
 ```
 
 ### Visualization in Azure Machine Learning studio
 
-If you complete the [remote interpretability](#interpretability-for-remote-runs) steps, you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above. It only supports two tabs:
+If you complete the [remote interpretability](how-to-machine-learning-interpretability-aml.md#generate-feature-importance-values-via-remote-runs) steps (uploading generated explanation to Azure Machine Learning Run History), you can view the visualization dashboard in [Azure Machine Learning studio](https://ml.azure.com). This dashboard is a simpler version of the visualization dashboard explained above (explanation exploration and ICE plots are disabled as there is no active compute in studio that can perform their real time computations).
 
-|Plot|Description|
-|----|-----------|
-|Global Importance|Shows top K (configurable K) important features globally. Helps understanding of underlying model's global behavior.|
-|Summary Importance|Uses local, feature importance values across all data points to show the distribution of each feature's impact on the prediction value.|
-
-If both global and local explanations are available, data populates both tabs. If only a global explanation is available, the Summary Importance tab is disabled.
+If the dataset, global, and local explanations are available, data populates all of the tabs (except Perturbation Exploration and ICE). If only a global explanation is available, the Summary Importance tab and all local explanation tabs are disabled.
 
 Follow one of these paths to access the visualization dashboard in Azure Machine Learning studio:
 
@@ -355,7 +346,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
   1. Select a particular experiment to view all the runs in that experiment.
   1. Select a run, and then the **Explanations** tab to the explanation visualization dashboard.
 
-   [![Visualization Dashboard Local Feature Importance](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
+   [![Visualization Dashboard Local Feature Importance in AzureML studio in experiments](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * **Models** pane
   1. If you registered your original model by following the steps in [Deploy models with Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), you can select **Models** in the left pane to view it.
@@ -363,7 +354,7 @@ Follow one of these paths to access the visualization dashboard in Azure Machine
 
 ## Interpretability at inference time
 
-You can deploy the explainer along with the original model and use it at inference time to provide the local explanation information. We also offer lighter-weight scoring explainers to improve interpretability performance at inference time. The process of deploying a lighter-weight scoring explainer is similar to deploying a model and includes the following steps:
+You can deploy the explainer along with the original model and use it at inference time to provide the individual feature importance values (local explanation) for new any new datapoint. We also offer lighter-weight scoring explainers to improve interpretability performance at inference time. The process of deploying a lighter-weight scoring explainer is similar to deploying a model and includes the following steps:
 
 1. Create an explanation object. For example, you can use `TabularExplainer`:
 
@@ -381,7 +372,7 @@ You can deploy the explainer along with the original model and use it at inferen
 1. Create a scoring explainer with the explanation object.
 
    ```python
-   from azureml.contrib.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
+   from azureml.interpret.scoring.scoring_explainer import KernelScoringExplainer, save
 
    # create a lightweight explainer at scoring time
    scoring_explainer = KernelScoringExplainer(explainer)
@@ -407,7 +398,7 @@ You can deploy the explainer along with the original model and use it at inferen
 1. As an optional step, you can retrieve the scoring explainer from cloud and test the explanations.
 
    ```python
-   from azureml.contrib.interpret.scoring.scoring_explainer import load
+   from azureml.interpret.scoring.scoring_explainer import load
 
    # retrieve the scoring explainer model from cloud"
    scoring_explainer_model = Model(ws, 'my_scoring_explainer')
@@ -555,3 +546,6 @@ You can deploy the explainer along with the original model and use it at inferen
 ## Next steps
 
 [Learn more about model interpretability](how-to-machine-learning-interpretability.md)
+
+[Check out Azure Machine Learning Interpretability sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
+

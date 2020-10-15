@@ -1,36 +1,46 @@
-﻿### YamlMime:YamlDocument
-documentType: LandingData
+﻿### YamlMime:Landing
+
 title: Azure Australia documentation
+summary: Microsoft Azure Australia is a cloud platform that is certified by the Australian Cyber Security Center (ACSC) and included on the Certified Cloud Services List (CCSL).
+
 metadata:
-  title: Azure Australia documentation | Microsoft Docs
-  description: Microsoft Azure Australia delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency.
-  author: Galey801
+  title: Azure Australia documentation
+  description: Microsoft Azure Australia is a cloud platform that is certified by the Australian Cyber Security Center (ACSC) and included on the Certified Cloud Services List (CCSL).
   ms.service: azure-australia
   ms.topic: landing-page
-  ms.date: 07/22/2019
-  ms.author: grgale
-abstract:
-  description: 'Microsoft Azure Australia delivers a cloud platform built upon the foundational principles of security, privacy and control, compliance, and transparency. Microsoft Azure Australia is certified by the Australian Cyber Security Centre (ACSC) and included on the Certified Cloud Services List (CCSL). Azure Australia is listed on the CCSL at both the PROTECTED and Unclassified: DLM (now Official: Sensitive) classifications. Azure Australia employs world-class security and compliance services critical to Australian Government and Critical Infrastructure organisations and their suppliers, for all systems and applications built on its architecture.'
-sections:
-- title: Where do I start?
-  items: 
-  - type: paragraph
-    text: For more detailed information about Azure Australia start with the overview which can be accessed using the link below.
-  - html: <a href="australia-overview.md">What is Azure Australia?</a>
-- title: Free Pluralsight Video Training
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
-    items:
-    - title: Azure Administrator
-      href: https://go.microsoft.com/fwlink/?linkid=2012827
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://go.microsoft.com/fwlink/?linkid=2012827
-    - title: Enabling Platform Protection in Microsoft Azure
-      href: https://app.pluralsight.com/paths/skills/enabling-platform-protection-in-microsoft-azure
-      image:
-        src: https://docs.microsoft.com/media/logos/logo_pluralsight.svg
-        href: https://app.pluralsight.com/paths/skills/enabling-platform-protection-in-microsoft-azure
-        
+  author: emilyre
+  ms.author: v-emread
+  ms.date: 03/11/2020
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
+
+landingContent:
+  # Card
+  - title: About Azure Australia
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure Australia?
+            url: australia-overview.md
+
+  # Card
+  - title: Security
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Data security
+            url: secure-your-data.md
+          - text: Azure VPN Gateway configuration
+            url: vpn-gateway.md
+          - text: Azure Key Vault
+            url: azure-key-vault.md
+
+  # Card
+  - title: Gateways
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Gateway logging, auditing, and visibility
+            url: gateway-log-audit-visibility.md
+          - text: Secure remote administration of your Gateway
+            url: gateway-secure-remote-administration.md

@@ -3,7 +3,7 @@ title: Improve performance by compressing files in Azure CDN | Microsoft Docs
 description: Learn how to improve file transfer speed and increase page-load performance by compressing your files in Azure CDN.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -12,9 +12,9 @@ ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/28/2018
-ms.author: magattus
+ms.author: allensu
 
 ---
 # Improve performance by compressing files in Azure CDN
@@ -49,12 +49,12 @@ The standard and premium CDN tiers provide the same compression functionality, b
     The CDN endpoint page opens.
 2. Select **Compression**.
 
-    ![CDN compression selection](./media/cdn-file-compression/cdn-compress-select-std.png)
+    ![Screenshot shows an Endpoint with Compression selected from the portal menu.](./media/cdn-file-compression/cdn-compress-select-std.png)
 
     The compression page opens.
 3. Select **On** to turn on compression.
 
-    ![CDN file compression options](./media/cdn-file-compression/cdn-compress-standard.png)
+    ![Screenshot shows turning on Compression.](./media/cdn-file-compression/cdn-compress-standard.png)
 4. Use the default MIME types, or modify the list by adding or removing MIME types.
 
    > [!TIP]

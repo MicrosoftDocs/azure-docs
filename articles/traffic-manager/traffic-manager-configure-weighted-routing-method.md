@@ -3,15 +3,15 @@ title: Tutorial - Configure weighted round-robin traffic routing with Azure Traf
 description: This tutorial explains how to load balance traffic using a round-robin method in Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
-manager: twooley
+author: duongau
+
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
+ms.author: duau
 ---
 
 # Tutorial: Configure the weighted traffic routing method in Traffic Manager

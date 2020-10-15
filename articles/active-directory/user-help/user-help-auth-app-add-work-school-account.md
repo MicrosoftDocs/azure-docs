@@ -2,15 +2,15 @@
 title: Add a work or school account to the Microsoft Authenticator app - Azure AD
 description: Add your work or school account to the Microsoft Authenticator app to verify your identity while using two-factor verification.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
 ---
 
@@ -26,7 +26,7 @@ If your organization uses two-factor verification, you can set up your work or s
 1. On your computer, go to the [Additional security verification](https://account.activedirectory.windowsazure.com/proofup.aspx?proofup=1) page.
 
     >[!Note]
-    >If you don't see the **Additional security verification** page, it's possible that your administrator has turned on the security info (preview) experience. If that's the case, you should follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section. If that's not the case, you will need to contact your organization's Help Desk for assistance. For more information about security info, see [Security info (preview) overview](user-help-security-info-overview.md).
+    >If you don't see the **Additional security verification** page, it's possible that your administrator has turned on the security info (preview) experience. If that's the case, you should follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section. If that's not the case, you will need to contact your organization's Help Desk for assistance. For more information about security info, see [Security info (preview) overview](./security-info-setup-signin.md).
 
 2. Check the box next to **Authenticator app**, and then select **Configure**.
 

@@ -3,8 +3,6 @@ title: Build, test, and deploy containers to Azure Kubernetes Service using GitH
 description:  Learn how to use GitHub Actions to deploy your container to Kubernetes
 services: container-service
 author: azooinmyluggage
-
-ms.service: container-service
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: atulmal
@@ -13,10 +11,6 @@ ms.author: atulmal
 # GitHub Actions for deploying to Kubernetes service
 
 [GitHub Actions](https://help.github.com/en/articles/about-github-actions) gives you the flexibility to build an automated software development lifecycle workflow. The Kubernetes action [azure/aks-set-context@v1](https://github.com/Azure/aks-set-context) facilitate deployments to Azure Kubernetes Service clusters. The action sets the target AKS cluster context, which could be used by other actions like [azure/k8s-deploy](https://github.com/Azure/k8s-deploy/tree/master), [azure/k8s-create-secret](https://github.com/Azure/k8s-create-secret/tree/master) etc. or run any kubectl commands.
-
-> [!IMPORTANT]
-> GitHub Actions is currently in beta. You must first [sign-up to join the preview](https://github.com/features/actions) using your GitHub account.
-> 
 
 A workflow is defined by a YAML (.yml) file in the `/.github/workflows/` path in your repository. This definition contains the various steps and parameters that make up the workflow.
 
@@ -32,7 +26,7 @@ For a workflow targeting AKS, the file has three sections:
 
 ## Create a service principal
 
-You can create a [service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object) by using the [az ad sp create-for-rbac](https://docs.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](https://docs.microsoft.com/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
+You can create a [service principal](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) by using the [az ad sp create-for-rbac](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) command in the [Azure CLI](/cli/azure/). You can run this command using [Azure Cloud Shell](https://shell.azure.com/) in the Azure portal or by selecting the **Try it** button.
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP> --sdk-auth
@@ -57,7 +51,7 @@ Follow the steps to configure the secrets:
 
 1. In [GitHub](https://github.com/), browse to your repository, select **Settings > Secrets > Add a new secret**.
 
-    ![secrets](media/kubernetes-action/secrets.png)
+    ![Screenshot shows the Add a new secret link for a repository.](media/kubernetes-action/secrets.png)
 
 2. Paste the contents of the above `az cli` command as the value of secret variable. For example, `AZURE_CREDENTIALS`.
 
@@ -68,7 +62,7 @@ Follow the steps to configure the secrets:
 
 4. You will see the secrets as shown below once defined.
 
-    ![kubernetes-secrets](media/kubernetes-action/kubernetes-secrets.png)
+    ![Screenshot shows existing secrets for a repository.](media/kubernetes-action/kubernetes-secrets.png)
 
 ##  Build a container image and deploy to Azure Kubernetes Service cluster
 

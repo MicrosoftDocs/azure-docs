@@ -5,7 +5,7 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/29/2019
+ms.date: 06/06/2020
 ms.author: absha
 
 ---
@@ -17,7 +17,9 @@ Application Gateway publishes data points, called metrics, to [Azure Monitor](ht
 
 ### Timing metrics
 
-The following metrics related to timing of the request and response are available. By analyzing these metrics for a specific listener, you can determine whether the slowdown in application in due to the WAN, the Application Gateway, the network between the Application Gateway and the backend application, or the backend application performance.
+Application Gateway provides several built‑in timing metrics related to the request and response, which are all measured in milliseconds. 
+
+![Diagram of timing metrics, for the Application Gateway.](./media/application-gateway-metrics/application-gateway-metrics.png)
 
 > [!NOTE]
 >
@@ -25,28 +27,42 @@ The following metrics related to timing of the request and response are availabl
 
 - **Backend connect time**
 
-  Time spent establishing a connection with a backend application. This includes the network latency as well as the time taken by the backend server’s TCP stack to establish new connections. In case of SSL, it also includes the time spent on handshake. 
+  Time spent establishing a connection with the backend application. 
+
+  This includes the network latency as well as the time taken by the backend server’s TCP stack to  establish new connections. In case of TLS, it also includes the time spent on handshake. 
 
 - **Backend first byte response time**
 
-  Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. This approximates the sum of *Backend connect time* and response time of backend application (the time the server took to generate content, potentially fetch database queries, and begin transferring the response back to Application Gateway)
+  Time interval between start of establishing a connection to backend server and receiving the first byte of the response header. 
+
+  This approximates the sum of *Backend connect time*, time taken by the request to reach the backend from Application Gateway, time taken by backend application to respond (the time the server took to generate content, potentially fetch database queries), and the time taken by first byte
+  of the response to reach the Application Gateway from the backend.
 
 - **Backend last byte response time**
 
-  Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. This approximates the sum of *Backend first byte response time* and data transfer time (This number may vary greatly depending on the size of objects requested and the latency of the server network)
+  Time interval between start of establishing a connection to backend server and receiving the last byte of the response body. 
+
+  This approximates the sum of *Backend first byte response time* and data transfer time (this number may vary greatly depending on the size of objects requested and the latency of the server network).
 
 - **Application gateway total time**
 
-  Average time that it takes for a request to be processed and its response to be sent. This is calculated as average of the interval from the time when Application Gateway receives the first byte of an HTTP request to the time when the response send operation finishes This approximates the sum of the processing time of Application Gateway and the *Backend last byte response time*
+  Average time that it takes for a request to be received, processed and its response to be sent. 
+
+  This is the interval from the time when Application Gateway receives the first byte of the HTTP request to the time when the last response byte has been sent to the client. This includes the processing time taken by Application Gateway, the *Backend last byte response time*, time taken by Application Gateway to send all the response and the *Client RTT*.
 
 - **Client RTT**
 
-  Average round trip time between clients and Application Gateway. This metric indicates how long it takes to establish connections and return acknowledgments. 
-
-These metrics can be used to determine whether the observed slowdown is due to the Application Gateway, the network and backend server TCP stack saturation, backend application performance, or large file size.
-For example, If there’s a spike in Backend first byte response time but the Backend connect time is constant, then it can be inferred that the Application gateway to backend latency as well as time taken to establish the connection is stable and the spike is caused due to an increase in the response time of backend application. Similarly, if the spike in Backend first byte response time is associated with a corresponding spike in Backend connect time, then it can be deduced that either the network or the server TCP stack has saturated. If you notice a spike in Backend last byte response time but the Backend first byte response time is constant, then most probably the spike is because of a larger file being requested. Similarly, if the Application gateway total time is much more than the Backend last byte response time, then it can be a sign of performance bottleneck at the Application Gateway.
+  Average round trip time between clients and Application Gateway.
 
 
+
+These metrics can be used to determine whether the observed slowdown is due to the client network, Application Gateway performance, the backend network and backend server TCP stack saturation, backend application performance, or large file size.
+
+For example, If there’s a spike in *Backend first byte response time* trend but the *Backend connect time* trend is stable, then it can be inferred that the Application gateway to backend latency and the time taken to establish the connection is stable, and the spike is caused due to an increase in the response time of backend application. On the other hand, if the spike in *Backend first byte response time* is associated with a corresponding spike in *Backend connect time*, then it can be deduced that either the network between Application Gateway and backend server or the backend server TCP stack has saturated. 
+
+If you notice a spike in *Backend last byte response time* but the *Backend first byte response time* is stable, then it can be deduced that the spike is because of a larger file being requested.
+
+Similarly, if the *Application gateway total time* has a spike but the *Backend last byte response time* is stable, then it can either be a sign of performance bottleneck at the Application Gateway or a bottleneck in the network between client and Application Gateway. Additionally, if the *client RTT* also has a corresponding spike, then it indicates that that the degradation is because of the network between client and Application Gateway.
 
 ### Application Gateway metrics
 
@@ -66,7 +82,7 @@ For Application Gateway, the following metrics are available:
 
 - **Current capacity units**
 
-   Count of capacity units consumed. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. There are three determinants to capacity unit - compute unit, persistent connections and throughput. Each capacity unit is composed of at most: 1 compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
+   Count of capacity units consumed to load balance the traffic. There are three determinants to capacity unit - compute unit, persistent connections and throughput. Each capacity unit is composed of at most: 1 compute unit, or 2500 persistent connections, or 2.22-Mbps throughput.
 
 - **Current compute units**
 
@@ -74,11 +90,23 @@ For Application Gateway, the following metrics are available:
 
 - **Current connections**
 
-   Count of current connections established with Application Gateway
+   The total number of concurrent connections active from clients to the Application Gateway
+   
+- **Estimated Billed Capacity units**
+
+  With the v2 SKU, the pricing model is driven by consumption. Capacity units measure consumption-based cost that is charged in addition to the fixed cost. *Estimated Billed Capacity units* indicates the number of capacity units using which the billing is estimated. This is calculated as the greater value between *Current capacity units* (capacity units required to load balance the traffic) and *Fixed billable capacity units* (minimum capacity units kept provisioned).
 
 - **Failed Requests**
 
-   Count of failed requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+  Number of requests that Application Gateway has served with 5xx server error codes. This includes the 5xx codes that are generated from the Application Gateway as well as the 5xx codes that are generated from the backend. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+   
+- **Fixed Billable Capacity Units**
+
+  The minimum number of capacity units kept provisioned as per the *Minimum scale units* setting (one instance translates to 10 capacity units) in the Application Gateway configuration.
+   
+ - **New connections per second**
+
+   The average number of new TCP connections per second established from clients to the Application Gateway and from the Application Gateway to the backend members.
 
 
 - **Response Status**
@@ -93,10 +121,6 @@ For Application Gateway, the following metrics are available:
 
    Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
-- **Web Application Firewall matched rules**
-
-- **Web Application Firewall triggered rules**
-
 ### Backend metrics
 
 For Application Gateway, the following metrics are available:
@@ -107,11 +131,16 @@ For Application Gateway, the following metrics are available:
 
 - **Healthy host count**
 
-  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show the number of healthy hosts in a specific backend pool.
 
 - **Unhealthy host count**
 
-  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show unhealthy hosts in a specific backend pool.
+  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
+  
+- **Requests per minute per Healthy Host**
+
+  The average number of requests received by each healthy member in a backend pool in a minute. You must specify the backend pool using the *BackendPool HttpSettings* dimension.  
+  
 
 ## Metrics supported by Application Gateway V1 SKU
 
@@ -129,7 +158,7 @@ For Application Gateway, the following metrics are available:
 
 - **Failed Requests**
 
-  Count of failed requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
+  Number of requests that Application Gateway has served with 5xx server error codes. This includes the 5xx codes that are generated from the Application Gateway as well as the 5xx codes that are generated from the backend. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
 - **Response Status**
 
@@ -143,9 +172,9 @@ For Application Gateway, the following metrics are available:
 
   Count of successful requests that Application Gateway has served. The request count can be further filtered to show count per each/specific backend pool-http setting combination.
 
-- **Web Application Firewall matched rules**
-
-- **Web Application Firewall triggered rules**
+- **Web Application Firewall Blocked Requests Count**
+- **Web Application Firewall Blocked Requests Distribution**
+- **Web Application Firewall Total Rule Distribution**
 
 ### Backend metrics
 
@@ -153,11 +182,11 @@ For Application Gateway, the following metrics are available:
 
 - **Healthy host count**
 
-  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show healthy/unhealthy hosts in a specific backend pool.
+  The number of backends that are determined healthy by the health probe. You can filter on a per backend pool basis to show the number of healthy hosts in a specific backend pool.
 
 - **Unhealthy host count**
 
-  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show unhealthy hosts in a specific backend pool.
+  The number of backends that are determined unhealthy by the health probe. You can filter on a per backend pool basis to show the number of unhealthy hosts in a specific backend pool.
 
 ## Metrics visualization
 
@@ -165,7 +194,7 @@ Browse to an application gateway, under **Monitoring** select **Metrics**. To vi
 
 In the following image, you see an example with three metrics displayed for the last 30 minutes:
 
-[![](media/application-gateway-diagnostics/figure5.png "Metric view")](media/application-gateway-diagnostics/figure5-lb.png#lightbox)
+:::image type="content" source="media/application-gateway-diagnostics/figure5.png" alt-text="Metric view." lightbox="media/application-gateway-diagnostics/figure5-lb.png":::
 
 To see a current list of metrics, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
@@ -204,7 +233,7 @@ To understand more about webhooks and how you can use them with alerts, visit [C
 ## Next steps
 
 * Visualize counter and event logs by using [Azure Monitor logs](../azure-monitor/insights/azure-networking-analytics.md).
-* [Visualize your Azure activity log with Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blog post.
+* [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
 * [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
 
 [1]: ./media/application-gateway-diagnostics/figure1.png

@@ -1,6 +1,6 @@
 ---
 title: Hybrid identity design - adoption strategy Azure | Microsoft Docs
-description: With Conditional Access control, Azure Active Directory checks the specific conditions you pick when authenticating the user and before allowing access to the application. Once those conditions are met, the user is authenticated and allowed access to the application.
+description: With Conditional Access control, Azure AD checks the specific conditions you pick when authenticating the user and before allowing access to the application.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -26,7 +26,7 @@ In this task, you define the hybrid identity adoption strategy for your hybrid i
 * [Determine multi-factor authentication requirements](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## Define business needs strategy
-The first task addresses determining the organizations business needs.  This can be very broad and scope creep can occur if you are not careful.  In the beginning, keep it simple but always remember to plan for a design that will accommodate and facilitate change in the future.  Regardless of whether it is a simple design or an extremely complex one, Azure Active Directory is the Microsoft Identity platform that supports Office 365, Microsoft Online Services, and cloud aware applications.
+The first task addresses determining the organizations business needs.  This can be very broad and scope creep can occur if you are not careful.  In the beginning, keep it simple but always remember to plan for a design that will accommodate and facilitate change in the future.  Regardless of whether it is a simple design or an extremely complex one, Azure Active Directory is the Microsoft Identity platform that supports Microsoft 365, Microsoft Online Services, and cloud aware applications.
 
 ## Define an integration strategy
 Microsoft has three main integration scenarios which are cloud identities, synchronized identities, and federated identities.  You should plan on adopting one of these integration strategies.  The strategy you choose can vary and the decisions in choosing one may include, what type of user experience you want to provide, do you have an existing infrastructure, and what is the most cost effective.  
@@ -49,7 +49,7 @@ The following table helps in determining the advantages and disadvantages of eac
 | Strategy | Advantages | Disadvantages |
 | --- | --- | --- |
 | **Cloud identities** |Easier to manage for small organization. <br> Nothing to install on-premises. No additional hardware needed<br>Easily disabled if the user leaves the company |Users will need to sign in when accessing workloads in the cloud <br> Passwords may or may not be the same for cloud and on-premises identities |
-| **Synchronized** |On-premises password authenticates both on-premises and cloud directories <br>Easier to manage for small, medium, or large organizations <br>Users can have single sign-on (SSO) for some resources <br> Microsoft preferred method for synchronization <br> Easier to manage |Some customers may be reluctant to synchronize their directories with the cloud due specific company’s police |
+| **Synchronized** |On-premises password authenticates both on-premises and cloud directories <br>Easier to manage for small, medium, or large organizations <br>Users can have single sign-on (SSO) for some resources <br> Microsoft preferred method for synchronization <br> Easier to manage |Some customers may be reluctant to synchronize their directories with the cloud due specific company’s policies |
 | **Federated** |Users can have single sign-on (SSO) <br>If a user is terminated or leaves, the account can be immediately disabled and access revoked,<br> Supports advanced scenarios that cannot be accomplished with synchronized |More steps to set up and configure <br> Higher maintenance <br> May require additional hardware for the STS infrastructure <br> May require additional hardware to install the federation server. Additional software is required if AD FS is used <br> Require extensive setup for SSO <br> Critical point of failure if the federation server is down, users won’t be able to authenticate |
 
 ### Client experience
@@ -57,7 +57,7 @@ The strategy that you use will dictate the user sign-in experience.  The followi
 
 **Doman-joined and private network applications**:
 
-|  | Synchronized Identity | Federated Identity |
+| Application | Synchronized Identity | Federated Identity |
 | --- | --- | --- |
 | Web Browsers |Forms-based authentication |single sign-on, sometimes required to supply organization ID |
 | Outlook |Prompt for credentials |Prompt for credentials |
@@ -67,7 +67,7 @@ The strategy that you use will dictate the user sign-in experience.  The followi
 
 **External or untrusted  sources**:
 
-|  | Synchronized Identity | Federated Identity |
+| Application | Synchronized Identity | Federated Identity |
 | --- | --- | --- |
 | Web Browsers |Forms-based authentication |Forms-based authentication |
 | Outlook, Skype for Business (Lync), OneDrive for Business, Office subscription |Prompt for credentials |Prompt for credentials |
@@ -168,7 +168,7 @@ The following is not supported and should not be chosen as an implementation:
 * Azure AD directories are by design isolated. It is unsupported to change the configuration of Azure AD Connect sync to read data from another Azure AD directory in an attempt to build a common and unified GAL between the directories. It is also unsupported to export users as contacts to another on-premises AD using Azure AD Connect sync.
 
 > [!NOTE]
-> If your organization restricts computers on your network from connecting to the Internet, this article lists the endpoints (FQDNs, IPv4, and IPv6 address ranges) that you should include in your outbound allow lists and Internet Explorer Trusted Sites Zone of client computers to ensure your computers can successfully use Office 365. For more information read [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> If your organization restricts computers on your network from connecting to the Internet, this article lists the endpoints (FQDNs, IPv4, and IPv6 address ranges) that you should include in your outbound allow lists and Internet Explorer Trusted Sites Zone of client computers to ensure your computers can successfully use Microsoft 365. For more information read [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 

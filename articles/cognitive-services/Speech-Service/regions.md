@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 08/20/2020
 ms.author: panosper
 ms.custom: seodec18
 ---
@@ -17,7 +17,13 @@ ms.custom: seodec18
 
 The Speech service allows your application to convert audio to text, perform speech translation, and covert text to speech. The service is available in multiple regions with unique endpoints for the Speech SDK and REST APIs.
 
-Make sure that you use the endpoint that matches the region for your subscription.
+The Speech portal to perform custom configurations to your speech experience for all the regions is available here: https://speech.microsoft.com
+
+Keep in mind the following points when considering regions:
+
+* If your application uses a [Speech SDK](speech-sdk.md), you provide the region identifier, such as `westus`, when creating a speech configuration.
+* If your application uses one of the Speech service's [REST APIs](rest-apis.md), the region is part of the endpoint URI you use when making requests.
+* Keys created for a region are valid only in that region. Attempting to use them with other regions will result in authentication errors.
 
 ## Speech SDK
 
@@ -26,34 +32,19 @@ In the [Speech SDK](speech-sdk.md), regions are specified as a string
 
 ### Speech-to-text, text-to-speech, and translation
 
-The Speech SDK is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
+The speech customization portal is available here: https://speech.microsoft.com
 
-| Region           | Speech SDK Parameter | Speech Customization Portal    |
-| ---------------- | -------------------- | ------------------------------ |
-| West US          | `westus`             | https://westus.cris.ai         |
-| West US 2        | `westus2`            | https://westus2.cris.ai        |
-| East US          | `eastus`             | https://eastus.cris.ai         |
-| East US 2        | `eastus2`            | https://eastus2.cris.ai        |
-| Central US       | `centralus`          | https://centralus.cris.ai      |
-| North Central US | `northcentralus`     | https://northcentralus.cris.ai |
-| South Central US | `southcentralus`     | https://southcentralus.cris.ai |
-| Central India    | `centralindia`       | https://centralindia.cris.ai   |
-| East Asia        | `eastasia`           | https://eastasia.cris.ai       |
-| Southeast Asia   | `southeastasia`      | https://southeastasia.cris.ai  |
-| Japan East       | `japaneast`          | https://japaneast.cris.ai      |
-| Korea Central    | `koreacentral`       | https://koreacentral.cris.ai   |
-| Australia East   | `australiaeast`      | https://australiaeast.cris.ai  |
-| Canada Central   | `canadacentral`      | https://canadacentral.cris.ai  |
-| North Europe     | `northeurope`        | https://northeurope.cris.ai    |
-| West Europe      | `westeurope`         | https://westeurope.cris.ai     |
-| UK South         | `uksouth`            | https://uksouth.cris.ai        |
-| France Central   | `francecentral`      | https://francecentral.cris.ai  |
+The Speech service is available in these regions for **speech recognition**, **text-to-speech**, and **translation**:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+If you use the [Speech SDK](speech-sdk.md), regions are specified by the **Region identifier** (for example, as a parameter to `SpeechConfig.FromSubscription`). Make sure the region is matching the region of your subscription.
 
 ### Intent recognition
 
 Available regions for **intent recognition** via the Speech SDK are the following:
 
-| Global region | Region           | Speech SDK Parameter |
+| Global region | Region           | Region identifier |
 | ------------- | ---------------- | -------------------- |
 | Asia          | East Asia        | `eastasia`           |
 | Asia          | Southeast Asia   | `southeastasia`      |
@@ -74,7 +65,7 @@ This is a subset of the publishing regions supported by the [Language Understand
 
 The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in these regions:
 
-| Region         | Speech SDK Parameter |
+| Region         | Region identifier |
 | -------------- | -------------------- |
 | West US        | `westus`             |
 | West US 2      | `westus2`            |
@@ -84,6 +75,10 @@ The [Speech SDK](speech-sdk.md) supports **voice assistant** capabilities in the
 | North Europe   | `northeurope`        |
 | Southeast Asia | `southeastasia`      |
 
+### Speaker Recognition
+
+Speaker Recognition is currently only available in the `westus` region.
+
 ## REST APIs
 
 The Speech service also exposes REST endpoints for speech-to-text and text-to-speech requests.
@@ -92,7 +87,18 @@ The Speech service also exposes REST endpoints for speech-to-text and text-to-sp
 
 For speech-to-text reference documentation, see [Speech-to-text REST API](rest-speech-to-text.md).
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+The endpoint for the REST API has this format:
+
+```
+https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1
+```
+
+Replace `<REGION_IDENTIFIER>` with the identifier matching the region of your subscription from this table:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-region-identifier.md)]
+
+> [!NOTE]
+> The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.
 
 ### Text-to-speech
 

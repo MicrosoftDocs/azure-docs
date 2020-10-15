@@ -1,17 +1,34 @@
-- name: Bastion Documentation
+- name: Bastion documentation
   href: index.yml
 - name: Overview
   items: 
-  - name: About Azure Bastion
+  - name: What is Azure Bastion?
     href: bastion-overview.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a host using VM settings
+    href: quickstart-host-portal.md
+- name: Tutorials
+  items:
+  - name: Create host & connect to Windows VM
+    href: tutorial-create-host-portal.md
+- name: Concepts
+  items:
+  - name: Support for working remotely
+    href: ../networking/working-remotely-support.md?toc=%2fazure%2fbastion%2ftoc.json
+  - name: Leverage Bastion for remote working
+    href: work-remotely-support.md
 - name: How-to guides
   items:
-  - name: Create a bastion host
+  - name: Create a host
     items:
     - name: Azure portal
-      href: bastion-create-host-portal.md
+      href: tutorial-create-host-portal.md
     - name: Azure PowerShell
       href: bastion-create-host-powershell.md
+    - name: Azure CLI
+      href: create-host-cli.md
   - name: Connect to a virtual machine
     items:
     - name: SSH (Linux)
@@ -21,7 +38,7 @@
   - name: Connect to a virtual machine scale set
     href: bastion-connect-vm-scale-set.md
   - name: Connect to DevTest Labs virtual machines
-    href: ../lab-services/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
+    href: ../devtest-labs/enable-browser-connection-lab-virtual-machines.md?toc=%2fazure%2fbastion%2ftoc.json
   - name: Work with a virtual machine session
     items:
     - name: Copy and paste
@@ -36,6 +53,14 @@
     href: session-monitoring.md
   - name: Troubleshoot
     href: troubleshoot.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.network
+  - name: REST
+    href: /rest/api/virtualnetwork/bastionhosts
+  - name: Azure CLI
+    href: /cli/azure/network/bastion
 - name: Resources
   items:
   - name: Bastion FAQ
@@ -44,8 +69,8 @@
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/networking
-  - name: Forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesVirtualNetwork
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-virtual-network.html
   - name: Preview SLA
     href: https://azure.microsoft.com/support/legal/preview-supplemental-terms
   - name: SLA

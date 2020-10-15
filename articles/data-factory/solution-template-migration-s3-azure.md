@@ -15,6 +15,8 @@ ms.date: 09/07/2019
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 Use the templates to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2. 
 
  > [!NOTE]
@@ -103,23 +105,23 @@ The template contains two parameters:
 
 3. Go to the **Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2** template. Input the connections to your external control table, AWS S3 as the data source store and Azure Data Lake Storage Gen2 as the destination store. Be aware that the external control table and the stored procedure are reference to the same connection.
 
-    ![Create a new connection](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![Screenshot that shows the Migrate historical data from AWS S3 to Azure Data Lake Storage Gen2 template.](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. Select **Use this template**.
 
-    ![Use this template](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
+    ![Screenshot that highlights the Use this template button.](media/solution-template-migration-s3-azure/historical-migration-s3-azure2.png)
 	
 5. You see the 2 pipelines and 3 datasets were created, as shown in the following example:
 
-    ![Review the pipeline](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
+    ![Screenshot that shows the two pipelines and three datasets that were created by using the template.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
 6. Select **Debug**, enter the **Parameters**, and then select **Finish**.
 
-    ![Click **Debug**](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
+    ![Screenshot that shows where to select Debug and enter the parameters before you select Finish.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
 7. You see results that are similar to the following example:
 
-    ![Review the result](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
+    ![Screenshot that shows the returned results.](media/solution-template-migration-s3-azure/historical-migration-s3-azure5.png)
 
 
 ### For the template to copy changed files only from Amazon S3 to Azure Data Lake Storage Gen2
@@ -186,7 +188,7 @@ The template contains two parameters:
 
 8. You can also check the results from the control table by a query *"select * from s3_partition_delta_control_table"*, you will see the output similar to the following example:
 
-    ![Review the result](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
+    ![Screenshot that shows the results from the control table after you run the query.](media/solution-template-migration-s3-azure/delta-migration-s3-azure6.png)
 	
 ## Next steps
 

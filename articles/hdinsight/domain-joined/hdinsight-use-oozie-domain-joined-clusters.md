@@ -6,11 +6,11 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18
-ms.date: 12/09/2019
+ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.date: 05/14/2020
 ---
 
-# Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package
+# Run Apache Oozie in Azure HDInsight clusters with Enterprise Security Package
 
 Apache Oozie is a workflow and coordination system that manages Apache Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
 
@@ -225,7 +225,7 @@ Oozie workflow definitions are written in Apache Hadoop Process Definition Langu
    hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
 
-   - Use the `adl://home` URI for the `nameNode` property if you have Azure Data Lake Storage Gen1 as your primary cluster storage. If you're using Azure Blob Storage, then change this to `wasb://home`. If you're using Azure Data Lake Storage Gen2, then change this to `abfs://home`.
+   - Use the `adl://home` URI for the `nameNode` property if you have Azure Data Lake Storage Gen1 as your primary cluster storage. If you're using Azure Blob Storage, then change to `wasb://home`. If you're using Azure Data Lake Storage Gen2, then change to `abfs://home`.
    - Replace `domainuser` with your username for the domain.  
    - Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.  
    - Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.
@@ -343,4 +343,4 @@ The Oozie web UI provides a web-based view into the status of Oozie jobs on the 
 ## Next steps
 
 - [Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
-- [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
+- [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).

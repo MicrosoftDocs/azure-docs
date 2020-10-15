@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
 title: Azure Dev Spaces documentation # < 60 chars
-summary: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application in Azure Kubernetes Service (AKS) without replicating or mocking dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared AKS cluster. It also allows you to run and debug containers directly in AKS. # < 160 chars
+summary: Azure Dev Spaces is deprecated and will retire on October 31, 2023.
 
 metadata:
   title: Azure Dev Spaces documentation # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application in Azure Kubernetes Service (AKS) without replicating or mocking dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared AKS cluster. It also allows you to run and debug containers directly in AKS. # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Dev Spaces is deprecated and will retire on October 31, 2023.
   services: azure-dev-spaces
   ms.service: azure-dev-spaces #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   author: zr-msft
   ms.author: zarhoads
   manager: gwallace
-  ms.date: 09/30/2019
+  ms.date: 10/12/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -37,20 +37,6 @@ landingContent:
             url: how-to/install-dev-spaces.md
 
   # Card
-  - title: Developing and testing microservices
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Run and debug a microservice
-            url: quickstart-netcore.md
-          - text: Collaborate on a set of microservices with a team
-            url: quickstart-team-development.md
-      - linkListType: how-to-guide
-        links:
-          - text: Integrate Dev Spaces in your CI/CD pipeline for better end-to-end testing
-            url: how-to/setup-cicd.md
-
-  # Card
   - title: Advanced scenarios
     linkLists:
       - linkListType: how-to-guide
@@ -68,11 +54,13 @@ landingContent:
 
 
   # Card
-  - title: Preview features
+  - title: Bridge to Kubernetes
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Use GitHub Actions with Azure Dev Spaces
-            url: how-to/github-actions.md
-          - text: Connect your development machine to an AKS cluster
-            url: how-to/connect.md
+          - text: Use Bridge to Kubernetes with Visual Studio Code
+            url: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
+          - text: Use Bridge to Kubernetes with Visual Studio
+            url: /visualstudio/containers/bridge-to-kubernetes
+          - text: Migrating to Bridge to Kubernetes
+            url: migrate-to-bridge-to-kubernetes.md

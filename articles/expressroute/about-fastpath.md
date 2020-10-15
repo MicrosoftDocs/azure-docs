@@ -2,12 +2,12 @@
 title: About Azure ExpressRoute FastPath
 description: Learn about Azure ExpressRoute FastPath to send network traffic by bypassing the gateway
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/16/2019
-ms.author: cherylmc
+ms.date: 03/25/2020
+ms.author: duau
 
 ---
 # About ExpressRoute FastPath
@@ -28,16 +28,6 @@ To configure FastPath, the virtual network gateway must be either:
 
 * Ultra Performance
 * ErGw3AZ
-
-#### <a name="aggthroughput"></a>Estimated performances by gateway SKU
-The following table shows the gateway types and the estimated performances. This table applies to both the Resource Manager and classic deployment models.
-
-[!INCLUDE [expressroute-table-aggthroughput](../../includes/expressroute-table-aggtput-include.md)]
-
-> [!IMPORTANT]
-> Application performance depends on multiple factors, such as the end-to-end latency, and the number of traffic flows the application opens. The numbers in the table represent the upper limit that the application can theoretically achieve in an ideal environment.
->
->
 
 ## Supported features
 

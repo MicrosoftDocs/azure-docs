@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with PureCloud by Genesys | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PureCloud by Genesys.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e16a46db-5de2-4681-b7e0-94c670e3e54e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with PureCloud by Genesys
@@ -84,35 +77,35 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
     a. In the **Identifier** box, enter a URL that corresponds to your region:
 
-	| |
-	|--|
-	| `https://login.mypurecloud.com/saml` |
-	| `https://login.mypurecloud.de/saml` |
-	| `https://login.mypurecloud.jp/saml` |
-	| `https://login.mypurecloud.ie/saml` |
-	| `https://login.mypurecloud.au/saml` |
+    ```http
+    https://login.mypurecloud.com/saml
+    https://login.mypurecloud.de/saml
+    https://login.mypurecloud.jp/saml
+    https://login.mypurecloud.ie/saml
+    https://login.mypurecloud.au/saml
+    ```
 
     b. In the **Reply URL** box, enter a URL that corresponds to your region:
 
-	| |
-	|--|
-    | `https://login.mypurecloud.com/saml` |
-	| `https://login.mypurecloud.de/saml` |
-	| `https://login.mypurecloud.jp/saml` |
-	| `https://login.mypurecloud.ie/saml` |
-	| `https://login.mypurecloud.com.au/saml`|
+    ```http
+    https://login.mypurecloud.com/saml
+    https://login.mypurecloud.de/saml
+    https://login.mypurecloud.jp/saml
+    https://login.mypurecloud.ie/saml
+    https://login.mypurecloud.com.au/saml
+    ```
 
 1. Select **Set additional URLs** and take the following step if you want to configure the application in **SP** initiated mode:
 
     In the **Sign-on URL** box, enter a URL that corresponds to your region:
 	
-	| |
-	|--|
-	| `https://login.mypurecloud.com` |
-	| `https://login.mypurecloud.de` |
-	| `https://login.mypurecloud.jp` |
-	| `https://login.mypurecloud.ie` |
-	| `https://login.mypurecloud.com.au` |
+    ```http
+    https://login.mypurecloud.com
+    https://login.mypurecloud.de
+    https://login.mypurecloud.jp
+    https://login.mypurecloud.ie
+    https://login.mypurecloud.com.au
+    ```
 
 1. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes:
 
@@ -122,7 +115,7 @@ To enable Azure AD SSO in the Azure portal, follow these steps:
 
 	| Name | Source attribute|
 	| ---------------| --------------- |
-	| Email | user.userprinicipalname |
+	| Email | user.userprincipalname |
 	| OrganizationName | `Your organization name` |
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.

@@ -1,27 +1,41 @@
 ---
 title: Known issues with Azure Data Lake Storage Gen2 | Microsoft Docs
-description: Learn about the limitations and known issues with Azure Data Lake Storage Gen2
+description: Learn about limitations and known issues of Azure Data Lake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/03/2019
+ms.date: 10/08/2020
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
 # Known issues with Azure Data Lake Storage Gen2
 
-This article lists the features and tools that are not yet supported or only partially supported with storage accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2).
+This article describes limitations and known issues of Azure Data Lake Storage Gen2.
 
-<a id="blob-apis-disabled" />
+## Supported Blob storage features
 
-## Issues and limitations with using Blob APIs
+An increasing number of Blob storage features now work with accounts that have a hierarchical namespace. For a complete list, see [Blob Storage features available in Azure Data Lake Storage Gen2](data-lake-storage-supported-blob-storage-features.md).
+
+## Supported Azure service integrations
+
+Azure Data Lake Storage Gen2 supports several Azure services that you can use to ingest data, perform analytics, and create visual representations. For a list of supported Azure services, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
+See [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+
+## Supported open source platforms
+
+Several open source platforms support Data Lake Storage Gen2. For a complete list, see [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+
+See [Open source platforms that support Azure Data Lake Storage Gen2](data-lake-storage-supported-open-source-platforms.md).
+
+## Blob storage APIs
 
 Blob APIs and Data Lake Storage Gen2 APIs can operate on the same data.
 
 This section describes issues and limitations with using blob APIs and Data Lake Storage Gen2 APIs to operate on the same data.
 
-* You can't use both Blob APIs and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. You can overwrite a file by using either Data Lake Storage Gen2 APIs or Blob APIs. This won't affect file properties.
+* You cannot use both API and Data Lake Storage APIs to write to the same instance of a file. If you write to a file by using Data Lake Storage Gen2 APIs, then that file's blocks won't be visible to calls to the [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list) blob API. The only exception is when using you are overwriting. You can overwrite a file/blob using either API.
 
 * When you use the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) operation without specifying a delimiter, the results will include both directories and blobs. If you choose to use a delimiter, use only a forward slash (`/`). This is the only supported delimiter.
 
@@ -34,46 +48,80 @@ These Blob REST APIs aren't supported:
 * [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
-* [Put Blob (Append)](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
 
 Unmanaged VM disks are not supported in accounts that have a hierarchical namespace. If you want to enable a hierarchical namespace on a storage account, place unmanaged VM disks into a storage account that doesn't have the hierarchical namespace feature enabled.
 
-<a id="api-scope-data-lake-client-library" />
+<a id="api-scope-data-lake-client-library"></a>
 
-## Filesystem Support in SDKs
+## Support for setting access control lists (ACLs) recursively
 
-- [.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md) and [Python](data-lake-storage-directory-file-acl-python.md) support are in public preview. Other SDKs are not currently supported.
-- Get and set ACL operations are not currently recursive.
+The ability to apply ACL changes recursively from parent directory to child items is in [public preview](recursive-access-control-lists.md). In the current release of this capability, you can apply ACL changes by using PowerShell, the .NET SDK, and Python SDK. Support is not yet available for the Java SDK, Azure CLI, the Azure portal, or Azure Storage Explorer.
 
-## Filesystem Support in PowerShell and Azure CLI
+<a id="known-issues-tools"></a>
 
-- [PowerShell](data-lake-storage-directory-file-acl-powershell.md) and [Azure CLI](data-lake-storage-directory-file-acl-cli.md) support are in public preview.
-- Get and set ACL operations are not currently recursive.
+## AzCopy
 
-## Support for other Blob Storage features
+Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.
 
-The following table lists all other features and tools that are not yet supported or only partially supported with storage accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2).
+<a id="storage-explorer"></a>
 
-| Feature / Tool    | More information    |
-|--------|-----------|
-| **Account failover** |Not yet supported|
-| **AzCopy** | Version-specific support <br><br>Use only the latest version of AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Earlier versions of AzCopy such as AzCopy v8.1, are not supported.|
-| **Azure Blob Storage lifecycle management policies** | Lifecycle management policies are supported (Preview).  Sign up for the preview of lifecycle management policies and archive access tier [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).   <br><br>All access tiers are supported. The archive access tier is currently in preview. The deletion of blob snapshots is not yet supported.  There are currently some bugs affecting lifecycle management policies and the archive access tier.  |
-| **Azure Content Delivery Network (CDN)** | Not yet supported|
-| **Azure search** |Supported (Preview)|
-| **Azure Storage Explorer** | Version-specific support. <br><br>Use only versions `1.6.0` or higher. <br> There is currently a storage bug affecting version `1.11.0` that can result in authentication errors in certain scenarios. A fix for the storage bug is being rolled out, but as a workaround, we recommend that you use version `1.10.x` which is available as a [free download](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes). `1.10.x` is not affected by the storage bug.|
-| **Blob container ACLs** |Not yet supported|
-| **Blobfuse** |Not yet supported|
-| **Custom domains** |Not yet supported|
-| **Storage Explorer in the Azure portal** | Limited support. ACLs are not yet supported. |
-| **Diagnostic logging** |Diagnostic logs are supported (Preview). <br><br>Azure Storage Explorer 1.10.x can't be used for viewing diagnostic logs. To view logs, please use AzCopy or SDKs.
-| **Immutable storage** |Not yet supported <br><br>Immutable storage gives the ability to store data in a [WORM (Write Once, Read Many)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) state.|
-| **Object-level tiers** |Cool and archive tiers are supported. The archive tier is in preview. All other access tiers are not yet supported. <br><br> There are currently some bugs affecting the archive access tier.  Sign up for the preview of the archive access tier [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).|
-| **Static websites** |Not yet supported <br><br>Specifically, the ability to serve files to [Static websites](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website).|
-| **Third party applications** | Limited support <br><br>Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2. <br>Applications that call Blob APIs will likely work.|
-|**Soft Delete** |Not yet supported|
-| **Versioning features** |Not yet supported <br><br>This includes  [soft delete](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete), and other versioning features such as [snapshots](https://docs.microsoft.com/rest/api/storageservices/creating-a-snapshot-of-a-blob).|
+## Azure Storage Explorer
+
+Use only versions `1.6.0` or higher.
+
+<a id="explorer-in-portal"></a>
+
+## Storage Explorer in the Azure portal
+
+ACLs are not yet supported.
+
+<a id="third-party-apps"></a>
+
+## Third party applications
+
+Third party applications that use REST APIs to work will continue to work if you use them with Data Lake Storage Gen2
+Applications that call Blob APIs will likely work.
+
+## Access control lists (ACL) and anonymous read access
+
+If [anonymous read access](storage-manage-access-to-resources.md) has been granted to a container, then ACLs have no effect on that container or the files in that container.
+
+## Premium-performance BlockBlobStorage storage accounts
+
+### Diagnostic logs
+
+Diagnostics logs can't yet be enabled by using the Azure portal. You can enable them by using PowerShell. For example:
+
+```powershell
+#To login
+Connect-AzAccount
+
+#Set default block blob storage account.
+Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
+
+#Enable logging
+Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
+```
+
+The setting for retention days is not yet supported, but you can delete logs manually by using any supported tool such as Azure Storage Explorer, REST or an SDK.
+
+### Lifecycle management policies
+
+- Lifecycle management policies are supported only on general-purpose v2 accounts. They aren't yet supported in premium BlockBlobStorage storage accounts.
+- Data can't be moved from the premium tier to lower tiers.
 
 
+### HDInsight support
+
+When you create a n HDInsight cluster, you can't yet select a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. However, you can attach the account to the cluster after you've created it.
+
+### Dremio support
+
+Dremio doesn't yet connect to a BlockBlobStorage account that has the hierarchical namespace feature enabled on it. 
+
+## Windows Azure Storage Blob (WASB) driver (unsupported with Data Lake Storage Gen2)
+
+Currently, the WASB driver, which was designed to work with the Blob API only, encounters problems in a few common scenarios. Specifically, when it is a client to a hierarchical namespace-enabled storage account. Multi-protocol access on Data Lake Storage won't mitigate these issues. 
+
+For the time being (and most likely the foreseeable future), we won't support customers using the WASB driver as a client to a hierarchical namespace-enabled storage account. Instead, we recommend that you opt to use the [Azure Blob File System (ABFS)](data-lake-storage-abfs-driver.md) driver in your Hadoop environment. If you are trying to migrate off of an on-premise Hadoop environment with a version earlier than Hadoop branch-3, then please open an Azure Support ticket so that we can get in touch with you on the right path forward for you and your organization.

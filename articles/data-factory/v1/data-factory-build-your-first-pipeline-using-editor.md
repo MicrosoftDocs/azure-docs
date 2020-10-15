@@ -166,7 +166,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 
 1. Confirm that you see both **AzureStorageLinkedService** and **HDInsightOnDemandLinkedService** in the tree view on the left.
 
-    ![Tree view with linked services](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
+    ![Screenshot that shows that AzureStorageLinkedService and HDInsightOnDemandLinkedService are linked together.](./media/data-factory-build-your-first-pipeline-using-editor/tree-view-linked-services.png)
 
 ## Create datasets
 In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to AzureStorageLinkedService that you created previously in this tutorial. The linked service points to a storage account. Datasets specify the container, folder, and file name in the storage that holds input and output data.   
@@ -427,7 +427,7 @@ In this tutorial, you created a data factory to process data by running a Hive s
 * Create a pipeline with an HDInsight Hive activity.
 
 ## Next steps
-In this article, you created a pipeline with a transformation activity (HDInsight activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy activity to copy data from blob storage to a SQL database, see [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+In this article, you created a pipeline with a transformation activity (HDInsight activity) that runs a Hive script on an on-demand HDInsight cluster. To see how to use a Copy activity to copy data from blob storage to Azure SQL Database, see [Tutorial: Copy data from Blob storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## See also
 | Topic | Description |

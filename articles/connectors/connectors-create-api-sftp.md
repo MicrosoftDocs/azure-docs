@@ -1,20 +1,20 @@
 ---
-title: Connect to SFTP account
-description: Automate tasks and processes that monitor, create, manage, send, and receive files for an SFTP server through SSH by using Azure Logic Apps
+title: Connect to SFTP account (Deprecated)
+description: Automate tasks and processes that monitor, create, manage, send, and receive files for an SFTP server by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: divswa, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
+ROBOTS: NOINDEX
 ---
 
-# Monitor, create, and manage SFTP files by using Azure Logic Apps
+# Monitor, create, and manage SFTP files in Azure Logic Apps
 
 > [!IMPORTANT]
-> Please use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) 
-> as the SFTP connector is deprecated. You can no longer select SFTP 
+> Please use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) as the SFTP connector is deprecated. You can no longer select SFTP 
 > triggers and actions in the Logic App Designer.
 
 To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server, you can build and automate integration workflows by using Azure Logic Apps and the SFTP connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream. Here are some example tasks you can automate:
@@ -111,8 +111,7 @@ When a trigger finds a new file, the trigger checks that the new file is complet
 
 ### SFTP trigger: When a file is added or modified
 
-This trigger starts a logic app workflow when a file is added or changed on an SFTP server. For example, you can add a condition that checks the file's content and gets the content based on whether the content meets a specified condition. 
-You can then add an action that gets the file's content, and puts that content in a folder on the SFTP server.
+This trigger starts a logic app workflow when a file is added or changed on an SFTP server. For example, you can add a condition that checks the file's content and gets the content based on whether the content meets a specified condition. You can then add an action that gets the file's content, and puts that content in a folder on the SFTP server.
 
 **Enterprise example**: You can use this trigger to monitor an SFTP folder for new files that represent customer orders. You can then use an SFTP action such as **Get file content** so you get the order's contents for further processing and store that order in an orders database.
 
@@ -124,7 +123,7 @@ This action gets the content from a file on an SFTP server. So for example, you 
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/sftpconnector/).
+For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/azure/data-factory/connector-sftp).
 
 ## Next steps
 

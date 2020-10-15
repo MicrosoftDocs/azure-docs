@@ -2,18 +2,14 @@
 title: EA tasks in a Microsoft Customer Agreement - Azure
 description: Learn how to complete Enterprise Agreement tasks in your new billing account.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/02/2020
+ms.date: 09/03/2020
 ms.author: banders
-
 ---
+
 # Complete Enterprise Agreement tasks in your billing account for a Microsoft Customer Agreement
 
 If your organization has signed a Microsoft Customer Agreement to renew your Enterprise Agreement enrollment, a new billing account is created for the agreement. The billing in your new account is organized differently than your Enterprise Agreement. This article describes how you can use the new billing account to perform tasks that you performed in your Enterprise Agreement.
@@ -28,16 +24,16 @@ The following diagram describes how billing is organized in your new billing acc
 |------------------------|--------------------------------------------------------|
 | Enrollment            | You use a billing profile to manage billing for your organization, similar to your Enterprise Agreement enrollment. Enterprise administrators become owners of the billing profile. To learn more about billing profiles, see [Understand billing profiles](../understand/mca-overview.md#billing-profiles).
 | Department            | You use an invoice section to organize your costs, similar to departments in your Enterprise Agreement enrollment. Department becomes invoice sections and department administrators become owners of the respective invoice sections. To learn more about invoice sections, see [Understand invoice sections](../understand/mca-overview.md#invoice-sections). |
-| Account               | The accounts that were created in your Enterprise Agreement aren’t supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections. |
+| Account               | The accounts that were created in your Enterprise Agreement aren't supported in the new billing account. The account's subscriptions belong to the respective invoice section for their department. Account owners can create and manage subscriptions for their invoice sections. |
 
 ## Changes for enterprise administrators
 
 The following changes apply to enterprise administrators on an Enterprise Agreement that got renewed to a Microsoft Customer Agreement.
 
-- A billing profile is created for your enrollment. You’ll use the billing profile to manage billing for your organization, like your Enterprise Agreement enrollment. To learn more about billing profiles, [understand billing profiles](../understand/mca-overview.md#billing-profiles).
-- An invoice section is created for each department in your Enterprise Agreement enrollment. You’ll use the invoice sections to manage your departments. You can create new invoice sections to set up additional departments. To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
-- You’ll use the Azure subscription creator role on invoice sections to give others permission to create Azure subscription, like the accounts that were created in Enterprise Agreement enrollment.
-- You’ll use the [Azure portal](https://portal.azure.com) to manage billing for your organization, instead of the Azure EA portal.
+- A billing profile is created for your enrollment. You'll use the billing profile to manage billing for your organization, like your Enterprise Agreement enrollment. To learn more about billing profiles, [understand billing profiles](../understand/mca-overview.md#billing-profiles).
+- An invoice section is created for each department in your Enterprise Agreement enrollment. You'll use the invoice sections to manage your departments. You can create new invoice sections to set up additional departments. To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
+- You'll use the Azure subscription creator role on invoice sections to give others permission to create Azure subscription, like the accounts that were created in Enterprise Agreement enrollment.
+- You'll use the [Azure portal](https://portal.azure.com) to manage billing for your organization, instead of the Azure EA portal.
 
 You are given the following roles on the new billing account:
 
@@ -91,9 +87,9 @@ Assign users the Azure subscription creator role on invoice sections to give the
 
 The following changes apply to department administrators on an Enterprise Agreement that got renewed to a Microsoft Customer Agreement.
 
-- An invoice section is created for each department in your Enterprise Agreement enrollment. You’ll use the invoice section(s) to manage your department(s). To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
-- You’ll use the Azure subscription creator role on the invoice section to give others permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment.
-- You’ll use the Azure portal to manage billing for your organization, instead of the Azure EA portal.
+- An invoice section is created for each department in your Enterprise Agreement enrollment. You'll use the invoice section(s) to manage your department(s). To learn more about invoice sections, see [understand invoice sections](../understand/mca-overview.md#invoice-sections).
+- You'll use the Azure subscription creator role on the invoice section to give others permission to create Azure subscription, like the accounts that are created in Enterprise Agreement enrollment.
+- You'll use the Azure portal to manage billing for your organization, instead of the Azure EA portal.
 
 You are given the following roles on the new billing account:
 
@@ -101,7 +97,7 @@ You are given the following roles on the new billing account:
 
 ### View charges for your department
 
-You can view charges for the invoice section that’s created for your department, in the Azure portal’s [Cost Management + Billing page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
+You can view charges for the invoice section that's created for your department, in the Azure portal's [Cost Management + Billing page](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
 
 ### Add an additional department administrator
 
@@ -111,7 +107,7 @@ To learn how to provide, access to your invoice section, see [manage billing rol
 
 ### Create a new account in your department
 
-Assign users the Azure subscription creator role on invoice section that’s created for your department. For more information on assigning roles, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
+Assign users the Azure subscription creator role on invoice section that's created for your department. For more information on assigning roles, see [Manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)
 
 ### View charges for accounts in your departments
 
@@ -121,11 +117,11 @@ To view aggregate cost for subscriptions that belonged to an account in your dep
 
 ## Changes for account owners
 
-Account owners on the Enterprise Agreement get permission to create Azure subscriptions on the new billing account. Your existing Azure subscriptions belong to the invoice section that is created for your department. If your account doesn’t belong to a department, your subscriptions belong to an invoice section named Default invoice section.
+Account owners on the Enterprise Agreement get permission to create Azure subscriptions on the new billing account. Your existing Azure subscriptions belong to the invoice section that is created for your department. If your account doesn't belong to a department, your subscriptions belong to an invoice section named Default invoice section.
 
 To create additional Azure subscriptions, you are given the following role on the new billing account.
 
-**Azure subscription creator** - You are assigned the azure subscription creator role on the invoice section that is created for your department in Enterprise Agreement. If your account doesn't belong to a department, you get Azure subscription creator role on a section named Default invoice section. The role lets you create Azure subscriptions for the invoice section.
+**Azure subscription creator** - You are assigned the Azure subscription creator role on the invoice section that is created for your department in Enterprise Agreement. If your account doesn't belong to a department, you get Azure subscription creator role on a section named Default invoice section. The role lets you create Azure subscriptions for the invoice section.
 
 ### Create an Azure subscription
 

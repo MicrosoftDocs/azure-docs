@@ -3,14 +3,14 @@ title: Define a self-asserted technical profile in a custom policy
 titleSuffix: Azure AD B2C
 description: Define a self-asserted technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
-ms.author: marsma
+ms.date: 03/26/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -27,7 +27,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `Proprieta
 
 The following example shows a self-asserted technical profile for email sign-up:
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -37,7 +37,7 @@ The following example shows a self-asserted technical profile for email sign-up:
 
 In a self-asserted technical profile, you can use the **InputClaims** and **InputClaimsTransformations** elements to prepopulate the value of the claims that appear on the self-asserted page (display claims). For example, in the edit profile policy, the user journey first reads the user profile from the Azure AD B2C directory service, then the self-asserted technical profile sets the input claims with the user data stored in the user profile. These claims are collected from the user profile and then presented to the user who can then edit the existing data.
 
-```XML
+```xml
 <TechnicalProfile Id="SelfAsserted-ProfileUpdate">
 ...
   <InputClaims>
@@ -52,7 +52,7 @@ In a self-asserted technical profile, you can use the **InputClaims** and **Inpu
 
 The display claims feature is currently in **preview**.
 
-The **DisplayClaims** element contains a list of claims to be presented on the screen for collecting data from the user. To prepopulate the values of output claims, use the input claims that were previously described. The element may also contain a default value.
+The **DisplayClaims** element contains a list of claims to be presented on the screen for collecting data from the user. To prepopulate the values of display claims, use the input claims that were previously described. The element may also contain a default value.
 
 The order of the claims in **DisplayClaims** specifies the order in which Azure AD B2C renders the claims on the screen. To force the user to provide a value for a specific claim, set the **Required** attribute of the **DisplayClaim** element to `true`.
 
@@ -64,11 +64,11 @@ In the display claims collection, you can include a reference to a [DisplayContr
 
 The following example `TechnicalProfile` illustrates the use of display claims with display controls.
 
-* The first display claim makes a reference to the `emailVerificationControl` display control which collects and verifies the email address.
-* The fifth display claim makes a reference to the `phoneVerificationControl` display control which collects and verifies a phone number.
+* The first display claim makes a reference to the `emailVerificationControl` display control, which collects and verifies the email address.
+* The fifth display claim makes a reference to the `phoneVerificationControl` display control, which collects and verifies a phone number.
 * The other display claims are ClaimTypes to be collected from the user.
 
-```XML
+```xml
 <TechnicalProfile Id="Id">
   <DisplayClaims>
     <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
@@ -90,7 +90,7 @@ If you specify one or more **DisplayClaim** elements in a self-asserted technica
 
 Consider the following example in which an `age` claim is defined as an **output** claim in a base policy. Before adding any display claims to the self-asserted technical profile, the `age` claim is displayed on the screen for data collection from the user:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="age" />
@@ -100,7 +100,7 @@ Consider the following example in which an `age` claim is defined as an **output
 
 If a leaf policy that inherits that base subsequently specifies `officeNumber` as a **display** claim:
 
-```XML
+```xml
 <TechnicalProfile Id="id">
   <DisplayClaims>
     <DisplayClaim ClaimTypeReferenceId="officeNumber" />
@@ -117,6 +117,8 @@ The `age` claim in the base policy is no longer presented on the screen to the u
 
 The **OutputClaims** element contains a list of claims to be returned to the next orchestration step. The **DefaultValue** attribute takes effect only if the claim has never been set. If it was set in a previous orchestration step, the default value does not take effect even if the user leaves the value empty. To force the use of a default value, set the **AlwaysUseDefaultValue** attribute to `true`.
 
+For security reasons, a password claim value (`UserInputType` set to `Password`) is available only to the self-asserted technical profile's validation technical profiles. You cannot use password claim in the next orchestration steps. 
+
 > [!NOTE]
 > In previous versions of the Identity Experience Framework (IEF), output claims were used to collect data from the user. To collect data from the user, use a **DisplayClaims** collection instead.
 
@@ -126,7 +128,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 In a self-asserted technical profile, the output claims collection returns the claims to the next orchestration step.
 
-You should use output claims when:
+Use output claims when:
 
 - **Claims are output by output claims transformation**.
 - **Setting a default value in an output claim** without collecting data from the user or returning the data from the validation technical profile. The `LocalAccountSignUpWithLogonEmail` self-asserted technical profile sets the **executed-SelfAsserted-Input** claim to `true`.
@@ -135,7 +137,7 @@ You should use output claims when:
 
 The following example demonstrates the use of a self-asserted technical profile that uses both display claims and output claims.
 
-```XML
+```xml
 <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
   <DisplayName>Email signup</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.SelfAssertedAttributeProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -172,7 +174,7 @@ The following example demonstrates the use of a self-asserted technical profile 
 
 ## Persist claims
 
-If the **PersistedClaims** element is absent, the self-asserted technical profile doesn't persist the data to Azure AD B2C. Instead, a call is made to a validation technical profile that's responsible for persisting the data. For example, the sign-up policy uses the `LocalAccountSignUpWithLogonEmail` self-asserted technical profile to collect the new user profile. The `LocalAccountSignUpWithLogonEmail` technical profile calls the validation technical profile to create the account in Azure AD B2C.
+The PersistedClaims element is not used. The self-asserted technical profile doesn't persist the data to Azure AD B2C. Instead, a call is made to a validation technical profile that's responsible for persisting the data. For example, the sign-up policy uses the `LocalAccountSignUpWithLogonEmail` self-asserted technical profile to collect the new user profile. The `LocalAccountSignUpWithLogonEmail` technical profile calls the validation technical profile to create the account in Azure AD B2C.
 
 ## Validation technical profiles
 
@@ -186,14 +188,22 @@ You can also call a REST API technical profile with your business logic, overwri
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
-| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
-| setting.operatingMode | No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`. |
+| setting.operatingMode <sup>1</sup>| No | For a sign-in page, this property controls the behavior of the username field, such as input validation and error messages. Expected values: `Username` or `Email`.  |
+| AllowGenerationOfClaimsWithNullValues| No| Allow to generate a claim with null value. For example, in a case user doesn't select a checkbox.|
 | ContentDefinitionReferenceId | Yes | The identifier of the [content definition](contentdefinitions.md) associated with this technical profile. |
 | EnforceEmailVerification | No | For sign-up or profile edit, enforces email verification. Possible values: `true` (default), or `false`. |
-| setting.showSignupLink | No | Displays the sign-up button. Possible values: `true` (default), or `false` |
-| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile . For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached.
-| SignUpTarget | No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
+| setting.retryLimit | No | Controls the number of times a user can try to provide the data that is checked against a validation technical profile. For example, a user tries to sign-up with an account that already exists and keeps trying until the limit reached.
+| SignUpTarget <sup>1</sup>| No | The signup target exchange identifier. When the user clicks the sign-up button, Azure AD B2C executes the specified exchange identifier. |
+| setting.showCancelButton | No | Displays the cancel button. Possible values: `true` (default), or `false` |
+| setting.showContinueButton | No | Displays the continue button. Possible values: `true` (default), or `false` |
+| setting.showSignupLink <sup>2</sup>| No | Displays the sign-up button. Possible values: `true` (default), or `false` |
+| setting.forgotPasswordLinkLocation <sup>2</sup>| No| Displays the forgot password link. Possible values: `AfterInput` (default) the link is displayed at the bottom of the page, or `None` removes the forgot password link.|
+| setting.enableRememberMe <sup>2</sup>| No| Displays the [Keep me signed in](custom-policy-keep-me-signed-in.md) checkbox. Possible values: `true` , or `false` (default). |
+| IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
+
+Notes:
+1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`.
+1. Available for content definition [DataUri](contentdefinitions.md#datauri) type of `unifiedssp`, or `unifiedssd`. [Page layout version](page-layout.md) 1.1.0 and above.
 
 ## Cryptographic keys
 

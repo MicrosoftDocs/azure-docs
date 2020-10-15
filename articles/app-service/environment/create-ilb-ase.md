@@ -5,11 +5,11 @@ author: ccompy
 
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
-ms.date: 08/05/2019
+ms.date: 09/16/2020
 ms.author: ccompy
-ms.custom: mvc
-ms.custom: seodec18
+ms.custom: mvc, seodec18
 ---
+
 # Create and use an Internal Load Balancer App Service Environment 
 
 The Azure App Service Environment is a deployment of Azure App Service into a subnet in an Azure virtual network (VNet). There are two ways to deploy an App Service Environment (ASE): 
@@ -54,7 +54,10 @@ To create an ILB ASE:
 
 5. Select virtual IP type of Internal.
 
-	![ASE creation](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
+    ![ASE creation](media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase.png)
+
+> [!NOTE]
+> The App Service Environment name must be no more than 37 characters.
 
 6. Select Networking
 
@@ -62,9 +65,10 @@ To create an ILB ASE:
 
 8. Select or create an empty a subnet. If you want to select a subnet, it must be empty and not delegated. The subnet size cannot be changed after the ASE is created. We recommend a size of `/24`, which has 256 addresses and can handle a maximum-sized ASE and any scaling needs. 
 
-	![ASE networking][1]
+    ![ASE networking][1]
 
 7. Select **Review and Create** then select **Create**.
+
 
 ## Create an app in an ILB ASE ##
 
@@ -92,15 +96,26 @@ Both Functions and web jobs are supported on an ILB ASE but for the portal to wo
 
 ## DNS configuration 
 
-When you use an External VIP, the DNS is managed by Azure. Any app created in your ASE is automatically added to Azure DNS, which is a public DNS. In an ILB ASE, you must manage your own DNS. The domain suffix used with an ILB ASE depends on the name of the ASE. The domain suffix is *&lt;ASE name&gt;.appserviceenvironment.net*. The IP address for your ILB is in the portal under **IP addresses**. 
+When you use an External ASE, apps made in your ASE are registered with Azure DNS. There are no additional steps then in an External ASE for your apps to be publicly available. With an ILB ASE, you must manage your own DNS. You can do this in your own DNS server or with Azure DNS private zones.
 
-To configure your DNS:
+To configure DNS in your own DNS server with your ILB ASE:
 
-- create a zone for *&lt;ASE name&gt;.appserviceenvironment.net*
-- create an A record in that zone that points * to the ILB IP address
-- create an A record in that zone that points @ to the ILB IP address
-- create a zone in *&lt;ASE name&gt;.appserviceenvironment.net* named scm
-- create an A record in the scm zone that points * to the ILB IP address
+1. create a zone for <ASE name>.appserviceenvironment.net
+2. create an A record in that zone that points * to the ILB IP address
+3. create an A record in that zone that points @ to the ILB IP address
+4. create a zone in <ASE name>.appserviceenvironment.net named scm
+5. create an A record in the scm zone that points * to the ILB IP address
+
+To configure DNS in Azure DNS Private zones:
+
+1. create an Azure DNS private zone named <ASE name>.appserviceenvironment.net
+2. create an A record in that zone that points * to the ILB IP address
+3. create an A record in that zone that points @ to the ILB IP address
+4. create an A record in that zone that points *.scm to the ILB IP address
+
+The DNS settings for your ASE default domain suffix do not restrict your apps to only being accessible by those names. You can set a custom domain name without any validation on your apps in an ILB ASE. If you then want to create a zone named contoso.net, you could do so and point it to the ILB IP address. The custom domain name works for app requests but doesn't for the scm site. The scm site is only available at <appname>.scm.<asename>.appserviceenvironment.net.
+
+The zone named .<asename>.appserviceenvironment.net is globally unique. Before May 2019, customers were able to specify the domain suffix of the ILB ASE. If you wanted to use .contoso.com for the domain suffix, you were able do so and that would include the scm site. There were challenges with that model including; managing the default SSL certificate, lack of single sign-on with the scm site, and the requirement to use a wildcard certificate. The ILB ASE default certificate upgrade process was also disruptive and caused application restarts. To solve these problems, the ILB ASE behavior was changed to use a domain suffix based on the name of the ASE and with a Microsoft owned suffix. The change to the ILB ASE behavior only affects ILB ASEs made after May 2019. Pre-existing ILB ASEs must still manage the default certificate of the ASE and their DNS configuration.
 
 ## Publish with an ILB ASE
 
@@ -144,13 +159,13 @@ ILB ASEs that were made before May 2019 required you to set the domain suffix du
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [customdomain]: ../app-service-web-tutorial-custom-domain.md
-[linuxapp]: ../containers/app-service-linux-intro.md
+[linuxapp]: ../overview.md#app-service-on-linux

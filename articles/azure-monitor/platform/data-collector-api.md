@@ -1,12 +1,11 @@
 ---
 title: Azure Monitor HTTP Data Collector API | Microsoft Docs
 description: You can use the Azure Monitor HTTP Data Collector API to add POST JSON data to a Log Analytics workspace from any client that can call the REST API. This article describes how to use the API, and has examples of how to publish data by using different programming languages.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/01/2019
+ms.date: 07/14/2020
 
 ---
 
@@ -63,7 +62,7 @@ Here's the format for the authorization header:
 Authorization: SharedKey <WorkspaceID>:<Signature>
 ```
 
-*WorkspaceID* is the unique identifier for the Log Analytics workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](https://msdn.microsoft.com/library/system.security.cryptography.hmacsha256.aspx) that is constructed from the request and then computed by using the [SHA256 algorithm](https://msdn.microsoft.com/library/system.security.cryptography.sha256.aspx). Then, you encode it by using Base64 encoding.
+*WorkspaceID* is the unique identifier for the Log Analytics workspace. *Signature* is a [Hash-based Message Authentication Code (HMAC)](/dotnet/api/system.security.cryptography.hmacsha256?view=netcore-3.1) that is constructed from the request and then computed by using the [SHA256 algorithm](/dotnet/api/system.security.cryptography.sha256?view=netcore-3.1). Then, you encode it by using Base64 encoding.
 
 Use this format to encode the **SharedKey** signature string:
 
@@ -137,6 +136,9 @@ To identify a property's data type, Azure Monitor adds a suffix to the property 
 | Date/time |_t |
 | GUID (stored as a string) |_g |
 
+> [!NOTE]
+> String values that appear to be GUIDs will be given the _g suffix and formatted as a GUID, even if the incoming value doesn't include dashes. For example, both "8145d822-13a7-44ad-859c-36f31a84f6dd" and "8145d82213a744ad859c36f31a84f6dd" will be stored as "8145d822-13a7-44ad-859c-36f31a84f6dd". The only differences between this and another string is the _g in the name and the insertion of dashes if they aren't provided in the input. 
+
 The data type that Azure Monitor uses for each property depends on whether the record type for the new record already exists.
 
 * If the record type does not exist, Azure Monitor creates a new one using the JSON type inference to determine the data type for each property for the new record.
@@ -204,7 +206,7 @@ In the next sections, you'll find samples of how to submit data to the Azure Mon
 For each sample, do these steps to set the variables for the authorization header:
 
 1. In the Azure portal, locate your Log Analytics workspace.
-2. Select **Advanced Settings** and then **Connected Sources**.
+2. Select **Agents management**.
 2. To the right of **Workspace ID**, select the copy icon, and then paste the ID as the value of the **Customer ID** variable.
 3. To the right of **Primary Key**, select the copy icon, and then paste the ID as the value of the **Shared Key** variable.
 
@@ -222,7 +224,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = "DateValue"
+$TimeStampField = ""
 
 
 # Create two records with the same set of properties to create
@@ -461,14 +463,99 @@ def post_data(customer_id, shared_key, body, log_type):
 
 post_data(customer_id, shared_key, body, log_type)
 ```
+
+### Python 3 sample
+```python
+import json
+import requests
+import datetime
+import hashlib
+import hmac
+import base64
+
+# Update the customer ID to your Log Analytics workspace ID
+customer_id = 'xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+
+# For the shared key, use either the primary or the secondary Connected Sources client authentication key   
+shared_key = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
+
+# The log type is the name of the event that is being submitted
+log_type = 'WebMonitorTest'
+
+# An example JSON web monitor object
+json_data = [{
+   "slot_ID": 12345,
+    "ID": "5cdad72f-c848-4df0-8aaa-ffe033e75d57",
+    "availability_Value": 100,
+    "performance_Value": 6.954,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "true"
+},
+{   
+    "slot_ID": 67890,
+    "ID": "b6bee458-fb65-492e-996d-61c4d7fbb942",
+    "availability_Value": 100,
+    "performance_Value": 3.379,
+    "measurement_Name": "last_one_hour",
+    "duration": 3600,
+    "warning_Threshold": 0,
+    "critical_Threshold": 0,
+    "IsActive": "false"
+}]
+body = json.dumps(json_data)
+
+#####################
+######Functions######  
+#####################
+
+# Build the API signature
+def build_signature(customer_id, shared_key, date, content_length, method, content_type, resource):
+    x_headers = 'x-ms-date:' + date
+    string_to_hash = method + "\n" + str(content_length) + "\n" + content_type + "\n" + x_headers + "\n" + resource
+    bytes_to_hash = bytes(string_to_hash, encoding="utf-8")  
+    decoded_key = base64.b64decode(shared_key)
+    encoded_hash = base64.b64encode(hmac.new(decoded_key, bytes_to_hash, digestmod=hashlib.sha256).digest()).decode()
+    authorization = "SharedKey {}:{}".format(customer_id,encoded_hash)
+    return authorization
+
+# Build and send a request to the POST API
+def post_data(customer_id, shared_key, body, log_type):
+    method = 'POST'
+    content_type = 'application/json'
+    resource = '/api/logs'
+    rfc1123date = datetime.datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT')
+    content_length = len(body)
+    signature = build_signature(customer_id, shared_key, rfc1123date, content_length, method, content_type, resource)
+    uri = 'https://' + customer_id + '.ods.opinsights.azure.com' + resource + '?api-version=2016-04-01'
+
+    headers = {
+        'content-type': content_type,
+        'Authorization': signature,
+        'Log-Type': log_type,
+        'x-ms-date': rfc1123date
+    }
+
+    response = requests.post(uri,data=body, headers=headers)
+    if (response.status_code >= 200 and response.status_code <= 299):
+        print('Accepted')
+    else:
+        print("Response code: {}".format(response.status_code))
+
+post_data(customer_id, shared_key, body, log_type)
+```
+
+
 ## Alternatives and considerations
 While the Data Collector API should cover most of your needs to collect free-form data into Azure Logs, there are instances where an alternative might be required to overcome some of the limitations of the API. All your options are as follows, major considerations included:
 
 | Alternative | Description | Best suited for |
 |---|---|---|
-| [Custom events](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, typically instrumented through an SDK within your application, offers the ability for you to send custom data through Custom Events. | <ul><li> Data that is generated within your application, but not picked up by SDK through one of the default data types (requests, dependencies, exceptions, and so on).</li><li> Data that is most often correlated to other application data in Application Insights </li></ul> |
-| Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data formatted in a JSON object can be sent here. Once sent, it will be processed, and available in Logs to be correlated with other data in Logs or against other Application Insights data. <br/><br/> It is fairly easy to upload the data as files to an Azure Blob blob, from where these files will be processed and uploaded to Log Analytics. Please see [this](https://docs.microsoft.com/azure/log-analytics/log-analytics-create-pipeline-datacollector-api) article for a sample implementation of such a pipeline. | <ul><li> Data that is not necessarily generated within an application instrumented within Application Insights.</li><li> Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Intended for data that will be cross-referenced against other Azure Monitor data (Application Insights, other Logs data types, Security Center, Azure Monitor for Containers/VMs, and so on). </li></ul> |
-| [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) is the data platform that powers Application Insights Analytics and Azure Monitor Logs. Now Generally Available ("GA"), using the data platform in its raw form provides you complete flexibility (but requiring the overhead of management) over the cluster (RBAC, retention rate, schema, and so on). ADX provides many [ingestion options](https://docs.microsoft.com/azure/data-explorer/ingest-data-overview#ingestion-methods) including [CSV, TSV, and JSON](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master) files. | <ul><li> Data that will not be correlated to any other data under Application Insights or Logs. </li><li> Data requiring advanced ingestion or processing capabilities not today available in Azure Monitor Logs. </li></ul> |
+| [Custom events](../app/api-custom-events-metrics.md?toc=%2Fazure%2Fazure-monitor%2Ftoc.json#properties): Native SDK-based ingestion in Application Insights | Application Insights, typically instrumented through an SDK within your application, offers the ability for you to send custom data through Custom Events. | <ul><li> Data that is generated within your application, but not picked up by SDK through one of the default data types (requests, dependencies, exceptions, and so on).</li><li> Data that is most often correlated to other application data in Application Insights </li></ul> |
+| Data Collector API in Azure Monitor Logs | The Data Collector API in Azure Monitor Logs is a completely open-ended way to ingest data. Any data formatted in a JSON object can be sent here. Once sent, it will be processed, and available in Logs to be correlated with other data in Logs or against other Application Insights data. <br/><br/> It is fairly easy to upload the data as files to an Azure Blob blob, from where these files will be processed and uploaded to Log Analytics. Please see [this](./create-pipeline-datacollector-api.md) article for a sample implementation of such a pipeline. | <ul><li> Data that is not necessarily generated within an application instrumented within Application Insights.</li><li> Examples include lookup and fact tables, reference data, pre-aggregated statistics, and so on. </li><li> Intended for data that will be cross-referenced against other Azure Monitor data (Application Insights, other Logs data types, Security Center, Azure Monitor for Containers/VMs, and so on). </li></ul> |
+| [Azure Data Explorer](/azure/data-explorer/ingest-data-overview) | Azure Data Explorer (ADX) is the data platform that powers Application Insights Analytics and Azure Monitor Logs. Now Generally Available ("GA"), using the data platform in its raw form provides you complete flexibility (but requiring the overhead of management) over the cluster (RBAC, retention rate, schema, and so on). ADX provides many [ingestion options](/azure/data-explorer/ingest-data-overview#ingestion-methods) including [CSV, TSV, and JSON](/azure/kusto/management/mappings?branch=master) files. | <ul><li> Data that will not be correlated to any other data under Application Insights or Logs. </li><li> Data requiring advanced ingestion or processing capabilities not today available in Azure Monitor Logs. </li></ul> |
 
 
 ## Next steps

@@ -1,12 +1,12 @@
 ---
 title: 'Azure VPN Gateway: Configure forced tunneling - Site-to-Site connections: classic'
-description: How to redirect or 'force' all Internet-bound traffic back to your on-premises location.
+description: Learn how to configure forced tunneling for virtual networks created using the classic deployment model.
 services: vpn-gateway
 author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 08/01/2017
+ms.date: 10/08/2020
 ms.author: cherylmc
 
 ---
@@ -35,7 +35,7 @@ Forced tunneling in Azure is configured via virtual network user-defined routes 
 * With the release of user-defined routes, you can create a routing table to add a default route, and then associate the routing table to your VNet subnet(s) to enable forced tunneling on those subnets.
 * You need to set a "default site" among the cross-premises local sites connected to the virtual network.
 * Forced tunneling must be associated with a VNet that has a dynamic routing VPN gateway (not a static gateway).
-* ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. Please see the [ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/) for more information.
+* ExpressRoute forced tunneling is not configured via this mechanism, but instead, is enabled by advertising a default route via the ExpressRoute BGP peering sessions. See the [ExpressRoute Documentation](https://azure.microsoft.com/documentation/services/expressroute/) for more information.
 
 ## Configuration overview
 In the following example, the Frontend subnet is not forced tunneled. The workloads in the Frontend subnet can continue to accept and respond to customer requests from the Internet directly. The Mid-tier and Backend subnets are forced tunneled. Any outbound connections from these two subnets to the Internet will be forced or redirected back to an on-premises site via one of the S2S VPN tunnels.
@@ -45,11 +45,19 @@ This allows you to restrict and inspect Internet access from your virtual machin
 ![Forced Tunneling](./media/vpn-gateway-about-forced-tunneling/forced-tunnel.png)
 
 ## Before you begin
-Verify that you have the following items before beginning configuration.
+Verify that you have the following items before beginning configuration:
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
 * A configured virtual network. 
-* The latest version of the Azure PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azure/overview) for more information about installing the PowerShell cmdlets.
+* [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
+
+### To sign in
+
+1. Open your PowerShell console with elevated rights. Connect to your account using the following example:
+
+   ```powershell
+   Add-AzureAccount
+   ```
 
 ## Configure forced tunneling
 The following procedure will help you specify forced tunneling for a virtual network. The configuration steps correspond to the VNet network configuration file.

@@ -11,7 +11,7 @@ ms.author: v-umha
 
 This article provides information about the Azure FarmBeats **Translator** component, which enables sensor partner integration.
 
-Using this component, partners can integrate with FarmBeats using FarmBeats Data hub APIs and send customer device data and telemetry to FarmBeats Data hub. Once the data is available in FarmBeats, it is visualized using the FarmBeats Accelerator and can be used for data fusion and for building machine learning/artificial intelligence models.
+Using this component, partners can integrate with FarmBeats using FarmBeats Datahub APIs and send customer device data and telemetry to FarmBeats Datahub. Once the data is available in FarmBeats, it is visualized using the FarmBeats Accelerator and can be used for data fusion and for building machine learning/artificial intelligence models.
 
 ## Before you start
 
@@ -37,7 +37,7 @@ The telemetry data is mapped to a canonical message that's published on Azure Ev
 
 **API development**
 
-The APIs contain Swagger technical documentation. For more information on the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+The APIs contain Swagger technical documentation. For more information on the APIs and their corresponding requests or responses, see [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 **Authentication**
 
@@ -45,7 +45,7 @@ FarmBeats uses Microsoft Azure Active Directory authentication. Azure App Serv
 
 For more information, see [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization).
 
-FarmBeats Data hub uses bearer authentication, which needs the following credentials:
+FarmBeats Datahub uses bearer authentication, which needs the following credentials:
    - Client ID
    - Client secret
    - Tenant ID
@@ -59,35 +59,40 @@ headers = {"Authorization": "Bearer " + access_token, …} 
 The following sample Python code gives the access token, which can be used for subsequent API calls to FarmBeats.
 
 ```python
-import azure 
+import requests
+import json
+import msal
 
-from azure.common.credentials import ServicePrincipalCredentials 
-import adal 
-#FarmBeats API Endpoint 
-ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
-CLIENT_ID = "<Your Client ID>"   
-CLIENT_SECRET = "<Your Client Secret>"   
-TENANT_ID = "<Your Tenant ID>" 
-AUTHORITY_HOST = 'https://login.microsoftonline.com' 
-AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
-#Authenticating with the credentials 
-context = adal.AuthenticationContext(AUTHORITY) 
-token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
-#Should get an access token here 
-access_token = token_response.get('accessToken') 
+# Your service principal App ID
+CLIENT_ID = "<CLIENT_ID>"
+# Your service principal password
+CLIENT_SECRET = "<CLIENT_SECRET>"
+# Tenant ID for your Azure subscription
+TENANT_ID = "<TENANT_ID>"
+
+AUTHORITY_HOST = 'https://login.microsoftonline.com'
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID
+
+ENDPOINT = "https://<yourfarmbeatswebsitename-api>.azurewebsites.net"
+SCOPE = ENDPOINT + "/.default"
+
+context = msal.ConfidentialClientApplication(CLIENT_ID, authority=AUTHORITY, client_credential=CLIENT_SECRET)
+token_response = context.acquire_token_for_client(SCOPE)
+# We should get an access token here
+access_token = token_response.get('access_token')
 ```
 
 
 **HTTP request headers**
 
-Here are the most common request headers that need to be specified when you make an API call to FarmBeats Data hub.
+Here are the most common request headers that need to be specified when you make an API call to FarmBeats Datahub.
 
 
 **Header** | **Description and example**
 --- | ---
-Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Data hub APIs, the format is JSON. Content-Type: application/json
+Content-Type | The request format (Content-Type: application/<format>). For FarmBeats Datahub APIs, the format is JSON. Content-Type: application/json
 Authorization | Specifies the access token required to make an API call. Authorization: Bearer <Access-Token>
-Accept | The response format. For FarmBeats Data hub APIs, the format is JSON. Accept: application/json
+Accept | The response format. For FarmBeats Datahub APIs, the format is JSON. Accept: application/json
 
 **API requests**
 
@@ -114,14 +119,14 @@ JSON is a common language-independent data format that provides a simple text re
 
 ## Metadata specifications
 
-FarmBeats Data hub has the following APIs that enable device partners to create and manage device or sensor metadata.
+FarmBeats Datahub has the following APIs that enable device partners to create and manage device or sensor metadata.
 
 - /**DeviceModel**: DeviceModel corresponds to the metadata of the device, such as the manufacturer and the type of device, which is either gateway or node.
 - /**Device**: Device corresponds to a physical device present on the farm.
 - /**SensorModel**: SensorModel corresponds to the metadata of the sensor, such as the manufacturer, the type of sensor, which is either analog or digital, and the sensor measure, such as ambient temperature and pressure.
 - /**Sensor**: Sensor corresponds to a physical sensor that records values. A sensor is typically connected to a device with a device ID.
 
-  **DeviceModel** |  |
+  DeviceModel | Description |
   --- | ---
   Type (node, gateway)  | Type of the device - Node or Gateway |
   Manufacturer  | Name of the manufacturer |
@@ -130,7 +135,7 @@ FarmBeats Data hub has the following APIs that enable device partners to create 
   Name  | Name to identify resource. For example, model name or product name. |
   Description  | Provide a meaningful description of the model. |
   Properties  | Additional properties from the manufacturer. |
-  **Device** |  |
+  **Device** | **Description** |
   DeviceModelId  |ID of the associated device model. |
   HardwareId   |Unique ID for the device, such as a MAC address.  |
   ReportingInterval |Reporting interval in seconds. |
@@ -139,7 +144,7 @@ FarmBeats Data hub has the following APIs that enable device partners to create 
   Name  | Name to identify the resource. Device partners need to send a name that's consistent with the device name on the device partner side. If the device name is user-defined on the device partner side, the same user-defined name should be propagated to FarmBeats.  |
   Description  | Provide a meaningful description.  |
   Properties  |Additional properties from the manufacturer.  |
-  **SensorModel** |  |
+  **SensorModel** | **Description** |
   Type (analog, digital)  |Mention analog or digital sensor.|
   Manufacturer  | Name of manufacturer. |
   ProductCode  | Product code or model name or number. For example, RS-CO2-N01.  |
@@ -153,7 +158,7 @@ FarmBeats Data hub has the following APIs that enable device partners to create 
   Name  | Name to identify resource. For example, the model name or product name.
   Description  | Provide a meaningful description of the model.
   Properties  | Additional properties from the manufacturer.
-  **Sensor**  |  |
+  **Sensor**  | **Description** |
   HardwareId  | Unique ID for the sensor set by the manufacturer.
   SensorModelId  | ID of the associated sensor model.
   Location  | Sensor latitude (-90 to +90), longitude (-180 to 180), and elevation (in meters).
@@ -183,7 +188,7 @@ The Translator should have the ability to add new devices or sensors that were i
 
 ### Add new types and units
 
-FarmBeats supports adding new sensor measure types and units. For more information about the /ExtendedType API, see [Swagger](https://aka.ms/FarmBeatsDatahubSwagger).
+FarmBeats supports adding new sensor measure types and units. For more information about the /ExtendedType API, see [Swagger](https://aka.ms/FarmBeatsSwagger).
 
 ## Telemetry specifications
 
@@ -299,7 +304,7 @@ After customers have purchased and deployed devices or sensors, they can access 
 
 ## Unlink FarmBeats
 
-Device partners can enable customers to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in FarmBeats Data hub. Unlinking does the following:
+Device partners can enable customers to unlink an existing FarmBeats integration. Unlinking FarmBeats shouldn't delete any device or sensor metadata that was created in FarmBeats Datahub. Unlinking does the following:
 
    - Stops telemetry flow.
    - Deletes and erases the integration credentials on the device partner.
@@ -340,4 +345,4 @@ Device manufacturers or partners can use the following checklist to ensure that 
 
 ## Next steps
 
-For more information about the REST API, see [REST API](references-for-azure-farmbeats.md#rest-api).
+For more information about the REST API, see [REST API](rest-api-in-azure-farmbeats.md).

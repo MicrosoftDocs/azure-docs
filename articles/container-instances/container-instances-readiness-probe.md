@@ -2,7 +2,7 @@
 title: Set up readiness probe on container instance
 description: Learn how to configure a probe to ensure containers in Azure Container Instances receive requests only when they are ready
 ms.topic: article
-ms.date: 10/17/2019
+ms.date: 07/02/2020
 ---
 
 # Configure readiness probes
@@ -13,12 +13,15 @@ This article explains how to deploy a container group that includes a readiness 
 
 Azure Container Instances also supports [liveness probes](container-instances-liveness-probe.md), which you can configure to cause an unhealthy container to automatically restart.
 
+> [!NOTE]
+> Currently you cannot use a readiness probe in a container group deployed to a virtual network.
+
 ## YAML configuration
 
-As an example, create a `readiness-probe.yaml` file with the following snippet that includes a readiness probe. This file defines a container group that consists of a container running a small web app. The app is deployed from the public `mcr.microsoft.com/azuredocs/aci-helloworld` image. This container app is also demonstrated in quickstarts such as [Deploy a container instance in Azure using the Azure CLI](container-instances-quickstart.md).
+As an example, create a `readiness-probe.yaml` file with the following snippet that includes a readiness probe. This file defines a container group that consists of a container running a small web app. The app is deployed from the public `mcr.microsoft.com/azuredocs/aci-helloworld` image. This containerized app is also demonstrated in [Deploy a container instance in Azure using the Azure CLI](container-instances-quickstart.md) and other quickstarts.
 
 ```yaml
-apiVersion: 2018-10-01
+apiVersion: 2019-12-01
 location: eastus
 name: readinesstest
 properties:
@@ -55,7 +58,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### Start command
 
-The YAML file includes a starting command to be run when the container starts, defined by the `command` property that accepts an array of strings. This command simulates a time when the web app runs but the container isn't ready. First, it starts a shell session and runs a `node` command to start the web app. It also starts a command to sleep for 240 seconds, after which it creates a file called `ready` within the `/tmp` directory:
+The deployment includes a `command` property defining a starting command that runs when the container first starts running. This property accepts an array of strings. This command simulates a time when the web app runs but the container isn't ready. 
+
+First, it starts a shell session and runs a `node` command to start the web app. It also starts a command to sleep for 240 seconds, after which it creates a file called `ready` within the `/tmp` directory:
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

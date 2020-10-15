@@ -5,21 +5,21 @@ description: Frequently asked questions about Azure AD self-service password res
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: how-to
+ms.date: 07/20/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 
 ms.collection: M365-identity-device-management
 ---
-# Password management frequently asked questions
+# Self-service password reset frequently asked questions
 
-The following are some frequently asked questions (FAQ) for all things related to password reset.
+The following are some frequently asked questions (FAQ) for all things related to self-service password reset.
 
-If you have a general question about Azure Active Directory (Azure AD) and self-service password reset (SSPR) that's not answered here, you can ask the community for assistance on the [Azure AD forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WindowsAzureAD). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
+If you have a general question about Azure Active Directory (Azure AD) and self-service password reset (SSPR) that's not answered here, you can ask the community for assistance on the [Microsoft Q&A question page for Azure Active Directory](/answers/topics/azure-active-directory.html). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
 
 This FAQ is split into the following sections:
 
@@ -35,7 +35,7 @@ This FAQ is split into the following sections:
 
   > **A:** Yes. As long as password reset is enabled and they are licensed, users can go to the password reset registration portal (https://aka.ms/ssprsetup) to register their authentication information. Users can also register through the Access Panel (https://myapps.microsoft.com). To register through the Access Panel, they need to select their profile picture, select **Profile**, and then select the **Register for password reset** option.
   >
-  >
+  > If you enable [combined registration](concept-registration-mfa-sspr-combined.md), users can register for both SSPR and Azure Multi-Factor Authentication at the same time.
 * **Q:  If I enable password reset for a group and then decide to enable it for everyone are my users required re-register?**
 
   > **A:** No. Users who have populated authentication data are not required to re-register.
@@ -68,7 +68,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How does the registration portal determine which options to show my users?**
 
-  > **A:** The password reset registration portal shows only the options that you have enabled for your users. These options are found under the **User Password Reset Policy** section of your directory’s **Configure** tab. For example, if you don't enable security questions, then users are not able to register for that option.
+  > **A:** The password reset registration portal shows only the options that you have enabled for your users. These options are found under the **User Password Reset Policy** section of your directory's **Configure** tab. For example, if you don't enable security questions, then users are not able to register for that option.
   >
   >
 * **Q:  When is a user considered registered?**
@@ -101,17 +101,17 @@ This FAQ is split into the following sections:
   > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user\@contoso.com*. 
 * **Q:  What languages are supported by password reset?**
 
-  > **A:** The password reset UI, SMS messages, and voice calls are localized in the same languages that are supported in Office 365.
+  > **A:** The password reset UI, SMS messages, and voice calls are localized in the same languages that are supported in Microsoft 365.
   >
   >
-* **Q:  What parts of the password reset experience get branded when I set the organizational branding items in my directory’s configure tab?**
+* **Q:  What parts of the password reset experience get branded when I set the organizational branding items in my directory's configure tab?**
 
-  > **A:** The password reset portal shows your organization's logo and allows you to configure the "Contact your administrator" link to point to a custom email or URL. Any email that's sent by password reset includes your organization’s logo, colors, and name in the body of the email, and is customized from the settings for that particular name.
+  > **A:** The password reset portal shows your organization's logo and allows you to configure the "Contact your administrator" link to point to a custom email or URL. Any email that's sent by password reset includes your organization's logo, colors, and name in the body of the email, and is customized from the settings for that particular name.
   >
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
 
-  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#communications-plan) article.
+  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#plan-communications) article.
   >
   >
 * **Q:  Can I use this page from a mobile device?**
@@ -121,10 +121,10 @@ This FAQ is split into the following sections:
   >
 * **Q:  Do you support unlocking local Active Directory accounts when users reset their passwords?**
 
-  > **A:** Yes. When a user resets their password, if password writeback has been deployed through Azure AD Connect, that user’s account is automatically unlocked when they reset their password.
+  > **A:** Yes. When a user resets their password, if password writeback has been deployed through Azure AD Connect, that user's account is automatically unlocked when they reset their password.
   >
   >
-* **Q:  How can I integrate password reset directly into my user’s desktop sign-in experience?**
+* **Q:  How can I integrate password reset directly into my user's desktop sign-in experience?**
 
   > **A:** If you're an Azure AD Premium customer, you can install Microsoft Identity Manager at no additional cost and deploy the on-premises password reset solution.
   >
@@ -194,7 +194,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can my users be notified in the Office portal when their on-premises password expires?**
 
-  > **A:** Yes, this is possible today if you use Active Directory Federation Services (AD FS). If you use AD FS, follow the instructions in the [Sending password policy claims with AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) article. If you use password hash synchronization, this is not possible today. We don't sync password policies from on-premises directories, so it's not possible for us to post expiration notifications to cloud experiences. In either case, it's also possible to [notify users whose passwords are about to expire through PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **A:** Yes, this is possible today if you use Active Directory Federation Services (AD FS). If you use AD FS, follow the instructions in the [Sending password policy claims with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) article. If you use password hash synchronization, this is not possible today. We don't sync password policies from on-premises directories, so it's not possible for us to post expiration notifications to cloud experiences. In either case, it's also possible to [notify users whose passwords are about to expire through PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **Q:  Can I block users from changing their password?**
@@ -232,7 +232,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Is there an API to access the password reset or registration reporting data?**
 
-  > **A:** Yes. To learn how you can access the password reset reporting data stream, see [Learn how to access password reset reporting events programmatically](https://msdn.microsoft.com/library/azure/mt126081.aspx#BKMK_SsprActivityEvent).
+  > **A:** Yes. To learn how you can access the password reset reporting data, see the [Azure Log Analytics REST API Reference](/rest/api/loganalytics/).
   >
   >
 
@@ -240,7 +240,7 @@ This FAQ is split into the following sections:
 
 * **Q:  How does password writeback work behind the scenes?**
 
-  > **A:** See the article [How password writeback works](howto-sspr-writeback.md) for an explanation of what happens when you enable password writeback and how data flows through the system back into your on-premises environment.
+  > **A:** See the article [How password writeback works](./tutorial-enable-sspr-writeback.md) for an explanation of what happens when you enable password writeback and how data flows through the system back into your on-premises environment.
   >
   >
 * **Q:  How long does password writeback take to work? Is there a synchronization delay like there is with password hash sync?**
@@ -263,14 +263,14 @@ This FAQ is split into the following sections:
   > **A:** Password writeback works for user accounts that are synchronized from on-premises Active Directory to Azure AD, including federated, password hash synchronized, and Pass-Through Autentication Users.
   >
   >
-* **Q:  Does password writeback enforce my domain’s password policies?**
+* **Q:  Does password writeback enforce my domain's password policies?**
 
   > **A:** Yes. Password writeback enforces password age, history, complexity, filters, and any other restriction you might put in place on passwords in your local domain.
   >
   >
-* **Q:  Is password writeback secure?  How can I be sure I won’t get hacked?**
+* **Q:  Is password writeback secure?  How can I be sure I won't get hacked?**
 
-  > **A:** Yes, password writeback is secure. To read more about the multiple layers of security implemented by the password writeback service, check out the [Password writeback security](concept-sspr-writeback.md#password-writeback-security) section in the [Password writeback overview](howto-sspr-writeback.md) article.
+  > **A:** Yes, password writeback is secure. To read more about the multiple layers of security implemented by the password writeback service, check out the [Password writeback security](concept-sspr-writeback.md#password-writeback-security) section in the [Password writeback overview](./tutorial-enable-sspr-writeback.md) article.
   >
   >
 
@@ -283,7 +283,7 @@ This FAQ is split into the following sections:
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
+* [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [How do I report on activity in SSPR?](howto-sspr-reporting.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)

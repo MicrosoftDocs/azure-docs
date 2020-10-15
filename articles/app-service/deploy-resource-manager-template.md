@@ -86,7 +86,7 @@ If your Resource Manager template uses MSDeploy, the deployment error messages c
 
 1. Go to the site's [Kudu console](https://github.com/projectkudu/kudu/wiki/Kudu-console).
 2. Browse to the folder at D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Look for the appManagerStatus.xml and appManagerLog.xml files. The first file logs the status. The second file logs information about the error. If the error isn't clear to you, you can include it when you're asking for help on the forum.
+3. Look for the appManagerStatus.xml and appManagerLog.xml files. The first file logs the status. The second file logs information about the error. If the error isn't clear to you, you can include it when you're asking for help on the [forum](/answers/topics/azure-webapps.html).
 
 ## Choose a unique web app name
 
@@ -105,7 +105,7 @@ The name for your web app must be globally unique. You can use a naming conventi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-If your template includes a [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) resource for SSL binding, and the certificate is stored in a Key Vault, you must make sure the App Service identity can access the certificate.
+If your template includes a [Microsoft.Web/certificates](/azure/templates/microsoft.web/certificates) resource for TLS/SSL binding, and the certificate is stored in a Key Vault, you must make sure the App Service identity can access the certificate.
 
 In global Azure, the App Service service principal has the ID of **abfa0a7c-a6b6-4736-8310-5855508787cd**. To grant access to Key Vault for the App Service service principal, use:
 

@@ -1,18 +1,16 @@
 ---
 title: Reservations software costs for Azure
 description: Learn which software meters are not included in Azure Reserved VM Instance costs.
-author: yashar
-manager: yashar
+author: yashesvi
+ms.reviewer: yashar
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: reservations
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/14/2019
+ms.date: 02/13/2020
 ms.author: banders
-
 ---
+
 # Software costs not included with Azure Reserved VM Instances
 
 Virtual machine reserved instance and SQL reserved capacity discounts apply only to the infrastructure costs and not to the software costs. If you use Windows VM and don't have an Azure Hybrid Benefit on your reserved virtual machine instances, then you are charged for the software meters listed in the following section. For SQL PaaS deployments, the IP cost will continue to be charged using separate meter if Azure Hybrid Benefit is not selected.

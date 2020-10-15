@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with StatusPage | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and StatusPage.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f6ee8bb3-df43-4c0d-bf84-89f18deac4b9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/22/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with StatusPage
 
@@ -102,18 +96,14 @@ To configure Azure AD single sign-on with StatusPage, perform the following step
     ![StatusPage Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
-	
-	| |
-	|--|
-	| `https://<subdomain>.statuspagestaging.com/`|
-	| `https://<subdomain>.statuspage.io/`|
+
+	- `https://<subdomain>.statuspagestaging.com/`
+	- `https://<subdomain>.statuspage.io/`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-	
-	| |
-	|--|
-	| `https://<subdomain>.statuspagestaging.com/sso/saml/consume`|
-	| `https://<subdomain>.statuspage.io/sso/saml/consume`|
+
+	- `https://<subdomain>.statuspagestaging.com/sso/saml/consume`
+	- `https://<subdomain>.statuspage.io/sso/saml/consume`
 
     > [!NOTE]
     > Contact the StatusPage support team at [SupportTeam@statuspage.io](mailto:SupportTeam@statuspage.io)to request metadata necessary to configure single sign-on. 

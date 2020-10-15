@@ -16,7 +16,7 @@ When you’re running a web application, you want to be prepared for any issues 
 
 Although this experience is most helpful when you’re having issues with your app within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
 
-App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro), [App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro), and [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview).
+App Service diagnostics works for not only your app on Windows, but also apps on [Linux/containers](./overview.md#app-service-on-linux), [App Service Environment](./environment/intro.md), and [Azure Functions](../azure-functions/functions-overview.md).
 
 ## Open App Service diagnostics
 
@@ -27,6 +27,10 @@ For Azure Functions, navigate to your function app, and in the top navigation, c
 In the App Service diagnostics homepage, you can choose the category that best describes the issue with your app by using the keywords in each homepage tile. Also, this page is where you can find **Diagnostic Tools** for Windows apps. See [Diagnostic tools (only for Windows app)](#diagnostic-tools-only-for-windows-app).
 
 ![Homepage](./media/app-service-diagnostics/app-service-diagnostics-homepage-1.png)
+
+> [!NOTE]
+> If your app is down or performing slow, you can [collect a profiling trace](https://azure.github.io/AppService/2018/06/06/App-Service-Diagnostics-Profiling-an-ASP.NET-Web-App-on-Azure-App-Service.html) to identify the root cause of the issue. Profiling is light weight and is designed for production scenarios.
+>
 
 ## Interactive interface
 
@@ -63,7 +67,7 @@ There are four different graphs in the health checkup.
 
 ### Investigate application code issues (only for Windows app)
 
-Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
+Because many app issues are related to issues in your application code, App Service diagnostics integrates with [Application Insights](../azure-monitor/app/app-insights-overview.md) to highlight exceptions and dependency issues to correlate with the selected downtime. Application Insights has to be enabled separately.
 
 ![Application Insights](./media/app-service-diagnostics/application-insights-7.png)
 

@@ -8,6 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
+ms.custom: [mqtt, 'Role: Cloud Development', 'Role: IoT Device']
 ---
 
 # Upload files with IoT Hub
@@ -19,6 +20,8 @@ Instead of brokering messages through IoT Hub itself, IoT Hub instead acts as a 
 Before you upload a file to IoT Hub from a device, you must configure your hub by [associating an Azure Storage](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub) account to it.
 
 Your device can then [initialize an upload](iot-hub-devguide-file-upload.md#initialize-a-file-upload) and then [notify IoT hub](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) when the upload completes. Optionally, when a device notifies IoT Hub that the upload is complete, the service can generate a [notification message](iot-hub-devguide-file-upload.md#file-upload-notifications).
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ### When to use
 
@@ -124,6 +127,8 @@ Each IoT hub has the following configuration options for file upload notificatio
 | **fileNotifications.ttlAsIso8601** |Default TTL for file upload notifications. |ISO_8601 interval up to 48H (minimum 1 minute). Default: 1 hour. |
 | **fileNotifications.lockDuration** |Lock duration for the file upload notifications queue. |5 to 300 seconds (minimum 5 seconds). Default: 60 seconds. |
 | **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
+
+You can set these properties on your IoT hub using the Azure portal, Azure CLI, or PowerShell. To learn how, see the topics under [Configure file upload](iot-hub-configure-file-upload.md).
 
 ## Additional reference material
 

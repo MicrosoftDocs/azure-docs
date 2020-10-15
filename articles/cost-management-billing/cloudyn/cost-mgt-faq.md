@@ -1,20 +1,22 @@
 ---
-title: Frequently asked questions for Cloudyn in Azure | Microsoft Docs
-description: This article provides answers to some of the common questions about Cloudyn.
-services: cost-management
-keywords:
+title: Frequently asked questions for Cloudyn in Azure
+description: Learn how to use the Cloudyn portal to resolve common indirect enterprise setup problems and answer other frequently asked questions.
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
-ms.topic: troubleshooting
+ms.date: 03/12/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.subservice: cloudyn
+ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Frequently asked questions for Cloudyn
 
 This article addresses some common questions about Cloudyn. If you have questions about Cloudyn, you can ask them at [FAQs for Cloudyn](https://social.msdn.microsoft.com/Forums/en-US/231bf072-2c71-4121-8339-ac9d868137b9/faqs-for-cloudyn-cost-management?forum=Cloudyn).
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## How can I resolve common indirect enterprise setup problems?
 
@@ -42,7 +44,7 @@ Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn
 
 You also might need to give department administrators, account owners, and enterprise administrators permissions to _view charges_ with the Billing API.
 
-## Why don’t I see Optimizer recommendations?
+## Why don't I see Optimizer recommendations?
 
 Recommendation information is only available for accounts that are activated. You will not see any recommendation information in **Optimizer** report categories for accounts that are *unactivated*, including:
 
@@ -54,13 +56,13 @@ If you cannot view any Optimizer recommendation data, then most likely, you have
 
 To activate an account:
 
-1.	In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**.
-2.	On the Microsoft Azure Accounts tab, look for accounts that have an **unactivated** subscription.
-3.	To the right of an unactivated account, click the **edit** symbol that resembles a pencil.
-4.	Your tenant ID and rate ID is automatically detected. Click **Next**.
-5.	You’re redirected to the Azure portal. Sign in to the portal and authorize Cloudyn Collector to access your Azure data.
-6.	Next, you’re redirected to the Cloudyn Accounts management page and your subscription is updated with **active** Account Status. It shows a green check mark symbol.
-7.	If you don’t see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create a reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat steps 3 and 4.  
+1.    In the Cloudyn portal, click **Settings** in the upper right and select **Cloud Accounts**.
+2.    On the Microsoft Azure Accounts tab, look for accounts that have an **unactivated** subscription.
+3.    To the right of an unactivated account, click the **edit** symbol that resembles a pencil.
+4.    Your tenant ID and rate ID is automatically detected. Click **Next**.
+5.    You're redirected to the Azure portal. Sign in to the portal and authorize Cloudyn Collector to access your Azure data.
+6.    Next, you're redirected to the Cloudyn Accounts management page and your subscription is updated with **active** Account Status. It shows a green check mark symbol.
+7.    If you don't see a green checkmark symbol for one or more of the subscriptions, it means that you do not have permissions to create a reader app (the CloudynCollector) for the subscription. A user with higher permissions for the subscription needs to repeat steps 3 and 4.  
 
 After you complete the preceding steps, you can view Optimizer recommendations within one to two days. However, it can take up to five days before full optimization data is available.
 
@@ -71,7 +73,7 @@ First, let's look at the most common scenario that causes user accounts to get *
 
 > Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  He registers through the Azure portal and signs into the Cloudyn portal. As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. Admin1 does not create any user accounts. However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
 >
-> Admin2 registers through the Azure portal. However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. The primary administrator, Admin1, is notified of the account suspension. Admin1 needs to activate Admin2’s account and grant *admin entity access* for the appropriate entities and allows user management access and active the user account.
+> Admin2 registers through the Azure portal. However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. The primary administrator, Admin1, is notified of the account suspension. Admin1 needs to activate Admin2's account and grant *admin entity access* for the appropriate entities and allows user management access and active the user account.
 
 
 If you receive an alert with a request to allow access for a user, you need to activate the user account.
@@ -91,7 +93,7 @@ We recommend that you create at least two Cloudyn administrator accounts in case
 
 If you can't sign in to the Cloudyn portal, ensure that you're using the correct URL to sign in to Cloudyn. Use [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade).
 
-Avoid using the Cloudyn direct URL https://app.cloudyn.com.
+Avoid using the Cloudyn direct URL `https://app.cloudyn.com`.
 
 ## How do I activate unactivated accounts with Azure credentials?
 

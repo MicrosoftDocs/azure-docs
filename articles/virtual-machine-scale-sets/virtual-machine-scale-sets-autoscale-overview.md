@@ -1,15 +1,14 @@
 ---
 title: Overview of autoscale with Azure virtual machine scale sets
 description: Learn about the different ways that you can automatically scale an Azure virtual machine scale set based on performance or on a fixed schedule
-author: cynthn
-tags: azure-resource-manager
-ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
+author: avirishuv
+ms.author: avverma
+ms.topic: overview
 ms.service: virtual-machine-scale-sets
-ms.workload: infrastructure-services
-ms.topic: conceptual
-ms.date: 05/29/2018
-ms.author: cynthn
-ms.custom: H1Hack27Feb2017
+ms.subservice: autoscale
+ms.date: 06/30/2020
+ms.reviewer: jushiman
+ms.custom: avverma
 
 ---
 # Overview of autoscale with Azure virtual machine scale sets
@@ -133,6 +132,6 @@ You can create autoscale rules that use host-based metrics with one of the follo
 
 This overview detailed how to use autoscale rules to scale horizontally and increase or decrease the *number* of VM instances in your scale set. You can also scale vertically to increase or decrease the VM instance *size*. For more information, see [Vertical autoscale with Virtual Machine Scale sets](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
+For information on how to manage your VM instances, see [Manage virtual machine scale sets with Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).
+To learn how to generate alerts when your autoscale rules trigger, see [Use autoscale actions to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). You can also [Use audit logs to send email and webhook alert notifications in Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).

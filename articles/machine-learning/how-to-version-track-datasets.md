@@ -5,18 +5,18 @@ description: Learn how to best version your datasets and how versioning works wi
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: sihhu
-author: sihhu
+author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.custom: 
+ms.date: 03/09/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
 
 # Customer intent: As a data scientist, I want to version and track datasets so I can use and share them across multiple machine learning experiments.
 ---
 
 # Version and track datasets in experiments
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you'll learn how to version and track Azure Machine Learning datasets for reproducibility. Dataset versioning is a way to bookmark the state of your data so that you can apply a specific version of the dataset for future experiments.
 
@@ -29,7 +29,7 @@ Typical versioning scenarios:
 
 For this tutorial, you need:
 
-- [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). This SDK includes the [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py) package.
+- [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). This SDK includes the [azureml-datasets](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset?view=azure-ml-py&preserve-view=true) package.
     
 - An [Azure Machine Learning workspace](concept-workspace.md). Retrieve an existing one by running the following code, or [create a new workspace](how-to-manage-workspace.md).
 
@@ -60,7 +60,7 @@ titanic_ds = titanic_ds.register(workspace = workspace,
 
 ### Retrieve a dataset by name
 
-By default, the [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset registered with the workspace. 
+By default, the [get_by_name()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-by-name-workspace--name--version--latest--) method on the `Dataset` class returns the latest version of the dataset registered with the workspace. 
 
 The following code gets version 1 of the `titanic_ds` dataset.
 
@@ -117,7 +117,7 @@ dataset2.register(workspace = workspace,
 
 You can use a dataset as the input and output of each Machine Learning pipeline step. When you rerun pipelines, the output of each pipeline step is registered as a new dataset version.
 
-Because Machine Learning pipelines populate the output of each step into a new folder every time the pipeline reruns, the versioned output datasets are reproducible.
+Because Machine Learning pipelines populate the output of each step into a new folder every time the pipeline reruns, the versioned output datasets are reproducible. Learn more about [datasets in pipelines](how-to-create-your-first-pipeline.md#steps).
 
 ```Python
 from azureml.core import Dataset
@@ -155,7 +155,7 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 For each Machine Learning experiment, you can easily trace the datasets used as the input through the experiment `Run` object.
 
-The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) method to track which input datasets were used with the experiment run:
+The following code uses the [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-details--) method to track which input datasets were used with the experiment run:
 
 ```Python
 # get input datasets
@@ -166,7 +166,7 @@ input_dataset = inputs[0]['dataset']
 input_dataset.to_path()
 ```
 
-You can also find the `input_datasets` from experiments by using [Azure Machine Learning studio](https://ml.azure.com/). 
+You can also find the `input_datasets` from experiments by using https://ml.azure.com/. 
 
 The following image shows where to find the input dataset of an experiment on Azure Machine Learning studio. For this example, go to your **Experiments** pane and open the **Properties** tab for a specific run of your experiment, `keras-mnist`.
 
@@ -180,11 +180,13 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-After registration, you can see the list of models registered with the dataset by using Python or [Azure Machine Learning studio](https://ml.azure.com/). The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
+After registration, you can see the list of models registered with the dataset by using Python or go to https://ml.azure.com/.
+
+The following view is from the **Datasets** pane under **Assets**. Select the dataset and then select the **Models** tab for a list of the models that are registered with the dataset. 
 
 ![Input datasets models](./media/how-to-version-track-datasets/dataset-models.png)
 
 ## Next steps
 
 * [Train with datasets](how-to-train-with-datasets.md)
-* [More sample dataset notebooks](https://aka.ms/dataset-tutorial)
+* [More sample dataset notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/)

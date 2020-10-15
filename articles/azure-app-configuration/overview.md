@@ -1,24 +1,22 @@
 ---
 title: What is Azure App Configuration?
-description: An overview of the Azure App Configuration service.
-author: yegu-ms
-ms.author: yegu
+description: Read an overview of the Azure App Configuration service. Understand why you would want to use App Configuration, and learn how you can use it.
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/24/2019
+ms.date: 02/19/2020
 ---
 
 # What is Azure App Configuration?
 
 Azure App Configuration provides a service to centrally manage application settings and feature flags. Modern programs, especially programs running in a cloud, generally have many components that are distributed in nature. Spreading configuration settings across these components can lead to hard-to-troubleshoot errors during an application deployment. Use App Configuration to store all the settings for your application and secure their accesses in one place.
 
-App Configuration is currently in public preview. It is free to use during the preview period. You can sign up for it in the [Azure portal](https://portal.azure.com).
-
 ## Why use App Configuration?
 
-Cloud-based applications often run on multiple virtual machines or containers in multiple regions and use multiple external services. Creating such a distributed application that's robust and scalable is a challenge.
+Cloud-based applications often run on multiple virtual machines or containers in multiple regions and use multiple external services. Creating a robust and scalable application in a distributed environment presents a significant challenge.
 
-Various programming methodologies help developers deal with the increasing complexity of building applications. For example, the [Twelve-Factor App](https://12factor.net/) describes many well-tested architectural patterns and best practices for use with cloud applications. One key recommendation from this guide is to separate configuration from code. In this case, an application’s configuration settings should be kept external to its executable and read in from its runtime environment or an external source.
+Various programming methodologies help developers deal with the increasing complexity of building applications. For example, the [Twelve-Factor App](https://12factor.net/) describes many well-tested architectural patterns and best practices for use with cloud applications. One key recommendation from this guide is to separate configuration from code. An application’s configuration settings should be kept external to its executable and read in from its runtime environment or an external source.
 
 While any application can make use of App Configuration, the following examples are the types of application that benefit from the use of it:
 
@@ -35,7 +33,7 @@ App Configuration offers the following benefits:
 * Dedicated UI for feature flag management
 * Comparison of two sets of configurations on custom-defined dimensions
 * Enhanced security through Azure-managed identities
-* Complete data encryptions, at rest or in transit
+* Encryption of sensitive information at rest and in transit
 * Native integration with popular frameworks
 
 App Configuration complements [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), which is used to store application secrets. App Configuration makes it easier to implement the following scenarios:
@@ -46,7 +44,7 @@ App Configuration complements [Azure Key Vault](https://azure.microsoft.com/serv
 
 ## Use App Configuration
 
-The easiest way to add an App Configuration store to your application is through a client library that Microsoft provides. Based on the programming language and framework, the following best methods are available to you.
+The easiest way to add an App Configuration store to your application is through a client library provided by Microsoft. The following methods are available to connect with your application, depending on your chosen language and framework
 
 | Programming language and framework | How to connect |
 |---|---|

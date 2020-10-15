@@ -6,8 +6,10 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 05/28/2020
 ms.author: sngun
+ms.custom: devx-track-csharp
+
 
 ---
 # Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB 
@@ -61,13 +63,36 @@ Now let's clone a Table app from GitHub, set the connection string, and run it. 
    git clone https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started.git
    ```
 
+> [!TIP]
+> For a more detailed walkthrough of similar code, see the [Cosmos DB Table API sample](table-storage-how-to-use-dotnet.md) article.
+
 ## Open the sample application in Visual Studio
 
 1. In Visual Studio, from the **File** menu, choose **Open**, then choose **Project/Solution**. 
 
-   ![Open the solution](media/create-table-dotnet/azure-cosmosdb-open-solution.png) 
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-open-solution.png" alt-text="Open the solution"::: 
 
 2. Navigate to the folder where you cloned the sample application and open the TableStorage.sln file.
+
+## Review the code
+
+This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [update the connection string](#update-your-connection-string) section of this doc.
+
+* The following code shows how to create a table within the Azure Storage:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/Common.cs" id="CreateTable":::
+
+* The following code shows how to insert data into the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="InsertItem":::
+
+* The following code shows how to query data from the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="QueryData":::
+
+* The following code shows how to delete data from the table:
+
+  :::code language="csharp" source="~/azure-cosmosdb-dotnet-table/CosmosTableSamples/SamplesUtils.cs" id="DeleteItem":::
 
 ## Update your connection string
 
@@ -75,7 +100,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. In the [Azure portal](https://portal.azure.com/), click **Connection String**. Use the copy button on the right side of the window to copy the **PRIMARY CONNECTION STRING**.
 
-   ![View and copy the PRIMARY CONNECTION STRING in the Connection String pane](./media/create-table-dotnet/connection-string.png)
+   :::image type="content" source="./media/create-table-dotnet/connection-string.png" alt-text="View and copy the PRIMARY CONNECTION STRING in the Connection String pane":::
 
 2. In Visual Studio, open the **Settings.json** file. 
 
@@ -95,25 +120,25 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 1. In Visual Studio, right-click on the **CosmosTableSamples** project in **Solution Explorer** and then click **Manage NuGet Packages**. 
 
-   ![Manage NuGet Packages](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-manage-nuget.png" alt-text="Manage NuGet Packages":::
 
 2. In the NuGet **Browse** box, type Microsoft.Azure.Cosmos.Table. This will find the Cosmos DB Table API client library. Note that this library is currently available for .NET Framework and .NET Standard. 
    
-   ![NuGet Browse tab](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-nuget-browse.png" alt-text="NuGet Browse tab":::
 
 3. Click **Install** to install the **Microsoft.Azure.Cosmos.Table** library. This installs the Azure Cosmos DB Table API package and all dependencies.
 
 4. When you run the entire app, sample data is inserted into the table entity and deleted at the end so you won’t see any data inserted if you run the whole sample. However you can insert some breakpoints to view the data. Open BasicSamples.cs file and right-click on line 52, select **Breakpoint**, then select **Insert Breakpoint**. Insert another breakpoint on line 55.
 
-   ![Add a breakpoint](media/create-table-dotnet/azure-cosmosdb-breakpoint.png) 
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-breakpoint.png" alt-text="Add a breakpoint"::: 
 
 5. Press F5 to run the application. The console window displays the name of the new table database (in this case, demoa13b1) in Azure Cosmos DB. 
     
-   ![Console output](media/create-table-dotnet/azure-cosmosdb-console.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-console.png" alt-text="Console output":::
 
    When you hit the first breakpoint, go back to Data Explorer in the Azure portal. Click the **Refresh** button, expand the demo* table, and click **Entities**. The **Entities** tab on the right shows the new entity that was added for Walter Harp. Note that the phone number for the new entity is 425-555-0101.
 
-   ![New entity](media/create-table-dotnet/azure-cosmosdb-entity.png)
+   :::image type="content" source="media/create-table-dotnet/azure-cosmosdb-entity.png" alt-text="New entity":::
     
    If you receive an error that says Settings.json file can’t be found when running the project, you can resolve it by adding the following XML entry to the project settings. Right click on CosmosTableSamples, select Edit CosmosTableSamples.csproj and add the following itemGroup: 
 

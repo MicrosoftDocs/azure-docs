@@ -1,12 +1,12 @@
 ---
-title: Use Azure Data Box Heavy to migrate file share content to SharePoint Online| Microsoft Docs
+title: Use Azure Data Box Heavy to move file share content to SharePoint Online
 description: Use this tutorial to learn how to migrate file share content to Share Point Online using your Azure Data Box Heavy
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: heavy
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/18/2019
 ms.author: alkohli
 ---
@@ -78,7 +78,7 @@ For best performance and connectivity, we recommend that you create an Azure Vir
 1. Sign into the Azure portal, and then [Create a virtual machine](../virtual-machines/windows/quick-create-portal.md).
 2. [Mount the Azure file share onto the VM](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
 3. [Download the SharePoint Migration tool](https://spmtreleasescus.blob.core.windows.net/install/default.htm) and install it on your Azure VM.
-4. Start the SharePoint Migration Tool. Click **Sign in** and enter your Office 365 username and password.
+4. Start the SharePoint Migration Tool. Click **Sign in** and enter the username and password for your work or school account.
 5. When prompted **Where is your data?**, select **File share**. Enter the path to your Azure file share where your data is located.
 6. Follow the remaining prompts as normal, including your target location. For more information, go to [How to use the SharePoint Migration Tool](https://docs.microsoft.com/sharepointmigration/how-to-use-the-sharepoint-migration-tool).
 

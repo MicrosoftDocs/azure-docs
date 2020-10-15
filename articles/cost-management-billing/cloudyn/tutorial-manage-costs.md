@@ -1,15 +1,15 @@
 ---
-title: Tutorial - Manage costs with Cloudyn in Azure | Microsoft Docs
+title: Tutorial - Manage costs with Cloudyn in Azure
 description: In this tutorial you learn to manage costs by using cost allocation and showback and chargeback reports.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.custom: seodec18
-manager: benshy
+ms.reviewer: benshy
+ROBOTS: NOINDEX
 ---
 
 # Tutorial: Manage costs by using Cloudyn
@@ -28,6 +28,8 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
+
 ## Prerequisites
 
 - You must have an Azure account.
@@ -42,7 +44,7 @@ Cloudyn gets resource group tag data from Azure and automatically propagates tag
 
 Using the Cost Allocation model, you define categories (tags) that get applied internally to uncategorized (untagged) resources to group your costs and define rules to handle the untagged costs. Cost allocation rules are your saved instructions where a service's costs are distributed to some other service. Afterward, those resources then show tags/categories in *cost allocation* reports by selecting the model that you created.
 
-Keep in mind that tag information doesn’t appear for those resources in *cost analysis* reports. Also, tags applied in Cloudyn using cost allocation aren’t sent to Azure, so you won’t see them in the Azure portal.
+Keep in mind that tag information doesn't appear for those resources in *cost analysis* reports. Also, tags applied in Cloudyn using cost allocation aren't sent to Azure, so you won't see them in the Azure portal.
 
 When you start cost allocation, the first thing you do is define the scope by using a cost model. The cost model does not change costs, it distributes them. When you create a cost model, you segment your data by cost entity, account, or subscription, and by multiple tags. Common example tags might include a billing code, cost center, or group name. Tags also help you perform showback or chargeback to other parts of your organization.
 

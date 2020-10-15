@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 12/24/2019
+ms.date: 02/03/2020
 ---
 
 # Create HDInsight clusters using the Azure CLI
@@ -41,10 +41,10 @@ Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](h
 
     |Parameter | Description |
     |---|---|
-    |`--size`| The number of worker nodes in the cluster. This article uses the variable `clusterSizeInNodes` as the value passed to `--size`. |
+    |`--workernode-count`| The number of worker nodes in the cluster. This article uses the variable `clusterSizeInNodes` as the value passed to `--workernode-count`. |
     |`--version`| The HDInsight cluster version. This article uses the variable `clusterVersion` as the value passed to `--version`. See also: [Supported HDInsight versions](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
-    |`--type`| Type of HDInsight cluster, like: hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  This article uses the variable `clusterType` as the value passed to `--type`. See also: [Cluster types and configuration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types).|
-    |`--component-version`|The versions of various Hadoop components, in space-separated versions in 'component=version' format. This article uses the variable `componentVersion` as the value passed to `--component-version`. See also: [Hadoop components](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).|
+    |`--type`| Type of HDInsight cluster, like: hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  This article uses the variable `clusterType` as the value passed to `--type`. See also: [Cluster types and configuration](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
+    |`--component-version`|The versions of various Hadoop components, in space-separated versions in 'component=version' format. This article uses the variable `componentVersion` as the value passed to `--component-version`. See also: [Hadoop components](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
 
     Replace `RESOURCEGROUPNAME`, `LOCATION`, `CLUSTERNAME`, `STORAGEACCOUNTNAME`, and `PASSWORD` with the desired values. Change values for the other variables as desired. Then enter the CLI commands.
 
@@ -115,12 +115,12 @@ Azure CLI. If you haven't installed the Azure CLI, see [Install the Azure CLI](h
         --http-password $httpCredential \
         --http-user admin \
         --location $location \
-        --size $clusterSizeInNodes \
+        --workernode-count $clusterSizeInNodes \
         --ssh-password $sshCredentials \
         --ssh-user sshuser \
         --storage-account $AZURE_STORAGE_ACCOUNT \
         --storage-account-key $AZURE_STORAGE_KEY \
-        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --storage-container $AZURE_STORAGE_CONTAINER \
         --version $clusterVersion
     ```
 
@@ -167,7 +167,6 @@ Now that you've successfully created an HDInsight cluster using the Azure CLI, u
 ### Apache Hadoop clusters
 
 * [Use Apache Hive with HDInsight](hadoop/hdinsight-use-hive.md)
-* [Use Apache Pig with HDInsight](hadoop/hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 ### Apache HBase clusters

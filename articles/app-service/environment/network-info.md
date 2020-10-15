@@ -5,7 +5,7 @@ author: ccompy
 
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
 ---
@@ -133,7 +133,7 @@ All these IP addresses are visible in the Azure portal from the ASE UI. If you h
 
 ### App-assigned IP addresses ###
 
-With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with an SSL binding in Azure App Service](../configure-ssl-bindings.md).
+With an External ASE, you can assign IP addresses to individual apps. You can't do that with an ILB ASE. For more information on how to configure your app to have its own IP address, see [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](../configure-ssl-bindings.md).
 
 When an app has its own IP-based SSL address, the ASE reserves two ports to map to that IP address. One port is for HTTP traffic, and the other port is for HTTPS. Those ports are listed in the ASE UI in the IP addresses section. Traffic must be able to reach those ports from the VIP or the apps are inaccessible. This requirement is important to remember when you configure Network Security Groups (NSGs).
 
@@ -148,18 +148,21 @@ NSGs can be configured through the Azure portal or via PowerShell. The informati
 The required entries in an NSG, for an ASE to function, are to allow traffic:
 
 **Inbound**
-* from the IP service tag AppServiceManagement on ports 454,455
-* from the load balancer on port 16001
+* TCP from the IP service tag AppServiceManagement on ports 454,455
+* TCP from the load balancer on port 16001
 * from the ASE subnet to the ASE subnet on all ports
 
 **Outbound**
-* to all IPs on port 123
-* to all IPs on ports 80, 443
-* to the IP service tag AzureSQL on ports 1433
-* to all IPs on port 12000
+* UDP to all IPs on port 53
+* UDP to all IPs on port 123
+* TCP to all IPs on ports 80, 443
+* TCP to the IP service tag `Sql` on ports 1433
+* TCP to all IPs on port 12000
 * to the ASE subnet on all ports
 
-The DNS port does not need to be added as traffic to DNS is not affected by NSG rules. These ports do not include the ports that your apps require for successful use. The normal app access ports are:
+These ports do not include the ports that your apps require for successful use. As an example, your app may need to call a MySQL server on port 3306. Network Time Protocol (NTP) on port 123 is the time synchronization protocol used by the operating system. The NTP endpoints are not specific to App Services, can vary with the operating system, and are not in a well defined list of addresses. To prevent time synchronization issues, you then need to allow UDP traffic to all addresses on port 123. The outbound TCP to port 12000 traffic is for system support and analysis. The endpoints are dynamic and are not in a well defined set of addresses.
+
+The normal app access ports are:
 
 | Use | Ports |
 |----------|-------------|
@@ -236,14 +239,14 @@ When Service Endpoints is enabled on a subnet with an Azure SQL instance, all Az
 [NSGs]: ../../virtual-network/security-overview.md
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEManagement]: ./management-addresses.md
 [serviceendpoints]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [forcedtunnel]: ./forced-tunnel-support.md

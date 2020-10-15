@@ -8,50 +8,68 @@
     href: whats-new.md
   - name: Common questions
     items:
-    - name: Questions about Azure Migrate
+    - name: General
       href: resources-faq.md
-    - name: Questions about Azure Migrate appliance
+    - name: Azure Migrate appliance
       href: common-questions-appliance.md
-    - name: Questions about discovery, assessment/dependency visualization
+    - name: Server Assessment tool/dependency analysis
       href: common-questions-discovery-assessment.md
+    - name: Server Migration tool
+      href: common-questions-server-migration.md
 - name: Tutorials
   items:
-  - name: Assess and migrate VMware VMs
+  - name: Discover
     items:
-    - name: Prepare VMware for assessment and migration
-      href: tutorial-prepare-vmware.md
-    - name: Assess VMware VMs for migration
-      href: tutorial-assess-vmware.md
+    - name: Discover VMware VMs
+      href: tutorial-discover-vmware.md
+    - name: Discover Hyper-V VMs
+      href: tutorial-discover-hyper-v.md
+    - name: Discover physical servers
+      href: tutorial-discover-physical.md
+    - name: Discover AWS instances
+      href: tutorial-discover-aws.md
+    - name: Discover GCP instances
+      href: tutorial-discover-gcp.md
+  - name: Assess 
+    items:
+    - name: Assess VMware VMs for migration to Azure VMs
+      href: tutorial-assess-vmware-azure-vm.md
+    - name: Assess VMware VMs for migration to AVS
+      href: tutorial-assess-vmware-azure-vmware-solution.md
+    - name: Assess Hyper-V VMs for migration to Azure
+      href: tutorial-assess-hyper-v.md
+    - name: Assess physical servers for migration to Azure
+      href: tutorial-assess-physical.md
+    - name: Assess AWS instances for migration to Azure
+      href: tutorial-assess-aws.md
+    - name: Assess GCP instances for migration to Azure
+      href: tutorial-assess-gcp.md
+    - name: Assess imported servers
+      href: tutorial-discover-import.md
+  - name: Migrate
+    items:
     - name: Migrate VMware VMs
       items:
       - name: About migration options for VMware VMs
         href: server-migrate-overview.md
-      - name: Migrate VMware VMs with agentless migration
+      - name: Migrate VMware VMs with agentless migration - Azure portal
         href: tutorial-migrate-vmware.md
       - name: Migrate VMware VMs with agent-based migration
         href: tutorial-migrate-vmware-agent.md
-  - name: Assess and migrate Hyper-V VMs
-    items:
-    - name: Prepare Hyper-V for assessment and migration
-      href: tutorial-prepare-hyper-v.md
-    - name: Assess Hyper-V VMs for migration
-      href: tutorial-assess-hyper-v.md
+      - name: Migrate VMware VMs with agentless migration - PowerShell
+        href: tutorial-migrate-vmware-powershell.md 
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
-  - name: Assess and migrate physical servers
-    items:
-    - name: Prepare physical servers for assessment and migration
-      href: tutorial-prepare-physical.md
-    - name: Assess physical servers
-      href: tutorial-assess-physical.md
     - name: Migrate physical servers
       href: tutorial-migrate-physical-virtual-machines.md
-  - name: Assess imported servers for migration
-    items:
-    - name: Assess imported servers for migration
-      href: tutorial-assess-import.md
+    - name: Migrate AWS instances
+      href: tutorial-migrate-aws-virtual-machines.md
+    - name: Migrate GCP instances
+      href: tutorial-migrate-gcp-virtual-machines.md
 - name: Concepts
   items:
+  - name: Build migration plan with Azure Migrate
+    href: concepts-migration-planning.md
   - name: Support matrices
     items:
     - name: General support 
@@ -72,53 +90,72 @@
       href: migrate-appliance.md
     - name: Replication appliance requirements
       href: migrate-replication-appliance.md
+  - name: Azure Migrate appliance architecture
+    href: migrate-appliance-architecture.md
   - name: Hyper-V migration architecture
     href: hyper-v-migration-architecture.md
-  - name: Agent-based migration architecture
+  - name: VMware agent-based migration architecture
     href: agent-based-migration-architecture.md
- 
+  - name: Assessment overview (migrate to Azure VMs)
+    href: concepts-assessment-calculation.md
+  - name: Assessments overview (migrate to AVS)
+    href: concepts-azure-vmware-solution-assessment-calculation.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
-  - name: Assessments overview
-    href: concepts-assessment-calculation.md
-  - name: Dependency visualization
+  - name: Dependency analysis overview
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Work with previous version
-    href: migrate-v1.md
   - name: Create and manage Azure Migrate projects
     href: create-manage-projects.md
-  - name: Deploy a VMware appliance
-    href: how-to-set-up-appliance-vmware.md
-  - name: Deploy a Hyper-V appliance
-    href: how-to-set-up-appliance-hyper-v.md
-  - name: Deploy a physical server appliance
-    href: how-to-set-up-appliance-physical.md
-  - name: Discover applications/roles/features
-    href: how-to-discover-applications.md
   - name: Add a tool for the first time
     href: how-to-add-tool-first-time.md
+  - name: Prepare to work with ISV tools/Movere
+    href: prepare-isv-movere.md
   - name: Add assessment tools
     href: how-to-assess.md
+  - name: Deploy Azure Migrate appliance
+    items:
+    - name: Deploy appliance with template (VMware)
+      href: how-to-set-up-appliance-vmware.md
+    - name: Deploy appliance with template (Hyper-V)
+      href: how-to-set-up-appliance-hyper-v.md
+    - name: Deploy appliance with script (VMware/Hyper-V)
+      href: deploy-appliance-script.md
+    - name: Deploy appliance for physical servers
+      href: how-to-set-up-appliance-physical.md
+    - name: Deploy appliance in Azure Government
+      href: deploy-appliance-script-government.md
+  - name: Limit discovery scope for VMware VMs
+    href: set-discovery-scope.md
+  - name: Discover applications/roles/features
+    href: how-to-discover-applications.md
   - name: Group machines for assessment
     href: how-to-create-a-group.md
-  - name: Group machines using dependency visualization
+  - name: Analyze machine dependencies (agent-based)
     href: how-to-create-group-machine-dependencies.md
-  - name: Group machines using agentless dependency visualization
+  - name: Analyze machine dependencies (agentless)
     href: how-to-create-group-machine-dependencies-agentless.md
-  - name: Create an assessment
+  - name: Create an Azure VM assessment
     href: how-to-create-assessment.md
+  - name: Create an AVS assessment
+    href: how-to-create-azure-vmware-solution-assessment.md
   - name: Assess a SQL Server database
-    href: https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb
+    href: /sql/dma/dma-assess-sql-data-estate-to-sqldb
   - name: Customize an assessment
     href: how-to-modify-assessment.md
   - name: Add migration tools
     href: how-to-migrate.md
+  - name: Migrate VMware VMs to Azure VMs encrypted with SSE and CMK
+    href: how-to-migrate-vmware-vms-with-cmk-disks.md
+  - name: Prepare Windows 2003 servers for migration
+    href: prepare-windows-server-2003-migration.md
   - name: Prepare machines for migration
     href: prepare-for-migration.md
   - name: Delete an Azure Migrate project
     href: how-to-delete-project.md
+  - name: Work with previous version
+    href: migrate-v1.md
   - name: Scale assessment and migration
     items:
     - name: Assess large numbers of VMware VMs
@@ -141,20 +178,22 @@
     href: troubleshoot-appliance-discovery.md
   - name: Troubleshoot assessment/dependency visualization
     href: troubleshoot-assessment.md
+  - name: Troubleshoot replication issues in agentless VMware migration
+    href: troubleshoot-changed-block-tracking-replication.md
 - name: Resources
   items:
   - name: Migration in the Cloud Adoption Framework
-    href: https://docs.microsoft.com/azure/architecture/cloud-adoption/migrate/index
+    href: /azure/cloud-adoption-framework/migrate/
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/migrate/
+    href: /rest/api/migrate/
   - name: Resource Manager template
     href: /azure/templates/microsoft.migrate/allversions
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/azure-migrate/
   - name: UserVoice
     href: https://aka.ms/AzureMigrateUservoice
-  - name: Forum
-    href: https://aka.ms/AzureMigrateForum
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-migrate.html
   - name: Blog
     href: https://azure.microsoft.com/blog/tag/azure-migrate/
   - name: Azure Migrate

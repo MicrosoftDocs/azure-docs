@@ -48,7 +48,7 @@ To perform the steps described in this article, you must have:
 + When an API Management service is deployed in a virtual network, a [list of ports](./api-management-using-with-vnet.md#required-ports) are used and need to be opened. 
 
 ## <a name="enable-vpn"> </a>Creating an API Management in an internal virtual network
-The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
+The API Management service in an internal virtual network is hosted behind an [internal load balancer (classic)](/previous-versions/azure/load-balancer/load-balancer-get-started-ilb-classic-cloud). This is the only option available and can't be changed.
 
 ### Enable a virtual network connection using the Azure portal
 
@@ -78,7 +78,7 @@ You can also enable virtual network connectivity by using PowerShell cmdlets.
 * Update an existing deployment of an API Management service inside a virtual network: Use the cmdlet [Update-AzApiManagementRegion](/powershell/module/az.apimanagement/update-azapimanagementregion) to move an existing API Management service inside a virtual network and configure it to use the internal virtual network type.
 
 ## <a name="apim-dns-configuration"></a>DNS configuration
-When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own routing.
+When API Management is in external virtual network mode, the DNS is managed by Azure. For internal virtual network mode, you have to manage your own DNS.
 
 > [!NOTE]
 > API Management service does not listen to requests coming from IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include gateway, the Azure portal and the Developer portal, direct management endpoint, and Git.
@@ -123,7 +123,7 @@ If you use a custom DNS server in a virtual network, you can also create A DNS r
 
 * A load balanced *private* virtual IP address from the subnet range will be reserved and used to access the API Management service endpoints from within the virtual network. This *private* IP address can be found on the Overview blade for the service in the Azure portal. This address must be registered with the DNS servers used by the virtual network.
 * A load balanced *public* IP address (VIP) will also be reserved to provide access to the management service endpoint over port 3443. This *public* IP address can be found on the Overview blade for the service in the Azure portal. The *public* IP address is used only for control plane traffic to the `management` endpoint over port 3443 and can be locked down to the [ApiManagement][ServiceTags] servicetag.
-* IP addresses from the subnet IP range (DIP) will be assigned to each VM in the service and will used to access resources within the virtual network. A public IP address (VIP) will be used to access resources outside the virtual network. If IP restriction lists are used to secure resources within the virtual network, the entire range for the subnet where the API Management service is deployed must specified to grant or restrict access from the service.
+* IP addresses from the subnet IP range (DIP) will be assigned to each VM in the service and will be used to access resources within the virtual network. A public IP address (VIP) will be used to access resources outside the virtual network. If IP restriction lists are used to secure resources within the virtual network, the entire range for the subnet where the API Management service is deployed must be specified to grant or restrict access from the service.
 * The load balanced public and private IP addresses can be found on the Overview blade in the Azure portal.
 * The IP addresses assigned for public and private access may change if the service is removed from and then added back into the virtual network. If this happens, it may be necessary to update DNS registrations, routing rules, and IP restriction lists within the virtual network.
 
@@ -140,5 +140,4 @@ To learn more, see the following articles:
 [Create API Management service]: get-started-create-service-instance.md
 [Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
 
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
-
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

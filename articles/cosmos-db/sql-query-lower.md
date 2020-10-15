@@ -43,6 +43,10 @@ SELECT LOWER("Abc") AS lower
   
 ```  
 
+## Remarks
+
+This system function will not utilize the index.
+
 ## Next steps
 
 - [String functions Azure Cosmos DB](sql-query-string-functions.md)

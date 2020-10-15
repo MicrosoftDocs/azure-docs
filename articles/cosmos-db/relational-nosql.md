@@ -25,7 +25,7 @@ In these scenarios, [distributed databases](https://en.wikipedia.org/wiki/Distri
 
 If your transactional volumes are reaching extreme levels, such as many thousands of transactions per second, you should consider a distributed NoSQL database. Consider Azure Cosmos DB for maximum efficiency, ease of maintenance, and reduced total cost of ownership.
 
-![Backend](./media/relational-or-nosql/backend-scaled.png)
+:::image type="content" source="./media/relational-or-nosql/backend-scaled.png" alt-text="Backend" border="false":::
 
 ## Hierarchical data
 
@@ -35,7 +35,7 @@ However, today the popularity of document-style databases has grown significantl
 
 The emergence of [object oriented design](https://en.wikipedia.org/wiki/Object-oriented_design), and the [impedance mismatch](https://en.wikipedia.org/wiki/Object-relational_impedance_mismatch) that arises when combining it with relational models, also highlights an anti-pattern in relational databases for certain use cases. Hidden but often significant maintenance costs can arise as a result. Although [ORM approaches](https://en.wikipedia.org/wiki/Object-relational_mapping) have evolved to partly mitigate this, document-oriented databases nonetheless coalesce much better with object-oriented approaches. With this approach, developers are not forced to be committed to ORM drivers, or bespoke language specific [OO Database engines](https://en.wikipedia.org/wiki/Object_database). If your data contains many parent-child relationships and deep levels of hierarchy, you may want to consider using a NoSQL document database such as the [Azure Cosmos DB SQL API](https://docs.microsoft.com/azure/cosmos-db/introduction).
 
-![OrderDetails](./media/relational-or-nosql/order-orderdetails.jpg)
+:::image type="content" source="./media/relational-or-nosql/order-orderdetails.jpg" alt-text="OrderDetails":::
 
 ## Complex networks and relationships
 
@@ -45,7 +45,7 @@ Various forms of “Network” databases did emerge during the time that relatio
 
 If you are maintaining a complex network of relationships in your database, you may want to consider a graph database such as the [Azure Cosmos DB Gremlin API](https://docs.microsoft.com/azure/cosmos-db/graph-introduction) for managing this data.
 
-![Graph](./media/relational-or-nosql/graph.png)
+:::image type="content" source="./media/relational-or-nosql/graph.png" alt-text="Database diagram shows several employees and departments connected to each other.":::
 
 Azure Cosmos DB is a multi-model database service, which offers an API projection for all the major NoSQL model types; Column-family, Document, Graph, and Key-Value. The [Gremlin (graph)](https://docs.microsoft.com/azure/cosmos-db/gremlin-support) and SQL (Core) Document API layers are fully interoperable. This has benefits for switching between different models at the programmability level. Graph stores can be queried in terms of both complex network traversals as well as transactions modeled as document records in the same store.
 
@@ -72,7 +72,7 @@ Although there are some clear advantages when implementing NoSQL databases, ther
 
 Looking at the first challenge, the rule-of-thumb in NoSQL databases is generally denormalization, which as articulated earlier, produces more efficient reads in a distributed system. However, there are some design challenges that come into play with this approach. Let’s take an example of a product that’s related to one category and multiple tags:
 
-![Joins](./media/relational-or-nosql/many-joins.png)
+:::image type="content" source="./media/relational-or-nosql/many-joins.png" alt-text="Joins":::
 
 A best practice approach in a NoSQL document database would be to denormalize the category name and tag names directly in a “product document”. However, in order to keep categories, tags, and products in sync, the design options to facilitate this have added maintenance complexity, because the data is duplicated across multiple records in the product, rather than being a simple update in a “one-to-many” relationship, and a join to retrieve the data. 
 

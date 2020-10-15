@@ -2,7 +2,7 @@
 title: Deployment modes
 description: Describes how to specify whether to use a complete or incremental deployment mode with Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/22/2020
 ---
 # Azure Resource Manager deployment modes
 
@@ -16,11 +16,14 @@ The default mode is incremental.
 
 In complete mode, Resource Manager **deletes** resources that exist in the resource group but aren't specified in the template.
 
+> [!NOTE]
+> Always use the [what-if operation](template-deploy-what-if.md) before deploying a template in complete mode. What-if shows you which resources will be created, deleted, or modified. Use what-if to avoid unintentionally deleting resources.
+
 If your template includes a resource that isn't deployed because [condition](conditional-resource-deployment.md) evaluates to false, the result depends on which REST API version you use to deploy the template. If you use a version earlier than 2019-05-10, the resource **isn't deleted**. With 2019-05-10 or later, the resource **is deleted**. The latest versions of Azure PowerShell and Azure CLI delete the resource.
 
-Be careful using complete mode with [copy loops](create-multiple-instances.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
+Be careful using complete mode with [copy loops](copy-resources.md). Any resources that aren't specified in the template after resolving the copy loop are deleted.
 
-If you deploy to [more than one resource group in a template](cross-resource-group-deployment.md), resources in the resource group specified in the deployment operation are eligible to be deleted. Resources in the secondary resource groups aren't deleted.
+If you deploy to [more than one resource group in a template](cross-scope-deployment.md), resources in the resource group specified in the deployment operation are eligible to be deleted. Resources in the secondary resource groups aren't deleted.
 
 There are some differences in how resource types handle complete mode deletions. Parent resources are automatically deleted when not in a template that's deployed in complete mode. Some child resources aren't automatically deleted when not in the template. However, these child resources are deleted if the parent resource is deleted.
 
@@ -44,6 +47,8 @@ In incremental mode, Resource Manager **leaves unchanged** resources that exist 
 
 > [!NOTE]
 > When redeploying an existing resource in incremental mode, all properties are reapplied. The **properties aren't incrementally added**. A common misunderstanding is to think properties that aren't specified in the template are left unchanged. If you don't specify certain properties, Resource Manager interprets the deployment as overwriting those values. Properties that aren't included in the template are reset to the default values. Specify all non-default values for the resource, not just the ones you're updating. The resource definition in the template always contains the final state of the resource. It can't represent a partial update to an existing resource.
+>
+> In rare cases, properties that you specify for a resource are actually implemented as a child resource. For example, when you provide site configuration values for a web app, those values are implemented in the child resource type `Microsoft.Web/sites/config`. If you redeploy the web app and specify an empty object for the site configuration values, the child resource isn't updated. However, if you provide new site configuration values, the child resource type is updated.
 
 ## Example result
 
@@ -89,7 +94,7 @@ New-AzResourceGroupDeployment `
 To set the deployment mode when deploying with Azure CLI, use the `mode` parameter.
 
 ```azurecli-interactive
-az group deployment create \
+az deployment group create \
   --name ExampleDeployment \
   --mode Complete \
   --resource-group ExampleGroup \

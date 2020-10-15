@@ -56,7 +56,7 @@ You can move an app to another App Service plan, as long as the source plan and 
 4. If you create a plan, you can select the pricing tier of the new plan. In **Pricing Tier**, select the existing tier to change it. 
    
    > [!IMPORTANT]
-   > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app may lose certain capabilities in the target plan. For example, if your app uses SSL certificates, you might see this error message:
+   > If you're moving an app from a higher-tiered plan to a lower-tiered plan, such as from **D1** to **F1**, the app may lose certain capabilities in the target plan. For example, if your app uses TLS/SSL certificates, you might see this error message:
    >
    > `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`
 
@@ -77,7 +77,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count manually or automatically](../monitoring-and-diagnostics/insights-how-to-scale.md).
+To scale out an app's instance count, see [Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="delete"></a>
 

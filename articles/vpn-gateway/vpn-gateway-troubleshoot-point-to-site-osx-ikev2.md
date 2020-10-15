@@ -1,6 +1,6 @@
 ---
 title: 'Azure VPN Gateway: Troubleshoot Point-to-Site connections: Mac OS X clients'
-description: Steps to troubleshoot P2S Mac OS X VPN client connections
+description: Learn how to troubleshoot point-to-site connectivity issues from Mac OS X using the native VPN client and IKEv2.
 services: vpn-gateway
 author: anzaman
 
@@ -30,7 +30,7 @@ This article helps you troubleshoot Point-to-Site connectivity issues from Mac O
 4. The **Local ID** should be the same as the **Subject** of the client certificate.
 5. Click on **Authentication Settings** to open the Authentication Settings page.
 
-   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
+   ![Screenshot shows an Authentication Settings dialog box with Certificate selected.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth2.jpg)
 6. Verify that **Certificate** is selected from the dropdown.
 7. Click the **Select** button and verify that the correct certificate is selected. Click **OK** to save any changes.
 
@@ -44,7 +44,7 @@ This article helps you troubleshoot Point-to-Site connectivity issues from Mac O
 4. The **Local ID** can be blank.
 5. Click the **Authentication Setting** button and verify that "Username" is selected from the dropdown.
 
-   ![Authentication settings](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.jpg)
+   ![Screenshot shows an Authentication Settings dialog box with Username selected.](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/ikev2auth4.png)
 6. Verify that the correct credentials are entered.
 
 ## <a name="additional"></a>Additional steps
@@ -56,7 +56,7 @@ If you try the previous steps and everything is configured properly, download [W
 
    ![packet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
   
-3. If there is no server response on the network traces, verify you enabled IKEv2 protocol on the Azure Gateway Configuration page on the Azure Portal website.
+3. If there is no server response on the network traces, verify you enabled IKEv2 protocol on the Azure Gateway Configuration page on the Azure portal website.
 
 ## Next steps
 For additional help, see [Microsoft Support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

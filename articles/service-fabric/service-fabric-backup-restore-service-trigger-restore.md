@@ -48,7 +48,7 @@ A restore can be triggered for any of the following scenarios:
 
 ### Data restore in the case of disaster recovery
 
-If an entire Service Fabric cluster is lost, you can recover the data for the partitions of the Reliable Stateful service and Reliable Actors. The desired backup can be selected from the list when you use [GetBackupAPI with backup storage details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The backup enumeration can be for an application, service, or partition.
+If an entire Service Fabric cluster is lost, you can recover the data for the partitions of the Reliable Stateful service and Reliable Actors. The desired backup can be selected from the list when you use [GetBackupAPI with backup storage details](/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The backup enumeration can be for an application, service, or partition.
 
 For the following example, assume that the lost cluster is the same cluster that's referred to in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors). In this case, `SampleApp` is deployed with backup policy enabled, and the backups are configured to Azure Storage.
 
@@ -162,7 +162,7 @@ Restore-SFPartition  -PartitionId '1c42c47f-439e-4e09-98b9-88b8f60800c6' -Backup
 
 #### Rest Call using Powershell
 
-You request the restore against the backup cluster partition by using the following [Restore API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition):
+You request the restore against the backup cluster partition by using the following [Restore API](/rest/api/servicefabric/sfclient-api-restorepartition):
 
 ```powershell
 
@@ -302,7 +302,7 @@ The restore request progresses in the following order:
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    - **Timeout**: A _Timeout_ restore state indicates that the request has timeout. Create a new restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). The default timeout is 10 minutes. Make sure that the partition isn't in a data loss state before requesting restore again.
+    - **Timeout**: A _Timeout_ restore state indicates that the request has timeout. Create a new restore request with greater [RestoreTimeout](/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout). The default timeout is 10 minutes. Make sure that the partition isn't in a data loss state before requesting restore again.
      
         ```
         RestoreState  : Timeout
@@ -316,12 +316,12 @@ The restore request progresses in the following order:
 You can configure Reliable Stateful service and Reliable Actors partitions in the Service Fabric cluster for _auto restore_. In the backup policy set `AutoRestore` to _true_. Enabling _auto restore_ automatically restores data from the latest partition backup when data loss is reported. For more information, see:
 
 - [Auto Restore Enablement in Backup Policy](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-- [RestorePartition API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-- [GetPartitionRestoreProgress API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+- [RestorePartition API reference](/rest/api/servicefabric/sfclient-api-restorepartition)
+- [GetPartitionRestoreProgress API reference](/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
-- [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
+- [Backup restore REST API reference](/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [2]: ./media/service-fabric-backuprestoreservice/restore-partition-backup.png
 [3]: ./media/service-fabric-backuprestoreservice/restore-partition-fileshare.png

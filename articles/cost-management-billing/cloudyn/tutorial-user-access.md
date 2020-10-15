@@ -1,15 +1,15 @@
 ---
-title: Tutorial - Assign access with Cloudyn in Azure | Microsoft Docs
+title: Tutorial - Assign access with Cloudyn in Azure
 description: In this tutorial you learn how to assign access to Cloudyn data with user accounts that define access levels to entities.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.custom: seodec18
-manager: benshy
+ms.reviewer: benshy
+ROBOTS: NOINDEX
 ---
 
 
@@ -30,6 +30,8 @@ When you registered your Azure agreement or account, an account with admin permi
 
 
 If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Prerequisites
 
@@ -63,11 +65,11 @@ When you delete a user, any entities that the user has access to remain intact. 
 You cannot remove yourself as a user.
 
 > [!WARNING]
-> When you delete a user, it can’t be restored.
+> When you delete a user, it can't be restored.
 
-1.	In the Cloudyn portal, click the gear symbol in the upper right and then select **User Management**.
-2.	In the list of users, select the user that you want to delete and then click **Delete User** (the trash can symbol).
-3.	In the Delete User box, click **Yes** and then click **OK**.
+1.    In the Cloudyn portal, click the gear symbol in the upper right and then select **User Management**.
+2.    In the list of users, select the user that you want to delete and then click **Delete User** (the trash can symbol).
+3.    In the Delete User box, click **Yes** and then click **OK**.
 
 
 ## Delete or export personal data

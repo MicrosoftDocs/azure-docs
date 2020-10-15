@@ -1,7 +1,6 @@
 ---
 title: Monitor Surface Hubs with Azure Monitor | Microsoft Docs
 description: Use the Surface Hub solution to track the health of your Surface Hubs and understand how they are being used.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -57,7 +56,7 @@ If you don't use Intune to manage your environment, you can enroll devices manua
 3. Click **This device**, and the under **Monitoring**, click **Configure Log Analytics Settings**.
 4. Select **Enable monitoring**.
 5. In the Log Analytics settings dialog, type the Log Analytics **Workspace ID** and type the **Workspace Key**.  
-   ![settings](./media/surface-hubs/settings.png)
+   ![Screenshot shows the Microsoft Operations Manager Suite settings with Enable monitoring selected and text boxes for Workspace ID and Workspace Key.](./media/surface-hubs/settings.png)
 6. Click **OK** to complete the configuration.
 
 A confirmation appears telling you whether or not the configuration was successfully applied to the device. If it was, a message appears stating that the agent successfully connected to Azure Monitor. The device then starts sending data to Azure Monitor where you can view and act on it.

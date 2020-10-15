@@ -1,16 +1,16 @@
 ---
 
 title: Register using CSP Partner information with Cloudyn in Azure
-description: This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
-services: cost-management
-keywords:
+description: Learn details about the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/18/2019
+ms.date: 03/12/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
-manager: benshy
+ms.subservice: cloudyn
+ms.reviewer: benshy
+ROBOTS: NOINDEX
 ---
 
 
@@ -18,6 +18,8 @@ manager: benshy
 
 As a CSP partner, you can register with Cloudyn. Your registration provides access to the Cloudyn portal. This quickstart details the registration process needed to create a Cloudyn trial subscription and sign in to the Cloudyn portal. It also shows you how to start viewing cost data right away.
 
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 > [!NOTE]
 >
@@ -32,7 +34,7 @@ As a CSP partner, you can register with Cloudyn. Your registration provides acce
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at https://portal.azure.com.
+- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Register with Cloudyn
 
@@ -61,7 +63,7 @@ By default, the Partner Center API is only accessible to direct CSPs. However, a
 To enable access for indirect CSP customers or partners, follow the steps in [Register with Cloudyn](#register-with-cloudyn) to set up a trial registration. Next, complete the following steps to segment indirect CSP data by using Cloudyn entity groups. Then, assign the appropriate user permissions to the entity groups.
 
 1. Create an entity group with the information at [Create entities](tutorial-user-access.md#create-and-manage-entities).
-2. Follow the steps at [Assigning subscriptions to Cost Entities](https://www.youtube.com/watch?v=d9uTWSdoQYo). Associate the indirect CSP customer’s account and their Azure subscriptions to the entity that you create previously.
+2. Follow the steps at [Assigning subscriptions to Cost Entities](https://www.youtube.com/watch?v=d9uTWSdoQYo). Associate the indirect CSP customer's account and their Azure subscriptions to the entity that you create previously.
 3. Follow the steps at [Create a user with admin access](tutorial-user-access.md#create-a-user-with-admin-access) to create a user account with Admin access. Then, ensure the user account has admin access to the specific entities that you created previously for the indirect account.
 
 Indirect CSP partners sign in to the Cloudyn portal using the accounts that you created for them.

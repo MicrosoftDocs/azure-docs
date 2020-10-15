@@ -1,13 +1,13 @@
 ---
+# This file is currently not connected to TOC but still relevant to customers who will be migrating through 2020. Will address in 2021.
 title: We're moving virtual machine (VM) images to managed disk storage in the Azure Marketplace 
 description: To provide faster, more reliable storage and support for new marketplace features and capabilities, we’re moving marketplace VM images to managed disk storage.  
-author: MaggiePucciEvans 
-manager: evansma
-ms.author: evansma
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
+author: iqshahmicrosoft
+ms.author: iqshah
 ---
 
 # We’re moving virtual machine (VM) images on Azure Marketplace to managed disk storage
@@ -56,6 +56,6 @@ Updates to the VM images cannot be made during the move.
 
 No, the publishing process will remain the same. 
 
-## Next steps
+### Can the publisher move their offers to Managed Disk?
 
-Visit the [virtual machine offer publisher guide](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) page.
+No, the publishers cannot move their offers to Managed Disk. They will have to wait and their images will be moved automatically. We will send notifications to the publisher before we make any changes.

@@ -13,7 +13,7 @@ ms.date: 10/16/2019
 ---
 # SMOTE
 
-This article describes how to use the SMOTE module in Azure Machine Learning designer (preview) to increase the number of underrepresented cases in a dataset that's used for machine learning. SMOTE is a better way of increasing the number of rare cases than simply duplicating existing cases.  
+This article describes how to use the SMOTE module in Azure Machine Learning designer to increase the number of underrepresented cases in a dataset that's used for machine learning. SMOTE is a better way of increasing the number of rare cases than simply duplicating existing cases.  
 
 You connect the SMOTE module to a dataset that's *imbalanced*. There are many reasons why a dataset might be imbalanced. For example, the category you're targeting might be rare in the population, or the data might be difficult to collect. Typically, you use SMOTE when the *class* that you want to analyze is underrepresented. 
   
@@ -75,7 +75,7 @@ To increase the number of cases, you can set the value of **SMOTE percentage**, 
   
 7. Enter a value in the **Random seed** box if you want to ensure the same results over runs of the same pipeline, with the same data. Otherwise, the module generates a random seed based on processor clock values when the pipeline is deployed. The generation of a random seed can cause slightly different results over runs.
 
-8. Run the pipeline.  
+8. Submit the pipeline.  
   
    The output of the module is a dataset that contains the original rows plus a number of added rows with minority cases.  
 

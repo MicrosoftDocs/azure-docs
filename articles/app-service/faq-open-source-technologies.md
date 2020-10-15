@@ -9,7 +9,7 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-python
 
 ---
 
@@ -24,7 +24,7 @@ This article has answers to frequently asked questions (FAQs) about issues with 
 
 To turn on PHP logging:
 
-1. Sign in to your [Kudu website](https://*yourwebsitename*.scm.azurewebsites.net).
+1. Sign in to your **Kudu website** (`https://*yourwebsitename*.scm.azurewebsites.net`).
 2. In the top menu, select **Debug Console** > **CMD**.
 3. Select the **Site** folder.
 4. Select the **wwwroot** folder.
@@ -41,7 +41,7 @@ To turn on PHP logging:
     ```
 12. In the Azure portal, in the web app menu, restart your web app.
 
-For more information, see [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+For more information, see [Enable WordPress error logs](/archive/blogs/azureossds/logging-php-errors-in-wordpress-2).
 
 ## How do I log Python application errors in apps that are hosted in App Service?
 [!INCLUDE [web-sites-python-troubleshooting-wsgi-error-log](../../includes/web-sites-python-troubleshooting-wsgi-error-log.md)]
@@ -54,7 +54,7 @@ To change the version of the Node.js application, you can use one of the followi
   1. In the Azure portal, go to your web app.
   2. On the **Settings** blade, select **Application settings**.
   3. In **App settings**, you can include WEBSITE_NODE_DEFAULT_VERSION as the key, and the version of Node.js you want as the value.
-  4. Go to your [Kudu console](https://*yourwebsitename*.scm.azurewebsites.net).
+  4. Go to your **Kudu console** (`https://*yourwebsitename*.scm.azurewebsites.net`).
   5. To check the Node.js version, enter the following command:  
      ```
      node -v
@@ -78,7 +78,7 @@ To change the version of the Node.js application, you can use one of the followi
 
 ## I see the message "Error establishing a database connection" in my WordPress app that's hosted in App Service. How do I troubleshoot this?
 
-If you see this error in your Azure WordPress app, to enable php_errors.log and debug.log, complete the steps detailed in [Enable WordPress error logs](https://blogs.msdn.microsoft.com/azureossds/2015/10/09/logging-php-errors-in-wordpress-2/).
+If you see this error in your Azure WordPress app, to enable php_errors.log and debug.log, complete the steps detailed in [Enable WordPress error logs](/archive/blogs/azureossds/logging-php-errors-in-wordpress-2).
 
 When the logs are enabled, reproduce the error, and then check the logs to see if you are running out of connections:
 ```
@@ -89,17 +89,17 @@ If you see this error in your debug.log or php_errors.log files, your app is exc
 
 ## How do I debug a Node.js app that's hosted in App Service?
 
-1.  Go to your [Kudu console](https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole).
+1.  Go to your **Kudu console** (`https://*yourwebsitename*.scm.azurewebsites.net/DebugConsole`).
 2.  Go to your application logs folder (D:\home\LogFiles\Application).
 3.  In the logging_errors.txt file, check for content.
 
 ## How do I install native Python modules in an App Service web app or API app?
 
-Some packages might not install by using pip in Azure. The package might not be available on the Python Package Index, or a compiler might be required (a compiler is not available on the computer that is running the web app in App Service). For information about installing native modules in App Service web apps and API apps, see [Install Python modules in App Service](https://blogs.msdn.microsoft.com/azureossds/2015/06/29/install-native-python-modules-on-azure-web-apps-api-apps/).
+Some packages might not install by using pip in Azure. The package might not be available on the Python Package Index, or a compiler might be required (a compiler is not available on the computer that is running the web app in App Service). For information about installing native modules in App Service web apps and API apps, see [Install Python modules in App Service](/archive/blogs/azureossds/install-native-python-modules-on-azure-web-apps-api-apps).
 
 ## How do I deploy a Django app to App Service by using Git and the new version of Python?
 
-For information about installing Django, see [Deploying a Django app to App Service](https://blogs.msdn.microsoft.com/azureossds/2016/08/25/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python/).
+For information about installing Django, see [Deploying a Django app to App Service](/archive/blogs/azureossds/deploying-django-app-to-azure-app-services-using-git-and-new-version-of-python).
 
 ## Where are the Tomcat log files located?
 
@@ -181,7 +181,7 @@ If you have recently migrated to Azure, WordPress might redirect to the old doma
 
 WordPress Buddy+ is an Azure Site Extension that you can use to update the redirection URL directly in the database. For more information about using WordPress Buddy+, see [WordPress tools and MySQL migration with WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Alternatively, if you prefer to manually update the redirection URL by using SQL queries or PHPMyAdmin, see [WordPress: Redirecting to wrong URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Alternatively, if you prefer to manually update the redirection URL by using SQL queries or PHPMyAdmin, see [WordPress: Redirecting to wrong URL](/archive/blogs/azureossds/wordpress-redirecting-to-wrong-url).
 
 ## How do I change my WordPress sign-in password?
 
@@ -195,12 +195,12 @@ If you find yourself locked out of WordPress after recently installing a plugin,
 
 You have multiple options for migrating the MySQL database that's connected to your WordPress website:
 
-* Developers: Use the [command prompt or PHPMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Developers: Use the [command prompt or PHPMyAdmin](/archive/blogs/azureossds/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service)
 * Non-developers: Use [WordPress Buddy+](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## How do I help make WordPress more secure?
 
-To learn about security best practices for WordPress, see [Best practices for WordPress security in Azure](https://blogs.msdn.microsoft.com/azureossds/2016/12/26/best-practices-for-wordpress-security-on-azure/).
+To learn about security best practices for WordPress, see [Best practices for WordPress security in Azure](/archive/blogs/azureossds/best-practices-for-wordpress-security-on-azure).
 
 ## I am trying to use PHPMyAdmin, and I see the message “Access denied.” How do I resolve this?
 

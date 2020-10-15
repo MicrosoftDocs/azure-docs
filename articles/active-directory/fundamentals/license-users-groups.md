@@ -2,14 +2,14 @@
 title: Assign or remove licenses - Azure Active Directory | Microsoft Docs
 description: Instructions about how to assign or remove Azure Active Directory licenses from your users or groups.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 # Assign or remove licenses in the Azure Active Directory portal
 
-Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true.
+Many Azure Active Directory (Azure AD) services require you to license each of your users or groups (and associated members) for that service. Only users with active licenses will be able to access and use the licensed Azure AD services for which that's true. Licenses are applied per tenant and do not transfer to other tenants. 
 
 ## Available license plans
 
@@ -31,7 +31,7 @@ There are several license plans available for the Azure AD service, including:
 
 - Azure AD Premium P2
 
-For specific information about each license plan and the associated licensing details, see [What license do I need?](https://azure.microsoft.com/pricing/details/active-directory/).
+For specific information about each license plan and the associated licensing details, see [What license do I need?](https://azure.microsoft.com/pricing/details/active-directory/). To sign up for Azure AD premium license plans see [here](./active-directory-get-started-premium.md).
 
 Not all Microsoft services are available in all locations. Before a license can be assigned to a group, you must specify the **Usage location** for all members. You can set this value in the **Azure Active Directory &gt; Users &gt; Profile &gt; Settings** area in Azure AD. Any user whose usage location is not specified inherits the location of the Azure AD organization.
 
@@ -98,11 +98,11 @@ Make sure that anyone needing to use a licensed Azure AD service has the appropr
 
 1. On the **Assign** page, select **Users and groups**, and then search for and select the group you're assigning the license.
 
-    ![Assign license page, with highlighted search and Select options](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+    ![Assign license page, with highlighted search and Select options 2](media/license-users-groups/assign-group-license-blade-with-highlight.png)
 
 1. Select **Assignment options**, make sure you have the appropriate license options turned on, and then select **OK**.
 
-    ![License option page, with all options available in the license plan](media/license-users-groups/license-option-blade-group-assignments.png)
+    ![License option page, with all options available in the license plan 2](media/license-users-groups/license-option-blade-group-assignments.png)
 
     The **Assign license** page updates to show that a user is selected and that the assignments are configured.
 
@@ -131,7 +131,10 @@ You can remove a license from a user's Azure AD user page, from the group overvi
 
 1. Select **Remove license**.
 
-    ![Licensed groups page with Remove license option highlighted](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    ![Licensed groups page with Remove license option highlighted 2](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+    
+    > [!NOTE]
+    > When an on-premises user account synced to Azure AD falls out of scope for the sync or when the sync is removed, the user is soft-deleted in Azure AD. When this occurs, licenses assigned to the user directly or via group-based licensing will be marked as **suspended** rather than **deleted**.
 
 ## Next steps
 

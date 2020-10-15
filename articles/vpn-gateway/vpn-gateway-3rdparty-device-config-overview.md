@@ -5,15 +5,15 @@ services: vpn-gateway
 author: yushwang
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 06/20/2017
+ms.topic: how-to
+ms.date: 09/02/2020
 ms.author: yushwang
 
 ---
 # Overview of partner VPN device configurations
 This article provides an overview of configuring on-premises VPN devices for connecting to Azure VPN gateways. A sample Azure virtual network and VPN gateway setup is used to show you how to connect to different on-premises VPN device configurations by using the same parameters.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 ## Device requirements
 Azure VPN gateways use standard IPsec/IKE protocol suites for site-to-site (S2S) VPN tunnels. For a list of IPsec/IKE parameters and cryptographic algorithms for Azure VPN gateways, see [About VPN devices](vpn-gateway-about-vpn-devices.md). You can also specify the exact algorithms and key strengths for a specific connection as described in [About cryptographic requirements](vpn-gateway-about-compliance-crypto.md).

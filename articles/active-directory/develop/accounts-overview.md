@@ -11,7 +11,7 @@ ms.workload: identity
 ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
 ---
 
@@ -47,7 +47,7 @@ An account in the Microsoft identity platform consists of:
 
 ## Account overview diagram
 
-![Account Overview Diagram](./media/accounts-overview/accounts-overview.png)
+![Account Overview Diagram](./media/accounts-overview/accounts-overview.svg)
 
 In the above diagram:
 
@@ -64,7 +64,7 @@ In the above diagram:
   - A tenant profile for `tom@live.com` exists in each of these tenants.
 - Information about Tom and Bob in other tenants may differ from that in the system of record. They may differ by attributes such as Job title, Office Location, and so on. They may be members of groups and/or roles within each organization (Azure Active Directory Tenant). We refer to this information as bob@contoso.com tenant profile.
 
-In the diagram, bob@contoso.com and tom@live.com have access to resources in different Azure Active Directory tenants. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+In the diagram, bob@contoso.com and tom@live.com have access to resources in different Azure Active Directory tenants. For more information, see [Add Azure Active Directory B2B collaboration users in the Azure portal](../external-identities/add-users-administrator.md).
 
 ## Accounts and single sign-on (SSO)
 
@@ -113,10 +113,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> To see a list of claims available from the account object, refer to [claims in an id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> To see a list of claims available from the account object, refer to [claims in an id_token](./id-tokens.md#claims-in-an-id_token)
 
 > [!TIP]
-> To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Azure AD app](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> To include additional claims in your id_token, refer to the optional claims documentation in [How to: Provide optional claims to your Azure AD app](./active-directory-optional-claims.md)
 
 ### Access tenant profile claims
 

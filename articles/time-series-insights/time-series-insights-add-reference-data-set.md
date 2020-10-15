@@ -5,19 +5,22 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
 ---
 
-# Create a reference data set for your Time Series Insights environment using the Azure portal
+# Create a reference data set for your Azure Time Series Insights Gen1 environment using the Azure portal
+
+> [!CAUTION]
+> This is a Gen1 article.
 
 This article describes how to add a reference data set to your Azure Time Series Insights environment. Reference data is useful to join to your source data to augment the values.
 
-A Reference Data Set is a collection of items that augment the events from your event source. Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
+A Reference Data Set is a collection of items that augment the events from your event source. Azure Time Series Insights ingress engine joins each event from your event source with the corresponding data row in your reference data set. This augmented event is then available for query. This join is based on the Primary Key column(s) defined in your reference data set.
 
 Reference data is not joined retroactively. Thus, only current and future ingress data is matched and joined to the reference date set, once it has been configured and uploaded.
 
@@ -25,21 +28,21 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 ### Learn about Time Series Insight’s reference data model.</br>
 
-> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
+> [!VIDEO <https://www.youtube.com/embed/Z0NuWQUMv1o>]
 
 ## Add a reference data set
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Locate your existing Azure Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Time Series Insights environment.
+1. Locate your existing Azure Time Series Insights environment. Select **All resources** in the menu on the left side of the Azure portal. Select your Azure Time Series Insights environment.
 
-1. Select the **Overview** page. Expand the **Essentials** section near the top of the page to locate the **Time Series Insights explorer URL** and open the link.  
+1. Select the **Overview** page. Expand the **Essentials** section near the top of the page to locate the **Time Series Insights Explorer URL** and open the link.  
 
    [![Expand Essentials section](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   View the explorer for your Time Series Insights environment.
+   View the Explorer for your Azure Time Series Insights environment.
 
-1. Expand the environment selector in the Time Series Insights explorer. Choose the active environment. Select the reference data icon on the upper right in the explorer page.
+1. Expand the environment selector in the Azure Time Series Insights Explorer. Choose the active environment. Select the reference data icon on the upper right in the Explorer page.
 
    [![Add reference data](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 
@@ -75,7 +78,7 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
    [![Choose data types on the column headings.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source. 
+1. Rename the column headers if needed. The key column name is necessary to join to the corresponding property in your event source.
 
    > [!IMPORTANT]
    > Ensure that the reference data key column names match exactly to the event name to your incoming data, including case-sensitivity. The non-key column names are used to augment the incoming data with the corresponding reference data values.
@@ -113,6 +116,6 @@ Reference data is not joined retroactively. Thus, only current and future ingres
 
 ## Next steps
 
-* [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
+- [Manage reference data](time-series-insights-manage-reference-data-csharp.md) programmatically.
 
-* For the complete API reference, read [Reference Data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api) document.
+- For the complete API reference, read [Reference Data API](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api) document.

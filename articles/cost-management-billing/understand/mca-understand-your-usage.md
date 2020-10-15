@@ -2,14 +2,12 @@
 title: Microsoft Customer Agreement Azure usage and charges file terms
 description: Learn how to read and understand the sections of the Azure usage and charges CSV for your billing profile.
 author: bandersmsft
-manager: jureid
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -19,9 +17,9 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 The Azure usage and charges CSV file contains daily and meter-level usage charges for the current billing period.
 
-To get your Azure usage and charges file, see [View and download Azure usage and charges for your Microsoft Customer Agreement](download-azure-daily-usage.md). It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application.
+To get your Azure usage and charges file, see [View and download Azure usage and charges for your Microsoft Customer Agreement](download-azure-daily-usage.md). It's available in a comma-separated values (.csv) file format that you can open in a spreadsheet application.
 
-Usage charges are the total **monthly** charges on a subscription. The usage charges don’t take into account any credits or discounts.
+Usage charges are the total **monthly** charges on a subscription. The usage charges don't take into account any credits or discounts.
 
 ## Changes from Azure EA usage and charges
 
@@ -86,6 +84,8 @@ meterCategory | Name of the classification category for the meter. For example, 
 meterSubCategory | Name of the meter sub-classification category
 meterRegion | Name of the region where the meter for the service is available. Identifies the location of the data center for certain services that are priced based on data center location.
 offer | Name of the offer purchased
+PayGPrice | Retail price for the resource.
+PricingModel | Identifier indicating how the meter is priced (Values: On Demand, Reservation, Spot)
 productId | Unique identifier for the product accruing the charges
 product | Name of the product accruing the charges
 subscription ID | Unique identifier for the subscription accruing the charges

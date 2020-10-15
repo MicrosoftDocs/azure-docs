@@ -1,12 +1,11 @@
 ---
 title: Manage Log Analytics workspaces in Azure Monitor | Microsoft Docs
 description: You can manage access to data stored in a Log Analytics workspace in Azure Monitor using resource, workspace, or table-level permissions. This article details how to complete.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/22/2019
+ms.date: 04/10/2019
 
 ---
 
@@ -17,12 +16,14 @@ Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics worksp
 This article explains how to manage access to logs and to administer the workspaces that contain them, including how to grant access to: 
 
 * The workspace using workspace permissions.
-* Users who need access to log data from specific resources using Azure role-based access control (RBAC).
+* Users who need access to log data from specific resources using Azure role-based access control (Azure RBAC) - also known as [resource-context](design-logs-deployment.md#access-mode)
 * Users who need access to log data in a specific table in the workspace using Azure RBAC.
+
+To understand the Logs concepts around RBAC and access strategies, read [designing your Azure Monitor Logs deployment](design-logs-deployment.md)
 
 ## Configure access control mode
 
-You can view the access control mode configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
+You can view the [access control mode](design-logs-deployment.md) configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
 
 * Azure portal
 
@@ -85,6 +86,7 @@ if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null
 else
     { $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions = $true }
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
+}
 ```
 
 ### Using a Resource Manager template
@@ -96,7 +98,7 @@ To configure the access mode in an Azure Resource Manager template, set the **en
 
 ## Manage access using workspace permissions
 
-Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed using [Azure role-based access](../../role-based-access-control/role-assignments-portal.md).
+Each workspace can have multiple accounts associated with it, and each account can have access to multiple workspaces. Access is managed using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md).
 
 The following activities also require Azure permissions:
 
@@ -222,7 +224,7 @@ See [Defining per-table access control](#table-level-rbac) below if you want to 
 
     * Grant users the following permissions on the workspace: 
 
-        * `Microsoft.OperationalInsights/workspaces/read` – required so the use can enumerate the workspace and open the workspace blade in the Azure portal
+        * `Microsoft.OperationalInsights/workspaces/read` – required so the user can enumerate the workspace and open the workspace blade in the Azure portal
         * `Microsoft.OperationalInsights/workspaces/query/read` – required for every user that can execute queries
         * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` – to be able to read Azure AD sign-in logs
         * `Microsoft.OperationalInsights/workspaces/query/Update/read` – to be able to read Update Management solution logs
@@ -264,12 +266,24 @@ To create a role with access to only the _SecurityBaseline_ table, create a cust
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
+The examples above define a list of tables that are allowed. This example shows blocked list definition when a user can access all tables but the _SecurityAlert_ table:
+
+```
+"Actions":  [
+    "Microsoft.OperationalInsights/workspaces/read",
+    "Microsoft.OperationalInsights/workspaces/query/read",
+    "Microsoft.OperationalInsights/workspaces/query/*/read"
+],
+"notActions":  [
+    "Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read"
+],
+```
 
 ### Custom logs
 
  Custom logs are created from data sources such as custom logs and HTTP Data Collector API. The easiest way to identify the type of log is by checking the tables listed under [Custom Logs in the log schema](../log-query/get-started-portal.md#understand-the-schema).
 
- You can't currently grant access to individual custom logs, but you can grant access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
+ You can't grant access to individual custom logs, but you can grant access to all custom logs. To create a role with access to all custom logs, create a custom role using the following actions:
 
 ```
 "Actions":  [
@@ -278,17 +292,20 @@ To create a role with access to only the _SecurityBaseline_ table, create a cust
     "Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read"
 ],
 ```
+An alternative approach to manage access to custom logs is to assign them to an Azure resource and manage access using the resource-context paradigm. To use this method, you must include the resource ID by specifying it in the [x-ms-AzureResourceId](data-collector-api.md#request-headers) header when data is ingested to Log Analytics via the [HTTP Data Collector API](data-collector-api.md). The resource ID must be valid and have access rules applied to it. After the logs are ingested, they are accessible to those with read access to the resource, as explained here.
+
+Sometimes custom logs come from sources that are not directly associated to a specific resource. In this case, create a resource group  just to manage access to these logs. The resource group does not incur any cost, but gives you a valid resource ID to control access to the custom logs. For example, if a specific firewall is sending custom logs, create a resource group called "MyFireWallLogs" and make sure that the API requests contain the resource ID of "MyFireWallLogs". The firewall log records are then accessible only to users that were granted access to either MyFireWallLogs or those with full workspace access.          
 
 ### Considerations
 
 * If a user is granted global read permission with the standard Reader or Contributor roles that include the _\*/read_ action, it will override the per-table access control and give them access to all log data.
 * If a user is granted per-table access but no other permissions, they would be able to access log data from the API but not from the Azure portal. To provide access from the Azure portal, use Log Analytics Reader as its base role.
-* Administrators of the subscription will have access to all data types regardless of any other permission settings.
+* Administrators and owners of the subscription will have access to all data types regardless of any other permission settings.
 * Workspace owners are treated like any other user for per-table access control.
 * We recommend assigning roles to security groups instead of individual users to reduce the number of assignments. This will also help you use existing group management tools to configure and verify access.
 
 ## Next steps
 
-* See [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
+* See [Log Analytics agent overview](./log-analytics-agent.md) to gather data from computers in your datacenter or other cloud environment.
 
-* See [Collect data about Azure virtual machines](../../azure-monitor/learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.
+* See [Collect data about Azure virtual machines](../learn/quick-collect-azurevm.md) to configure data collection from Azure VMs.

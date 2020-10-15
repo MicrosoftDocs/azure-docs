@@ -1,48 +1,51 @@
 ---
-title: Linked sign-on for Azure AD apps - Microsoft identity platform
-description: Configure linked single sign-on (SSO) to your Azure AD enterprise applications in Microsoft identity platform (Azure AD)
+title: Understand linked sign-on in Azure Active Directory
+description: Understand linked sign-on in Azure Active Directory.
 services: active-directory
-author: msmimart
-manager: CelesteDG
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/08/2019
-ms.author: mimart
+ms.date: 07/30/2020
+ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.collection: M365-identity-device-management
 ---
 
-# Configure linked sign-on
+# Understand linked sign-on
 
-When you add a gallery or non-gallery web application, one of the single sign-on options available to you is [linked sign-on](what-is-single-sign-on.md). Select this option to add a link to the application in your organization's Azure AD Access Panel or Office 365 portal. You can use this method to add links to custom web applications that currently use Active Directory Federation Services (or other federation service) instead of Azure AD for authentication. Or, you can add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels.
+In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. In the quickstart guide, you configure SAML-based or OIDC-based SSO. Another option is **Linked**. This article goes into more detail about the linked option.
+
+The **Linked** option lets you configure the target location when a user selects the app in your organization's [My Apps](https://myapps.microsoft.com/) or Office 365 portal.
+
+Some common scenarios where the link option is valuable include:
+- Add a link to a custom web application that currently uses federation, such as Active Directory Federation Services (AD FS).
+- Add deep links to specific SharePoint pages or other web pages that you just want to appear on your user's Access Panels.
+- Add a link to an app that doesn't require authentication. 
+ 
+ The **Linked** option doesn't provide sign-on functionality through Azure AD credentials. But, you can still use some of the other features of **Enterprise applications**. For example, you can use audit logs and add a custom logo and app name.
 
 ## Before you begin
 
-If the application hasn't been added to your Azure AD tenant, see [Add a gallery app](add-gallery-app.md) or [Add a non-gallery app](add-non-gallery-app.md).
+To ramp knowledge quickly, walk through the [quickstart series](view-applications-portal.md) on application management. On the quickstart, where you configure single sign-on, you'll also find the **Linked** option. 
 
-### Open the app and select linked sign-on
+The **Linked** option doesn't provide sign-on functionality through Azure AD. The option simply sets the location users will be sent to when they select the app on [My Apps](https://myapps.microsoft.com/) or the Microsoft 365 app launcher.  Because the sign-in doesn't provide sign-on functionality through Azure AD, Conditional Access is not available for applications configured with Linked single sign-on.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) as a cloud application admin, or an application admin for your Azure AD tenant.
+> [!IMPORTANT] 
+> There are some scenarios where the **Single sign-on** option will not be in the navigation for an application in **Enterprise applications**. 
+>
+> If the application was registered using **App registrations** then the single sign-on capability is setup to use OIDC OAuth by default. In this case, the **Single sign-on** option won't show in the navigation under **Enterprise applications**. When you use **App registrations** to add your custom app, you configure options in the manifest file. To learn more about the manifest file, see [Azure Active Directory app manifest](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest). To learn more about SSO standards, see [Authentication and authorization using Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/authentication-vs-authorization#authentication-and-authorization-using-microsoft-identity-platform). 
+>
+> Other scenarios where **Single sign-on** will be missing from the navigation include when an application is hosted in another tenant or if your account does not have the required permissions (Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal). Permissions can also cause a scenario where you can open **Single sign-on** but won't be able to save. To learn more about Azure AD administrative roles, see (https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
-1. Navigate to **Azure Active Directory** > **Enterprise applications**. A random sample of the applications in your Azure AD tenant appears. 
+### Configure link
 
-1. In the **Application Type** menu, select **All applications**, and then select **Apply**.
-
-1. Enter the name of the application in the search box, and then select the application from the results.
-
-1. Under the **Manage** section, select **Single sign-on**. 
-
-1. Select **Linked**.
-
-1. Enter the URL of the application to link to. Type the URL and select **Save**. 
+To set a link for an app, select **Linked** on the **Single sign-on** page. Then enter the link and select **Save**. Need a reminder on where to find these options? Check out the [quickstart series](view-applications-portal.md).
  
-1. You may assign users and groups to the application, which causes the application to appear in the [Office 365 app launcher](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) or the [Azure AD access panel](end-user-experiences.md) for those users.
-
-1. Select **Save**.
+After you configure an app, assign users and groups to it. When you assign users, you can control when the application appears on [My Apps](https://myapps.microsoft.com/) or the Microsoft 365 app launcher.
 
 ## Next steps
 
 - [Assign users or groups to the application](methods-for-assigning-users-and-groups.md)
-- [Configure automatic user account provisioning](configure-automatic-user-provisioning-portal.md)
+- [Configure automatic user account provisioning](../app-provisioning/configure-automatic-user-provisioning-portal.md)

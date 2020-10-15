@@ -3,11 +3,11 @@ title: Pricing & billing model
 description: Overview about how the pricing and billing model works for Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-author: kevinlam1
-ms.author: klam
+author: jonfancey
+ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 06/25/2020
 ---
 
 # Pricing model for Azure Logic Apps
@@ -18,81 +18,81 @@ ms.date: 07/19/2019
 
 ## Consumption pricing model
 
-For new logic apps that run in the public or "global" Azure Logic Apps service, you pay only for what you use. These logic apps use a consumption-based plan and pricing model. In your logic app, each step is an action, and Azure Logic Apps meters all the actions that run in your logic app.
+For new logic apps that run in the public, "global", multi-tenant Azure Logic Apps service, you pay only for what you use. These logic apps use a consumption-based plan and pricing model. In your logic app, each step is an action, and Azure Logic Apps meters all the actions that run in your logic app.
 
 For example, actions include:
 
-* Triggers, which are special actions. All logic apps require a trigger as the first step.
+* [Triggers](#triggers), which are special actions. All logic apps require a trigger as the first step.
+
 * ["Built-in" or native actions](../connectors/apis-list.md#built-in) such as HTTP, calls to Azure Functions and API Management, and so on
+
 * Calls to [managed connectors](../connectors/apis-list.md#managed-connectors) such as Outlook 365, Dropbox, and so on
-* Control flow steps, such as loops, conditional statements, and so on
+
+* [Control workflow actions](../connectors/apis-list.md#control-workflow) such as loops, conditional statements, and so on
 
 [Standard connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps). Generally available [Enterprise connectors](../connectors/apis-list.md#managed-connectors) are charged at the [Enterprise connector price](https://azure.microsoft.com/pricing/details/logic-apps), while public preview Enterprise connectors are charged at the [Standard connector price](https://azure.microsoft.com/pricing/details/logic-apps).
 
-Learn more about how billing works for [triggers](#triggers) and [actions](#actions).
+Learn more about how billing works at the [triggers](#triggers) and [actions](#actions) levels. Or, for information about limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
 
 <a name="fixed-pricing"></a>
 
 ## Fixed pricing model
 
-An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides a private, isolated, and dedicated way for you to create and run logic apps that can access resources in an Azure virtual network. For new logic apps that run inside an ISE, you pay a [fixed monthly price](https://azure.microsoft.com/pricing/details/logic-apps) for these capabilities:
+An [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) provides an isolated way for you to create and run logic apps that can access resources in an Azure virtual network. Logic apps that run in an ISE don't incur data retention costs. When you create an ISE, and only during creation, you can choose an [ISE level or "SKU"](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), which have different [pricing rates](https://azure.microsoft.com/pricing/details/logic-apps):
 
-* [Built-in triggers and actions](../connectors/apis-list.md#built-in)
+* **Premium** ISE: This SKU's base unit has fixed capacity, but if you need more throughput, you can [add more scale units](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) during ISE creation or afterwards. For ISE limits, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#integration-service-environment-ise).
 
-* [Standard connectors](../connectors/apis-list.md#managed-connectors)
+* **Developer** ISE: This SKU has no capability for scaling up, no service-level agreement (SLA), and no published limits. Use this SKU only for experimenting, development, and testing, not production or performance testing.
 
-* [Enterprise connectors](../connectors/apis-list.md#enterprise-connectors) with as many connections as you want
+For logic apps that you create and run in an ISE, you pay a [fixed price](https://azure.microsoft.com/pricing/details/logic-apps) (versus pay per use) for these capabilities:
+
+* [Built-in](../connectors/apis-list.md#built-in) triggers and actions
+
+  Within an ISE, built-in triggers and actions display the **Core** label and run in the same ISE as your logic apps.
+
+* [Standard](../connectors/apis-list.md#managed-connectors) connectors and [Enterprise](../connectors/apis-list.md#enterprise-connectors) connectors, which let you have as many Enterprise connections as you want
+
+   Standard and Enterprise connectors that display the **ISE** label run in the same ISE as your logic apps. Connectors that don't display the ISE label run in the public, "global", multi-tenant Logic Apps service. Fixed pricing also applies to connectors that run in the multi-tenant service when you use them with logic apps that run in an ISE.
 
 * [Integration account](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) usage at no additional cost, based on your [ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
 
-  * **Premium SKU**: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+  * **Premium** ISE SKU: A single [Standard tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
-  * **Developer SKU**: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
+  * **Developer** ISE SKU: A single [Free tier](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) integration account
 
   Each ISE SKU is limited to 5 total integration accounts. For an additional cost, you can have more integration accounts, based on your ISE SKU:
 
-  * **Premium SKU**: Up to four more Standard accounts. No Free or Basic accounts.
+  * **Premium** ISE SKU: Up to four more Standard accounts. No Free or Basic accounts.
 
-  * **Developer SKU**: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
+  * **Developer** ISE SKU: Either up to 4 more Standard accounts, or up to 5 total Standard accounts. No Basic accounts.
 
-For more information about integration account limits, see [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
-
-For the Premium ISE SKU, the base unit has fixed capacity, so if you need more throughput, you can [add more scale units](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), either during creation or afterwards. The Developer ISE SKU doesn't have the capability to add more scale units. Logic apps that run in an ISE don't incur data retention costs.
-
-> [!NOTE]
-> Within an ISE, built-in triggers and actions display the 
-> **Core** label and run in the same ISE as your logic apps. 
-> Standard and Enterprise connectors that display the **ISE** 
-> label run in the same ISE as your logic apps. Connectors 
-> that don't display the ISE label run in the global Logic Apps service.
-
-For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+  For more information about integration account limits, see [Limits and configuration for Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). You can learn more about [integration account tiers and their pricing model](#integration-accounts) later in this topic.
 
 <a name="connectors"></a>
 
 ## Connectors
 
-Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](https://docs.microsoft.com/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
+Azure Logic Apps connectors help your logic app access apps, services, and systems in the cloud or on premises by providing [triggers](#triggers), [actions](#actions), or both. Connectors are classified as either Standard or Enterprise. For an overview about these connectors, see [Connectors for Azure Logic Apps](../connectors/apis-list.md). If no prebuilt connectors are available for the REST APIs that you want to use in your logic apps, you can create [custom connectors](/connectors/custom-connectors), which are just wrappers around those REST APIs. Custom connectors are billed as Standard connectors. The following sections provide more information about how billing for triggers and actions work.
 
 <a name="triggers"></a>
 
 ## Triggers
 
-Triggers are special actions that create a logic app instance when a specific event happens. Triggers act in different ways, which affect how the logic app is metered. Here are the various kinds of triggers that exist in Azure Logic Apps:
+A trigger is always the first step in a logic app workflow and is a special action that creates and runs a logic app instance when specific criteria are met or a specific event happens. Triggers act in different ways, which affect how the logic app is metered. Here are the various kinds of triggers that exist in Azure Logic Apps:
 
-* **Polling trigger**: This trigger continually checks an endpoint for messages that satisfy the criteria for creating a logic app instance and starting the workflow. Even when no logic app instance gets created, Logic Apps meters each polling request as an execution. To specify the polling interval, set up the trigger through the Logic App Designer.
+* **Recurrence trigger**: You can use this generic trigger, which isn't specific to any service or system, to start any logic app workflow and create a logic app instance that runs based on the recurrence interval that you set up in the trigger. For example, you can set up a Recurrence trigger that runs every three days or on a more complex schedule.
+
+* **Polling trigger**: You can use this more specialized recurrence trigger, which is usually associated with the managed connector for a specific service or system, to check for events or messages that meet the criteria for creating and running logic app instance based on the recurrence interval that you set up in the trigger. Even when no logic app instance gets created, for example, when triggers are skipped, the Logic Apps service meters each polling request as an execution. To specify the polling interval, set up the trigger through the Logic App Designer.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook trigger**: This trigger waits for a client to send a request to a specific endpoint. Each request sent to the webhook endpoint counts as an action execution. For example, the Request and HTTP Webhook trigger are both webhook triggers.
-
-* **Recurrence trigger**: This trigger creates a logic app instance based on the recurrence interval that you set up in the trigger. For example, you can set up a Recurrence trigger that runs every three days or on a more complex schedule.
+* **Webhook trigger**: Rather than use a polling trigger, you can use a webhook trigger to wait for the client to send a request to your logic app at a specific endpoint URL. Each request that's sent to the webhook endpoint counts as an action execution. For example, the Request and HTTP Webhook trigger are both generic webhook triggers. Some connectors for services or systems also have webhook triggers.
 
 <a name="actions"></a>
 
 ## Actions
 
-Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
+Azure Logic Apps meters "built-in" actions, such as HTTP, as native actions. For example, built-in actions include HTTP calls, calls from Azure Functions or API Management, and control flow steps such as conditions, loops, and switch statements. Each action has their own action type. For example, actions that call [connectors](/connectors) have the "ApiConnection" type. These connectors are classified as Standard or Enterprise connectors, which are metered based on their respective [pricing](https://azure.microsoft.com/pricing/details/logic-apps). Enterprise connectors in *Preview* are charged as Standard connectors.
 
 Azure Logic Apps meters all successful and unsuccessful actions as executions. However, Logic Apps doesn't meter these actions:
 
@@ -111,13 +111,13 @@ Disabled logic apps aren't charged because they can't create new instances while
 
 A [fixed pricing model](https://azure.microsoft.com/pricing/details/logic-apps) applies to [integration accounts](logic-apps-enterprise-integration-create-integration-account.md) where you can explore, develop, and test the [B2B and EDI](logic-apps-enterprise-integration-b2b.md) and [XML processing](logic-apps-enterprise-integration-xml.md) features in Azure Logic Apps at no additional cost. Each Azure subscription can have up to a [specific limit of integration accounts](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits). Each integration account can store up to specific [limit of artifacts](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits), which include trading partners, agreements, maps, schemas, assemblies, certificates, batch configurations, and so on.
 
-Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and has limits on throughput and usage. Except for Free tier integration accounts, you can have more than one integration account in each Azure region. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Azure Logic Apps offers Free, Basic, and Standard integration accounts. The Basic and Standard tiers are supported by the Logic Apps service-level agreement (SLA), while the Free tier is not supported by an SLA and has limits on region availability, throughput, and usage. Except for Free tier integration accounts, you can have more than one integration account in each Azure region. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
 
 If you have an [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), either [Premium or Developer](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), your ISE can have 5 total integration accounts. To learn how the fixed pricing model works for an ISE, see the previous [Fixed pricing model](#fixed-pricing) section in this topic. For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 To choose between a Free, Basic, or Standard integration account, review these use case descriptions:
 
-* **Free**: For when you want to try exploratory scenarios, not production scenarios
+* **Free**: For when you want to try exploratory scenarios, not production scenarios. This tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Azure China 21Vianet](/azure/china/overview-operations) or [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **Basic**: For when you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity
 

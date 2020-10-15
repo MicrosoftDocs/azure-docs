@@ -8,7 +8,7 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/26/2020
 ---
 # Synonyms in Azure Cognitive Search
 
@@ -18,7 +18,7 @@ In Azure Cognitive Search, synonym expansion is done at query time. You can add 
 
 ## Create synonyms
 
-There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-get-started-postman.md) and formulation of requests using this API: [Create Synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
+There is no portal support for creating synonyms but you can use the REST API or .NET SDK. To get started with REST, we recommend [using Postman](search-get-started-postman.md) and formulation of requests using this API: [Create Synonym Maps](/rest/api/searchservice/create-synonym-map). For C# developers, you can get started with [Add Synonyms in Azure Cognitive Searching using C#](search-synonyms-tutorial-sdk.md).
 
 Optionally, if you are using [customer-managed keys](search-security-manage-encryption-keys.md) for service-side encryption-at-rest, you can apply that protection to the contents of your synonym map.
 
@@ -40,13 +40,14 @@ You can create multiple synonym maps for your search application (for example, b
 
 #### Add or update a synonym map under your service, using POST or PUT.
 
-Synonym maps are uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 10,000 rules in all other SKUs. Each rule can have up to 20 expansions.
+Synonym maps are uploaded to the service via POST or PUT. Each rule must be delimited by the new line character ('\n'). You can define up to 5,000 rules per synonym map in a free service and 20,000 rules per map in all other SKUs. Each rule can have up to 20 expansions.
 
 Synonym maps must be in the Apache Solr format which is explained below. If you have an existing synonym dictionary in a different format and want to use it directly, please let us know on [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 
 You can create a new synonym map using HTTP POST, as in the following example:
 
-	POST https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+```synonym-map
+	POST https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
 	api-key: [admin key]
 
 	{
@@ -56,10 +57,12 @@ You can create a new synonym map using HTTP POST, as in the following example:
 	      USA, United States, United States of America\n
 	      Washington, Wash., WA => WA\n"
 	}
+```
 
 Alternatively, you can use PUT and specify the synonym map name on the URI. If the synonym map does not exist, it will be created.
 
-	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+```synonym-map
+	PUT https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
 
     {
@@ -68,10 +71,12 @@ Alternatively, you can use PUT and specify the synonym map name on the URI. If t
 	      USA, United States, United States of America\n
 	      Washington, Wash., WA => WA\n"
     }
+```
 
 ##### Apache Solr synonym format
 
 The Solr format supports equivalent and explicit synonym mappings. Mapping rules adhere to the open-source synonym filter specification of Apache Solr, described in this document: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Below is a sample rule for equivalent synonyms.
+
 ```
 USA, United States, United States of America
 ```
@@ -79,30 +84,53 @@ USA, United States, United States of America
 With the rule above, a search query "USA" will expand to "USA" OR "United States" OR "United States of America".
 
 Explicit mapping is denoted by an arrow "=>". When specified, a term sequence of a search query that matches the left-hand side of "=>" will be replaced with the alternatives on the right-hand side. Given the rule below, search queries "Washington", "Wash." or "WA" will all be rewritten to "WA". Explicit mapping only applies in the direction specified and does not rewrite the query "WA" to "Washington" in this case.
+
 ```
 Washington, Wash., WA => WA
 ```
 
+If you need to define synonyms that contain commas, you can escape them with a backslash, like in this example:
+
+```
+WA\, USA, WA, Washington
+```
+
+Since backslash is itself a special character in other languages like JSON and C#, you will probably need to double-escape it. For example, the JSON sent to the REST API for the above synonym map would look like this:
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
+```
+
 #### List synonym maps under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps?api-version=2019-05-06
+```synonym-map
+	GET https://[servicename].search.windows.net/synonymmaps?api-version=2020-06-30
 	api-key: [admin key]
+```
 
 #### Get a synonym map under your service.
 
-	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+```synonym-map
+	GET https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
+```
 
 #### Delete a synonyms map under your service.
 
-	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2019-05-06
+```synonym-map
+	DELETE https://[servicename].search.windows.net/synonymmaps/mysynonymmap?api-version=2020-06-30
 	api-key: [admin key]
+```
 
 ### Configure a searchable field to use the synonym map in the index definition.
 
 A new field property **synonymMaps** can be used to specify a synonym map to use for a searchable field. Synonym maps are service level resources and can be referenced by any field of an index under the service.
 
-	POST https://[servicename].search.windows.net/indexes?api-version=2019-05-06
+```synonym-map
+	POST https://[servicename].search.windows.net/indexes?api-version=2020-06-30
 	api-key: [admin key]
 
 	{
@@ -133,6 +161,7 @@ A new field property **synonymMaps** can be used to specify a synonym map to use
 	      }
 	   ]
 	}
+```
 
 **synonymMaps** can be specified for searchable fields of the type 'Edm.String' or 'Collection(Edm.String)'.
 
@@ -154,4 +183,4 @@ If you have an existing index in a development (non-production) environment, exp
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a synonym map](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Create a synonym map](/rest/api/searchservice/create-synonym-map)

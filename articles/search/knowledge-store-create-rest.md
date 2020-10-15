@@ -1,20 +1,16 @@
 ---
-title: Create a knowledge store (preview) using REST
+title: Create a knowledge store using REST
 titleSuffix: Azure Cognitive Search
-description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting enrichments from an AI enrichment pipeline. This feature is currently in public preview.
+description: Use the REST API and Postman to create an Azure Cognitive Search knowledge store for persisting enrichments from an AI enrichment pipeline.
 
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 12/30/2019
+ms.date: 08/02/2020
 ---
 # Create a knowledge store using REST and Postman
-
-> [!IMPORTANT] 
-> Knowledge store is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-> The [REST API version 2019-05-06-Preview](search-api-preview.md) provides preview features. There is currently limited portal support, and no .NET SDK support.
 
 A knowledge store contains output from an Azure Cognitive Search enrichment pipeline for later analysis or other downstream processing. An AI-enriched pipeline accepts image files or unstructured text files, indexes them by using Azure Cognitive Search, applies AI enrichments from Cognitive Services (such as image analysis and natural language processing), and then saves the results to a knowledge store in Azure Storage. You can use tools like Power BI or Storage Explorer in the Azure portal to explore the knowledge store.
 
@@ -31,11 +27,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 This quickstart uses Azure Cognitive Search, Azure Blob storage, and [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) for the AI. 
 
-Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily when invoked from Azure Cognitive Search. As long as you use the sample data we provide, you can skip creating or attaching a Cognitive Services resource.
+Because the workload is so small, Cognitive Services is tapped behind the scenes to provide free processing for up to 20 transactions daily. Because the data set is so small, you can skip creating or attaching a Cognitive Services resource.
 
 1. [Download HotelReviews_Free.csv](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?sp=r&st=2019-11-04T01:23:53Z&se=2025-11-04T16:00:00Z&spr=https&sv=2019-02-02&sr=b&sig=siQgWOnI%2FDamhwOgxmj11qwBqqtKMaztQKFNqWx00AY%3D). This data is hotel review data saved in a CSV file (originates from Kaggle.com) and contains 19 pieces of customer feedback about a single hotel. 
 
-1. [Create an Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under your current subscription. You'll use Azure storage for both the raw content to be imported, and the knowledge store that is the end result.
+1. [Create an Azure storage account](../storage/common/storage-account-create.md?tabs=azure-portal) or [find an existing account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) under your current subscription. You'll use Azure storage for both the raw content to be imported, and the knowledge store that is the end result.
 
    Choose the **StorageV2 (general purpose V2)** account type.
 
@@ -77,7 +73,7 @@ To get the value for `admin-key`, go to the Azure Cognitive Search service and s
 | Variable    | Where to get it |
 |-------------|-----------------|
 | `admin-key` | On the **Keys** page of the Azure Cognitive Search service.  |
-| `api-version` | Leave as **2019-05-06-Preview**. |
+| `api-version` | Leave as **2020-06-30**. |
 | `datasource-name` | Leave as **hotel-reviews-ds**. | 
 | `indexer-name` | Leave as **hotel-reviews-ixr**. | 
 | `index-name` | Leave as **hotel-reviews-ix**. | 

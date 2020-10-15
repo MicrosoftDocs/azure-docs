@@ -2,19 +2,15 @@
 title: 'Tutorial: Configure Zscaler Two for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: In this tutorial, you'll learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Zscaler Two.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd-msft
-ms.assetid: 0a250fcd-6ca1-47c2-a780-7a6278186a69
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: "jeedes"
+ms.author: jeedes
 ---
 
 # Tutorial: Configure Zscaler Two for automatic user provisioning
@@ -118,7 +114,7 @@ This section guides you through the steps for configuring the Azure AD provision
 
 11. Review the user attributes that are synchronized from Azure AD to Zscaler Two in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the user accounts in Zscaler Two for update operations. Select **Save** to commit any changes.
 
-	![Attribute Mappings](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
+	![Screenshot of the Attribute Mappings section with seven mappings displayed.](./media/zscaler-two-provisioning-tutorial/user-attribute-mappings.png)
 
 12. In the **Mappings** section, select **Synchronize Azure Active Directory Groups to ZscalerTwo**:
 
@@ -126,7 +122,7 @@ This section guides you through the steps for configuring the Azure AD provision
 
 13. Review the group attributes that are synchronized from Azure AD to Zscaler Two in the **Attribute Mappings** section. The attributes selected as **Matching** properties are used to match the groups in Zscaler Two for update operations. Select **Save** to commit any changes.
 
-	![Attribute Mappings](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
+	![Screenshot of the Attribute Mappings section with three mappings displayed.](./media/zscaler-two-provisioning-tutorial/group-attribute-mappings.png)
 
 14. To configure scoping filters, refer to the instructions in the [Scoping filter tutorial](./../active-directory-saas-scoping-filters.md).
 
@@ -148,7 +144,7 @@ For information about how to read the Azure AD provisioning logs, see [Reporting
 
 ## Additional resources
 
-* [Managing user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Managing user account provisioning for enterprise apps](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps

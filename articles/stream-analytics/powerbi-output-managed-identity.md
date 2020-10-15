@@ -1,16 +1,16 @@
 ---
-title: Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI output (Preview)
+title: Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI output
 description: This article describes how to use managed identities to authenticate your Azure Stream Analytics job to Power BI output.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
-ms.topic: conceptual
-ms.date: 10/31/2019
+ms.topic: how-to
+ms.date: 3/10/2020
 ---
 
-# Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI (Preview)
+# Use Managed Identity to authenticate your Azure Stream Analytics job to Power BI
 
-[Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Power BI is available for Azure Stream Analytics as a preview. This gives Stream Analytics jobs direct access to a workspace within your Power BI account. This feature allows for deployments of Stream Analytics jobs to be fully automated, since it is no longer required for a user to interactively log in to Power BI via the Azure portal. Additionally, long running jobs that write to Power BI are now better supported, since you will not need to periodically reauthorize the job.
+[Managed Identity authentication](../active-directory/managed-identities-azure-resources/overview.md) for output to Power BI gives Stream Analytics jobs direct access to a workspace within your Power BI account. This feature allows for deployments of Stream Analytics jobs to be fully automated, since it is no longer required for a user to interactively log in to Power BI via the Azure portal. Additionally, long running jobs that write to Power BI are now better supported, since you will not need to periodically reauthorize the job.
 
 This article shows you how to enable Managed Identity for the Power BI output(s) of a Stream Analytics job through the Azure portal and through an Azure Resource Manager deployment.
 
@@ -150,12 +150,12 @@ Azure Resource Manager allows you to fully automate the deployment of your Strea
 
 ## Give the Stream Analytics job access to your Power BI workspace
 
-Now that the Stream Analytics job has been created, it can be given access to a Power BI workspace.
+Now that the Stream Analytics job has been created, it can be given access to a Power BI workspace. Once you have given your job access, allow a few minutes for the identity to propagate.
 
 ### Use the Power BI UI
 
    > [!Note]
-   > In order to add the Stream Analytics job to your Power BI workspace using the UI, you also have to enable service principal access in the **Developer settings** in the Power BI admin portal. See [Get started with a service principal](https://docs.microsoft.com/power-bi/developer/embed-service-principal#get-started-with-a-service-principal) for more details.
+   > In order to add the Stream Analytics job to your Power BI workspace using the UI, you also have to enable service principal access in the **Developer settings** in the Power BI admin portal. See [Get started with a service principal](https://docs.microsoft.com/power-bi/developer/embed-service-principal) for more details.
 
 1. Navigate to the workspace's access settings. See this article for more details: [Give access to your workspace](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 

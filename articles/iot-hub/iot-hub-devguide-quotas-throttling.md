@@ -7,6 +7,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
+ms.custom: ['Role: Cloud Development', 'Role: Operations', 'Role: Technical Support']
 ---
 
 # Reference - IoT Hub quotas and throttling
@@ -21,9 +22,9 @@ Each IoT hub is provisioned with a certain number of units in a specific tier. T
 
 The tier also determines the throttling limits that IoT Hub enforces on all operations.
 
-### IoT Plug and Play
+## IoT Plug and Play
 
-During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your message quota.
+IoT Plug and Play devices send at least one telemetry message for each interface, including the root, which may increase the number of messages counted towards your message quota.
 
 ## Operation throttles
 
@@ -52,7 +53,7 @@ The following table shows the enforced throttles. Values refer to an individual 
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md). <br/><sup>2</sup>Throttling meter size is 4 KB.
 
-### Throttling Details
+### Throttling details
 
 * The meter size determines at what increments your throttling limit is consumed. If your direct call's payload is between 0 and 4 KB, it is counted as 4 KB. You can make up to 40 calls per second per unit before hitting the limit of 160 KB/sec/unit.
 
@@ -100,8 +101,10 @@ IoT Hub enforces other operational limits:
 | Cloud-to-device messaging<sup>1</sup> | Maximum message size 64 KB. Maximum pending messages for delivery is 50 per device. |
 | Direct method<sup>1</sup> | Maximum direct method payload size is 128 KB. |
 | Automatic device and module configurations<sup>1</sup> | 100 configurations per paid SKU hub. 20 configurations per free SKU hub. |
-| IoT Edge automatic deployments<sup>1</sup> | 20 modules per deployment. 100 deployments (including layered deployments) per paid SKU hub. 10 deployments per free SKU hub. |
+| IoT Edge automatic deployments<sup>1</sup> | 50 modules per deployment. 100 deployments (including layered deployments) per paid SKU hub. 10 deployments per free SKU hub. |
 | Twins<sup>1</sup> | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. |
+| Shared access policies | Maximum number of shared access policies is 16. |
+| x509 CA certificates | Maximum number of x509 CA certificates that can be registered on IoT Hub is 25. |
 
 <sup>1</sup>This feature is not available in the basic tier of IoT Hub. For more information, see [How to choose the right IoT Hub](iot-hub-scaling.md).
 

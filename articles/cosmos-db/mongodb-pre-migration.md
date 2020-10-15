@@ -1,17 +1,17 @@
 ---
 title: Pre-migration steps for data migration to Azure Cosmos DB's API for MongoDB
 description: This doc provides an overview of the prerequisites for a data migration from MongoDB to Cosmos DB.
-author: LuisBosquez
+author: jasonwhowell
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.topic: conceptual
-ms.date: 01/09/2020
-ms.author: lbosq
+ms.topic: how-to
+ms.date: 09/01/2020
+ms.author: jasonh
 ---
 
 # Pre-migration steps for data migrations from MongoDB to Azure Cosmos DB's API for MongoDB
 
-Before you migrate your data from MongoDB (either on-premises or in the cloud) to Azure Cosmos DB’s API for MongoDB, you should:
+Before you migrate your data from MongoDB (either on-premises or in the cloud) to Azure Cosmos DB's API for MongoDB, you should:
 
 1. [Read the key considerations about using Azure Cosmos DB's API for MongoDB](#considerations)
 2. [Choose an option to migrate your data](#options)
@@ -25,7 +25,7 @@ If you have already completed the above pre-requisites for migration, you can [M
 
 The following are specific characteristics about Azure Cosmos DB's API for MongoDB:
 
-- **Capacity model**: Database capacity on Azure Cosmos DB is based on a throughput-based model. This model is based on [Request Units per second](request-units.md), which is a unit that represents the number of database operations that can be executed against a collection on a per-second basis. This capacity can be allocated at [a database or collection level](set-throughput.md), and it can be provisioned on an allocation model, or using the [AutoPilot model](provision-throughput-autopilot.md).
+- **Capacity model**: Database capacity on Azure Cosmos DB is based on a throughput-based model. This model is based on [Request Units per second](request-units.md), which is a unit that represents the number of database operations that can be executed against a collection on a per-second basis. This capacity can be allocated at [a database or collection level](set-throughput.md), and it can be provisioned on an allocation model, or using the [autoscale provisioned throughput](provision-throughput-autoscale.md).
 
 - **Request Units**: Every database operation has an associated Request Units (RUs) cost in Azure Cosmos DB. When executed, this is subtracted from the available request units level on a given second. If a request requires more RUs than the currently allocated RU/s there are two options to solve the issue - increase the amount of RUs, or wait until the next second starts and then retry the operation.
 
@@ -39,11 +39,10 @@ The [Azure Database Migration Service for Azure Cosmos DB's API for MongoDB](../
 
 |**Migration type**|**Solution**|**Considerations**|
 |---------|---------|---------|
-|Offline|[Data Migration Tool](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; Easy to set up and supports multiple sources <br/>&bull; Not suitable for large datasets.|
-|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull; Easy to set up and supports multiple sources <br/>&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets <br/>&bull; Lack of checkpointing means that any issue during the course of migration would require a restart of the whole migration process<br/>&bull; Lack of a dead letter queue would mean that a few erroneous files could stop the entire migration process <br/>&bull; Needs custom code to increase read throughput for certain data sources|
+|Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets and takes care of replicating live changes <br/>&bull; Works only with other MongoDB sources|
+|Offline|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets and takes care of replicating live changes <br/>&bull; Works only with other MongoDB sources|
+|Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)|&bull; Easy to set up and supports multiple sources <br/>&bull; Makes use of the Azure Cosmos DB bulk executor library <br/>&bull; Suitable for large datasets <br/>&bull; Lack of checkpointing means that any issue during the course of migration would require a restart of the whole migration process<br/>&bull; Lack of a dead letter queue would mean that a few erroneous files could stop the entire migration process <br/>&bull; Needs custom code to increase read throughput for certain data sources|
 |Offline|[Existing Mongo Tools (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Easy to set up and integration <br/>&bull; Needs custom handling for throttles|
-|Online|[Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Fully managed migration service.<br/>&bull; Provides hosting and monitoring solutions for the migration task. <br/>&bull; Suitable for large datasets and takes care of replicating live changes <br/>&bull; Works only with other MongoDB sources|
-
 
 ## <a id="estimate-throughput"></a> Estimate the throughput need for your workloads
 
@@ -66,15 +65,18 @@ This command will output a JSON document similar to the following:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-You can also use [the diagnostic settings](cosmosdb-monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).  
+You can also use [the diagnostic settings](cosmosdb-monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).  
 
 ## <a id="partitioning"></a>Choose your partition key
 Partitioning, also known as Sharding, is a key point of consideration before migrating data. Azure Cosmos DB uses fully-managed partitioning to increase the capacity in a database to meet the storage and throughput requirements. This feature doesn't need the hosting or configuration of routing servers.   
 
-In a similar way, the partitioning capability automatically adds capacity and re-balances the data accordingly. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key article](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
+In a similar way, the partitioning capability automatically adds capacity and re-balances the data accordingly. For details and recommendations on choosing the right partition key for your data, please see the [Choosing a Partition Key article](partitioning-overview.md#choose-partitionkey). 
 
 ## <a id="indexing"></a>Index your data
-By default, Azure Cosmos DB provides automatic indexing on all data inserted. The indexing capabilities provided by Azure Cosmos DB include adding composite indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the `createIndex()` command. Learn more at [Indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md).
+
+The Azure Cosmos DB's API for MongoDB server version 3.6 automatically indexes the `_id` field only. This field can't be dropped. It automatically enforces the uniqueness of the `_id` field per shard key. To index additional fields, you apply the MongoDB index-management commands. This default indexing policy differs from the Azure Cosmos DB SQL API, which indexes all fields by default.
+
+The indexing capabilities provided by Azure Cosmos DB include adding compound indices, unique indices and time-to-live (TTL) indices. The index management interface is mapped to the `createIndex()` command. Learn more at [Indexing in Azure Cosmos DB's API for MongoDB](mongodb-indexing.md)article.
 
 [Azure Database Migration Service](../dms/tutorial-mongodb-cosmos-db.md) automatically migrates MongoDB collections with unique indexes. However, the unique indexes must be created before the migration. Azure Cosmos DB does not support the creation of unique indexes, when there is already data in your collections. For more information, see [Unique keys in Azure Cosmos DB](unique-keys.md).
 

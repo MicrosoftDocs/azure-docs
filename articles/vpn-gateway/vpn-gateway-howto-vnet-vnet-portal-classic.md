@@ -6,8 +6,8 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 01/09/2020
+ms.topic: how-to
+ms.date: 10/08/2020
 ms.author: cherylmc
 
 ---
@@ -28,8 +28,6 @@ This article helps you create a VPN gateway connection between virtual networks.
 >
 
 ![VNet to VNet Connectivity Diagram](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## About VNet-to-VNet connections
 
@@ -57,9 +55,9 @@ You may want to connect virtual networks for the following reasons:
 
 For more information about VNet-to-VNet connections, see [VNet-to-VNet considerations](#faq) at the end of this article.
 
-### Before you begin
+## Prerequisites
 
-Before beginning this exercise, download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). We use the portal for most of the steps, but you must use PowerShell to create the connections between the VNets. You can't create the connections using the Azure portal.
+We use the portal for most of the steps, but you must use PowerShell to create the connections between the VNets. You can't create the connections using the Azure portal. [!INCLUDE [vpn-gateway-classic-powershell](../../includes/vpn-gateway-powershell-classic-locally.md)]
 
 ## <a name="plan"></a>Step 1 - Plan your IP address ranges
 
@@ -76,23 +74,14 @@ The following table shows an example of how to define your VNets. Use the ranges
 
 ## <a name="vnetvalues"></a>Step 2 - Create the virtual networks
 
-Create two virtual networks in the [Azure portal](https://portal.azure.com). For the steps to create classic virtual networks, see [Create a classic virtual network](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). 
-
-When using the portal to create a classic virtual network, you must navigate to the virtual network page by using the following steps, otherwise the option to create a classic virtual network does not appear:
-
-1. Click the '+' to open the 'New' page.
-2. In the 'Search the marketplace' field, type 'Virtual Network'. If you instead, select Networking -> Virtual Network, you will not get the option to create a classic VNet.
-3. Locate 'Virtual Network' from the returned list and click it to open the Virtual Network page. 
-4. On the virtual network page, select 'Classic' to create a classic VNet. 
-
-If you are using this article as an exercise, you can use the following example values:
+In this step, you create two classic virtual networks. If you are using this article as an exercise, you can use the following example values:
 
 **Values for TestVNet1**
 
 Name: TestVNet1<br>
 Address space: 10.11.0.0/16, 10.12.0.0/16 (optional)<br>
 Subnet name: default<br>
-Subnet address range: 10.11.0.1/24<br>
+Subnet address range: 10.11.0.0/24<br>
 Resource group: ClassicRG<br>
 Location: East US<br>
 GatewaySubnet: 10.11.1.0/27
@@ -121,7 +110,11 @@ GatewaySubnet: 10.41.1.0/27
 
 * **DNS servers** – Enter the DNS server name and IP address. This setting does not create a DNS server. It allows you to specify the DNS servers that you want to use for name resolution for this virtual network.
 
-In this section, you configure the connection type, the local site, and create the gateway.
+### To create a classic virtual network
+
+[!INCLUDE [basic classic vnet](../../includes/vpn-gateway-vnet-classic.md)]
+
+[!INCLUDE [basic classic DNS](../../includes/vpn-gateway-dns-classic.md)]
 
 ## <a name="localsite"></a>Step 3 - Configure the local site
 
@@ -201,41 +194,7 @@ After your virtual network gateways have been created for both VNets, you must a
 
 ## <a name="getvalues"></a>Step 7 - Retrieve values from the network configuration file
 
-When you create classic VNets in the Azure portal, the name that you view is not the full name that you use for PowerShell. For example, a VNet that appears to be named **TestVNet1** in the portal, may have a much longer name in the network configuration file. The name might look something like: **Group ClassicRG TestVNet1**. When you create your connections, it's important to use the values that you see in the network configuration file.
-
-In the following steps, you will connect to your Azure account and download and view the network configuration file to obtain the values that are required for your connections.
-
-1. Download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview).
-
-2. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
-
-   ```powershell
-   Connect-AzAccount
-   ```
-
-   Check the subscriptions for the account.
-
-   ```powershell
-   Get-AzSubscription
-   ```
-
-   If you have more than one subscription, select the subscription that you want to use.
-
-   ```powershell
-   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
-   ```
-
-   Next, use the following cmdlet to add your Azure subscription to PowerShell for the classic deployment model.
-
-   ```powershell
-   Add-AzureAccount
-   ```
-3. Export and view the network configuration file. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to **C:\AzureNet**.
-
-   ```powershell
-   Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
-   ```
-4. Open the file with a text editor and view the names for your VNets and sites. These will be the name you use when you create your connections.<br>VNet names are listed as **VirtualNetworkSite name =**<br>Site names are listed as **LocalNetworkSiteRef name =**
+[!INCLUDE [retrieve values](../../includes/vpn-gateway-values-classic.md)]
 
 ## <a name="createconnections"></a>Step 8 - Create the VPN gateway connections
 
@@ -269,7 +228,7 @@ In the examples, notice that the shared key is exactly the same. The shared key 
 ## <a name="faq"></a>VNet-to-VNet considerations for classic VNets
 * The virtual networks can be in the same or different subscriptions.
 * The virtual networks can be in the same or different Azure regions (locations).
-* A cloud service or a load balancing endpoint can't span across virtual networks, even if they are connected together.
+* A cloud service or a load-balancing endpoint can't span across virtual networks, even if they are connected together.
 * Connecting multiple virtual networks together doesn't require any VPN devices.
 * VNet-to-VNet supports connecting Azure Virtual Networks. It does not support connecting virtual machines or cloud services that are not deployed to a virtual network.
 * VNet-to-VNet requires dynamic routing gateways. Azure static routing gateways are not supported.

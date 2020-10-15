@@ -2,11 +2,11 @@
 title: What is Azure Private DNS?
 description: In this article, get started with an overview of the private DNS hosting service on Microsoft Azure.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
-ms.author: allensu
+ms.author: rohink
 #Customer intent: As an administrator, I want to evaluate Azure Private DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
@@ -58,7 +58,7 @@ Azure DNS has the following limitations:
 * A specific virtual network can be linked to only one private zone if automatic registration of VM DNS records is enabled. You can however link multiple virtual networks to a single DNS zone.
 * Reverse DNS works only for private IP space in the linked virtual network
 * Reverse DNS for a private IP address for a linked virtual network returns *internal.cloudapp.net* as the default suffix for the virtual machine. For virtual networks that are linked to a private zone with autoregistration enabled, reverse DNS for a private IP address  returns two FQDNs: one with default the suffix *internal.cloudapp.net* and another with the private zone suffix.
-* Conditional forwarding is not currently natively supported. To enable resolution between Azure and on-premises networks. See [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
+* Conditional forwarding is not currently natively supported. To enable resolution between Azure and on-premises networks, see [Name resolution for VMs and role instances](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
  
 ## Pricing
 

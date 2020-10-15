@@ -2,6 +2,7 @@
 title: Develop Azure Functions by using Visual Studio Code 
 description: Learn how to develop and test Azure Functions by using the Azure Functions extension for Visual Studio Code.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 08/21/2019
 #Customer intent: As an Azure Functions developer, I want to understand how Visual Studio Code supports Azure Functions so that I can more efficiently create, publish, and maintain my Functions projects.
 ---
@@ -61,17 +62,21 @@ The Functions extension lets you create a function app project, along with your 
 
 1. Select the folder for your function app project, and then **Select a language for your function project**.
 
+1. If you haven't already installed the Core Tools, you are asked to **Select a version** of the Core Tools to install. Choose version 2.x or a later version. 
+
 1. Select the **HTTP trigger** function template, or you can select **Skip for now** to create a project without a function. You can always [add a function to your project](#add-a-function-to-your-project) later.
 
     ![Choose the HTTP trigger template](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. Type **HTTPTrigger** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook.md#authorization-keys) when you call the function endpoint.
+1. Type **HttpExample** for the function name and select Enter, and then select **Function** authorization. This authorization level requires you to provide a [function key](functions-bindings-http-webhook-trigger.md#authorization-keys) when you call the function endpoint.
 
     ![Select Function authorization](./media/functions-develop-vs-code/create-function-auth.png)
 
     A function is created in your chosen language and in the template for an HTTP-triggered function.
 
     ![HTTP-triggered function template in Visual Studio Code](./media/functions-develop-vs-code/new-function-full.png)
+
+### Generated project files
 
 The project template creates a project in your chosen language and installs required dependencies. For any language, the new project has these files:
 
@@ -82,7 +87,33 @@ The project template creates a project in your chosen language and installs requ
     >[!IMPORTANT]
     >Because the local.settings.json file can contain secrets, you need to exclude it from your project source control.
 
-At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-a-function-to-your-project) or by [adding a parameter to a C# class library function](#add-a-function-to-your-project).
+Depending on your language, these other files are created:
+
+# [C\#](#tab/csharp)
+
+* [HttpExample.cs class library file](functions-dotnet-class-library.md#functions-class-library-project) that implements the function.
+
+At this point, you can add input and output bindings to your function by [adding a parameter to a C# class library function](#add-input-and-output-bindings).
+
+# [JavaScript](#tab/nodejs)
+
+* A package.json file in the root folder.
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-node.md#folder-structure) and the [index.js file](functions-reference-node.md#exporting-a-function), a Node.js file that contains the function code.
+
+At this point, you can add input and output bindings to your function by [modifying the function.json file](#add-input-and-output-bindings).
+
+<!-- # [PowerShell](#tab/powershell)
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+ 
+# [Python](#tab/python)
+    
+* A project-level requirements.txt file that lists packages required by Functions.
+    
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
+     -->
+---
 
 You can also [add a new function to your project](#add-a-function-to-your-project).
 
@@ -142,7 +173,7 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 The `msg` parameter is an `ICollector<T>` type, which represents a collection of messages that are written to an output binding when the function completes. You add one or more messages to the collection. These messages are sent to the queue when the function completes.
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output) documentation.
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue-output.md) documentation.
 
 # [JavaScript](#tab/nodejs)
 
@@ -180,11 +211,13 @@ In your function code, the `msg` binding is accessed from the `context`, as in t
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-To learn more, see the [Queue storage output binding](functions-bindings-storage-queue.md#output) reference.
+To learn more, see the [Queue storage output binding](functions-bindings-storage-queue-output.md) reference.
 
 ---
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 ## Publish to Azure
 
@@ -233,17 +266,11 @@ When you set up [continuous deployment](functions-continuous-deployment.md), you
 > [!IMPORTANT]
 > Publishing to an existing function app overwrites the content of that app in Azure.
 
-1. In Visual Studio Code, select F1 to open the command palette. In the command palette, search for and select **Azure Functions: Deploy to function app**.
-
-1. If you're not signed in, you're prompted to **Sign in to Azure**. After you sign in from the browser, go back to Visual Studio Code. If you have multiple subscriptions, **Select a subscription** that contains your function app.
-
-1. Select your existing function app in Azure. When you're warned about overwriting all files in the function app, select **Deploy** to acknowledge the warning and continue.
-
-The project is rebuilt, repackaged, and uploaded to Azure. The existing project is replaced by the new package, and the function app restarts.
+[!INCLUDE [functions-republish-vscode](../../includes/functions-republish-vscode.md)]
 
 ## Get the URL of the deployed function
 
-To call an HTTP-triggered function, you need the URL of the function when it's deployed to your function app. This URL includes any required [function keys](functions-bindings-http-webhook.md#authorization-keys). You can use the extension to get these URLs for your deployed functions.
+To call an HTTP-triggered function, you need the URL of the function when it's deployed to your function app. This URL includes any required [function keys](functions-bindings-http-webhook-trigger.md#authorization-keys). You can use the extension to get these URLs for your deployed functions.
 
 1. Select F1 to open the command palette, and then search for and run the command **Azure Functions: Copy Function URL**.
 
@@ -265,7 +292,7 @@ To run your Functions project locally, you must meet these additional requiremen
 
     | Language | Requirement |
     | -------- | --------- |
-    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI tools](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
+    | **C#** | [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)<br/>[.NET Core CLI tools](/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Debugger for Java extension](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 or later](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
     | **Python** | [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) recommended|

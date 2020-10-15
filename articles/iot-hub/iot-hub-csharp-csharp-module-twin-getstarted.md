@@ -8,6 +8,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: menchi
+ms.custom: "amqp, devx-track-csharp"
 ---
 
 # Get started with IoT Hub module identity and module twin (.NET)
@@ -15,7 +16,7 @@ ms.author: menchi
 [!INCLUDE [iot-hub-selector-module-twin-getstarted](../../includes/iot-hub-selector-module-twin-getstarted.md)]
 
 > [!NOTE]
-> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device’s conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, module identities and module twins allow for isolated configuration and conditions for each component.
+> [Module identities and module twins](iot-hub-devguide-module-twins.md) are similar to Azure IoT Hub device identity and device twin, but provide finer granularity. While Azure IoT Hub device identity and device twin enable the back-end application to configure a device and provide visibility on the device's conditions, a module identity and module twin provide these capabilities for individual components of a device. On capable devices with multiple components, such as operating system based devices or firmware devices, module identities and module twins allow for isolated configuration and conditions for each component.
 
 At the end of this tutorial, you have two .NET console apps:
 
@@ -64,7 +65,7 @@ Before you begin, get your module connection string. Sign in to the [Azure porta
 
 1. Search for and select **Microsoft.Azure.Devices.Client**, and then select **Install**.
 
-    ![Install Azure IoT Hub .NET service SDK current version](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
+    ![Screenshot that shows the "Microsoft.Azure.Devices.Client" selected and the "Install" button highlighted.](./media/iot-hub-csharp-csharp-module-twin-getstarted/install-client-sdk.png)
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
 

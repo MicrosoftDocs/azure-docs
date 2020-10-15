@@ -1,7 +1,6 @@
 ---
 title: Move a Log Analytics workspace in Azure Monitor | Microsoft Docs
 description: Learn how to move your Log Analytics workspace to another subscription or resource group.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
@@ -26,16 +25,22 @@ The workspace source and destination subscriptions must exist within the same Az
 ```
 
 ## Workspace move considerations
-Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. Connected agents will remain connected and keep send data to the workspace after the move. Since the move operation requires that there is no link from the workspace to any automation account, solutions that rely on that link must be removed.
+Managed solutions that are installed in the workspace will be moved with the Log Analytics workspace move operation. Connected agents will remain connected and keep send data to the workspace after the move. Since the move operation requires that there are no Linked Services from the workspace, solutions that rely on that link must be removed to allow the workspace move.
 
 Solutions that must be removed before you can unlink your automation account:
 
 - Update Management
 - Change Tracking
 - Start/Stop VMs during off-hours
+- Azure Security Center
 
+>[!IMPORTANT]
+> **Azure Sentinel customers:**
+> - Once deployed on a workspace, Azure Sentinel **does not currently support** the moving of that workspace to other resource groups or subscriptions. 
+>
+>   If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be effective in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
 
-### Delete in Azure portal
+### Delete solutions in Azure portal
 Use the following procedure to remove the solutions using the Azure portal:
 
 1. Open the menu for the resource group that any solutions are installed in.
@@ -54,8 +59,8 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-### Remove alert rules
-For the **Start/Stop VMs** solution, you also need to remove the alert rules created by the solution. Use the following procedure in the Azure portal to remove these rules.
+### Remove alert rules for Start/Stop VMs solution
+To remove **Start/Stop VMs** solution, you also need to remove the alert rules created by the solution. Use the following procedure in the Azure portal to remove these rules.
 
 1. Open the **Monitor** menu and then select **Alerts**.
 2. Click **Manage alert rules**.
@@ -87,7 +92,7 @@ Use the following procedure to move your workspace using the Azure portal:
 4. Select a destination **Subscription** and **Resource group**. If you're moving the workspace to another resource group in the same subscription, you won't see the **Subscription** option.
 5. Click **OK** to move the workspace and selected resources.
 
-    ![Portal](media/move-workspace/portal.png)
+    ![Screenshot shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.](media/move-workspace/portal.png)
 
 ### PowerShell
 To move your workspace using PowerShell, use the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) as in the following example:
@@ -95,8 +100,6 @@ To move your workspace using PowerShell, use the [Move-AzResource](/powershell/m
 ``` PowerShell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
-
-
 
 > [!IMPORTANT]
 > After the move operation, removed solutions and Automation account link should be reconfigured to bring the workspace back to its previous state.

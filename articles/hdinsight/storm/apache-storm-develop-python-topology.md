@@ -5,8 +5,8 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
-ms.custom: hdinsightactive,hdiseo17may2017
+ms.topic: how-to
+ms.custom: hdinsightactive,hdiseo17may2017, devx-track-python
 ms.date: 12/16/2019
 ---
 
@@ -21,7 +21,7 @@ Learn how to create an [Apache Storm](https://storm.apache.org/) topology that u
 
 * An Apache Storm cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Storm** for **Cluster type**.
 
-* A local Storm development environment (Optional). A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](http://storm.apache.org/releases/current/Setting-up-development-environment.html).
+* A local Storm development environment (Optional). A local Storm environment is only needed if you want to run the topology locally. For more information, see [Setting up a development environment](https://storm.apache.org/releases/current/Setting-up-development-environment.html).
 
 * [Python 2.7 or higher](https://www.python.org/downloads/).
 
@@ -33,7 +33,7 @@ Learn how to create an [Apache Storm](https://storm.apache.org/) topology that u
 
 Apache Storm was designed to work with components written using any programming language. The components must understand how to work with the Thrift definition for Storm. For Python, a module is provided as part of the Apache Storm project that allows you to easily interface with Storm. You can find this module at [https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py](https://github.com/apache/storm/blob/master/storm-multilang/python/src/main/resources/resources/storm.py).
 
-Storm is a Java process that runs on the Java Virtual Machine (JVM). Components written in other languages are executed as subprocesses. The Storm communicates with these subprocesses using JSON messages sent over stdin/stdout. More details on communication between components can be found in the [Multi-lang Protocol](https://storm.apache.org/documentation/Multilang-protocol.html) documentation.
+Storm is a Java process that runs on the Java Virtual Machine (JVM). Components written in other languages are executed as subprocesses. The Storm communicates with these subprocesses using JSON messages sent over stdin/stdout. More details on communication between components can be found in the [Multi-lang Protocol](https://storm.apache.org/releases/current/Multilang-protocol.html) documentation.
 
 ## Python with the Flux framework
 

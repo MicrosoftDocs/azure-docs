@@ -1,4 +1,4 @@
-﻿---
+---
 title: Describe a cluster by using Cluster Resource Manager 
 description: Describe a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities for Cluster Resource Manager.
 author: masnider
@@ -6,6 +6,7 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
+ms.custom: devx-track-csharp
 ---
 
 # Describe a Service Fabric cluster by using Cluster Resource Manager
@@ -32,7 +33,7 @@ In the Azure environment, Service Fabric uses the fault domain information provi
 > [!WARNING]
 > It's important that the fault domain information provided to Service Fabric is accurate. For example, let's say that your Service Fabric cluster's nodes are running inside 10 virtual machines, running on 5 physical hosts. In this case, even though there are 10 virtual machines, there are only 5 different (top level) fault domains. Sharing the same physical host causes VMs to share the same root fault domain, because the VMs experience coordinated failure if their physical host fails.  
 >
-> Service Fabric expects the fault domain of a node not to change. Other mechanisms of ensuring high availability of the VMs, such as [HA-VMs](https://technet.microsoft.com/library/cc967323.aspx), might cause conflicts with Service Fabric. These mechanisms use transparent migration of VMs from one host to another. They don't reconfigure or notify the running code inside the VM. As such, they're *not supported* as environments for running Service Fabric clusters. 
+> Service Fabric expects the fault domain of a node not to change. Other mechanisms of ensuring high availability of the VMs, such as [HA-VMs](/previous-versions/system-center/virtual-machine-manager-2008-r2/cc967323(v=technet.10)), might cause conflicts with Service Fabric. These mechanisms use transparent migration of VMs from one host to another. They don't reconfigure or notify the running code inside the VM. As such, they're *not supported* as environments for running Service Fabric clusters. 
 >
 > Service Fabric should be the only high-availability technology employed. Mechanisms like live VM migration and SANs are not necessary. If these mechanisms are used in conjunction with Service Fabric, they _reduce_ application availability and reliability. The reason is that they introduce additional complexity, add centralized sources of failure, and use reliability and availability strategies that conflict with those in Service Fabric. 
 >
@@ -79,9 +80,9 @@ The following diagram shows three upgrade domains striped across three fault dom
 
 There are pros and cons to having large numbers of upgrade domains. More upgrade domains mean each step of the upgrade is more granular and affects a smaller number of nodes or services. Fewer services have to move at a time, introducing less churn into the system. This tends to improve reliability, because less of the service is affected by any issue introduced during the upgrade. More upgrade domains also mean that you need less available buffer on other nodes to handle the impact of the upgrade. 
 
-For example, if you have five upgrade domains, the nodes in each are handling roughly 20 percent of your traffic. If you need to take down that upgrade domain for an upgrade, that load usually needs to go somewhere. Because you have four remaining upgrade domains, each must have room for about 5 percent of the total traffic. More upgrade domains mean that you need less buffer on the nodes in the cluster. 
+For example, if you have five upgrade domains, the nodes in each are handling roughly 20 percent of your traffic. If you need to take down that upgrade domain for an upgrade, that load usually needs to go somewhere. Because you have four remaining upgrade domains, each must have room for about 25 percent of the total traffic. More upgrade domains mean that you need less buffer on the nodes in the cluster.
 
-Consider if you had 10 upgrade domains instead. In that case, each upgrade domain would be handling only about 10 percent of the total traffic. When an upgrade steps through the cluster, each domain would need to have room for only about 1.1 percent of the total traffic. More upgrade domains generally allow you to run your nodes at higher utilization, because you need less reserved capacity. The same is true for fault domains.  
+Consider if you had 10 upgrade domains instead. In that case, each upgrade domain would be handling only about 10 percent of the total traffic. When an upgrade steps through the cluster, each domain would need to have room for only about 11 percent of the total traffic. More upgrade domains generally allow you to run your nodes at higher utilization, because you need less reserved capacity. The same is true for fault domains.  
 
 The downside of having many upgrade domains is that upgrades tend to take longer. Service Fabric waits a short period after an upgrade domain is completed and performs checks before starting to upgrade the next one. These delays enable detecting issues introduced by the upgrade before the upgrade proceeds. The tradeoff is acceptable because it prevents bad changes from affecting too much of the service at a time.
 
@@ -469,7 +470,7 @@ First, there's ensuring that machines are not overloaded. This means making sure
 
 Second, there's balancing and optimization, which are critical to running services efficiently. Cost-effective or performance-sensitive service offerings can't allow some nodes to be hot while others are cold. Hot nodes lead to resource contention and poor performance. Cold nodes represent wasted resources and increased costs. 
 
-Service Fabric represents resources as *metrics*. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are “WorkQueueDepth” or “MemoryInMb.” For information about the physical resources that Service Fabric can govern on nodes, see [Resource governance](service-fabric-resource-governance.md). For information on configuring custom metrics and their uses, see [this article](service-fabric-cluster-resource-manager-metrics.md).
+Service Fabric represents resources as *metrics*. Metrics are any logical or physical resource that you want to describe to Service Fabric. Examples of metrics are “WorkQueueDepth” or “MemoryInMb.” For information about the physical resources that Service Fabric can govern on nodes, see [Resource governance](service-fabric-resource-governance.md). For information on the default metrics used by the Cluster Resource Manager and how to configure custom metrics, see [this article](service-fabric-cluster-resource-manager-metrics.md).
 
 Metrics are different from placement constraints and node properties. Node properties are static descriptors of the nodes themselves. Metrics describe resources that nodes have and that services consume when they run on a node. A node property might be **HasSSD** and might be set to true or false. The amount of space available on that SSD and how much is consumed by services would be a metric like “DriveSpaceInMb.” 
 

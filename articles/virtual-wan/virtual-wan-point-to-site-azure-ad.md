@@ -1,33 +1,31 @@
 ---
-title: 'Configure Azure AD authentication for Point-to-Site connection to Azure | Microsoft Docs'
-description: In this tutorial, learn how to configure Azure Active Directory authentication for User VPN.
+title: 'Configure Azure AD authentication for User VPN connection: Virtual WAN'
+description: Learn how to configure Azure Active Directory authentication for User VPN.
 services: virtual-wan
-author: anzaman
+author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: tutorial
-ms.date: 12/02/2019
+ms.topic: how-to
+ms.date: 10/14/2020
 ms.author: alzam
 
 ---
-# Tutorial: Create a User VPN connection by using Azure Virtual WAN
+# Configure Azure Active Directory authentication for User VPN
 
-This tutorial shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. Azure Active Directory authentication is only available for gateways using OpenVPN protocol and clients running Windows.
+This article shows you how to configure Azure AD authentication for User VPN in Virtual WAN to connect to your resources in Azure over an OpenVPN VPN connection. Azure Active Directory authentication is only available for gateways using OpenVPN protocol and clients running Windows.
 
 This type of connection requires a client to be configured on the client computer. For more information about Virtual WAN, see the [Virtual WAN Overview](virtual-wan-about.md).
 
-In this tutorial, you learn how to:
+In this article, you learn how to:
 
-> [!div class="checklist"]
-> * Create a WAN
-> * Create a hub
-> * Create a P2S configuration
-> * Download a VPN client profile
-> * Apply P2S configuration to a hub
-> * Connect a VNet to a hub
-> * Download and apply the VPN client configuration
-> * View your virtual WAN
-> * View resource health
+* Create a Virtual WAN
+* Create a Virtual Hub
+* Create a User VPN configuration
+* Download a Virtual WAN User VPN profile
+* Apply User VPN configuration to a Virtual Hub
+* Connect a VNet to a Virtual Hub
+* Download and apply the User VPN client configuration
+* View your Virtual WAN
 
 ![Virtual WAN diagram](./media/virtual-wan-about/virtualwanp2s.png)
 
@@ -43,7 +41,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="wan"></a>Create a virtual WAN
+## <a name="wan"></a>Create a Virtual WAN
 
 From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
@@ -61,9 +59,9 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 4. After you finish filling out the fields, select **Review +Create**.
 5. After validation passes, select **Create** to create the virtual WAN.
 
-## <a name="site"></a>Create an empty virtual hub
+## <a name="site"></a>Create an empty Virtual hub
 
-1. Under your virtual WAN, select Hubs and click **+New Hub**.
+1. Under your Virtual WAN, select Hubs and click **+New Hub**.
 
    ![new site](media/virtual-wan-point-to-site-azure-ad/hub1.jpg)
 2. On the create virtual hub page, fill in the following fields.
@@ -78,23 +76,30 @@ From a browser, navigate to the [Azure portal](https://portal.azure.com) and sig
 3. Click **Review + create**.
 4. On the **validation passed** page, click **create**.
 
-## <a name="site"></a>Create a new P2S configuration
+## <a name="site"></a>Create a new User VPN configuration
 
-A P2S configuration defines the parameters for connecting remote clients.
+A User VPN configuration defines the parameters for connecting remote clients.
 
-1. Set the following variables, replacing values as needed for your environment.
+1. Under your virtual WAN, select **User VPN configurations**.
 
-   ```powershell
-   $aadAudience = "00000000-abcd-abcd-abcd-999999999999"
-   $aadIssuer = "https://sts.windows.net/00000000-abcd-abcd-abcd-999999999999/"
-   $aadTenant = "https://login.microsoftonline.com/00000000-abcd-abcd-abcd-999999999999"    
-   ```
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. Run the following commands to create the configuration:
+2. click **+Create user VPN config**.
 
-   ```powershell
-   $aadConfig = New-AzVpnServerConfiguration -ResourceGroupName <ResourceGroup> -Name newAADConfig -VpnProtocol OpenVPN -VpnAuthenticationType AAD -AadTenant $aadTenant -AadIssuer $aadIssuer -AadAudience $aadAudience -Location westcentralus
-   ```
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+
+3. Enter the information and click **Create**.
+
+   * **Configuration name** - Enter the name you want to call your User VPN Configuration.
+   * **Tunnel type** - Select OpenVPN.
+   * **Authentication method** - Select Azure Active Directory.
+   * **Audience** - Type in the Application ID of the [Azure VPN](openvpn-azure-ad-tenant.md) Enterprise Application registered in your Azure AD tenant. 
+   * **Issuer** - `https://sts.windows.net/<your Directory ID>/`
+   * **AAD Tenant** - `https://login.microsoftonline.com/<your Directory ID>`
+  
+
+
+   ![new config](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="hub"></a>Edit hub assignment
 
@@ -110,26 +115,26 @@ A P2S configuration defines the parameters for connecting remote clients.
 6. Click **Confirm**.
 7. The operation will can take up to 30 minutes to complete.
 
-## <a name="device"></a>Download VPN profile
+## <a name="device"></a>Download User VPN profile
 
 Use the VPN profile to configure your clients.
 
-1. On the page for your virtual WAN, click **User VPN configurations**.
+1. On the page for your Virtual WAN, click **User VPN configurations**.
 2. At the top of the  page, click **Download user VPN config**.
 3. Once the file has finished creating, you can click the link to download it.
 4. Use the profile file to configure the VPN clients.
 
 ## Configure user VPN clients
 
-To connect, you need to download the Azure VPN Client (Preview) and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
+To connect, you need to download the Azure VPN Client and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> Azure AD authentication is supported only for OpenVPN&reg; protocol connections.
 >
 
 #### To download the Azure VPN client
 
-Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client (Preview).
+Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client.
 
 #### <a name="import"></a>To import a client profile
 
@@ -184,21 +189,15 @@ Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sq
 ## <a name="viewwan"></a>View your virtual WAN
 
 1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
+2. On the Overview page, each point on the map represents a hub.
 3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
-
-## <a name="viewhealth"></a>View your resource health
-
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
-
 
 ## <a name="cleanup"></a>Clean up resources
 
-When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+When you no longer need these resources, you can use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## Next steps

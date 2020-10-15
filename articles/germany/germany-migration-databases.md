@@ -4,10 +4,10 @@ description: This article provides information about migrating your Azure databa
 author: gitralf
 services: germany
 cloud: Azure Germany
-ms.author: ralfwi 
+ms.author: juliako 
 ms.service: germany
-ms.date: 11/12/2019
-ms.topic: article
+ms.date: 05/27/2020
+ms.topic: how-to
 ms.custom: bfmigrate
 ---
 
@@ -16,7 +16,7 @@ ms.custom: bfmigrate
 > [!IMPORTANT]
 > Since [August 2018](https://news.microsoft.com/europe/2018/08/31/microsoft-to-deliver-cloud-services-from-new-datacentres-in-germany-in-2019-to-meet-evolving-customer-needs/), we have not been accepting new customers or deploying any new features and services into the original Microsoft Cloud Germany locations.
 >
-> Based on the evolution in customers’ needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft’s global cloud network, as well as market competitive pricing. 
+> Based on the evolution in customers' needs, we recently [launched](https://azure.microsoft.com/blog/microsoft-azure-available-from-new-cloud-regions-in-germany/) two new datacenter regions in Germany, offering customer data residency, full connectivity to Microsoft's global cloud network, as well as market competitive pricing. 
 >
 > Take advantage of the breadth of functionality, enterprise-grade security, and comprehensive features available in our new German datacenter regions by [migrating](germany-migration-main.md) today.
 
@@ -37,19 +37,20 @@ To migrate smaller Azure SQL Database workloads, use the export function to crea
 
 For more information:
 
-- Learn how to [export a database to a BACPAC file](../sql-database/sql-database-export.md).
-- Learn how to [import a BACPAC file to a database](../sql-database/sql-database-import.md).
+- Learn how to [export a database to a BACPAC file](../azure-sql/database/database-export.md).
+- Learn how to [import a BACPAC file to a database](../azure-sql/database/database-import.md).
 - Review the [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## SQL Data Warehouse
+## Azure Synapse Analytics
 
-To migrate Azure SQL Data Warehouse resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
+To migrate Azure Synapse Analytics resources from Azure Germany to global Azure, follow the steps that are described in Azure SQL Database.
 
 ## Azure Cosmos DB
 
-You can use Azure Cosmos DB Data Migration Tool to migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources.
+You can use Azure Cosmos DB Data Migration Tool to migrate data to Azure Cosmos DB. Azure Cosmos DB Data Migration Tool is an open-source solution that imports data to Azure Cosmos DB from different sources including: JSON files, MongoDB, SQL Server, CSV files, Azure Table storage, Amazon DynamoDB, HBase, and Azure Cosmos containers.
+
 
 Azure Cosmos DB Data Migration Tool is available as a graphical interface tool or as command-line tool. The source code is available in the [Azure Cosmos DB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool) GitHub repository. A [compiled version of the tool](https://www.microsoft.com/download/details.aspx?id=46436) is available in the Microsoft Download Center.
 
@@ -69,8 +70,9 @@ To migrate Azure Cosmos DB resources, we recommend that you complete the followi
 
 For more information:
 
-- Read an [introduction to Azure Cosmos DB](../cosmos-db/introduction.md).
-- Learn how to [import data to Azure Cosmos DB](../cosmos-db/import-data.md).
+- To learn how to use the Data migration tool, see [Tutorial: Use Data migration tool to migrate your data to Azure Cosmos DB](../cosmos-db/import-data.md).
+- To learn about Cosmos DB, see [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md).
+
 
 ## Azure Cache for Redis
 
@@ -129,6 +131,12 @@ For this approach, you must modify your application. The application needs to wr
 For more information:
 
 - Review the [overview of Azure Cache for Redis](../redis-cache/cache-overview.md).
+
+## PostgreSQL and MySQL
+
+For more information, see the articles in the "Back up and migrate data" section of [PostgreSQL](https://docs.microsoft.com/azure/postgresql/) and [MySQL](https://docs.microsoft.com/azure/mysql/).
+
+![PostgreSQL and MySQL](./media/germany-migration-main/databases.png)
 
 ## Next steps
 

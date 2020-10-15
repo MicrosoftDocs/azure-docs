@@ -46,7 +46,7 @@ az vm list-usage --location "South Central US"
 
 Which returns:
 
-```azurecli
+```output
 [
   {
     "currentValue": 0,
@@ -70,7 +70,7 @@ Get-AzVMUsage -Location "South Central US"
 
 Which returns:
 
-```powershell
+```output
 Name                             Current Value Limit  Unit
 ----                             ------------- -----  ----
 Availability Sets                            0  2000 Count
@@ -89,7 +89,7 @@ To request a quota increase, go to the portal and file a support issue. In the s
 
 1. Select **Subscriptions**.
 
-   ![Subscriptions](./media/error-resource-quota/subscriptions.png)
+   ![Screen capture shows the Azure Portal menu with Subscriptions selected.](./media/error-resource-quota/subscriptions.png)
 
 2. Select the subscription that needs an increased quota.
 

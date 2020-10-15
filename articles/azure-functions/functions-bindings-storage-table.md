@@ -6,6 +6,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
+ms.custom: "devx-track-csharp, devx-track-python"
 ---
 # Azure Table storage bindings for Azure Functions
 
@@ -35,7 +36,7 @@ Use the Azure Table storage input binding to read a table in an Azure Storage ac
 
 ### One entity
 
-The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. 
+The following example shows a [C# function](functions-dotnet-class-library.md) that reads a single table row. For every message send to the queue, the function will be triggered.
 
 The row key value "{queueTrigger}" indicates that the row key comes from the queue message string.
 
@@ -88,13 +89,13 @@ public class TableStorage
 
 ### CloudTable
 
-`IQueryable` isn't supported in the [Functions v2 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
+`IQueryable` is only supported in the [Functions v1 runtime](functions-versions.md). An alternative is to use a `CloudTable` method parameter to read the table by using the Azure Storage SDK. Here's an example of a function that queries an Azure Functions log table:
 
 ```csharp
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
-using Microsoft.WindowsAzure.Storage.Table;
+using Microsoft.Azure.Cosmos.Table;
 using System;
 using System.Threading.Tasks;
 
@@ -134,7 +135,7 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/tutorial-develop-table-dotnet.md).
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
@@ -222,8 +223,8 @@ The [configuration](#input---configuration) section explains these properties.
 The C# script code adds a reference to the Azure Storage SDK so that the entity type can derive from `TableEntity`:
 
 ```csharp
-#r "Microsoft.WindowsAzure.Storage"
-using Microsoft.WindowsAzure.Storage.Table;
+#r "Microsoft.Azure.Cosmos"
+using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Extensions.Logging;
 
 public static void Run(string myQueueItem, IQueryable<Person> tableBinding, ILogger log)
@@ -300,7 +301,7 @@ public class LogEntity : TableEntity
 }
 ```
 
-For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/tutorial-develop-table-dotnet.md).
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
 
@@ -398,19 +399,70 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
 
 # [Java](#tab/java)
 
-The following example shows an HTTP triggered function which returns the total count of the items in a specified partition in Table storage.
+The following example shows an HTTP triggered function which returns a list of person objects who are in a specified partition in Table storage. In the example, the partition key is extracted from the http route, and the tableName and connection are from the function settings. 
 
 ```java
-@FunctionName("getallcount")
-public int run(
-   @HttpTrigger(name = "req",
-                 methods = {HttpMethod.GET},
-                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
-   @TableInput(name = "items",
-                tableName = "mytablename",  partitionKey = "myparkey",
-                connection = "myconnvarname") MyItem[] items
-) {
-    return items.length;
+public class Person {
+    private String PartitionKey;
+    private String RowKey;
+    private String Name;
+
+    public String getPartitionKey() { return this.PartitionKey; }
+    public void setPartitionKey(String key) { this.PartitionKey = key; }
+    public String getRowKey() { return this.RowKey; }
+    public void setRowKey(String key) { this.RowKey = key; }
+    public String getName() { return this.Name; }
+    public void setName(String name) { this.Name = name; }
+}
+
+@FunctionName("getPersonsByPartitionKey")
+public Person[] get(
+        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="persons/{partitionKey}") HttpRequestMessage<Optional<String>> request,
+        @BindingName("partitionKey") String partitionKey,
+        @TableInput(name="persons", partitionKey="{partitionKey}", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
+        final ExecutionContext context) {
+
+    context.getLogger().info("Got query for person related to persons with partition key: " + partitionKey);
+
+    return persons;
+}
+```
+
+The TableInput annotation can also extract the bindings from the json body of the request, like the following example shows.
+
+```java
+@FunctionName("GetPersonsByKeysFromRequest")
+public HttpResponseMessage get(
+        @HttpTrigger(name = "getPerson", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="query") HttpRequestMessage<Optional<String>> request,
+        @TableInput(name="persons", partitionKey="{partitionKey}", rowKey = "{rowKey}", tableName="%MyTableName%", connection="MyConnectionString") Person person,
+        final ExecutionContext context) {
+
+    if (person == null) {
+        return request.createResponseBuilder(HttpStatus.NOT_FOUND)
+                    .body("Person not found.")
+                    .build();
+    }
+
+    return request.createResponseBuilder(HttpStatus.OK)
+                    .header("Content-Type", "application/json")
+                    .body(person)
+                    .build();
+}
+```
+
+The following examples uses the Filter to query for persons with a specific name in an Azure Table, and limits the number of possible matches to 10 results.
+
+```java
+@FunctionName("getPersonsByName")
+public Person[] get(
+        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="filter/{name}") HttpRequestMessage<Optional<String>> request,
+        @BindingName("name") String name,
+        @TableInput(name="persons", filter="Name eq '{name}'", take = "10", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
+        final ExecutionContext context) {
+
+    context.getLogger().info("Got query for person related to persons with name: " + name);
+
+    return persons;
 }
 ```
 
@@ -508,7 +560,7 @@ The following table explains the binding configuration properties that you set i
 |**rowKey** |**RowKey** | Optional. The row key of the table entity to read. See the [usage](#input---usage) section for guidance on how to use this property.| 
 |**take** |**Take** | Optional. The maximum number of entities to read in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
 |**filter** |**Filter** | Optional. An OData filter expression for table input in JavaScript. See the [usage](#input---usage) section for guidance on how to use this property.| 
-|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "MyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
+|**connection** |**Connection** | The name of an app setting that contains the Storage connection string to use for this binding. The setting can be the name of an "AzureWebJobs" prefixed app setting or connection string name. For example, if your setting name is "AzureWebJobsMyStorage", you can specify "MyStorage" here. The Functions runtime will automatically look for an app setting that named "AzureWebJobsMyStorage". If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -550,7 +602,7 @@ Table data is passed to the function as a JSON string. De-serialize the message 
 
 # [Java](#tab/java)
 
-The [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
+The [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) attribute gives you access to the table row that triggered the function.
 
 ---
 
@@ -763,7 +815,8 @@ public class Person {
     public String getName() {return this.Name;}
     public void setName(String name) {this.Name = name; }
 }
-    public class AddPerson {
+
+public class AddPerson {
 
     @FunctionName("addPerson")
     public HttpResponseMessage get(
@@ -920,15 +973,15 @@ There are two options for outputting a Table storage row message from a function
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Table storage row.
 
-- **Imperative**: Pass a value to the [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as an Event Hub message.
+- **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out?view=azure-python) type. The value passed to `set` is persisted as an Event Hub message.
 
 # [Java](#tab/java)
 
-There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) annotation:
+There are two options for outputting a Table storage row from a function by using the [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) annotation:
 
 - **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as a Table storage row.
 
-- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`.
+- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` includes the `PartitionKey` and `RowKey` properties. These properties are often accompanied by implementing `ITableEntity` or inheriting `TableEntity`.
 
 ---
 
@@ -936,9 +989,9 @@ There are two options for outputting a Table storage row from a function by usin
 
 | Binding | Reference |
 |---|---|
-| Table | [Table Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
-| Blob, Table, Queue | [Storage Error Codes](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, Table, Queue | [Troubleshooting](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Table | [Table Error Codes](/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Blob, Table, Queue | [Storage Error Codes](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, Table, Queue | [Troubleshooting](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## Next steps
 

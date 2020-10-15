@@ -1,14 +1,10 @@
 ---
-title: "Quickstart: Recognize speech, intents, and entities, Python - Speech service"
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 01/02/2020
+ms.date: 04/04/2020
 ms.topic: include
-ms.author: erhopf
+ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
 ---
 
@@ -16,8 +12,7 @@ zone_pivot_groups: programming-languages-set-two
 
 Before you get started:
 
-* If this is your first Python project, use this guide to <a href="~/articles/cognitive-services/Speech-Service/quickstarts/create-project.md" target="_blank">create an empty sample project</a>.
-* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md" target="_blank">Install the Speech SDK for your development environment</a>.
+* <a href="~/articles/cognitive-services/Speech-Service/quickstarts/setup-platform.md?pivots=programming-language-python" target="_blank">Install the Speech SDK for your development environment and create an empty sample project<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ## Create a LUIS app for intent recognition
 
@@ -40,8 +35,8 @@ Before you can initialize an `IntentRecognizer` object, you need to create a con
 
 Insert this code in `quickstart.py`. Make sure you update these values:
 
-* Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key. 
-* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. 
+* Replace `"YourLanguageUnderstandingSubscriptionKey"` with your LUIS prediction key.
+* Replace `"YourLanguageUnderstandingServiceRegion"` with your LUIS location. Use **Region identifier** from [region](https://aka.ms/speech/sdkregion)
 
 >[!TIP]
 > If you need help finding these values, see [Create a LUIS app for intent recognition](#create-a-luis-app-for-intent-recognition).
@@ -60,7 +55,7 @@ Now, let's create an `IntentRecognizer`. Insert this code right below your Speec
 
 ## Add a LanguageUnderstandingModel and Intents
 
-You need to associate a `LanguageUnderstandingModel` with the intent recognizer and add the intents you want recognized. We're going to use intents from the prebuilt domain for home automation. 
+You need to associate a `LanguageUnderstandingModel` with the intent recognizer and add the intents you want recognized. We're going to use intents from the prebuilt domain for home automation.
 
 Insert this code below your `IntentRecognizer`. Make sure that you replace `"YourLanguageUnderstandingAppId"` with your LUIS app ID. 
 
@@ -69,11 +64,13 @@ Insert this code below your `IntentRecognizer`. Make sure that you replace `"You
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
 
+This example uses the `add_intents()` function to add a list of explicitly-defined intents. If you want to add all intents from a model, use `add_all_intents(model)` and pass the model.
+
 ## Recognize an intent
 
 From the `IntentRecognizer` object, you're going to call the `recognize_once()` method. This method lets the Speech service know that you're sending a single phrase for recognition, and that once the phrase is identified to stop recognizing speech.
 
-Insert this code below your model:
+Insert this code below your model.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=35)]
 
@@ -81,12 +78,13 @@ Insert this code below your model:
 
 When the recognition result is returned by the Speech service, you'll want to do something with it. We're going to keep it simple and print the result to console.
 
-Below your call to `recognize_once()`, add this code:
+Below your call to `recognize_once()`, add this code.
+
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=38-47)]
 
 ## Check your code
 
-At this point, your code should look like this:  
+At this point, your code should look like this.
 
 > [!NOTE]
 > We've added some comments to this version.

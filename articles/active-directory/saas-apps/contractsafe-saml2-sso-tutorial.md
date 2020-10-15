@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ContractSafe Saml2 SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ContractSafe Saml2 SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9d8c9eba-6a90-4c8f-b387-a6ead4af00af
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Azure Active Directory single sign-on (SSO) with ContractSafe Saml2 SSO
@@ -84,7 +78,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal:
     `https://app.contractsafe.com/saml2_auth/<UNIQUEID>/acs/`
 
 	> [!NOTE]
-	> These values aren't real. Update these values with the actual identifier and reply URL. Contact the [ContractSafe Saml2 SSO Client support team](mailto:donne@contractsafe.com) to get these values. You can also refer to the formats shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values aren't real. Update these values with the actual identifier and reply URL. Contact the [ContractSafe Saml2 SSO Client support team](mailto:support@contractsafe.com) to get these values. You can also refer to the formats shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. ContractSafe Saml2 SSO expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes.
 
@@ -137,11 +131,11 @@ In this section, you'll enable **B.Simon** to use Azure SSO by granting access t
 
 ## Configure ContractSafe Saml2 SSO
 
-To configure SSO on the **ContractSafe Saml2 SSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the Azure portal to the [ContractSafe Saml2 SSO support team](mailto:donne@contractsafe.com). The team is responsible for setting the SAML SSO connection properly on both sides.
+To configure SSO on the **ContractSafe Saml2 SSO** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from the Azure portal to the [ContractSafe Saml2 SSO support team](mailto:support@contractsafe.com). The team is responsible for setting the SAML SSO connection properly on both sides.
 
 ## Create a ContractSafe Saml2 SSO test user
 
-Create a user called B.Simon in ContractSafe Saml2 SSO. Work with the [ContractSafe Saml2 SSO support team](mailto:donne@contractsafe.com) to add the users in the ContractSafe Saml2 SSO platform. Users must be created and activated before you use SSO.
+Create a user called B.Simon in ContractSafe Saml2 SSO. Work with the [ContractSafe Saml2 SSO support team](mailto:support@contractsafe.com) to add the users in the ContractSafe Saml2 SSO platform. Users must be created and activated before you use SSO.
 
 ## Test SSO
 

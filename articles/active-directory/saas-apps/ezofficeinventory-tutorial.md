@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with EZOfficeInventory | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and EZOfficeInventory.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e8594f7c-dc2f-446f-9c25-676fe49ff3af
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/10/2019
+ms.date: 02/12/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with EZOfficeInventory
@@ -28,7 +21,7 @@ In this tutorial, you'll learn how to integrate EZOfficeInventory with Azure Act
 * Enable your users to be automatically signed-in to EZOfficeInventory with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
-To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
 ## Prerequisites
 
@@ -42,8 +35,8 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * EZOfficeInventory supports **SP** initiated SSO
-
 * EZOfficeInventory supports **Just In Time** user provisioning
+* Once you configure EZOfficeInventory you can enforce session control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -98,9 +91,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	| Name | Source Attribute|
 	| ---------------| --------------- |
-	| First_name | user.givenname |
-	| Last_name | user.surname |
-	| Email | user.mail |
+	| first_name | user.givenname |
+	| last_name | user.surname |
+	| email | user.mail |
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -154,7 +147,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the top-right corner of the page, click on **Profile** and then navigate to **Settings** > **Add Ons**.
 
-    ![EZOfficeInventory configuration](./media/ezofficeinventory-tutorial/configure01.png)
+    ![Screenshot that shows the "Settings" page with the "Add Ons" action selected.](./media/ezofficeinventory-tutorial/configure01.png)
 
 1. Scroll down up to the **SAML Integration** section, perform the following steps:
 
@@ -192,8 +185,10 @@ When you click the EZOfficeInventory tile in the Access Panel, you should be aut
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 - [Try EZOfficeInventory with Azure AD](https://aad.portal.azure.com/)

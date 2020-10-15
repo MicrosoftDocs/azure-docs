@@ -3,62 +3,30 @@
   items:
   - name: Overview
     items: 
-    - name: About Azure Dev Spaces
+    - name: What is Azure Dev Spaces?
       href: about.md
-  - name: Quickstarts
-    items:
-    - name: Team development
-      href: quickstart-team-development.md
-    - name: Debug and iterate
-      items:
-      - name: Use Visual Studio Code and Java
-        href: quickstart-java.md
-      - name: Use Visual Studio Code and .NET Core
-        href: quickstart-netcore.md
-      - name: Use Visual Studio Code and Node.js
-        href: quickstart-nodejs.md
-      - name: Use Visual Studio and .NET Core
-        href: quickstart-netcore-visualstudio.md
-    - name: Develop using the CLI
-      href: quickstart-cli.md
   - name: Tutorials
     items:
-    - name: Java (VS Code & CLI)
-      items:
-      - name: 1 - Get started
-        href: get-started-java.md
-      - name: 2 - Multi-service development
-        href: multi-service-java.md
-      - name: 3 - Team development
-        href: team-development-java.md
-    - name: .NET Core (VS Code & CLI)
-      items:
-      - name: 1 - Get started
-        href: get-started-netcore.md
-      - name: 2 - Multi-service development
-        href: multi-service-netcore.md
-      - name: 3 - Team development
-        href: team-development-netcore.md
-    - name: .NET Core (Visual Studio)
-      items:
-      - name: 1 - Get started
-        href: get-started-netcore-visualstudio.md
-      - name: 2 - Multi-service development
-        href: multi-service-netcore-visualstudio.md
-      - name: 3 - Team development
-        href: team-development-netcore-visualstudio.md
-    - name: Node.js (VS Code & CLI)
-      items:
-      - name: 1 - Get started
-        href: get-started-nodejs.md
-      - name: 2 - Multi-service development
-        href: multi-service-nodejs.md
-      - name: 3 - Team development
-        href: team-development-nodejs.md
+    - name: Get started with Visual Studio
+      href: get-started-netcore-visualstudio.md
   - name: Concepts
     items:
+    - name: Migrate to Bridge to Kubernetes
+      href: migrate-to-bridge-to-kubernetes.md
     - name: How Dev Spaces works
-      href: how-dev-spaces-works.md
+      items:
+      - name: Overview
+        href: how-dev-spaces-works.md
+      - name: Setting up a cluster
+        href: how-dev-spaces-works-cluster-setup.md
+      - name: Preparing a project
+        href: how-dev-spaces-works-prep.md
+      - name: Running your code
+        href: how-dev-spaces-works-up.md
+      - name: Routing between dev spaces
+        href: how-dev-spaces-works-routing.md
+      - name: Remote debugging
+        href: how-dev-spaces-works-remote-debugging.md
     - name: How VS Code works with Dev Spaces
       href: how-vs-code-works-with-dev-spaces.md
     - name: Networking configuration in different network topologies
@@ -69,8 +37,6 @@
       href: how-to/install-dev-spaces.md
     - name: Create a Kubernetes cluster using Azure Cloud Shell
       href: how-to/create-cluster-cloud-shell.md
-    - name: Share Azure Dev Spaces
-      href: how-to/share-dev-spaces.md
     - name: Manage secrets
       href: how-to/manage-secrets.md
     - name: Use a custom NuGet feed
@@ -86,7 +52,7 @@
     - name: Use GitHub Actions with Azure Dev Spaces (preview)
       href: how-to/github-actions.md
     - name: Use Azure Dev Spaces plug-in for Jenkins
-      href: ../jenkins/tutorial-jenkins-dev-spaces.md
+      href: /azure/developer/jenkins/azure-dev-spaces-and-aks
     - name: Business continuity and disaster recovery for Azure Dev Spaces
       href: how-to/dev-spaces-business-continuity.md
     - name: Interact with Windows containers
@@ -95,8 +61,6 @@
       href: how-to/ingress-https-traefik.md
     - name: Use NGINX for custom ingress and HTTPS
       href: how-to/ingress-https-nginx.md
-    - name: Connect your development machine to an AKS cluster (preview)
-      href: how-to/connect.md
   - name: Troubleshooting
     href: troubleshooting.md
   - name: FAQ

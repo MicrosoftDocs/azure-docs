@@ -9,11 +9,11 @@ ms.topic: reference
 
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
+ms.date: 02/11/2020
 ---
 # Cross Validate Model
 
-This article describes how to use the Cross Validate Model module in Azure Machine Learning designer (preview). *Cross-validation* is a technique often used in machine learning to assess both the variability of a dataset and the reliability of any model trained through that data.  
+This article describes how to use the Cross Validate Model module in Azure Machine Learning designer. *Cross-validation* is a technique often used in machine learning to assess both the variability of a dataset and the reliability of any model trained through that data.  
 
 The Cross Validate Model module takes as input a labeled dataset, together with an untrained classification or regression model. It divides the dataset into some number of subsets (*folds*), builds a model on each fold, and then returns a set of accuracy statistics for each fold. By comparing the accuracy statistics for all the folds, you can interpret the quality of the data set. You can then understand whether the model is susceptible to variations in the data.  
 
@@ -57,21 +57,19 @@ In this scenario, you both train and test the model by using Cross Validate Mode
 
 2. Connect the output of any classification or regression model. 
 
-    For example, if you're using **Two Class Bayes Point Machine** for classification, configure the model with the parameters that you want. Then, drag a connector from the **Untrained model** port of the classifier to the matching port of Cross Validate Model. 
+    For example, if you're using **Two Class Boosted Decision Tree** for classification, configure the model with the parameters that you want. Then, drag a connector from the **Untrained model** port of the classifier to the matching port of Cross Validate Model. 
 
     > [!TIP] 
     > You don't have to train the model, because Cross-Validate Model automatically trains the model as part of evaluation.  
 3.  On the **Dataset** port of Cross Validate Model, connect any labeled training dataset.  
 
-4.  In the **Properties** pane of Cross Validate Model, select **Launch column selector**. Choose the single column that contains the class label, or the predictable value. 
+4.  In the right panel of Cross Validate Model, click **Edit column**. Select the single column that contains the class label, or the predictable value. 
 
 5. Set a value for the **Random seed** parameter if you want to repeat the results of cross-validation across successive runs on the same data.  
 
-6. Run the pipeline.
+6. Submit the pipeline.
 
 7. See the [Results](#results) section for a description of the reports.
-
-    To get a copy of the model for reuse later, switch to the **Outputs** tab in the right panel of the module that contains the algorithm (for example, the **Two Class Bayes Point Machine**). Then select the **Register dataset** icon to save a copy of the trained model in the module tree.
 
 ## Results
 

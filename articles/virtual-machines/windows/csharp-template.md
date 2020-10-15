@@ -1,28 +1,21 @@
 ---
 title: Deploy a VM using C# and a Resource Manager template 
 description: Learn to how to use C# and a Resource Manager template to deploy an Azure VM.
-services: virtual-machines-windows
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: bfba66e8-c923-4df2-900a-0c2643b81240
 ms.service: virtual-machines-windows
 ms.workload: na
 ms.tgt_pltfrm: vm-windows
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/14/2017
 ms.author: cynthn
+ms.custom: devx-track-csharp
 
 ---
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
 
 This article shows you how to deploy an Azure Resource Manager template using C#. The template that you create deploys a single virtual machine running Windows Server in a new virtual network with a single subnet.
 
-For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+For a detailed description of the virtual machine resource, see [Virtual machines in an Azure Resource Manager template](template-description.md). For more information about all the resources in a template, see [Azure Resource Manager template walkthrough](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 It takes about 10 minutes to do these steps.
 
@@ -30,7 +23,7 @@ It takes about 10 minutes to do these steps.
 
 In this step, you make sure that Visual Studio is installed and you create a console application used to deploy the template.
 
-1. If you haven't already, install [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Select **.NET desktop development** on the Workloads page, and then click **Install**. In the summary, you can see that **.NET Framework 4 - 4.6 development tools** is automatically selected for you. If you have already installed Visual Studio, you can add the .NET workload using the Visual Studio Launcher.
+1. If you haven't already, install [Visual Studio](/visualstudio/install/install-visual-studio). Select **.NET desktop development** on the Workloads page, and then click **Install**. In the summary, you can see that **.NET Framework 4 - 4.6 development tools** is automatically selected for you. If you have already installed Visual Studio, you can add the .NET workload using the Visual Studio Launcher.
 2. In Visual Studio, click **File** > **New** > **Project**.
 3. In **Templates** > **Visual C#**, select **Console App (.NET Framework)**, enter *myDotnetProject* for the name of the project, select the location of the project, and then click **OK**.
 
@@ -195,7 +188,7 @@ Before you can deploy a template, make sure that you have access to an [Active D
     managementURI=https://management.core.windows.net/
     baseURL=https://management.azure.com/
     authURL=https://login.windows.net/
-    graphURL=https://graph.windows.net/
+    graphURL=https://graph.microsoft.com/
     ```
 
     Replace **&lt;subscription-id&gt;** with your subscription identifier, **&lt;application-id&gt;** with the Active Directory application identifier, **&lt;authentication-key&gt;** with the application key, and **&lt;tenant-id&gt;** with the tenant identifier.
@@ -328,5 +321,5 @@ It should take about five minutes for this console application to run completely
 
 ## Next steps
 
-* If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md).
-* Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](csharp.md).
+* If there were issues with the deployment, a next step would be to look at [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../azure-resource-manager/templates/common-deployment-errors.md).
+* Learn how to deploy a virtual machine and its supporting resources by reviewing [Deploy an Azure Virtual Machine Using C#](../../azure-resource-manager/templates/deploy-rest.md).

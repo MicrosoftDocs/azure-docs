@@ -5,17 +5,17 @@ description: Learn how to use Azure Machine Learning to deploy a model to an Azu
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: vaidyas
-author: vaidyas
+author: vaidya-s
 ms.reviewer: larryfr
-ms.date: 11/22/2019
-
+ms.date: 03/06/2020
+ms.topic: conceptual
+ms.custom: how-to, racking-python
 
 ---
 
 # Deploy a machine learning model to Azure Functions (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Learn how to deploy a model from Azure Machine Learning as a function app in Azure Functions.
 
@@ -27,7 +27,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 ## Prerequisites
 
 * An Azure Machine Learning workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
-* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
 
     > [!IMPORTANT]
@@ -41,7 +41,7 @@ With Azure Machine Learning, you can create Docker images from trained machine l
 
 ## Prepare for deployment
 
-Before deploying, you must define what is needed to run the model as a web service. The following list describes the basic items needed for a deployment:
+Before deploying, you must define what is needed to run the model as a web service. The following list describes the core items needed for a deployment:
 
 * An __entry script__. This script accepts requests, scores the request using the model, and returns the results.
 
@@ -52,13 +52,14 @@ Before deploying, you must define what is needed to run the model as a web servi
     >
     > By default when packaging for functions, the input is treated as text. If you are interested in consuming the raw bytes of the input (for instance for Blob triggers), you should use [AMLRequest to accept raw data](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
+For more information on entry script, see [Define scoring code](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script)
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
 These entities are encapsulated into an __inference configuration__. The inference configuration references the entry script and other dependencies.
 
 > [!IMPORTANT]
-> When creating an inference configuration for use with Azure Functions, you must use an [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
+> When creating an inference configuration for use with Azure Functions, you must use an [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) object. Please note that if you are defining a custom environment, you must add azureml-defaults with version >= 1.0.45 as a pip dependency. This package contains the functionality needed to host the model as a web service. The following example demonstrates creating an environment object and using it with an inference configuration:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -91,7 +92,7 @@ pip install azureml-contrib-functions
 
 ## Create the image
 
-To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a blob trigger from the model and inference configuration:
+To create the Docker image that is deployed to Azure Functions, use [azureml.contrib.functions.package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) or the specific package function for the trigger you are interested in using. The following code snippet demonstrates how to create a new package with a blob trigger from the model and inference configuration:
 
 > [!NOTE]
 > The code snippet assumes that `model` contains a registered model, and that `inference_config` contains the configuration for the inference environment. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
@@ -105,17 +106,17 @@ blob.wait_for_creation(show_output=True)
 print(blob.location)
 ```
 
-When `show_output=True`, the output of the Docker build process is shown. Once the process finishes, the image has been created in the Azure Container Registry for your workspace. Once the image has been built, the location in your Azure Container Registry is displayed. The location returned is in the format `<acrinstance>.azurecr.io/package@sha256:<hash>`.
+When `show_output=True`, the output of the Docker build process is shown. Once the process finishes, the image has been created in the Azure Container Registry for your workspace. Once the image has been built, the location in your Azure Container Registry is displayed. The location returned is in the format `<acrinstance>.azurecr.io/package@sha256:<imagename>`.
 
 > [!NOTE]
-> Packaging for functions currently supports HTTP Triggers, Blob triggers and Service bus triggers. For more information on triggers, see [Azure Functions bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob?tabs=csharp#trigger---blob-name-patterns).
+> Packaging for functions currently supports HTTP Triggers, Blob triggers and Service bus triggers. For more information on triggers, see [Azure Functions bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob-trigger#blob-name-patterns).
 
 > [!IMPORTANT]
 > Save the location information, as it is used when deploying the image.
 
 ## Deploy image as a web app
 
-1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<acrinstance>` with the value returned previously from `package.location`: 
+1. Use the following command to get the login credentials for the Azure Container Registry that contains the image. Replace `<myacr>` with the value returned previously from `blob.location`: 
 
     ```azurecli-interactive
     az acr credential show --name <myacr>
@@ -145,24 +146,24 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
 
     ```azurecli-interactive
     az group create --name myresourcegroup --location "West Europe"
-    az appservice plan create --name myplanname --resource-group myresourcegroup --sku EP1 --is-linux
+    az appservice plan create --name myplanname --resource-group myresourcegroup --sku B1 --is-linux
     ```
 
-    In this example, a _Linux Premium_ pricing tier (`--sku EP1`) is used.
+    In this example, a _Linux basic_ pricing tier (`--sku B1`) is used.
 
     > [!IMPORTANT]
     > Images created by Azure Machine Learning use Linux, so you must use the `--is-linux` parameter.
 
-1. Create the storage account to use for the web job storage and get it's connection string. Replace `<webjobStorage>` with the name you want to use.
+1. Create the storage account to use for the web job storage and get its connection string. Replace `<webjobStorage>` with the name you want to use.
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <webjobStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <webJobStorage> --query connectionString --output tsv
     ```
 
-1. To create the function app, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier. Replace Replace `<webjobStorage>` with the name of the storage account from the previous step:
+1. To create the function app, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagename>` with the values from returned `package.location` earlier. Replace `<webjobStorage>` with the name of the storage account from the previous step:
 
     ```azurecli-interactive
     az functionapp create --resource-group myresourcegroup --plan myplanname --name <app-name> --deployment-container-image-name <acrinstance>.azurecr.io/package:<imagename> --storage-account <webjobStorage>
@@ -171,10 +172,10 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     > [!IMPORTANT]
     > At this point, the function app has been created. However, since you haven't provided the connection string for the blob trigger or credentials to the Azure Container Registry that contains the image, the function app is not active. In the next steps, you provide the connection string and the authentication information for the container registry. 
 
-1. Create the storage account to use for the blob trigger storage and get it's connection string. Replace `<triggerStorage>` with the name you want to use.
+1. Create the storage account to use for the blob trigger storage and get its connection string. Replace `<triggerStorage>` with the name you want to use.
 
     ```azurecli-interactive
-    az storage account create --name triggerStorage --location westeurope --resource-group myresourcegroup --sku Standard_LRS
+    az storage account create --name <triggerStorage> --location westeurope --resource-group myresourcegroup --sku Standard_LRS
     ```
     ```azurecli-interactive
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
@@ -202,7 +203,7 @@ When `show_output=True`, the output of the Docker build process is shown. Once t
     ```
     Save the value returned, it will be used as the `imagetag` in the next step.
 
-1. To provide the function app with the credentials needed to access the container registry, use the following command. Replace `<app-name>` with the name you want to use. Replace `<acrinstance>` and `<imagetag>` with the values from the AZ CLI call in the previous step. Replace `<username>` and `<password>` with the ACR login information retrieved earlier:
+1. To provide the function app with the credentials needed to access the container registry, use the following command. Replace `<app-name>` with the name of the function app. Replace `<acrinstance>` and `<imagetag>` with the values from the AZ CLI call in the previous step. Replace `<username>` and `<password>` with the ACR login information retrieved earlier:
 
     ```azurecli-interactive
     az functionapp config container set --name <app-name> --resource-group myresourcegroup --docker-custom-image-name <acrinstance>.azurecr.io/package:<imagetag> --docker-registry-server-url https://<acrinstance>.azurecr.io --docker-registry-server-user <username> --docker-registry-server-password <password>
@@ -244,10 +245,56 @@ At this point, the function app begins loading the image.
 > [!IMPORTANT]
 > It may take several minutes before the image has loaded. You can monitor progress using the Azure Portal.
 
+## Test the deployment
+
+Once the image has loaded and the app is available, use the following steps to trigger the app:
+
+1. Create a text file that contains the data that the score.py file expects. The following example would work with a score.py that expects an array of 10 numbers:
+
+    ```json
+    {"data": [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+    ```
+
+    > [!IMPORTANT]
+    > The format of the data depends on what your score.py and model expects.
+
+2. Use the following command to upload this file to the input container in the trigger storage blob created earlier. Replace `<file>` with the name of the file containing the data. Replace `<triggerConnectionString>` with the connection string returned earlier. In this example, `input` is the name of the input container created earlier. If you used a different name, replace this value:
+
+    ```azurecli-interactive
+    az storage blob upload --container-name input --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    The output of this command is similar to the following JSON:
+
+    ```json
+    {
+    "etag": "\"0x8D7C21528E08844\"",
+    "lastModified": "2020-03-06T21:27:23+00:00"
+    }
+    ```
+
+3. To view the output produced by the function, use the following command to list the output files generated. Replace `<triggerConnectionString>` with the connection string returned earlier. In this example, `output` is the name of the output container created earlier. If you used a different name, replace this value::
+
+    ```azurecli-interactive
+    az storage blob list --container-name output --connection-string <triggerConnectionString> --query '[].name' --output tsv
+    ```
+
+    The output of this command is similar to `sample_input_out.json`.
+
+4. To download the file and inspect the contents, use the following command. Replace `<file>` with the file name returned by the previous command. Replace `<triggerConnectionString>` with the connection string returned earlier: 
+
+    ```azurecli-interactive
+    az storage blob download --container-name output --file <file> --name <file> --connection-string <triggerConnectionString>
+    ```
+
+    Once the command completes, open the file. It contains the data returned by the model.
+
+For more information on using blob triggers, see the [Create a function triggered by Azure Blob storage](/azure/azure-functions/functions-create-storage-blob-triggered-function) article.
+
 ## Next steps
 
 * Learn to configure your Functions App in the [Functions](/azure/azure-functions/functions-create-function-linux-custom-image) documentation.
 * Learn more about Blob storage triggers [Azure Blob storage bindings](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 * [Deploy your model to Azure App Service](how-to-deploy-app-service.md).
 * [Consume a ML Model deployed as a web service](how-to-consume-web-service.md)
-* [API Reference](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)
+* [API Reference](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)

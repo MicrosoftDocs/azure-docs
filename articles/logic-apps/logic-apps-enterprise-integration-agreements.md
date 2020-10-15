@@ -91,6 +91,14 @@ about your agreement, for example:
    | **Send Settings** | Varies | Varies | These properties specify how the host partner sends all outgoing messages to the guest partner in the agreement. For more information, see the respective agreement type: <p>- [AS2 message settings](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) <br>- [EDIFACT message settings](logic-apps-enterprise-integration-edifact.md) <br>- [X12 message settings](logic-apps-enterprise-integration-x12.md) |
    |||||
 
+   > [!IMPORTANT]
+   > The resolution for an agreement depends on matching these items that are defined in the partner and incoming message:
+   >
+   > * The sender's qualifier and identifier
+   > * The receiver's qualifier and identifier
+   >
+   > If these values change for your partner, make sure that you update the agreement too.
+
 1. When you're done creating your agreement, on the **Add** page, 
 choose **OK**, and return to your integration account.
 

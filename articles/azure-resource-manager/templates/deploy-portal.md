@@ -5,16 +5,16 @@ ms.topic: conceptual
 ms.date: 06/27/2019
 ---
 
-# Deploy resources with Resource Manager templates and Azure portal
+# Deploy resources with ARM templates and Azure portal
 
-Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager](overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources by using the Azure portal](../management/manage-resources-portal.md).
+Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager (ARM) templates](overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources by using the Azure portal](../management/manage-resources-portal.md).
 
 Deploying Azure resources by using the Azure portal usually involves two steps:
 
 - Create a resource group.
 - Deploy resources to the resource group.
 
-In addition, you can also deploy an Azure Resource Manager template to create Azure resources.
+In addition, you can also deploy an ARM template to create Azure resources.
 
 This article shows both methods.
 
@@ -68,7 +68,7 @@ After you create a resource group, you can deploy resources to the group from th
 
 ## Deploy resources from custom template
 
-If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Understand the structure and syntax of Azure Resource Manager templates](template-syntax.md).
+If you want to execute a deployment but not use any of the templates in the Marketplace, you can create a customized template that defines the infrastructure for your solution. To learn about creating templates, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 
 > [!NOTE]
 > The portal interface doesn't support referencing a [secret from a Key Vault](key-vault-parameter.md). Instead, use [PowerShell](deploy-powershell.md) or [Azure CLI](deploy-cli.md) to deploy your template locally or from an external URI.
@@ -81,7 +81,7 @@ If you want to execute a deployment but not use any of the templates in the Mark
 1. You see several options for creating a template:
 
     - **Build your own template in editor**: create a template using the portal template editor.  The editor is capable to add a resource template schema.
-    - **Common templates**: There are four common templates for creating a Linux virtual machine, Windows virtual machine, a web application, and an Azure SQL database.
+    - **Common templates**: There are four common templates for creating a Linux virtual machine, Windows virtual machine, a web application, and a database in Azure SQL Database.
     - **Load a GitHub quickstart template**: use an existing [quickstart templates](https://azure.microsoft.com/resources/templates/).
 
    ![View options](./media/deploy-portal/see-options.png)
@@ -121,5 +121,5 @@ If you want to execute a deployment but not use any of the templates in the Mark
 
 - To view audit logs, see [Audit operations with Resource Manager](../management/view-activity-logs.md).
 - To troubleshoot deployment errors, see [View deployment operations](deployment-history.md).
-- To export a template from a deployment or resource group, see [Export Azure Resource Manager templates](export-template-portal.md).
+- To export a template from a deployment or resource group, see [Export ARM templates](export-template-portal.md).
 - To safely roll out your service across multiple regions, see [Azure Deployment Manager](deployment-manager-overview.md).

@@ -119,7 +119,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 and later versions.</td>
     </tr>
     <tr>
       <td>Oracle Database view</td>
@@ -127,7 +127,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td>✓</td>
       <td>✓</td>
       <td>Excel, Power BI Desktop</td>
-      <td></td>
+      <td>Oracle 10 and later versions.</td>
     </tr>
     <tr>
       <td>Other (generic asset)</td>
@@ -138,7 +138,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse table</td>
+      <td>Azure Synapse Analytics  table</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -146,7 +146,7 @@ You can publish metadata by using a public API or a click-once registration tool
       <td></td>
     </tr>
     <tr>
-      <td>Azure SQL Data Warehouse view</td>
+      <td>Azure Synapse Analytics  view</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -927,7 +927,7 @@ If you want to see a specific data source supported, suggest it (or voice your s
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Command</td>
       <td>Stored procedure</td>
       <td>
@@ -943,7 +943,7 @@ If you want to see a specific data source supported, suggest it (or voice your s
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>TableValuedFunction</td>
       <td>Table-valued function</td>
       <td>
@@ -959,7 +959,7 @@ If you want to see a specific data source supported, suggest it (or voice your s
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Container</td>
       <td>Database</td>
       <td>
@@ -973,7 +973,7 @@ If you want to see a specific data source supported, suggest it (or voice your s
       </td>
     </tr>
     <tr>
-      <td>SQL Data Warehouse</td>
+      <td>Azure Synapse Analytics </td>
       <td>Table</td>
       <td>Table, view</td>
       <td>

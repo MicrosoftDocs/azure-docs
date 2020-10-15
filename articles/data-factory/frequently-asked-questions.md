@@ -8,10 +8,13 @@ ms.author: daperlov
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 02/10/2020
 ---
 
 # Azure Data Factory FAQ
+
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 This article provides answers to frequently asked questions about Azure Data Factory.  
 
 ## What is Azure Data Factory? 
@@ -27,19 +30,19 @@ To support the diverse integration flows and patterns in the modern data warehou
 Data Factory provides freedom to model any flow style that's required for data integration and that can be dispatched on demand or repeatedly on a schedule. A few common flows that this model enables are:   
 
 - Control flows:
-	- Activities can be chained together in a sequence within a pipeline.
-	- Activities can be branched within a pipeline.
-	- Parameters:
-		- Parameters can be defined at the pipeline level and arguments can be passed while you invoke the pipeline on demand or from a trigger.
-		- Activities can consume the arguments that are passed to the pipeline.
-	- Custom state passing:
-		- Activity outputs, including state, can be consumed by a subsequent activity in the pipeline.
-	- Looping containers:
-		- The foreach activity will iterate over a specified collection of activities in a loop. 
+    - Activities can be chained together in a sequence within a pipeline.
+    - Activities can be branched within a pipeline.
+    - Parameters:
+        - Parameters can be defined at the pipeline level and arguments can be passed while you invoke the pipeline on demand or from a trigger.
+        - Activities can consume the arguments that are passed to the pipeline.
+    - Custom state passing:
+        - Activity outputs, including state, can be consumed by a subsequent activity in the pipeline.
+    - Looping containers:
+        - The foreach activity will iterate over a specified collection of activities in a loop. 
 - Trigger-based flows:
-	- Pipelines can be triggered on demand or by wall-clock time.
+    - Pipelines can be triggered on demand or by wall-clock time.
 - Delta flows:
-	- Parameters can be used to define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake. 
+    - Parameters can be used to define your high-water mark for delta copy while moving dimension or reference tables from a relational store, either on-premises or in the cloud, to load the data into the lake. 
 
 For more information, see [Tutorial: Control flows](tutorial-control-flow.md).
 
@@ -73,15 +76,15 @@ You can monitor your Data Factories via PowerShell, SDK, or the Visual Monitorin
 ### New features for SSIS in Data Factory
 Since the initial public preview release in 2017, Data Factory has added the following features for SSIS:
 
--	Support for three more configurations/variants of Azure SQL Database to host the SSIS database (SSISDB) of projects/packages:
--	SQL Database with virtual network service endpoints
--	Managed instance
--	Elastic pool
--	Support for an Azure Resource Manager virtual network on top of a classic virtual network to be deprecated in the future, which lets you inject/join your Azure-SSIS integration runtime to a virtual network configured for SQL Database with virtual network service endpoints/MI/on-premises data access. For more information, see also [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
--	Support for Azure Active Directory (Azure AD) authentication and SQL authentication to connect to the SSISDB, allowing Azure AD authentication with your Data Factory managed identity for Azure resources
--	Support for bringing your own on-premises SQL Server license to earn substantial cost savings from the Azure Hybrid Benefit option
--	Support for Enterprise Edition of the Azure-SSIS integration runtime that lets you use advanced/premium features, a custom setup interface to install additional components/extensions, and a partner ecosystem. For more information, see also [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
--	Deeper integration of SSIS in Data Factory that lets you invoke/trigger first-class Execute SSIS Package activities in Data Factory pipelines and schedule them via SSMS. For more information, see also [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
+-    Support for three more configurations/variants of Azure SQL Database to host the SSIS database (SSISDB) of projects/packages:
+-    SQL Database with virtual network service endpoints
+-    SQL Managed Instance
+-    Elastic pool
+-    Support for an Azure Resource Manager virtual network on top of a classic virtual network to be deprecated in the future, which lets you inject/join your Azure-SSIS integration runtime to a virtual network configured for SQL Database with virtual network service endpoints/MI/on-premises data access. For more information, see also [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
+-    Support for Azure Active Directory (Azure AD) authentication and SQL authentication to connect to the SSISDB, allowing Azure AD authentication with your Data Factory managed identity for Azure resources
+-    Support for bringing your existing SQL Server license to earn substantial cost savings from the Azure Hybrid Benefit option
+-    Support for Enterprise Edition of the Azure-SSIS integration runtime that lets you use advanced/premium features, a custom setup interface to install additional components/extensions, and a partner ecosystem. For more information, see also [Enterprise Edition, Custom Setup, and 3rd Party Extensibility for SSIS in ADF](https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/). 
+-    Deeper integration of SSIS in Data Factory that lets you invoke/trigger first-class Execute SSIS Package activities in Data Factory pipelines and schedule them via SSMS. For more information, see also [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/).
 
 
 ## What is the integration runtime?
@@ -118,7 +121,7 @@ Linked services are much like connection strings, which define the connection in
 
 Linked services have two purposes in Data Factory:
 
-- To represent a *data store* that includes, but is not limited to, an on-premises SQL Server instance, an Oracle database instance, a file share, or an Azure Blob storage account. For a list of supported data stores, see [Copy Activity in Azure Data Factory](copy-activity-overview.md).
+- To represent a *data store* that includes, but is not limited to, a SQL Server instance, an Oracle database instance, a file share, or an Azure Blob storage account. For a list of supported data stores, see [Copy Activity in Azure Data Factory](copy-activity-overview.md).
 - To represent a *compute resource* that can host the execution of an activity. For example, the HDInsight Hive activity runs on an HDInsight Hadoop cluster. For a list of transformation activities and supported compute environments, see [Transform data in Azure Data Factory](transform-data.md).
 
 ### Triggers
@@ -182,13 +185,16 @@ When Microsoft provides help or troubleshooting with data flows, please provide 
 
 ### How do I access data by using the other 90 dataset types in Data Factory?
 
-The mapping data flow feature currently allows Azure SQL Database, Azure SQL Data Warehouse, delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
+The mapping data flow feature currently allows Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), delimited text files from Azure Blob storage or Azure Data Lake Storage Gen2, and Parquet files from Blob storage or Data Lake Storage Gen2 natively for source and sink. 
 
 Use the Copy activity to stage data from any of the other connectors, and then execute a Data Flow activity to transform data after it's been staged. For example, your pipeline will first copy into Blob storage, and then a Data Flow activity will use a dataset in source to transform that data.
 
 ### Is the self-hosted integration runtime available for data flows?
 
 Self-hosted IR is an ADF pipeline construct that you can use with the Copy Activity to acquire or move data to and from on-prem or VM-based data sources and sinks. Stage the data first with a Copy, then Data Flow for transformation, and then a subsequent copy if you need to move that transformed data back to the on-prem store.
+
+### Does the data flow compute engine serve multiple tenants?
+Clusters are never shared. We guarantee isolation for each job run in production runs. In case of debug scenario one person gets one cluster, and all debugs will go to that cluster which are initiated by that user.
 
 ## Wrangling data flows
 
@@ -199,7 +205,6 @@ Wrangling data flow is currently supported in data factories created in followin
 * Australia East
 * Canada Central
 * Central India
-* Central US
 * East US
 * East US 2
 * Japan East
@@ -233,7 +238,7 @@ Wrangling data flows allow you to do agile data preparation and exploration usin
 
 Power Platform Dataflows allow users to import and transform data from a wide range of data sources into the Common Data Service and Azure Data Lake to build PowerApps applications, Power BI reports or Flow automations. Power Platform Dataflows use the established Power Query data preparation experiences, similar to Power BI and Excel. Power Platform Dataflows also enable easy reuse within an organization and automatically handle orchestration (e.g. automatically refreshing dataflows that depend on another dataflow when the former one is refreshed).
 
-Azure Data Factory (ADF) is a managed data integration service that allows data engineers and citizen data integrator to create complex hybrid extract-transform-load (ETL) and extract-load-transform (ELT) workflows. Wrangling data flow in ADF empowers users with a code-free, serverless environment that simplifies data preparation in the cloud and scales to any data size with no infrastructure management required. It uses the Power Query data preparation technology (also used in Power Platform dataflows, Excel, Power BI) to prepare and shape the data. Built to handle all the complexities and scale challenges of big data integration, wrangling data flows allow users to quickly prepare data at scale via spark execution. Users can build resilient data pipelines in an accessible visual environment with our browser-based interface and let ADF handle the complexities of Spark execution. Build schedules for your pipelines and monitor your data flow executions from the ADF monitoring portal. Easily manage data availability SLAs with ADF’s rich availability monitoring and alerts and leverage built-in continuous integration and deployment capabilities to save and manage your flows in a managed environment. Establish alerts and view execution plans to validate that your logic is performing as planned as you tune your data flows.
+Azure Data Factory (ADF) is a managed data integration service that allows data engineers and citizen data integrator to create complex hybrid extract-transform-load (ETL) and extract-load-transform (ELT) workflows. Wrangling data flow in ADF empowers users with a code-free, serverless environment that simplifies data preparation in the cloud and scales to any data size with no infrastructure management required. It uses the Power Query data preparation technology (also used in Power Platform dataflows, Excel, Power BI) to prepare and shape the data. Built to handle all the complexities and scale challenges of big data integration, wrangling data flows allow users to quickly prepare data at scale via spark execution. Users can build resilient data pipelines in an accessible visual environment with our browser-based interface and let ADF handle the complexities of Spark execution. Build schedules for your pipelines and monitor your data flow executions from the ADF monitoring portal. Easily manage data availability SLAs with ADF's rich availability monitoring and alerts and leverage built-in continuous integration and deployment capabilities to save and manage your flows in a managed environment. Establish alerts and view execution plans to validate that your logic is performing as planned as you tune your data flows.
 
 ### Supported SQL Types
 

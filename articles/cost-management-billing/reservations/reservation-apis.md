@@ -2,17 +2,15 @@
 title: APIs for Azure reservation automation | Microsoft Docs
 description: Learn about the Azure APIs that you can use to programmatically get reservation information.
 author: yashesvi
-manager: yashesvi
+ms.reviewer: yashesvi
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: reservations
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-
 ---
+
 # APIs for Azure reservation automation
 
 Use Azure APIs to programmatically get information for your organization about Azure service or software reservations.
@@ -61,7 +59,7 @@ You can also buy a reservation in the Azure portal. For more information, see th
 Service plans:
 - [Virtual machine](../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/billing/TOC.json)
 -  [Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/billing/TOC.json)
-- [SQL Database](../../sql-database/sql-database-reserved-capacity.md?toc=/azure/billing/TOC.json)
+- [SQL Database](../../azure-sql/database/reserved-capacity-overview.md?toc=/azure/billing/TOC.json)
 
 Software plans:
 - [SUSE Linux software](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/billing/TOC.json)
@@ -86,9 +84,9 @@ If you find that your organization's reservations are being under-used:
 
 Get the list of all reservations that a user has access to by using the [Reservation - Operation - List API](/rest/api/reserved-vm-instances/reservationorder/list). To give access to a reservation programmatically, see one of the following articles:
 
-- [Manage access using RBAC and the REST API](../../role-based-access-control/role-assignments-rest.md)
-- [Manage access using RBAC and Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
-- [Manage access using RBAC and Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Add or remove Azure role assignments using the REST API](../../role-based-access-control/role-assignments-rest.md)
+- [Add or remove Azure role assignments using Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
 
 ## Split or merge reservation
 

@@ -6,7 +6,7 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -15,11 +15,13 @@ manager: mflasko
 
 # Join an Azure-SSIS integration runtime to a virtual network
 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
 When using SQL Server Integration Services (SSIS) in Azure Data Factory, you should join your Azure-SSIS integration runtime (IR) to an Azure virtual network in the following scenarios:
 
 - You want to connect to on-premises data stores from SSIS packages that run on your Azure-SSIS IR without configuring or managing a self-hosted IR as proxy. 
 
-- You want to host SSIS catalog database (SSISDB) in an Azure SQL Database with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint. 
+- You want to host SSIS catalog database (SSISDB) in Azure SQL Database with IP firewall rules/virtual network service endpoints or in SQL Managed Instance with private endpoint. 
 
 - You want to connect to Azure resources configured with virtual network service endpoints from SSIS packages that run on your Azure-SSIS IR.
 
@@ -58,7 +60,7 @@ When joining your Azure-SSIS IR to a virtual network, remember these important p
 
 If you host your SSIS catalog in an Azure SQL Database with virtual network service endpoints, make sure that you join your Azure-SSIS IR to the same virtual network and subnet.
 
-If you host your SSIS catalog in a managed instance with private endpoint, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the managed instance, we recommend either virtual network peering (which is limited to the same region) or a connection from virtual network to virtual network. For more information, see [Connect your application to Azure SQL Database managed instance](../sql-database/sql-database-managed-instance-connect-app.md).
+If you host your SSIS catalog in SQL Managed Instance with private endpoint, make sure that you join your Azure-SSIS IR to the same virtual network, but in a different subnet than the managed instance. To join your Azure-SSIS IR to a different virtual network than the SQL Managed Instance, we recommend either virtual network peering (which is limited to the same region) or a connection from virtual network to virtual network. For more information, see [Connect your application to Azure SQL Managed Instance](../azure-sql/managed-instance/connect-application-instance.md).
 
 ## Access to Azure services
 
@@ -118,13 +120,13 @@ As you choose a subnet:
 
 - Ensure that the subnet you select has enough available address space for the Azure-SSIS IR to use. Leave available IP addresses for at least two times the IR node number. Azure reserves some IP addresses within each subnet. These addresses can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance, and three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) 
 
-- Don’t use a subnet that is exclusively occupied by other Azure services (for example, SQL Database managed instance, App Service, and so on). 
+- Don’t use a subnet that is exclusively occupied by other Azure services (for example, SQL Database SQL Managed Instance, App Service, and so on). 
 
 ### <a name="publicIP"></a>Select the static public IP addresses
 
 If you want to bring your own static public IP addresses for Azure-SSIS IR while joining it to a virtual network, make sure they meet the following requirements:
 
-- Exactly two unused ones that are not already associated with other Azure resources should be provided. The extra one will be used when we periodically upgrade your Azure-SSIS IR.
+- Exactly two unused ones that are not already associated with other Azure resources should be provided. The extra one will be used when we periodically upgrade your Azure-SSIS IR. Note that one public IP address cannot be shared among your active Azure-SSIS IRs.
 
 - They should both be static ones of standard type. Refer to [SKUs of Public IP Address](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) for more details.
 
@@ -144,7 +146,7 @@ One recommended approach is below:
 For more information, see [Name resolution that uses your own DNS server](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server). 
 
 > [!NOTE]
-> Please use a fully qualified domain name (FQDN) for the your private host name, e.g. use `<your_private_server>.contoso.com` instead of `<your_private_server>`, as Azure-SSIS IR won't automatically append your own DNS suffix.
+> Please use a Fully Qualified Domain Name (FQDN) for your private host name (for example, use `<your_private_server>.contoso.com` instead of `<your_private_server>`). Alternatively, you can use a standard custom setup on your Azure-SSIS IR to automatically append your own DNS suffix (for example `contoso.com`) to any unqualified single label domain name and turn it into an FQDN before using it in DNS queries, see [standard custom setup samples](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup#standard-custom-setup-samples). 
 
 ### <a name="nsg"></a> Set up an NSG
 If you need to implement an NSG for the subnet used by your Azure-SSIS IR, allow inbound and outbound traffic through the following ports: 
@@ -163,8 +165,8 @@ If you need to implement an NSG for the subnet used by your Azure-SSIS IR, allow
 |---|---|---|---|---|---|---|
 | Outbound | TCP | VirtualNetwork | * | AzureCloud | 443 | The nodes of your Azure-SSIS IR in the virtual network use this port to access Azure services, such as Azure Storage and Azure Event Hubs. |
 | Outbound | TCP | VirtualNetwork | * | Internet | 80 | (Optional) The nodes of your Azure-SSIS IR in the virtual network use this port to download a certificate revocation list from the internet. If you block this traffic, you might experience performance downgrade when start IR and lose capability to check certificate revocation list for certificate usage. If you want to further narrow down destination to certain FQDNs, please refer to **Use Azure ExpressRoute or UDR** section|
-| Outbound | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | (Optional) This rule is only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your SQL Database server. If your SQL Database server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. <br/><br/> This outbound security rule isn't applicable to an SSISDB hosted by your managed instance in the virtual network or Azure Database server configured with private endpoint. |
-| Outbound | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | (Optional) This rule is only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your managed instance in the virtual network or Azure Database server configured with private endpoint. If your SQL Database server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
+| Outbound | TCP | VirtualNetwork | * | Sql | 1433, 11000-11999 | (Optional) This rule is only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your server. If your server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. <br/><br/> This outbound security rule isn't applicable to an SSISDB hosted by your SQL Managed Instance in the virtual network or SQL Database configured with private endpoint. |
+| Outbound | TCP | VirtualNetwork | * | VirtualNetwork | 1433, 11000-11999 | (Optional) This rule is only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your SQL Managed Instance in the virtual network or SQL Database configured with private endpoint. If your server connection policy is set to **Proxy** instead of **Redirect**, only port 1433 is needed. |
 | Outbound | TCP | VirtualNetwork | * | Storage | 445 | (Optional) This rule is only required when you want to execute SSIS package stored in Azure Files. |
 ||||||||
 
@@ -186,10 +188,56 @@ For example, if your Azure-SSIS IR is located at `UK South` and you want to insp
 > [!NOTE]
 > This approach incurs an additional maintenance cost. Regularly check the IP range and add new IP ranges into your UDR to avoid breaking the Azure-SSIS IR. We recommend checking the IP range monthly because when the new IP appears in the service tag, the IP will take another month go into effect. 
 
+To make the setup of UDR rules easier, you can run following Powershell script to add UDR rules for Azure Batch management services:
+```powershell
+$Location = "[location of your Azure-SSIS IR]"
+$RouteTableResourceGroupName = "[name of Azure resource group that contains your Route Table]"
+$RouteTableResourceName = "[resource name of your Azure Route Table ]"
+$RouteTable = Get-AzRouteTable -ResourceGroupName $RouteTableResourceGroupName -Name $RouteTableResourceName
+$ServiceTags = Get-AzNetworkServiceTag -Location $Location
+$BatchServiceTagName = "BatchNodeManagement." + $Location
+$UdrRulePrefixForBatch = $BatchServiceTagName
+if ($ServiceTags -ne $null)
+{
+    $BatchIPRanges = $ServiceTags.Values | Where-Object { $_.Name -ieq $BatchServiceTagName }
+    if ($BatchIPRanges -ne $null)
+    {
+        Write-Host "Start to add rule for your route table..."
+        for ($i = 0; $i -lt $BatchIPRanges.Properties.AddressPrefixes.Count; $i++)
+        {
+            $UdrRuleName = "$($UdrRulePrefixForBatch)_$($i)"
+            Add-AzRouteConfig -Name $UdrRuleName `
+                -AddressPrefix $BatchIPRanges.Properties.AddressPrefixes[$i] `
+                -NextHopType "Internet" `
+                -RouteTable $RouteTable `
+                | Out-Null
+            Write-Host "Add rule $UdrRuleName to your route table..."
+        }
+        Set-AzRouteTable -RouteTable $RouteTable
+    }
+}
+else
+{
+    Write-Host "Failed to fetch service tags, please confirm that your Location is valid."
+}
+```
+
 For firewall appliance to allow outbound traffic, you need to allow outbound to below ports same as requirement in NSG outbound rules.
 -   Port 443 with destination as Azure Cloud services.
 
-    If you use Azure Firewall, you can specify network rule with AzureCloud Service Tag, otherwise you might allow destination as all in firewall appliance.
+    If you use Azure Firewall, you can specify network rule with AzureCloud Service Tag. For firewall of the other types, you can either simply allow destination as all for port 443 or allow below FQDNs based on the type of your Azure environment:
+
+    | Azure Environment | Endpoints                                                                                                                                                                                                                                                                                                                                                              |
+    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+    | Azure Public      | <ul><li><b>Azure Data Factory (Management)</b><ul><li>\*.frontend.clouddatahub.net</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>\*.blob.core.windows.net</li><li>\*.table.core.windows.net</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>\*.azurecr.io</li></ul></li><li><b>Event Hub (Logging)</b><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
+    | Azure Government  | <ul><li><b>Azure Data Factory (Management)</b><ul><li>\*.frontend.datamovement.azure.us</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*.table.core.usgovcloudapi.net</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>\*.azurecr.us</li></ul></li><li><b>Event Hub (Logging)</b><ul><li>\*.servicebus.usgovcloudapi.net</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
+    | Azure China 21Vianet     | <ul><li><b>Azure Data Factory (Management)</b><ul><li>\*.frontend.datamovement.azure.cn</li></ul></li><li><b>Azure Storage (Management)</b><ul><li>\*.blob.core.chinacloudapi.cn</li><li>\*.table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (Custom Setup)</b><ul><li>\*.azurecr.cn</li></ul></li><li><b>Event Hub (Logging)</b><ul><li>\*.servicebus.chinacloudapi.cn</li></ul></li><li><b>Microsoft Logging service (Internal Use)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
+
+    As for the FQDNs of Azure Storage, Azure Container Registry and Event Hub, you can also choose to enable the following service endpoints for your virtual network so that network traffic to these endpoints goes through Azure backbone network instead of being routed to your firewall appliance:
+    -  Microsoft.Storage
+    -  Microsoft.ContainerRegistry
+    -  Microsoft.EventHub
+
 
 -   Port 80 with destination as CRL download sites.
 
@@ -205,7 +253,7 @@ For firewall appliance to allow outbound traffic, you need to allow outbound to 
 
     If you disallow this traffic, you might experience performance downgrade when start Azure-SSIS IR and lose capability to check certificate revocation list for certificate usage which is not recommended from security point of view.
 
--   Port 1433, 11000-11999 with destination as Azure SQL (only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your SQL Database server).
+-   Port 1433, 11000-11999 with destination as Azure SQL Database (only required when the nodes of your Azure-SSIS IR in the virtual network access an SSISDB hosted by your server).
 
     If you use Azure Firewall, you can specify network rule with Azure SQL Service Tag, otherwise you might allow destination as specific azure sql url in firewall appliance.
 
@@ -236,14 +284,16 @@ The Azure-SSIS IR needs to create certain network resources under the same resou
 > [!NOTE]
 > You can now bring your own static public IP addresses for Azure-SSIS IR. In this scenario, we will create only the Azure load balancer and network security group under the same resource group as your static public IP addresses instead of the virtual network.
 
-Those resources will be created when your Azure-SSIS IR starts. They'll be deleted when your Azure-SSIS IR stops. If you bring your own static public IP addresses for Azure-SSIS IR, they won't be deleted when your Azure-SSIS IR stops. To avoid blocking your Azure-SSIS IR from stopping, don't reuse these network resources in your other resources. 
+Those resources will be created when your Azure-SSIS IR starts. They'll be deleted when your Azure-SSIS IR stops. If you bring your own static public IP addresses for Azure-SSIS IR, your own static public IP addresses won't be deleted when your Azure-SSIS IR stops. To avoid blocking your Azure-SSIS IR from stopping, don't reuse these network resources in your other resources.
 
 Make sure that you have no resource lock on the resource group/subscription to which the virtual network/your static public IP addresses belong. If you configure a read-only/delete lock, starting and stopping your Azure-SSIS IR will fail, or it will stop responding.
 
-Make sure that you don't have an Azure policy that prevents the following resources from being created under the resource group/subscription to which the virtual network/your static public IP addresses belong: 
+Make sure that you don't have an Azure Policy assignment that prevents the following resources from being created under the resource group/subscription to which the virtual network/your static public IP addresses belong: 
 - Microsoft.Network/LoadBalancers 
 - Microsoft.Network/NetworkSecurityGroups 
 - Microsoft.Network/PublicIPAddresses 
+
+Make sure that the resource quota of your subscription is enough for the above three network resources. Specifically, for each Azure-SSIS IR created in virtual network, you need to reserve two free quotas for each of the above three network resources. The extra one quota will be used when we periodically upgrade your Azure-SSIS IR.
 
 ### <a name="faq"></a> FAQ
 
@@ -399,9 +449,9 @@ After you've configured your Azure Resource Manager virtual network or classic v
 
    1. For **Type**, select the type of your virtual network: classic or Azure Resource Manager. We recommend that you select an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
 
-   1. For **VNet Name**, select the name of your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints or managed instance with private endpoint to host SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
+   1. For **VNet Name**, select the name of your virtual network. It should be the same one used for SQL Database with virtual network service endpoints or SQL Managed Instance with private endpoint to host SSISDB. Or it should be the same one connected to your on-premises network. Otherwise, it can be any virtual network to bring your own static public IP addresses for Azure-SSIS IR.
 
-   1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used for your Azure SQL Database server with virtual network service endpoints to host SSISDB. Or it should be a different subnet from the one used for your managed instance with private endpoint to host SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
+   1. For **Subnet Name**, select the name of subnet for your virtual network. It should be the same one used for SQL Database with virtual network service endpoints to host SSISDB. Or it should be a different subnet from the one used for SQL Managed Instance with private endpoint to host SSISDB. Otherwise, it can be any subnet to bring your own static public IP addresses for Azure-SSIS IR.
 
    1. Select the **Bring static public IP addresses for your Azure-SSIS Integration Runtime** check box to choose whether you want to bring your own static public IP addresses for Azure-SSIS IR, so you can allow them on the firewall for your data sources.
 
@@ -422,6 +472,20 @@ After you've configured your Azure Resource Manager virtual network or classic v
 ## Azure PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+### Define the variables
+
+```powershell
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$AzureSSISName = "[your Azure-SSIS IR name]"
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use SQL Database with IP firewall rules/virtual network service endpoints or SQL Managed Instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for SQL Database with virtual network service endpoints, or a different subnet from the one used for SQL Managed Instance with a private endpoint
+# Public IP address info: OPTIONAL to provide two standard static public IP addresses with DNS name under the same subscription and in the same region as your virtual network
+$FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
+$SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
+```
 
 ### Configure a virtual network
 
@@ -458,26 +522,15 @@ The [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime.md) article 
 1. Configure the Azure-SSIS IR to join the virtual network. 
 1. Start the Azure-SSIS IR. 
 
-### Define the variables
-
-```powershell
-$ResourceGroupName = "<your Azure resource group name>"
-$DataFactoryName = "<your Data Factory name>" 
-$AzureSSISName = "<your Azure-SSIS IR name>"
-# Specify the information about your classic or Azure Resource Manager virtual network.
-$VnetId = "<your Azure virtual network resource ID>"
-$SubnetName = "<the name of subnet in your virtual network>"
-```
-
 ### Stop the Azure-SSIS IR
 
 You have to stop the Azure-SSIS IR before you can join it to a virtual network. This command releases all of its nodes and stops billing:
 
 ```powershell
 Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                            -DataFactoryName $DataFactoryName `
-                                            -Name $AzureSSISName `
-                                            -Force 
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force 
 ```
 
 ### Configure virtual network settings for the Azure-SSIS IR to join
@@ -510,11 +563,20 @@ To join your Azure-SSIS IR to a virtual network, run the `Set-AzDataFactoryV2Int
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                           -DataFactoryName $DataFactoryName `
-                                           -Name $AzureSSISName `
-                                           -Type Managed `
-                                           -VnetId $VnetId `
-                                           -Subnet $SubnetName
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -VnetId $VnetId `
+    -Subnet $SubnetName
+
+# Add public IP address parameters if you bring your own static public IP addresses
+if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
+{
+    $publicIPs = @($FirstPublicIP, $SecondPublicIP)
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -PublicIPs $publicIPs
+}
 ```
 
 ### Start the Azure-SSIS IR
@@ -523,10 +585,9 @@ To start the Azure-SSIS IR, run the following command:
 
 ```powershell
 Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                             -DataFactoryName $DataFactoryName `
-                                             -Name $AzureSSISName `
-                                             -Force
-
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
 ```
 
 This command takes 20 to 30 minutes to finish.
@@ -536,6 +597,6 @@ This command takes 20 to 30 minutes to finish.
 For more information about Azure-SSIS IR, see the following articles: 
 - [Azure-SSIS IR](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides general conceptual information about IRs, including Azure-SSIS IR. 
 - [Tutorial: Deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). This tutorial provides step-by-step instructions to create your Azure-SSIS IR. It uses Azure SQL Database to host the SSIS catalog. 
-- [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime.md). This article expands on the tutorial. It provides instructions about using Azure SQL Database with virtual network service endpoints or managed instance in a virtual network to host the SSIS catalog. It shows how to join your Azure-SSIS IR to a virtual network. 
+- [Create an Azure-SSIS IR](create-azure-ssis-integration-runtime.md). This article expands on the tutorial. It provides instructions about using Azure SQL Database with virtual network service endpoints or SQL Managed Instance in a virtual network to host the SSIS catalog. It shows how to join your Azure-SSIS IR to a virtual network. 
 - [Monitor an Azure-SSIS IR](monitor-integration-runtime.md#azure-ssis-integration-runtime). This article shows you how to get information about your Azure-SSIS IR. It provides status descriptions for the returned information. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or delete your Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding nodes.

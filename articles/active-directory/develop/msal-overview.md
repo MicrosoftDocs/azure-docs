@@ -1,9 +1,9 @@
 ---
 title: Learn about MSAL | Azure
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL supports multiple application architectures and platforms.
+description: Microsoft Authentication Library (MSAL) enables application developers to acquire tokens in order to call secured web APIs. These web APIs can be the Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports multiple application architectures and platforms.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 
 ms.service: active-directory
@@ -11,14 +11,14 @@ ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn about the Microsoft Authentication Library so I can decide if this platform meets my application development needs and requirements.
 ---
 
 # Overview of Microsoft Authentication Library (MSAL)
-Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](developer-glossary.md#security-token) from the Microsoft identity platform endpoint in order to access secured Web APIs. These Web APIs can be the Microsoft Graph, other Microsoft APIS, third-party Web APIs, or your own Web API. MSAL is available for .NET, JavaScript, Android, and iOS, which support many different application architectures and platforms.
+Microsoft Authentication Library (MSAL) enables developers to acquire [tokens](developer-glossary.md#security-token) from the Microsoft identity platform endpoint in order to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
 
 MSAL gives you many ways to get tokens, with a consistent API for a number of platforms. Using MSAL provides the following benefits:
 
@@ -40,7 +40,7 @@ MSAL can be used in many application scenarios, including the following:
 * [Protecting a web API so only authenticated users can access it](scenario-protected-web-api-overview.md)
 * [Web API calling another downstream web API on behalf of the signed-in user](scenario-web-api-call-api-overview.md)
 * [Desktop application calling a web API on behalf of the signed-in user](scenario-desktop-overview.md)
-* [Mobile application calling a Web API on behalf of the user who's signed-in interactively](scenario-mobile-overview.md).
+* [Mobile application calling a web API on behalf of the user who's signed-in interactively](scenario-mobile-overview.md).
 * [Desktop/service daemon application calling web API on behalf of itself](scenario-daemon-overview.md)
 
 ## Languages and frameworks
@@ -51,8 +51,8 @@ MSAL can be used in many application scenarios, including the following:
 | [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)| JavaScript/TypeScript frameworks such as AngularJS, Ember.js, or Durandal.js|
 | [MSAL for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [MSAL for iOS and macOS](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS and macOS|
-| [MSAL Java (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
-| [MSAL Python (preview)](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Python|
+| [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Windows, macOS, Linux|
+| [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Windows, macOS, Linux|
 
 ## Differences between ADAL and MSAL
 

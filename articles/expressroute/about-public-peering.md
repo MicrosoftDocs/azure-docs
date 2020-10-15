@@ -2,12 +2,12 @@
 title: Create and manage Azure ExpressRoute public peering
 description: Learn about and manage Azure public peering
 services: expressroute
-author: cherylmc
+author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Create and manage ExpressRoute public peering
@@ -173,7 +173,7 @@ Set-AzExpressRouteCircuit -ExpressRouteCircuit $ckt
 
    The response is similar to the following example:
 
-   ```azurecli
+   ```output
    "allowClassicOperations": false,
    "authorizations": [],
    "circuitProvisioningState": "Enabled",
@@ -235,7 +235,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 
 The output is similar to the following example:
 
-```azurecli
+```output
 {
   "azureAsn": 12076,
   "etag": "W/\"2e97be83-a684-4f29-bf3c-96191e270666\"",

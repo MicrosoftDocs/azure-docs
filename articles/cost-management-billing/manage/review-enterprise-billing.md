@@ -1,19 +1,11 @@
 ---
-title: Review Azure enterprise enrollment billing data with REST API | Microsoft Docs
+title: Review Azure enterprise enrollment billing data with REST API
 description: Learn how to use Azure REST APIs to review enterprise enrollment billing information.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: 
-editor: ''
-
-ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: enterprise
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 08/20/2020
 ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.
@@ -24,7 +16,7 @@ ms.author: banders
 
 Azure Reporting APIs help you review and manage your Azure costs.
 
-In this article, you learn to retrieve the billing information associated with billing accounts, department, or enterprise agreement (EA) enrollment accounts using the Azure REST APIs. 
+In this article, you learn to retrieve the billing information associated with billing accounts, department, or enterprise agreement (EA) enrollment accounts using the Azure REST APIs.
 
 ## Individual account billing
 
@@ -38,7 +30,7 @@ Authorization: Bearer
 
 The `{billingAccountId}` parameter is required and should contain the ID for the account.
 
-The following headers are required: 
+The following headers are required:
 
 |Request header|Description|  
 |--------------------|-----------------|  
@@ -79,9 +71,9 @@ Status code 200 (OK) is returned for a successful response, which contains a lis
 
 This example is abbreviated; see [Get usage detail for a billing account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist-legacy) for a complete description of each response field and error handling.
 
-## Department billing 
+## Department billing
 
-Get usage details aggregated for all accounts in a department. 
+Get usage details aggregated for all accounts in a department.
 
 ```http
 GET https://management.azure.com/providers/Microsoft.Billing/departments/{departmentId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
@@ -91,7 +83,7 @@ Authorization: Bearer
 
 The `{departmentId}` parameter is required and should contain the ID for the department in the enrollment account.
 
-The following headers are required: 
+The following headers are required:
 
 |Request header|Description|  
 |--------------------|-----------------|  
@@ -140,14 +132,14 @@ This example is abbreviated; see [Get usage detail for a department](/rest/api/c
 Get usage details aggregated for the enrollment account.
 
 ```http
-GET GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
+GET https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts/{enrollmentAccountId}/providers/Microsoft.Consumption/usageDetails?api-version=2018-06-30
 Content-Type: application/json   
 Authorization: Bearer
 ```
 
 The `{enrollmentAccountId}` parameter is required and should contain the ID for the enrollment account.
 
-The following headers are required: 
+The following headers are required:
 
 |Request header|Description|  
 |--------------------|-----------------|  
@@ -184,11 +176,11 @@ The following example shows the output of the REST API for enterprise enrollment
     }
   ]
 }
-``` 
+```
 
 This example is abbreviated; see [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) for a complete description of each response field and error handling.
 
-## Next steps 
+## Next steps
 - Review [Enterprise reporting overview](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
 - Investigate [Enterprise Billing REST API](https://docs.microsoft.com/rest/api/billing/)   
 - [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)   

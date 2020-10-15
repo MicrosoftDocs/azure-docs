@@ -5,8 +5,14 @@
   items:
   - name: What is Azure Active Directory?
     href: active-directory-whatis.md
+  - name: Compare Azure AD with ADDS
+    href: active-directory-compare-azure-ad-to-ad.md
   - name: What's new in Azure Active Directory
     href: whats-new.md
+  - name: What's new in Microsoft 365 Government
+    href: whats-new-microsoft-365-government.md
+  - name: Archive for What's new? in Azure AD
+    href: whats-new-archive.md    
 - name: Quickstarts
   expanded: true
   items:
@@ -17,8 +23,6 @@
 - name: Concepts
   expanded: true
   items:
-  - name: Identity secure score
-    href: identity-secure-score.md 
   - name: Security
     items:
     - name: Enable MFA
@@ -27,22 +31,36 @@
       href: concept-fundamentals-security-defaults.md
     - name: Block legacy authentication
       href: concept-fundamentals-block-legacy-authentication.md
-  - name: Groups and access management
-    href: active-directory-manage-groups.md
-  - name: Group-based licensing
-    href: active-directory-licensing-whatis-azure-portal.md
-  - name: Azure AD architecture
-    href: active-directory-architecture.md
-  - name: Default user permissions
-    href: users-default-permissions.md
-  - name: Deployment 30, 90, and beyond
-    href: active-directory-deployment-checklist-p2.md
-  - name: Identity data storage for the EU
-    href: active-directory-data-storage-eu.md
-  - name: Identity data storage for Australia
-    href: active-directory-data-storage-australia.md
-  - name: What's new in Microsoft 365 Government
-    href: whats-new-microsoft-365-government.md
+    - name: Identity secure score
+      href: identity-secure-score.md
+    - name: Secure remote workers
+      href: concept-secure-remote-workers.md
+  - name: Groups and users
+    items:
+    - name: Groups and access management
+      href: active-directory-manage-groups.md
+    - name: Group-based licensing
+      href: active-directory-licensing-whatis-azure-portal.md
+    - name: Default user permissions
+      href: users-default-permissions.md
+  - name: Architecture
+    items:
+    - name: Azure AD architecture
+      href: active-directory-architecture.md
+    - name: Integrating all your apps with Azure AD
+      href: five-steps-to-full-application-integration-with-azure-ad.md
+  - name: Deployment guide
+    items:
+    - name: Deployment 30, 90, and beyond
+      href: active-directory-deployment-checklist-p2.md
+    - name: Azure Active Directory deployment plans
+      href: active-directory-deployment-plans.md
+  - name: Data storage
+    items:
+    - name: Identity data storage for Europe
+      href: active-directory-data-storage-eu.md
+    - name: Identity data storage for Australia and New Zealand
+      href: active-directory-data-storage-australia-newzealand.md
   - name: Azure AD Operations reference
     items:
     - name: Introduction
@@ -68,6 +86,8 @@
       href: add-custom-domain.md
     - name: Add company branding
       href: customize-branding.md
+    - name: Configure 'Stay signed in?'
+      href: keep-me-signed-in.md
     - name: Associate an Azure subscription
       href: active-directory-how-subscriptions-associated-directory.md
     - name: Add your privacy info
@@ -86,6 +106,8 @@
       href: active-directory-groups-settings-azure-portal.md
     - name: Add or remove group owners
       href: active-directory-accessmanagement-managing-group-owners.md
+    - name: Manage access to resources with groups
+      href: active-directory-manage-groups.md
   - name: Users
     items:
     - name: Add or delete a new user
@@ -100,14 +122,12 @@
       href: license-users-groups.md
     - name: Restore a deleted user
       href: active-directory-users-restore.md
-- name: Resources
+- name: Troubleshooting
   expanded: true
   items:
   - name: Get support for Azure Active Directory
     href: active-directory-troubleshooting-support-howto.md
   - name: Azure Active Directory FAQ
     href: active-directory-faq.md
-  - name: Azure Active Directory deployment plans
-    href: active-directory-deployment-plans.md
-  - name: Archive for What's new? in Azure AD
-    href: whats-new-archive.md    
+  
+  

@@ -1,5 +1,5 @@
 ---
-title: Use accessibility features in the designer (preview)
+title: Use accessibility features in the designer
 titleSuffix: Azure Machine Learning
 description: Learn about the keyboard shortcuts and screen reader accessibility features available in the designer.
 services: machine-learning
@@ -9,9 +9,10 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
+ms.custom: designer
 ---
 
-# Use a keyboard to use Azure Machine Learning designer (preview)
+# Use a keyboard to use Azure Machine Learning designer
 
 Learn how to use a keyboard and screen reader to use Azure Machine Learning designer. For a list of keyboard shortcuts that work everywhere in the Azure portal, see [Keyboard shortcuts in the Azure portal](../azure-portal/azure-portal-keyboard-shortcuts.md)
 
@@ -19,7 +20,7 @@ This workflow has been tested with [Narrator](https://support.microsoft.com/help
 
 ## Navigate the pipeline graph
 
-The pipeline graph is organized as a list of lists. The top-level module list contains all of the module in the pipeline. Each item in the module list contains a connection list that describes all of its connections. 
+The pipeline graph is organized as a nested list. The outer list is a module list, which describes all the modules in the pipeline graph. The inner list is a connection list, which describes all the connections of a specific module.  
 
 1. In the module list, use the arrow key to switch modules.
 1. Use tab to open the connection list for the target module.
@@ -73,5 +74,5 @@ Use the following shortcuts with the access key. For more information on access 
 
 ## Next steps
 
-- [Turn on high contrast or change theme](../azure-portal/azure-portal-change-theme-high-contrast.md)
+- [Turn on high contrast or change theme](../azure-portal/set-preferences.md#choose-a-theme-or-enable-high-contrast)
 - [Accessibility related tools at Microsoft](https://www.microsoft.com/accessibility)

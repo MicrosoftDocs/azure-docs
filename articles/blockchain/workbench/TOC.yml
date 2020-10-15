@@ -52,15 +52,15 @@
   - name: Messaging API
     href: messages-overview.md
   - name: REST API
-    href: https://docs.microsoft.com/rest/api/azure-blockchain-workbench
+    href: /rest/api/azure-blockchain-workbench
 - name: Resources
   items:
   - name: Code samples
     href: https://github.com/Azure-Samples/blockchain
   - name: Blog
     href: https://azure.microsoft.com/blog/topics/blockchain/
-  - name: MSDN support forum
-    href: https://aka.ms/workbenchforum
+  - name: Microsoft Q&A question page
+    href: /answers/topics/azure-blockchain-workbench.html
   - name: Community support
     href: https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain
   - name: Stack Overflow support
@@ -71,7 +71,5 @@
   items:
   - name: Ethereum Proof-of-Authority consortium
     href: ../templates/ethereum-poa-deployment.md
-  - name: Hyperledger Fabric consortium
-    href: ../templates/hyperledger-fabric-consortium-blockchain.md
   - name: Hyperledger Fabric consortium Azure Kubernetes Service
     href: ../templates/hyperledger-fabric-consortium-azure-kubernetes-service.md

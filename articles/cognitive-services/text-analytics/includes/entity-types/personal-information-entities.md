@@ -5,239 +5,56 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include 
-ms.date: 10/21/2019
+ms.date: 07/16/2020
 ms.author: aahi
 ---
 
-## Personal information entity types:
+> [!NOTE]
+> To detect protected health information (PHI), use the `domain=phi` parameter and model version `2020-04-01` or later.
+>
+> For example: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii?domain=phi&model-version=2020-07-01`
+ 
+The following entity categories are returned when you're sending requests to the `/v3.1-preview.2/entities/recognition/pii` endpoint.
 
-### Phone Number
+| Category   | Subcategory | Description                          | Starting model version | Notes |
+|------------|-------------|--------------------------------------|------------------------|---|
+| Person     | N/A         | Names of people.  | `2019-10-01`  | Also returned with `domain=phi`. |
+| PersonType | N/A         | Job types or roles held by a person. | `2020-02-01` | |
+| PhoneNumber | N/A | Phone numbers (US and EU phone numbers only). | `2019-10-01` | Also returned with `domain=phi`. |
+|Organization  | N/A | Companies, political groups, musical bands, sport clubs, government bodies, and public organizations.  | `2019-10-01` | Nationalities and religions are not included in this entity type.  |
+|Organization | Medical | Medical companies and groups. | `2020-04-01` |  |
+|Organization | Stock exchange | Stock exchange groups. | `2020-04-01` |  |
+| Organization | Sports | Sports-related organizations. | `2020-04-01` |  |
+| Address | N/A | Full mailing addresses.  | `2020-04-01` | Also returned with `domain=phi`. |
+| EU GPS Coordinates | N/A | GPS coordinates for locations within the European Union.  | `2019-10-01` |  |
+| Email | N/A | Email addresses. | `2019-10-01` | Also returned with `domain=phi`.   |
+| URL | N/A | URLs to websites. | `2019-10-01` | Also returned with `domain=phi`. |
+| IP | N/A | Network IP addresses. | `2019-10-01` | Also returned with `domain=phi`. |
+| DateTime | N/A | Dates and times of day. | `2019-10-01` |  | 
+| DateTime | Date | Calender dates. | `2019-10-01` | Also returned with `domain=phi`. |
+| Quantity | N/A | Numbers and numeric quantities. | `2019-10-01` |  |
+| Quantity | Age | Ages. | `2019-10-01` | | |
 
-Phone numbers. 
+## Azure information
 
-Languages:
+This entity category includes identifiable Azure information, including authentication information and connection strings. Available starting with model version `2019-10-01`. Not returned with the `domain=phi` parameter.
 
-* Public preview: `English`
-
-| Subtype name           | Description                                           |
-|------------------------|-------------------------------------------------------|
-| N/A                    | Phone numbers, for example `+1 123-123-123`.          |
-| EU Phone number        | Phone numbers specific to the European union.         |
-| EU Mobile Phone number | Mobile phone numbers specific to the European union. |
-
-### EU GPS Coordinates
-
- GPS coordinates for locations within the European Union. 
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name | Description                               |
-|--------------|-------------------------------------------|
-| N/A          | GPS coordinates within the European Union |
-
-### Azure information
-
-Identifiable Azure information including authentication information, and connection strings. 
-
-Languages:
-
-* Public preview: `English`
-
-| Subtype name                          | Description                                                                 |
+| Subcategory                           | Description                                                                 |
 |---------------------------------------|-----------------------------------------------------------------------------|
-| Azure DocumentDB Auth Key             | Authorization key for an Azure DocumentDB server.                           |
-| Azure IAAS Database Connection String | Connection string for an Azure Infrastructure as a service (IaaS) database. |
-| Azure SQL Connection String           | Connection string for an Azure SQL database.                                |
-| Azure IoT Connection String           | Connection string for Azure Internet of things(IoT).                        |
-| Azure Publish Setting Password        | Password for Azure Publish settings.                                        |
-| Azure Redis Cache Connection String   | Connection string for an Azure Cache for Redis.                             |
-| Azure SAS                             | Connection string for Azure Software as a Service(SAS).                     |
-| Azure Service Bus Connection String   | Connection string for an Azure service bus.                                |
+| Azure DocumentDB Auth Key             | Authorization key for an Azure Cosmos DB server.                           |
+| Azure IAAS Database Connection String and Azure SQL Connection String | Connection string for an Azure infrastructure as a service (IaaS) database, and SQL connection string. |
+| Azure SQL Connection String           | Connection string for a database in Azure SQL Database.                                |
+| Azure IoT Connection String           | Connection string for Azure IoT.                        |
+| Azure Publish Setting Password        | Password for Azure publish settings.                                        |
+| Azure Redis Cache Connection String   | Connection string for a Redis cache.                             |
+| Azure SAS                             | Connection string for Azure software as a service (SaaS).                     |
+| Azure Service Bus Connection String   | Connection string for an Azure service bus.                                 |
 | Azure Storage Account Key             | Account key for an Azure storage account.                                   |
 | Azure Storage Account Key (Generic)   | Generic account key for an Azure storage account.                           |
-| SQL Server Connection String          | Connection string for a SQL server.                                         |
+| SQL Server Connection String          | Connection string for a computer running SQL Server.                                         |
 
-### Identification
+## Identification
 
-Languages:
-
-* Public preview: `English`
-
-#### Financial Account Identification
-
-| Subtype name               | Description                                                                |
-|----------------------------|----------------------------------------------------------------------------|
-| ABA Routing Numbers        | American Banker Association(ABA) transit routing numbers.                  |
-| SWIFT Code                 | SWIFT codes for payment instruction information.                           |
-| Credit Card                | Credit card numbers.                                                       |
-| IBAN Code                  | IBAN codes for payment instruction information.                            |
-
-#### Government and country-specific Identification
-
-The entities below are grouped and listed by country:
-
-Argentina
-* National Identity (DNI) Number
-
-Australia
-* Tax file number 
-* Driver's license ID
-* Passport ID
-* Medical account number
-* bank account numbers (for example checking, savings and debit accounts)
-
-Belgium
-* National number
-
-Brazil
-* Legal Entity Number (CNPJ)
-* CPF number
-* National ID Card (RG)
-
-Canada
-* Passport ID
-* Driver's license ID
-* Health insurance Number
-* Personal health ID Number (PHIN)
-* Social Security Number
-* bank account numbers (for example checking, savings and debit accounts)
-
-Chile
-* Identity card number 
-
-China
-* Identity card number
-* Resident ID card (PRC) number
-
-Croatia
-* ID card number
-* Personal ID (OIB) number
-
-Czech Republic
-* National ID card number
-
-Denmark
-* Personal ID number
-
-European Union (EU)
-* National ID number
-* Passport ID
-* Driver's license ID
-* Social Security Number (SSN) or equivalent ID
-* EU Tax Identification Number (TIN)
-* EU Debit Card Number
-
-Finland
-* National ID number
-* Passport ID
-
-France
-* National ID card (CNI)
-* Social Security number (INSEE)
-* Passport ID
-* Driver's license ID
-
-Germany
-* ID Card number
-* Passport ID
-* Driver's license ID
-
-Greece 
-* National ID card number
-
-Hong Kong
-* ID card (HKID) number
-
-India
-* Permanent Account number (PAN)
-* Unique ID (Aadhaar) Number
-
-Indonesia
-* ID card number (KTP)
-
-Ireland
-* Personal Public Service (PPS) Number
-
-Israel
-* National ID
-* bank account numbers (for example checking, savings and debit accounts)
-
-Italy
-* Driver's license ID
-
-Japan
-* Resident registration number
-* Residence card number
-* Driver's license ID
-* Social Insurance Number (SIN)
-* Passport ID
-* bank account numbers (for example checking, savings and debit accounts)
-
-Malaysia
-* ID card number
-
-Netherlands
-* Citizen's Service (BSN) number
-
-New Zealand
-* Ministry of Health Number
-
-Norway
-* ID card number
-
-Philippines
-* Unified Multi-Purpose ID Number
-
-Poland
-* ID Card number
-* National ID (PESEL)
-* Passport ID
-
-Portugal 
-* Citizen Card Number
-
-Saudi Arabia
-* National ID
-
-Singapore
-* National Registration ID Card (NRIC) number
-
-South Africa
-* ID Number
-* Resident Registration number
-
-South Korea
-* Resident Registration Number
-
-Spain 
-* Social Security Number (SSN)
-
-Sweden
-* National ID
-* Passport ID
-
-Taiwan 
-* National ID
-* Resident Certificate (ARC/TARC) number
-* Passport ID
-
-Thailand
-* Population Identification code
-
-United Kingdom
-* Passport ID
-* Driver's license ID
-* National Insurance number (NINO)
-* National Health Service (NHS) number
-
-United States
-* Social Security Number (SSN)
-* Driver's license ID
-* Passport ID
-* Electoral roll number
-* Individual Tax ID Number (ITIN)
-* Drug Enforcement Agency (DEA) number
-* bank account numbers (for example checking, savings and debit accounts)
+[!INCLUDE [supported identification entities](./identification-entities.md)]

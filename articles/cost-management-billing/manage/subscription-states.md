@@ -1,25 +1,26 @@
 ---
 title: Azure subscription states
-description: Describes the different states\status of an Azure subscription
+description: This article describes the different states and status of an Azure subscription.
 keywords: azure subscription state status
 author: anuragdalmia
-manager: andalmia
+ms.reviewer: banders
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 08/20/2020
 ms.author: andalmia
-
 ---
+
 # Azure subscription states
-This article describes the various states that an Azure subscription may have. You will find these states show up as "Status" under subscription blades.
+
+This article describes the various states that an Azure subscription may have. You'll find these states show up as **Status** in Azure portal subscription areas.
 
 | Subscription State | Description |
 |-------------| ----------------|
-| **Active** | Your Azure subscription is active. You can use this subscription to deploy new resources and manage existing ones.|
-| **Past Due** | Your Azure subscription has an outstanding payment pending. Your subscription is still active but failure to pay the dues may result in subscription being disabled. [Resolve past due balance for your Azure subscription.](https://docs.microsoft.com/azure/billing/billing-azure-subscription-past-due-balance) |
-| **Disabled** | Your Azure subscription is disabled and can no longer be used to create or manage Azure resources. While in this state, your virtual machines are de-allocated, temporary IP addresses are freed, storage is read-only and other services are disabled. Subscription can get disabled because your credit may have expired, you may have reached your spending limit, you have a past due bill, your credit card limit was exceeded or if you it was explicitly disabled/cancelled. Depending on the subscription type and disable reason, a subscription may remain disabled between 1 - 90 days after which it gets permanently deleted. [Reactivate a disabled Azure subscription.](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable)|
-| **Deleted** | Your Azure subscription has been deleted along with all underlying resources/data. |
+| **Active**/**Enabled** | Your Azure subscription is active. You can use the subscription to deploy new resources and manage existing ones.<br><br>All operations (PUT, PATCH, DELETE, POST, GET) are available for the resource providers that are [registered for your subscription](../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). |
+| **Deleted** | Your Azure subscription has been deleted along with all underlying resources/data.<br><br>No operations are available. |
+| **Disabled** | Your Azure subscription is disabled and can no longer be used to create or manage Azure resources. While in this state, your virtual machines are de-allocated, temporary IP addresses are freed, storage is read-only and other services are disabled. A subscription can get disabled because of the following reasons: Your credit may have expired. You may have reached your spending limit. You have a past due bill. Your credit card limit was exceeded. Or, it was explicitly disabled or canceled. Depending on the subscription type, a subscription may remain disabled between 1 - 90 days. After which, it's permanently deleted. For more information, see [Reactivate a disabled Azure subscription](subscription-disabled.md).<br><br>Operations to create or update resources (PUT, PATCH) are disabled. Operations that take an action (POST) are also disabled. You can retrieve or delete resources (GET, DELETE). Your resources are still available. |
+| **Expired** | Your Azure subscription is expired because it was canceled. You can reactivate an expired subscription. For more information, see [Reactivate a disabled Azure subscription](subscription-disabled.md).<br><br>Operations to create or update resources (PUT, PATCH) are disabled. Operations that take an action (POST) are also disabled. You can retrieve or delete resources (GET, DELETE).|
+| **Past Due** | Your Azure subscription has an outstanding payment pending. Your subscription is still active but failure to pay the dues may result in subscription being disabled. For more information, see [Resolve past due balance for your Azure subscription.](resolve-past-due-balance.md).<br><br>All operations are available. |
+| **Warned** | Your Azure subscription is in a warned state and while can be used normally, it will be disabled shortly if the warning reason is not addressed. A subscription may be in warned state if its past due, cancelled by user, subscription has expired, etc.<br><br>All operations are available. |

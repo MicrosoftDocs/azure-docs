@@ -1,20 +1,16 @@
-﻿---
+---
 title: Azure Government Azure Monitor logs | Microsoft Docs
 description: This article describes how Azure Monitor logs is applicable to US Government agencies and solution providers
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: sacha
-manager: jobruno
 
-ms.assetid:
 ms.service: azure-government
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/05/2016
-ms.author: jobruno
 ---
 
 # Azure Government cybersecurity: Monitoring and securing your assets with Azure Monitor logs
@@ -54,8 +50,9 @@ Azure Monitor logs can also connect to your storage account and/or existing Syst
 
 Azure Monitor logs also supports collecting logging information from other monitoring services like Chef or Puppet. Furthermore, for Azure deployments, we have VMs with Azure Monitor logs-enabled Azure Resource Manager templates so you can deploy compute and onboard to your Log Analytics workspace at the same time.
 
-![Figure 3: Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension](./media/documentation-government-oms-figure3a.png)
-![Figure 3: Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension](./media/documentation-government-oms-figure3b.png)
+![Screenshot shows Deploy a Ubuntu VM with the OMS extension template.](./media/documentation-government-oms-figure3a.png)
+
+![Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension](./media/documentation-government-oms-figure3b.png)
 <p align="center">Figure 3: Azure Resource Manager templates for Azure VMs with Azure Monitor VM extension</p>
 
 Information about setting up Azure Monitor logs with your existing Operations Manager implementation on-premises can be found in [Connect Operations Manager to Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-om-agents).

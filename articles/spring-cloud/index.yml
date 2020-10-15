@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Spring Cloud documentation # < 60 chars
-summary: Azure Spring Cloud provides a managed service that enables Java developers to easily build and run Spring-boot based microservices on Azure with no code changes. # < 160 chars
+summary: Azure Spring Cloud provides a managed service that lets you run microservices on Azure using Spring-boot or Steeltoe (preview) with no code changes. # < 160 chars
 
 metadata:
   title: Azure Spring Cloud # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Azure Spring Cloud provides a managed service that enables Java developers to easily build and run Spring-boot based microservices on Azure with no code changes.  # Required; article description that is displayed in search results. < 160 chars.
+  description: Azure Spring Cloud provides a managed service that lets you run microservices on Azure using Spring-boot or Steeltoe (preview) with no code changes.  # Required; article description that is displayed in search results. < 160 chars.
   services: spring-cloud
   ms.service: spring-cloud #Required; service per approved list. service slug assigned to your service.
   ms.topic: landing-page # Required
@@ -34,13 +34,13 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Launch a Java Spring app by using the portal
-            url: spring-cloud-quickstart-launch-app-portal.md 
-          - text: Launch a Java Spring app by using the Azure CLI
-            url: spring-cloud-quickstart-launch-app-cli.md 
+          - text: Quickstart - Deploy your first Azure Spring Cloud application
+            url: spring-cloud-quickstart.md 
+          - text: Introduction to PiggyMetrics sample app
+            url: spring-cloud-quickstart-sample-app-introduction.md
       - linkListType: tutorial
         links:
-          - text: Prepare a Java Spring app for deployment
+          - text: Prepare a Spring or Steeltoe app for deployment
             url: spring-cloud-tutorial-prepare-app-deployment.md
 
   - title: Configure your service
@@ -85,4 +85,10 @@ landingContent:
             url: spring-cloud-tutorial-bind-mysql.md 
           - text: Bind your application to Azure CosmosDB
             url: spring-cloud-tutorial-bind-cosmos.md
-            
+   # Card
+  - title: API reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: REST API reference
+            url: https://docs.microsoft.com/rest/api/azurespringclould/

@@ -6,7 +6,7 @@ author: Deland-Han
 manager: dcscontentpm
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 07/28/2020
 ms.author: delhan
 ---
 
@@ -16,13 +16,13 @@ Microsoft Azure Storage Explorer is a standalone app that makes it easy to work 
 
 This guide summarizes solutions for issues that are commonly seen in Storage Explorer.
 
-## RBAC permissions issues
+## Azure RBAC permissions issues
 
-Role-based access control [RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) enables highly granular access management of Azure resources by combining sets of permissions into _roles_. Here are some strategies to get RBAC working optimally in Storage Explorer.
+Azure role-based access control [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) enables highly granular access management of Azure resources by combining sets of permissions into _roles_. Here are some strategies to get Azure RBAC working optimally in Storage Explorer.
 
 ### How do I access my resources in Storage Explorer?
 
-If you're having problems accessing storage resources through RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources. Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
+If you're having problems accessing storage resources through Azure RBAC, you might not have been assigned the appropriate roles. The following sections describe the permissions Storage Explorer currently requires for access to your storage resources. Contact your Azure account administrator if you're not sure you have the appropriate roles or permissions.
 
 #### "Read: List/Get Storage Account(s)" permissions issue
 
@@ -43,7 +43,7 @@ You must be assigned at least one role that grants access to read data from reso
 
 Azure Storage has two layers of access: _management_ and _data_. Subscriptions and storage accounts are accessed through the management layer. Containers, blobs, and other data resources are accessed through the data layer. For example, if you want to get a list of your storage accounts from Azure, you send a request to the management endpoint. If you want a list of blob containers in an account, you send a request to the appropriate service endpoint.
 
-RBAC roles can contain permissions for management or data layer access. The Reader role, for example, grants read-only access to management layer resources.
+Azure roles can grant you permissions for management or data layer access. The Reader role, for example, grants read-only access to management layer resources.
 
 Strictly speaking, the Reader role provides no data layer permissions and isn't necessary for accessing the data layer.
 
@@ -53,14 +53,32 @@ If you don’t have a role that grants any management layer permissions, Storage
 
 ### What if I can't get the management layer permissions I need from my administrator?
 
-We don't currently have an RBAC-related solution for this issue. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+If you want to access blob containers or queues, you can attach to those resources using your Azure credentials.
+
+1. Open the Connect dialog.
+2. Select "Add a resource via Azure Active Directory (Azure AD). Click Next.
+3. Select the user account and tenant associated with the resource you're attaching to. Click Next.
+4. Select the resource type, enter the URL to the resource, and enter a unique display name for the connection. Click Next. Click Connect.
+
+For other resource types, we don't currently have an Azure RBAC-related solution. As a workaround, you can request a SAS URI to [attach to your resource](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
+
+### Recommended Azure built-in roles
+
+There are several Azure built-in roles that can provide the permissions needed to use Storage Explorer. Some of those roles are:
+- [Owner](/azure/role-based-access-control/built-in-roles#owner): Manage everything, including access to resources. **Note**: this role will give you key access.
+- [Contributor](/azure/role-based-access-control/built-in-roles#contributor): Manage everything, excluding access to resources. **Note**: this role will give you key access.
+- [Reader](/azure/role-based-access-control/built-in-roles#reader): Read and list resources.
+- [Storage Account Contributor](/azure/role-based-access-control/built-in-roles#storage-account-contributor): Full management of storage accounts. **Note**: this role will give you key access.
+- [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Full access to Azure Storage blob containers and data.
+- [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): Read, write, and delete Azure Storage containers and blobs.
+- [Storage Blob Data Reader](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): Read and list Azure Storage containers and blobs.
 
 ## Error: Self-signed certificate in certificate chain (and similar errors)
 
 Certificate errors typically occur in one of the following situations:
 
-- The app is connected through a _transparent proxy_, which means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
-- You're running an application that's injecting a self-signed SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
+- The app is connected through a _transparent proxy_. This means a server (such as your company server) is intercepting HTTPS traffic, decrypting it, and then encrypting it by using a self-signed certificate.
+- You're running an application that's injecting a self-signed TLS/SSL certificate into the HTTPS messages that you receive. Examples of applications that inject certificates include antivirus and network traffic inspection software.
 
 When Storage Explorer sees a self-signed or untrusted certificate, it no longer knows whether the received HTTPS message has been altered. If you have a copy of the self-signed certificate, you can instruct Storage Explorer to trust it by following these steps:
 
@@ -281,6 +299,8 @@ If you accidentally attached by using an invalid SAS URL and now cannot detach, 
 
 ## Linux dependencies
 
+### Snap
+
 Storage Explorer 1.10.0 and later is available as a snap from the Snap Store. The Storage Explorer snap installs all its dependencies automatically, and it's updated when a new version of the snap is available. Installing the Storage Explorer snap is the recommended method of installation.
 
 Storage Explorer requires the use of a password manager, which you might need to connect manually before Storage Explorer will work correctly. You can connect Storage Explorer to your system's password manager by running the following command:
@@ -289,57 +309,76 @@ Storage Explorer requires the use of a password manager, which you might need to
 snap connect storage-explorer:password-manager-service :password-manager-service
 ```
 
+### .tar.gz File
+
 You can also download the application as a .tar.gz file, but you'll have to install dependencies manually.
 
-> [!IMPORTANT]
-> Storage Explorer as provided in the .tar.gz download is supported only for Ubuntu distributions. Other distributions haven't been verified and may require alternative or additional packages.
+Storage Explorer as provided in the .tar.gz download is supported for the following versions of Ubuntu only. Storage Explorer might work on other Linux distributions, but they are not officially supported.
 
-These packages are the most common requirements for Storage Explorer on Linux:
+- Ubuntu 20.04 x64
+- Ubuntu 18.04 x64
+- Ubuntu 16.04 x64
 
-* [.NET Core 2.2 Runtime](/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
-* `libgconf-2-4`
-* `libgnome-keyring0` or `libgnome-keyring-dev`
-* `libgnome-keyring-common`
+Storage Explorer requires .NET Core to be installed on your system. We recommend .NET Core 2.1, but Storage Explorer will work with 2.2 as well.
 
 > [!NOTE]
-> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you should be able to use up to .NET Core 2.2. Versions beyond 2.2 have not been verified to work at this time.
+> Storage Explorer version 1.7.0 and earlier require .NET Core 2.0. If you have a newer version of .NET Core installed, you'll have to [patch Storage Explorer](#patching-storage-explorer-for-newer-versions-of-net-core). If you're running Storage Explorer 1.8.0 or later, you need at least .NET Core 2.1.
 
-# [Ubuntu 19.04](#tab/1904)
+# [Ubuntu 20.04](#tab/2004)
 
-1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current).
-3. Run the following command:
+1. Download the Storage Explorer .tar.gz file.
+2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # [Ubuntu 18.04](#tab/1804)
 
-1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current).
-3. Run the following command:
+1. Download the Storage Explorer .tar.gz file.
+2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
+   wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 
 # [Ubuntu 16.04](#tab/1604)
 
-1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current).
-3. Run the following command:
+1. Download the Storage Explorer .tar.gz file.
+2. Install the [.NET Core Runtime](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
-   sudo apt install libgnome-keyring-dev
-   ```
-
-# [Ubuntu 14.04](#tab/1404)
-
-1. Download Storage Explorer.
-2. Install the [.NET Core Runtime](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current).
-3. Run the following command:
-   ```bash
-   sudo apt install libgnome-keyring-dev
+   wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
+     sudo apt-get update; \
+     sudo apt-get install -y apt-transport-https && \
+     sudo apt-get update && \
+     sudo apt-get install -y dotnet-runtime-2.1
    ```
 ---
+
+Many libraries needed by Storage Explorer come preinstalled with Canonical's standard installations of Ubuntu. Custom environments may be missing some of these libraries. If you have issues launching Storage Explorer, we recommend making sure the following packages are installed on your system:
+
+- iproute2
+- libasound2
+- libatm1
+- libgconf2-4
+- libnspr4
+- libnss3
+- libpulse0
+- libsecret-1-0
+- libx11-xcb1
+- libxss1
+- libxtables11
+- libxtst6
+- xdg-utils
 
 ### Patching Storage Explorer for newer versions of .NET Core
 

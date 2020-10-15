@@ -3,7 +3,7 @@ title: Tutorial - Configure HTTPS on an Azure CDN custom domain | Microsoft Docs
 description: In this tutorial, you learn how to enable and disable HTTPS on your Azure CDN endpoint custom domain.
 services: cdn
 documentationcenter: ''
-author: mdgattuso
+author: asudbring
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/1/2019
-ms.author: magattus
+ms.author: allensu
 ms.custom: mvc
 # As a website owner, I want to enable HTTPS on the custom domain of my CDN endpoint so that my users can use my custom domain to access my content securely.
 
@@ -55,8 +55,8 @@ In addition, you must associate an Azure CDN custom domain on your CDN endpoint.
 
 ---
 
-## SSL certificates
-To enable the HTTPS protocol for securely delivering content on an Azure CDN custom domain, you must use an SSL certificate. You can choose to use a certificate that is managed by Azure CDN or use your own certificate.
+## TLS/SSL certificates
+To enable the HTTPS protocol for securely delivering content on an Azure CDN custom domain, you must use a TLS/SSL certificate. You can choose to use a certificate that is managed by Azure CDN or use your own certificate.
 
 
 # [Option 1 (default): Enable HTTPS with a CDN-managed certificate](#tab/option-1-default-enable-https-with-a-cdn-managed-certificate)
@@ -77,7 +77,7 @@ To enable HTTPS on a custom domain, follow these steps:
 
 4. In the list of custom domains, select the custom domain for which you want to enable HTTPS.
 
-    ![Custom domains list](./media/cdn-custom-ssl/cdn-custom-domain.png)
+    ![Screenshot shows the Custom domain page with the option to Use my own certificate.](./media/cdn-custom-ssl/cdn-custom-domain.png)
 
     The **Custom domain** page appears.
 
@@ -96,7 +96,7 @@ To enable HTTPS on a custom domain, follow these steps:
 > This option is available only with **Azure CDN from Microsoft** and **Azure CDN from Verizon** profiles. 
 >
  
-You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure CDN](cdn-troubleshoot-allowed-ca.md).For **Azure CDN from Verizon**, any valid CA will be accepted. 
+You can use your own certificate to enable the HTTPS feature. This process is done through an integration with Azure Key Vault, which allows you to store your certificates securely. Azure CDN uses this secure mechanism to get your certificate and it requires a few additional steps. When you create your TLS/SSL certificate, you must create it with an allowed certificate authority (CA). Otherwise, if you use a non-allowed CA, your request will be rejected. For a list of allowed CAs, see [Allowed certificate authorities for enabling custom HTTPS on Azure CDN](cdn-troubleshoot-allowed-ca.md).For **Azure CDN from Verizon**, any valid CA will be accepted. 
 
 ### Prepare your Azure Key vault account and certificate
  
@@ -305,7 +305,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 4. *Is using a SAN certificate less secure than a dedicated certificate?*
 	
-	A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued SSL certificates use SHA-256 for enhanced server security.
+	A SAN certificate follows the same encryption and security standards as a dedicated certificate. All issued TLS/SSL certificates use SHA-256 for enhanced server security.
 
 5. *Do I need a Certificate Authority Authorization record with my DNS provider?*
 
@@ -317,7 +317,7 @@ The following table shows the operation progress that occurs when you disable HT
 
 7. *How do cert renewals work with Bring Your Own Certificate?*
 
-    To ensure a newer certificate is deployed to PoP infrastructure, simply upload your new certificate to Azure KeyVault, and then in your SSL settings on Azure CDN, choose the newest certificate version and hit save. Azure CDN will then propagate your new updated cert. 
+    To ensure a newer certificate is deployed to PoP infrastructure, simply upload your new certificate to Azure KeyVault, and then in your TLS settings on Azure CDN, choose the newest certificate version and hit save. Azure CDN will then propagate your new updated cert. 
 
 ## Next steps
 

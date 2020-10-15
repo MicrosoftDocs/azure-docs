@@ -11,6 +11,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
+ms.custom: devx-track-csharp
 ---
 
 # Process large-scale datasets by using Data Factory and Batch
@@ -33,8 +34,8 @@ With the Batch service, you define Azure compute resources to execute your appli
 
  If you aren't familiar with Batch, the following articles help you understand the architecture/implementation of the solution described in this article:   
 
-* [Basics of Batch](../../batch/batch-technical-overview.md)
-* [Batch feature overview](../../batch/batch-api-basics.md)
+* [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+* [Batch feature overview](../../batch/batch-service-workflow-features.md)
 
 Optionally, to learn more about Batch, see [the Batch documentation](https://docs.microsoft.com/azure/batch/).
 
@@ -191,200 +192,200 @@ The method has a few key components that you need to understand:
 
 1. In the Package Manager Console, execute the following command to import Microsoft.Azure.Management.DataFactories:
 
-	```powershell
-	Install-Package Microsoft.Azure.Management.DataFactories
+    ```powershell
+    Install-Package Microsoft.Azure.Management.DataFactories
     ```
 1. Import the **Azure Storage** NuGet package into the project. You need this package because you use the Blob Storage API in this sample:
 
-	```powershell
-	Install-Package Az.Storage
+    ```powershell
+    Install-Package Az.Storage
     ```
 1. Add the following using directives to the source file in the project:
 
-	```csharp
-	using System.IO;
-	using System.Globalization;
-	using System.Diagnostics;
-	using System.Linq;
+    ```csharp
+    using System.IO;
+    using System.Globalization;
+    using System.Diagnostics;
+    using System.Linq;
 
-	using Microsoft.Azure.Management.DataFactories.Models;
-	using Microsoft.Azure.Management.DataFactories.Runtime;
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Runtime;
 
-	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Blob;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
     ```
 1. Change the name of the namespace to **MyDotNetActivityNS**.
 
-	```csharp
-	namespace MyDotNetActivityNS
+    ```csharp
+    namespace MyDotNetActivityNS
     ```
 1. Change the name of the class to **MyDotNetActivity**, and derive it from the **IDotNetActivity** interface as shown:
 
-	```csharp
-	public class MyDotNetActivity : IDotNetActivity
+    ```csharp
+    public class MyDotNetActivity : IDotNetActivity
     ```
 1. Implement (add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class. Copy the following sample code to the method. For an explanation of the logic used in this method, see the [Execute method](#execute-method) section.
 
-	```csharp
-	/// <summary>
-	/// The Execute method is the only method of IDotNetActivity interface you must implement.
-	/// In this sample, the method invokes the Calculate method to perform the core logic.  
-	/// </summary>
-	public IDictionary<string, string> Execute(
-	   IEnumerable<LinkedService> linkedServices,
-	   IEnumerable<Dataset> datasets,
-	   Activity activity,
-	   IActivityLogger logger)
-	{
+    ```csharp
+    /// <summary>
+    /// The Execute method is the only method of IDotNetActivity interface you must implement.
+    /// In this sample, the method invokes the Calculate method to perform the core logic.  
+    /// </summary>
+    public IDictionary<string, string> Execute(
+       IEnumerable<LinkedService> linkedServices,
+       IEnumerable<Dataset> datasets,
+       Activity activity,
+       IActivityLogger logger)
+    {
 
-	   // Declare types for the input and output data stores.
-	   AzureStorageLinkedService inputLinkedService;
+       // Declare types for the input and output data stores.
+       AzureStorageLinkedService inputLinkedService;
 
-	   Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
+       Dataset inputDataset = datasets.Single(dataset => dataset.Name == activity.Inputs.Single().Name);
 
-	   foreach (LinkedService ls in linkedServices)
-	       logger.Write("linkedService.Name {0}", ls.Name);
+       foreach (LinkedService ls in linkedServices)
+           logger.Write("linkedService.Name {0}", ls.Name);
 
-	   // Use the First method instead of Single because we are using the same
-	   // Azure Storage linked service for input and output.
-	   inputLinkedService = linkedServices.First(
-	       linkedService =>
-	       linkedService.Name ==
-	       inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
-	       as AzureStorageLinkedService;
+       // Use the First method instead of Single because we are using the same
+       // Azure Storage linked service for input and output.
+       inputLinkedService = linkedServices.First(
+           linkedService =>
+           linkedService.Name ==
+           inputDataset.Properties.LinkedServiceName).Properties.TypeProperties
+           as AzureStorageLinkedService;
 
-	   string connectionString = inputLinkedService.ConnectionString; // To create an input storage client.
-	   string folderPath = GetFolderPath(inputDataset);
-	   string output = string.Empty; // for use later.
+       string connectionString = inputLinkedService.ConnectionString; // To create an input storage client.
+       string folderPath = GetFolderPath(inputDataset);
+       string output = string.Empty; // for use later.
 
-	   // Create the storage client for input. Pass the connection string.
-	   CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
-	   CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
+       // Create the storage client for input. Pass the connection string.
+       CloudStorageAccount inputStorageAccount = CloudStorageAccount.Parse(connectionString);
+       CloudBlobClient inputClient = inputStorageAccount.CreateCloudBlobClient();
 
-	   // Initialize the continuation token before using it in the do-while loop.
-	   BlobContinuationToken continuationToken = null;
-	   do
-	   {   // get the list of input blobs from the input storage client object.
-	       BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
-	                                true,
-	                                BlobListingDetails.Metadata,
-	                                null,
-	                                continuationToken,
-	                                null,
-	                                null);
+       // Initialize the continuation token before using it in the do-while loop.
+       BlobContinuationToken continuationToken = null;
+       do
+       {   // get the list of input blobs from the input storage client object.
+           BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+                                    true,
+                                    BlobListingDetails.Metadata,
+                                    null,
+                                    continuationToken,
+                                    null,
+                                    null);
 
-	       // The Calculate method returns the number of occurrences of
-	       // the search term "Microsoft" in each blob associated
-	       // with the data slice.
-	       //
-	       // The definition of the method is shown in the next step.
-	       output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
+           // The Calculate method returns the number of occurrences of
+           // the search term "Microsoft" in each blob associated
+           // with the data slice.
+           //
+           // The definition of the method is shown in the next step.
+           output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
-	   } while (continuationToken != null);
+       } while (continuationToken != null);
 
-	   // Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
-	   Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+       // Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
+       Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 
-	   folderPath = GetFolderPath(outputDataset);
+       folderPath = GetFolderPath(outputDataset);
 
-	   logger.Write("Writing blob to the folder: {0}", folderPath);
+       logger.Write("Writing blob to the folder: {0}", folderPath);
 
-	   // Create a storage object for the output blob.
-	   CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
-	   // Write the name of the file.
-	   Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+       // Create a storage object for the output blob.
+       CloudStorageAccount outputStorageAccount = CloudStorageAccount.Parse(connectionString);
+       // Write the name of the file.
+       Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 
-	   logger.Write("output blob URI: {0}", outputBlobUri.ToString());
-	   // Create a blob and upload the output text.
-	   CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
-	   logger.Write("Writing {0} to the output blob", output);
-	   outputBlob.UploadText(output);
+       logger.Write("output blob URI: {0}", outputBlobUri.ToString());
+       // Create a blob and upload the output text.
+       CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+       logger.Write("Writing {0} to the output blob", output);
+       outputBlob.UploadText(output);
 
-	   // The dictionary can be used to chain custom activities together in the future.
-	   // This feature is not implemented yet, so just return an empty dictionary.
-	   return new Dictionary<string, string>();
-	}
+       // The dictionary can be used to chain custom activities together in the future.
+       // This feature is not implemented yet, so just return an empty dictionary.
+       return new Dictionary<string, string>();
+    }
     ```
 1. Add the following helper methods to the class. These methods are invoked by the **Execute** method. Most important, the **Calculate** method isolates the code that iterates through each blob.
 
-	```csharp
-	/// <summary>
-	/// Gets the folderPath value from the input/output dataset.
-	/// </summary>
-	private static string GetFolderPath(Dataset dataArtifact)
-	{
-	   if (dataArtifact == null || dataArtifact.Properties == null)
-	   {
-	       return null;
-	   }
+    ```csharp
+    /// <summary>
+    /// Gets the folderPath value from the input/output dataset.
+    /// </summary>
+    private static string GetFolderPath(Dataset dataArtifact)
+    {
+       if (dataArtifact == null || dataArtifact.Properties == null)
+       {
+           return null;
+       }
 
-	   AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-	   if (blobDataset == null)
-	   {
-	       return null;
-	   }
+       AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+       if (blobDataset == null)
+       {
+           return null;
+       }
 
-	   return blobDataset.FolderPath;
-	}
+       return blobDataset.FolderPath;
+    }
 
-	/// <summary>
-	/// Gets the fileName value from the input/output dataset.
-	/// </summary>
+    /// <summary>
+    /// Gets the fileName value from the input/output dataset.
+    /// </summary>
 
-	private static string GetFileName(Dataset dataArtifact)
-	{
-	   if (dataArtifact == null || dataArtifact.Properties == null)
-	   {
-	       return null;
-	   }
+    private static string GetFileName(Dataset dataArtifact)
+    {
+       if (dataArtifact == null || dataArtifact.Properties == null)
+       {
+           return null;
+       }
 
-	   AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
-	   if (blobDataset == null)
-	   {
-	       return null;
-	   }
+       AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+       if (blobDataset == null)
+       {
+           return null;
+       }
 
-	   return blobDataset.FileName;
-	}
+       return blobDataset.FileName;
+    }
 
-	/// <summary>
-	/// Iterates through each blob (file) in the folder, counts the number of instances of the search term in the file,
-	/// and prepares the output text that is written to the output blob.
-	/// </summary>
+    /// <summary>
+    /// Iterates through each blob (file) in the folder, counts the number of instances of the search term in the file,
+    /// and prepares the output text that is written to the output blob.
+    /// </summary>
 
-	public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
-	{
-	   string output = string.Empty;
-	   logger.Write("number of blobs found: {0}", Bresult.Results.Count<IListBlobItem>());
-	   foreach (IListBlobItem listBlobItem in Bresult.Results)
-	   {
-	       CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
-	       if ((inputBlob != null) && (inputBlob.Name.IndexOf("$$$.$$$") == -1))
-	       {
-	           string blobText = inputBlob.DownloadText(Encoding.ASCII, null, null, null);
-	           logger.Write("input blob text: {0}", blobText);
-	           string[] source = blobText.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
-	           var matchQuery = from word in source
-	                            where word.ToLowerInvariant() == searchTerm.ToLowerInvariant()
-	                            select word;
-	           int wordCount = matchQuery.Count();
-	           output += string.Format("{0} occurrences(s) of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-	       }
-	   }
-	   return output;
-	}
+    public static string Calculate(BlobResultSegment Bresult, IActivityLogger logger, string folderPath, ref BlobContinuationToken token, string searchTerm)
+    {
+       string output = string.Empty;
+       logger.Write("number of blobs found: {0}", Bresult.Results.Count<IListBlobItem>());
+       foreach (IListBlobItem listBlobItem in Bresult.Results)
+       {
+           CloudBlockBlob inputBlob = listBlobItem as CloudBlockBlob;
+           if ((inputBlob != null) && (inputBlob.Name.IndexOf("$$$.$$$") == -1))
+           {
+               string blobText = inputBlob.DownloadText(Encoding.ASCII, null, null, null);
+               logger.Write("input blob text: {0}", blobText);
+               string[] source = blobText.Split(new char[] { '.', '?', '!', ' ', ';', ':', ',' }, StringSplitOptions.RemoveEmptyEntries);
+               var matchQuery = from word in source
+                                where word.ToLowerInvariant() == searchTerm.ToLowerInvariant()
+                                select word;
+               int wordCount = matchQuery.Count();
+               output += string.Format("{0} occurrences(s) of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+           }
+       }
+       return output;
+    }
     ```
     The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to.
 
-	```csharp
+    ```csharp
 
-	"name": "InputDataset",
-	"properties": {
-	    "type": "AzureBlob",
-	    "linkedServiceName": "StorageLinkedService",
-	    "typeProperties": {
-	        "fileName": "file.txt",
-	        "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
+    "name": "InputDataset",
+    "properties": {
+        "type": "AzureBlob",
+        "linkedServiceName": "StorageLinkedService",
+        "typeProperties": {
+            "fileName": "file.txt",
+            "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
     ```
 
     The Calculate method calculates the number of instances of the keyword "Microsoft" in the input files (blobs in the folder). The search term "Microsoft" is hard-coded in the code.
@@ -404,74 +405,74 @@ This section provides more details about the code in the Execute method.
 
 1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) namespace. To iterate through the blob collection, you're required to use the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [Use Blob storage from .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
 
-	```csharp
-	// Initialize the continuation token.
-	BlobContinuationToken continuationToken = null;
-	do
-	{
-	// Get the list of input blobs from the input storage client object.
-	BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
+    ```csharp
+    // Initialize the continuation token.
+    BlobContinuationToken continuationToken = null;
+    do
+    {
+    // Get the list of input blobs from the input storage client object.
+    BlobResultSegment blobList = inputClient.ListBlobsSegmented(folderPath,
 
-	                     true,
-	                               BlobListingDetails.Metadata,
-	                               null,
-	                               continuationToken,
-	                               null,
-	                               null);
-	// Return a string derived from parsing each blob.
+                         true,
+                                   BlobListingDetails.Metadata,
+                                   null,
+                                   continuationToken,
+                                   null,
+                                   null);
+    // Return a string derived from parsing each blob.
 
-	 output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
+     output = Calculate(blobList, logger, folderPath, ref continuationToken, "Microsoft");
 
-	} while (continuationToken != null);
+    } while (continuationToken != null);
 
     ```
-   For more information, see the documentation for the [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented) method.
+   For more information, see the documentation for the [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmented) method.
 
 1. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
 
    It returns the number of occurrences of the search term "Microsoft" in the blob passed to the **Calculate** method.
 
-	```csharp
-	output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
+    ```csharp
+    output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
     ```
 1. After the **Calculate** method is finished, it must be written to a new blob. For every set of blobs processed, a new blob can be written with the results. To write to a new blob, first find the output dataset.
 
-	```csharp
-	// Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
-	Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
+    ```csharp
+    // Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
+    Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
     ```
 1. The code also calls the helper method **GetFolderPath** to retrieve the folder path (the storage container name).
 
-	```csharp
-	folderPath = GetFolderPath(outputDataset);
+    ```csharp
+    folderPath = GetFolderPath(outputDataset);
     ```
    The GetFolderPath method casts the DataSet object to an AzureBlobDataSet, which has a property named FolderPath.
 
-	```csharp
-	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+    ```csharp
+    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 
-	return blobDataset.FolderPath;
+    return blobDataset.FolderPath;
     ```
 1. The code calls the **GetFileName** method to retrieve the file name (blob name). The code is similar to the previous code that was used to get the folder path.
 
-	```csharp
-	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
+    ```csharp
+    AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 
-	return blobDataset.FileName;
+    return blobDataset.FileName;
     ```
 1. The name of the file is written by creating a URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
 
-	```csharp
-	// Write the name of the file.
-	Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
+    ```csharp
+    // Write the name of the file.
+    Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
     ```
 1. After the name of the file is written, you can write the output string from the **Calculate** method to a new blob:
 
-	```csharp
-	// Create a blob and upload the output text.
-	CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
-	logger.Write("Writing {0} to the output blob", output);
-	outputBlob.UploadText(output);
+    ```csharp
+    // Create a blob and upload the output text.
+    CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
+    logger.Write("Writing {0} to the output blob", output);
+    outputBlob.UploadText(output);
     ```
 
 ### Create the data factory
@@ -574,7 +575,7 @@ In this step, you create a linked service for your Batch account that is used to
 
       > [!IMPORTANT]
       > The URL from the **Batch Account** blade is in the following format:
-	 \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON script, you need to remove a88"accountname."** from the URL. An example is `"batchUri": "https://eastus.batch.azure.com"`.
+     \<accountname\>.\<region\>.batch.azure.com. For the **batchUri** property in the JSON script, you need to remove a88"accountname."** from the URL. An example is `"batchUri": "https://eastus.batch.azure.com"`.
       >
       >
 
@@ -599,67 +600,67 @@ In this step, you create datasets to represent input and output data.
 
 1. Replace the JSON script in the right pane with the following JSON snippet:
 
-	```json
-	{
-	   "name": "InputDataset",
-	   "properties": {
-	       "type": "AzureBlob",
-	       "linkedServiceName": "AzureStorageLinkedService",
-	       "typeProperties": {
-	           "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
-	           "format": {
-	               "type": "TextFormat"
-	           },
-	           "partitionedBy": [
-	               {
-	                   "name": "Year",
-	                   "value": {
-	                       "type": "DateTime",
-	                       "date": "SliceStart",
-	                       "format": "yyyy"
-	                   }
-	               },
-	               {
-	                   "name": "Month",
-	                   "value": {
-	                       "type": "DateTime",
-	                       "date": "SliceStart",
-	                       "format": "MM"
-	                   }
-	               },
-	               {
-	                   "name": "Day",
-	                   "value": {
-	                       "type": "DateTime",
-	                       "date": "SliceStart",
-	                       "format": "dd"
-	                   }
-	               },
-	               {
-	                   "name": "Hour",
-	                   "value": {
-	                       "type": "DateTime",
-	                       "date": "SliceStart",
-	                       "format": "HH"
-	                   }
-	               }
-	           ]
-	       },
-	       "availability": {
-	           "frequency": "Hour",
-	           "interval": 1
-	       },
-	       "external": true,
-	       "policy": {}
-	   }
-	}
+    ```json
+    {
+       "name": "InputDataset",
+       "properties": {
+           "type": "AzureBlob",
+           "linkedServiceName": "AzureStorageLinkedService",
+           "typeProperties": {
+               "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
+               "format": {
+                   "type": "TextFormat"
+               },
+               "partitionedBy": [
+                   {
+                       "name": "Year",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "yyyy"
+                       }
+                   },
+                   {
+                       "name": "Month",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "MM"
+                       }
+                   },
+                   {
+                       "name": "Day",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "dd"
+                       }
+                   },
+                   {
+                       "name": "Hour",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "HH"
+                       }
+                   }
+               ]
+           },
+           "availability": {
+               "frequency": "Hour",
+               "interval": 1
+           },
+           "external": true,
+           "policy": {}
+       }
+    }
     ```
 
-	You create a pipeline later in this walkthrough with the start time 2015-11-16T00:00:00Z and the end time 2015-11-16T05:00:00Z. It's scheduled to produce data hourly, so there are five input/output slices (between **00**:00:00 -\> **05**:00:00).
+    You create a pipeline later in this walkthrough with the start time 2015-11-16T00:00:00Z and the end time 2015-11-16T05:00:00Z. It's scheduled to produce data hourly, so there are five input/output slices (between **00**:00:00 -\> **05**:00:00).
 
-	The **frequency** and **interval** for the input dataset are set to **Hour** and **1**, which means that the input slice is available hourly.
+    The **frequency** and **interval** for the input dataset are set to **Hour** and **1**, which means that the input slice is available hourly.
 
-	The start time for each slice is represented by the **SliceStart** system variable in the previous JSON snippet. Here are the start times for each slice.
+    The start time for each slice is represented by the **SliceStart** system variable in the previous JSON snippet. Here are the start times for each slice.
 
     | **Slice** | **Start time**          |
     |-----------|-------------------------|
@@ -669,7 +670,7 @@ In this step, you create datasets to represent input and output data.
     | 4         | 2015-11-16T**03**:00:00 |
     | 5         | 2015-11-16T**04**:00:00 |
 
-	The **folderPath** is calculated by using the year, month, day, and hour part of the slice start time (**SliceStart**). Here is how an input folder is mapped to a slice.
+    The **folderPath** is calculated by using the year, month, day, and hour part of the slice start time (**SliceStart**). Here is how an input folder is mapped to a slice.
 
     | **Slice** | **Start time**          | **Input folder**  |
     |-----------|-------------------------|-------------------|
@@ -688,45 +689,45 @@ In this step, you create another dataset of the type AzureBlob to represent the 
 
 1. Replace the JSON script in the right pane with the following JSON snippet:
 
-	```json
-	{
-	   "name": "OutputDataset",
-	   "properties": {
-	       "type": "AzureBlob",
-	       "linkedServiceName": "AzureStorageLinkedService",
-	       "typeProperties": {
-	           "fileName": "{slice}.txt",
-	           "folderPath": "mycontainer/outputfolder",
-	           "partitionedBy": [
-	               {
-	                   "name": "slice",
-	                   "value": {
-	                       "type": "DateTime",
-	                       "date": "SliceStart",
-	                       "format": "yyyy-MM-dd-HH"
-	                   }
-	               }
-	           ]
-	       },
-	       "availability": {
-	           "frequency": "Hour",
-	           "interval": 1
-	       }
-	   }
-	}
+    ```json
+    {
+       "name": "OutputDataset",
+       "properties": {
+           "type": "AzureBlob",
+           "linkedServiceName": "AzureStorageLinkedService",
+           "typeProperties": {
+               "fileName": "{slice}.txt",
+               "folderPath": "mycontainer/outputfolder",
+               "partitionedBy": [
+                   {
+                       "name": "slice",
+                       "value": {
+                           "type": "DateTime",
+                           "date": "SliceStart",
+                           "format": "yyyy-MM-dd-HH"
+                       }
+                   }
+               ]
+           },
+           "availability": {
+               "frequency": "Hour",
+               "interval": 1
+           }
+       }
+    }
     ```
 
-	An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder, `mycontainer\\outputfolder`.
+    An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder, `mycontainer\\outputfolder`.
 
-	| **Slice** | **Start time**          | **Output file**       |
-	|-----------|-------------------------|-----------------------|
-	| 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
-	| 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
-	| 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
-	| 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
-	| 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
+    | **Slice** | **Start time**          | **Output file**       |
+    |-----------|-------------------------|-----------------------|
+    | 1         | 2015-11-16T**00**:00:00 | 2015-11-16-**00.txt** |
+    | 2         | 2015-11-16T**01**:00:00 | 2015-11-16-**01.txt** |
+    | 3         | 2015-11-16T**02**:00:00 | 2015-11-16-**02.txt** |
+    | 4         | 2015-11-16T**03**:00:00 | 2015-11-16-**03.txt** |
+    | 5         | 2015-11-16T**04**:00:00 | 2015-11-16-**04.txt** |
 
-	Remember that all the files in an input folder (for example, 2015-11-16-00) are part of a slice with the start time 2015-11-16-00. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of the search term "Microsoft." If there are three files in the folder 2015-11-16-00, there are three lines in the output file  2015-11-16-00.txt.
+    Remember that all the files in an input folder (for example, 2015-11-16-00) are part of a slice with the start time 2015-11-16-00. When this slice is processed, the custom activity scans through each file and produces a line in the output file with the number of occurrences of the search term "Microsoft." If there are three files in the folder 2015-11-16-00, there are three lines in the output file  2015-11-16-00.txt.
 
 1. Select **Deploy** on the toolbar to create and deploy the **OutputDataset**.
 
@@ -742,48 +743,48 @@ In this step, you create a pipeline with one activity, the custom activity you c
 
 1. Replace the JSON script in the right pane with the following JSON snippet:
 
-	```json
-	{
-	   "name": "PipelineCustom",
-	   "properties": {
-	       "description": "Use custom activity",
-	       "activities": [
-	           {
-	               "type": "DotNetActivity",
-	               "typeProperties": {
-	                   "assemblyName": "MyDotNetActivity.dll",
-	                   "entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
-	                   "packageLinkedService": "AzureStorageLinkedService",
-	                   "packageFile": "customactivitycontainer/MyDotNetActivity.zip"
-	               },
-	               "inputs": [
-	                   {
-	                       "name": "InputDataset"
-	                   }
-	               ],
-	               "outputs": [
-	                   {
-	                       "name": "OutputDataset"
-	                   }
-	               ],
-	               "policy": {
-	                   "timeout": "00:30:00",
-	                   "concurrency": 5,
-	                   "retry": 3
-	               },
-	               "scheduler": {
-	                   "frequency": "Hour",
-	                   "interval": 1
-	               },
-	               "name": "MyDotNetActivity",
-	               "linkedServiceName": "AzureBatchLinkedService"
-	           }
-	       ],
-	       "start": "2015-11-16T00:00:00Z",
-	       "end": "2015-11-16T05:00:00Z",
-	       "isPaused": false
-	  }
-	}
+    ```json
+    {
+       "name": "PipelineCustom",
+       "properties": {
+           "description": "Use custom activity",
+           "activities": [
+               {
+                   "type": "DotNetActivity",
+                   "typeProperties": {
+                       "assemblyName": "MyDotNetActivity.dll",
+                       "entryPoint": "MyDotNetActivityNS.MyDotNetActivity",
+                       "packageLinkedService": "AzureStorageLinkedService",
+                       "packageFile": "customactivitycontainer/MyDotNetActivity.zip"
+                   },
+                   "inputs": [
+                       {
+                           "name": "InputDataset"
+                       }
+                   ],
+                   "outputs": [
+                       {
+                           "name": "OutputDataset"
+                       }
+                   ],
+                   "policy": {
+                       "timeout": "00:30:00",
+                       "concurrency": 5,
+                       "retry": 3
+                   },
+                   "scheduler": {
+                       "frequency": "Hour",
+                       "interval": 1
+                   },
+                   "name": "MyDotNetActivity",
+                   "linkedServiceName": "AzureBatchLinkedService"
+               }
+           ],
+           "start": "2015-11-16T00:00:00Z",
+           "end": "2015-11-16T05:00:00Z",
+           "isPaused": false
+      }
+    }
     ```
    Note the following points:
 
@@ -831,7 +832,7 @@ In this step, you test the pipeline by dropping files into the input folders. St
    Five output files are listed, one for each input slice. Each of the output files has content similar to the following output:
 
     ```
-	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
     ```
    The following diagram illustrates how the data factory slices map to tasks in Batch. In this example, a slice has only one run.
 
@@ -848,11 +849,11 @@ In this step, you test the pipeline by dropping files into the input folders. St
 1. After the slice runs and its status is **Ready**, verify the content in the output file for this slice (**2015-11-16-01.txt**). The output file appears under `mycontainer` in `outputfolder` in your blob storage. There should be a line for each file of the slice.
 
     ```
-	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
-	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file2.txt.
-	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file3.txt.
-	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file4.txt.
-	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file2.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file3.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file4.txt.
+    2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
     ```
 
 > [!NOTE]
@@ -895,13 +896,13 @@ Debugging consists of a few basic techniques.
    Check the system-0.log for any system error messages and exceptions.
 
     ```
-	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
 
-	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
 
-	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
+    Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
 
-	Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
+    Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
     ```
 1. Include the **PDB** file in the zip file so that the error details have information such as call stack when an error occurs.
 
@@ -921,7 +922,7 @@ Debugging consists of a few basic techniques.
    >
 1. The custom activity doesn't use the **app.config** file from your package. Therefore, if your code reads any connection strings from the configuration file, it doesn't work at runtime. The best practice when you use Batch is to hold any secrets in Azure Key Vault. Then use a certificate-based service principal to protect the key vault and distribute the certificate to the Batch pool. The .NET custom activity can access secrets from the key vault at runtime. This generic solution can scale to any type of secret, not just a connection string.
 
-    There is an easier workaround, but it's not a best practice. You can create a SQL database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
+    There is an easier workaround, but it's not a best practice. You can create a SQL Database linked service with connection string settings. Then you can create a dataset that uses the linked service and chain the dataset as a dummy input dataset to the custom .NET activity. You can then access the linked service's connection string in the custom activity code. It should work fine at runtime.  
 
 #### Extend the sample
 You can extend this sample to learn more about Data Factory and Batch features. For example, to process slices in a different time range, take the following steps:
@@ -934,16 +935,16 @@ You can extend this sample to learn more about Data Factory and Batch features. 
 
 1. Create a Batch pool with the **autoscale** feature. Automatically scaling compute nodes in a Batch pool is the dynamic adjustment of processing power used by your application.
 
-	The sample formula here achieves the following behavior. When the pool is initially created, it starts with one VM. The $PendingTasks metric defines the number of tasks in the running and active (queued) states. The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. It ensures that TargetDedicated never goes beyond 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling shrinks those VMs. You can adjust startingNumberOfVMs and maxNumberofVMs to your needs.
+    The sample formula here achieves the following behavior. When the pool is initially created, it starts with one VM. The $PendingTasks metric defines the number of tasks in the running and active (queued) states. The formula finds the average number of pending tasks in the last 180 seconds and sets TargetDedicated accordingly. It ensures that TargetDedicated never goes beyond 25 VMs. As new tasks are submitted, the pool automatically grows. As tasks complete, VMs become free one by one and the autoscaling shrinks those VMs. You can adjust startingNumberOfVMs and maxNumberofVMs to your needs.
 
-	Autoscale formula:
+    Autoscale formula:
 
     ```
-	startingNumberOfVMs = 1;
-	maxNumberofVMs = 25;
-	pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
-	pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
-	$TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
+    startingNumberOfVMs = 1;
+    maxNumberofVMs = 25;
+    pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
+    pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
+    $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
     ```
 
    For more information, see [Automatically scale compute nodes in a Batch pool](../../batch/batch-automatic-scaling.md).
@@ -956,7 +957,7 @@ You can extend this sample to learn more about Data Factory and Batch features. 
 After you process data, you can consume it with online tools such as Power BI. Here are links to help you understand Power BI and how to use it in Azure:
 
 * [Explore a dataset in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-data/)
-* [Get started with Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-getting-started/)
+* [Get started with Power BI Desktop](https://docs.microsoft.com/power-bi/fundamentals/desktop-getting-started)
 * [Refresh data in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure and Power BI: Basic overview](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
@@ -968,8 +969,8 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Use custom activities in a Data Factory pipeline](data-factory-use-custom-activities.md)
 * [Azure Batch](https://azure.microsoft.com/documentation/services/batch/)
 
-  * [Basics of Batch](../../batch/batch-technical-overview.md)
-  * [Overview of Batch features](../../batch/batch-api-basics.md)
+  * [Basics of Batch](../../azure-sql/database/sql-database-paas-overview.md)
+  * [Overview of Batch features](../../batch/batch-service-workflow-features.md))
   * [Create and manage a Batch account in the Azure portal](../../batch/batch-account-create-portal.md)
   * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)
 

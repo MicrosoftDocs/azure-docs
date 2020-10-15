@@ -1,15 +1,15 @@
 ---
-title: Connect an Amazon Web Services account to Cloudyn in Azure | Microsoft Docs
+title: Connect an Amazon Web Services account to Cloudyn in Azure
 description: Connect an Amazon Web Services account to view cost and usage data in Cloudyn reports.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.subservice: cloudyn
+ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Connect an Amazon Web Services account
@@ -20,7 +20,7 @@ For more information about AWS IAM identities, see [Identities (Users, Groups, a
 
 Also, you enable AWS detailed billing reports and store the information in an AWS simple storage service (S3) bucket. Detailed billing reports include billing charges with tag and resource information on an hourly basis. Storing the reports allows Cloudyn to retrieve them from your bucket and display the information in its reports.
 
-
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 ## AWS role-based access
 
 The following sections walk you through creating a read-only IAM role to provide access to Cloudyn.
@@ -37,7 +37,7 @@ The first step is to get the unique connection passphrase from the Cloudyn porta
 
 ### Add AWS read-only role-based access
 
-1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Roles**.
+1. Sign in to the AWS console at [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) and select **Roles**.
 2. Click **Create Role** and then select **Another AWS account**.
 3. In the **Account ID** box, paste `432263259397`. This Account ID is the Cloudyn data collector account assigned by AWS to the Cloudyn service. Use the exact Account ID shown.
 4. Next to **Options**, select **Require external ID**. Paste your unique value that copied previously from the **External ID** field in Cloudyn. Then click **Next: Permissions**.  
@@ -72,7 +72,7 @@ The following sections walk you through creating a read-only user to provide acc
 
 ### Add AWS read-only user-based access
 
-1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Users**.
+1. Sign in to the AWS console at [https://console.aws.amazon.com/iam/home](https://console.aws.amazon.com/iam/home) and select **Users**.
 2. Click **Add User**.
 3. In the **User name** field, type a user name.
 4. For **Access type**, select **Programmatic access** and click **Next: Permissions**.  
@@ -103,7 +103,7 @@ Cloudyn starts collecting the data and populating reports. Next, [enable detaile
 
 Use the following steps to get your AWS Role ARN. You use the Role ARN to grant read permissions to a billing bucket.
 
-1. Sign in to the AWS console at https://console.aws.amazon.com and select **Services**.
+1. Sign in to the AWS console at [https://console.aws.amazon.com](https://console.aws.amazon.com) and select **Services**.
 2. In the Service Search box type *IAM*, and select that option.
 3. Select **Roles** from the left-hand menu.
 4. In the list of Roles, select the role that you created for Cloudyn access.
@@ -113,7 +113,7 @@ Use the following steps to get your AWS Role ARN. You use the Role ARN to grant 
 
 You create an S3 bucket to store detailed billing information.
 
-1. Sign in to the AWS console at https://console.aws.amazon.com and select **Services**.
+1. Sign in to the AWS console at [https://console.aws.amazon.com](https://console.aws.amazon.com) and select **Services**.
 2. In the Service Search box type *S3*, and select **S3**.
 3. On the Amazon S3 page, click **Create bucket**.
 4. In the Create bucket wizard, choose a Bucket name and Region and then click **Next**.  
@@ -127,43 +127,43 @@ You create an S3 bucket to store detailed billing information.
 
    ```json
    {
-  	"Version": "2012-10-17",
-  	"Id": "Policy1426774604000",
-  	"Statement": [
-  		{
-  			"Sid": "Stmt1426774604000",
-  			"Effect": "Allow",
-  			"Principal": {
-  				"AWS": "arn:aws:iam::386209384616:root"
-  			},
-  			"Action": [
-  				"s3:GetBucketAcl",
-  				"s3:GetBucketPolicy"
-  			],
-  			"Resource": "arn:aws:s3:::<BillingBucketName>"
-  		},
-  		{
-  			"Sid": "Stmt1426774604001",
-  			"Effect": "Allow",
-  			"Principal": {
-  				"AWS": "arn:aws:iam::386209384616:root"
-  			},
-  			"Action": "s3:PutObject",
-  			"Resource": "arn:aws:s3:::<BillingBucketName>/*"
-  		},
-  		{
-  			"Sid": "Stmt1426774604002",
-  			"Effect": "Allow",
-  			"Principal": {
-  				"AWS": "<ReadOnlyUserOrRole>"
-  			},
-  			"Action": [
-  				"s3:List*",
-  				"s3:Get*"
-  			],
-  			"Resource": "arn:aws:s3:::<BillingBucketName>/*"
-  		}
-  	]
+      "Version": "2012-10-17",
+      "Id": "Policy1426774604000",
+      "Statement": [
+          {
+              "Sid": "Stmt1426774604000",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::386209384616:root"
+              },
+              "Action": [
+                  "s3:GetBucketAcl",
+                  "s3:GetBucketPolicy"
+              ],
+              "Resource": "arn:aws:s3:::<BillingBucketName>"
+          },
+          {
+              "Sid": "Stmt1426774604001",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "arn:aws:iam::386209384616:root"
+              },
+              "Action": "s3:PutObject",
+              "Resource": "arn:aws:s3:::<BillingBucketName>/*"
+          },
+          {
+              "Sid": "Stmt1426774604002",
+              "Effect": "Allow",
+              "Principal": {
+                  "AWS": "<ReadOnlyUserOrRole>"
+              },
+              "Action": [
+                  "s3:List*",
+                  "s3:Get*"
+              ],
+              "Resource": "arn:aws:s3:::<BillingBucketName>/*"
+          }
+      ]
    }
    ```
 

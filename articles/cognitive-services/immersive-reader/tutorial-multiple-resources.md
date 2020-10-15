@@ -10,22 +10,23 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 01/14/2020
 ms.author: skamal
+ms.custom: devx-track-js
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
 
 # Tutorial: Integrate multiple Immersive Reader resources
 
-In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. In the [Node.js quickstart](./quickstart-nodejs.md), you learned how to use Immersive Reader with a single resource. This tutorial covers how to integrate multiple Immersive Reader resources in the same application. In this tutorial, you learn how to:
+In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. In the [Node.js quickstart](./quickstarts/client-libraries.md?pivots=programming-language-nodejs), you learned how to use Immersive Reader with a single resource. This tutorial covers how to integrate multiple Immersive Reader resources in the same application. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create multiple Immersive Reader resource under an existing resource group
 > * Launch the Immersive Reader using multiple resources
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 
 ## Prerequisites
 
-* Follow the [quickstart](./quickstart-nodejs.md) to create a web app that launches the Immersive Reader with NodeJS. In that quickstart, you configure a single Immersive Reader resource. We will build on top of that in this tutorial.
+* Follow the [quickstart](./quickstarts/client-libraries.md?pivots=programming-language-nodejs) to create a web app that launches the Immersive Reader with NodeJS. In that quickstart, you configure a single Immersive Reader resource. We will build on top of that in this tutorial.
 
 ## Create the Immersive Reader resources
 
@@ -255,7 +256,7 @@ The **getimmersivereaderlaunchparams** API endpoint should be secured behind som
     npm start
     ```
 
-4. Open your browser and navigate to [http://localhost:3000](http://localhost:3000). You should see the above content on the page. Click on either the **EastUS Immersive Reader** button or the **WestUS Immersive Reader** button to launch the Immersive Reader using those respective resources.
+4. Open your browser and navigate to `http://localhost:3000`. You should see the above content on the page. Click on either the **EastUS Immersive Reader** button or the **WestUS Immersive Reader** button to launch the Immersive Reader using those respective resources.
 
 ## Next steps
 

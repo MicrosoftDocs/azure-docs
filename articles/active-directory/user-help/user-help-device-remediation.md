@@ -2,16 +2,16 @@
 title: Fixes for the "You can't get there from here" error - Azure AD
 description: Find potential fixes for why you're getting the "You can't get there from here" error message.
 services: active-directory
-author: eross-msft 
+author: curtand
 manager: daveba
 
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
-ms.topic: conceptual
+ms.topic: end-user-help
 ms.date: 10/10/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: "user-help, seo-update-azuread-jan"
 ---
@@ -24,7 +24,7 @@ If you get the **You can't get there from here** message saying that you're tryi
 
 ![Error message related to browser support](media/user-help-device-remediation/browser-version.png)
 
-To fix this problem, you must install and run a supported browser, based on your operating system. If you're using Windows 10, the supported browsers include Microsoft Edge, Internet Explorer, and Google Chrome. If you're using a different operating system, you can check the complete list of [supported browsers](../conditional-access/technical-reference.md#supported-browsers).
+To fix this problem, you must install and run a supported browser, based on your operating system. If you're using Windows 10, the supported browsers include Microsoft Edge, Internet Explorer, and Google Chrome. If you're using a different operating system, you can check the complete list of [supported browsers](../conditional-access/concept-conditional-access-conditions.md#supported-browsers).
 
 ## Make sure you're using a supported operating system
 Make sure that you're running a supported version of the operating system, including:
@@ -63,6 +63,6 @@ If your device isn't joined to your organization's network, you can do one of tw
 - **Register your personal device for work.** Register your personal device, typically a phone or tablet, on your organization's network. After your device is registered, it can access your organization's restricted resources. For more information and step-by-step instructions, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
 
 ## Next steps
-- [What is the MyApps portal?](active-directory-saas-access-panel-introduction.md)
+- [What is the MyApps portal?](./my-apps-portal-end-user-access.md)
 
 - [Sign in with your phone, not your password](user-help-auth-app-sign-in.md)

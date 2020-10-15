@@ -4,10 +4,11 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/09/2019
+ms.date: 07/10/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
+ms.custom:  [amqp, mqtt]
 ---
 
 # Prepare to deploy your IoT Edge solution in production
@@ -30,11 +31,14 @@ IoT Edge devices can be anything from a Raspberry Pi to a laptop to a virtual ma
 
 ### Install production certificates
 
-Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config.yaml file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config.yaml file. However, these temporary certificates expire after three months and aren't secure for production scenarios.
+Every IoT Edge device in production needs a device certificate authority (CA) certificate installed on it. That CA certificate is then declared to the IoT Edge runtime in the config.yaml file. For development and testing scenarios, the IoT Edge runtime creates temporary certificates if no certificates are declared in the config.yaml file. However, these temporary certificates expire after three months and aren't secure for production scenarios. For production scenarios, you should provide your own device CA certificate, either from a self-signed certificate authority or purchased from a commercial certificate authority.
+
+> [!NOTE]
+> Currently, a limitation in libiothsm prevents the use of certificates that expire on or after January 1, 2038.
 
 To understand the role of the device CA certificate, see [How Azure IoT Edge uses certificates](iot-edge-certs.md).
 
-For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Install production certificates on an IoT Edge device](how-to-create-transparent-gateway.md).
+For more information about how to install certificates on an IoT Edge device and reference them from the config.yaml file, see [Manage certificate on an IoT Edge device](how-to-manage-device-certificates.md).
 
 ### Have a device management plan
 
@@ -99,7 +103,7 @@ The IoT Edge hub is optimized for performance by default, so it attempts to allo
 
 When **OptimizeForPerformance** is set to **true**, the MQTT protocol head uses the PooledByteBufferAllocator, which has better performance but allocates more memory. The allocator does not work well on 32-bit operating systems or on devices with low memory. Additionally, when optimized for performance, RocksDb allocates more memory for its role as the local storage provider.
 
-For more information, see [Stability issues on resource constrained devices](troubleshoot.md#stability-issues-on-resource-constrained-devices).
+For more information, see [Stability issues on smaller devices](troubleshoot-common-errors.md#stability-issues-on-smaller-devices).
 
 #### Disable unused protocols
 
@@ -128,12 +132,31 @@ When moving from test scenarios to production scenarios, remember to remove debu
 * **Important**
   * Manage access to your container registry
   * Use tags to manage versions
+* **Helpful**
+  * Store runtime containers in your private registry
 
 ### Manage access to your container registry
 
 Before you deploy modules to production IoT Edge devices, ensure that you control access to your container registry so that outsiders can't access or make changes to your container images. Use a private, not public, container registry to manage container images.
 
-In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario. Azure Container Registry recommends [authenticating with service principals](../container-registry/container-registry-auth-service-principal.md) when applications or services pull container images in an automated or otherwise unattended manner, as IoT Edge devices do. Create a service principal with read-only access to your container registry, and provide that username and password in the deployment manifest.
+In the tutorials and other documentation, we instruct you to use the same container registry credentials on your IoT Edge device as you use on your development machine. These instructions are only intended to help you set up testing and development environments more easily, and should not be followed in a production scenario.
+
+For a more secured access to your registry, you have a choice of [authentication options](../container-registry/container-registry-authentication.md). A popular and recommended authentication is to use an Active Directory service principal that's well suited for applications or services to pull container images in an automated or otherwise unattended (headless) manner, as IoT Edge devices do.
+
+To create a service principal, run the two scripts as described in [create a service principal](../container-registry/container-registry-auth-service-principal.md#create-a-service-principal). These scripts do the following tasks:
+
+* The first script creates the service principal. It outputs the Service principal ID and the Service principal password. Store these values securely in your records.
+
+* The second script creates role assignments to grant to the service principal, which can be run subsequently if needed. We recommend applying the **acrPull** user role for the `role` parameter. For a list of roles, see [Azure Container Registry roles and permissions](../container-registry/container-registry-roles.md).
+
+To authenticate using a service principal, provide the service principal ID and password that you obtained from the first script. Specify these credentials in the deployment manifest.
+
+* For the username or client ID, specify the service principal ID.
+
+* For the password or client secret, specify the service principal password.
+
+> [!NOTE]
+> After implementing an enhanced security authentication, disable the **Admin user** setting so that the default username/password access is no longer available. In your container registry in the Azure portal, from the left pane menu under **Settings**, select **Access Keys**.
 
 ### Use tags to manage versions
 
@@ -142,6 +165,27 @@ A tag is a docker concept that you can use to distinguish between versions of do
 Tags also help you to enforce updates on your IoT Edge devices. When you push an updated version of a module to your container registry, increment the tag. Then, push a new deployment to your devices with the tag incremented. The container engine will recognize the incremented tag as a new version and will pull the latest module version down to your device.
 
 For an example of a tag convention, see [Update the IoT Edge runtime](how-to-update-iot-edge.md#understand-iot-edge-tags) to learn how IoT Edge uses rolling tags and specific tags to track versions.
+
+### Store runtime containers in your private registry
+
+You know about storing your container images for custom code modules in your private Azure registry, but you can also use it to store public container images such as for the edgeAgent and edgHub runtime modules. Doing so may be required if you have very tight firewall restrictions as these runtime containers are stored in the Microsoft Container Registry (MCR).
+
+Obtain the images with the Docker pull command to place in your private registry. Be aware that you will need to update the images with each new release of IoT Edge runtime.
+
+| IoT Edge runtime container | Docker pull command |
+| --- | --- |
+| [Azure IoT Edge Agent](https://hub.docker.com/_/microsoft-azureiotedge-agent) | `docker pull mcr.microsoft.com/azureiotedge-agent` |
+| [Azure IoT Edge Hub](https://hub.docker.com/_/microsoft-azureiotedge-hub) | `docker pull mcr.microsoft.com/azureiotedge-hub` |
+
+Next, be sure to update the image references in the deployment.template.json file for the edgeAgent and edgeHub system modules. Replace `mcr.microsoft.com` with your registry name and server for both modules.
+
+* edgeAgent:
+
+    `"image": "<registry name and server>/azureiotedge-agent:1.0",`
+
+* edgeHub:
+
+    `"image": "<registry name and server>/azureiotedge-hub:1.0",`
 
 ## Networking
 
@@ -152,7 +196,7 @@ For an example of a tag convention, see [Update the IoT Edge runtime](how-to-upd
 
 ### Review outbound/inbound configuration
 
-Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
+Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#check-your-firewall-and-port-configuration-rules).
 
 ### Allow connections from IoT Edge devices
 
@@ -170,7 +214,7 @@ This checklist is a starting point for firewall rules:
 
    | URL (\* = wildcard) | Outbound TCP Ports | Usage |
    | ----- | ----- | ----- |
-   | mcr.microsoft.com  | 443 | Microsoft container registry |
+   | mcr.microsoft.com  | 443 | Microsoft Container Registry |
    | global.azure-devices-provisioning.net  | 443 | DPS access (optional) |
    | \*.azurecr.io | 443 | Personal and third-party container registries |
    | \*.blob.core.windows.net | 443 | Download Azure Container Registry image deltas from blob storage |
@@ -178,6 +222,12 @@ This checklist is a starting point for firewall rules:
    | \*.docker.io  | 443 | Docker Hub access (optional) |
 
 Some of these firewall rules are inherited from Azure Container Registry. For more information, see [Configure rules to access an Azure container registry behind a firewall](../container-registry/container-registry-firewall-access-rules.md).
+
+> [!NOTE]
+> To provide a consistent FQDN between the REST and data endpoints, beginning **June 15, 2020** the Microsoft Container Registry data endpoint will change from `*.cdn.mscr.io` to `*.data.mcr.microsoft.com`  
+> For more information, see [Microsoft Container Registry client firewall rules configuration](https://github.com/microsoft/containerregistry/blob/master/client-firewall-rules.md)
+
+If you don't want to configure your firewall to allow access to public container registries, you can store images in your private container registry, as described in [Store runtime containers in your private registry](#store-runtime-containers-in-your-private-registry).
 
 ### Configure communication through a proxy
 
@@ -264,9 +314,9 @@ You can do so in the **createOptions** of each module. For example:
 
 ### Consider tests and CI/CD pipelines
 
-For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md).
+For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md).
 
 ## Next steps
 
 * Learn more about [IoT Edge automatic deployment](module-deployment-monitoring.md).
-* See how IoT Edge supports [Continuous integration and continuous deployment](how-to-ci-cd.md).
+* See how IoT Edge supports [Continuous integration and continuous deployment](how-to-continuous-integration-continuous-deployment.md).

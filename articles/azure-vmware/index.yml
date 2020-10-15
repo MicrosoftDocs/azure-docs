@@ -1,0 +1,88 @@
+### YamlMime:Landing
+
+title: Azure VMware Solution documentation
+summary: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
+
+metadata:
+  title: Azure VMware Solution documentation 
+  description: Learn how to use Azure VMware Solution to deploy a VMware private cloud to Azure
+  ms.service: azure-vmware 
+  ms.topic: landing-page 
+  author: dikamath 
+  ms.author: dikamath 
+  ms.date: 09/21/2020 
+
+# card 1
+landingContent:
+  - title: About Azure VMware Solution
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Azure VMware Solution?
+            url: introduction.md
+      - linkListType: concept
+        links:
+          - text: Private cloud and clusters
+            url: concepts-private-clouds-clusters.md
+          - text: Private cloud networking and interconnectivity
+            url: concepts-networking.md
+          - text: Storage in private clouds
+            url: concepts-storage.md
+          - text: Access and identity for private clouds
+            url: concepts-identity.md
+          - text: Role-based access control 
+            url: concepts-role-based-access-control.md
+          - text: Private cloud upgrades
+            url: concepts-upgrades.md
+
+# card 2
+  - title: Deploy Azure VMware Solution
+    linkLists:
+      - linkListType: get-started
+        links:
+          - text: Pre-deployment process
+            url: production-ready-deployment-steps.md
+          - text: Pre-deployment checklist
+            url: pre-deployment-checklist.md
+          - text: 1 - Deploy Azure VMware Solution
+            url: deploy-azure-vmware-solution.md
+          - text: 2 - Connect to on-premises
+            url: azure-vmware-solution-on-premises.md
+          - text: 3 - Deploy and configure HCX
+            url: tutorial-deploy-vmware-hcx.md
+      - linkListType: tutorial
+        links:
+          - text: Network planning checklist 
+            url: tutorial-network-checklist.md
+          - text: Create a private cloud
+            url: tutorial-create-private-cloud.md
+          - text: Access a private cloud 
+            url: tutorial-access-private-cloud.md
+          - text: Configure networking
+            url: tutorial-configure-networking.md
+          - text: Create an NSX-T network segment 
+            url: tutorial-nsx-t-network-segment.md
+          - text: Peer on-premises to private cloud 
+            url: tutorial-expressroute-global-reach-private-cloud.md
+          - text: Deploy and configure VMware HCX
+            url: tutorial-deploy-vmware-hcx.md
+          - text: Scale a private cloud 
+            url: tutorial-scale-private-cloud.md
+
+# card 3
+  - title: Extend Azure VMware Solution
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Migration assessment
+            url: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
+          - text: Manage DHCP
+            url: manage-dhcp.md
+          - text: Deploy disaster recovery for VMs
+            url: disaster-recovery-for-virtual-machines.md
+          - text: Deploy VM via content library
+            url: ./deploy-vm-content-library.md
+          - text: Use the public IP functionality
+            url: public-ip-usage.md
+
+

@@ -62,7 +62,7 @@
     href: walkthroughs-azure-data-lake.md
   - name: R, Python and T-SQL with SQL Server
     href: walkthroughs-sql-server.md
-  - name: T-SQL and Python with SQL DW
+  - name: T-SQL and Python with Azure Synapse Analytics
     href: walkthroughs-sql-data-warehouse.md
 - name: Utilities & tools
   items:
@@ -95,7 +95,7 @@
         href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: Get started using R Server on HDInsight
         href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
-    - name: Azure Machine Learning workspace
+    - name: Machine Learning Studio (classic) workspace
       href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
   - name: Analyze business needs
     items:
@@ -185,59 +185,38 @@
     - name: Create and train models
       items:
       - name: Choose algorithms
-        href: /azure/machine-learning/studio/algorithm-choice?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: /azure/machine-learning/how-to-select-algorithms?context=azure/machine-learning/team-data-science-process/context/ml-context
       - name: Algorithm cheat sheet
-        href: /azure/machine-learning/studio/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
+        href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/team-data-science-process/context/ml-context
   - name: Deploy models in production
     href: deploy-models-in-production.md
 - name: Related
   items:
-  - name: Azure Machine Learning
-    href: ../
-  - name: Azure AI Gallery
-    href: https://gallery.azure.ai
-  - name: Cortana Analytics
+  - name: Cognitive Services
+    href: https://docs.microsoft.com/azure/cognitive-services/
+  - name: Anomaly detection
+    href: apps-anomaly-detection-api.md
+  - name: Predictive maintenance
     items:
-    - name: Anomaly detection
-      href: apps-anomaly-detection-api.md
-    - name: Cognitive Services
-      href: https://docs.microsoft.com/azure/cognitive-services/
-    - name: Predictive maintenance
-      items:
-      - name: Overview
-        href: cortana-analytics-playbook-predictive-maintenance.md
-      - name: Architecture
-        href: cortana-analytics-architecture-predictive-maintenance.md
-      - name: Technical guide
-        href: cortana-analytics-technical-guide-predictive-maintenance.md
+    - name: Overview
+      href: predictive-maintenance-playbook.md
+    - name: Architecture
+      href: predictive-maintenance-architecture.md
+    - name: Technical guide
+      href: predictive-maintenance-technical-guide.md
 - name: Resources
   items:
-  - name: Blogs
-    items:
-    - name: Recent Updates for the TDSP
-      href: https://blogs.technet.microsoft.com/machinelearning/2017/10/09/the-microsoft-team-data-science-process-tdsp-recent-updates/
-    - name: Using the TDSP in Azure Machine Learning
-      href: https://blogs.technet.microsoft.com/machinelearning/2017/09/25/using-the-team-data-science-process-tdsp-in-azure-machine-learning/
-    - name: Data Science Utilities v.0.11 for the TDSP
-      href: https://blogs.technet.microsoft.com/machinelearning/2017/01/11/announcing-data-science-utilities-version-0-11-for-the-team-data-science-process/
-    - name: Latest utilities for the TDSP
-      href: https://blogs.technet.microsoft.com/machinelearning/2017/04/05/latest-rev-of-utilities-for-microsoft-team-data-science-process-tdsp-now-available/
-    - name: Data Science Project Planning Template
-      href: https://blogs.msdn.microsoft.com/buckwoody/2017/10/24/a-data-science-microsoft-project-template-you-can-use-in-your-solutions/
-    - name: Cortana Intelligence and Machine Learning Blog
-      href: https://blogs.technet.microsoft.com/machinelearning/
   - name: Organizations using TDSP
     items:
     - name: New Signature
-      href: https://newsignature.com/services/professional-services/advanced-analytics/
+      href: https://newsignature.com/services/
     - name: Blue Granite
       href: https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations
   - name: Related Microsoft resources
     items:
-    - name: MSDN forum
-      href: https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
+    - name: Microsoft Q&A question page
+      href: https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-machine-learning
     - name: Videos
       href: https://azure.microsoft.com/resources/videos/index/?services=machine-learning
-      

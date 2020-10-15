@@ -35,7 +35,7 @@ MABS performs backup with VSS as follows. The steps in this description are numb
 
 2. After the initial copy is made and verified, MABS uses the Hyper-V VSS writer to capture backups. The VSS writer provides a data-consistent set of disk blocks that are synchronized with the MABS server. This approach provides the benefit of a "full backup" with the MABS server, while minimizing the backup data that must be transferred across the network.
 
-3. The MABS protection agent on a server that is running Hyper-V uses the existing Hyper-V APIs to determine whether a protected virtual machine also supports VSS.
+3. The MABS protection agent on a server that's running Hyper-V uses the existing Hyper-V APIs to determine whether a protected virtual machine also supports VSS.
 
    - If a virtual machine complies with the requirements for online backup and has the Hyper-V integration services component installed, then the Hyper-V VSS writer recursively forwards the VSS request through to all VSS-aware processes on the virtual machine. This operation occurs without the MABS protection agent being installed on the virtual machine. The recursive VSS request allows the Hyper-V VSS writer to ensure that disk- write operations are synchronized so that a VSS snapshot is captured without the loss of data.
 
@@ -43,9 +43,9 @@ MABS performs backup with VSS as follows. The steps in this description are numb
 
    - If the virtual machine doesn't comply with online backup requirements, MABS automatically uses the Hyper-V APIs to pause the virtual machine before they capture data files.
 
-4. After the initial baseline copy of the virtual machine synchronizes with the MABS server, all changes that are made to the virtual machine resources are captured in a new recovery point. The recovery point represents the consistent state of the virtual machine at a specific time. Recovery point captures can occur at least one time a day. When a new recovery point is created, MABS uses block-level replication in conjunction with the Hyper-V VSS writer to determine which blocks have been altered on the server that is running Hyper-V after the last recovery point was created. These data blocks are then transferred to the MABS server and are applied to the replica of the protected data.
+4. After the initial baseline copy of the virtual machine synchronizes with the MABS server, all changes that are made to the virtual machine resources are captured in a new recovery point. The recovery point represents the consistent state of the virtual machine at a specific time. Recovery point captures can occur at least one time a day. When a new recovery point is created, MABS uses block-level replication in conjunction with the Hyper-V VSS writer to determine which blocks have been altered on the server that's running Hyper-V after the last recovery point was created. These data blocks are then transferred to the MABS server and are applied to the replica of the protected data.
 
-5. The MABS server uses VSS on the volumes that host recovery data so that multiple shadow copies are available. Each of these shadow copies provides a separate recovery. VSS recovery points are stored on the MABS server. The temporary copy that is made on the server running Hyper-V, is only stored for the duration of the MABS synchronization.
+5. The MABS server uses VSS on the volumes that host recovery data so that multiple shadow copies are available. Each of these shadow copies provides a separate recovery. VSS recovery points are stored on the MABS server. The temporary copy that's made on the server running Hyper-V is only stored for the duration of the MABS synchronization.
 
 >[!NOTE]
 >
@@ -58,10 +58,10 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 |Prerequisite|Details|
 |------------|-------|
 |MABS prerequisites|- If you want to perform item-level recovery for virtual machines (recover files, folders, volumes), then you'll need to install the Hyper-V role on the MABS server.  If you only want to recover the virtual machine and not item-level, then the role isn't required.<br />-   You can protect up to 800 virtual machines of 100 GB each on one MABS server and allow multiple MABS servers that support larger clusters.<br />-   MABS excludes the page file from incremental backups to improve virtual machine backup performance.<br />-   MABS can back up a Hyper-V server or cluster in the same domain as the MABS server, or in a child or trusted domain. If you want to back up Hyper-V in a workgroup or an untrusted domain, you'll need to set up authentication. For a single Hyper-V server, you can use NTLM or certificate authentication. For a cluster, you can use certificate authentication only.<br />-   Using host-level backup to back up virtual machine data on passthrough disks isn't supported. In this scenario, we recommend you use host-level backup to back up VHD files and guest-level backup to back up the other data that isn't visible on the host.<br />   -You can back up VMs stored on deduplicated volumes.|
-|Hyper-V VM prerequisites|-   The version of Integration Components that is running on the virtual machine should be the same as the version of the Hyper-V host. <br />-   For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow Hyper-V enough room for differencing disks (AVHD's) during backup. The space must be at least equal to the calculation **Initial disk size\*Churn rate\*Backup** window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation.<br />-   To back up virtual machines located on Hyper-V host servers running Windows Server 2012 R2, the virtual machine should have a SCSI controller specified, even if it's not connected to anything. (In Windows Server 2012 R2 online backup, the Hyper-V host mounts a new VHD in the VM and then later dismounts it. Only the SCSI controller can support this and therefore is required for online backup of the virtual machine.  Without this setting, event ID 10103 will be issued when you try to back up the virtual machine.)|
-|Linux prerequisites|-   You can back up Linux virtual machines using MABS 2012 R2. Only file-consistent snapshots are supported.|
+|Hyper-V VM prerequisites|-   The version of Integration Components that's running on the virtual machine should be the same as the version of the Hyper-V host. <br />-   For each virtual machine backup you'll need free space on the volume hosting the virtual hard disk files to allow Hyper-V enough room for differencing disks (AVHD's) during backup. The space must be at least equal to the calculation **Initial disk size\*Churn rate\*Backup** window time. If you're running multiple backups on a cluster, you'll need enough storage capacity to accommodate the AVHDs for each of the virtual machines using this calculation.<br />-   To back up virtual machines located on Hyper-V host servers running Windows Server 2012 R2, the virtual machine should have a SCSI controller specified, even if it's not connected to anything. (In Windows Server 2012 R2 online backup, the Hyper-V host mounts a new VHD in the VM and then later dismounts it. Only the SCSI controller can support this and therefore is required for online backup of the virtual machine.  Without this setting, event ID 10103 will be issued when you try to back up the virtual machine.)|
+|Linux prerequisites|-   You can back up Linux virtual machines using MABS. Only file-consistent snapshots are supported.|
 |Back up VMs with CSV storage|-   For CSV storage, install the Volume Shadow Copy Services (VSS) hardware provider on the Hyper-V server. Contact your storage area network (SAN) vendor for the VSS hardware provider.<br />-   If a single node shuts down unexpectedly in a CSV cluster, MABS will perform a consistency check against the virtual machines that were running on that node.<br />-   If you need to restart a Hyper-V server that has BitLocker Drive Encryption enabled on the CSV cluster, you must run a consistency check for Hyper-V virtual machines.|
-|Back up VMs with SMB storage|-   Turn on auto-mount on the server that is running Hyper-V to enable virtual machine protection.<br />   -   Disable TCP Chimney Offload.<br />-   Ensure that all Hyper-V machine$ accounts have full permissions on the specific remote SMB file shares.<br />-   Ensure that the file path for all virtual machine components during recovery to alternate location is fewer than 260 characters. If not, recovery might succeed, but Hyper-V won't be able to mount the virtual machine.<br />-   The following scenarios aren't supported:<br />     Deployments where some components of the virtual machine are on local volumes and some components are on remote volumes; an IPv4 or IPv6 address for storage location file server, and recovery of a virtual machine to a computer that uses remote SMB shares.<br />-   You'll need to enable the File Server VSS Agent service on each SMB server - Add it in **Add roles and features** > **Select server roles** > **File and Storage Services** > **File Services** > **File Service** > **File Server VSS Agent Service**.|
+|Back up VMs with SMB storage|-   Turn on auto-mount on the server that's running Hyper-V to enable virtual machine protection.<br />   -   Disable TCP Chimney Offload.<br />-   Ensure that all Hyper-V machine$ accounts have full permissions on the specific remote SMB file shares.<br />-   Ensure that the file path for all virtual machine components during recovery to alternate location is fewer than 260 characters. If not, recovery might succeed, but Hyper-V won't be able to mount the virtual machine.<br />-   The following scenarios aren't supported:<br />     Deployments where some components of the virtual machine are on local volumes and some components are on remote volumes; an IPv4 or IPv6 address for storage location file server, and recovery of a virtual machine to a computer that uses remote SMB shares.<br />-   You'll need to enable the File Server VSS Agent service on each SMB server - Add it in **Add roles and features** > **Select server roles** > **File and Storage Services** > **File Services** > **File Service** > **File Server VSS Agent Service**.|
 
 ## Back up virtual machines
 
@@ -73,7 +73,7 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 
 2. Set up the MABS protection agent on the Hyper-V server or Hyper-V cluster nodes. If you're doing guest-level backup, you'll install the agent on the VMs you want to back up at the guest-level.
 
-3. In  the MABS Administrator console, click **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
+3. In  the MABS Administrator console, select **Protection** > **Create protection group** to open the **Create New Protection Group** wizard.
 
 4. On the **Select Group Members** page, select the VMs you want to protect from the Hyper-V host servers on which they're located. We recommend you put all VMs that will have the same protection policy into one protection group. To make efficient use of space, enable colocation. Colocation allows you to locate data from different protection groups on the same disk or tape storage, so that multiple data sources have a single replica and recovery point volume.
 
@@ -95,83 +95,6 @@ These are the prerequisites for backing up Hyper-V virtual machines with MABS:
 
     After you create the protection group, initial replication of the data occurs in accordance with the method you selected. After initial replication, each backup takes place in line with the protection group settings. If you need to recover backed up data, note the following:
 
-## Back up virtual machines configured for live migration
-
-When virtual machines are involved in live migration, MABS continues to protect the virtual machines as long as the MABS protection agent is installed on the Hyper-V host. The way in which MABS protects the virtual machines depends on the type of live migration involved.
-
-**Live migration within a cluster** - When a virtual machine is migrated within a cluster MABS detects the migration, and backs up the virtual machine from the new cluster node without any requirement for user intervention. Because the storage location hasn't changed, MABS continues with express full backups.
-
-**Live migration outside the cluster** - When a virtual machine is migrated between stand-alone servers, different clusters, or between a stand-alone server and a cluster, MABS detects the migration, and can back up the virtual machine without user intervention.
-
-### Requirements for maintaining protection
-
-The following are requirements for maintaining protection during live migration:
-
-- The Hyper-V hosts for the virtual machines must be located in a System Center VMM cloud, on a VMM server, running at least System Center 2012 with SP1.
-
-- The MABS protection agent must be installed on all Hyper-V hosts.
-
-- MABS servers must be connected to the VMM server. All Hyper-V host servers in the VMM cloud must also be connected to the MABS servers. This allows MABS to communicate with the VMM server so MABS can find out on which Hyper-V host server the virtual machine is currently running, and to create a new backup from that Hyper-V server. If a connection can't be established to the Hyper-V server, the backup fails with a message that the MABS protection agent is unreachable.
-
-- All MABS servers, VMM servers, and Hyper-V host servers must be in the same domain.
-
-### Details about live migration
-
-Note the following for backup during live migration:
-
-- If a live migration transfers storage, MABS performs a full consistency check of the virtual machine, and then continues with express full backups. When live migration of storage occurs, Hyper-V reorganizes the virtual hard disk (VHD) or VHDX, which causes a one-time spike in the size of the MABS backup data.
-
-- On the virtual machine host, turn on auto-mount to enable virtual protection, and disable TCP Chimney Offload.
-
-- MABS uses port 6070 as the default port for hosting the DPM-VMM Helper Service. To change the registry:
-
-    1. Navigate to **HKLM\Software\Microsoft\Microsoft Data Protection Manager\Configuration**.
-    2. Create a 32-bit DWORD value: DpmVmmHelperServicePort, and write the updated port number as part of the registry key.
-    3. Open ```<Install directory>\Azure Backup Server\DPM\DPM\VmmHelperService\VmmHelperServiceHost.exe.config```, and change the port number from 6070 to the new port. For example: ```<add baseAddress="net.tcp://localhost:6080/VmmHelperService/" />```
-    4. Restart the DPM-VMM Helper service, and restart the DPM service.
-
-### Set up protection for live migration
-
-To set up protection for live migration:
-
-1. Set up the MABS server and its storage, and install the MABS protection agent on every Hyper-V host server or cluster node in the VMM cloud. If you're using SMB storage in a cluster, install the MABS protection agent on all cluster nodes.
-
-2. Install the VMM console as a client component on the MABS server so that MABS can communicate with the VMM server. The console should be the same version as the one running on the VMM server.
-
-3. Assign the MABSMachineName$ account as a read-only administrator account on the VMM management server.
-
-4. Connect all Hyper-V host servers to all MABS servers with the `Set-DPMGlobalProperty` PowerShell cmdlet. The cmdlet accepts multiple MABS server names. Use the format: `Set-DPMGlobalProperty -dpmservername <MABSservername> -knownvmmservers <vmmservername>`. For more information, see [Set-DPMGlobalProperty](https://technet.microsoft.com/library/hh881752.aspx).
-
-5. After all virtual machines running on the Hyper-V hosts in the VMM clouds are discovered in VMM, set up a protection group and add the virtual machines you want to protect. Automatic consistency checks should be enabled at the protection group level for protection under virtual machine mobility scenarios.
-
-6. After the settings are configured, when a virtual machine migrates from one cluster to another all backups continue as expected. You can verify live migration is enabled as expected as follows:
-
-   1. Check the DPM-VMM Helper Service is running. If it isn't, start it.
-
-   2. Open Microsoft SQL Server Management Studio and connect to the instance that hosts the MABS database (DPMDB). On DPMDB run the following query: `SELECT TOP 1000 [PropertyName] ,[PropertyValue] FROM[DPMDB].[dbo].[tbl_DLS_GlobalSetting]`.
-
-      This query contains a property called `KnownVMMServer`. This value should be the same value you provided with the `Set-DPMGlobalProperty` cmdlet.
-
-   3. Run the following query to validate the *VMMIdentifier* parameter in the `PhysicalPathXML` for a particular virtual machine. Replace `VMName` with the name of the virtual machine.
-
-      ```sql
-      select cast(PhysicalPath as XML) from tbl_IM_ProtectedObject where DataSourceId in (select datasourceid from tbl_IM_DataSource   where DataSourceName like '%<VMName>%')
-      ```
-
-   4. Open the .xml file that this query returns and validate that the *VMMIdentifier* field has a value.
-
-### Run manual migration
-
-After you complete the steps in the previous sections, and the MABS Summary Manager job completes, migration is enabled. By default, this job starts at midnight and runs every morning. If you want to run a manual migration, to check everything is working as expected, do the following:
-
-1. Open SQL Server Management Studio and connect to the instance that hosts the MABS database.
-
-2. Run the following query: `select * from tbl_SCH_ScheduleDefinition where JobDefinitionID='9B30D213-B836-4B9E-97C2-DB03C3EB39D7'`. This query returns the **ScheduleID**. Note this ID as you will use it in the next step.
-
-3. In the SQL Server Management Studio, expand **SQL Server Agent**, and then expand **Jobs**. Right-click **ScheduleID** that you noted, and select **Start Job at Step**.
-
-Backup performance is affected when the job runs. The size and scale of your deployment determines how much time the job takes to finish.
-
 ## Back up replica virtual machines
 
 If MABS is running on Windows Server 2012 R2 or greater, then you can back up replica virtual machines. This is useful for several reasons:
@@ -182,7 +105,7 @@ If MABS is running on Windows Server 2012 R2 or greater, then you can back up re
 
 **Enables hoster backup** - You can use a hosted datacenter as a replica site, with no need for a secondary datacenter. In this case, the hoster SLA requires consistent backup of replica virtual machines.
 
-A replica virtual machine is turned off until a failover is initiated, and VSS can't guarantee an application-consistent backup for a replica virtual machine. Thus the backup of a replica virtual machine will be crash-consistent only. If crash-consistency can't be guaranteed, then the backup will fail and this might occur in a number of conditions:
+A replica virtual machine is turned off until a failover is initiated, and VSS can't guarantee an application-consistent backup for a replica virtual machine. So the backup of a replica virtual machine will be crash-consistent only. If crash-consistency can't be guaranteed, then the backup will fail and this might occur in a number of conditions:
 
 - The replica virtual machine isn't healthy and is in a critical state.
 
@@ -200,31 +123,31 @@ When you can recover a backed up virtual machine, you use the Recovery wizard to
 
 1. In the MABS Administrator console, type the name of the VM, or expand the list of protected items and select the VM you want to recover.
 
-2. In the **Recovery points for** pane, on the calendar, click any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
+2. In the **Recovery points for** pane, on the calendar, select any date to see the recovery points available. Then in the **Path** pane, select the recovery point you want to use in the Recovery wizard.
 
-3. From the **Actions** menu, click **Recover** to open the Recovery Wizard.
+3. From the **Actions** menu, select **Recover** to open the Recovery Wizard.
 
-    The VM and recovery point you selected appear in the **Review Recovery Selection** screen. Click **Next**.
+    The VM and recovery point you selected appear in the **Review Recovery Selection** screen. Select **Next**.
 
-4. On the **Select Recovery Type** screen, select where you want to restore the data and then click **Next**.
+4. On the **Select Recovery Type** screen, select where you want to restore the data and then select **Next**.
 
     - **Recover to original instance**: When you recover to the original instance, the original VHD is deleted. MABS recovers the VHD and other configuration files to the original location using Hyper-V VSS writer. At the end of the recovery process, virtual machines are still highly available.
         The resource group must be present for recovery. If it isn't available, recover to an alternate location and then make the virtual machine highly available.
 
-    - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Hyper-V virtual machine to a different Hyper-V host, independent of processor architecture. Hyper-V virtual machines that are recovered to a cluster node will not be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
+    - **Recover as virtual machine to any host**: MABS supports alternate location recovery (ALR), which provides a seamless recovery of a protected Hyper-V virtual machine to a different Hyper-V host, independent of processor architecture. Hyper-V virtual machines that are recovered to a cluster node won't be highly available. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 
     - **Copy to a network folder**: MABS supports item-level recovery (ILR), which allows you to do item-level recovery of files, folders, volumes, and virtual hard disks (VHDs) from a host-level backup of Hyper-V virtual machines to a network share or a volume on a MABS protected server. The MABS protection agent doesn't have to be installed inside the guest to perform item-level recovery. If you choose this option, the Recovery Wizard presents you with an additional screen for identifying the destination and destination path.
 
-5. In **Specify Recovery Options** configure the recovery options and click **Next**:
+5. In **Specify Recovery Options** configure the recovery options and select **Next**:
 
-    - If you are recovering a VM over low bandwidth, click **Modify** to enable **Network bandwidth usage throttling**. After turning on the throttling option, you can specify the amount of bandwidth you want to make available and the time when that bandwidth is available.
-    - Select **Enable SAN based recovery using hardware snapshots** if you have configured your network.
+    - If you are recovering a VM over low bandwidth, select **Modify** to enable **Network bandwidth usage throttling**. After turning on the throttling option, you can specify the amount of bandwidth you want to make available and the time when that bandwidth is available.
+    - Select **Enable SAN based recovery using hardware snapshots** if you've configured your network.
     - Select **Send an e-mail when the recovery completes** and then provide the email addresses, if you want email notifications sent once the recovery process completes.
 
-6. In the Summary screen, make sure all details are correct. If the details aren't correct, or you want to make a change, click **Back**. If you are satisfied with the settings, click **Recover** to start the recovery process.
+6. In the Summary screen, make sure all details are correct. If the details aren't correct, or you want to make a change, select **Back**. If you're satisfied with the settings, select **Recover** to start the recovery process.
 
 7. The **Recovery Status** screen provides information about the recovery job.
 
 ## Next steps
 
-[Recover data from Azure Backup Server](https://docs.microsoft.com/azure/backup/backup-azure-alternate-dpm-server)
+[Recover data from Azure Backup Server](./backup-azure-alternate-dpm-server.md)

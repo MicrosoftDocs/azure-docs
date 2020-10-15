@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.date: 12/23/2019
+ms.date: 02/14/2020
 ---
 
 # Add custom Apache Hive libraries when creating your HDInsight cluster
@@ -28,7 +28,7 @@ Using the script action in this article makes the libraries available when using
 
 [https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1](https://hdiconfigactions.blob.core.windows.net/setupcustomhivelibsv01/setup-customhivelibs-v01.ps1)
 
-**Requirements**
+### Requirements
 
 * The scripts must be applied to both the **Head nodes** and **Worker nodes**.
 
@@ -45,7 +45,7 @@ Using the script action in this article makes the libraries available when using
 
 ## Create a cluster using the script
 
-1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md), but don't complete provisioning. You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md). For the Azure portal, you must select the **Go to classic create experience** option, and then **Custom(size, settings, apps)**.
+1. Start provisioning a cluster by using the steps in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md), but don't complete provisioning. You can also use Azure PowerShell or the HDInsight .NET SDK to create a cluster using this script. For more information on using these methods, see [Customize HDInsight clusters with Script Actions](hdinsight-hadoop-customize-cluster-linux.md). For the Azure portal, from the **Configuration + pricing** tab, select the **+ Add script action**.
 
 1. For **Storage**, if the storage account containing the library of jar files will be different than the account used for the cluster, complete **Additional storage accounts**.
 
@@ -59,9 +59,12 @@ Using the script action in this article makes the libraries available when using
     |Node type(s)|Head, Worker|
     |Parameters|Enter the WASB address to the container and storage account that contains the jars. For example, `wasbs://libs@mystorage.blob.core.windows.net/`.|
 
+    > [!NOTE]
+    > For Apache Spark 2.1, use this bash script URI: `https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v00.sh`.
+
 1. Continue provisioning the cluster as described in [Provision HDInsight clusters on Linux](hdinsight-hadoop-provision-linux-clusters.md).
 
-Once cluster creation finishes, you're able to use the jars added through this script from Hive without having to use the `ADD JAR` statement.
+Once cluster creation completes, you're able to use the jars added through this script from Hive without having to use the `ADD JAR` statement.
 
 ## Next steps
 

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Gigya | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Gigya.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Gigya
 
@@ -108,7 +102,7 @@ To configure Azure AD single sign-on with Gigya, perform the following steps:
     `https://fidm.gigya.com/saml/v2.0/<companyname>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Gigya Client support team](https://www.gigya.com/support-policy/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Gigya Client support team](https://developers.gigya.com/display/GD/Opening+A+Support+Incident) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 

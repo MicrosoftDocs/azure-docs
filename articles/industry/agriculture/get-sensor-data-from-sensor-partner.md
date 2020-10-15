@@ -32,38 +32,63 @@ After you start the streaming of sensor data, you can begin the process of getti
  - Client secret
  - EventHub connection string
 
-You can generate the above information by following these steps: (Please note these steps are required to be done on Azure so you will need access to the Azure subscription where FarmBeats is deployed)
+Follow the below steps to  generate the above information:
 
-1. Download the [zip file](https://aka.ms/farmbeatspartnerscriptv2), and extract it to your local drive. There will be one file inside the zip file.
-2. Sign in to https://portal.azure.com/ and go to Azure Active Directory -> App Registrations
+> [!NOTE]
+> These steps are required to be completed on Azure to access the Azure
+> subscription where FarmBeats is deployed.
 
-3. Click on the App Registration that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats data hub.
+1. Sign in to https://portal.azure.com/.
 
-4. Click on “Expose an API” -> Click “Add a client application” and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check "Authorize Scope". This will give access to the Azure CLI (Cloud Shell) to perform the below steps.
+2. **If you are on FarmBeats version 1.2.7 or later, skip steps a, b and c, and go to step 3.** You can check FarmBeats version by selecting the **Settings** icon on the top-right corner of the FarmBeats UI.
 
-5. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
+      a.  Go to **Azure Active Directory** > **App Registrations**
+
+      b. Select the **App Registration** that was created as part of your FarmBeats deployment. It will have the same name as your FarmBeats datahub.
+
+      c. Select **Expose an API** > select **Add a client application** and enter **04b07795-8ddb-461a-bbee-02f9e1bf7b46** and check **Authorize Scope**. This will give access to the Azure CLI (Cloud Shell) to perform the below steps:
+
+3. Open Cloud Shell. This option is available on the toolbar in the upper-right corner of the Azure portal.
 
     ![Azure portal toolbar](./media/get-drone-imagery-from-drone-partner/navigation-bar-1.png)
 
-6. Make sure the environment is set to **PowerShell**. By default, it's set to Bash.
+4. Ensure the environment is set to **PowerShell**. By default, it's set to Bash.
 
     ![PowerShell toolbar setting](./media/get-sensor-data-from-sensor-partner/power-shell-new-1.png)
 
-7. Upload the file from step 1 in your Cloud Shell instance.
+5. Go to your home directory.
 
-    ![Upload toolbar button](./media/get-sensor-data-from-sensor-partner/power-shell-two-1.png)
+    ```azurepowershell-interactive
+    cd
+    ```
 
-8. Go to the directory where the file was uploaded. By default, files get uploaded to the home directory under the username.
+6. Run the following command. This connects an authenticated account to use for Azure AD requests
 
-9. Run the following script. The script asks for the Tenant ID which can be obtained from Azure Active Directory -> Overview page.
+    ```azurepowershell-interactive
+    Connect-AzureAD
+    ```
 
-    ```azurepowershell-interactive 
+7. Run the following command. This will download a script to your home directory.
 
-    ./generatePartnerCredentials.ps1   
+    ```azurepowershell-interactive
+
+    wget –q https://aka.ms/farmbeatspartnerscriptv3 -O ./generatePartnerCredentials.ps1
 
     ```
 
-10. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
+8. Run the following script. The script asks for the Tenant ID, which can be obtained from **Azure Active Directory** > **Overview** page.
+
+    ```azurepowershell-interactive
+
+    ./generatePartnerCredentials.ps1
+
+    ```
+
+> [!NOTE]
+> 1. The Datahub API Endpoint name must be in lower case.
+> 2. If you are copying the farmbeats website name url for Datahub API Endpoint, make sure there is no trailing slash (/).
+
+9. Follow the onscreen instructions to capture the values for **API Endpoint**, **Tenant ID**, **Client ID**, **Client Secret**, and **EventHub Connection String**.
 
 ### Integrate device data by using the generated credentials
 
@@ -73,12 +98,16 @@ Now you have the following information generated from the previous section.
  - Client ID
  - Client secret
  - Tenant ID
- 
-You will need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you are using devices from Davis Instruments, please go to the below page:
 
-[Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
+You will need to provide this to your device partner for linking FarmBeats. Go to the device partner portal for doing the same. For example, in case you are using devices from Davis Instruments, Teralytic or Pessl Instruments (Metos.at) go to the corresponding pages as mentioned below:
 
- The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
+1. [Davis Instruments](https://weatherlink.github.io/azure-farmbeats/setup)
+
+2. [Teralytic](https://app.teralytic.com/)
+
+3. [Pessl Instruments](https://ng.fieldclimate.com/user-api-services)
+
+The device provider confirms a successful integration. Upon confirmation, you can view all the devices and sensors on Azure FarmBeats.
 
 ## View devices and sensors
 
@@ -91,7 +120,7 @@ Currently, FarmBeats supports the following devices:
 - **Node**: A device to which one or more sensors are attached.
 - **Gateway**: A device to which one or more nodes are attached.
 
-Follow these steps.
+Follow these steps:
 
 1. On the home page, select **Devices** from the menu.
   The **Devices** page displays the device type, model, status, the farm it's placed in, and the last updated date for metadata. By default, the farm column is set to *NULL*. You can choose to assign a device to a farm. For more information, see [Assign devices](#assign-devices).
@@ -101,7 +130,7 @@ Follow these steps.
 
 ### View sensors
 
-Follow these steps.
+Follow these steps:
 
 1. On the home page, select **Sensors** from the menu.
   The **Sensors** page displays details about the type of sensor, the farm it's connected to, parent device, port name, port type, and the last updated status.
@@ -109,7 +138,7 @@ Follow these steps.
 
     ![Sensors page](./media/get-sensor-data-from-sensor-partner/view-sensors-1.png)
 
-## Assign devices  
+## Assign devices
 
 After the sensor data is flowing in, you can assign it to the farm where you deployed the sensors.
 
@@ -125,11 +154,12 @@ After the sensor data is flowing in, you can assign it to the farm where you dep
     ![Associate Devices window](./media/get-sensor-data-from-sensor-partner/associate-devices-1.png)
 
 6. To associate each device to a different farm, select the drop-down arrow in the **Assign to Farm** column, and select a farm for each device row.
+
 7. Select **Assign** to complete the device assignment.
 
 ### Visualize sensor data
 
-Follow these steps.
+Follow these steps:
 
 1. On the home page, select **Farms** from the menu to view the **Farms** page.
 2. Select the **Farm** for which you want to see the sensor data.
@@ -139,7 +169,7 @@ Follow these steps.
 
 ## Delete a sensor
 
-Follow these steps.
+Follow these steps:
 
 1. On the home page, select **Sensors** from the menu to view the **Sensors** page.
 2. Select the device you want to delete, and select **Delete** in the confirmation window.
@@ -150,7 +180,7 @@ A confirmation message shows that the sensor is successfully deleted.
 
 ## Delete devices
 
-Follow these steps.
+Follow these steps:
 
 1. On the home page, select **Devices** from the menu to view the **Devices** page.
 2. Select the device you want to delete, and select **Delete** in the confirmation window.

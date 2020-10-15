@@ -26,6 +26,8 @@
   items:
   - name: Deciding on deployment architecture
     href: deployment-architecture.md
+  - name: Troubleshooting
+    href: troubleshoot.md
 - name: Resources
   items:
   - name: Frequently asked questions

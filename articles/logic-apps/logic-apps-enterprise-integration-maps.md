@@ -59,7 +59,7 @@ map that references the assembly.
     | [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) | This tool helps you more easily manage storage accounts and blob containers. To use Storage Explorer, either [download and install Azure Storage Explorer](https://www.storageexplorer.com/). Then, connect Storage Explorer to your storage account by following the steps in [Get started with Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md). To learn more, see [Quickstart: Create a blob in object storage with Azure Storage Explorer](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>Or, in the Azure portal, find and select your storage account. From your storage account menu, select **Storage Explorer**. |
     |||
 
-  * For maps, you can currently add larger maps by using the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * For maps, you can currently add larger maps by using the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
 
 You don't need a logic app when creating and adding maps. 
 However, to use a map, your logic app needs linking to 
@@ -93,7 +93,7 @@ If you don't have a logic app yet, learn [how to create logic apps](../logic-app
 
 1. After the **Assemblies** page opens, choose **Add**.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
+   ![Screenshot that highlights the Add button on the Assemblies page.](./media/logic-apps-enterprise-integration-maps/add-assembly.png)
 
 Based on your assembly file's size, follow the 
 steps for uploading an assembly that's either 
@@ -305,7 +305,7 @@ you can now upload your map.
 
 ### Add maps more than 2 MB
 
-Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+Currently, to add larger maps, use the [Azure Logic Apps REST API - Maps](/rest/api/logic/maps/createorupdate).
 
 <!--
 

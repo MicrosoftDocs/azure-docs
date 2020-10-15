@@ -1,6 +1,6 @@
 ---
-title: Import export of Azure IoT Hub device identities | Microsoft Docs
-description: How to use the Azure IoT service SDK to perform bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
+title: Import/Export of Azure IoT Hub device identities | Microsoft Docs
+description: How to use the Azure IoT service SDK to run bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,20 +8,21 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
+ms.custom: devx-track-csharp
 ---
 
 # Import and export IoT Hub device identities in bulk
 
 Each IoT hub has an identity registry you can use to create per-device resources in the service. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry. To see a working sample in C# and learn how you can use this capability when cloning a hub to a different region, see [How to Clone an IoT Hub](iot-hub-how-to-clone.md).
 
-[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
+> [!NOTE]
+> IoT Hub has recently added virtual network support in a limited number of regions. This feature secures import and export operations and eliminates the need to pass keys for authentication.  Initially, virtual network support is available only in these regions: *WestUS2*, *EastUS*, and *SouthCentralUS*. To learn more about virtual network support and the API calls to implement it, see [IoT Hub Support for virtual networks](virtual-network-support.md).
 
 Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
 
 The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDevicesAsync** methods that use the **Job** framework. These methods enable you to export, import, and synchronize the entirety of an IoT hub identity registry.
 
-This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub’s identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](/azure/iot-dps).
-
+This topic discusses using the **RegistryManager** class and **Job** system to perform bulk imports and exports of devices to and from an IoT hub's identity registry. You can also use the Azure IoT Hub Device Provisioning Service to enable zero-touch, just-in-time provisioning to one or more IoT hubs without requiring human intervention. To learn more, see the [provisioning service documentation](/azure/iot-dps).
 
 ## What are jobs?
 
@@ -79,6 +80,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+> [!NOTE]
+> If your storage account has firewall configurations that restrict IoT Hub's connectivity, consider using [Microsoft trusted first party exception](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing) (available in select regions for IoT hubs with managed service identity).
+
 
 ## Device import/export job limits
 
@@ -254,11 +259,11 @@ Use the optional **importMode** property in the import serialization data for ea
 
 | importMode | Description |
 | --- | --- |
-| **createOrUpdate** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
-| **create** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
+| **createOrUpdate** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data without regard to the **ETag** value. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
+| **create** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
 | **update** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
 | **updateIfMatchETag** |If a device already exists with the specified **ID**, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If the device does not exist, an error is written to the log file. <br/>If there is an **ETag** mismatch, an error is written to the log file. |
-| **createOrUpdateIfMatchETag** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin’s etag, if specified, is processed independently from the device’s etag. If there is a mismatch with the existing twin’s etag, an error is written to the log file. |
+| **createOrUpdateIfMatchETag** |If a device does not exist with the specified **ID**, it is newly registered. <br/>If the device already exists, existing information is overwritten with the provided input data only if there is an **ETag** match. <br/>If there is an **ETag** mismatch, an error is written to the log file. <br> The user can optionally specify twin data along with the device data. The twin's etag, if specified, is processed independently from the device's etag. If there is a mismatch with the existing twin's etag, an error is written to the log file. |
 | **delete** |If a device already exists with the specified **ID**, it is deleted without regard to the **ETag** value. <br/>If the device does not exist, an error is written to the log file. |
 | **deleteIfMatchETag** |If a device already exists with the specified **ID**, it is deleted only if there is an **ETag** match. If the device does not exist, an error is written to the log file. <br/>If there is an ETag mismatch, an error is written to the log file. |
 

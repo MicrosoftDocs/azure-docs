@@ -10,9 +10,8 @@ metadata:
   ms.service: active-directory
   ms.subservice: user-help
   ms.topic: landing-page
-  ms.collection: M365-identity-device-management
-  author: eross-msft
-  ms.author: lizross
+  author: curtand
+  ms.author: curtand
   ms.date: 08/26/2019
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -74,7 +73,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: Access the My Apps portal
-            url: my-applications-portal-access.md
+            url: my-apps-portal-end-user-access.md
       - linkListType: how-to-guide
         links:
           - text: Access and use workspaces
@@ -86,7 +85,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Additional verification page?
-            url: user-help-two-step-verification-overview.md
+            url: ./multi-factor-authentication-end-user-first-time.md
       - linkListType: how-to-guide
         links:
           - text: Set up your verification methods

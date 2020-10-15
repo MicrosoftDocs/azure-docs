@@ -9,6 +9,7 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
+ms.custom: devx-track-python
 ---
 
 # Example: Create a custom skill using Python
@@ -21,12 +22,12 @@ The custom skill is simple by design (it concatenates two strings) so that you c
 
 + Review the [custom skill interface](cognitive-search-custom-skill-interface.md) for an introduction into the input/output interface that a custom skill should implement.
 
-+ Set up your environment. We followed [this tutorial end-to-end](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions. The tutorial leads you through installation of the following tools and components: 
++ Set up your environment. We followed [this tutorial end-to-end](/azure/python/tutorial-vs-code-serverless-python-01) to set up serverless Azure Function using Visual Studio Code and Python extensions. The tutorial leads you through installation of the following tools and components: 
 
   + [Python 3.75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Python extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
   + [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## Create an Azure Function
@@ -48,12 +49,12 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 1. Select the Python version, (version 3.7.5 is supported by Azure Functions)
 1. Select a template for your project's first function. Select **HTTP trigger** to create an HTTP triggered function in the new function app.
 1. Provide a function name. In this case, let's use **Concatenator** 
-1. Select **Function** as the Authorization level. This means that we will provide a [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) to call the function's HTTP endpoint. 
+1. Select **Function** as the Authorization level. This means that we will provide a [function key](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) to call the function's HTTP endpoint. 
 1. Select how you would like to open your project. For this step, select **Add to workspace** to create the function app in the current workspace.
 
 Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../azure-functions/functions-host-json.md) and [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. 
 
-A new HTTP triggered function is also created in the **Concatenator** folder of the function app project. Inside it there will be a file called "\__init__.py", with this content:
+A new HTTP triggered function is also created in the **Concatenator** folder of the function app project. Inside it there will be a file called "\_\_init__.py", with this content:
 
 ```py
 import logging
@@ -266,5 +267,5 @@ Congratulations! You've created your first custom skill. Now you can follow the 
 + [Power Skills: a repository of custom skills](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Add a custom skill to an AI enrichment pipeline](cognitive-search-custom-skill-interface.md)
 + [How to define a skillset](cognitive-search-defining-skillset.md)
-+ [Create Skillset (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Create Skillset (REST)](/rest/api/searchservice/create-skillset)
 + [How to map enriched fields](cognitive-search-output-field-mapping.md)

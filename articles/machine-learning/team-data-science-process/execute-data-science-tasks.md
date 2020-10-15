@@ -57,9 +57,9 @@ A YAML file is used to specify:
 - what portion of the data is used for training and what portion for testing
 - which algorithms to run 
 - the choice of control parameters for model optimization:
-	- cross-validation 
-	- bootstrapping
-	- folds of cross-validation
+    - cross-validation 
+    - bootstrapping
+    - folds of cross-validation
 - the hyper-parameter sets for each algorithm. 
 
 The number of algorithms, the number of folds for optimization, the hyper-parameters, and the number of hyper-parameter sets to sweep over can also be modified in the Yaml file to run the models quickly. For example, they can be run with a lower number of CV folds, a lower number of parameter sets. If it is warranted, they can also be run more comprehensively with a higher number of CV folds or a larger number of parameter sets.
@@ -70,7 +70,7 @@ For more information, see [Automated Modeling and Reporting Utility in TDSP Data
 After multiple models have been built, you usually need to have a system for registering and managing the models. Typically you need a combination of scripts or APIs and a backend database or versioning system. A few options that you can consider for these management tasks are:
 
 1. [Azure Machine Learning - model management service](../index.yml)
-2. [ModelDB from MIT](https://mitdbg.github.io/modeldb/) 
+2. [ModelDB from MIT](http://modeldb.csail.mit.edu:3000/projects) 
 3. [SQL-server as a model management system](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 
@@ -94,7 +94,7 @@ There are various approaches and platforms to put models into production. Here a
 Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
 > [!NOTE]
-> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
+> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../classic/deploy-a-machine-learning-web-service.md).
 >
 >
 
@@ -107,5 +107,3 @@ When multiple models are in production, it can be useful to perform [A/B testing
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.
 
 [Model operation and CI/CD](ci-cd-flask.md) shows how CI/CD can be performed with developed models.
-
-

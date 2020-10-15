@@ -4,7 +4,7 @@ description: Learn about sfctl, the Azure Service Fabric command line interface.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
@@ -73,7 +73,7 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 |Argument|Description|
 | --- | --- |
 | --executor-filter | The name of the repair executor whose claimed tasks should be included in the list. |
-| --state-filter | A bitwise-OR of the following values, specifying which task states should be included in the result list. <br> 1 - Created <br>2   - Claimed  <br>4   - Preparing  <br>8  - Approved  <br>16   - Executing  <br>32   - Restoring  <br>64 - Completed |
+| --state-filter | A bitwise-OR of the following values, specifying which task states should be included in the result list. <ul><li>1 - Created</li><li>2 - Claimed</li><li>4 - Preparing</li><li>8 - Approved</li><li>16 - Executing</li><li>32 - Restoring</li><li>64 - Completed</li></ul>
 | --task-id-filter | The repair task ID prefix to be matched. |
 
 ### Global Arguments
@@ -89,4 +89,4 @@ This API supports the Service Fabric platform; it is not meant to be used direct
 
 ## Next steps
 - [Setup](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

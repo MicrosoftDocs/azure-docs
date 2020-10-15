@@ -1,14 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech from an audio file, C++ (Linux) - Speech service'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: erhopf
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: erhopf
+ms.date: 04/04/2020
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -16,9 +11,8 @@ ms.author: erhopf
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=linux)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=linux)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=linux&pivots=programming-language-cpp)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -30,7 +24,7 @@ Before you get started, make sure to:
 
 1. In this new file, replace the string `YourSubscriptionKey` with your Speech service subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription.
 
 1. Replace the string `whatstheweatherlike.wav` with your own filename.
 
@@ -97,4 +91,4 @@ Before you get started, make sure to:
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

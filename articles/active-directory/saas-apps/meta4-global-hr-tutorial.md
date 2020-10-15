@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Meta4 Global HR | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Meta4 Global HR.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 5c6f1086-2af6-4216-976e-189f172cd556
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/09/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Meta4 Global HR
 
@@ -104,14 +97,14 @@ To configure Azure AD single sign-on with Meta4 Global HR, perform the following
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    ![Meta4 Global HR Domain and URLs single sign-on information](common/both-replyurl.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Reply U R L and select Save.](common/both-replyurl.png)
 
 	In the **Reply URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.meta4globalhr.com/saml.sso/SAML2/POST`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Meta4 Global HR Domain and URLs single sign-on information](common/both-signonurl.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/both-signonurl.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<SUBDOMAIN>.meta4globalhr.com`

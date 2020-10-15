@@ -71,9 +71,9 @@ The following aspects are important in the context of a policy consolidation:
    - Combine multiple conditions if required by your scenario. 
    - Select several grant requirements as access control and combine them with a logical *OR* (require one of the selected controls) or with a logical *AND* (require all of the selected controls).
 
-### Office 365 Exchange online
+### Exchange online
 
-If you want to migrate classic policies for **Office 365 Exchange online** that include **Exchange Active Sync** as client apps condition, you might not be able to consolidate them into one new policy. 
+If you want to migrate classic policies for **Exchange online** that include **Exchange Active Sync** as client apps condition, you might not be able to consolidate them into one new policy. 
 
 This is, for example, the case if you want to support all client app types. In a new policy that has **Exchange Active Sync** as client apps condition, you can't select other client apps.
 
@@ -87,7 +87,7 @@ If you have a new policy that has **Exchange Active Sync** as client apps condit
 
 ![Conditional Access conditions](./media/policy-migration/16.png)
  
-[App-based](technical-reference.md#approved-client-app-requirement) classic policies for Office 365 Exchange Online that include **Exchange Active Sync** as client apps condition allow **supported** and **unsupported** [device platforms](technical-reference.md#device-platform-condition). While you can't configure individual device platforms in a related new policy, you can limit the support to [supported device platforms](technical-reference.md#device-platform-condition) only. 
+App-based classic policies for Exchange Online that include **Exchange Active Sync** as client apps condition allow **supported** and **unsupported** device platforms. While you can't configure individual device platforms in a related new policy, you can limit the support to [supported device platforms](concept-conditional-access-conditions.md#device-platforms) only. 
 
 ![Conditional Access select Exchange ActiveSync](./media/policy-migration/65.png)
 
@@ -107,9 +107,9 @@ In this case, you can consolidate your classic policies into one new policy that
 
 ### Device platforms
 
-Classic policies with [app-based controls](technical-reference.md#approved-client-app-requirement) are pre-configured with iOS and Android as the [device platform condition](technical-reference.md#device-platform-condition). 
+Classic policies with app-based controls are pre-configured with iOS and Android as the device platform condition. 
 
-In a new policy, you need to select the [device platforms](technical-reference.md#device-platform-condition) you want to support individually.
+In a new policy, you need to select the [device platforms](concept-conditional-access-conditions.md#device-platforms) you want to support individually.
 
 ![Conditional Access device platforms selection](./media/policy-migration/41.png)
 

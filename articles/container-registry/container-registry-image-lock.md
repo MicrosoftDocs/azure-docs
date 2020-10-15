@@ -39,7 +39,7 @@ To see the current attributes of a repository, run the following [az acr reposit
 
 ```azurecli
 az acr repository show \
-    --name myregistry --repository myrepo
+    --name myregistry --repository myrepo \
     --output jsonc
 ```
 

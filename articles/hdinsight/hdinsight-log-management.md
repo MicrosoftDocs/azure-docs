@@ -5,9 +5,9 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
+ms.topic: how-to
 ms.custom: hdinsightactive
-ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 02/05/2020
 ---
 
 # Manage logs for an HDInsight cluster
@@ -62,9 +62,9 @@ It's important to understand the workload types running on your HDInsight cluste
 
 * Consider how you can collect logs from the cluster, or from more than one cluster, and collate them for purposes such as auditing, monitoring, planning, and alerting. You might use a custom solution to access and download the log files on a regular basis, and combine and analyze them to provide a dashboard display. You can also add additional capabilities for alerting for security or failure detection. You can build these utilities using PowerShell, the HDInsight SDKs, or code that accesses the Azure classic deployment model.
 
-* Consider whether a monitoring solution or service would be a useful benefit. The Microsoft System Center provides an [HDInsight management pack](https://www.microsoft.com/download/details.aspx?id=42521). You can also use third-party tools such as Apache Chukwa and Ganglia to collect and centralize logs. Many companies offer services to monitor Hadoop-based big data solutions, for example: Centerity, Compuware APM, Sematext SPM, and Zettaset Orchestrator.
+* Consider whether a monitoring solution or service would be a useful benefit. The Microsoft System Center provides an [HDInsight management pack](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). You can also use third-party tools such as Apache Chukwa and Ganglia to collect and centralize logs. Many companies offer services to monitor Hadoop-based big data solutions, for example: Centerity, Compuware APM, Sematext SPM, and Zettaset Orchestrator.
 
-## Step 2: Manage cluster service versions and view Script Action logs
+## Step 2: Manage cluster service versions and view logs
 
 A typical HDInsight cluster uses several services and open-source software packages (such as Apache HBase, Apache Spark, and so forth). For some workloads, such as bioinformatics, you may be required to retain service configuration log history in addition to job execution logs.
 
@@ -84,15 +84,27 @@ Using the Ambari UI, you can download the configuration for any (or all) service
 
 HDInsight [script actions](hdinsight-hadoop-customize-cluster-linux.md) run scripts on a cluster, either manually or when specified. For example, script actions can be used to install additional software on the cluster or to alter configuration settings from the default values. Script action logs can provide insight into errors that occurred during setup of the cluster, and also configuration settings' changes that could affect cluster performance and availability.  To see the status of a script action, select the **ops** button on your Ambari UI, or access the status logs in the default storage account. The storage logs are available at `/STORAGE_ACCOUNT_NAME/DEFAULT_CONTAINER_NAME/custom-scriptaction-logs/CLUSTER_NAME/DATE`.
 
+### View Ambari alerts status logs
+
+Apache Ambari writes alert status changes to `ambari-alerts.log`. The full path is `/var/log/ambari-server/ambari-alerts.log`. To enable debugging for the log, change a property in `/etc/ambari-server/conf/log4j.properties.` Change then entry under `# Log alert state changes` from:
+
+```
+log4j.logger.alerts=INFO,alerts
+
+to
+
+log4j.logger.alerts=DEBUG,alerts
+```
+
 ## Step 3: Manage the cluster job execution log files
 
-The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which aren't) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following is an example log file.
+The next step is reviewing the job execution log files for the various services.  Services could include Apache HBase, Apache Spark, and many others. A Hadoop cluster produces a large number of verbose logs, so determining which logs are useful (and which aren't) can be time-consuming.  Understanding the logging system is important for targeted management of log files.  The following image is an example log file.
 
 ![HDInsight example log file sample output](./media/hdinsight-log-management/hdi-log-file-example.png)
 
 ### Access the Hadoop log files
 
-HDInsight stores its log files both in the cluster file system and in Azure storage. You can examine log files in the cluster by opening an [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connection to the cluster and browsing the file system, or by using the Hadoop YARN Status portal on the remote head node server. You can examine the log files in Azure storage using any of the tools that can access and download data from Azure storage. Examples are [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer), and the Visual Studio Server Explorer. You can also use PowerShell and the Azure Storage Client libraries, or the Azure .NET SDKs, to access data in Azure blob storage.
+HDInsight stores its log files both in the cluster file system and in Azure Storage. You can examine log files in the cluster by opening an [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connection to the cluster and browsing the file system, or by using the Hadoop YARN Status portal on the remote head node server. You can examine the log files in Azure Storage using any of the tools that can access and download data from Azure Storage. Examples are [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer), and the Visual Studio Server Explorer. You can also use PowerShell and the Azure Storage Client libraries, or the Azure .NET SDKs, to access data in Azure blob storage.
 
 Hadoop runs the work of the jobs as *task attempts* on various nodes in the cluster. HDInsight can initiate speculative task attempts, terminating any other task attempts that don't complete first. This generates significant activity that is logged to the controller, stderr, and syslog log files on-the-fly. In addition, multiple task attempts are running simultaneously, but a log file can only display results linearly.
 
@@ -135,7 +147,7 @@ After completing the previous steps, you have an understanding of the types and 
 
 Next, analyze the volume of log data in key log storage locations over a period of time. For example, you can analyze volume and growth over 30-60-90 day periods.  Record this information in a spreadsheet or use other tools such as Visual Studio, the Azure Storage Explorer, or Power Query for Excel. For more information, see [Analyze HDInsight logs](hdinsight-debug-jobs.md).  
 
-You now have enough information to create a log management strategy for the key logs.  Use your spreadsheet (or tool of choice) to forecast both log size growth and log storage Azure service costs going forward.  Consider also any log retention requirements for the set of logs that you're examining.  Now you can reforecast future log storage costs, after determining which log files can be deleted (if any) and which logs should be retained and archived to less expensive Azure storage.
+You now have enough information to create a log management strategy for the key logs.  Use your spreadsheet (or tool of choice) to forecast both log size growth and log storage Azure service costs going forward.  Consider also any log retention requirements for the set of logs that you're examining.  Now you can reforecast future log storage costs, after determining which log files can be deleted (if any) and which logs should be retained and archived to less expensive Azure Storage.
 
 ## Step 5: Determine log archive policies and processes
 
@@ -147,10 +159,10 @@ For certain log files, you can use a lower-priced log file archiving approach. F
 
 Alternatively, you can script log archiving with PowerShell.  For an example PowerShell script, see [Archive Azure Automation logs to Azure Blob Storage](https://gallery.technet.microsoft.com/scriptcenter/Archive-Azure-Automation-898a1aa8).
 
-### Accessing Azure storage metrics
+### Accessing Azure Storage metrics
 
-Azure storage can be configured to log storage operations and access. You can use these very detailed logs for capacity monitoring and planning, and for auditing requests to storage. The logged information includes latency details, enabling you to monitor and fine-tune the performance of your solutions.
-You can use the .NET SDK for Hadoop to examine the log files generated for the Azure storage that holds the data for an HDInsight cluster.
+Azure Storage can be configured to log storage operations and access. You can use these very detailed logs for capacity monitoring and planning, and for auditing requests to storage. The logged information includes latency details, enabling you to monitor and fine-tune the performance of your solutions.
+You can use the .NET SDK for Hadoop to examine the log files generated for the Azure Storage that holds the data for an HDInsight cluster.
 
 ### Control the size and number of backup indexes for old log files
 

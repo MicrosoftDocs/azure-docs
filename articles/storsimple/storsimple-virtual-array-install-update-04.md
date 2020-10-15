@@ -1,6 +1,6 @@
 ---
 title: Install Updates on StorSimple Virtual Array | Microsoft Docs
-description: Describes how to use the StorSimple Virtual Array web UI to apply updates using the Azure portal and hotfix method
+description: Describes how to use the StorSimple Virtual Array web UI to apply Update 0.4 using the Azure portal and hot fix method.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: article
+ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/07/2017
@@ -71,26 +71,26 @@ Use this method to install updates on a device running GA or Update 0.1 software
 
 1. In the local web UI, go to **Maintenance** > **Software Update**.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update1m.png)
+    ![update device 1](./media/storsimple-virtual-array-install-update/update1m.png)
 
 2. In **Update file path**, enter the file name for the update or the hotfix. You can also browse to the update or hotfix installation file if placed on a network share. Click **Apply**.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update2m.png)
+    ![update device 2](./media/storsimple-virtual-array-install-update/update2m.png)
 
 3. A warning is displayed. Given this is a single node device, after the update is applied, the device restarts and there is downtime. Click the check icon.
    
-   ![update device](./media/storsimple-virtual-array-install-update/update3m.png)
+   ![update device 3](./media/storsimple-virtual-array-install-update/update3m.png)
 
 4. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update5m.png)
+    ![update device 4](./media/storsimple-virtual-array-install-update/update5m.png)
 
 5. After the restart is complete, you are taken to the **Sign in** page. To verify that the device software has updated, in the local web UI, go to **Maintenance** > **Software Update**. The displayed software version should be **10.0.0.0.0.10289.0** for Update 0.4.
    
    > [!NOTE]
    > We report the software versions in a slightly different way in the local web UI and the Azure portal. For example, the local web UI reports **10.0.0.0.0.10289** and the Azure portal reports **10.0.10289.0** for the same version.
    
-    ![update device](./media/storsimple-virtual-array-install-update/update6m.png)
+    ![update device 5](./media/storsimple-virtual-array-install-update/update6m.png)
 
 ## Use the Azure portal
 

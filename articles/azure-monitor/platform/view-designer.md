@@ -1,19 +1,21 @@
 ---
 title: Create views to analyze log data in Azure Monitor | Microsoft Docs
 description: By using View Designer in Azure Monitor, you can create custom views that are displayed in the Azure portal and contain a variety of visualizations on data in the Log Analytics workspace. This article contains an overview of View Designer and presents procedures for creating and editing custom views.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/22/2018
+ms.date: 08/04/2020
 
 ---
 
 # Create custom views by using View Designer in Azure Monitor
 By using View Designer in Azure Monitor, you can create a variety of custom views in the Azure portal that can help you visualize data in your Log Analytics workspace. This article presents an overview of View Designer and procedures for creating and editing custom views.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!IMPORTANT]
+> Views in Azure Monitor have been transitioned to [workbooks](workbooks-overview.md) which provide additional functionality. See [Azure Monitor view designer to workbooks transition guide](view-designer-conversion-overview.md) for details on converting your existing views to workbooks.
+ 
+
 
 For more information about View Designer, see:
 
@@ -48,7 +50,7 @@ The options are described in the following table:
 | Option | Description |
 |:--|:--|
 | Refresh   | Refreshes the view with the latest data. | 
-| Logs      | Opens the [Log Analytics](../log-query/portals.md) to analyze data with log queries. |
+| Logs      | Opens the [Log Analytics](../log-query/log-query-overview.md) to analyze data with log queries. |
 | Edit       | Opens the view in View Designer to edit its contents and configuration.  |
 | Clone      | Creates a new view and opens it in View Designer. The name of the new view is the same as the original name, but with *Copy* appended to it. |
 | Date range | Set the date and time range filter for the data that's included in the view. This date range is applied before any date ranges set in queries in the view.  |

@@ -1,20 +1,23 @@
 ---
 title: Tutorial - Reduce Azure costs with recommendations
 description: This tutorial helps you reduce Azure costs when you act on optimization recommendations.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/24/2019
+ms.date: 03/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: dougeby
+ms.subservice: cost-management
+ms.reviewer: adwise
 ms.custom: seodec18
 ---
 
 # Tutorial: Optimize costs from recommendations
 
 Azure Cost Management works with Azure Advisor to provide cost optimization recommendations. Azure Advisor helps you optimize and improve efficiency by identifying idle and underutilized resources. This tutorial walks you through an example where you identify underutilized Azure resources and then you take action to reduce costs.
+
+Watch the video [Optimizing cloud investments in Azure Cost Management](https://www.youtube.com/watch?v=cSNPoAb-TNc) to learn more about using Advisor to optimize your costs. To watch other videos, visit the [Cost Management YouTube channel](https://www.youtube.com/c/AzureCostManagement).
+
+>[!VIDEO https://www.youtube.com/embed/cSNPoAb-TNc]
 
 In this tutorial, you learn how to:
 
@@ -29,7 +32,7 @@ Recommendations are available for a variety of scopes and Azure account types. T
 - Subscription
 - Resource group
 
-You must have active virtual machines with at least 14 days of activity.
+If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features. Also, you must have active virtual machines with at least 14 days of activity.
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
@@ -74,7 +77,7 @@ In the VM details, check the utilization of the virtual machine to confirm that 
 
 Note the current virtual machine's size. After you've verified that the virtual machine should be resized, close the VM details so that you see the list of virtual machines.
 
-In the list of candidates to shut down or resize, select **Resize *&lt;FromVirtualMachineSKU&gt;* to *&lt;ToVirtualMachineSKU&gt;***.
+In the list of candidates to shut down or resize, select **Resize _&lt;FromVirtualMachineSKU&gt;_ to _&lt;ToVirtualMachineSKU&gt;_**.
 ![Example recommendation with the option to resize the virtual machine](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 Next, you're presented with a list of available resize options. Choose the one that will give the best performance and cost-effectiveness for your scenario. In the following example, the option chosen resizes from **Standard_D8s_v3** to **Standard_D2s_v3**.

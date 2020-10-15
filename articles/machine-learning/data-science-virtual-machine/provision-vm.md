@@ -1,5 +1,6 @@
 ---
-title: 'Quickstart: Create a Windows DSVM' 
+title: 'Quickstart: Create a Windows Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine 
 description: Configure and create a Data Science Virtual Machine on Azure for analytics and machine learning.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -26,7 +27,7 @@ Please note Azure free accounts do not support GPU enabled virtual machine SKUs.
 To create a DSVM instance:
 
 1. Go to the [Azure portal](https://portal.azure.com) You might be prompted to sign in to your Azure account if you're not already signed in.
-1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine - Win 2019 (Preview)."
+1. Find the virtual machine listing by typing in "data science virtual machine" and selecting "Data Science Virtual Machine - Windows 2019."
 
 1. Select the **Create** button at the bottom.
 
@@ -66,6 +67,5 @@ You can also attach a DSVM to Azure Notebooks to run Jupyter notebooks on the VM
 
 * Explore the tools on the DSVM by opening the **Start** menu.
 * Learn about the Azure Machine Learning by reading [What is Azure Machine Learning?](../overview-what-is-azure-ml.md) and trying out [tutorials](../index.yml).
-* Read the article [Ten things you can do on the Data Science Virtual Machine](https://aka.ms/dsvmtenthings).
-* Visit the [Azure AI Gallery](https://gallery.cortanaintelligence.com) for machine learning and data analytics samples that use Azure Machine Learning and related data services on Azure. We've also provided an icon for this gallery on the **Start** menu and on the desktop of the virtual machine.
+* Read the article [Data Science with a Windows Data Science Virtual Machine in Azure](./vm-do-ten-things.md)
 

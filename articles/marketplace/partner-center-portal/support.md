@@ -1,20 +1,19 @@
 ---
-title: Get support for the Commercial Marketplace portal in Partner Center
+title: Get support for the commercial marketplace portal in Partner Center
 description: Learn about your support options in Partner Center, including how to file a support request.
-author: ChJenk 
-manager: evansma
-ms.author: jamwall 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/17/2019
+author: keferna
+ms.author: keferna
+ms.date: 09/18/2020
 ---
 
-# Support for the Commercial Marketplace program in Partner Center
+# Support for the commercial marketplace program in Partner Center
 
-Microsoft provides support for a wide variety of products and services. Finding the right support team is important to ensure an appropriate and timely response. Consider the following scenarios, which should help you route your query to the appropriate team: 
+Microsoft provides support for a wide variety of products and services. Finding the right support team is important to ensure an appropriate and timely response. Consider the following scenarios, which should help you route your query to the appropriate team:
 
-- If you're a publisher and have a question from a customer, ask your customer to request support using the support links in the [Azure portal](https://portal.azure.com/). 
+- If you're a publisher and have a question from a customer, ask your customer to request support using the support links in the [Azure portal](https://portal.azure.com/).
 
 - If you're a publisher and have a question relating to your app or service, review the following support options.
 
@@ -22,68 +21,115 @@ Microsoft provides support for a wide variety of products and services. Finding 
 
 1. Sign in to the [Commercial Marketplace program on Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) with your work account. (If you have not yet done so, you will need to [create a Partner Center account](./create-account.md).)
 
-1. In the upper menu on the right side of the page, select the **Support** icon. 
+2. In the upper menu on the right side of the page, select the **Support** icon.
  
-   ![Support icon](./media/commercial-marketplace-support.png)
-
-1. The **Help and support** pane will appear from the right-hand side of the page. There will be a dropdown for each program in Partner Center that your account is registered for. Select the **Commercial Marketplace** dropdown menu. 
+3. The **Help and support** pane will appear from the right-hand side of the page.
  
-   ![Support drop-down menu](./media/commercial-marketplace-support-pane.png)
+   ![Support drop-down menu](./media/support/commercial-marketplace-support-pane.png)
 
-1. Select **[Documentation](../index.md)** to review comprehensive answers to questions and resources. 
+    Or go to the **Home page** pane and select **Help and support**.
 
-1. Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of other Microsoft publishers. 
+   ![Help and support from Home page](./media/support/homepage-help-support.png)
 
-1. Select **[Additional help](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff)** to open a **New support request** ticket. 
+4. Select **[Documentation](../index.yml)** to review comprehensive answers to questions and resources.
+
+5. Select **[Marketplace Partner community forum](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/bd-p/2222)** to answer your questions by leveraging the knowledge of other Microsoft publishers.
+
+6. Select **[Additional help](https://aka.ms/marketplacepublishersupport)** to open a **New support request** ticket.  
 
 ## How to open a support ticket
 
-Selecting **Additional help** from the Commercial Marketplace support menu in Partner Center will direct you to the Microsoft Support for business page. You will see several dropdown menus. The first few dropdown menus are automatically filled out for you. For Marketplace support, identify the product family as **Cloud and Online Services**, the product as **Marketplace Publisher**, and the product version as **Marketplace Publishing**. Do not change these pre-populated dropdown menu selections. 
+Now you're ready to open a support ticket on the **Help and Support** screen.
 
-- **Select a category that best describes the issue**: Choose the category that best aligns with your question or problem. Selecting a category will cause an additional dropdown menu to appear, asking you to select the problem that best describes your issue.
+![Help and support](./media/support/help-and-support.png)
 
-- **Select a problem that best describes the issue**: Choose the problem from the listed options that best aligns with your issue. Depending on your problem, a new section may appear saying "Here's some information that might help" with links relevant to your issue. Review these links before selecting the **Next** button to see whether your question or problem is addressed.
+>[!Note]
+>If you are logged in Partner Center, you will receive better experience with support.
 
-By selecting the **Next** button, you will be directed to the **Issue Details** page. 
+**Option 1:** Enter keywords such as: Marketplace, Azure app, SaaS offer, account management, lead management, deployment issue, payout, etc.
 
-#### Tell us more about your issue
+**Option 2:** Browse topics -> select **Category** = commercial marketplace -> select the appropriate **Topic** then **Subtopic**.
 
-In the **Issue Details** section, explain what you need help with.
+Once you have found the topic of your choice, select **Review Solutions**.
 
-- Select your country.
-- Select the language in which you'd like to receive support.
-- Enter a title for your issue (from 3 to 200 characters).  
-- Enter a brief description of your issue (max 2000 characters).
-- Select **Next**.
+![Next step](./media/support/next-step.png)
 
-#### Select a support plan
+The following options will become available:
 
-No information is required in the **Support Plan** section. Select **Next**. 
+* To select a different topic, select a different topic link under **selected issue**.
+* Review the description for this issue, if available.  It is the text shown above the **recommended steps**.
+* Review **recommended steps**, if available.
+* Review **recommended documents**, if available.
 
-#### Select the severity of your issue
+![Recommended solutions](./media/support/recommended-solutions.png)
 
-No information is required in the **Severity** section. Select **Next**. 
+In case you cannot find your answer in **recommended solutions**, click on **provide issue details**.  Fill in the form and all required fields to help speed up the resolution process.  Then click **submit**.
 
-#### Who should we contact
+>[!Note]
+>If you have not logged in Partner Center and the topic requires authentication, you will be requested to log in before you can proceed.  For public topics, authentication is not required.
 
-In the **Contact Information** section, ensure that your primary contact's name, phone number, and email is correct. 
-- Update this information if you see anything that is incorrect
-- You may add other contacts from your company to this support request if desired
-- Select **Next**
+## Track your existing support requests
 
-#### Review and submit your support request
+To review all of your open and closed tickets, go to **Commercial Marketplace** on the left navigation bar, and then select **support**.
 
-Review your support request information on the **Review** section. 
-- If all the information is correct, select **Submit**. 
-- If any information needs to be updated, select the **Change** button next to the section in need of updates.
+## Record issue details with a HAR file
 
-## Track your existing support requests 
+To help support agents troubleshoot your issue, consider attaching an HTTP Archive format (HAR) file to your support ticket. HAR files are logs of network requests in a web browser.
 
-To track your support request, visit the [Commercial Marketplace support page](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). 
+> [!WARNING]
+> HAR files may record sensitive data about your Partner Center account.
 
-On the top blue menu bar, next to "Support for business", select the **Support requests** link. 
+### Microsoft Edge and Google Chrome
 
-Review all of your open and closed support requests in the **Microsoft Professional Support** section. 
+To generate a HAR file using **Microsoft Edge** or **Google Chrome**:
+
+1. Go to the web page where you’re experiencing the issue.
+2. In the top right corner of the window, select the ellipsis icon, then **More tools** > **Developer tools**. You can press F12 as a shortcut.
+3. In the Developer tools pane, select the **Network** tab.
+4. Select **Stop recording network log** and **Clear** to remove existing logs. The record icon will turn grey.
+
+    ![How to remove existing logs in Microsoft Edge or Google Chrome](media/support/chromium-stop-clear-session.png)
+
+5. Select **Record network log** to start recording. When you start recording, the record icon will turn red.
+ 
+    ![How to start recording in Microsoft Edge or Google Chrome](media/support/chromium-start-session.png)
+
+6. Reproduce the issue you want to troubleshoot.
+7. After you’ve reproduced the issue, select **Stop recording network log**.
+8. Select **Export HAR**, marked with a downward-arrow icon, and save the file.
+
+    ![How to export a HAR file in Microsoft Edge or Google Chrome](media/support/chromium-network-export-har.png)
+
+### Mozilla Firefox
+
+To generate a HAR file using **Mozilla Firefox**:
+
+1. Go to the web page where you’re experiencing the issue.
+1. In the top right corner of the window, select the ellipsis icon, then **Web Developer** > **Toggle Tools**. You can press F12 as a shortcut.
+1. Select the **Network** tab, then select **Clear** to remove existing logs.
+ 
+    ![How to remove existing logs in Mozilla Firefox](media/support/firefox-clear-session.png)
+ 
+1. Reproduce the issue you want to troubleshoot.
+1. After you’ve reproduced the issue, select **HAR Export/Import** > **Save All As HAR**.
+ 
+    ![How to export a HAR file in Mozilla Firefox](media/support/firefox-network-export-har.png)
+
+### Apple Safari
+
+To generate a HAR file using **Safari**:
+
+1. Enable the developer tools in Safari: select **Safari** > **Preferences**. Go to the **Advanced** tab, then select **Show Develop menu in menu bar**.
+1. Go to the web page where you’re experiencing the issue.
+1. Select **Develop**, then select **Show Web Inspector**.
+1. Select the **Network** tab, then select **Clear Network Items** to remove existing logs.
+ 
+    ![How to remove existing logs in Safari](media/support/safari-clear-session.png)
+ 
+1. Reproduce the issue you want to troubleshoot.
+1. After you’ve reproduced the issue, select **Export** and save the file.
+ 
+    ![How to export a HAR file in Safari](media/support/safari-network-export-har.png)
 
 ## Next steps
 

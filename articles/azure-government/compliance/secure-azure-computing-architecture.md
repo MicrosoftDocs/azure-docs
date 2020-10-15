@@ -3,7 +3,7 @@
 
 # Mandatory fields.
 title: Secure Azure Computing Architecture
-description: This reference architecture for an enterprise-level DMZ architecture uses network virtual appliances and other tools. This architecture was designed to meet the Department of Defense's Secure Cloud Computing Architecture Functional Requirements. It also can be used for any organization. This reference includes two automated options that use Citrix or F5 appliances.
+description: Learn about the Secure Azure Computing Architecture (SACA). Using SACA allows U.S. DoD and civilian customers to comply with the SCCA FRD.
 author: jahender
 ms.author: jahender 
 ms.date: 4/9/2019
@@ -82,7 +82,7 @@ This individual is appointed by the authorizing official. The BCAP, VDSS, and VD
 The SACA reference architecture is designed to deploy the VDSS and VDMS components in Azure and to enable the TCCM. This architecture is modular. All of the pieces of VDSS and VDMS can live in a centralized hub. Some of the controls can be met in the mission-owner space or even on-premises. Microsoft recommends that you co-locate the VDSS and VDMS components into a central virtual network that all mission owners can connect through. The following diagram shows this architecture: 
 
 
-![SACA reference architecture diagram](media/sacav2generic.png)
+![Architecture diagram that shows the VDSS and VDMS components co-located into a central virtual network.](media/sacav2generic.png)
 
 When you plan your SCCA compliancy strategy and technical architecture, consider the following topics from the beginning because they affect every customer. The following issues have come up with DoD customers and tend to slow down planning and execution. 
 
@@ -90,8 +90,8 @@ When you plan your SCCA compliancy strategy and technical architecture, consider
    - DISA BCAP:
         - DISA has two operational BCAPs at the Pentagon and at Camp Roberts, CA. A third is planned to come online soon. 
         - DISA’s BCAPs all have Azure ExpressRoute circuits to Azure, which can be used by DoD customers for connectivity. 
-        - DISA has an enterprise-level Microsoft peering session for DoD customers who want to subscribe to Microsoft software as a service (SaaS) tools, such as Office 365. By using the DISA BCAP, you can enable connectivity and peering to your SACA instance. 
-    - Build your own BCAP:
+        - DISA has an enterprise-level Microsoft peering session for DoD customers who want to subscribe to Microsoft software as a service (SaaS) tools, such as Microsoft 365. By using the DISA BCAP, you can enable connectivity and peering to your SACA instance. 
+   - Build your own BCAP:
         - This option requires you to lease space in a co-located data center and set up an ExpressRoute circuit to Azure. 
         - This option requires additional approval. 
         - Because of the additional approval and a physical build-out, this option takes the most time. 

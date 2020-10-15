@@ -5,16 +5,18 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/09/2020
+ms.date: 09/10/2020
 ms.author: jingwang
 ms.reviewer: craigg
+ms.custom: has-adal-ref
 ---
 
 # Troubleshoot Azure Data Factory Connectors
 
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 This article explores common troubleshooting methods for connectors in Azure Data Factory.
   
-
 ## Azure Blob Storage
 
 ### Error code:  AzureBlobOperationFailed
@@ -150,12 +152,27 @@ Cosmos DB calculates RU from [here](../cosmos-db/request-units.md#request-unit-c
 - **Message**: `Error occurred when trying to upload a file. It's possible because you have multiple concurrent copy activities runs writing to the same file '%name;'. Check your ADF configuration.`
 
 
-### Error code:  AdlsGen2TimeoutError
+### Error code: AdlsGen2TimeoutError
 
 - **Message**: `Request to ADLS Gen2 account '%account;' met timeout error. It is mostly caused by the poor network between the Self-hosted IR machine and the ADLS Gen2 account. Check the network to resolve such error.`
 
 
 ## Azure Data Lake Storage Gen1
+
+### Error message: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+
+- **Symptoms**: Copy activity fails with the following error: 
+
+    ```
+    Message: Failure happened on 'Sink' side. ErrorCode=UserErrorFailedFileOperation,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Upload file failed at path STAGING/PLANT/INDIARENEWABLE/LiveData/2020/01/14\\20200114-0701-oem_gibtvl_mannur_data_10min.csv.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=System.Net.WebException,Message=The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.,Source=System,''Type=System.Security.Authentication.AuthenticationException,Message=The remote certificate is invalid according to the validation procedure.,Source=System,'.
+    ```
+
+- **Cause**: The certificate validation failed during TLS handshake.
+
+- **Resolution**: Workaround: Use staged copy to skip the TLS validation for ADLS Gen1. You need to reproduce this issue and gather netmon trace, and then engage your network team to check the local network configuration.
+
+    ![Troubleshoot ADLS Gen1](./media/connector-troubleshoot-guide/adls-troubleshoot.png)
+
 
 ### Error message: The remote server returned an error: (403) Forbidden
 
@@ -185,7 +202,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Resolution**: Rerun the copy activity after several minutes.
 			      
 
-## Azure SQL Data Warehouse/Azure SQL Database/SQL Server
+## Azure Synapse Analytics (formerly SQL Data Warehouse)/Azure SQL Database/SQL Server
 
 ### Error code:  SqlFailedToConnect
 
@@ -193,11 +210,11 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  Please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
+- **Recommendation**:  Search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
 - **Cause**: If the error message contains "Client with IP address '...' is not allowed to access the server", and you are trying to connect to Azure SQL Database, usually it is caused by Azure SQL Database firewall issue.
 
-- **Recommendation**:  In Azure SQL Server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
+- **Recommendation**:  In logical SQL server firewall configuration, enable "Allow Azure services and resources to access this server" option. Reference doc: https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure.
 
 
 ### Error code:  SqlOperationFailed
@@ -206,8 +223,9 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If the error message contains "SqlException", SQL Database throws the error indicating some specific operation failed.
 
-- **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Please refer the detail doc:  https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level?view=sql-server-ver15#backwardCompat.
-		For troubleshooting SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
+- **Recommendation**:  If SQL error is not clear, please try to alter the database to latest compatibility level '150'. It can throw latest version SQL errors. Refer the [detail doc](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
+
+	For troubleshooting SQL issues, please search by SQL error code in this reference doc for more details: https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors. If you need further help, contact Azure SQL support.
 
 - **Cause**: If the error message contains "PdwManagedToNativeInteropException", usually it's caused by mismatch between source and sink column sizes.
 
@@ -216,6 +234,7 @@ busy to handle requests, it returns an HTTP error 503.
 - **Cause**: If the error message contains "InvalidOperationException", usually it's caused by invalid input data.
 
 - **Recommendation**:  To identify which row encounters the problem, please enable fault tolerance feature on copy activity, which can redirect problematic row(s) to the storage for further investigation. Reference doc: https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance.
+
 
 
 ### Error code:  SqlUnauthorizedAccess
@@ -233,7 +252,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Could be SQL Database transient failure.
 
-- **Recommendation**:  Please retry to update linked service connection string with larger connection timeout value.
+- **Recommendation**:  Retry to update linked service connection string with larger connection timeout value.
 
 
 ### Error code:  SqlAutoCreateTableTypeMapFailed
@@ -296,7 +315,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Could be SQL Database transient failure.
 
-- **Recommendation**:  Please retry. If problem repro, contact Azure SQL support.
+- **Recommendation**:  Retry. If problem repro, contact Azure SQL support.
 
 
 ### Error code:  SqlBatchWriteTransactionFailed
@@ -309,7 +328,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: If exception details intermittently tell sqlconnection broken, it could just be transient network failure or SQL Database side issue
 
-- **Recommendation**:  Please retry the activity and review SQL Database side metrics.
+- **Recommendation**:  Retry the activity and review SQL Database side metrics.
 
 
 ### Error code:  SqlBulkCopyInvalidColumnLength
@@ -327,7 +346,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: SQL connection is closed by SQL Database when high concurrent run and server terminate connection.
 
-- **Recommendation**:  Remote server closed the SQL connection. Please retry. If problem repro, contact Azure SQL support.
+- **Recommendation**:  Remote server closed the SQL connection. Retry. If problem repro, contact Azure SQL support.
 
 
 ### Error code:  SqlCreateTableFailedUnsupportedType
@@ -337,38 +356,38 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: Conversion failed when converting from a character string to uniqueidentifier
 
-- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into Azure SQL Data Warehouse using staged copy and PolyBase, you hit the following error:
+- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into Azure Synapse Analytics using staged copy and PolyBase, you hit the following error:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **Cause**: Azure SQL Data Warehouse PolyBase cannot convert empty string to GUID.
+- **Cause**: Azure Synapse Analytics PolyBase cannot convert empty string to GUID.
 
 - **Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
 
 ### Error message: Expected data type: DECIMAL(x,x), Offending value
 
-- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into SQL DW using staged copy and PolyBase, you hit the following error:
+- **Symptoms**: When you copy data from tabular data source (such as SQL Server) into Azure Synapse Analytics using staged copy and PolyBase, you hit the following error:
 
     ```
     ErrorCode=FailedDbOperation,Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,
-    Message=Error happened when loading data into SQL Data Warehouse.,
+    Message=Error happened when loading data into Azure Synapse Analytics.,
     Source=Microsoft.DataTransfer.ClientLibrary,Type=System.Data.SqlClient.SqlException,
     Message=Query aborted-- the maximum reject threshold (0 rows) was reached while reading from an external source: 1 rows rejected out of total 415 rows processed. (/file_name.txt) 
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **Cause**: Azure SQL Data Warehouse Polybase cannot insert empty string (null value) into decimal column.
+- **Cause**: Azure Synapse Analytics Polybase cannot insert empty string (null value) into decimal column.
 
 - **Resolution**: In Copy activity sink, under Polybase settings, set "**use type default**" option to false.
 
-### Error message: Java exception message:HdfsBridge::CreateRecordReader
+### Error message: Java exception message: HdfsBridge::CreateRecordReader
 
-- **Symptoms**: You copy data into Azure SQL Data Warehouse using PolyBase, and hit the following error:
+- **Symptoms**: You copy data into Azure Synapse Analytics using PolyBase, and hit the following error:
 
     ```
     Message=110802;An internal DMS error occurred that caused this operation to fail. 
@@ -377,7 +396,7 @@ busy to handle requests, it returns an HTTP error 503.
     Java exception message:HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.: Error [HdfsBridge::CreateRecordReader - Unexpected error encountered creating the record reader.] occurred while accessing external file.....
     ```
 
-- **Cause**: The possible cause is that the schema (total column width) being too large (larger than 1 MB). Check the schema of the target SQL DW table by adding the size of all columns:
+- **Cause**: The possible cause is that the schema (total column width) being too large (larger than 1 MB). Check the schema of the target Azure Synapse Analytics table by adding the size of all columns:
 
     - Int -> 4 bytes
     - Bigint -> 8 bytes
@@ -401,15 +420,15 @@ busy to handle requests, it returns an HTTP error 503.
 
 ### Error message: The condition specified using HTTP conditional header(s) is not met
 
-- **Symptoms**: You use SQL query to pull data from Azure SQL Data Warehouse and hit the following error:
+- **Symptoms**: You use SQL query to pull data from Azure Synapse Analytics and hit the following error:
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **Cause**: Azure SQL Data Warehouse hit issue querying the external table in Azure Storage.
+- **Cause**: Azure Synapse Analytics hit issue querying the external table in Azure Storage.
 
-- **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure SQL Data Warehouse and provide your SQL DW server and database name to further troubleshoot.
+- **Resolution**: Run the same query in SSMS and check if you see the same result. If yes, open a support ticket to Azure Synapse Analytics and provide your Azure Synapse Analytics server and database name to further troubleshoot.
             
 
 ## Delimited Text Format
@@ -418,7 +437,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Message**: `The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
-- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,,ColumnB'.
+- **Cause**: When set 'firstRowAsHeader' in activity, the first row will be used as column name. This error means the first row contains empty value. For example: 'ColumnA,, ColumnB'.
 
 - **Recommendation**:  Check the first row, and fix the value if there is empty value.
 
@@ -429,7 +448,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: The problematic row's column count is large than the first row's column count. It may be caused by data issue or incorrect column delimiter/quote char settings.
 
-- **Recommendation**:  Please get the row count in error message, check the row's column and fix the data.
+- **Recommendation**:  Get the row count in error message, check the row's column and fix the data.
 
 - **Cause**: If the expected column count is "1" in error message, it's possible that you specified wrong compression or format settings, which caused ADF to wrongly parse your file(s).
 
@@ -514,7 +533,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', 'Java heap space' and 'doubleCapacity', usually it's a memory management issue in old version of integration runtime.
 
-- **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, suggest to upgrade to the latest version.
+- **Recommendation**:  If you are using Self-hosted Integration Runtime and the version is earlier than 3.20.7159.1, it is suggested to upgrade to the latest version.
 
 - **Cause**: When the error message contains 'java.lang.OutOfMemory', the integration runtime doesn't have enough resource to process the file(s).
 
@@ -522,7 +541,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: When error message contains 'NullPointerReference', it possible is a transient error.
 
-- **Recommendation**:  Please retry. If the problem persists, please contact support.
+- **Recommendation**:  Retry. If the problem persists, please contact support.
 
 
 ### Error code:  ParquetInvalidFile
@@ -594,7 +613,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Data from source cannot be converted to typed defined in sink
 
-- **Recommendation**:  Please specify a correct type in mapping.sink.
+- **Recommendation**:  Specify a correct type in mapping.sink.
 
 
 ### Error code:  ParquetBridgeInvalidData
@@ -603,7 +622,7 @@ busy to handle requests, it returns an HTTP error 503.
 
 - **Cause**: Data value over limitation
 
-- **Recommendation**:  Please retry. If issue persists, please contact us.
+- **Recommendation**:  Retry. If issue persists, please contact us.
 
 
 ### Error code:  ParquetUnsupportedInterpretation
@@ -672,7 +691,7 @@ For more troubleshooting help, try these resources:
 *  [Data Factory blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory feature requests](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
-*  [MSDN forum](https://social.msdn.microsoft.com/Forums/home?sort=relevancedesc&brandIgnore=True&searchTerm=data+factory)
+*  [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-data-factory.html)
 *  [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
             

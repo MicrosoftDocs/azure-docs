@@ -1,34 +1,34 @@
 ---
-title: 'Enable MFA for VPN users: Azure AD authentication'
-description: Enable multi-factor authentication for VPN users
+title: 'Enable MFA for VPN users by using Azure AD authentication'
+description: Learn how to enable Azure Multi-Factor Authentication (MFA) for VPN users by using Azure AD authentication.
 services: virtual-wan
-author: anzaman
+author: cherylmc
 
 ms.service: virtual-wan
-ms.topic: conceptual
-ms.date: 01/16/2020
+ms.topic: how-to
+ms.date: 09/22/2020
 ms.author: alzam
 
 ---
-# Enable Azure Multi-Factor Authentication (MFA) for VPN users
+# Enable Azure Multi-Factor Authentication (MFA) for VPN users by using Azure AD authentication
 
-If you want users to be prompted for a second factor of authentication before granting access, you can configure Azure Multi-Factor Authentication (MFA) for your Azure AD tenant. The steps in this article help you enable a requirement for two-step verification.
+[!INCLUDE [overview](../../includes/vpn-gateway-vwan-openvpn-enable-mfa-overview.md)]
 
-## <a name="prereq"></a>Prerequisite
+## <a name="enableauth"></a>Enable authentication
 
-The prerequisite for this configuration is a configured Azure AD tenant using the steps in [Configure a tenant](openvpn-azure-ad-tenant.md).
+[!INCLUDE [enable authentication](../../includes/vpn-gateway-vwan-openvpn-enable-auth.md)]
 
-[!INCLUDE [MFA steps](../../includes/vpn-gateway-vwan-openvpn-azure-ad-mfa.md)]
+## <a name="enablesign"></a>Configure sign-in settings
 
-## <a name="enablesign"></a> Configure sign-in settings
+[!INCLUDE [sign in](../../includes/vpn-gateway-vwan-openvpn-sign-in.md)]
 
-On the **Azure VPN - Properties** page, configure sign-in settings.
+## <a name="peruser"></a>Option 1 - Per User access
 
-1. Set **Enabled for users to sign-in?** to **Yes**. This allows all users in the AD tenant to connect to the VPN successfully.
-2. Set **User assignment required?** to **Yes** if you want to limit sign-in to only users that have permissions to the Azure VPN.
-3. Save your changes.
+[!INCLUDE [per user](../../includes/vpn-gateway-vwan-openvpn-per-user.md)]
 
-   ![Permissions](./media/openvpn-azure-ad-mfa/user2.jpg)
+## <a name="conditional"></a>Option 2 - Conditional Access
+
+[!INCLUDE [conditional access](../../includes/vpn-gateway-vwan-openvpn-conditional.md)]
 
 ## Next steps
 

@@ -9,6 +9,7 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
+ms.custom: "mqtt, devx-track-csharp"
 ---
 
 # Get started with device twins (.NET)
@@ -16,8 +17,6 @@ ms.author: robinsh
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 In this tutorial, you create these .NET console apps:
-
-* **CreateDeviceIdentity**. This app creates a device identity and associated security key to connect your simulated device app.
 
 * **AddTagsAndQuery**. This back-end app adds tags and queries device twins.
 
@@ -32,6 +31,8 @@ In this tutorial, you create these .NET console apps:
 * Visual Studio.
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+
+* Make sure that port 8883 is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 

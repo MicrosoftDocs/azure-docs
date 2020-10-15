@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 01/14/2020
+ms.date: 03/11/2020
 ---
 
 # Set up customer-managed keys to encrypt data at rest for integration service environments (ISEs) in Azure Logic Apps
 
 Azure Logic Apps relies on Azure Storage to store and automatically [encrypt data at rest](../storage/common/storage-service-encryption.md). This encryption protects your data and helps you meet your organizational security and compliance commitments. By default, Azure Storage uses Microsoft-managed keys to encrypt your data. For more information about how Azure Storage encryption works, see [Azure Storage encryption for data at rest](../storage/common/storage-service-encryption.md) and [Azure Data Encryption-at-Rest](../security/fundamentals/encryption-atrest.md).
 
-When you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting your logic apps, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/key-vault-overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key".
+When you create an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) for hosting your logic apps, and you want more control over the encryption keys used by Azure Storage, you can set up, use, and manage your own key by using [Azure Key Vault](../key-vault/general/overview.md). This capability is also known as "Bring Your Own Key" (BYOK), and your key is called a "customer-managed key".
 
-This topic shows how to set up and specify your own encryption key to use when you create your ISE. 
+This topic shows how to set up and specify your own encryption key to use when you create your ISE by using the Logic Apps REST API. For the general steps to create an ISE through Logic Apps REST API, see [Create an integration service environment (ISE) by using the Logic Apps REST API](../logic-apps/create-integration-service-environment-rest-api.md).
 
 ## Considerations
 
@@ -22,7 +22,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 * You can specify a customer-managed key *only when you create your ISE*, not afterwards. You can't disable this key after your ISE is created. Currently, no support exists for rotating a customer-managed key for an ISE.
 
-* To support customer-managed keys, your ISE requires requires having its [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work) enabled. This identity lets the ISE authenticate access to resources in other Azure Active Directory (Azure AD) tenants so that you don't have to sign in with your credentials.
+* To support customer-managed keys, your ISE requires requires having its [system-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) enabled. This identity lets the ISE authenticate access to resources in other Azure Active Directory (Azure AD) tenants so that you don't have to sign in with your credentials.
 
 * Currently, to create an ISE that supports customer-managed keys and has its system-assigned identity enabled, you have to call the Logic Apps REST API by using an HTTPS PUT request.
 
@@ -30,11 +30,11 @@ This topic shows how to set up and specify your own encryption key to use when y
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/).
+* The same [prerequisites](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#prerequisites) and [requirements to enable access for your ISE](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#enable-access) as when you create an ISE in the Azure portal
 
 * An Azure key vault that has the **Soft Delete** and **Do Not Purge** properties enabled
 
-  For more information about enabling these properties, see [Azure Key Vault soft-delete overview](../key-vault/key-vault-ovw-soft-delete.md) and [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/quick-create-portal.md#create-a-vault) by using the Azure portal or by using the Azure PowerShell command, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+  For more information about enabling these properties, see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md) and [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). If you're new to Azure Key Vault, learn [how to create a key vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) by using the Azure portal or by using the Azure PowerShell command, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * In your key vault, a key that's created with these property values:
 
@@ -47,7 +47,7 @@ This topic shows how to set up and specify your own encryption key to use when y
 
   ![Create your customer-managed encryption key](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  For more information, see [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) or the Azure PowerShell command, [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
+  For more information, see [Configure customer-managed keys with Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) or the Azure PowerShell command, [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * A tool that you can use to create your ISE by calling the Logic Apps REST API with an HTTPS PUT request. For example, you can use [Postman](https://www.getpostman.com/downloads/), or you can build a logic app that performs this task.
 
@@ -61,6 +61,18 @@ To create your ISE by calling the Logic Apps REST API, make this HTTPS PUT reque
 
 > [!IMPORTANT]
 > The Logic Apps REST API 2019-05-01 version requires that you make your own HTTP PUT request for ISE connectors.
+
+Deployment usually takes within two hours to finish. Occasionally, deployment might take up to four hours. To check deployment status, in the [Azure portal](https://portal.azure.com), on your Azure toolbar, select the notifications icon, which opens the notifications pane.
+
+> [!NOTE]
+> If deployment fails or you delete your ISE, Azure might take up to an hour 
+> before releasing your subnets. This delay means means you might have to wait 
+> before reusing those subnets in another ISE.
+>
+> If you delete your virtual network, Azure generally takes up to two hours 
+> before releasing up your subnets, but this operation might take longer. 
+> When deleting virtual networks, make sure that no resources are still connected. 
+> See [Delete virtual network](../virtual-network/manage-virtual-network.md#delete-a-virtual-network).
 
 ### Request header
 
@@ -185,7 +197,7 @@ This example request body shows the sample values:
 
 Within *30 minutes* after you send the HTTP PUT request to create your ISE, you must add an access policy to your key vault for your ISE's system-assigned identity. Otherwise, creation for your ISE fails, and you get a permissions error. 
 
-For this task, you can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps in the Azure portal:
+For this task, you can use either the Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) command, or you can follow these steps in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), open your Azure key vault.
 
@@ -211,8 +223,8 @@ For this task, you can use either the Azure PowerShell [Set-AzKeyVaultAccessPoli
 
    1. When you're finished with the **Access policies** pane, select **Save**.
 
-For more information, see [Provide Key Vault authentication with a managed identity](../key-vault/managed-identity.md#grant-your-app-access-to-key-vault).
+For more information, see [How to authenticate to Key Vault](/azure/key-vault/general/authentication) and [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy-portal).
 
 ## Next steps
 
-* Learn more about [Azure Key Vault](../key-vault/key-vault-overview.md)
+* Learn more about [Azure Key Vault](../key-vault/general/overview.md)

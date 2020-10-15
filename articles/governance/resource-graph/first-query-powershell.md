@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first PowerShell query"
 description: In this quickstart, you follow the steps to enable the Resource Graph module for Azure PowerShell and run your first query.
-ms.date: 11/21/2019
+ms.date: 10/14/2020
 ms.topic: quickstart
 ---
 # Quickstart: Run your first Resource Graph query using Azure PowerShell
@@ -30,9 +30,11 @@ with the [PowerShell Docker image](https://hub.docker.com/_/microsoft-powershell
 
 The Azure Resource Graph module requires the following software:
 
-- Azure PowerShell 1.0.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
+- Azure PowerShell 1.0.0 or higher. If it isn't yet installed, follow
+  [these instructions](/powershell/azure/install-az-ps).
 
-- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow [these instructions](/powershell/scripting/gallery/installing-psget).
+- PowerShellGet 2.0.1 or higher. If it isn't installed or updated, follow
+  [these instructions](/powershell/scripting/gallery/installing-psget).
 
 ### Install the module
 
@@ -55,7 +57,7 @@ The Resource Graph module for PowerShell is **Az.ResourceGraph**.
 ## Run your first Resource Graph query
 
 With the Azure PowerShell module added to your environment of choice, it's time to try out a simple
-Resource Graph query. The query will return the first five Azure resources with the **Name** and
+Resource Graph query. The query returns the first five Azure resources with the **Name** and
 **Resource Type** of each resource.
 
 1. Run your first Azure Resource Graph query using the `Search-AzGraph` cmdlet:
@@ -81,8 +83,8 @@ Resource Graph query. The query will return the first five Azure resources with 
    > [!NOTE]
    > Just as with the first query, running this query multiple times is likely to yield a different
    > set of resources per request. The order of the query commands is important. In this example,
-   > the `order by` comes after the `limit`. This will first limit the query results and then order
-   > them.
+   > the `order by` comes after the `limit`. This command order first limits the query results and
+   > then orders them.
 
 1. Update the query to first `order by` the **Name** property and then `limit` to the top five
    results:
@@ -93,8 +95,8 @@ Resource Graph query. The query will return the first five Azure resources with 
    ```
 
 When the final query is run several times, assuming that nothing in your environment is changing,
-the results returned will be consistent and as expected -- ordered by the **Name** property, but
-still limited to the top five results.
+the results returned are consistent and ordered by the **Name** property, but still limited to the
+top five results.
 
 > [!NOTE]
 > If the query does not return results from a subscription you already have access to, then note
@@ -119,13 +121,13 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 ```
 
 > [!NOTE]
-> This does not delete the module file downloaded earlier. It only removes it from the running
+> This doesn't delete the module file downloaded earlier. It only removes it from the running
 > PowerShell session.
 
 ## Next steps
 
 In this quickstart, you've added the Resource Graph module to your Azure PowerShell environment and
-run your first query. To learn more about the Resource graph language, continue to the query
+run your first query. To learn more about the Resource Graph language, continue to the query
 language details page.
 
 > [!div class="nextstepaction"]

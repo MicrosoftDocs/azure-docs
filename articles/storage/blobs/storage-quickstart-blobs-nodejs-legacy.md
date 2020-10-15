@@ -4,19 +4,25 @@ description: Create, upload, and delete blobs and containers in Node.js with the
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 09/24/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.custom: devx-track-js
 ---
 
-# Quickstart: Azure Blob storage client library v10 for JavaScript
+# Quickstart: Manage blobs with JavaScript v10 SDK in Node.js
 
-In this quickstart, you learn to use the [Azure Storage v10 SDK for JavaScript](https://github.com/Azure/azure-sdk-for-js) in Node.js to upload, download, list, and delete blobs and manage containers.
+In this quickstart, you learn to manage blobs by using Node.js. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll upload, download, list, and delete blobs, and you'll manage containers.
+
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Manage blobs with JavaScript v12 SDK in Node.js](storage-quickstart-blobs-nodejs.md).
 
 ## Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
+- [Node.js](https://nodejs.org/en/download/).
 
 ## Download the sample application
 
@@ -129,7 +135,7 @@ const ONE_MEGABYTE = 1024 * 1024;
 const FOUR_MEGABYTES = 4 * ONE_MEGABYTE;
 ```
 
-Requests made by the API can be set to time-out after a given interval. The [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
+Requests made by the API can be set to time out after a given interval. The [Aborter](/javascript/api/%40azure/storage-blob/aborter?view=azure-node-legacy) class is responsible for managing how requests are timed-out and the following constant is used to define timeouts used in this sample.
 
 ```javascript
 const ONE_MINUTE = 60 * 1000;
@@ -199,7 +205,7 @@ As with the container, the block blob doesn't exist yet. The *blockBlobURL* vari
 
 ### Using the Aborter class
 
-Requests made by the API can be set to time-out after a given interval. The *Aborter* class is responsible for managing how requests are timed out. The following code creates a context where a set of requests is given 30 minutes to execute.
+Requests made by the API can be set to time out after a given interval. The *Aborter* class is responsible for managing how requests are timed out. The following code creates a context where a set of requests is given 30 minutes to execute.
 
 ```javascript
 const aborter = Aborter.timeout(30 * ONE_MINUTE);
@@ -403,4 +409,4 @@ This quickstart demonstrates how to manage blobs and containers in Azure Blob st
 
 > [!div class="nextstepaction"]
 > [Azure Storage v10 SDK for JavaScript repository](https://github.com/Azure/azure-storage-js)
-> [Azure Storage JavaScript API Reference](/javascript/api/overview/azure/storage?view=azure-node-legacy)
+> [Azure Storage JavaScript API Reference](/javascript/api/overview/azure/storage-overview)

@@ -5,7 +5,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/28/2019
 ---
 
@@ -154,7 +154,7 @@ In this example, the `hdfs` command transparently uses the default cluster stora
 HDInsight logs script output that is written to STDOUT and STDERR. You can view this information using the Ambari web UI.
 
 > [!NOTE]  
-> Apache Ambari is only available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see the troubleshooting section [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) for other ways of accessing logged information.
+> Apache Ambari is only available if the cluster is successfully created. If you use a script action during cluster creation, and creation fails, see [Troubleshoot script actions](./troubleshoot-script-action.md) for other ways of accessing logged information.
 
 Most utilities and installation packages already write information to STDOUT and STDERR, however you may want to add additional logging. To send text to STDOUT, use `echo`. For example:
 
@@ -170,7 +170,7 @@ By default, `echo` sends the string to STDOUT. To direct it to STDERR, add `>&2`
 
 This redirects information written to STDOUT to STDERR (2) instead. For more information on IO redirection, see [https://www.tldp.org/LDP/abs/html/io-redirection.html](https://www.tldp.org/LDP/abs/html/io-redirection.html).
 
-For more information on viewing information logged by script actions, see [Customize HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting)
+For more information on viewing information logged by script actions, see [Troubleshoot script actions](./troubleshoot-script-action.md).
 
 ### <a name="bps8"></a> Save files as ASCII with LF line endings
 
@@ -259,11 +259,15 @@ Values passed to the script as parameters should be enclosed by single quotes ('
 
 Setting an environment variable is performed by the following statement:
 
-    VARIABLENAME=value
+```bash
+VARIABLENAME=value
+```
 
 Where VARIABLENAME is the name of the variable. To access the variable, use `$VARIABLENAME`. For example, to assign a value provided by a positional parameter as an environment variable named PASSWORD, you would use the following statement:
 
-    PASSWORD=$1
+```bash
+PASSWORD=$1
+```
 
 Subsequent access to the information could then use `$PASSWORD`.
 
@@ -347,7 +351,9 @@ This problem most often occurs when the script is authored on a Windows environm
 
 *Resolution*: Save the file either as ASCII, or as UTF-8 without a BOM. You may also use the following command on a Linux or Unix system to create a file without the BOM:
 
-    awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```bash
+awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
+```
 
 Replace `INFILE` with the file containing the BOM. `OUTFILE` should be a new file name, which contains the script without the BOM.
 

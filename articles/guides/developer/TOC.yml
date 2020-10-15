@@ -3,11 +3,11 @@
   - name: Developer guide
     href: azure-developer-guide.md
   - name: SDKs and tools
-    href: https://docs.microsoft.com/azure/index#pivot=sdkstools
+    href: https://aka.ms/azsdkpackages
 - name: Quickstart
   items:
   - name: Web Apps
-    href: https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html
+    href: https://docs.microsoft.com/azure/app-service/quickstart-html
   - name: Virtual machines
     items:
     - name: Linux
@@ -29,9 +29,9 @@
     - name: .NET with SQL DB
       href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase
     - name: Node.js with Mongo DB
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app
+      href: https://docs.microsoft.com/azure/app-service/tutorial-nodejs-mongodb-app
     - name: PHP with MySQL
-      href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-php-mysql
+      href: https://docs.microsoft.com/azure/app-service/tutorial-php-mysql-app
     - name: Java with MySQL
       href: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-java-mysql
   - name: Deploy complex VM templates
@@ -175,7 +175,7 @@
     - name: PHP
       href: https://github.com/Azure/azure-sdk-for-php/blob/master/README.md
     - name: Python
-      href: http://azure-sdk-for-python.readthedocs.io/en/latest/
+      href: https://github.com/Azure/azure-sdk-for-python/blob/master/README.md
     - name: Ruby
       href: https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md
   - name: Command line interfaces

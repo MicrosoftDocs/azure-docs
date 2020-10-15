@@ -2,21 +2,96 @@
 title: Template functions - comparison
 description: Describes the functions to use in an Azure Resource Manager template to compare values.
 ms.topic: conceptual
-ms.date: 09/05/2017
+ms.date: 04/27/2020
 ---
-# Comparison functions for Azure Resource Manager templates
+# Comparison functions for ARM templates
 
-Resource Manager provides several functions for making comparisons in your templates.
+Resource Manager provides several functions for making comparisons in your Azure Resource Manager (ARM) templates.
 
+* [coalesce](#coalesce)
 * [equals](#equals)
 * [greater](#greater)
 * [greaterOrEquals](#greaterorequals)
 * [less](#less)
 * [lessOrEquals](#lessorequals)
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+## coalesce
+
+`coalesce(arg1, arg2, arg3, ...)`
+
+Returns first non-null value from the parameters. Empty strings, empty arrays, and empty objects are not null.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| arg1 |Yes |int, string, array, or object |The first value to test for null. |
+| additional args |No |int, string, array, or object |Additional values to test for null. |
+
+### Return value
+
+The value of the first non-null parameters, which can be a string, int, array, or object. Null if all parameters are null.
+
+### Example
+
+The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) shows the output from different uses of coalesce.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "null1": null,
+                "null2": null,
+                "string": "default",
+                "int": 1,
+                "object": {"first": "default"},
+                "array": [1]
+            }
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "stringOutput": {
+            "type": "string",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
+        },
+        "intOutput": {
+            "type": "int",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
+        },
+        "objectOutput": {
+            "type": "object",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
+        },
+        "arrayOutput": {
+            "type": "array",
+            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
+        },
+        "emptyOutput": {
+            "type": "bool",
+            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
+        }
+    }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| stringOutput | String | default |
+| intOutput | Int | 1 |
+| objectOutput | Object | {"first": "default"} |
+| arrayOutput | Array | [1] |
+| emptyOutput | Bool | True |
 
 ## equals
+
 `equals(arg1, arg2)`
 
 Checks whether two values equal each other.
@@ -57,7 +132,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -125,23 +200,11 @@ The output from the preceding example with the default values is:
 | checkArrays | Bool | True |
 | checkObjects | Bool | True |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
-```
-
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) uses [not](template-functions-logical.md#not) with **equals**.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "resources": [
     ],
@@ -160,19 +223,8 @@ The output from the preceding example is:
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json 
-```
-
 ## greater
+
 `greater(arg1, arg2)`
 
 Checks whether the first value is greater than the second value.
@@ -194,7 +246,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -236,19 +288,8 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greater.json 
-```
-
 ## greaterOrEquals
+
 `greaterOrEquals(arg1, arg2)`
 
 Checks whether the first value is greater than or equal to the second value.
@@ -270,7 +311,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -312,19 +353,8 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | False |
 | checkStrings | Bool | True |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
-```
-
 ## less
+
 `less(arg1, arg2)`
 
 Checks whether the first value is less than the second value.
@@ -346,7 +376,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -388,19 +418,8 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/less.json 
-```
-
 ## lessOrEquals
+
 `lessOrEquals(arg1, arg2)`
 
 Checks whether the first value is less than or equal to the second value.
@@ -422,7 +441,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstInt": {
@@ -464,21 +483,6 @@ The output from the preceding example with the default values is:
 | checkInts | Bool | True |
 | checkStrings | Bool | False |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/lessorequals.json 
-```
-
 ## Next steps
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
-* To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
 
+* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

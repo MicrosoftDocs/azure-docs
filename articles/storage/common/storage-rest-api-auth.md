@@ -1,16 +1,17 @@
 ---
 title: Call REST API operations with Shared Key authorization
-titleSuffix: Azure Storage
+titleSuffix: Discover how to call Azure Storage REST API operations with Shared Key authorization. Get detailed information about each step of the sample operation.
 description: Use the Azure Storage REST API to make a request to Blob storage using Shared Key authorization.
 services: storage
 author: tamram
 
 ms.service: storage
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/01/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: ozge
 ms.subservice: common
+ms.custom: devx-track-csharp
 ---
 
 # Call REST API operations with Shared Key authorization
@@ -61,7 +62,7 @@ Review the reference for the [ListContainers](/rest/api/storageservices/List-Con
 
 **Request Method**: GET. This verb is the HTTP method you specify as a property of the request object. Other values for this verb include HEAD, PUT, and DELETE, depending on the API you are calling.
 
-**Request URI**: `https://myaccount.blob.core.windows.net/?comp=list`.  The request URI is created from the blob storage account endpoint `http://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
+**Request URI**: `https://myaccount.blob.core.windows.net/?comp=list`.  The request URI is created from the blob storage account endpoint `https://myaccount.blob.core.windows.net` and the resource string `/?comp=list`.
 
 [URI parameters](/rest/api/storageservices/List-Containers2#uri-parameters): There are additional query parameters you can use when calling ListContainers. A couple of these parameters are *timeout* for the call (in seconds) and *prefix*, which is used for filtering.
 
@@ -412,7 +413,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 
     // This is the actual header that will be added to the list of request headers.
     AuthenticationHeaderValue authHV = new AuthenticationHeaderValue("SharedKey",
-        storageAccountName + ":" + Convert.ToBase64String(SHA256.ComputeHash(SignatureBytes)));
+        storageAccountName + ":" + signature);
     return authHV;
 }
 ```

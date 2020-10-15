@@ -1,22 +1,23 @@
 ---
 title: Create a storage account
 titleSuffix: Azure Storage
-description: Learn to create a storage account using the Azure portal, Azure PowerShell, or the Azure CLI. An Azure storage account provides a unique namespace in Microsoft Azure to store and access your data.
+description: Learn to create a storage account to store blobs, files, queues, and tables. An Azure storage account provides a unique namespace in Microsoft Azure for reading and writing your data.
 services: storage
 author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/17/2020
+ms.date: 09/24/2020
 ms.author: tamram
-ms.subservice: common
+ms.subservice: common 
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
-# Create an Azure Storage account
+# Create a storage account
 
 An Azure storage account contains all of your Azure Storage data objects: blobs, files, queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that is accessible from anywhere in the world over HTTP or HTTPS. Data in your Azure storage account is durable and highly available, secure, and massively scalable.
 
-In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).  
+In this how-to article, you learn to create a storage account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/), [Azure CLI](https://docs.microsoft.com/cli/azure), or an [Azure Resource Manager template](../../azure-resource-manager/management/overview.md).  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -30,7 +31,15 @@ None.
 
 # [PowerShell](#tab/azure-powershell)
 
-This how-to article requires the Azure PowerShell module Az version 0.7 or later. Run `Get-Module -ListAvailable Az` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
+To create an Azure storage account with PowerShell, make sure you have installed Azure PowerShell module Az version 0.7 or later. For more information, see [Introducing the Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+
+To find your current version, run the following command:
+
+```powershell
+Get-InstalledModule -Name "Az"
+```
+
+To install or upgrade Azure PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -51,7 +60,7 @@ The button launches an interactive shell that you can use to run the steps outli
 
 ### Install the CLI locally
 
-You can also install and use the Azure CLI locally. This how-to article requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+You can also install and use the Azure CLI locally. The examples in this article require Azure CLI version 2.0.4 or later. Run `az --version` to find your installed version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 # [Template](#tab/template)
 
@@ -79,7 +88,7 @@ To launch Azure Cloud Shell, sign in to the [Azure portal](https://portal.azure.
 
 To log into your local installation of the CLI, run the [az login](/cli/azure/reference-index#az-login) command:
 
-```cli
+```azurecli-interactive
 az login
 ```
 
@@ -91,11 +100,9 @@ N/A
 
 ## Create a storage account
 
-Now you are ready to create a storage account.
-
 Every storage account must belong to an Azure resource group. A resource group is a logical container for grouping your Azure services. When you create a storage account, you have the option to either create a new resource group, or use an existing resource group. This article shows how to create a new resource group.
 
-A **general-purpose v2** storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. The steps outlined here create a general-purpose v2 storage account, but the steps to create any type of storage account are similar.
+A **general-purpose v2** storage account provides access to all of the Azure Storage services: blobs, files, queues, tables, and disks. The steps outlined here create a general-purpose v2 storage account, but the steps to create any type of storage account are similar. For more information about types of storage accounts and other storage account settings, see [Azure storage account overview](storage-account-overview.md).
 
 # [Portal](#tab/azure-portal)
 
@@ -109,6 +116,7 @@ First, create a new resource group with PowerShell using the [New-AzResourceGrou
 # put resource group in a variable so you can use the same group name going forward,
 # without hard-coding it repeatedly
 $resourceGroup = "storage-resource-group"
+$location = "westus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -116,7 +124,6 @@ If you're not sure which region to specify for the `-Location` parameter, you ca
 
 ```powershell
 Get-AzLocation | select Location
-$location = "westus"
 ```
 
 Next, create a general-purpose v2 storage account with read-access geo-redundant storage (RA-GRS) by using the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command. Remember that the name of your storage account must be unique across Azure, so replace the placeholder value in brackets with your own unique value:
@@ -130,7 +137,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `-EnableHierarchicalNamespace $True` in this list of parameters. 
+> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `-EnableHierarchicalNamespace $True` in this list of parameters.
 
 To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **SkuName** parameter.
 
@@ -140,8 +147,8 @@ To create a general-purpose v2 storage account with a different replication opti
 |Zone-redundant storage (ZRS)     |Standard_ZRS         |
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
-|Geo-zone-redundant storage (GZRS) (preview)    |Standard_GZRS         |
-|Read-access geo-zone-redundant storage (RA-GZRS) (preview)    |Standard_RAGZRS         |
+|Geo-zone-redundant storage (GZRS)    |Standard_GZRS         |
+|Read-access geo-zone-redundant storage (RA-GZRS)    |Standard_RAGZRS         |
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -173,7 +180,7 @@ az storage account create \
 ```
 
 > [!IMPORTANT]
-> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `--enable-hierarchical-namespace true` in this list of parameters. 
+> If you plan to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), include `--enable-hierarchical-namespace true` in this list of parameters.
 
 To create a general-purpose v2 storage account with a different replication option, substitute the desired value in the table below for the **sku** parameter.
 
@@ -183,12 +190,12 @@ To create a general-purpose v2 storage account with a different replication opti
 |Zone-redundant storage (ZRS)     |Standard_ZRS         |
 |Geo-redundant storage (GRS)     |Standard_GRS         |
 |Read-access geo-redundant storage (GRS)     |Standard_RAGRS         |
-|Geo-zone-redundant storage (GZRS) (preview)    |Standard_GZRS         |
-|Read-access geo-zone-redundant storage (RA-GZRS) (preview)    |Standard_RAGZRS         |
+|Geo-zone-redundant storage (GZRS)    |Standard_GZRS         |
+|Read-access geo-zone-redundant storage (RA-GZRS)    |Standard_RAGZRS         |
 
 # [Template](#tab/template)
 
-You can use either Azure Powershell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud shell. To paste the script, right-click the shell, and then select **Paste**.
+You can use either Azure PowerShell or Azure CLI to deploy a Resource Manager template to create a storage account. The template used in this how-to article is from [Azure Resource Manager quickstart templates](https://azure.microsoft.com/resources/templates/101-storage-account-create/). To run the scripts, select **Try it** to open the Azure Cloud Shell. To paste the script, right-click the shell, and then select **Paste**.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -207,15 +214,16 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-To learn how to create templates, see:
+> [!NOTE]
+> This template serves only as an example. There are many storage account settings that aren't configured as part of this template. For example, if you want to use [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/), you would modify this template by setting the `isHnsEnabledad` property of the `StorageAccountPropertiesCreateParameters` object to `true`. 
+
+To learn how to modify this template or create new ones, see:
 
 - [Azure Resource Manager documentation](/azure/azure-resource-manager/).
 - [Storage account template reference](/azure/templates/microsoft.storage/allversions).
 - [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage).
 
 ---
-
-For more information about available replication options, see [Storage replication options](storage-redundancy.md).
 
 ## Delete a storage account
 
@@ -271,26 +279,6 @@ Alternately, you can delete the resource group, which deletes the storage accoun
 
 ## Next steps
 
-In this how-to article, you've created a general-purpose v2 standard storage account. To learn how to upload and download blobs to and from your storage account, continue to one of the Blob storage quickstarts.
-
-# [Portal](#tab/azure-portal)
-
-> [!div class="nextstepaction"]
-> [Work with blobs using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
-
-# [PowerShell](#tab/azure-powershell)
-
-> [!div class="nextstepaction"]
-> [Work with blobs using PowerShell](../blobs/storage-quickstart-blobs-powershell.md)
-
-# [Azure CLI](#tab/azure-cli)
-
-> [!div class="nextstepaction"]
-> [Work with blobs using the Azure CLI](../blobs/storage-quickstart-blobs-cli.md)
-
-# [Template](#tab/template)
-
-> [!div class="nextstepaction"]
-> [Work with blobs using the Azure portal](../blobs/storage-quickstart-blobs-portal.md)
-
----
+- [Storage account overview](storage-account-overview.md)
+- [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
+- [Move an Azure Storage account to another region](storage-account-move.md)

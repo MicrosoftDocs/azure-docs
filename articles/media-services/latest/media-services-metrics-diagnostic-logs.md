@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Learn how to monitor Azure Media Services metrics and diagnostic logs via Azure Monitor.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
@@ -12,13 +12,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # Monitor Media Services metrics and diagnostic logs via Azure Monitor
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Azure Monitor](../../azure-monitor/overview.md) lets you monitor metrics and diagnostic logs that help you understand how your apps are performing. All data collected by Azure Monitor fits into one of two fundamental types: metrics and logs. You can monitor Media Services diagnostic logs and create alerts and notifications for the collected metrics and logs. You can visualize and analyze the metrics data using [Metrics explorer](../../azure-monitor/platform/metrics-getting-started.md). You can send logs to [Azure Storage](https://azure.microsoft.com/services/storage/), stream them to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), export them to [Log Analytics](https://azure.microsoft.com/services/log-analytics/), or use third-party services.
 
@@ -51,16 +53,16 @@ You can monitor the following account metrics.
 |StreamingPolicyQuota|Streaming Policy quota|Streaming Policies quota in your account.|
 |StreamingPolicyQuotaUsedPercentage|Streaming Policy quota used percentage|The percentage of the Streaming Policy quota already used.|
 
-You should also review [account quotas and limitations](limits-quotas-constraints.md).
+You should also review [account quotas and limits](limits-quotas-constraints.md).
 
 ### Streaming Endpoint
 
-The following Media Services [Streaming Endpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) metrics are supported:
+The following Media Services [Streaming Endpoints](/rest/api/media/streamingendpoints) metrics are supported:
 
 |Metric name|Display name|Description|
 |---|---|---|
 |Requests|Requests|Provides the total number of HTTP requests served by the Streaming Endpoint.|
-|Egress|Egress|The total number of egress bytes. For example, bytes streamed by the Streaming Endpoint.|
+|Egress|Egress|Egress bytes total per minute per Streaming Endpoint.|
 |SuccessE2ELatency|Success end to end Latency|Time duration from when the Streaming Endpoint received the request to when the last byte of the response was sent.|
 
 ### Why would I want to use metrics?

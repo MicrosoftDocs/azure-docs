@@ -1,14 +1,12 @@
 ---
 title: Manage Azure Reservations
-description: Learn how you can manage Azure Reservations.
+description: Learn how to manage Azure Reservations. See steps to change the reservation scope, split a reservation, and optimize reservation use.
 ms.service: cost-management-billing
+ms.subservice: reservations
 author: bandersmsft
-manager: yashesvi
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/06/2019
+ms.reviewer: yashesvi
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -17,12 +15,13 @@ After you buy an Azure reservation, you may need to apply the reservation to a d
 
 If you bought Azure Reserved Virtual Machine Instances, you may change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations so that they are fully used.
 
+*Permission needed to manage a reservation is separate from subscription permission.*
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Reservation Order and Reservation
 
-When you purchase of a reservation, two objects are created: **Reservation Order** and **Reservation**.
+When you purchase a reservation, two objects are created: **Reservation Order** and **Reservation**.
 
 At the time of purchase, a Reservation Order has one Reservation under it. Actions such as split, merge, partial refund, or exchange create new reservations under the **Reservation Order**.
 
@@ -52,10 +51,9 @@ The scope only applies to individual subscriptions with pay-as-you-go rates (off
 
 You can delegate reservation management by adding people to roles on the reservation order or the reservation. By default, the person that places the reservation order and the account administrator have the Owner role on the reservation order and the reservation.
 
-You can manage access to reservations orders and reservations independently from the subscriptions that get the reservation discount. When you give someone permissions to manage a reservation order or the reservation, it doesn't give them permission to manage the subscription. Similarly, if you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
+You can manage access to reservations orders and reservations *independently from the subscriptions* that get the reservation discount. When you give someone permissions to manage a reservation order or the reservation, it doesn't give them permission to manage the subscription. Similarly, if you give someone permissions to manage a subscription in the reservation's scope, it doesn't give them rights to manage the reservation order or the reservation.
 
 To perform an exchange or refund, the user must have access to the reservation order. When granting someone permissions, it’s best to grant permissions to the reservation order, not the reservation.
-
 
 To delegate access management for a reservation:
 
@@ -69,7 +67,7 @@ To delegate access management for a reservation:
 
 ## Split a single reservation into two reservations
 
- After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription or shared. For example, you bought 10 reservation instances and specified the scope to be subscription A. You may now want to change the scope for seven reservations to subscription A and the remaining three to subscription B. Splitting a reservation allows you to distribute instances for granular scope management. You can simplify the allocation to subscriptions by choosing shared scope. But for cost management or budgeting purposes, you can allocate quantities to specific subscriptions.
+ After you buy more than one resource instance within a reservation, you may want to assign instances within that reservation to different subscriptions. By default, all instances have one scope - either single subscription, resource group or shared. Lets say, you bought a reservation for 10 VM instances and specified the scope to be subscription A. You now want to change the scope for 7 VM instances to subscription A and the remaining three to subscription B. Splitting a reservation allows you todo that. After you split a reservation, the original ReservationID is cancelled and two new reservations are created. Split doesn't impact the reservation order - there is no new commercial transaction with split and the new reservations have the same end date as the one that was split.
 
  You can split a reservation into two reservations though PowerShell, CLI, or through the API.
 
@@ -117,12 +115,14 @@ To update the optimize setting for the reservation:
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **All Services** > **Reservations**.
 3. Select the reservation.
-4. Select **Settings** > **Configuration**.
-5. Change the **Optimize for** setting.
+4. Select **Settings** > **Configuration**.  
+  ![Example showing the Configuration item](./media/manage-reserved-vm-instance/add-product03.png)
+5. Change the **Optimize for** setting.  
+  ![Example showing the Optimize for setting](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## Optimize reservation use
 
-Azure reservation savings only result from sustained resource use. When you make a reservation purchase, you pay an up-front cost for what is essentially 100% possible resource use over a one- or three-year term. Try to maximize your reservation to get as much use and savings possible. The following sections explain how to monitor a reservation and optimize its use.
+Azure reservation savings only result from sustained resource use. When you make a reservation purchase, you pay for what is essentially 100% possible resource use over a one- or three-year term. Try to maximize your reservation to get as much use and savings possible. The following sections explain how to monitor a reservation and optimize its use.
 
 ### View reservation use in the Azure portal
 
@@ -163,7 +163,7 @@ To learn more about Azure Reservations, see the following articles:
 
 Buy a service plan:
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
 - [Prepay for Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../../cosmos-db/cosmos-db-reserved-capacity.md)
 
 Buy a software plan:

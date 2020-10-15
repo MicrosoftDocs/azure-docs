@@ -1,17 +1,16 @@
 ---
-title: Review your Microsoft Customer Agreement's bill - Azure
+title: Review your Microsoft Customer Agreement bill - Azure
 description: Learn how to review your bill and resource usage and to verify charges for your Microsoft Customer Agreement invoice.
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: billing
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/22/2019
+ms.date: 08/20/2020
 ms.author: banders
 ---
+
 # Tutorial: Review your Microsoft Customer Agreement invoice
 
 You can review the charges on your invoice by analyzing the individual transactions. In the billing account for a Microsoft Customer Agreement, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month. You can view your invoices in the Azure portal and compare the charges to the usage detail file.
@@ -35,7 +34,7 @@ It must be more than 30 days from the day that you subscribed to Azure. Azure bi
 
 ## Sign in to Azure
 
-- Sign in to the Azure portal at https://portal.azure.com.
+- Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Check access to a Microsoft Customer Agreement
 
@@ -43,7 +42,7 @@ Check the agreement type to determine whether you have access to a billing accou
 
 In the Azure portal, type *cost management + billing* in the search box and then select **Cost Management + Billing**.
 
-![Screenshot that shows Azure portal search for cost management + billing](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
+![Screenshot shows Azure portal search for cost management + billing.](./media/review-customer-agreement-bill/billing-search-cost-management-billing.png)
 
 If you have access to just one billing scope, select **Properties** from the left-hand side. You have access to a billing account for a Microsoft Customer Agreement if the billing account type is **Microsoft Customer Agreement**.
 
@@ -102,7 +101,7 @@ Select the **Summary** tab from the top of the screen.
 
 The charges section display the month-to-date and last month's charges.
 
-![Screenshot that shows Azure portal search for cost management + billing](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
+![Screenshot shows a billing profile summary.](./media/review-customer-agreement-bill/mca-billing-profile-summary.png)
 
 The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending and will appear on your next invoice.
 
@@ -134,7 +133,7 @@ Select **All subscriptions** on the left side of the page.
 
 The Azure subscriptions page displays the current and last month's charges for each subscription in the billing profile. The month-to-date charges are the pending charges for the current month and are billed when the invoice is generated for the month. If the invoice for last month is still not generated, then last month's charges are also pending.
 
-![Screenshot that shows the Azure subscriptions list for billing profile](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
+![Screenshot shows subscriptions with month-to-date charges and last month's charges.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list.png)
 
 ## Analyze your Azure usage charges
 
@@ -168,7 +167,7 @@ You can filter the Azure usage and charges CSV file to reconcile usage charges f
 
 The following image shows the list of subscriptions in the Azure portal.
 
-![Screenshot that shows the Azure subscriptions list for billing profile](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
+![Screenshot shows the list of subscriptions in the Azure portal with one subscription called out.](./media/review-customer-agreement-bill/mca-billing-profile-subscriptions-list-highlighted.png)
 
 Filter the **subscriptionName** column in the Azure usage and charges CSV file to **WA_Subscription** to view the detailed usage charges for WA_Subscription.
 

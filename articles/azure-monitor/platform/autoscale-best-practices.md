@@ -6,7 +6,7 @@ ms.date: 07/07/2017
 ms.subservice: autoscale
 ---
 # Best practices for Autoscale
-Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](../../api-management/api-management-key-concepts.md).
 
 ## Autoscale concepts
 
@@ -16,7 +16,7 @@ Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azu
   An autoscale setting has a maximum, minimum, and default value of instances.
 * An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale-out or scale-in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](autoscale-common-metrics.md).
 * All thresholds are calculated at an instance level. For example, "scale out by one instance when average CPU > 80% when instance count is 2", means scale-out when the average CPU across all instances is greater than 80%.
-* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./../../azure-monitor/platform/activity-log-alerts.md) so that you can be notified via email, SMS, or webhooks whenever there is an autoscale failure.
+* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./activity-log-alerts.md) so that you can be notified via email, SMS, or webhooks whenever there is an autoscale failure.
 * Similarly, all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, or webhooks whenever there is a successful autoscale action. You can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
 
 ## Autoscale best practices
@@ -107,7 +107,7 @@ Similarly, when autoscale switches back to the default profile, it first checks 
 
 ### Considerations for scaling when multiple rules are configured in a profile
 
-There are cases where you may have to set multiple rules in a profile. The following autoscale rules are used by services when multiple rules are set.
+There are cases where you may have to set multiple rules in a profile. The following autoscale rules are used by the autoscale engine when multiple rules are set.
 
 On *scale-out*, autoscale runs if any rule is met.
 On *scale-in*, autoscale require all rules to be met.
@@ -127,13 +127,13 @@ Then the follow occurs:
 On the other hand, if CPU is 25% and memory is 51% autoscale does **not** scale-in. In order to scale-in, CPU must be 29% and Memory 49%.
 
 ### Always select a safe default instance count
-The default instance count is important autoscale scales your service to that count when metrics are not available. Therefore, select a default instance count that's safe for your workloads.
+The default instance count is important because autoscale scales your service to that count when metrics are not available. Therefore, select a default instance count that's safe for your workloads.
 
 ### Configure autoscale notifications
 Autoscale will post to the Activity Log if any of the following conditions occur:
 
-* Autoscale issues a scale operation
-* Autoscale service successfully completes a scale action
+* Autoscale issues a scale operation.
+* Autoscale service successfully completes a scale action.
 * Autoscale service fails to take a scale action.
 * Metrics are not available for autoscale service to make a scale decision.
 * Metrics are available (recovery) again to make a scale decision.

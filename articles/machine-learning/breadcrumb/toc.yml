@@ -19,7 +19,7 @@
     items:
     - name: Service
       tocHref: /azure/open-datasets/
-      topicHref: /azure/machine-learning/service/index
+      topicHref: /azure/machine-learning/index
       items: 
       - name: Open Datasets
         tocHref: /azure/open-datasets/
@@ -35,7 +35,7 @@
     items:
     - name: Service
       tocHref: /azure/iot-edge/
-      topicHref: /azure/machine-learning/service/index
+      topicHref: /azure/machine-learning/index
       items:
       - name: IoT Edge
         tocHref: /azure/iot-edge/
@@ -51,7 +51,7 @@
     items:
     - name: Service
       tocHref: /azure/architecture/data-guide/technology-choices/
-      topicHref: /azure/machine-learning/service/index
+      topicHref: /azure/machine-learning/index
       items:
       - name: Data Architecture Guide
         tocHref: /azure/architecture/data-guide/
@@ -67,7 +67,7 @@
     items:
     - name: Service
       tocHref: /azure/devops/pipelines/
-      topicHref: /azure/machine-learning/service/index
+      topicHref: /azure/machine-learning/index
       items:
       - name: Pipelines
         tocHref: /azure/devops/pipelines/languages/

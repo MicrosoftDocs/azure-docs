@@ -2,7 +2,7 @@
 title: Create parameter file
 description: Create parameter file for passing in values during deployment of an Azure Resource Manager template
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/01/2020
 ---
 # Create Resource Manager parameter file
 
@@ -14,7 +14,7 @@ The parameter file has the following format:
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "<first-parameter-name>": {
@@ -33,7 +33,7 @@ The following parameter file includes a plain text value and a value that is sto
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "<first-parameter-name>": {
@@ -80,7 +80,7 @@ The first detail to notice is the name of each parameter. The values in your par
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -95,7 +95,7 @@ Notice the type of the parameter. The values in your parameter file must have th
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -112,7 +112,7 @@ Next, look for a default value. If a parameter has a default value, you can prov
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -129,7 +129,7 @@ Finally, look at the allowed values and any restrictions like max length. They t
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "storagePrefix": {
@@ -142,13 +142,15 @@ Finally, look at the allowed values and any restrictions like max length. They t
 }
 ```
 
+Your parameter file can only contain values for parameters that are defined in the template. If your parameter file contains extra parameters that don't match parameters in the template, you receive an error.
+
 ## Parameter type formats
 
 The following example shows the formats of different parameter types.
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
     "exampleString": {
@@ -176,22 +178,49 @@ The following example shows the formats of different parameter types.
 }
 ```
 
+## Deploy template with parameter file
+
+To pass a local parameter file with Azure CLI, use @ and the name of the parameter file.
+
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+For more information, see [Deploy resources with ARM templates and Azure CLI](./deploy-cli.md#parameters).
+
+To pass a local parameter file with Azure PowerShell, use the `TemplateParameterFile` parameter.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+For more information, see [Deploy resources with ARM templates and Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+
+> [!NOTE]
+> It's not possible to use a parameter file with the custom template blade in the portal.
+
 ## File name
 
 The general convention for naming the parameter file is to add **.parameters** to the template name. For example, if your template is named **azuredeploy.json**, your parameter file is named **azuredeploy.parameters.json**. This naming convention helps you see the connection between the template and the parameters.
 
 To deploy to different environments, create more than one parameter file. When naming the parameter file, add a way to identify its use. For example, use **azuredeploy.parameters-dev.json** and **azuredeploy.parameters-prod.json**
 
-
 ## Parameter precedence
 
 You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
 
-However, when you use an external parameter file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
+It's possible to use an external parameter file, by providing the URI to the file. When you use an external parameter file, you can't pass other values either inline or from a local file. All inline parameters are ignored. Provide all parameter values in the external file.
 
 ## Parameter name conflicts
 
 If your template includes a parameter with the same name as one of the parameters in the PowerShell command, PowerShell presents the parameter from your template with the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet. You're prompted to provide a value for **ResourceGroupNameFromTemplate**. You can avoid this confusion by using parameter names that aren't used for deployment commands.
+
 
 ## Next steps
 

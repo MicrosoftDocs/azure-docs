@@ -3,13 +3,13 @@ title: Run Azure Kubernetes Service - Text Analytics
 titleSuffix: Azure Cognitive Services
 description: Deploy the Text Analytics container image to Azure Kubernetes Service, and test it in a web browser.
 services: cognitive-services
-author: IEvangelist
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: dapine
+ms.date: 04/01/2020
+ms.author: aahi
 ---
 
 # Deploy a Text Analytics container to Azure Kubernetes Service
@@ -20,7 +20,7 @@ Learn how to deploy the Azure Cognitive Services [Text Analytics](https://docs.m
 
 This procedure requires several tools that must be installed and run locally. Don't use Azure Cloud Shell. You need the following:
 
-* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services) before you begin.
 * A text editor, for example, [Visual Studio Code](https://code.visualstudio.com/download).
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) installed.
 * The [Kubernetes CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed.

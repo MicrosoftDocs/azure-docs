@@ -1,17 +1,9 @@
 ---
 title: Tutorial - Install applications on a Windows VM in Azure 
 description: In this tutorial, you learn how to use the Custom Script Extension to run scripts and deploy applications to Windows virtual machines in Azure  
-services: virtual-machines-windows
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: virtual-machines-windows
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
@@ -22,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial - Deploy applications to a Windows virtual machine in Azure with the Custom Script Extension
 
-To configure virtual machines (VMs) in a quick and consistent manner, you can use the [Custom Script Extension for Windows](extensions-customscript.md). In this tutorial you learn how to:
+To configure virtual machines (VMs) in a quick and consistent manner, you can use the [Custom Script Extension for Windows](../extensions/custom-script-windows.md). In this tutorial you learn how to:
 
 > [!div class="checklist"]
 > * Use the Custom Script Extension to install IIS
@@ -44,13 +36,13 @@ You can use the Custom Script Extension with both Windows and Linux VMs.
 
 
 ## Create virtual machine
-Set the administrator username and password for the VM with [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
+Set the administrator username and password for the VM with [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-5.1):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Now you can create the VM with [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVM* in the *EastUS* location. If they do not already exist, the resource group *myResourceGroupAutomate* and supporting network resources are created. To allow web traffic, the cmdlet also opens port *80*.
+Now you can create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM named *myVM* in the *EastUS* location. If they do not already exist, the resource group *myResourceGroupAutomate* and supporting network resources are created. To allow web traffic, the cmdlet also opens port *80*.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -69,7 +61,7 @@ It takes a few minutes for the resources and VM to be created.
 
 
 ## Automate IIS install
-Use [Set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the *Default.htm* page to show the hostname of the VM:
+Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to install the Custom Script Extension. The extension runs `powershell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the *Default.htm* page to show the hostname of the VM:
 
 ```azurepowershell-interactive
 Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
@@ -84,7 +76,7 @@ Set-AzVMExtension -ResourceGroupName "myResourceGroupAutomate" `
 
 
 ## Test web site
-Obtain the public IP address of your load balancer with [Get-AzPublicIPAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIPAddress* created earlier:
+Obtain the public IP address of your load balancer with [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress). The following example obtains the IP address for *myPublicIPAddress* created earlier:
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress `

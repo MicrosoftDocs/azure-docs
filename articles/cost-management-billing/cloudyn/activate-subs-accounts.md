@@ -1,15 +1,15 @@
 ---
-title: Activate Azure subscriptions and accounts | Microsoft Docs
+title: Activate Azure subscriptions and accounts
 description: Enable access using Azure Resource Manager APIs for new and existing accounts and resolve common account problems.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2019
-ms.topic: quickstart
+ms.date: 03/12/2020
+ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.subservice: cloudyn
+ms.reviewer: vitavor
 ms.custom: secdec18
+ROBOTS: NOINDEX
 ---
 
 
@@ -18,6 +18,8 @@ ms.custom: secdec18
 Adding or updating your Azure Resource Manager credentials allows Cloudyn to discover all the accounts and subscriptions within your Azure Tenant. If you also have Azure Diagnostics extension enabled on your virtual machines, then Cloudyn can collect extended metrics like CPU and memory. This article describes how to enable access using Azure Resource Manager APIs for new and existing accounts. It also describes how to resolve common account problems.
 
 Cloudyn cannot access most of your Azure subscription data when the subscription is _unactivated_. You must edit _unactivated_ accounts so that Cloudyn can access them.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Required Azure permissions
 
@@ -60,7 +62,7 @@ When you add an account update a subscription, you grant Cloudyn access to your 
     2. In the Azure portal, select **Azure Active Directory**.
     3. To get the tenant ID, select **Properties** for your Azure AD tenant.
     4. Copy the Directory ID GUID. This value is your tenant ID.
-    For more information, see [Get tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in).
+    For more information, see [Get tenant ID](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. If necessary, select your Rate ID. If you don't know your rate ID, use the following steps to find it.
     1. In the upper-right of the Azure portal, click your user information and then click **View my bill**.
     2. Under **Billing Account**, click **Subscriptions**.

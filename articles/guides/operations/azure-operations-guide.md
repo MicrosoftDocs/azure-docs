@@ -63,7 +63,7 @@ Azure provides several PaaS compute offerings, including the Web Apps feature of
 
 SaaS is software that is centrally hosted and managed. It’s usually based on a multitenant architecture—a single version of the application is used for all customers. It can be scaled out to multiple instances to ensure the best performance in all locations. SaaS software typically is licensed through a monthly or annual subscription. SaaS software vendors are responsible for all components of the software stack so all you manage is the services provided.
 
-Microsoft Office 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
+Microsoft 365 is a good example of a SaaS offering. Subscribers pay a monthly or annual subscription fee, and they get Microsoft Exchange, Microsoft OneDrive, and the rest of the Microsoft Office suite as a service. Subscribers always get the most recent version and the Exchange server is managed for you. Compared to installing and upgrading Office every year, this is less expensive and requires less effort.
 
 ## Azure services
 
@@ -107,7 +107,7 @@ Services for building and operating applications:
 
 - Azure HDInsight for processing big data
 
-- Azure Scheduler
+- Azure Logic Apps for integration and orchestration workflows
 
 - Azure Media Services
 
@@ -173,7 +173,7 @@ Administrators can access Azure PowerShell and Azure CLI through a browser-acces
 
 ## Azure subscriptions
 
-A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [role-based access control (RBAC)](../../role-based-access-control/overview.md).
+A subscription is a logical grouping of Azure services that is linked to an Azure account. A single Azure account can contain multiple subscriptions. Billing for Azure services is done on a per-subscription basis. Azure subscriptions have an Account Administrator, who has full control over the subscription, and a Service Administrator, who has control over all services in the subscription. For information about classic subscription administrators, see [Add or change Azure subscription administrators](../../cost-management-billing/manage/add-change-subscription-administrator.md). In addition to administrators, individual accounts can be granted detailed control of Azure resources using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md).
 
 ### Select and enable an Azure subscription
 
@@ -221,7 +221,7 @@ The pricing for each service in Azure is different. Many Azure services provide 
 
 Azure Resource Manager is a deployment, management, and organization mechanism for Azure resources. By using Resource Manager, you can put many individual resources together in a resource group.
 
-Resource Manager also includes deployment capabilities that allow for customizable deployment and configuration of related resources. For instance, by using Resource Manager, you can deploy an application that consists of multiple virtual machines, a load balancer, and a SQL database as a single unit. You develop these deployments by using a Resource Manager template.
+Resource Manager also includes deployment capabilities that allow for customizable deployment and configuration of related resources. For instance, by using Resource Manager, you can deploy an application that consists of multiple virtual machines, a load balancer, and a database in Azure SQL Database as a single unit. You develop these deployments by using a Resource Manager template.
 
 Resource Manager provides several benefits:
 

@@ -2,19 +2,16 @@
 title: SSH into Azure Kubernetes Service (AKS) cluster nodes
 description: Learn how to create an SSH connection with Azure Kubernetes Service (AKS) cluster nodes for troubleshooting and maintenance tasks.
 services: container-service
-author: mlearned
-
-ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: mlearned
+
 
 #Customer intent: As a cluster operator, I want to learn how to use SSH to connect to virtual machines in an AKS cluster to perform maintenance or troubleshoot a problem.
 ---
 
 # Connect with SSH to Azure Kubernetes Service (AKS) cluster nodes for maintenance or troubleshooting
 
-Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes (currently in preview in AKS). You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes aren't exposed to the internet. To SSH to the AKS nodes, you use the private IP address.
+Throughout the lifecycle of your Azure Kubernetes Service (AKS) cluster, you may need to access an AKS node. This access could be for maintenance, log collection, or other troubleshooting operations. You can access AKS nodes using SSH, including Windows Server nodes. You can also [connect to Windows Server nodes using remote desktop protocol (RDP) connections][aks-windows-rdp]. For security purposes, the AKS nodes aren't exposed to the internet. To SSH to the AKS nodes, you use the private IP address.
 
 This article shows you how to create an SSH connection with an AKS node using their private IP addresses.
 
@@ -142,13 +139,15 @@ To create an SSH connection to an AKS node, you run a helper pod in your AKS clu
 1. Run a `debian` container image and attach a terminal session to it. This container can be used to create an SSH session with any node in the AKS cluster:
 
     ```console
-    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
+    kubectl run -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
-    > If you use Windows Server nodes (currently in preview in AKS), add a node selector to the command to schedule the Debian container on a Linux node:
+    > If you use Windows Server nodes, add a node selector to the command to schedule the Debian container on a Linux node:
     >
-    > `kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"apps/v1","spec":{"template":{"spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}}}'`
+    > ```console
+    > kubectl run -it --rm aks-ssh --image=debian --overrides='{"apiVersion":"v1","spec":{"nodeSelector":{"beta.kubernetes.io/os":"linux"}}}'
+    > ```
 
 1. Once the terminal session is connected to the container, install an SSH client using `apt-get`:
 

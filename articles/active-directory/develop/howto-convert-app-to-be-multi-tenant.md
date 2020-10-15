@@ -6,14 +6,13 @@ services: active-directory
 author: rwike77
 manager: CelesteDG
 
-ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.subservice: develop
-ms.topic: conceptual
+ms.topic: how-to
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 03/17/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, lenalepa, sureshja
+ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
 ---
 
@@ -33,7 +32,7 @@ There are four simple steps to convert your application into an Azure AD multi-t
 3. [Update your code to handle multiple issuer values](#update-your-code-to-handle-multiple-issuer-values)
 4. [Understand user and admin consent and make appropriate code changes](#understand-user-and-admin-consent)
 
-Let’s look at each step in detail. You can also jump straight to [this list of multi-tenant samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory).
+Let’s look at each step in detail. You can also jump straight to the sample [Build a multi-tenant SaaS web application that calls Microsoft Graph using Azure AD and OpenID Connect](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md).
 
 ## Update registration to be multi-tenant
 
@@ -44,7 +43,7 @@ Before an application can be made multi-tenant, Azure AD requires the App ID URI
 By default, apps created via the Azure portal have a globally unique App ID URI set on app creation, but you can change this value. For example, if the name of your tenant was contoso.onmicrosoft.com then a valid App ID URI would be `https://contoso.onmicrosoft.com/myapp`. If your tenant had a verified domain of `contoso.com`, then a valid App ID URI would also be `https://contoso.com/myapp`. If the App ID URI doesn’t follow this pattern, setting an application as multi-tenant fails.
 
 > [!NOTE]
-> Native client registrations as well as [Microsoft identity platform applications](./active-directory-appmodel-v2-overview.md) are multi-tenant by default. You don’t need to take any action to make these application registrations multi-tenant.
+> Native client registrations as well as [Microsoft identity platform applications](./v2-overview.md) are multi-tenant by default. You don’t need to take any action to make these application registrations multi-tenant.
 
 ## Update your code to send requests to /common
 
@@ -68,15 +67,21 @@ Web applications and web APIs receive and validate tokens from Microsoft identit
 
 Let’s look at how an application validates tokens it receives from Microsoft identity platform. A single tenant application normally takes an endpoint value like:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com
+```
 
 and uses it to construct a metadata URL (in this case, OpenID Connect) like:
 
+```http
     https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration
+```
 
 to download two critical pieces of information that are used to validate tokens:  the tenant’s signing keys and issuer value. Each Azure AD tenant has a unique issuer value of the form:
 
+```http
     https://sts.windows.net/31537af4-6d77-4bb9-a681-d2394888ea26/
+```
 
 where the GUID value is the rename-safe version of the tenant ID of the tenant. If you select the preceding metadata link for `contoso.onmicrosoft.com`, you can see this issuer value in the document.
 
@@ -84,9 +89,11 @@ When a single tenant application validates a token, it checks the signature of t
 
 Because the /common endpoint doesn’t correspond to a tenant and isn’t an issuer, when you examine the issuer value in the metadata for /common it has a templated URL instead of an actual value:
 
+```http
     https://sts.windows.net/{tenantid}/
+```
 
-Therefore, a multi-tenant application can’t validate tokens just by matching the issuer value in the metadata with the `issuer` value in the token. A multi-tenant application needs logic to decide which issuer values are valid and which are not based on the tenant ID portion of the issuer value. 
+Therefore, a multi-tenant application can’t validate tokens just by matching the issuer value in the metadata with the `issuer` value in the token. A multi-tenant application needs logic to decide which issuer values are valid and which are not based on the tenant ID portion of the issuer value.
 
 For example, if a multi-tenant application only allows sign-in from specific tenants who have signed up for their service, then it must check either the issuer value or the `tid` claim value in the token to make sure that tenant is in their list of subscribers. If a multi-tenant application only deals with individuals and doesn’t make any access decisions based on tenants, then it can ignore the issuer value altogether.
 
@@ -105,13 +112,13 @@ This consent experience is affected by the permissions requested by the applicat
 * A delegated permission grants an application the ability to act as a signed in user for a subset of the things the user can do. For example, you can grant an application the delegated permission to read the signed in user’s calendar.
 * An app-only permission is granted directly to the identity of the application. For example, you can grant an application the app-only permission to read the list of users in a tenant, regardless of who is signed in to the application.
 
-Some permissions can be consented to by a regular user, while others require a tenant administrator’s consent. 
+Some permissions can be consented to by a regular user, while others require a tenant administrator’s consent.
 
 ### Admin consent
 
 App-only permissions always require a tenant administrator’s consent. If your application requests an app-only permission and a user tries to sign in to the application, an error message is displayed saying the user isn’t able to consent.
 
-Certain delegated permissions also require a tenant administrator’s consent. For example, the ability to write back to Azure AD as the signed in user requires a tenant administrator’s consent. Like app-only permissions, if an ordinary user tries to sign in to an application that requests a delegated permission that requires administrator consent, your application receives an error. Whether a permission requires admin consent is determined by the developer that published the resource, and can be found in the documentation for the resource. The permissions documentation for the [Azure AD Graph API][AAD-Graph-Perm-Scopes] and [Microsoft Graph API][MSFT-Graph-permission-scopes] indicate which permissions require admin consent.
+Certain delegated permissions also require a tenant administrator’s consent. For example, the ability to write back to Azure AD as the signed in user requires a tenant administrator’s consent. Like app-only permissions, if an ordinary user tries to sign in to an application that requests a delegated permission that requires administrator consent, your application receives an error. Whether a permission requires admin consent is determined by the developer that published the resource, and can be found in the documentation for the resource. The permissions documentation for the [Microsoft Graph API][MSFT-Graph-permission-scopes] indicate which permissions require admin consent.
 
 If your application uses permissions that require admin consent, you need to have a gesture such as a button or link where the admin can initiate the action. The request your application sends for this action is the usual OAuth2/OpenID Connect authorization request that also includes the `prompt=admin_consent` query string parameter. Once the admin has consented and the service principal is created in the customer’s tenant, subsequent sign-in requests do not need the `prompt=admin_consent` parameter. Since the administrator has decided the requested permissions are acceptable, no other users in the tenant are prompted for consent from that point forward.
 
@@ -132,7 +139,9 @@ Your application may have multiple tiers, each represented by its own registrati
 
 This can be a problem if your logical application consists of two or more application registrations, for example a separate client and resource. How do you get the resource into the customer tenant first? Azure AD covers this case by enabling client and resource to be consented in a single step. The user sees the sum total of the permissions requested by both the client and resource on the consent page. To enable this behavior, the resource’s application registration must include the client’s App ID as a `knownClientApplications` in its [application manifest][AAD-App-Manifest]. For example:
 
+```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
+```
 
 This is demonstrated in a multi-tier native client calling web API sample in the [Related content](#related-content) section at the end of this article. The following diagram provides an overview of consent for a multi-tier app registered in a single tenant.
 
@@ -140,7 +149,7 @@ This is demonstrated in a multi-tier native client calling web API sample in the
 
 #### Multiple tiers in multiple tenants
 
-A similar case happens if the different tiers of an application are registered in different tenants. For example, consider the case of building a native client application that calls the Office 365 Exchange Online API. To develop the native application, and later for the native application to run in a customer’s tenant, the Exchange Online service principal must be present. In this case, the developer and customer must purchase Exchange Online for the service principal to be created in their tenants.
+A similar case happens if the different tiers of an application are registered in different tenants. For example, consider the case of building a native client application that calls the Exchange Online API. To develop the native application, and later for the native application to run in a customer’s tenant, the Exchange Online service principal must be present. In this case, the developer and customer must purchase Exchange Online for the service principal to be created in their tenants.
 
 If it's an API built by an organization other than Microsoft, the developer of the API needs to provide a way for their customers to consent the application into their customers' tenants. The recommended design is for the third-party developer to build the API such that it can also function as a web client to implement sign-up. To do this:
 
@@ -166,19 +175,18 @@ If an administrator consents to an application for all users in a tenant, users 
 
 Multi-tenant applications can also get access tokens to call APIs that are protected by Azure AD. A common error when using the Active Directory Authentication Library (ADAL) with a multi-tenant application is to initially request a token for a user using /common, receive a response, then request a subsequent token for that same user also using /common. Because the response from Azure AD comes from a tenant, not /common, ADAL caches the token as being from the tenant. The subsequent call to /common to get an access token for the user misses the cache entry, and the user is prompted to sign in again. To avoid missing the cache, make sure subsequent calls for an already signed in user are made to the tenant’s endpoint.
 
-## Next steps
-
-In this article, you learned how to build an application that can sign in a user from any Azure AD tenant. After enabling Single Sign-On (SSO) between your app and Azure AD, you can also update your application to access APIs exposed by Microsoft resources like Office 365. This lets you offer a personalized experience in your application, such as showing contextual information to the users, like their profile picture or their next calendar appointment. To learn more about making API calls to Azure AD and Office 365 services like Exchange, SharePoint, OneDrive, OneNote, and more, visit [Microsoft Graph API][MSFT-Graph-overview].
-
 ## Related content
 
-* [Multi-tenant application samples](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)
+* [Multi-tenant application sample](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)
 * [Branding guidelines for applications][AAD-App-Branding]
 * [Application objects and service principal objects][AAD-App-SP-Objects]
 * [Integrating applications with Azure Active Directory][AAD-Integrating-Apps]
 * [Overview of the Consent Framework][AAD-Consent-Overview]
 * [Microsoft Graph API permission scopes][MSFT-Graph-permission-scopes]
-* [Azure AD Graph API permission scopes][AAD-Graph-Perm-Scopes]
+
+## Next steps
+
+In this article, you learned how to build an application that can sign in a user from any Azure AD tenant. After enabling Single Sign-On (SSO) between your app and Azure AD, you can also update your application to access APIs exposed by Microsoft resources like Microsoft 365. This lets you offer a personalized experience in your application, such as showing contextual information to the users, like their profile picture or their next calendar appointment. To learn more about making API calls to Azure AD and Microsoft 365 services like Exchange, SharePoint, OneDrive, OneNote, and more, visit [Microsoft Graph API][MSFT-Graph-overview].
 
 <!--Reference style links IN USE -->
 [AAD-Access-Panel]:  https://myapps.microsoft.com
@@ -188,14 +196,12 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Consent-Overview]:consent-framework.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Overview]: https://azure.microsoft.com/documentation/articles/active-directory-graph-api/
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
-[AAD-Samples-MT]: https://docs.microsoft.com/samples/browse/?products=azure-active-directory
+[AAD-Samples-MT]: /samples/browse/?products=azure-active-directory
 [AAD-Why-To-Integrate]: ./active-directory-how-to-integrate.md
 [AZURE-portal]: https://portal.azure.com
-[MSFT-Graph-overview]: https://developer.microsoft.com/graph/docs/overview/overview
-[MSFT-Graph-permission-scopes]: https://developer.microsoft.com/graph/docs/concepts/permissions_reference
+[MSFT-Graph-overview]: /graph/
+[MSFT-Graph-permission-scopes]: /graph/permissions-reference
 
 <!--Image references-->
 [AAD-Sign-In]: ./media/active-directory-devhowto-multi-tenant-overview/sign-in-with-microsoft-light.png
@@ -209,10 +215,6 @@ In this article, you learned how to build an application that can sign in a user
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
-[AAD-Graph-Perm-Scopes]: https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes
-[AAD-Graph-App-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[AAD-Graph-Sp-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity
-[AAD-Graph-User-Entity]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity
 [AAD-How-To-Integrate]: ./active-directory-how-to-integrate.md
 [AAD-Security-Token-Claims]: ./active-directory-authentication-scenarios/#claims-in-azure-ad-security-tokens
 [AAD-Tokens-Claims]:access-tokens.md
@@ -220,10 +222,9 @@ In this article, you learned how to build an application that can sign in a user
 [AZURE-portal]: https://portal.azure.com
 [Duyshant-Role-Blog]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
 [JWT]: https://tools.ietf.org/html/draft-ietf-oauth-json-web-token-32
-[O365-Perm-Ref]: https://msdn.microsoft.com/office/office365/howto/application-manifest
+[O365-Perm-Ref]: /graph/permissions-reference
 [OAuth2-Access-Token-Scopes]: https://tools.ietf.org/html/rfc6749#section-3.3
-[OAuth2-AuthZ-Code-Grant-Flow]: https://msdn.microsoft.com/library/azure/dn645542.aspx
-[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3 
+[OAuth2-AuthZ-Grant-Types]: https://tools.ietf.org/html/rfc6749#section-1.3
 [OAuth2-Client-Types]: https://tools.ietf.org/html/rfc6749#section-2.1
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: https://openid.net/specs/openid-connect-core-1_0.html

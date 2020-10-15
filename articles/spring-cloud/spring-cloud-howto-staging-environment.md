@@ -4,18 +4,20 @@ description: Learn how to use blue-green deployment with Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 02/03/2020
 ms.author: brendm
-
+ms.custom: devx-track-java, devx-track-azurecli
 ---
 
 # Set up a staging environment in Azure Spring Cloud
 
-This article discusses how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Cloud. It also shows you how to put that staging deployment into production without changing the production deployment directly.
+**This article applies to:** ✔️ Java
+
+This article discusses how to set up a staging deployment by using the blue-green deployment pattern in Azure Spring Cloud. Blue/green deployment is an Azure DevOps Continuous Delivery pattern that relies on keeping an existing (blue) version live, while a new (green) one is deployed. This article shows you how to put that staging deployment into production without changing the production deployment directly.
 
 ## Prerequisites
 
-This article assumes that you've already deployed the PiggyMetrics application from our [tutorial about launching an Azure Spring Cloud application](spring-cloud-quickstart-launch-app-portal.md). PiggyMetrics comprises three applications: "gateway," "account-service," and "auth-service."  
+This article assumes that you've already deployed the PiggyMetrics application from our [tutorial about launching an Azure Spring Cloud application](./spring-cloud-quickstart.md). PiggyMetrics comprises three applications: "gateway," "account-service," and "auth-service."  
 
 If you want to use a different application for this example, you need to make a simple change in a public-facing portion of the application.  This change differentiates your staging deployment from production.
 
@@ -31,7 +33,7 @@ Install the Azure Spring Cloud extension for the Azure CLI by using the followin
 ```azurecli
 az extension add --name spring-cloud
 ```
-	
+    
 ## View all deployments
 
 Go to your service instance in the Azure portal, and select **Deployment management** to view all deployments. To view more details, you can select each deployment.
@@ -40,7 +42,7 @@ Go to your service instance in the Azure portal, and select **Deployment managem
 
 1. In your local development environment, make a small modification to the PiggyMetrics gateway application. For instance, change the color in the *gateway/src/main/resources/static/css/launch.css* file. Doing so lets you easily differentiate the two deployments. To build the jar package, run the following command: 
 
-    ```azurecli
+    ```console
     mvn clean package
     ```
 
@@ -98,3 +100,7 @@ Alternatively, delete your staging deployment from the Azure CLI by running the 
 ```azurecli
 az spring-cloud app deployment delete -n <staging-deployment-name> -g <resource-group-name> -s <service-instance-name> --app gateway
 ```
+
+## Next steps
+
+* [Quickstart: Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md)

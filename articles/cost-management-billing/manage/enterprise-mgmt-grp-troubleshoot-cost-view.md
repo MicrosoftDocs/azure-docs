@@ -2,20 +2,18 @@
 title: Troubleshoot Azure enterprise cost views
 description: Learn how to resolve any issues you might have with organizational cost views within the Azure portal.  
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: enterprise
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 08/20/2019
 ms.author: banders
 ms.custom: seodec18
 ---
 
 # Troubleshoot enterprise cost views
 
-Within enterprise enrollments, there are several settings that could cause users within the enrollment to not see costs.  These settings are managed by the enrollment administrator. Or, if the enrollment isn't bought directly through Microsoft, the settings are managed by the partner.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the Azure Role-based access control (RBAC) roles.
+Within enterprise enrollments, there are several settings that could cause users within the enrollment to not see costs.  These settings are managed by the enrollment administrator. Or, if the enrollment isn't bought directly through Microsoft, the settings are managed by the partner.  This article helps you understand what the settings are and how they impact the enrollment. These settings are independent of the Azure roles.
 
 ## Enable access to costs
 
@@ -38,7 +36,7 @@ If you get an error message stating **This asset is unavailable** when trying to
 
 ![Screenshot that shows "asset is unavailable" message.](./media/enterprise-mgmt-grp-troubleshoot-cost-view/asset-not-found.png)
 
-Ask your Azure subscription or management group administrator for access. For more information, see [Manage access using RBAC and the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+Ask your Azure subscription or management group administrator for access. For more information, see [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
 
 ## Next steps
 - If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

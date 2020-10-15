@@ -2,8 +2,9 @@
 title: Encrypt deployment data
 description: Learn about encryption of data persisted for your container instance resources and how to encrypt the data with a customer-managed key
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
+ms.date: 01/17/2020
+author: macolso
+ms.author: macolso
 ---
 
 # Encrypt deployment data
@@ -20,10 +21,10 @@ You can rely on Microsoft-managed keys for the encryption of your container data
 
 |    |    Microsoft-managed keys     |     Customer-managed keys     |
 |----|----|----|
-|    Encryption/decryption operations    |    Azure    |    Azure    |
-|    Key storage    |    Microsoft key store    |    Azure Key Vault    |
-|    Key rotation responsibility    |    Microsoft    |    Customer    |
-|    Key access    |    Microsoft only    |    Microsoft, Customer    |
+|    **Encryption/decryption operations**    |    Azure    |    Azure    |
+|    **Key storage**    |    Microsoft key store    |    Azure Key Vault    |
+|    **Key rotation responsibility**    |    Microsoft    |    Customer    |
+|    **Key access**    |    Microsoft only    |    Microsoft, Customer    |
 
 The rest of the document covers the steps required to encrypt your ACI deployment data with your key (customer-managed key). 
 
@@ -33,7 +34,11 @@ The rest of the document covers the steps required to encrypt your ACI deploymen
 
 ### Create Service Principal for ACI
 
-The first step is to ensure that your [Azure tenant](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) has a service principal assigned for granting permissions to the Azure Container Instances service. 
+The first step is to ensure that your [Azure tenant](../active-directory/develop/quickstart-create-new-tenant.md) has a service principal assigned for granting permissions to the Azure Container Instances service. 
+
+> [!IMPORTANT]
+> In order to run the following command and create a service principal successfully, confirm that you have permissions to create service principals in your tenant.
+>
 
 The following CLI command will set up the ACI SP in your Azure environment:
 
@@ -43,9 +48,13 @@ az ad sp create --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9
 
 The output from running this command should show you a service principal that has been set up with "displayName": "Azure Container Instance Service."
 
+In case you are unable to successfully create the service principal:
+* confirm that you have permissions to do so in your tenant
+* check to see if a service principal already exists in your tenant for deploying to ACI. You can do that by running `az ad sp show --id 6bb8e274-af5d-4df2-98a3-4fd78b4cafd9` and use that service principal instead
+
 ### Create a Key Vault resource
 
-Create an Azure Key Vault using [Azure portal](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault), [CLI](https://docs.microsoft.com/azure/key-vault/quick-create-cli), or [PowerShell](https://docs.microsoft.com/azure/key-vault/quick-create-powershell). 
+Create an Azure Key Vault using [Azure portal](../key-vault/secrets/quick-create-portal.md#create-a-vault), [CLI](../key-vault/secrets/quick-create-cli.md), or [PowerShell](../key-vault/secrets/quick-create-powershell.md). 
 
 For the properties of your key vault, use the following guidelines: 
 * Name: A unique name is required. 
@@ -83,15 +92,18 @@ The access policy should now show up in your key vault's access policies.
 > [!IMPORTANT]
 > Encrypting deployment data with a customer-managed key is available in the latest API version (2019-12-01) that is currently rolling out. Specify this API version in your deployment template. If you have any issues with this, please reach out to Azure Support.
 
-Once the key vault key and access policy are set up, add the following property to your ACI deployment template. You can learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group). 
+Once the key vault key and access policy are set up, add the following properties to your ACI deployment template. Learn more about deploying ACI resources with a template in the [Tutorial: Deploy a multi-container group using a Resource Manager template](./container-instances-multi-container-group.md). 
+* Under `resources`, set `apiVersion` to `2019-12-01`.
+* Under the container group properties section of the deployment template, add an `encryptionProperties`, which contains the following values:
+  * `vaultBaseUrl`: the DNS Name of your key vault, can be found  on the overview blade of the key vault resource in Portal
+  * `keyName`: the name of the key generated earlier
+  * `keyVersion`: the current version of the key. This can be found by clicking into the key itself (under "Keys" in the Settings section of your key vault resource)
+* Under the container group properties, add a `sku` property with value `Standard`. The `sku` property is required in API version 2019-12-01.
 
-Specifically, under the container group properties section of the deployment template, add an "encryptionProperties", which contains the following values:
-* vaultBaseUrl: the DNS Name of your key vault, can be found  on the overview blade of the key vault resource in Portal
-* keyName: the name of the key generated earlier
-* keyVersion: the current version of the key. This can be found by clicking into the key itself (under "Keys" in the Settings section of your key vault resource)
-
+The following template snippet shows these additional properties to encrypt deployment data:
 
 ```json
+[...]
 "resources": [
     {
         "name": "[parameters('containerGroupName')]",
@@ -104,12 +116,107 @@ Specifically, under the container group properties section of the deployment tem
                 "keyName": "acikey",
                 "keyVersion": "xxxxxxxxxxxxxxxx"
             },
+            "sku": "Standard",
             "containers": {
                 [...]
             }
         }
     }
 ]
+```
+
+Following is a complete template, adapted from the template in [Tutorial: Deploy a multi-container group using a Resource Manager template](./container-instances-multi-container-group.md). 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
+  "variables": {
+    "container1name": "aci-tutorial-app",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    "container2name": "aci-tutorial-sidecar",
+    "container2image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
+  },
+  "resources": [
+    {
+      "name": "[parameters('containerGroupName')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2019-12-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "encryptionProperties": {
+            "vaultBaseUrl": "https://example.vault.azure.net",
+            "keyName": "acikey",
+            "keyVersion": "xxxxxxxxxxxxxxxx"
+        },
+        "sku": "Standard",  
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                },
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
+    }
+  }
+}
 ```
 
 ### Deploy your resources
@@ -122,14 +229,14 @@ Create a resource group with the [az group create][az-group-create] command.
 az group create --name myResourceGroup --location eastus
 ```
 
-Deploy the template with the [az group deployment create][az-group-deployment-create] command.
+Deploy the template with the [az deployment group create][az-deployment-group-create] command.
 
 ```azurecli-interactive
-az group deployment create --resource-group myResourceGroup --template-file deployment-template.json
+az deployment group create --resource-group myResourceGroup --template-file deployment-template.json
 ```
 
 Within a few seconds, you should receive an initial response from Azure. Once the deployment completes, all data related to it persisted by the ACI service will be encrypted with the key you provided.
 
 <!-- LINKS - Internal -->
 [az-group-create]: /cli/azure/group#az-group-create
-[az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[az-deployment-group-create]: /cli/azure/deployment/group/#az-deployment-group-create

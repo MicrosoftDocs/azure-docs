@@ -1,20 +1,22 @@
 ---
-title: Training videos for Cloudyn in Azure | Microsoft Docs
+title: Training videos for Cloudyn in Azure
 description: The training videos for Cloudyn walk you through getting started and using its features.
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.subservice: cloudyn
+ms.reviewer: benshy
 ms.custom: seodec18
+ROBOTS: NOINDEX
 ---
 
 # Cloudyn walk-through training videos
 
 The following videos provide demonstrations to walk you through getting started with Cloudyn and using its features. Cloudyn supports multi-cloud cost tracking and optimization including Microsoft Azure, Amazon Web Services, and Google Cloud Platform.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Overview video
 

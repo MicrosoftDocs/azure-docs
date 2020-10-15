@@ -5,7 +5,7 @@ description: Learn how to deploy secure, Azure-managed workstations to reduce th
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2019
 
 ms.author: joflore
@@ -56,14 +56,14 @@ To automate license provisioning, consider [group-based licensing](../users-grou
 
 Azure Active Directory (Azure AD) manages users, groups, and devices for your administrator workstations. Enable identity services and features with an [administrator account](../users-groups-roles/directory-assign-admin-roles.md).
 
-When you create the secured workstation administrator account, you expose the account to your current workstation. Make sure you use a known safe device to do this initial configuration and all global configuration. To reduce the attack exposure for the first-time experience, consider following the [guidance to prevent malware infections](https://docs.microsoft.com/windows/security/threat-protection/intelligence/prevent-malware-infection).
+When you create the secured workstation administrator account, you expose the account to your current workstation. Make sure you use a known safe device to do this initial configuration and all global configuration. To reduce the attack exposure for the first-time experience, consider following the [guidance to prevent malware infections](/windows/security/threat-protection/intelligence/prevent-malware-infection).
 
 Require multi-factor authentication, at least for your administrators. See [Deploy cloud-based MFA](../authentication/howto-mfa-getstarted.md) for implementation guidance.
 
 ### Azure AD users and groups
 
 1. From the Azure portal, browse to **Azure Active Directory** > **Users** > **New user**.
-1. Create your device administrator by following the steps in the [create user tutorial](https://docs.microsoft.com/Intune/quickstart-create-user).
+1. Create your device administrator by following the steps in the [create user tutorial](/Intune/quickstart-create-user).
 1. Enter:
 
    * **Name** - Secure Workstation Administrator
@@ -126,7 +126,7 @@ From the Azure portal:
 1. Change the **MDM user scope** setting to **All**.
 1. Select **Save**.
 
-These steps allow you to manage any device with Intune. For more information, see [Intune Quickstart: Set up automatic enrollment for Windows 10 devices](https://docs.microsoft.com/Intune/quickstart-setup-auto-enrollment). You create Intune configuration and compliance policies in a future step.
+These steps allow you to manage any device with Intune. For more information, see [Intune Quickstart: Set up automatic enrollment for Windows 10 devices](/Intune/quickstart-setup-auto-enrollment). You create Intune configuration and compliance policies in a future step.
 
 #### Azure AD Conditional Access
 
@@ -136,7 +136,7 @@ Azure AD Conditional Access can help restrict privileged administrative tasks to
 
 ### Configure enrollment status
 
-It's important to ensure that your secure workstation is a trusted clean device. When purchasing new devices, you can insist that they're factory set to [Windows 10 Pro in S mode](https://docs.microsoft.com/Windows/deployment/Windows-10-pro-in-s-mode), which limits exposure to vulnerabilities during supply chain management. After you receive a device from your supplier, you can use Autopilot to change it from S mode. The following guidance provides details on applying the transformation process.
+It's important to ensure that your secure workstation is a trusted clean device. When purchasing new devices, you can insist that they're factory set to [Windows 10 Pro in S mode](/Windows/deployment/Windows-10-pro-in-s-mode), which limits exposure to vulnerabilities during supply chain management. After you receive a device from your supplier, you can use Autopilot to change it from S mode. The following guidance provides details on applying the transformation process.
 
 To ensure that devices are fully configured before use, Intune provides a means to **Block device use until all apps and profiles are installed**.
 
@@ -161,7 +161,7 @@ In Intune in the Azure portal:
 
 1. Select **Next**.
 
-   * For **Deployment mode**, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user who enrolls the device. User credentials are required to enroll the device. It's essential to note that deploying a device in the **Self-Deploying** mode will allow you to deploy laptops in a shared model. No user assignment will happen until the device is assigned to a user for the first time. As a result, any user policies such as BitLocker will not be enabled until a user assignment is completed. For more information about how to log on to a secured device, see [selected profiles](https://docs.microsoft.com/intune/device-profile-assign).
+   * For **Deployment mode**, choose **Self-Deploying (Preview)**. Devices with this profile are associated with the user who enrolls the device. User credentials are required to enroll the device. It's essential to note that deploying a device in the **Self-Deploying** mode will allow you to deploy laptops in a shared model. No user assignment will happen until the device is assigned to a user for the first time. As a result, any user policies such as BitLocker will not be enabled until a user assignment is completed. For more information about how to log on to a secured device, see [selected profiles](/intune/device-profile-assign).
    * The **Join to Azure AD as** box should show **Azure AD joined** and be grayed out.
    * Select your Language (Region), User account type **standard**. 
 
@@ -174,7 +174,7 @@ In Intune in the Azure portal:
 1. Select **Next**.
 1. Select **Create** to create the profile. The Autopilot deployment profile is now available to assign to devices.
 
-Device enrollment in Autopilot provides a different user experience based on device type and role. In our deployment example, we illustrate a model where the secured devices are bulk deployed and can be shared, but when used for the first time, the device is assigned to a user. For more information, see [Intune Autopilot device enrollment](https://docs.microsoft.com/intune/device-enrollment).
+Device enrollment in Autopilot provides a different user experience based on device type and role. In our deployment example, we illustrate a model where the secured devices are bulk deployed and can be shared, but when used for the first time, the device is assigned to a user. For more information, see [Intune Autopilot device enrollment](/intune/device-enrollment).
 
 ### Configure Windows Update
 
@@ -202,7 +202,7 @@ In the Azure portal:
 1. Select **Create**.
 1. On the **Assignments** tab, add the **Secure Workstations** group.
 
-For more information about Windows Update policies, see [Policy CSP - Update](https://docs.microsoft.com/windows/client-management/mdm/policy-csp-update).
+For more information about Windows Update policies, see [Policy CSP - Update](/windows/client-management/mdm/policy-csp-update).
 
 ### Windows Defender ATP Intune integration
 
@@ -222,7 +222,7 @@ To configure integration of Windows Defender ATP and Intune, go to the Azure por
 1. Set **Connect Windows devices version 10.0.15063 and above to Windows Defender ATP** to **On**.
 1. Select **Save**.
 
-For more information, see [Windows Defender Advanced Threat Protection](https://docs.microsoft.com/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection).
+For more information, see [Windows Defender Advanced Threat Protection](/Windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection).
 
 ### Finish workstation profile hardening
 
@@ -244,7 +244,7 @@ After the script successfully executes, you can make updates to profiles and pol
 * Here's where you can find the Intune device configuration profiles created by the scripts: **Azure portal** > **Microsoft Intune** > **Device configuration** > **Profiles**.
 * Here's where you can find the Intune device compliance policies created by the scripts: **Azure portal** > **Microsoft Intune** > **Device Compliance** > **Policies**.
 
-To review changes made by the scripts, you can export the profiles. This way you can determine additional hardening that may be required as outlined in the [SECCON documentation](https://docs.microsoft.com/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
+To review changes made by the scripts, you can export the profiles. This way you can determine additional hardening that may be required as outlined in the [SECCON documentation](/windows/security/threat-protection/windows-security-configuration-framework/windows-security-configuration-framework).
 
 Run the Intune data export script `DeviceConfiguration_Export.ps1` from the [DeviceConfiguration GiuHub repository](https://github.com/microsoftgraph/powershell-intune-samples/tree/master/DeviceConfiguration) to export all current Intune profiles.
 
@@ -259,7 +259,7 @@ By following the guidance here, you've deployed a secure workstation. However, y
 
 ### Set rules in the firewall configuration service provider (CSP)
 
-You can make additional changes to the management of both inbound and outbound rules as needed for your permitted and blocked endpoints. As you continue to harden the secure workstation, you can loosen the restriction that denies all inbound and outbound traffic. You might add permitted outbound sites to include common and trusted websites. For more information, see [Firewall configuration service](https://docs.microsoft.com/Windows/client-management/mdm/firewall-csp).
+You can make additional changes to the management of both inbound and outbound rules as needed for your permitted and blocked endpoints. As you continue to harden the secure workstation, you can loosen the restriction that denies all inbound and outbound traffic. You might add permitted outbound sites to include common and trusted websites. For more information, see [Firewall configuration service](/Windows/client-management/mdm/firewall-csp).
 
 Restrictive URL traffic management includes:
 
@@ -301,7 +301,7 @@ For more information on configuring Chrome settings, see [Manage Chrome Browser 
 
 In a secured mode, application installation is restricted to the Intune company portal. However, installing the portal requires access to Microsoft Store. In your secured solution, you can make the company portal available to all devices through an offline mode.
 
-An Intune-managed copy of the [Company Portal](https://docs.microsoft.com/Intune/store-apps-company-portal-app) gives you on-demand access to additional tools that you can push down to users of the secured workstations.
+An Intune-managed copy of the [Company Portal](/Intune/store-apps-company-portal-app) gives you on-demand access to additional tools that you can push down to users of the secured workstations.
 
 You might need to install Windows 32-bit apps or other apps whose deployment require special preparations. In such cases, the [Microsoft win32 content prep tool](https://github.com/Microsoft/Microsoft-Win32-Content-Prep-Tool) can provide a ready-to-use `.intunewin` format file for installation.
 
@@ -370,11 +370,11 @@ After you have configured the device, complete a review and check the configurat
 
 ## Assign devices
 
-To assign devices and users, you need to map the [selected profiles](https://docs.microsoft.com/intune/device-profile-assign) to your security group. All new users who require permissions to the service must be added to the security group as well.
+To assign devices and users, you need to map the [selected profiles](/intune/device-profile-assign) to your security group. All new users who require permissions to the service must be added to the security group as well.
 
 ## Using Sentinel and Windows Defender ATP to monitor and respond to security incidents
 
-Monitoring the secure workstation deployment can be accomplished by enabling [Sentinel] and utilizing [Threat and Vulnerability Management](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt)
+Monitoring the secure workstation deployment can be accomplished by enabling [Sentinel] and utilizing [Threat and Vulnerability Management](/windows/security/threat-protection/microsoft-defender-atp/next-gen-threat-and-vuln-mgt)
 The guidance will not provide exhaustive threat hunting, but provide good common sense efforts to monitor and responds to potential security incidents.
 
 We will use **Azure Sentinel** to: 
@@ -412,7 +412,7 @@ We will use **Windows Defender ATP (WDATP)** to:
 * Use the dashboard to identify machine-level vulnerability during investigations
 * Push out remediations to Intune
 
-Configure your [Defender ATP dashboard](https://securitycenter.windows.com/machines). Using guidance at [Threat & Vulnerability Management dashboard overview](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights).
+Configure your [Defender ATP dashboard](https://securitycenter.windows.com/machines). Using guidance at [Threat & Vulnerability Management dashboard overview](/windows/security/threat-protection/microsoft-defender-atp/tvm-dashboard-insights).
 
 ## Monitoring Application activity using Microsoft Monitoring Agent (MMA)
 Starting at the Specialized workstation, app locker is enabled for monitoring of application activity on a workstation. For the monitoring to be integrated in your Log Analytics workspace, an MMA agent and configuration must be followed. 
@@ -449,18 +449,18 @@ Application logging will be available in your selected Log Analytics workspace.
 
 ## Monitoring
 
-* Learn how to [Detect threats with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats)
-* [Investigate incidents with Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-investigate-cases)
-* [Set up automated threat responses in Azure Sentinel](https://docs.microsoft.com/azure/sentinel/tutorial-respond-threats-playbook)
-* Understand how to review your [Exposure Score](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
-* Review [Security recommendation](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
-* Manage security [Remediations](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation)
-* Manage [endpoint detection and response](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
-* Monitor profiles with [Intune profile monitoring](https://docs.microsoft.com/intune/device-profile-monitor).
+* Learn how to [Detect threats with Azure Sentinel](../../sentinel/tutorial-detect-threats-built-in.md)
+* [Investigate incidents with Azure Sentinel](../../sentinel/tutorial-investigate-cases.md)
+* [Set up automated threat responses in Azure Sentinel](../../sentinel/tutorial-respond-threats-playbook.md)
+* Understand how to review your [Exposure Score](/windows/security/threat-protection/microsoft-defender-atp/tvm-exposure-score)
+* Review [Security recommendation](/windows/security/threat-protection/microsoft-defender-atp/tvm-security-recommendation)
+* Manage security [Remediations](/windows/security/threat-protection/microsoft-defender-atp/tvm-remediation)
+* Manage [endpoint detection and response](/windows/security/threat-protection/microsoft-defender-atp/overview-endpoint-detection-response)
+* Monitor profiles with [Intune profile monitoring](/intune/device-profile-monitor).
 
 ## Next steps
 
-* Learn more about [Microsoft Intune](https://docs.microsoft.com/intune/index).
+* Learn more about [Microsoft Intune](/intune/index).
 * Understand [Azure AD](../index.yml).
-* Work with [Microsoft Defender Advanced Threat Protection](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
-* Discover [Azure Sentinel](https://docs.microsoft.com/azure/sentinel/)
+* Work with [Microsoft Defender Advanced Threat Protection](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+* Discover [Azure Sentinel](../../sentinel/index.yml)

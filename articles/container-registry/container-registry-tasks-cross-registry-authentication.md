@@ -1,15 +1,15 @@
 ---
 title: Cross-registry authentication from ACR task
-description: Configure an Azure Container Registry Task (ACR Task) to access another private Azure container registry by using a managed identity for Azure Resources
+description: Configure an Azure Container Registry Task (ACR Task) to access another private Azure container registry by using a managed identity for Azure resources
 ms.topic: article
-ms.date: 07/12/2019
+ms.date: 07/06/2020
 ---
 
 # Cross-registry authentication in an ACR task using an Azure-managed identity 
 
 In an [ACR task](container-registry-tasks-overview.md), you can [enable a managed identity for Azure resources](container-registry-tasks-authentication-managed-identity.md). The task can use the identity to access other Azure resources, without needing to provide or manage credentials. 
 
-In this article, you learn how to enable a managed identity in a task that pulls an image from a registry different from the one used to run the task.
+In this article, you learn how to enable a managed identity in a task to pull an image from a registry different from the one used to run the task.
 
 To create the Azure resources, this article requires that you run the Azure CLI version 2.0.68 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli].
 
@@ -39,6 +39,7 @@ First, create a working directory and then create a file named Dockerfile with t
 ```bash
 echo FROM node:9-alpine > Dockerfile
 ```
+
 In the current directory, run the [az acr build][az-acr-build] command to build and push the base image to the base registry. In practice, another team or process in the organization might maintain the base registry.
     
 ```azurecli
@@ -47,14 +48,14 @@ az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file D
 
 ## Define task steps in YAML file
 
-The steps for this example [multi-step task](container-registry-tasks-multi-step.md) are defined in a [YAML file](container-registry-tasks-reference-yaml.md). Create a file named `helloworldtask.yaml` in your local working directory and paste in the following contents. Update the value of `REGISTRY_NAME` in the build step with the server name of your base registry.
+The steps for this example [multi-step task](container-registry-tasks-multi-step.md) are defined in a [YAML file](container-registry-tasks-reference-yaml.md). Create a file named `helloworldtask.yaml` in your local working directory and paste the following contents. Update the value of `REGISTRY_NAME` in the build step with the server name of your base registry.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
 # Replace mybaseregistry with the name of your registry containing the base image
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}}  https://github.com/Azure-Samples/acr-build-helloworld-node.git -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t $Registry/hello-world:$ID  https://github.com/Azure-Samples/acr-build-helloworld-node.git -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 The build step uses the `Dockerfile-app` file in the [Azure-Samples/acr-build-helloworld-node](https://github.com/Azure-Samples/acr-build-helloworld-node.git) repo to build an image. The `--build-arg` references the base registry to pull the base image. When successfully built, the image is pushed to the registry used to run the task.
@@ -80,6 +81,27 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
+### Give identity pull permissions to the base registry
+
+In this section, give the managed identity permissions to pull from the base registry, *mybaseregistry*.
+
+Use the [az acr show][az-acr-show] command to get the resource ID of the base registry and store it in a variable:
+
+```azurecli
+baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
+```
+
+Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpull` role to the base registry. This role has permissions only to pull images from the registry.
+
+```azurecli
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
+```
+
+Proceed to [Add target registry credentials to task](#add-target-registry-credentials-to-task).
+
 ## Option 2: Create task with system-assigned identity
 
 The steps in this section create a task and enable a system-assigned identity. If you want to enable a user-assigned identity instead, see [Option 1: Create task with user-assigned identity](#option-1-create-task-with-user-assigned-identity). 
@@ -98,7 +120,7 @@ az acr task create \
 ```
 [!INCLUDE [container-registry-tasks-system-id-properties](../../includes/container-registry-tasks-system-id-properties.md)]
 
-## Give identity pull permissions to the base registry
+### Give identity pull permissions to the base registry
 
 In this section, give the managed identity permissions to pull from the base registry, *mybaseregistry*.
 
@@ -111,12 +133,15 @@ baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 Use the [az role assignment create][az-role-assignment-create] command to assign the identity the `acrpull` role to the base registry. This role has permissions only to pull images from the registry.
 
 ```azurecli
-az role assignment create --assignee $principalID --scope $baseregID --role acrpull
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
 ```
 
 ## Add target registry credentials to task
 
-Now use the [az acr task credential add][az-acr-task-credential-add] command to add the identity's credentials to the task so that it can authenticate with the base registry. Run the command corresponding to the type of managed identity you enabled in the task. If you enabled a user-assigned identity, pass `--use-identity` with the client ID of the identity. If you enabled a system-assigned identity, pass `--use-identity [system]`.
+Now use the [az acr task credential add][az-acr-task-credential-add] command to enable the task to authenticate with the base registry using the identity's credentials. Run the command corresponding to the type of managed identity you enabled in the task. If you enabled a user-assigned identity, pass `--use-identity` with the client ID of the identity. If you enabled a system-assigned identity, pass `--use-identity [system]`.
 
 ```azurecli
 # Add credentials for user-assigned identity to the task

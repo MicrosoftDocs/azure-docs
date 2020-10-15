@@ -1,14 +1,15 @@
 ---
 title: Perform Azure Queue storage actions in PowerShell
-description: How to perform operations on Azure Queue storage with PowerShell
+description: Make operations on Azure Queue storage with PowerShell. With Azure Queue storage, you can store large numbers of messages that are accessible by HTTP/HTTPS.
 author: mhopkins-msft
 
 ms.author: mhopkins
 ms.date: 05/15/2019
 ms.service: storage
 ms.subservice: queues
-ms.topic: conceptual
-ms.reviewer: cbrooks
+ms.topic: how-to
+ms.reviewer: dineshm 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Perform Azure Queue storage operations with Azure PowerShell
@@ -74,7 +75,7 @@ $ctx = $storageAccount.Context
 
 ## Create a queue
 
-The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet to create a queue named 'queuename'.
+The following example first establishes a connection to Azure Storage using the storage account context, which includes the storage account name and its access key. Next, it calls [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet to create a queue named 'howtoqueue'.
 
 ```powershell
 $queueName = "howtoqueue"
@@ -99,7 +100,7 @@ Get-AzStorageQueue -Context $ctx | Select-Object Name
 
 ## Add a message to a queue
 
-Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue_message) class. Next, call the [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue._cloud_queue.addmessage) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
+Operations that impact the actual messages in the queue use the .NET storage client library as exposed in PowerShell. To add a message to a queue, create a new instance of the message object, [Microsoft.Azure.Storage.Queue.CloudQueueMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueuemessage) class. Next, call the [AddMessage](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.queue.cloudqueue.addmessage) method. A CloudQueueMessage can be created from either a string (in UTF-8 format) or a byte array.
 
 The following example demonstrates how to add a message to your queue.
 

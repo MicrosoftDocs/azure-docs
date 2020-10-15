@@ -2,20 +2,18 @@
 title: Open Banking (PSD2) and Strong Customer Authentication (SCA) for Azure customers
 description: This article explains why multi-factor authentication is required for some Azure purchases and how to complete authentication.
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Open Banking (PSD2) and Strong Customer Authentication (SCA) for Azure customers
 
-As of September 14, 2019, banks in the 31 countries of the [European Economic Area](https://en.wikipedia.org/wiki/European_Economic_Area) are required to verify the identity of the person making an online purchase before the payment is processed. This verification requires multi-factor authentication to help ensure your online purchases are secure and protected. The date for this verification requirement will be delayed for some countries. For more information, see the [Microsoft FAQ about PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
+As of September 14, 2019, banks in the 31 countries/regions of the [European Economic Area](https://en.wikipedia.org/wiki/European_Economic_Area) are required to verify the identity of the person making an online purchase before the payment is processed. This verification requires multi-factor authentication to help ensure your online purchases are secure and protected. The date for this verification requirement will be delayed for some countries/regions. For more information, see the [Microsoft FAQ about PSD2](https://support.microsoft.com/en-us/help/4517854?preview).
 
 ## What PSD2 means for Azure customers
 
@@ -48,14 +46,13 @@ If your bank rejects the charges, your Azure account status will change to **Pas
 
 ### Settle outstanding charges for Marketplace and reservation purchases
 
-Marketplace and reservation purchases are billed separately from Azure services. If your bank rejects the Marketplace or reservation charges, your invoice status will show as **Past due** in the Azure portal. You can check the status of your Marketplace and reservation invoices by following these steps:
+Marketplace and reservation purchases are billed separately from Azure services. If your bank rejects the Marketplace or reservation charges, your invoice will become past due and you'll see the option to **Pay now** in the Azure portal. You can pay for past due Marketplace and reservation invoices by following these steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the Account Administrator.
 2. Search on **Cost Management + Billing.**
 3. Under 'Billing', select **Invoices**.
-4. Click on the **Azure Marketplace and reservations** tab on the right.
-5. Select the corresponding subscription.
-6. In the invoices grid, review the status column. If the invoice is **Due** or **Past due**, click **Pay now.** You're prompted to complete multi-factor authentication during the process.
+5. In the subscription drop-down filter, select the subscription associated with your Marketplace or reservation purchase.
+6. In the invoices grid, review the type column. If the type is **Azure Marketplace and Reservations**, then you'll see a **Pay now** link if the invoice is due or past due. If you don't see **Pay now**, it means your invoice has already been paid. You'll be prompted to complete multi-factor authentication during Pay now.
 
 ## Next steps
 - See [Resolve past due balance for your Azure subscription](resolve-past-due-balance.md) if you need to pay an Azure bill.

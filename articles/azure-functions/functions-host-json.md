@@ -2,27 +2,29 @@
 title: host.json reference for Azure Functions 2.x
 description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
 ms.topic: conceptual
-ms.date: 01/06/2020
+ms.date: 04/28/2020
 ---
 
 # host.json reference for Azure Functions 2.x and later 
 
 > [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [Version 1](functions-host-json-v1.md)
-> * [Version 2](functions-host-json.md)
+> * [Version 2+](functions-host-json.md)
 
 The *host.json* metadata file contains global configuration options that affect all functions for a function app. This article lists the settings that are available starting with version 2.x of the Azure Functions runtime.  
 
 > [!NOTE]
 > This article is for Azure Functions 2.x and later versions.  For a reference of host.json in Functions 1.x, see [host.json reference for Azure Functions 1.x](functions-host-json-v1.md).
 
-Other function app configuration options are managed in your [app settings](functions-app-settings.md).
+Other function app configuration options are managed in your [app settings](functions-app-settings.md) (for deployed apps) or your [local.settings.json](functions-run-local.md#local-settings-file) file (for local development).
 
-Some host.json settings are only used when running locally in the [local.settings.json](functions-run-local.md#local-settings-file) file.
+Configurations in host.json related to bindings are applied equally to each function in the function app. 
+
+You can also [override or apply settings per environment](#override-hostjson-values) using application settings.
 
 ## Sample host.json file
 
-The following sample *host.json* file has all possible options specified (excluding any that are for internal use only).
+The following sample *host.json* file for version 2.x+ has all possible options specified (excluding any that are for internal use only).
 
 ```json
 {
@@ -64,15 +66,15 @@ The following sample *host.json* file has all possible options specified (exclud
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 20,
               "evaluationInterval": "01:00:00",
-              "initialSamplingPercentage": 1.0, 
+              "initialSamplingPercentage": 100.0, 
               "samplingPercentageIncreaseTimeout" : "00:00:01",
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
-              "maxSamplingPercentage": 0.1,
-              "movingAverageRatio": 1.0
+              "maxSamplingPercentage": 100.0,
+              "movingAverageRatio": 1.0,
+              "excludedTypes" : "Dependency;Event",
+              "includedTypes" : "PageView;Trace"
             },
-            "samplingExcludedTypes" : "Dependency;Event",
-            "samplingIncludedTypes" : "PageView;Trace",
             "enableLiveMetrics": true,
             "enableDependencyTracking": true,
             "enablePerformanceCountersCollection": true,            
@@ -136,13 +138,11 @@ Controls options for Application Insights, including [sampling options](./functi
 For the complete JSON structure, see the earlier [example host.json file](#sample-hostjson-file).
 
 > [!NOTE]
-> Log sampling may cause some executions to not show up in the Application Insights monitor blade. To avoid log sampling, add `samplingExcludedTypes: "Request"` to the `applicationInsights` value.
+> Log sampling may cause some executions to not show up in the Application Insights monitor blade. To avoid log sampling, add `excludedTypes: "Request"` to the `samplingSettings` value.
 
 | Property | Default | Description |
 | --------- | --------- | --------- | 
 | samplingSettings | n/a | See [applicationInsights.samplingSettings](#applicationinsightssamplingsettings). |
-| samplingExcludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
-| samplingIncludedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `samplingExcludedTypes` override types listed here. Recognized types are: Dependency, Event, Exception, PageView, Request, Trace. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
 | enableLiveMetrics | true | Enables live metrics collection. |
 | enableDependencyTracking | true | Enables dependency tracking. |
 | enablePerformanceCountersCollection | true | Enables Kudu performance counters collection. |
@@ -157,12 +157,14 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 | isEnabled | true | Enables or disables sampling. | 
 | maxTelemetryItemsPerSecond | 20 | The target number of telemetry items logged per second on each server host. If your app runs on many hosts, reduce this value to remain within your overall target rate of traffic. | 
 | evaluationInterval | 01:00:00 | The interval at which the current rate of telemetry is reevaluated. Evaluation is performed as a moving average. You might want to shorten this interval if your telemetry is liable to sudden bursts. |
-| initialSamplingPercentage| 1.0 | The initial sampling percentage applied at the start of the sampling process to dynamically vary the percentage. Don't reduce value while you're debugging. |
+| initialSamplingPercentage| 100.0 | The initial sampling percentage applied at the start of the sampling process to dynamically vary the percentage. Don't reduce value while you're debugging. |
 | samplingPercentageIncreaseTimeout | 00:00:01 | When the sampling percentage value changes, this property determines how soon afterwards Application Insights is allowed to raise sampling percentage again to capture more data. |
 | samplingPercentageDecreaseTimeout | 00:00:01 | When the sampling percentage value changes, this property determines how soon afterwards Application Insights is allowed to lower sampling percentage again to capture less data. |
 | minSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the minimum allowed sampling percentage. |
-| maxSamplingPercentage | 0.1 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
+| maxSamplingPercentage | 100.0 | As sampling percentage varies, this property determines the maximum allowed sampling percentage. |
 | movingAverageRatio | 1.0 | In the calculation of the moving average, the weight assigned to the most recent value. Use a value equal to or less than 1. Smaller values make the algorithm less reactive to sudden changes. |
+| excludedTypes | null | A semi-colon delimited list of types that you don't want to be sampled. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, and `Trace`. All instances of the specified types are transmitted; the types that aren't specified are sampled. |
+| includedTypes | null | A semi-colon delimited list of types that you want to be sampled; an empty list implies all types. Type listed in `excludedTypes` override types listed here. Recognized types are: `Dependency`, `Event`, `Exception`, `PageView`, `Request`, and `Trace`. Instances of the specified types are sampled; the types that aren't specified or implied are transmitted without sampling. |
 
 ### applicationInsights.httpAutoCollectionOptions
 
@@ -174,7 +176,7 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 ### applicationInsights.snapshotConfiguration
 
-For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](../azure-monitor/app/snapshot-debugger.md) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
@@ -203,7 +205,7 @@ For more information on snapshots, see [Debug snapshots on exceptions in .NET ap
 
 ## cosmosDb
 
-Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2.md#host-json).
+Configuration setting can be found in [Cosmos DB triggers and bindings](functions-bindings-cosmosdb-v2-output.md#host-json).
 
 ## durableTask
 
@@ -211,7 +213,7 @@ Configuration setting can be found in [bindings for Durable Functions](durable/d
 
 ## eventHub
 
-Configuration settings can be found in [Event Hub triggers and bindings](functions-bindings-event-hubs.md#host-json). 
+Configuration settings can be found in [Event Hub triggers and bindings](functions-bindings-event-hubs-trigger.md#host-json). 
 
 ## extensions
 
@@ -235,11 +237,16 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
+Indicates the timeout duration for all functions. It follows the timespan string format. 
 
-In the Premium plan, the valid range is from 1 second to 60 minutes, and the default value is 30 minutes.
+| Plan type | Default (min) | Maximum (min) |
+| -- | -- | -- |
+| Consumption | 5 | 10 |
+| Premium<sup>1</sup> | 30 | -1 (unbounded)<sup>2</sup> |
+| Dedicated (App Service) | 30 | -1 (unbounded)<sup>2</sup> |
 
-In a Dedicated (App Service) plan, there is no overall limit, and the default value is 30 minutes. A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
+<sup>1</sup> Premium plan execution is only guaranteed for 60 minutes, but technically unbounded.   
+<sup>2</sup> A value of `-1` indicates unbounded execution, but keeping a fixed upper bound is recommended.
 
 ```json
 {
@@ -273,7 +280,7 @@ Configuration settings for [Host health monitor](https://github.com/Azure/azure-
 
 ## http
 
-Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook.md#hostjson-settings).
+Configuration settings can be found in [http triggers and bindings](functions-bindings-http-webhook-output.md#hostjson-settings).
 
 ## logging
 
@@ -281,7 +288,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly"
+    "fileLoggingMode": "debugOnly",
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
@@ -298,7 +305,7 @@ Controls the logging behaviors of the function app, including Application Insigh
 |Property  |Default | Description |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Defines what level of file logging is enabled.  Options are `never`, `always`, `debugOnly`. |
-|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
+|logLevel|n/a|Object that defines the log category filtering for functions in the app. Versions 2.x and later follow the ASP.NET Core layout for log category filtering. This setting lets you filter logging for specific functions. For more information, see [Log filtering](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) in the ASP.NET Core documentation. |
 |console|n/a| The [console](#console) logging setting. |
 |applicationInsights|n/a| The [applicationInsights](#applicationinsights) setting. |
 
@@ -336,7 +343,7 @@ Managed dependency is a feature that is currently only supported with PowerShell
 
 ## queues
 
-Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue.md#host-json).  
+Configuration settings can be found in [Storage queue triggers and bindings](functions-bindings-storage-queue-output.md#host-json).  
 
 ## sendGrid
 
@@ -344,7 +351,7 @@ Configuration setting can be found in [SendGrid triggers and bindings](functions
 
 ## serviceBus
 
-Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus.md#host-json).
+Configuration setting can be found in [Service Bus triggers and bindings](functions-bindings-service-bus-output.md#host-json).
 
 ## singleton
 
@@ -372,7 +379,7 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 
 ## version
 
-The version string `"version": "2.0"` is required for a function app that targets the v2 runtime.
+This value indicates the schema version of host.json. The version string `"version": "2.0"` is required for a function app that targets the v2 runtime, or a later version. There are no host.json schema changes between v2 and v3.
 
 ## watchDirectories
 
@@ -381,6 +388,23 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## Override host.json values
+
+There may be instances where you wish to configure or modify specific settings in a host.json file for a specific environment, without changing the host.json file itself.  You can override specific host.json values be creating an equivalent value as an application setting. When the runtime finds an application setting in the format `AzureFunctionsJobHost__path__to__setting`, it overrides the equivalent host.json setting located at `path.to.setting` in the JSON. When expressed as an application setting, the dot (`.`) used to indicate JSON hierarchy is replaced by a double underscore (`__`). 
+
+For example, say that you wanted to disable Application Insight sampling when running locally. If you changed the local host.json file to disable Application Insights, this change might get pushed to your production app during deployment. The safer way to do this is to instead create an application setting as `"AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"` in the `local.settings.json` file. You can see this in the following `local.settings.json` file, which doesn't get published:
+
+```json
+{
+    "IsEncrypted": false,
+    "Values": {
+        "AzureWebJobsStorage": "{storage-account-connection-string}",
+        "FUNCTIONS_WORKER_RUNTIME": "{language-runtime}",
+        "AzureFunctionsJobHost__logging__applicationInsights__samplingSettings__isEnabled":"false"
+    }
 }
 ```
 

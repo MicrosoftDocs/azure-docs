@@ -4,15 +4,25 @@ description: Automate tasks that monitor, create, manage, send, and receive file
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: estfan, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 10/02/2020
 tags: connectors
 ---
 
 # Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps
 
-To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can build and automate integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream. Here are some example tasks you can automate:
+To automate tasks that monitor, create, send, and receive files on a [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) protocol, you can build and automate integration workflows by using Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol that provides file access, file transfer, and file management over any reliable data stream.
+
+> [!NOTE]
+> The SFTP-SSH connector currently doesn't support these SFTP servers:
+> 
+> * IBM DataPower
+> * MessageWay
+> * OpenText Secure MFT
+> * OpenText GXS
+
+Here are some example tasks you can automate:
 
 * Monitor when files are added or changed.
 * Get, create, copy, rename, update, list, and delete files.
@@ -26,13 +36,37 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 
 ## Limits
 
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time. To handle files larger than 15 MB, SFTP-SSH actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md), except for the Copy File action, which can handle only 15 MB files. The **Get file content** action implicitly uses message chunking.
+* SFTP-SSH actions that support [chunking](../logic-apps/logic-apps-handle-large-messages.md) can handle files up to 1 GB, while SFTP-SSH actions that don't support chunking can handle files up to 50 MB. Although the default chunk size is 15 MB, this size can dynamically change, starting from 5 MB and gradually increasing to the 50 MB maximum, based on factors such as network latency, server response time, and so on.
 
-* SFTP-SSH triggers don't support chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
+  > [!NOTE]
+  > For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+  > this connector's ISE-labeled version requires chunking to use the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
-  * Use an SFTP-SSH trigger that returns file properties, such as **When a file is added or modified (properties only)**.
+  You can override this adaptive behavior when you [specify a constant chunk size](#change-chunk-size) to use instead. This size can range from 5 MB to 50 MB. For example, suppose you have a 45 MB file and a network that can that support that file size without latency. Adaptive chunking results in several calls, rather that one call. To reduce the number of calls, you can try setting a 50 MB chunk size. In different scenario, if your logic app is timing out, for example, when using 15 MB chunks, you can try reducing the size to 5 MB.
 
-  * Follow the trigger with the SFTP-SSH **Get file content** action, which reads the complete file and implicitly uses message chunking.
+  Chunk size is associated with a connection, which means that you can use the same connection for actions that support chunking and then for actions that don't support chunking. In this case, the chunk size for actions that don't support chunking ranges from 5 MB to 50 MB. This table shows which SFTP-SSH actions support chunking:
+
+  | Action | Chunking support | Override chunk size support |
+  |--------|------------------|-----------------------------|
+  | **Copy file** | No | Not applicable |
+  | **Create file** | Yes | Yes |
+  | **Create folder** | Not applicable | Not applicable |
+  | **Delete file** | Not applicable | Not applicable |
+  | **Extract archive to folder** | Not applicable | Not applicable |
+  | **Get file content** | Yes | Yes |
+  | **Get file content using path** | Yes | Yes |
+  | **Get file metadata** | Not applicable | Not applicable |
+  | **Get file metadata using path** | Not applicable | Not applicable |
+  | **List files in folder** | Not applicable | Not applicable |
+  | **Rename file** | Not applicable | Not applicable |
+  | **Update file** | No | Not applicable |
+  ||||
+
+* SFTP-SSH triggers don't support message chunking. When requesting file content, triggers select only files that are 15 MB or smaller. To get files larger than 15 MB, follow this pattern instead:
+
+  1. Use an SFTP-SSH trigger that returns only file properties, such as **When a file is added or modified (properties only)**.
+
+  1. Follow the trigger with the SFTP-SSH **Get file content** action, which reads the complete file and implicitly uses message chunking.
 
 <a name="comparison"></a>
 
@@ -41,10 +75,6 @@ For differences between the SFTP-SSH connector and the SFTP connector, review th
 Here are other key differences between the SFTP-SSH connector and the SFTP connector where the SFTP-SSH connector has these capabilities:
 
 * Uses the [SSH.NET library](https://github.com/sshnet/SSH.NET), which is an open-source Secure Shell (SSH) library that supports .NET.
-
-* By default, SFTP-SSH actions can read or write files that are *1 GB or smaller* but only in *15 MB* chunks at a time.
-
-  To handle files larger than 15 MB, SFTP-SSH actions can use [message chunking](../logic-apps/logic-apps-handle-large-messages.md). However, the Copy File action supports only 15 MB files because that action doesn't support message chunking. SFTP-SSH triggers don't support chunking. To upload large files, you need both read and write permissions for the root folder on your SFTP server.
 
 * Provides the **Create folder** action, which creates a folder at the specified path on the SFTP server.
 
@@ -127,6 +157,16 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 1. Save the private key file with the `.pem` file name extension.
 
+## Considerations
+
+This section describes considerations to review for this connector's triggers and actions.
+
+<a name="create-file"></a>
+
+### Create file
+
+To create a file on your SFTP server, you can use the SFTP-SSH **Create file** action. When this action creates the file, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if you move the newly created file before the Logic Apps service can make the call to get the metadata, you get a `404` error message, `'A reference was made to a file or folder which does not exist'`. To skip reading the file's metadata after file creation, follow the steps to [add and set the **Get all file metadata** property to **No**](#file-does-not-exist).
+
 <a name="connect"></a>
 
 ## Connect to SFTP with SSH
@@ -135,13 +175,13 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and open your logic app in Logic App Designer, if not open already.
 
-1. For blank logic apps, in the search box, enter "sftp ssh" as your filter. Under the triggers list, select the trigger you want.
+1. For blank logic apps, in the search box, enter `sftp ssh` as your filter. Under the triggers list, select the trigger you want.
 
    -or-
 
-   For existing logic apps, under the last step where you want to add an action, choose **New step**. In the search box, enter "sftp ssh" as your filter. Under the actions list, select the action you want.
+   For existing logic apps, under the last step where you want to add an action, select **New step**. In the search box, enter `sftp ssh` as your filter. Under the actions list, select the action you want.
 
-   To add an action between steps, move your pointer over the arrow between steps. Choose the plus sign (**+**) that appears, and then select **Add an action**.
+   To add an action between steps, move your pointer over the arrow between steps. Select the plus sign (**+**) that appears, and then select **Add an action**.
 
 1. Provide the necessary details for your connection.
 
@@ -161,9 +201,25 @@ If your private key is in PuTTY format, which uses the .ppk (PuTTY Private Key) 
 
    1. In the SFTP-SSH trigger or action you added, paste the *complete* key you copied into the **SSH private key** property, which supports multiple lines.  ***Make sure you paste*** the key. ***Don't manually enter or edit the key***.
 
-1. When you're done entering the connection details, choose **Create**.
+1. When you're done entering the connection details, select **Create**.
 
 1. Now provide the necessary details for your selected trigger or action and continue building your logic app's workflow.
+
+<a name="change-chunk-size"></a>
+
+## Override chunk size
+
+To override the default adaptive behavior that chunking uses, you can specify a constant chunk size from 5 MB to 50 MB.
+
+1. In the action's upper-right corner, select the ellipses button (**...**), and then select **Settings**.
+
+   ![Open SFTP-SSH settings](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
+
+1. Under **Content Transfer**, in the **Chunk size** property, enter an integer value from `5` to `50`, for example: 
+
+   ![Specify chunk size to use instead](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
+
+1. When you're finished, select **Done**.
 
 ## Examples
 
@@ -177,13 +233,51 @@ This trigger starts a logic app workflow when a file is added or changed on an S
 
 <a name="get-content"></a>
 
-### SFTP - SSH action: Get content using path
+### SFTP - SSH action: Get file content using path
 
-This action gets the content from a file on an SFTP server. So for example, you can add the trigger from the previous example and a condition that the file's content must meet. If the condition is true, the action that gets the content can run.
+This action gets the content from a file on an SFTP server by specifying the file path. So for example, you can add the trigger from the previous example and a condition that the file's content must meet. If the condition is true, the action that gets the content can run.
+
+<a name="troubleshooting-errors"></a>
+
+## Troubleshoot errors
+
+This section describes possible solutions to common errors or problems.
+
+<a name="file-does-not-exist"></a>
+
+### 404 error: "A reference was made to a file or folder which does not exist"
+
+This error can happen when your logic app creates a new file on your SFTP server through the SFTP-SSH **Create file** action, but the newly created file is then immediately moved before the Logic Apps service can get the file's metadata. When your logic app runs the **Create file** action, the Logic Apps service also automatically calls your SFTP server to get the file's metadata. However, if the file is moved, the Logic Apps service can no longer find the file so you get the `404` error message.
+
+If you can't avoid or delay moving the file, you can skip reading the file's metadata after file creation instead by following these steps:
+
+1. In the **Create file** action, open the **Add new parameter** list, select the **Get all file metadata** property, and set the value to **No**.
+
+1. If you need this file metadata later, you can use the **Get file metadata** action.
+
+### 504 error: "A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond" or "Request to the SFTP server has taken more than '00:00:30' seconds"
+
+This error can happen when the logic app is not able to successfully establish a connection with the SFTP server. There could be a number of different reasons and we suggest troubleshooting the issue from the following aspects. 
+
+1. The connection time out is 20 seconds. Please make sure the SFTP server has good performance and intermidiate devices like firewall do not add much overhead. 
+
+2. If there is a firewall involved, please make sure that the **Managed connector IP** addresses are added to the approved list. You can find these IP addresses for your logic app region [**here**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+
+3. If this is intermittent issue, please test the retry setting to see whether a higher retry count than the default 4 may help.
+
+4. Please check whether SFTP server puts a limit on the number of connections from each IP address. If so, you may need to limit the number of concurrent logic app instances. 
+
+5. Increasing the [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) property to like 1 hour in the SSH configuration on your SFTP server to reduce connection establishment cost.
+
+6. You can check SFTP server log to see whether the request from logic app ever reached the SFTP server. You may also take some network trace on your firewall and your SFTP server to dig further into connectivity issue.
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the connector's [reference page](/connectors/sftpconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/sftpwithssh/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version require chunking to use the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 

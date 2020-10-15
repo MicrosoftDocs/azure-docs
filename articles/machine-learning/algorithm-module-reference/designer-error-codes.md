@@ -1,25 +1,27 @@
 ---
-title: Troubleshoot module errors
+title: Troubleshoot designer module errors
 titleSuffix: "Azure Machine Learning"
-description: Troubleshoot module exceptions in Azure Machine Learning designer using error codes
+description: Troubleshoot module error codes in Azure Machine Learning designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
-
-author: xiaoharper
-ms.author: zhanxia
-ms.date: 12/03/2019
+ms.custom: troubleshooting
+author: likebupt
+ms.author: keli19
+ms.date: 04/16/2020
 ---
-# Exceptions and error codes for the designer (preview)
+# Exceptions and error codes for the designer
 
-This article describes the error messages and exception codes in Azure Machine Learning designer (preview) to help you troubleshoot your machine learning pipelines.
+This article describes the error messages and exception codes in Azure Machine Learning designer to help you troubleshoot your machine learning pipelines.
 
-There are two ways to get the full text of an error message in the designer:  
+You can find the error message in the designer following these steps:  
 
-- Click the link, **View Output Log**, in the right pane and scroll to the bottom. The detailed error message is displayed in the last two lines of the window.  
-  
-- Select the module that has the error, and click the red X. Only the pertinent error text is displayed.
+- Select the failed module, go to the **Outputs+logs** tab, you can find the detailed log in the **70_driver_log.txt** file under the **azureml-logs** category.
+
+- For detailed module error, you can check it in the error_info.json under **module_statistics** category.
+
+Following are error codes of modules in the designer.
 
 ## Error 0001  
  Exception occurs if one or more specified columns of data set couldn't be found.  
@@ -35,6 +37,9 @@ There are two ways to get the full text of an error message in the designer:
 |Column with name or index "{column_id}" not found.|
 |Column with name or index "{column_id}" does not exist in "{arg_name_missing_column}".|
 |Column with name or index "{column_id}" does not exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
+|Columns with name or index "{column_names}" not found.|
+|Columns with name or index "{column_names}" does not exist in "{arg_name_missing_column}".|
+|Columns with name or index "{column_names}" does not exist in "{arg_name_missing_column}", but exists in "{arg_name_has_column}".|
 
 
 ## Error 0002  
@@ -71,7 +76,7 @@ There are two ways to get the full text of an error message in the designer:
 |Exception Messages|
 |------------------------|
 |One or more of inputs are null or empty.|
-|Input "{0}" is null or empty.|
+|Input "{name}" is null or empty.|
 
 
 ## Error 0004  
@@ -85,8 +90,8 @@ There are two ways to get the full text of an error message in the designer:
 |Exception Messages|
 |------------------------|
 |Parameter should be greater than boundary value.|
-|Parameter "{0}" value should be greater than {1}.|
-|Parameter "{0}" has value "{1}" which should be greater than {2}.|
+|Parameter "{arg_name}" value should be greater than {lower_boundary}.|
+|Parameter "{arg_name}" has value "{actual_value}" which should be greater than {lower_boundary}.|
 
 
 ## Error 0005  
@@ -100,8 +105,8 @@ There are two ways to get the full text of an error message in the designer:
 |Exception Messages|
 |------------------------|
 |Parameter should be greater than or equal to boundary value.|
-|Parameter "{arg_name}" value should be greater than or equal to {target_val}.|
-|Parameter "{arg_name}" has value "{true_val}" which should be greater than or equal to {target_val}.|
+|Parameter "{arg_name}" value should be greater than or equal to {lower_boundary}.|
+|Parameter "{arg_name}" has value "{value}" which should be greater than or equal to {lower_boundary}.|
 
 
 ## Error 0006  
@@ -115,8 +120,8 @@ There are two ways to get the full text of an error message in the designer:
 |Exception Messages|
 |------------------------|
 |Parameters mismatch. One of the parameters should be less than another.|
-|Parameter "{0}" value should be less than parameter "{1}" value.|
-|Parameter "{0}" has value "{1}" which should be less than {2}.|
+|Parameter "{arg_name}" value should be less than parameter "{upper_boundary_parameter_name}" value.|
+|Parameter "{arg_name}" has value "{value}" which should be less than {upper_boundary_parameter_name}.|
 
 
 ## Error 0007  
@@ -137,8 +142,10 @@ There are two ways to get the full text of an error message in the designer:
 |Exception messages|
 |------------------------|
 |Parameters mismatch. One of the parameters should be less than or equal to another.|
-|Parameter "{0}" value should be less than or equal to parameter "{1}" value.|
-|Parameter "{0}" has value "{1}" which should be less than or equal to {2}.|
+|Parameter "{arg_name}" value should be less than or equal to parameter "{upper_boundary_parameter_name}" value.|
+|Parameter "{arg_name}" has value "{actual_value}" which should be less than or equal to {upper_boundary}.|
+|Parameter "{arg_name}" value {actual_value} should be less than or equal to parameter "{upper_boundary_parameter_name}" value {upper_boundary}.|
+|Parameter "{arg_name}" value {actual_value} should be less than or equal to {upper_boundary_meaning} value {upper_boundary}.|
 
 
 ## Error 0008  
@@ -155,8 +162,8 @@ There are two ways to get the full text of an error message in the designer:
 |------------------------|
 |Parameter value is not in the specified range.|
 |Parameter "{arg_name}" value is not in range.|
-|Parameter "{arg_name}" value should be in the range of [{a}, {b}].|
-|Parameter "{arg_name}" value is not in range.{reason}|
+|Parameter "{arg_name}" value should be in the range of [{lower_boundary}, {upper_boundary}].|
+|Parameter "{arg_name}" value is not in range. {reason}|
 
 
 ## Error 0009  
@@ -188,7 +195,7 @@ If the complete path to a blob was specified, verify that the path is specified 
 |Exception Messages|
 |------------------------|
 |The Azure storage account name or container name is incorrect.|
-|The Azure storage account name "{0}" or container name "{1}" is incorrect; a container name of the format container/blob was expected.|
+|The Azure storage account name "{account_name}" or container name "{container_name}" is incorrect; a container name of the format container/blob was expected.|
 
 
 ## Error 0010  
@@ -202,7 +209,7 @@ If the complete path to a blob was specified, verify that the path is specified 
 |Exception Messages|
 |------------------------|
 |Columns with corresponding index in input datasets have different names.|
-|Column names are not the same for column {0} (zero-based) of input datasets ({1} and {2} respectively).|
+|Column names are not the same for column {col_index} (zero-based) of input datasets ({dataset1} and {dataset2} respectively).|
 
 
 ## Error 0011  
@@ -222,7 +229,7 @@ If the complete path to a blob was specified, verify that the path is specified 
 |Exception Messages|
 |------------------------|
 |Specified column set does not apply to any of dataset columns.|
-|Specified column set "{0}" does not apply to any of dataset columns.|
+|Specified column set "{column_set}" does not apply to any of dataset columns.|
 
 
 ## Error 0012  
@@ -269,6 +276,7 @@ If the model was trained using any of the specialized training modules, connect 
 |Learner of invalid type is passed.|
 |Learner "{arg_name}" has invalid type.|
 |Learner "{arg_name}" has invalid type "{learner_type}".|
+|Learner of invalid type is passed. Exception message: {exception_message}|
 
 
 ## Error 0014  
@@ -306,7 +314,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |Exception Messages|
 |------------------------|
 |Error making database connection.|
-|Error making database connection: {0}.|
+|Error making database connection: {connection_str}.|
 
 
 ## Error 0016  
@@ -379,6 +387,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |{dataset1} and {dataset2} should be consistent columnwise.|
 |{dataset1} contains invalid data, {reason}.|
 |{dataset1} contains {invalid_data_category}. {troubleshoot_hint}|
+|{dataset1} is not valid, {reason}. {troubleshoot_hint}|
 
 
 ## Error 0019  
@@ -392,8 +401,9 @@ For columns that you intend to use for grouping or categorization, take steps to
 |Exception Messages|
 |------------------------|
 |Values in column are not sorted.|
-|Values in column "{0}" are not sorted.|
-|Values in column "{0}" of dataset "{1}" are not sorted.|
+|Values in column "{col_index}" are not sorted.|
+|Values in column "{col_index}" of dataset "{dataset}" are not sorted.|
+|Values in argument "{arg_name}" are not sorted in "{sorting_order}" order.|
 
 
 ## Error 0020  
@@ -407,6 +417,7 @@ For columns that you intend to use for grouping or categorization, take steps to
 |Exception Messages|
 |------------------------|
 |Number of columns in input dataset is less than allowed minimum.|
+|Number of columns in input dataset "{arg_name}" is less than allowed minimum.|
 |Number of columns in input dataset is less than allowed minimum of {required_columns_count} column(s).|
 |Number of columns in input dataset "{arg_name}" is less than allowed minimum of {required_columns_count} column(s).|
 
@@ -460,9 +471,9 @@ For columns that you intend to use for grouping or categorization, take steps to
 |Exception Messages|
 |------------------------|
 |Number of selected columns in input dataset does not equal to the expected number.|
-|Number of selected columns in input dataset does not equal to {0}.|
-|Column selection pattern "{0}" provides number of selected columns in input dataset not equal to {1}.|
-|Column selection pattern "{0}" is expected to provide {1} column(s) selected in input dataset, but {2} column(s) is/are actually provided.|
+|Number of selected columns in input dataset does not equal to {expected_col_count}.|
+|Column selection pattern "{selection_pattern_friendly_name}" provides number of selected columns in input dataset not equal to {expected_col_count}.|
+|Column selection pattern "{selection_pattern_friendly_name}" is expected to provide {expected_col_count} column(s) selected in input dataset, but {selected_col_count} column(s) is/are actually provided.|
 
 
 ## Error 0023  
@@ -477,8 +488,8 @@ Revisit the module input to inspect the content of the label/target column. Make
 |Exception Messages|
 |------------------------|
 |Input dataset has unsupported target column.|
-|Input dataset has unsupported target column "{0}".|
-|Input dataset has unsupported target column "{0}" for learner of type {1}.|
+|Input dataset has unsupported target column "{column_index}".|
+|Input dataset has unsupported target column "{column_index}" for learner of type {learner_type}.|
 
 
 ## Error 0024  
@@ -512,8 +523,8 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |There is no score column in dataset.|
-|There is no score column in "{0}".|
-|There is no score column in "{0}" that is produced by a "{1}". Score the dataset using the correct type of learner.|
+|There is no score column in "{dataset_name}".|
+|There is no score column in "{dataset_name}" that is produced by a "{learner_type}". Score the dataset using the correct type of learner.|
 
 
 ## Error 0026  
@@ -527,7 +538,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |Equal column names are specified in arguments. Equal column names are not allowed by module.|
-|Equal column names in arguments "{0}" and "{1}" are not allowed. Please specify different names.|
+|Equal column names in arguments "{arg_name_1}" and "{arg_name_2}" are not allowed. Please specify different names.|
 
 
 ## Error 0027  
@@ -547,7 +558,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |The size of passed objects is inconsistent.|
-|The size of "{0}" is inconsistent with size of "{1}".|
+|The size of "{friendly_name1}" is inconsistent with size of "{friendly_name2}".|
 
 
 ## Error 0028  
@@ -587,7 +598,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |Invalid Uri is passed.|
-|The Uri "{0}" is invalid.|
+|The Uri "{invalid_url}" is invalid.|
 
 
 ## Error 0030  
@@ -601,7 +612,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |Unable to download a file.|
-|Error while downloading the file: {0}.|
+|Error while downloading the file: {file_url}.|
 
 
 ## Error 0031  
@@ -615,7 +626,8 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |Number of columns in column set is less than required.|
-|At least {0} column(s) should be specified. The actual number of specified columns is {1}.|
+|At least {required_columns_count} column(s) should be specified for input argument "{arg_name}".|
+|At least {required_columns_count} column(s) should be specified for input argument "{arg_name}". The actual number of specified columns is {input_columns_count}.|
 
 
 ## Error 0032  
@@ -629,7 +641,7 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |Argument is not a number.|
-|"{0}" is not a number.|
+|"{arg_name}" is not a number.|
 
 
 ## Error 0033  
@@ -643,7 +655,8 @@ It can also happen that a label column is present in the dataset, but not detect
 |Exception Messages|
 |------------------------|
 |Argument must be finite.|
-|"{0}" is not finite.|
+|"{arg_name}" is not finite.|
+|Column "{column_name}" contains infinite values.|
 
 
 ## Error 0034  
@@ -684,7 +697,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Exception Messages|
 |------------------------|
 |No features were provided for a required user or item.|
-|Features for {0} required but not provided.|
+|Features for {required_feature_name} required but not provided.|
 
 
 ## Error 0036  
@@ -698,7 +711,6 @@ For general information about how the Matchbox recommendation algorithm works, a
 |Exception Messages|
 |------------------------|
 |Duplicate feature definition for a user or item.|
-|Duplicate feature definition for {0}.|
 
 
 ## Error 0037  
@@ -724,7 +736,7 @@ For general information about how the Matchbox recommendation algorithm works, a
  This error is caused by many conditions and there is no specific remedy.  
  The following table contains generic messages for this error, which are followed by a specific description of the condition. 
 
- If no details are available, [send feedback](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning) and provide information about the modules that generated the error and related conditions.
+ If no details are available, [Microsoft Q&A question page for send feedback](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) and provide information about the modules that generated the error and related conditions.
 
 |Exception Messages|
 |------------------------|
@@ -766,9 +778,9 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |Not allowed conversion.|
-|Could not convert column of type {0} to column of type {1}.|
-|Could not convert column "{2}" of type {0} to column of type {1}.|
-|Could not convert column "{2}" of type {0} to column "{3}" of type {1}.|
+|Could not convert column of type {type1} to column of type {type2}.|
+|Could not convert column "{col_name1}" of type {type1} to column of type {type2}.|
+|Could not convert column "{col_name1}" of type {type1} to column "{col_name2}" of type {type2}.|
 
 
 ## Error 0044  
@@ -782,8 +794,8 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |Cannot derive element type of the column.|
-|Cannot derive element type for column "{0}" -- all the elements are null references.|
-|Cannot derive element type for column "{0}" of dataset "{1}" -- all the elements are null references.|
+|Cannot derive element type for column "{column_name}" -- all the elements are null references.|
+|Cannot derive element type for column "{column_name}" of dataset "{dataset_name}" -- all the elements are null references.|
 
 
 ## Error 0045  
@@ -797,8 +809,8 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |Cannot create column with mixed element types.|
-|Cannot create column with id "{column_id}" of mixed element types:\n\tType of data[{row_1}, {column_id}] is "{type_1}". Type of data[{row_2}, {column_id}] is "{type_2}".|
-|Cannot create column with id "{column_id}" of mixed element types:\n\tType in chunk {chunk_id_1} is "{type_1}". Type in chunk {chunk_id_2} is "{type_2}" with chunk size: {chunk_size}.|
+|Cannot create column with id "{column_id}" of mixed element types:<br />Type of data[{row_1}, {column_id}] is "{type_1}". <br />Type of data[{row_2}, {column_id}] is "{type_2}".|
+|Cannot create column with id "{column_id}" of mixed element types:<br />Type in chunk {chunk_id_1} is "{type_1}". <br />Type in chunk {chunk_id_2} is "{type_2}" with chunk size: {chunk_size}.|
 
 
 ## Error 0046  
@@ -812,7 +824,7 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |Please specify a valid output directory.|
-|Directory: {0} cannot be created. Please specify valid path.|
+|Directory: {path} cannot be created. Please specify valid path.|
 
 
 ## Error 0047  
@@ -853,8 +865,8 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |Unable to open a file.|
-|Error while opening the file: {0}.|
-|Error while opening the file: {0}. Storage exception message: {1}.|
+|Error while opening the file: {file_name}.|
+|Error while opening the file: {file_name}. Storage exception message: {exception}.|
 
 
 ## Error 0049  
@@ -942,7 +954,7 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |File or Blob already exists.|
-|File or Blob "{0}" already exists.|
+|File or Blob "{file_path}" already exists.|
 
 
 ## Error 0058  
@@ -979,7 +991,7 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |One or more specified column indexes or index ranges could not be parsed.|
-|Column index or range "{0}" could not be parsed.|
+|Column index or range "{column_index_or_range}" could not be parsed.|
 
 
 ## Error 0060  
@@ -993,7 +1005,7 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |Invalid or out of range column index range specified.|
-|Column range "{0}" is invalid or out of range.|
+|Column range "{column_range}" is invalid or out of range.|
 
 
 ## Error 0061  
@@ -1075,7 +1087,7 @@ Another reason you might get this error if you try to use a column containing fl
 |Exception Messages|
 |------------------------|
 |The resource could not be uploaded to Azure storage.|
-|The file "{0}" could not be uploaded to Azure storage as "{1}".|
+|The file "{source_path}" could not be uploaded to Azure storage as "{dest_path}".|
 
 
 ## Error 0067  
@@ -1120,7 +1132,6 @@ See the following articles for help with Hive queries for machine learning:
 |Exception Messages|
 |------------------------|
 |Hive script is incorrect.|
-|Hive script {0} is not correct.|
 
 
 ## Error 0069  
@@ -1143,8 +1154,8 @@ See the following articles for help with Hive queries for machine learning:
 |Exception Messages|
 |------------------------|
 |SQL script is incorrect.|
-|SQL query "{0}" is not correct.|
-|SQL query "{0}" is not correct:{1}.|
+|SQL query "{sql_query}" is not correct.|
+|SQL query "{sql_query}" is not correct. Exception message: {exception}.|
 
 
 ## Error 0070  
@@ -1158,7 +1169,7 @@ See the following articles for help with Hive queries for machine learning:
 |Exception Messages|
 |------------------------|
 |Azure table does not exist.|
-|Azure table "{0}" does not exist.|
+|Azure table "{table_name}" does not exist.|
 
 
 ## Error 0072  
@@ -1185,7 +1196,7 @@ See the following articles for help with Hive queries for machine learning:
 |Exception Messages|
 |------------------------|
 |Failed to convert column.|
-|Failed to convert column to {0}.|
+|Failed to convert column to {target_type}.|
 
 
 ## Error 0075  
@@ -1197,7 +1208,7 @@ This error in Azure Machine Learning occurs when you are trying to bin data usin
 
 Error handling for this event was introduced in an earlier version of Azure Machine Learning that allowed more customization of binning methods. Currently all binning methods are based on a selection from a dropdown list, so technically it should no longer be possible to get this error.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=MachineLearning), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Exception Messages|
 |------------------------|
@@ -1215,7 +1226,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Exception Messages|
 |------------------------|
 |Unsupported blob write mode.|
-|Unsupported blob write mode: {0}.|
+|Unsupported blob write mode: {blob_write_mode}.|
 
 
 ## Error 0078  
@@ -1242,7 +1253,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Exception Messages|
 |------------------------|
 |The Azure storage container name is incorrect.|
-|The Azure storage container name "{0}" is incorrect; a container name of the format container/blob was expected.|
+|The Azure storage container name "{container_name}" is incorrect; a container name of the format container/blob was expected.|
 
 
 ## Error 0080  
@@ -1256,7 +1267,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Exception Messages|
 |------------------------|
 |Columns with all values missing are not allowed.|
-|Column {0} has all values missing.|
+|Column {col_index_or_name} has all values missing.|
 
 
 ## Error 0081  
@@ -1296,9 +1307,10 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Exception Messages|
 |------------------------|
 |Dataset used for training is invalid.|
-|{0} contains invalid data for training.|
-|{0} contains invalid data for training. Learner type: {1}.|
-|{0} contains invalid data for training. Learner type: {1}. Reason: {2}.|
+|{data_name} contains invalid data for training.|
+|{data_name} contains invalid data for training. Learner type: {learner_type}.|
+|{data_name} contains invalid data for training. Learner type: {learner_type}. Reason: {reason}.|
+|Failed to apply "{action_name}" action on training data {data_name}. Reason: {reason}.|
 
 
 ## Error 0084  
@@ -1324,7 +1336,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Exception Messages|
 |------------------------|
 |Error during evaluation of script.|
-|The following error occurred during script evaluation, please view the output log for more information:---------- Start of error message from {script_language} interpreter ----------{message}---------- End of error message from {script_language}  interpreter  ----------|
+|The following error occurred during script evaluation, please view the output log for more information:<br />---------- Start of error message from {script_language} interpreter ----------<br />{message}<br />---------- End of error message from {script_language}  interpreter  ----------|
 
 
 ## Error 0090  
@@ -1338,8 +1350,8 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Exception Messages|
 |------------------------|
 |The Hive table could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the module parameter.|
-|The Hive table "{0}" could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the module parameter.|
-|The Hive table "{0}" could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is "{1}".|
+|The Hive table "{table_name}" could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is the same as what is passed in through the module parameter.|
+|The Hive table "{table_name}" could not be created. For a HDInsight cluster, please ensure the Azure storage account name associated with cluster is "{cluster_name}".|
 
 
 ## Error 0102  
@@ -1373,6 +1385,20 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Unsupported parameter type '{0}' specified.|  
 
 
+## Error 0107  
+ Thrown when a module definition file defines an unsupported output type  
+  
+ This error in Azure Machine Learning is produced when the type of an output port in a custom module xml definition does not match a supported type.  
+  
+**Resolution:**
+ Make sure that the type property of an Output element in the custom module xml definition file is a supported type.  
+  
+|Exception Messages|  
+|------------------------|  
+|Unsupported output type.|  
+|Unsupported output type '{output_type}' specified.|  
+
+
 ## Error 0125  
  Thrown when schema for multiple datasets does not match.  
 
@@ -1398,7 +1424,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Exception Messages|
 |------------------------|
 |Image pixel size exceeds allowed limit.|
-|Image pixel size in the file '{0}' exceeds allowed limit: '{1}'.|
+|Image pixel size in the file '{file_path}' exceeds allowed limit: '{size_limit}'.|
 
 
 ## Error 0128  
@@ -1409,7 +1435,7 @@ Error handling for this event was introduced in an earlier version of Azure Mach
 |Exception Messages|
 |------------------------|
 |Number of conditional probabilities for categorical columns exceeds limit.|
-|Number of conditional probabilities for categorical columns exceeds limit. Columns '{0}' and '{1}' are the problematic pair.|
+|Number of conditional probabilities for categorical columns exceeds limit. Columns '{column_name_or_index_1}' and '{column_name_or_index_2}' are the problematic pair.|
 
 
 ## Error 0129  
@@ -1434,9 +1460,10 @@ This error can also occur when a previous operation changes the dataset such tha
 
 Resolution: 
 
- If you include a label column in the column selection but it isn’t recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
+ If you include a label column in the column selection but it isn't recognized, use the [Edit Metadata](edit-metadata.md) module to mark it as a label column.
 
-  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
+  <!--Use the [Summarize Data](summarize-data.md) module to generate a report that shows how many values are missing in each column. -->
+  Then, you can use the [Clean Missing Data](clean-missing-data.md) module to remove rows with missing values in the label column. 
 
  Check your input datasets to make sure that they contain valid data, and enough rows to satisfy the requirements of the operation. Many algorithms will generate an error message if they require some minimum number rows of data, but the data contains only a few rows, or only a header.
 
@@ -1482,7 +1509,7 @@ Resolution:
 |Exception Messages|
 |------------------------|
 |The number of the selected numerical columns and unique values in the categorical and string columns is too small.|
-|The total number of the selected numerical columns and unique values in the categorical and string columns (currently {0}) should be at least {1}.|
+|The total number of the selected numerical columns and unique values in the categorical and string columns (currently {actual_num}) should be at least {lower_boundary}.|
 
 
 ## Error 0154  
@@ -1499,8 +1526,8 @@ Resolution:
 
 |Exception Messages|
 |------------------------|
-|Column names are not string.|
-|Column names: {column_names} are not string.|
+|The dataframe column name must be string type. Column names are not string.|
+|The dataframe column name must be string type. Column names {column_names} are not string.|
 
 
 ## Error 0156  
@@ -1521,16 +1548,37 @@ Resolution:
 |Datastore information is invalid. Failed to get AzureML datastore '{datastore_name}' in workspace '{workspace_name}'.|
 
 
+## Error 0158
+ Thrown when a transformation directory is invalid.
+
+|Exception Messages|
+|------------------------------------------------------------|
+|Given TransformationDirectory is invalid.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. Please rerun training experiment which generates the Transform file. If training experiment was deleted, please recreate and save the Transform file.|
+|TransformationDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
+
+
+## Error 0159
+ Exception occurs if module model directory is invalid. 
+
+|Exception Messages|
+|------------------------------------------------------------|
+|Given ModelDirectory is invalid.|
+|ModelDirectory "{arg_name}" is invalid.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}.|
+|ModelDirectory "{arg_name}" is invalid. Reason: {reason}. {troubleshoot_hint}|
+
+
 ## Error 1000  
 Internal library exception.  
 
 This error is provided to capture otherwise unhandled internal engine errors. Therefore, the cause for this error might be different depending on the module that generated the error.  
 
-To get more help, we recommend that you post the detailed message that accompanies the error to the Azure Machine Learning forum, together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
+To get more help, we recommend that you post the detailed message that accompanies the error to the [Azure Machine Learning forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), together with a description of the scenario, including the data used as inputs. This feedback will help us to prioritize errors and identify the most important issues for further work.  
 
 |Exception Messages|
 |------------------------|
 |Library exception.|
-|Library exception: {0}.|
-|Unknown library exception: {0}. {1}.|
+|Library exception: {exception}.|
+|Unknown library exception: {exception}. {customer_support_guidance}.|
 

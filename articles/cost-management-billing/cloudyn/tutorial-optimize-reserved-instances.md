@@ -1,15 +1,15 @@
 ---
 title: Tutorial - Optimize reserve instance cost with Cloudyn - Azure
 description: In this tutorial, you learn how to optimize your reserved instance costs for Azure and Amazon Web Services (AWS).
-services: cost-management
-keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 03/12/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.custom: seodec18
-manager: benshy
+ms.reviewer: benshy
+ROBOTS: NOINDEX
 ---
 
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
@@ -32,6 +32,8 @@ This tutorial explains how Azure and AWS Reserved Instances (RIs) are supported 
 > * Modify unused reservations
 
 If you don't have an Azure subscription, create a  [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
 ## Prerequisites
 

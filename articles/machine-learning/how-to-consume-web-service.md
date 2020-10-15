@@ -1,27 +1,27 @@
 ---
 title: Create client for model deployed as web service
 titleSuffix: Azure Machine Learning
-description: Learn how to consume a web service that was generated when a model was deployed with Azure Machine Learning model. The web service exposes a REST API. Create clients for this API by using the programming language of your choice. 
+description: Learn how to call a web service endpoint that was generated when a model was deployed from Azure Machine Learning. The endpoint exposes a REST API, which you can call to perform inference with the model. Create clients for this API by using the programming language of your choice. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 01/07/2020
-ms.custom: seodec18
+ms.date: 10/12/2020
+ms.topic: conceptual
+ms.custom: "how-to, devx-track-python, devx-track-csharp"
 
 
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 
 # Consume an Azure Machine Learning model deployed as a web service
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
 
-You create a web service when you deploy an image to Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You create images from registered models and scoring files. You retrieve the URI used to access a web service by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
+Deploying an Azure Machine Learning model as a web service creates a REST API endpoint. You can send data to this endpoint and receive the prediction returned by the model. In this document, learn how to create clients for the web service by using C#, Go, Java, and Python.
+
+You create a web service when you deploy a model to your local environment, Azure Container Instances, Azure Kubernetes Service, or field-programmable gate arrays (FPGA). You retrieve the URI used to access the web service by using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). If authentication is enabled, you can also use the SDK to get the authentication keys or tokens.
 
 The general workflow for creating a client that uses a machine learning web service is:
 
@@ -37,14 +37,16 @@ The general workflow for creating a client that uses a machine learning web serv
 > [!NOTE]
 > Use the Azure Machine Learning SDK to get the web service information. This is a Python SDK. You can use any language to create a client for the service.
 
-The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information you need to create a client. The following `Webservice` properties are useful for creating a client application:
+The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) class provides the information you need to create a client. The following `Webservice` properties are useful for creating a client application:
 
 * `auth_enabled` - If key authentication is enabled, `True`; otherwise, `False`.
 * `token_auth_enabled` - If token authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
-* `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md#schema).
+* `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
-There are a three ways to retrieve this information for deployed web services:
+There are a several ways to retrieve this information for deployed web services:
+
+# [Python](#tab/python)
 
 * When you deploy a model, a `Webservice` object is returned with information about the service:
 
@@ -55,7 +57,7 @@ There are a three ways to retrieve this information for deployed web services:
     print(service.swagger_uri)
     ```
 
-* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information about what can be filtered on, see the [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py) reference documentation.
+* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information about what can be filtered on, see the [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py&preserve-view=true) reference documentation.
 
     ```python
     services = Webservice.list(ws)
@@ -71,14 +73,38 @@ There are a three ways to retrieve this information for deployed web services:
     print(service.swagger_uri)
     ```
 
+# [Azure CLI](#tab/azure-cli)
+
+If you know the name of the deployed service, use the [az ml service show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) command:
+
+```azurecli
+az ml service show -n <service-name>
+```
+
+# [Portal](#tab/azure-portal)
+
+From Azure Machine Learning studio, select __Endpoints__, __Real-time endpoints__, and then the endpoint name. In details for the endpoint, the __REST endpoint__ field contains the scoring URI. The __Swagger URI__ contains the swagger URI.
+
+---
+
+The following table shows what these URIs look like:
+
+| URI type | Example |
+| ----- | ----- |
+| Scoring URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
+| Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
+
+> [!TIP]
+> The IP address will be different for your deployment. Each AKS cluster will hve it's own IP address that is shared by deployments to that cluster.
+
 ### Secured web service
 
-If you secured the deployed web service using an SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
+If you secured the deployed web service using a TLS/SSL certificate, you can use [HTTPS](https://en.wikipedia.org/wiki/HTTPS) to connect to the service using the scoring or swagger URI. HTTPS helps secure communications between a client and a web service by encrypting communications between the two. Encryption uses [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security). TLS is sometimes still referred to as *Secure Sockets Layer* (SSL), which was the predecessor of TLS.
 
 > [!IMPORTANT]
 > Web services deployed by Azure Machine Learning only support TLS version 1.2. When creating a client application, make sure that it supports this version.
 
-For more information, see [Use SSL to secure a web service through Azure Machine Learning](how-to-secure-web-service.md).
+For more information, see [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md).
 
 ### Authentication for services
 
@@ -90,6 +116,9 @@ Azure Machine Learning provides two ways to control access to your web services.
 |Token| Not Available| Disabled by default |
 
 When sending a request to a service that is secured with a key or token, use the __Authorization__ header to pass the key or token. The key or token must be formatted as `Bearer <key-or-token>`, where `<key-or-token>` is your key or token value.
+
+The primary difference between keys and tokens is that **keys are static and can be regenerated manually**, and **tokens need to be refreshed upon expiration**. Key-based auth is supported for Azure Container Instance and Azure Kubernetes Service deployed web-services, and token-based auth is **only** available for Azure Kubernetes Service deployments. See the [how-to](how-to-setup-authentication.md#web-service-authentication) on authentication for more information and specific code samples.
+
 
 #### Authentication with keys
 
@@ -108,7 +137,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+> If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true).
 
 #### Authentication with tokens
 
@@ -126,8 +155,16 @@ token, refresh_by = service.get_token()
 print(token)
 ```
 
+If you have the [Azure CLI and the machine learning extension](reference-azure-machine-learning-cli.md), you can use the following command to get a token:
+
+```azurecli
+az ml service get-access-token -n <service-name>
+```
+
 > [!IMPORTANT]
-> You will need to request a new token after the token's `refresh_by` time. 
+> Currently the only way to retrieve the token is by using the Azure Machine Learning SDK or the Azure CLI machine learning extension.
+
+You will need to request a new token after the token's `refresh_by` time. 
 
 ## Request data
 
@@ -145,41 +182,28 @@ The REST API expects the body of the request to be a JSON document with the foll
 > [!IMPORTANT]
 > The structure of the data needs to match what the scoring script and model in the service expect. The scoring script might modify the data before passing it to the model.
 
-For example, the model in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example expects an array of 10 numbers. The scoring script for this example creates a Numpy array from the request, and passes it to the model. The following example shows the data this service expects:
-
-```json
-{
-    "data": 
-        [
-            [
-                0.0199132141783263, 
-                0.0506801187398187, 
-                0.104808689473925, 
-                0.0700725447072635, 
-                -0.0359677812752396, 
-                -0.0266789028311707, 
-                -0.0249926566315915, 
-                -0.00259226199818282, 
-                0.00371173823343597, 
-                0.0403433716478807
-            ]
-        ]
-}
-```
-
-The web service can accept multiple sets of data in one request. It returns a JSON document containing an array of responses.
-
 ### Binary data
 
-For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-and-where.md#binary).
+For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-advanced-entry-script.md#binary-data).
+
+> [!TIP]
+> Enabling support for binary data happens in the score.py file used by the deployed model. From the client, use the HTTP functionality of your programming language. For example, the following snippet sends the contents of a JPG file to a web service:
+>
+> ```python
+> import requests
+> # Load image data
+> data = open('example.jpg', 'rb').read()
+> # Post raw data to scoring URI
+> res = request.post(url='<scoring-uri>', data=data, headers={'Content-Type': 'application/> octet-stream'})
+> ```
 
 ### Cross-origin resource sharing (CORS)
 
-For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-and-where.md#cors).
+For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-advanced-entry-script.md#cors).
 
 ## Call the service (C#)
 
-This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
+This example demonstrates how to use C# to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) example:
 
 ```csharp
 using System;
@@ -268,17 +292,17 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Go)
 
-This example demonstrates how to use Go to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
+This example demonstrates how to use Go to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) example:
 
 ```go
 package main
 
 import (
-	"bytes"
-	"encoding/json"
-	"fmt"
-	"io/ioutil"
-	"net/http"
+    "bytes"
+    "encoding/json"
+    "fmt"
+    "io/ioutil"
+    "net/http"
 )
 
 // Features for this model are an array of decimal values
@@ -286,35 +310,35 @@ type Features []float64
 
 // The web service input can accept multiple sets of values for scoring
 type InputData struct {
-	Data []Features `json:"data",omitempty`
+    Data []Features `json:"data",omitempty`
 }
 
 // Define some example data
 var exampleData = []Features{
-	[]float64{
-		0.0199132141783263, 
-		0.0506801187398187, 
-		0.104808689473925, 
-		0.0700725447072635, 
-		-0.0359677812752396, 
-		-0.0266789028311707, 
-		-0.0249926566315915, 
-		-0.00259226199818282, 
-		0.00371173823343597, 
-		0.0403433716478807,
-	},
-	[]float64{
-		-0.0127796318808497, 
-		-0.044641636506989, 
-		0.0606183944448076, 
-		0.0528581912385822, 
-		0.0479653430750293, 
-		0.0293746718291555, 
-		-0.0176293810234174, 
-		0.0343088588777263, 
-		0.0702112981933102, 
-		0.00720651632920303,
-	},
+    []float64{
+        0.0199132141783263, 
+        0.0506801187398187, 
+        0.104808689473925, 
+        0.0700725447072635, 
+        -0.0359677812752396, 
+        -0.0266789028311707, 
+        -0.0249926566315915, 
+        -0.00259226199818282, 
+        0.00371173823343597, 
+        0.0403433716478807,
+    },
+    []float64{
+        -0.0127796318808497, 
+        -0.044641636506989, 
+        0.0606183944448076, 
+        0.0528581912385822, 
+        0.0479653430750293, 
+        0.0293746718291555, 
+        -0.0176293810234174, 
+        0.0343088588777263, 
+        0.0702112981933102, 
+        0.00720651632920303,
+    },
 }
 
 // Set to the URI for your service
@@ -323,32 +347,32 @@ var serviceUri string = "<your web service URI>"
 var authKey string = "<your key or token>"
 
 func main() {
-	// Create the input data from example data
-	jsonData := InputData{
-		Data: exampleData,
-	}
-	// Create JSON from it and create the body for the HTTP request
-	jsonValue, _ := json.Marshal(jsonData)
-	body := bytes.NewBuffer(jsonValue)
+    // Create the input data from example data
+    jsonData := InputData{
+        Data: exampleData,
+    }
+    // Create JSON from it and create the body for the HTTP request
+    jsonValue, _ := json.Marshal(jsonData)
+    body := bytes.NewBuffer(jsonValue)
 
-	// Create the HTTP request
-	client := &http.Client{}
-	request, err := http.NewRequest("POST", serviceUri, body)
-	request.Header.Add("Content-Type", "application/json")
+    // Create the HTTP request
+    client := &http.Client{}
+    request, err := http.NewRequest("POST", serviceUri, body)
+    request.Header.Add("Content-Type", "application/json")
 
-	// These next two are only needed if using an authentication key
-	bearer := fmt.Sprintf("Bearer %v", authKey)
-	request.Header.Add("Authorization", bearer)
+    // These next two are only needed if using an authentication key
+    bearer := fmt.Sprintf("Bearer %v", authKey)
+    request.Header.Add("Authorization", bearer)
 
-	// Send the request to the web service
-	resp, err := client.Do(request)
-	if err != nil {
-		fmt.Println("Failure: ", err)
-	}
+    // Send the request to the web service
+    resp, err := client.Do(request)
+    if err != nil {
+        fmt.Println("Failure: ", err)
+    }
 
-	// Display the response received
-	respBody, _ := ioutil.ReadAll(resp.Body)
-	fmt.Println(string(respBody))
+    // Display the response received
+    respBody, _ := ioutil.ReadAll(resp.Body)
+    fmt.Println(string(respBody))
 }
 ```
 
@@ -360,7 +384,7 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Java)
 
-This example demonstrates how to use Java to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
+This example demonstrates how to use Java to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) example:
 
 ```java
 import java.io.IOException;
@@ -440,7 +464,7 @@ The results returned are similar to the following JSON document:
 
 ## Call the service (Python)
 
-This example demonstrates how to use Python to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook/train-within-notebook.ipynb) example:
+This example demonstrates how to use Python to call the web service created from the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/notebook_runner/training_notebook.ipynb) example:
 
 ```python
 import requests
@@ -497,6 +521,153 @@ The results returned are similar to the following JSON document:
 ```JSON
 [217.67978776218715, 224.78937091757172]
 ```
+
+
+## Web service schema (OpenAPI specification)
+
+If you used automatic schema generation with your deployment, you can get the address of the OpenAPI specification for the service by using the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri). (For example, `print(service.swagger_uri)`.) Use a GET request or open the URI in a browser to retrieve the specification.
+
+The following JSON document is an example of a schema (OpenAPI specification) generated for a deployment:
+
+```json
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "myservice",
+        "description": "API specification for Azure Machine Learning myservice",
+        "version": "1.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "ServiceHealthCheck",
+                "description": "Simple health check endpoint to ensure the service is up at any given point.",
+                "responses": {
+                    "200": {
+                        "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "application/json": "Healthy"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/score": {
+            "post": {
+                "operationId": "RunMLService",
+                "description": "Run web service's model and get the prediction output",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "serviceInputPayload",
+                        "in": "body",
+                        "description": "The input payload for executing the real-time machine learning service.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceOutput"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ServiceInput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "data": [
+                    [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
+                ]
+            }
+        },
+        "ServiceOutput": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "format": "double"
+            },
+            "example": [
+                3726.995
+            ]
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+```
+
+For more information, see [OpenAPI specification](https://swagger.io/specification/).
+
+For a utility that can create client libraries from the specification, see [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
+
+
+> [!TIP]
+> You can retrieve the schema JSON document after you deploy the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri) from the deployed web service (for example, `service.swagger_uri`) to get the URI to the local web service's Swagger file.
 
 ## Consume the service from Power BI
 

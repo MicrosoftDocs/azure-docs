@@ -1,25 +1,20 @@
-﻿---
-title: Run jobs end-to-end using templates - Azure Batch | Microsoft Docs
-description: Create Batch pools, jobs, and tasks with template files and the Azure CLI. 
-services: batch
-author: ju-shim
-manager: gwallace
-
-ms.assetid: 
-ms.service: batch
-ms.topic: article
-ms.workload: big-compute
-ms.date: 12/07/2018
-ms.author: jushiman
-ms.custom: seodec18
+---
+title: Run jobs end-to-end using templates
+description: With only CLI commands, you can create a pool, upload input data, create jobs and associated tasks, and download the resulting output data.
+ms.topic: how-to
+ms.date: 10/08/2020
+ms.custom: seodec18, devx-track-azurecli
 ---
 # Use Azure Batch CLI templates and file transfer
 
-Using an Azure Batch extension to the Azure CLI, it is possible to run Batch jobs without writing code.
+Using a Batch extension to the Azure CLI, it is possible to run Batch jobs without writing code.
 
 Create and use JSON template files with the Azure CLI to create Batch
 pools, jobs, and tasks. Use CLI extension commands to easily upload job input files to
 the storage account associated with the Batch account, and download job output files.
+
+> [!NOTE]
+> JSON files don't support the same functionality as [Azure Resource Manager templates](../azure-resource-manager/templates/template-syntax.md). They are meant to be formatted like the raw REST request body. The CLI extension doesn't change any existing commands, but it does have a similar template option that adds partial Azure Resource Manager template functionality. See [Azure Batch CLI Extensions for Windows, Mac and Linux](https://github.com/Azure/azure-batch-cli-extensions).
 
 ## Overview
 
@@ -28,7 +23,7 @@ are not developers. With only CLI commands, you can create a pool, upload input 
 associated tasks, and download the resulting output data. No additional code is
 required. Run the CLI commands directly or integrate them into scripts.
 
-Batch templates build on the [existing Batch support in the Azure
+Batch templates build on the existing Batch support in the [Azure
 CLI](batch-cli-get-started.md#json-files-for-resource-creation) for JSON files to specify property values when creating pools,
 jobs, tasks, and other items. Batch templates add the following capabilities:
 
@@ -101,9 +96,9 @@ the following main concepts:
     -   Allow property values to be specified in a body section, with only
         parameter values needing to be supplied when the template is used. For
         example, the complete definition for a pool could be placed in the body
-        and only one parameter defined for pool id; only a pool ID string
+        and only one parameter defined for `poolId`; only a pool ID string
         therefore needs to be supplied to create a pool.
-        
+
     -   The template body can be authored by someone with knowledge of Batch and
         the applications to be run by Batch; only values for the author-defined
         parameters must be supplied when the template is used. A user without
@@ -178,7 +173,7 @@ ffmpeg installed. To use it, supply only a pool ID string and the number of VMs 
             "vmSize": "STANDARD_D3_V2",
             "targetDedicatedNodes": "[parameters('nodeCount')]",
             "enableAutoScale": false,
-            "maxTasksPerNode": 1,
+            "taskSlotsPerNode": 1,
             "packageReferences": [
                 {
                     "type": "aptPackage",
@@ -270,7 +265,7 @@ per source video file. See [File groups and file transfer](#file-groups-and-file
             },
             "taskFactory": {
                 "type": "taskPerFile",
-                "source": { 
+                "source": {
                     "fileGroup": "ffmpeg-input"
                 },
                 "repeatTask": {
@@ -332,7 +327,7 @@ A file group equates to a container that is created in the Azure storage account
 The Batch CLI extension provides commands to upload files from client to a specified file group and download files from the specified file group to a client.
 
 ```azurecli
-az batch file upload --local-path c:\source_videos\*.mp4 
+az batch file upload --local-path c:\source_videos\*.mp4
     --file-group ffmpeg-input
 
 az batch file download --file-group ffmpeg-output --local-path

@@ -1,6 +1,6 @@
 ---
-title: Analytics on SQL Data Warehouse with T-SQL, Python - Team Data Science Process
-description: Examples that walk through the use of SQL Data Warehouse to do predictive analytics.
+title: Analytics on Azure Synapse Analytics with T-SQL, Python - Team Data Science Process
+description: Examples that walk through the use of Azure Synapse Analytics to do predictive analytics.
 services: machine-learning
 author: marktab
 manager: marktab
@@ -13,16 +13,16 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
 
-# SQL Data Warehouse data science walkthroughs using T-SQL and Python on Azure
+# Azure Synapse Analytics data science walkthroughs using T-SQL and Python on Azure
 
-These walkthroughs use of SQL Data Warehouse to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an introduction to SQL Data Warehouse, see [What is Azure SQL Data Warehouse?](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
+These walkthroughs use of Azure Synapse Analytics to do predictive analytics. They follow the steps outlined in the Team Data Science Process. For an overview of the Team Data Science Process, see [Data Science Process](overview.md). For an introduction to Azure Synapse Analytics, see [What is Azure Synapse Analytics?](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md)
 
 Additional data science walkthroughs that execute the Team Data Science Process are grouped by the **platform** that they use. See [Walkthroughs executing the Team Data Science Process](walkthroughs.md) for an itemization of these examples.
 
 
-## Predict taxi tips using T-SQL and IPython notebooks with SQL Data Warehouse
+## Predict taxi tips using T-SQL and IPython notebooks with Azure Synapse Analytics
 
-The [Use SQL Data Warehouse walkthrough](sqldw-walkthrough.md) shows you how to build and deploy machine learning classification and regression models using SQL Data Warehouse (SQL DW).  The data are a publicly available NYC taxi trip and fare dataset.
+The [Use Azure Synapse Analytics walkthrough](sqldw-walkthrough.md) shows you how to build and deploy machine learning classification and regression models using Azure Synapse Analytics.  The data are a publicly available NYC taxi trip and fare dataset.
 
 
 ## Next steps

@@ -2,15 +2,11 @@
 title: Troubleshoot a declined card at Azure sign-up
 description: Resolve declined credit card at Azure sign-up in the Azure portal or account center.
 author: v-miegge
-manager: adpick
-editor: v-jesits
-tags: billing
+ms.reviewer: judupont
 ms.service: cost-management-billing
-ms.devlang: na
-ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/12/2019
+ms.subservice: billing
+ms.topic: troubleshooting 
+ms.date: 08/20/2020
 ms.author: banders
 ---
 
@@ -20,9 +16,9 @@ You may experience an issue or error in which a credit card is declined at Azure
 
 To resolve your issue, select the topic below which most closely resembles your error.
 
-## The credit card provider is not accepted for your country
+## The credit card provider is not accepted for your country/region
 
-When you choose a card, Azure displays the card options that are valid in the country that you select. Contact your bank or card issuer to verify that your credit card is enabled for international transactions. For more information about supported countries and currencies, see the [Azure Purchase FAQ](https://azure.microsoft.com/pricing/faq/).
+When you choose a card, Azure displays the card options that are valid in the country/region that you select. Contact your bank or card issuer to verify that your credit card is enabled for international transactions. For more information about supported countries/regions and currencies, see the [Azure Purchase FAQ](https://azure.microsoft.com/pricing/faq/).
 
 >[!Note]
 >American Express credit cards are not currently supported as a payment instrument in India. We have no time frame as to when it may be an accepted form of payment.
@@ -33,7 +29,7 @@ Virtual or prepaid credit or debit cards aren't accepted as payment for Azure su
 
 ## Your credit information is inaccurate or incomplete
 
-The name, address, and CVV code that you enter must match exactly what’s printed on the card.
+The name, address, and CVV code that you enter must match exactly what's printed on the card.
 
 ## The card is inactive or blocked
 
@@ -47,7 +43,7 @@ For more information about how to troubleshoot Azure sign-up issues, see the fol
 
 ## You represent a business that doesn't want to pay by card
 
-If you represent a business, you can use invoice payment methods such as checks, overnight checks, or wire transfers to pay for your Azure subscription. After you set up the account to pay by invoice, you can’t change to another payment option, unless you have a Microsoft Customer Agreement and signed up for Azure through the Azure website.
+If you represent a business, you can use invoice payment methods such as checks, overnight checks, or wire transfers to pay for your Azure subscription. After you set up the account to pay by invoice, you can't change to another payment option, unless you have a Microsoft Customer Agreement and signed up for Azure through the Azure website.
 
 For more information about how to pay by invoice, see [Submit a request to pay Azure subscription by invoice](pay-by-invoice.md).
 

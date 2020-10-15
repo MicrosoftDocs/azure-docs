@@ -2,14 +2,12 @@
 title: View and download your organization's Azure pricing
 description: Learn how to view and download pricing or estimate costs with your organization's pricing.
 author: bandersmsft
-manager: jureid
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 08/20/2020
 ms.author: banders
 ms.custom: seodec18
 ---
@@ -25,17 +23,17 @@ Depending on the policies set for your organization by the Enterprise Admin, onl
 1. As an Enterprise Admin, sign-in to the [Azure portal](https://portal.azure.com/).
 1. Search for *Cost Management + Billing*.
 
-   ![Screenshot that shows Azure portal search](./media/ea-pricing/portal-cm-billing-search.png)
+   ![Screenshot that shows Azure portal search.](./media/ea-pricing/portal-cm-billing-search.png)
 
 1. Under the billing account, select **Usage + charges**.
 
    ![Screenshot that shows usage and charges under Billing](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. Select ![Screenshot that shows Azure portal search](./media/ea-pricing/download-icon.png) **Download** for the month.
+1. Select ![Download icon.](./media/ea-pricing/download-icon.png) **Download** for the month.
 
 1. Under **Price Sheet**, select **Download csv**.
 
-   ![Screenshot that shows the price sheet download csv button](./media/ea-pricing/download-ea-price-sheet.png)
+   ![Screenshot shows the Download Usage + Charges options.](./media/ea-pricing/download-ea-price-sheet.png)
 
 ## Download pricing for an MCA or MPA account
 
@@ -76,7 +74,7 @@ You may also use your organization’s pricing to estimate costs with the Azure 
 1. Under **Programs and Offer** > **Licensing Program**, select **Enterprise Agreement (EA)**.
 1. Under **Programs and Offer** > **Selected agreement**, select **None selected**.
 
-    ![Screenshot that shows the price sheet download csv button](./media/ea-pricing/ea-pricing-calculator-estimate.png)
+    ![Screenshot shows the Programs and Offers available.](./media/ea-pricing/ea-pricing-calculator-estimate.png)
 
 1. Choose the organization.
 1. Select **Apply**.

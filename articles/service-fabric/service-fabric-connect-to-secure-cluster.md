@@ -4,6 +4,7 @@ description: Describes how to authenticate client access to a Service Fabric clu
 
 ms.topic: conceptual
 ms.date: 01/29/2019
+ms.custom: devx-track-csharp
 ---
 # Connect to a secure cluster
 
@@ -22,7 +23,7 @@ You can connect to a cluster using the `sfctl cluster select` command.
 Client certificates can be specified in two different fashions, either as a cert and key pair, or as a single PFX
 file. For password protected PEM files, you will be prompted automatically to enter the password. If you obtained the client certificate as a PFX file, first convert the PFX file to a PEM file using the following command. 
 
-```bash
+```shell
 openssl pkcs12 -in your-cert-file.pfx -out your-cert-file.pem -nodes -passin pass:your-pfx-password
 ```
 
@@ -30,7 +31,7 @@ If your .pfx file is not password protected, use -passin pass: for the last para
 
 To specify the client certificate as a pem file, specify the file path in the `--pem` argument. For example:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
 ```
 
@@ -39,7 +40,7 @@ Password protected pem files will prompt for password prior to running any comma
 To specify a cert, key pair use the `--cert` and `--key` arguments to specify the file paths to each respective
 file.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
@@ -49,14 +50,14 @@ verification, specify the `--no-verify` option. For example:
 > [!WARNING]
 > Do not use the `no-verify` option when connecting to production Service Fabric clusters.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
 In addition, you can specify paths to directories of trusted CA certs, or individual certs. To specify these
 paths, use the `--ca` argument. For example:
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca
 ```
 
@@ -147,7 +148,7 @@ Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
 <a id="connectsecureclusterfabricclient"></a>
 
 ## Connect to a cluster using the FabricClient APIs
-The Service Fabric SDK provides the [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
+The Service Fabric SDK provides the [FabricClient](/dotnet/api/system.fabric.fabricclient) class for cluster management. To use the FabricClient APIs, get the Microsoft.ServiceFabric NuGet package.
 
 ### Connect to an unsecure cluster
 
@@ -165,7 +166,7 @@ FabricClient fabricClient = new FabricClient();
 
 ### Connect to a secure cluster using a client certificate
 
-The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://docs.microsoft.com/dotnet/api/system.fabric.x509credentials) set on [FabricClient](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
+The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](/dotnet/api/system.fabric.x509credentials) set on [FabricClient](/dotnet/api/system.fabric.fabricclient). Following this process enables mutual authentication between the client and the cluster nodes.
 
 ```csharp
 using System.Fabric;
@@ -233,7 +234,7 @@ catch (Exception e)
 
 The following example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213.
 
-For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx).
+For more information on AAD token acquisition, see [Microsoft.IdentityModel.Clients.ActiveDirectory](/dotnet/api/microsoft.identitymodel.clients.activedirectory?view=azure-dotnet).
 
 ```csharp
 string tenantId = "C15CFCEA-02C1-40DC-8466-FBD0EE0B05D2";

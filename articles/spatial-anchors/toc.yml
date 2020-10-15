@@ -8,9 +8,10 @@
   expanded: true
   items:
   - name: Create Unity app
-    href: unity-overview.yml
     expanded: true
     items:
+    - name: Unity overview
+      href: unity-overview.md
     - name: HoloLens
       href: quickstarts/get-started-unity-hololens.md
     - name: Android
@@ -71,6 +72,12 @@
       href: how-tos/set-up-coarse-reloc-cpp-ndk.md
     - name: In C++/WinRT
       href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+  - name: Project setup
+    items:
+    - name: C++/WinRT
+      href: how-tos/setup-cpp-winrt-project.md
+    - name: Unity
+      href: how-tos/setup-unity-project.md
 - name: Samples
   items:
   - name: Azure Spatial Anchors samples (GitHub)
@@ -99,6 +106,10 @@
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/ndk/
   - name: SDK for HoloLens C++/WinRT
     href: https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/
+  - name: Azure CLI
+    href: /cli/azure/ext/mixed-reality/spatial-anchors-account
+  - name: Azure PowerShell
+    href: /powershell/module/az.mixedreality
 - name: Resources
   items:
   - name: Release Notes

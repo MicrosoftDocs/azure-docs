@@ -1,18 +1,16 @@
 ---
-title: Azure spending limit | Microsoft Docs
+title: Azure spending limit
 description: This article describes how an Azure spending limit works and how to remove it.
 author: bandersmsft
-manager: amberb
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: conceptual
-ms.date: 01/21/2020
+ms.subservice: billing
+ms.topic: how-to
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Azure spending limit
 
 The spending limit in Azure prevents spending over your credit amount. All new customers who sign up for an Azure free account or subscription types that include credits over multiple months have the spending limit turned on by default. The spending limit is equal to the amount of credit and it can’t be changed. For example, if you signed up for Azure free account, your spending limit is $200 and you can't change it to $500. However, you can remove the spending limit. So, you either have no limit, or you have a limit equal to the amount of credit. This prevents you from most kinds of spending. The spending limit isn’t available for subscriptions with commitment plans or with pay-as-you-go pricing. See the [full list of Azure subscription types and the availability of the spending limit](https://azure.microsoft.com/support/legal/offer-details/).
@@ -31,30 +29,48 @@ If you signed up for an Azure free account and reach the spending limit, you can
 
 ## Remove the spending limit in Azure portal
 
+You can remove the spending limit at any time as long as there's a valid payment method associated with your Azure subscription. For subscription types that have credit over multiple months such as Visual Studio Enterprise and Visual Studio Professional, you can choose to remove the spending limit indefinitely or only for the current billing period. If you choose the current billing period only, the spending limit will be automatically enabled at the beginning of your next billing period.
+
+If you have an Azure free account, see [Upgrade your Azure subscription](upgrade-azure-subscription.md) to remove your spending limit. Otherwise, follow these steps to remove your spending limit:
+
 <a id="remove"></a>
 
-You can remove the spending limit at any time as long as there's a valid payment method associated with your Azure subscription. For subscription types that have credit over multiple months such as Visual Studio Enterprise and Visual Studio Professional, you can also enable the spending limit at the beginning of your next billing period.
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Search for **Cost Management + Billing**.
 
-To remove your spending limit, follow these steps:
+    ![Screenshot that shows search for cost management + billing ](./media/spending-limit/search-bar.png)
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Navigate to **Subscriptions**.
-1. Select your subscription. For example, *Visual Studio Enterprise*.
-1. At the top of the page, select **Manage**. You're redirected to https://account.azure.com/. On the right side of the page, select **Remove spending limit**.  
-  ![Example showing Remove spending limit](./media/spending-limit/account-azure-com-spending-limit.png)
-1. You're redirected back to the Azure portal. Select an option that is appropriate for you and then select a payment method. Select **Finish**.  
-  ![Select an option to remove spending limit](./media/spending-limit/remove-spending-limit.png)
+1. In the **My subscriptions** list, select your subscription. For example, *Visual Studio Enterprise*.
 
-| Option | Effect |
-| --- | --- |
-| Remove spending limit indefinitely | Removes the spending limit without turning it on automatically at the start of the next billing period. |
-| Remove spending limit for the current billing period | Removes the spending limit so that it turns back on automatically at the start of the next billing period. |
+   ![Screenshot that shows my subscriptions grid in overview](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > If you don't see some of your Visual Studio subscriptions here, it might be because you changed a subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
+
+1. In the Subscription overview, click the orange banner to remove the spending limit.
+
+    ![Screenshot that shows remove spending limit banner](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
+
+1. Choose whether you want to remove the spending limit indefinitely or for the current billing period only.
+
+      ![Screenshot that shows remove spending limit blade](./media/spending-limit/remove-spending-limit-blade-x.png)
+
+      | Option | Effect |
+      | --- | --- |
+      | Remove spending limit indefinitely | Spending limit does not automatically turn back on at the start of the next billing period. However, you can turn it back on yourself at any time. |
+      | Remove spending limit for the current billing period | Spending limit automatically turns back on at the start of the next billing period. |
+
+
+1. Click **Select payment method** to choose a payment method for your subscription. This will become the active payment method for your subscription.
+
+1. Click **Finish**.
+
 
 ## Why you might want to remove the spending limit
 
 The spending limit could prevent you from deploying or using certain third-party and Microsoft services. Here are the situations where you should remove the spending limit on your subscription.
 
--  You plan to deploy first party images like Oracle or services such as Azure DevOps Services. This situation causes you to reach your spending limit almost immediately and causes your subscription to be disabled.
+-  You plan to deploy third-party images like Oracle or services such as Azure DevOps Services. This situation causes you to reach your spending limit almost immediately and causes your subscription to be disabled.
 - You have services that you don't want disrupted. When you reach your spending limit, Azure resources that you deployed are removed from production and your Azure virtual machines are stopped and de-allocated. If you have services that you don't want disrupted, you must remove your spending limit.
 - You have services and resources with settings like virtual IP addresses that you don't want to lose. These settings are lost when your reach your spending limit and the services and resources are de-allocated.
 
@@ -62,9 +78,20 @@ The spending limit could prevent you from deploying or using certain third-party
 
 This feature is available only when the spending limit has been removed indefinitely for subscription types that include credits over multiple months. You can use this feature to turn on your spending limit automatically at the start of the next billing period.
 
-1. Sign in to the [Account Center](https://account.windowsazure.com/Subscriptions).
-1. Select the yellow banner to change the spending limit option.
-1. Choose **Turn on spending limit in the next billing period \<start date of billing period\>**
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as the Account Administrator.
+1. Search for **Cost Management + Billing**.
+
+    ![Screenshot that shows search for cost management + billing ](./media/spending-limit/search-bar.png)
+
+1. In the **My subscriptions** list, select your subscription. For example, *Visual Studio Enterprise*.
+
+   ![Screenshot that shows my subscriptions grid in overview](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > If you don't see some of your Visual Studio subscriptions here, it might be because you changed a subscription directory at some point. For these subscriptions, you need to switch the directory to the original directory (the directory in which you initially signed up). Then, repeat step 2.
+
+1. In the Subscription overview, click the banner at the top of the page to turn the spending limit back on.
 
 ## Custom spending limit
 

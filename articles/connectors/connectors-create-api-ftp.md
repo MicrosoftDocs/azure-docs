@@ -22,7 +22,7 @@ You can use triggers that get responses from your FTP server and make the output
 
 ## Limitations
 
-* The FTP connector supports only explicit FTP over SSL (FTPS) and isn't compatible with implicit FTPS.
+* The FTP connector supports only explicit FTP over TLS/SSL (FTPS) and isn't compatible with implicit FTPS.
 
 * By default, FTP actions can read or write files that are *50 MB or smaller*. To handle files larger than 50 MB, FTP actions support [message chunking](../logic-apps/logic-apps-handle-large-messages.md). The **Get file content** action implicitly uses chunking.
 
@@ -166,8 +166,13 @@ To check that your workflow returns the content that you expect, add another act
 
 ## Connector reference
 
-For technical details about triggers, actions, and limits, which are described by the connector's OpenAPI (formerly Swagger) description, review the [connector's reference page](/connectors/ftpconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/ftpconnector/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

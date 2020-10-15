@@ -1,14 +1,9 @@
 ---
-title: 'Quickstart: Recognize speech from an audio file, Python - Speech service'
-titleSuffix: Azure Cognitive Services
-services: cognitive-services
-author: chlandsi
-manager: nitinme
+author: trevorbye
 ms.service: cognitive-services
-ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: chlandsi
+ms.date: 03/20/2020
+ms.author: trbye
 ---
 
 ## Prerequisites
@@ -16,10 +11,9 @@ ms.author: chlandsi
 Before you get started, make sure to:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
 > * [Create a LUIS application and get an endpoint key](../../../../quickstarts/create-luis.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -37,7 +31,7 @@ If you have a problem, or you're missing a feature, see [Support and help option
 
 You can copy the [sample code](#sample-code) from this quickstart to a source file `quickstart.py` and run it in your IDE or in the console:
 
-```sh
+```Bash
 python quickstart.py
 ```
 
@@ -52,14 +46,14 @@ Or you can download this quickstart tutorial as a [Jupyter](https://jupyter.org)
 import azure.cognitiveservices.speech as speechsdk
 
 # Creates an instance of a speech config with specified subscription key and service region.
-# Replace with your own subscription key and service region (e.g., "westus").
+# Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
 speech_key, service_region = "YourSubscriptionKey", "YourServiceRegion"
 speech_config = speechsdk.SpeechConfig(subscription=speech_key, region=service_region)
 
 # Creates an audio configuration that points to an audio file.
 # Replace with your own audio filename.
 audio_filename = "whatstheweatherlike.wav"
-audio_input = speechsdk.AudioConfig(filename=audio_filename)
+audio_input = speechsdk.audio.AudioConfig(filename=audio_filename)
 
 # Creates a recognizer with the given settings
 speech_recognizer = speechsdk.SpeechRecognizer(speech_config=speech_config, audio_config=audio_input)
@@ -88,7 +82,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ### Install and use the Speech SDK with Visual Studio Code
 
-1. Download and install a 64-bit version of [Python](https://www.python.org/downloads/), 3.5 or later, on your computer.
+1. Download and install a 64-bit version of [Python](https://www.python.org/downloads/), 3.5 to 3.8, on your computer.
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**.
 
@@ -122,4 +116,4 @@ If you have issues following these instructions, refer to the more extensive [Vi
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

@@ -20,6 +20,10 @@ By default, an Azure Cosmos account is accessible from any source if the request
 
 Here are some frequently asked questions about configuring access from virtual networks:
 
+### Are Notebooks and Mongo/Cassandra Shell currently compatible with Virtual Network enabled accounts?
+
+At the moment the [Mongo shell](https://devblogs.microsoft.com/cosmosdb/preview-native-mongo-shell/) and [Cassandra shell](https://devblogs.microsoft.com/cosmosdb/announcing-native-cassandra-shell-preview/) integrations in the Cosmos DB Data Explorer, and the [Jupyter Notebooks service](https://docs.microsoft.com/azure/cosmos-db/cosmosdb-jupyter-notebooks), are not supported with VNET access. This is currently in active development.
+
 ### Can I specify both virtual network service endpoint and IP access control policy on an Azure Cosmos account? 
 
 You can enable both the virtual network service endpoint and an IP access control policy (aka firewall) on your Azure Cosmos account. These two features are complementary and collectively ensure isolation and security of your Azure Cosmos account. Using IP firewall ensures that static IPs can access your account. 
@@ -30,7 +34,7 @@ There are two steps required to limit access to Azure Cosmos account from a subn
 
 ### Will virtual network ACLs and IP Firewall reject requests or connections? 
 
-When IP firewall or virtual network access rules are added, only requests from allowed sources get valid responses. Other requests are rejected with a 403 (Forbidden). It is important to distinguish Azure Cosmos account's firewall from a connection level firewall. The source can still connect to the service and the connections themselves aren’t rejected.
+When IP firewall or virtual network access rules are added, only requests from allowed sources get valid responses. Other requests are rejected with a 403 (Forbidden). It is important to distinguish Azure Cosmos account's firewall from a connection level firewall. The source can still connect to the service and the connections themselves aren't rejected.
 
 ### My requests started getting blocked when I enabled service endpoint to Azure Cosmos DB on the subnet. What happened?
 
@@ -46,7 +50,7 @@ The authorization validates permission for VNet resource action even if the user
 Only virtual network and their subnets added to Azure Cosmos account have access. Their peered VNets cannot access the account until the subnets within peered virtual networks are added to the account.
 
 ### What is the maximum number of subnets allowed to access a single Cosmos account? 
-Currently, you can have at most 64 subnets allowed for an Azure Cosmos account.
+Currently, you can have at most 256 subnets allowed for an Azure Cosmos account.
 
 ### Can I enable access from VPN and Express Route? 
 For accessing Azure Cosmos account over Express route from on premises, you would need to enable Microsoft peering. Once you put IP firewall or virtual network access rules, you can add the public IP addresses used for Microsoft peering on your Azure Cosmos account IP firewall to allow on premises services access to Azure Cosmos account. 
@@ -55,7 +59,7 @@ For accessing Azure Cosmos account over Express route from on premises, you woul
 NSG rules are used to limit connectivity to and from a subnet with virtual network. When you add service endpoint for Azure Cosmos DB to the subnet, there is no need to open outbound connectivity in NSG for your Azure Cosmos account. 
 
 ### Are service endpoints available for all VNets?
-No, Only Azure Resource Manager virtual networks can have service endpoint enabled. Classic virtual networks don’t support service endpoints.
+No, Only Azure Resource Manager virtual networks can have service endpoint enabled. Classic virtual networks don't support service endpoints.
 
 ### Can I "Accept connections from within public Azure datacenters" when service endpoint access is enabled for Azure Cosmos DB?  
 This is required only when you want your Azure Cosmos DB account to be accessed by other Azure first party services like Azure Data factory, Azure Cognitive Search or any service that is deployed in given Azure region.

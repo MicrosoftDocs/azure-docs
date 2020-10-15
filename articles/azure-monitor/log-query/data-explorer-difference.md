@@ -1,12 +1,11 @@
 ---
 title: Azure Monitor log query language differences | Microsoft Docs
 description: Reference information for Kusto query language used by Azure Monitor. Includes additional elements specific to Azure Monitor and elements not supported in Azure Monitor log queries.
-ms.service:  azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/13/2019
+ms.date: 04/01/2020
 
 ---
 
@@ -38,7 +37,6 @@ The following sections describe elements of the Kusto query language that aren't
 ### Operators not supported in Azure Monitor
 
 * [Cross-Cluster Join](/azure/kusto/query/joincrosscluster)
-* [externaldata operator](/azure/kusto/query/externaldata-operator)
 
 ### Plugins not supported in Azure Monitor
 
@@ -54,5 +52,5 @@ The following operators support specific Azure Monitor features and are not avai
 
 ## Next steps
 
-- Get references to different [resources for writing Azure Monitor log queries](query-language.md).
+- Get references to different [resources for writing Azure Monitor log queries](/azure/data-explorer/kusto/query/).
 - Access the complete [reference documentation for Kusto query language](/azure/kusto/query/).

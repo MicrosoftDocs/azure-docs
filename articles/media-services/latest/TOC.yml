@@ -1,48 +1,93 @@
 - name: Media Services Documentation
-  href: ./index.yml
+  href: ./index.yml  
 - name: Overview
   items:
   - name: About Media Services
     href: media-services-overview.md
   - name: What's new in Media Services
     displayName: release notes
-    href: release-notes.md    
-- name: Tutorials
-  expanded: true
+    href: release-notes.md
+  - name: Media Services compliance
+    href: concept-compliance.md
+- name: Quickstarts
   items:
-  - name: Encode remote file and stream video
+  - name: Set up your environment
     items:
-    - name: With REST
-      displayName: encoding, job, transform
-      href: stream-files-tutorial-with-rest.md
-    - name: With CLI
-      href: stream-files-cli-quickstart.md 
-    - name: With .NET
+    - name: Find your Azure subscription
+      href: how-to-set-azure-subscription.md
+    - name: Create a Media Services account
+      href: create-account-howto.md
+    - name: Access the API
+      href: access-api-howto.md
+    - name: Set up Azure Cloud Shell
+      href: ../../cloud-shell/overview.md
+    - name: Develop with REST
+      items:
+      - name: Connect with Postman
+        href: media-rest-apis-with-postman.md
+    - name: Develop with SDKs
+      items:
+      - name: Connect with Java
+        href: configure-connect-java-howto.md
+      - name: Connect with .NET 
+        href: configure-connect-dotnet-howto.md
+      - name: Connect with Node.js
+        href: configure-connect-nodejs-howto.md
+      - name: Connect with Python
+        href: configure-connect-python-howto.md
+  - name: Try Media Services in the Azure portal
+    items:
+    - name: Live event with portal and Wirecast
+      href: live-events-wirecast-quickstart.md
+    - name: Live event with portal and OBS
+      href: live-events-obs-quickstart.md
+    - name: Use portal to upload, encode, and stream content 
+      href: manage-assets-quickstart.md
+    - name: Use portal to encrypt content
+      href: encrypt-content-quickstart.md       
+- name: Tutorials
+  items:
+  - name: .NET
+    items:
+    - name: Encode and stream a remote file .NET
       href: stream-files-dotnet-quickstart.md
-    - name: With Node.js
+    - name: Encode and stream an uploaded file .NET
+      href: stream-files-tutorial-with-api.md
+    - name: Stream live with .NET
+      href: stream-live-tutorial-with-api.md
+    - name: Analyze your video with .NET
+      href: analyze-videos-tutorial-with-api.md
+    - name: Encrypt dynamically with AES-128
+      href: protect-with-aes128.md
+    - name: Encrypt dynamically with DRM
+      href: protect-with-drm.md
+    - name: Content protection with Azure AD
+      href: azure-ad-content-protection.md
+  - name: REST
+    items:
+    - name: Encode and stream a remote file REST
+      href: stream-files-tutorial-with-rest.md
+  - name: CLI
+    items:
+    - name: Encode and stream a remote file CLI
+      href: stream-files-cli-quickstart.md
+  - name: Node.js
+    items:
+    - name: Encode and stream a remote file Node.js
       href: stream-files-nodejs-quickstart.md
-  - name: Encode uploaded file and stream video   
-    displayName: encode, encoding, job, transform
-    href: stream-files-tutorial-with-api.md
-  - name: Stream live 
-    href: stream-live-tutorial-with-api.md
-    displayName: Live Events, Live Outputs, ingest 
-  - name: Analyze your video 
-    displayName: job, transform, VideoAnalyzerPreset, AudioAnalyzerPreset
-    href: analyze-videos-tutorial-with-api.md
-  - name: Encrypt dynamically with AES-128 
-    href: protect-with-aes128.md       
-  - name: Encrypt dynamically with DRM 
-    displayName: PlayReady, Widevine, FairPlay
-    href: protect-with-drm.md   
+  - name: Azure portal
+    items:
+    - name: Store AMS events in Azure Log Analytics
+      href: tutorial-events-log-analytics.md
 - name: Samples
   items:    
-  - name: Media Services samples
+  - name: Media Services v3 samples
     displayName: .NET, Java
-    href: https://docs.microsoft.com/samples/browse/?products=azure-media-services
+    href: /samples/browse/?products=azure-media-services
   - name: Media Services v3 REST samples
     href: https://github.com/Azure-Samples/media-services-v3-rest-postman
 - name: Concepts
+  expanded: true
   items:
   - name: Overview
     href: concepts-overview.md
@@ -54,58 +99,77 @@
     - name: Storage account
       href: storage-account-concept.md  
       displayName: Storage side encryption
-  - name: Uploading 
-    items:
+  - name: Assets
+    items: 
     - name: Assets
-      href: assets-concept.md    
-      displayName: name, naming, file name
+      href: assets-concept.md  
   - name: Processing files
     items:
-    - name: Transforms and Jobs
+    - name: Transforms and jobs
       href: transforms-jobs-concept.md 
-      displayName: preset, schema 
-    - name: Error codes
-      href: job-error-codes.md         
+      displayName: preset, schema         
   - name: Encoding content
     items:
     - name: Overview
       href: encoding-concept.md   
-      displayName: encoding, presets, jobs, adaptive, bitrate
+      displayName: encode, encoding, presets, jobs, adaptive, bitrate, billing 
     - name: Standard Encoder formats
       displayName: containers, codecs    
       href: media-encoder-standard-formats.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md       
     - name: Content-aware encoding
-      href: content-aware-encoding.md          
+      href: content-aware-encoding.md
+    - name: Media reserved units
+      href: concept-media-reserved-units.md          
   - name: Analyzing content (Video Indexer)
     items:
     - name: Overview
       href: analyzing-video-audio-files-concept.md
-      displayName: analyzing, presets, jobs
-    - name: Transforms and Jobs
-      href: transforms-jobs-concept.md 
-    - name: Job error codes
-      href: job-error-codes.md     
+      displayName: analyze, analyzing, presets, jobs
+    - name: Transforms and jobs
+      href: transforms-jobs-concept.md    
+  - name: Live streaming 
+    items:
+    - name: Overview
+      href: live-streaming-overview.md
+    - name: Live events and live outputs 
+      href: live-events-outputs-concept.md    
+      displayName: vanity, ingest 
+    - name: Tested on-premises live encoders
+      displayName: recommended
+      href: recommended-on-premises-live-encoders.md
+    - name: Time-shifting and live-to-VOD
+      displayName: archive, dvr
+      href: live-event-cloud-dvr.md
+    - name: Live transcription
+      href: live-transcription.md
+    - name: Live event types comparison
+      href: live-event-types-comparison.md
+    - name: States and billing
+      href: live-event-states-billing.md
+    - name: Latency
+      href: live-event-latency.md  
   - name: Packaging and delivery
     items:
     - name: Dynamic packaging
-      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming  
+      displayName: origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming, audio, video 
       href: dynamic-packaging-overview.md
     - name: Dynamic manifests
       href: filters-dynamic-manifest-overview.md 
     - name: Filters
+      displayName: manifest, dynamic manifest, filter, hls, dash, m3u8, mpd,	content delivery
       href: filters-concept.md   
-    - name: Streaming Endpoints 
+    - name: Streaming endpoints 
       displayName: origin, packager, cdn
       href: streaming-endpoint-concept.md
-    - name: Streaming Locators 
+    - name: Scaling streaming with CDN
+      href: scale-streaming-cdn.md
+    - name: Streaming locators 
       displayName: URLs
       href: streaming-locators-concept.md
-    - name: Streaming Policies 
-      href: streaming-policy-concept.md  
-    - name: Streaming Endpoint error codes  
-      href: streaming-endpoint-error-codes.md    
+    - name: Streaming policies 
+      href: streaming-policy-concept.md        
   - name: Content protection
     items:
     - name: Dynamic encryption and key delivery
@@ -122,30 +186,10 @@
         href: widevine-license-template-overview.md
       - name: FairPlay license requirements
         href: fairplay-license-overview.md  
-    - name: Streaming Policies 
+    - name: Streaming policies 
       href: streaming-policy-concept.md          
-    - name: Content Key Policies 
-      href: content-key-policy-concept.md              
-  - name: Live streaming 
-    items:
-    - name: Overview
-      href: live-streaming-overview.md
-    - name: Live Events and Live Outputs 
-      href: live-events-outputs-concept.md    
-      displayName: vanity, ingest 
-    - name: Recommended live encoders
-      href: recommended-on-premises-live-encoders.md
-    - name: Time-shifting and live-to-VOD
-      displayName: archive, dvr
-      href: live-event-cloud-dvr.md
-    - name: Live transcription
-      href: live-transcription.md
-    - name: Feature comparison
-      href: live-event-types-comparison.md
-    - name: States and billing
-      href: live-event-states-billing.md
-    - name: Latency
-      href: live-event-latency.md              
+    - name: Content key policies 
+      href: content-key-policy-concept.md                    
   - name: Monitoring
     items:
     - name: Events with Event Grid
@@ -156,10 +200,10 @@
       href: media-services-metrics-diagnostic-logs.md      
     - name: Diagnostic logs schemas
       href: media-services-diagnostic-logs-schema.md          
-  - name: Player clients
+  - name: Azure Media Player
     items:
-    - name: Azure Media Player
-      href: use-azure-media-player.md
+    - name: Azure Media Player overview
+      href: ../azure-media-player/azure-media-player-overview.md
   - name: Developing with v3 APIs
     items:
     - name: Overview
@@ -171,82 +215,86 @@
       href: rbac-overview.md
     - name: Error codes
       items:
-      - name: Streaming Endpoint error codes  
+      - name: Streaming endpoint error codes  
         href: streaming-endpoint-error-codes.md
+      - name: Live event error codes
+        href: live-event-error-codes.md
       - name: Job error codes
         href: job-error-codes.md
-  - name: Migration guidance from v2 to v3
-    href: migrate-from-v2-to-v3.md 
-    displayName: naming
+  - name: High availability
+    items:
+    - name: Video on Demand
+      displayName: failover, bcdr, HA, high availability
+      href: media-services-high-availability-encoding.md
+  - name: Troubleshooting
+    items:
+    - name: Frequently asked questions
+      displayName: faqs
+      href: frequently-asked-questions.md      
+    - name: Error codes
+      items:
+      - name: Streaming endpoint error codes  
+        href: streaming-endpoint-error-codes.md
+      - name: Live event error codes
+        href: live-event-error-codes.md
+      - name: Job error codes
+        href: job-error-codes.md
+    - name: Reset account credentials
+      href: cli-reset-account-credentials.md       
+  - name: Migration from v2 to v3
+    items:
+    - name: v2 vs v3
+      displayName: migrate, v2 to v3
+      href: media-services-v2-vs-v3.md
+    - name: Migration guidance
+      href: migrate-from-v2-to-v3.md 
+      displayName: naming      
 - name: How-to guides
   items:
-  - name: Get started
+  - name: Create assets and upload media
     items:
-    - name: Create an account - CLI
-      href: create-account-cli-how-to.md  
-      displayName: storage
-    - name: Reset the account credentials - CLI
-      href: cli-reset-account-credentials.md      
-    - name: Access APIs - CLI
-      href: access-api-cli-how-to.md
-    - name: Scale Media Reserved Units - CLI
-      href: media-reserved-units-cli-how-to.md   
-    - name: Create an Asset - CLI
-      href: cli-create-asset.md 
-  - name: Developer guides
-    items:
-    - name: Develop with REST
-      items:
-      - name: Connect with Postman
-        href: media-rest-apis-with-postman.md       
-    - name: Develop with SDKs
-      items:
-      - name: Connect with Java
-        href: configure-connect-java-howto.md
-      - name: Connect with .NET 
-        href: configure-connect-dotnet-howto.md
-      - name: Connect with Node.js
-        href: configure-connect-nodejs-howto.md
-      - name: Connect with Python
-        href: configure-connect-python-howto.md
-  - name: Upload content
-    items:
-    - name: From HTTPS - .NET
-      displayName: upload
-      href: job-input-from-http-how-to.md
-    - name: From a local file - .NET
-      displayName: upload
-      href: job-input-from-local-file-how-to.md  
-    - name: From a local file - REST
-      displayName: upload
-      href: upload-files-rest-how-to.md
-    - name: From a local file - CLI
-      href: cli-upload-file-asset.md     
+    - name: Create an asset
+      href: how-to-create-asset.md
+    - name: Upload media
+      href: how-to-upload-media.md
   - name: Create transforms and jobs
     items:
-    - name: Create transforms - CLI
+    - name: Create transforms
       href: cli-create-transform.md
-    - name: Create jobs - CLI
+    - name: Create jobs
       href: cli-create-jobs.md
-  - name: Encode content
+    - name: Create job input with a local file and .NET
+      displayName: upload
+      href: job-input-from-local-file-how-to.md
+    - name: Jobs with multiple transform outputs
+      href: job-multiple-transform-outputs.md
+  - name: Encode content 
     items:
-    - name: HTTPS as Job input - .NET
-      displayName: encode, encoding
+    - name: HTTPS as job input
       href: job-input-from-http-how-to.md
-    - name: Local file as Job input - .NET
-      displayName: encode, encoding
+    - name: Local file as job input
       href: job-input-from-local-file-how-to.md    
-    - name: Encode with a custom Transform
+    - name: Encode with a custom transform
       items:
       - name: With .NET
-        displayName: encode, encoding, custom, transform  
-        href: customize-encoder-presets-how-to.md
+        displayName: encode, encoding, custom, transform
+        items:
+        - name: Customize encoder presets
+          href: customize-encoder-presets-how-to.md
+        - name: Create an overlay transform
+          href: how-to-create-overlay.md
+        - name: Generate thumbnails with .NET
+          href: media-services-generate-thumbnails-dotnet.md
       - name: With CLI
         displayName: encode, encoding, custom, transform
         href: custom-preset-cli-howto.md
       - name: With REST
         displayName: encode, encoding, custom, transform
-        href: custom-preset-rest-howto.md    
+        href: custom-preset-rest-howto.md
+      - name: Generate thumbnails with REST
+        href: media-services-generate-thumbnails-rest.md
+      - name: Scale media reserved units
+        href: media-reserved-units-cli-how-to.md
     - name: Subclip a video
       items:
       - name: With .NET
@@ -254,7 +302,17 @@
         displayName: subclipping, clip, edit, trim, clipping
       - name: With REST
         href: subclip-video-rest-howto.md
-        displayName: subclipping, clip, edit, trim, clipping        
+        displayName: subclipping, clip, edit, trim, clipping  
+    - name: Job error codes
+      href: job-error-codes.md         
+  - name: Stream live
+    items:
+    - name: Live event with portal and Wirecast
+      href: live-events-wirecast-quickstart.md    
+    - name: Verify your on-premises encoder 
+      href: become-on-premises-encoder-partner.md      
+    - name: Live event error codes
+      href: live-event-error-codes.md    
   - name: Use Event Grid
     items:
     - name: Monitor events - Portal
@@ -269,7 +327,7 @@
       href: media-services-diagnostic-logs-howto.md
   - name: Protect content
     items:
-    - name: Get content key policy - .NET
+    - name: Get content key policy
       href: get-content-key-policy-dotnet-howto.md   
     - name: Offline FairPlay for iOS 
       href: offline-fairplay-for-ios.md
@@ -290,45 +348,59 @@
       displayName: filters
   - name: Deliver content
     items:
-    - name: Publish an asset - CLI
+    - name: Manage streaming endpoints
+      href: manage-streaming-endpoints-howto.md
+    - name: Publish an asset
       href: cli-publish-asset.md
+    - name: Create a streaming locator and build URLs
+      href: create-streaming-locator-build-url.md
+    - name: Download results
+      href: download-results-howto.md
     - name: Signal descriptive audio
       href: signal-descriptive-audio-howto.md
+  - name: Use media players
+    items:
+    - name: Azure Media Player full set up
+      href: ../azure-media-player/azure-media-player-full-setup.md
+    - name: Use the Video.js player
+      href: how-to-video-js-player.md
+    - name: Use the Shaka video player
+      href: how-to-shaka-player.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
     displayName: schema
   - name: REST
-    href: https://aka.ms/ams-v3-rest-ref 
+    href: /rest/api/media/
   - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref    
+    href: /cli/azure/ams
   - name: SDKs
     items:
     - name: .NET
-      href: https://aka.ms/ams-v3-dotnet-ref
+      href: /dotnet/api/overview/azure/mediaservices/management
     - name: Java
-      href: https://aka.ms/ams-v3-java-ref
+      href: /java/api/overview/azure/mediaservices/management
     - name: Python
-      href: https://aka.ms/ams-v3-python-ref
+      href: /python/api/overview/azure/mediaservices/management
     - name: Node.js
-      href: https://aka.ms/ams-v3-nodejs-ref
+      href: /javascript/api/overview/azure/mediaservices/management
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
   - name: Resource Manager template
     href: /azure/templates/microsoft.media/allversions
-  - name: Error codes
+  - name: Standard Encoder schemas
     items:
-    - name: Streaming Endpoint error codes  
-      href: streaming-endpoint-error-codes.md
-    - name: Job error codes
-      href: job-error-codes.md   
+    - name: Input metadata
+      href: input-metadata-schema.md    
+    - name: Output metadata
+      href: output-metadata-schema.md      
 - name: Resources
   items:
   - name: Azure Media Services community
     displayName: forums, twitter, feedback
     href: media-services-community.md
-  - name: Azure Roadmap
+  - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/media-services/
@@ -339,7 +411,7 @@
   - name: SDKs/Tools
     items:
     - name: Azure CLI
-      href: https://aka.ms/ams-v3-cli
+      href: /cli/azure/install-azure-cli
     - name: .NET
       href: https://aka.ms/ams-v3-dotnet-sdk
     - name: Java
@@ -354,9 +426,9 @@
       href: https://aka.ms/ams-v3-ruby-sdk
   - name: Azure Media Services Explorer
     href: https://github.com/Azure/Azure-Media-Services-Explorer
-  - name: Quotas and limitations
+  - name: Quotas and limits
     href: limits-quotas-constraints.md       
-  - name: FAQ
-    href: frequently-asked-questions.md
   - name: Azure clouds and regions
     href: azure-clouds-regions.md
+  - name: Documentation updates
+    href: docs-release-notes.md

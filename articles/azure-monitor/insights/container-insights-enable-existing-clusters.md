@@ -3,12 +3,12 @@ title: Monitor an Azure Kubernetes Service (AKS) cluster deployed | Microsoft Do
 description: Learn how to enable monitoring of an Azure Kubernetes Service (AKS) cluster with Azure Monitor for containers already deployed in your subscription.
 ms.topic: conceptual
 ms.date: 09/12/2019
-
+ms.custom: devx-track-terraform
 ---
 
 # Enable monitoring of Azure Kubernetes Service (AKS) cluster already deployed
 
-This article describes how to set up Azure Monitor for containers to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) that have already been deployed in your subscription.
+This article describes how to set up Azure Monitor for containers to monitor managed Kubernetes cluster hosted on [Azure Kubernetes Service](../../aks/index.yml) that have already been deployed in your subscription.
 
 You can enable monitoring of an AKS cluster that's already deployed using one of the supported methods:
 
@@ -23,21 +23,21 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable using Azure CLI
 
-The following step enables monitoring of your AKS cluster using Azure CLI. In this example, you are not required to per-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription if one does not already exist in the region.  The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.  
+The following step enables monitoring of your AKS cluster using Azure CLI. In this example, you are not required to pre-create or specify an existing workspace. This command simplifies the process for you by creating a default workspace in the default resource group of the AKS cluster subscription if one does not already exist in the region.  The default workspace created resembles the format of *DefaultWorkspace-\<GUID>-\<Region>*.
 
 ```azurecli
-az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG  
+az aks enable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
 The output will resemble the following:
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 
 ### Integrate with an existing workspace
 
-If you would rather integrate with an existing workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `--workspace-resource-id` parameter, and then run the command to enable the monitoring add-on against the specified workspace.  
+If you would rather integrate with an existing workspace, perform the following steps to first identify the full resource ID of your Log Analytics workspace required for the `--workspace-resource-id` parameter, and then run the command to enable the monitoring add-on against the specified workspace.
 
 1. List all the subscriptions that you have access to using the following command:
 
@@ -47,7 +47,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
     The output will resemble the following:
 
-    ```azurecli
+    ```output
     Name                                  CloudName    SubscriptionId                        State    IsDefault
     ------------------------------------  -----------  ------------------------------------  -------  -----------
     Microsoft Azure                       AzureCloud   68627f8c-91fO-4905-z48q-b032a81f8vy0  Enabled  True
@@ -63,7 +63,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
 3. The following example displays the list of workspaces in your subscriptions in the default JSON format.
 
-    ```
+    ```azurecli
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
@@ -77,7 +77,7 @@ If you would rather integrate with an existing workspace, perform the following 
 
     The output will resemble the following:
 
-    ```azurecli
+    ```output
     provisioningState       : Succeeded
     ```
 
@@ -104,17 +104,17 @@ To enable monitoring of your AKS cluster in the Azure portal from Azure Monitor,
 
 2. Select **Containers** from the list.
 
-3. On the **Monitor - containers** page, select **Non-monitored clusters**.
+3. On the **Monitor - containers** page, select **Unmonitored clusters**.
 
-4. From the list of non-monitored clusters, find the container in the list and click **Enable**.   
+4. From the list of unmonitored clusters, find the container in the list and click **Enable**.
 
-5. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.  
+5. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it from the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
 
     ![Enable AKS Container insights monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to.
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../learn/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to.
 
 After you've enabled monitoring, it might take about 15 minutes before you can view health metrics for the cluster.
 
@@ -126,21 +126,21 @@ To enable monitoring directly from one of your AKS clusters in the Azure portal,
 
 2. In the list of resources, begin typing **Containers**.  The list filters based on your input.
 
-3. Select **Kubernetes services**.  
+3. Select **Kubernetes services**.
 
     ![The Kubernetes services link](./media/container-insights-onboard/portal-search-containers-01.png)
 
 4. In the list of containers, select a container.
 
-5. On the container overview page, select **Monitor Containers**.  
+5. On the container overview page, select **Monitor Containers**.
 
-6. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.  
+6. On the **Onboarding to Azure Monitor for containers** page, if you have an existing Log Analytics workspace in the same subscription as the cluster, select it in the drop-down list.
     The list preselects the default workspace and location that the AKS container is deployed to in the subscription.
 
     ![Enable AKS container health monitoring](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../../azure-monitor/learn/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to.
+    >If you want to create a new Log Analytics workspace for storing the monitoring data from the cluster, follow the instructions in [Create a Log Analytics workspace](../learn/quick-create-workspace.md). Be sure to create the workspace in the same subscription that the AKS container is deployed to.
 
 After you've enabled monitoring, it might take about 15 minutes before you can view operational data for the cluster.
 
@@ -155,7 +155,7 @@ This method includes two JSON templates. One template specifies the configuratio
 >The template needs to be deployed in the same resource group as the cluster.
 >
 
-The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../../azure-monitor/learn/quick-create-workspace.md).
+The Log Analytics workspace has to be created before you enable monitoring using Azure PowerShell or CLI. To create the workspace, you can set it up through [Azure Resource Manager](../samples/resource-manager-workspace.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
 If you are unfamiliar with the concept of deploying resources by using a template, see:
 
@@ -163,7 +163,7 @@ If you are unfamiliar with the concept of deploying resources by using a templat
 
 * [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/templates/deploy-cli.md)
 
-If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.59 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 ### Create and execute a template
 
@@ -268,7 +268,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```powershell
+       ```output
        provisioningState       : Succeeded
        ```
 
@@ -282,7 +282,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
        The configuration change can take a few minutes to complete. When it's completed, a message is displayed that's similar to the following and includes the result:
 
-       ```azurecli
+       ```output
        provisioningState       : Succeeded
        ```
 
@@ -302,11 +302,25 @@ kubectl get ds omsagent --namespace=kube-system
 
 The output should resemble the following, which indicates that it was deployed properly:
 
-```
+```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
+
+If there are Windows Server nodes on the cluster then you can run the following command to verify that the agent is deployed successfully.
+
+```
+kubectl get ds omsagent-win --namespace=kube-system
+```
+
+The output should resemble the following, which indicates that it was deployed properly:
+
+```output
+User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
+NAME                   DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                   AGE
+omsagent-win           2         2         2         2            2           beta.kubernetes.io/os=windows   1d
+```
 
 To verify deployment of the solution, run the following command:
 
@@ -316,7 +330,7 @@ kubectl get deployment omsagent-rs -n=kube-system
 
 The output should resemble the following, which indicates that it was deployed properly:
 
-```
+```output
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system
 NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 omsagent   1         1         1            1            3h
@@ -324,23 +338,23 @@ omsagent   1         1         1            1            3h
 
 ### Agent version earlier than 06072018
 
-To verify that the Log Analytics agent version released before *06072018* is deployed properly, run the following command:  
+To verify that the Log Analytics agent version released before *06072018* is deployed properly, run the following command:
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-The output should resemble the following, which indicates that it was deployed properly:  
+The output should resemble the following, which indicates that it was deployed properly:
 
-```
+```output
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR                 AGE
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
-```  
+```
 
 ## View configuration with CLI
 
-Use the `aks show` command to get details such as is the solution enabled or not, what is the Log Analytics workspace resourceID, and summary details about the cluster.  
+Use the `aks show` command to get details such as is the solution enabled or not, what is the Log Analytics workspace resourceID, and summary details about the cluster.
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
@@ -348,7 +362,7 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 
 After a few minutes, the command completes and returns JSON-formatted information about solution.  The results of the command should show the monitoring add-on profile and resembles the following example output:
 
-```
+```output
 "addonProfiles": {
     "omsagent": {
       "config": {

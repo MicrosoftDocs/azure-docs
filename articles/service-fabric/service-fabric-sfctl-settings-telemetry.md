@@ -4,7 +4,7 @@ description: Learn about sfctl, the Azure Service Fabric command line interface.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
@@ -56,4 +56,4 @@ sfctl settings telemetry set_telemetry --on
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

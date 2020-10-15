@@ -1,15 +1,12 @@
 ---
 title: "Quickstart: QnA Maker with REST APIs for Node.js"
-titleSuffix: Azure Cognitive Services
 description: This quickstart shows how to get started with the QnA Maker REST APIs for Node.js. Follow these steps to install the package and try out the example code for basic tasks.  QnA Maker enables you to power a question-and-answer service from your semi-structured content like FAQ documents, URLs, and product manuals.
-services: cognitive-services
-author: diberry
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: quickstart
-ms.date: 12/16/2019
-ms.author: diberry
+ms.date: 02/08/2020
+ROBOTS: NOINDEX,NOFOLLOW
+ms.custom: RESTCURL2020FEB27, devx-track-js
+ms.topic: how-to
 ---
 
 # Quickstart: QnA Maker REST APIs for Node.js
@@ -31,7 +28,7 @@ Use the QnA Maker REST APIs for Node.js to:
 
 ## Prerequisites
 
-* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * The current version of [Node.js](https://nodejs.org).
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key and endpoint (which includes the resource name), select **Quickstart** for your resource in the Azure portal.
 
@@ -76,11 +73,15 @@ These code snippets show you how to do the following with the QnA Maker REST API
 
 ## Add the dependencies
 
-Create a file named `rest-apis.js` and add the following _requires_ statement to make HTTP requests.
+Create a file named `rest-apis.js` and add the following dependencies.
 
-```javascript
-const request = require("requestretry");
-```
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="dependencies":::
+
+## Add utility functions
+
+Add the following utility functions.
+
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="utility":::
 
 ## Add Azure resource information
 
@@ -88,10 +89,10 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 Set the following environment values:
 
-* `QNAMAKER_RESOURCE_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the Quick start page. This is not the same as the prediction endpoint key.
+* `QNAMAKER_RESOURCE_KEY` - The **key** is a 32 character string and is available in the Azure portal, on the QnA Maker resource, on the **Quick start** page. This is not the same as the prediction endpoint key.
 * `QNAMAKER_AUTHORING_ENDPOINT` - Your authoring endpoint, in the format of `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`, includes your **resource name**. This is not the same URL used to query the prediction endpoint.
 
-[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="authorization":::
 
 ## Create a knowledge base
 
@@ -103,13 +104,13 @@ A knowledge base stores question and answer pairs, created from a JSON object of
 
 Use the [REST API to create a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create).
 
-[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=createKb)]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="createKb":::
 
 ## Replace a knowledge base
 
 Use the [REST API to replace a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
 
-[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=replaceKb)]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="replaceKb":::
 
 ## Publish a knowledge base
 
@@ -117,14 +118,13 @@ Publish the knowledge base. This process makes the knowledge base available from
 
 Use the [REST API to publish a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish).
 
-
-[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=publish)]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="publishKb":::
 
 ## Download the knowledge base
 
 Use the [REST API to download a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download).
 
-[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=download)]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="downloadKb":::
 
 ## Delete a knowledge base
 
@@ -132,7 +132,7 @@ When you are done using the knowledge base, delete it.
 
 Use the [REST API to delete a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete).
 
-[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=deleteKb)]
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="deleteKb":::
 
 ## Get status of an operation
 
@@ -140,9 +140,13 @@ Long running processes such as the creation process returns an operation ID, whi
 
 Use the [REST API to monitor operations on a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails).
 
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="operationDetails":::
 
-[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=operationDetails)]
+## Add main method
 
+Add the following `main` method.
+
+:::code language="javascript" source="~/cognitive-services-quickstart-code/javascript/QnAMaker/rest/create-publish-kb.js" id="main":::
 
 ## Run the application
 

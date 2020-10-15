@@ -1,9 +1,9 @@
 ﻿---
 title: Investigate incidents with Azure Sentinel| Microsoft Docs
-description: Use this tutorial to learn how to investigate incidents with Azure Sentinel.
+description: In this tutorial, learn how to use Azure Sentinel to create advanced alert rules that generate incidents you can assign and investigate.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Tutorial: Investigate incidents with Azure Sentinel
@@ -33,10 +33,12 @@ This article covers:
 > * Use the investigation graph
 > * Respond to threats
 
-An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytic rules that you created in the **Analytics** page. The properties related to the alerts, such as severity, and status, are set at the incident level. After you let Azure Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
+An incident can include multiple alerts. It's an aggregation of all the relevant evidence for a specific investigation. An incident is created based on analytics rules that you created in the **Analytics** page. The properties related to the alerts, such as severity and status, are set at the incident level. After you let Azure Sentinel know what kinds of threats you're looking for and how to find them, you can monitor detected threats by investigating incidents.
 
 ## Prerequisites
-You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytic rule. The investigation graph requires that your original incident includes entities.
+- You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
+
+- If you have a guest user that needs to assign incidents, the user must be assigned the [Directory Reader](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) role in your Azure AD tenant. Regular (non-guest) users have this role assigned by default.
 
 ## How to investigate incidents
 
@@ -77,7 +79,7 @@ To use the investigation graph:
 1. Select an incident, then select **Investigate**. This takes you to the investigation graph. The graph provides an illustrative map of the entities directly connected to the alert and each resource connected further.
 
    > [!IMPORTANT] 
-   > You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytic rule. The investigation graph requires that your original incident includes entities.
+   > You'll only be able to investigate the incident if you used the entity mapping fields when you set up your analytics rule. The investigation graph requires that your original incident includes entities.
 
    ![View map](media/tutorial-investigate-cases/map1.png)
 
@@ -103,7 +105,21 @@ To use the investigation graph:
 
     ![Use timeline in map to investigate alerts](media/tutorial-investigate-cases/use-timeline.png)
 
+## Closing an incident
 
+Once you have resolved a particular incident (for example, when your investigation has reached its conclusion), you should set the incident’s status to **Closed**. When you do so, you will be asked to classify the incident by specifying the reason you are closing it. This step is mandatory. Click **Select classification** and choose one of the following from the drop-down list:
+
+- True Positive - suspicious activity
+- Benign Positive - suspicious but expected
+- False Positive - incorrect alert logic
+- False Positive - incorrect data
+- Undetermined
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-dropdown.png" alt-text="Screenshot that highlights the classifications available in the Select classification list.":::
+
+After choosing the appropriate classification, add some descriptive text in the **Comment** field. This will be useful in the event you need to refer back to this incident. Click **Apply** when you’re done, and the incident will be closed.
+
+:::image type="content" source="media/tutorial-investigate-cases/closing-reasons-comment-apply.png" alt-text="{alt-text}":::
 
 ## Next steps
 In this tutorial, you learned how to get started investigating incidents using Azure Sentinel. Continue to the tutorial for [how to respond to threats using automated playbooks](tutorial-respond-threats-playbook.md).

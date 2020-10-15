@@ -1,7 +1,7 @@
 ---
-title: Translator Text API v2.0
+title: Translator v2.0
 titleSuffix: Azure Cognitive Services
-description: Reference documentation for the Translator Text API v2.0.
+description: Reference documentation for the Translator v2.0.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -13,21 +13,21 @@ ms.date: 05/15/2018
 ms.author: swmachan
 ---
 
-# Translator Text API v2.0
+# Translator v2.0
 
 > [!IMPORTANT]
-> This version of the Translator Text API has been deprecated. [View documentation for version 3 of the Translator Text API](v3-0-reference.md).
+> This version of the Translator has been deprecated. [View documentation for version 3 of the Translator](v3-0-reference.md).
 
-Version 2 of the Translator Text API can be seamlessly integrated into your apps, websites, tools, or other solutions to provide multilanguage user experiences. You can use it on any hardware platform and with any operating system to perform language translation and other language-related tasks, like text-language detection and text to speech, according to industry standards. For more information, see [Translator Text API](../translator-info-overview.md).
+Version 2 of the Translator can be seamlessly integrated into your apps, websites, tools, or other solutions to provide multilanguage user experiences. You can use it on any hardware platform and with any operating system to perform language translation and other language-related tasks, like text-language detection and text to speech, according to industry standards. For more information, see [Translator](../translator-info-overview.md).
 
 ## Getting started
-To access the Translator Text API, you need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
+To access the Translator, you need to [sign up for Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## Authentication 
-All calls to the Translator Text API require a subscription key for authentication. The API supports three methods of authentication:
+All calls to the Translator require a subscription key for authentication. The API supports three methods of authentication:
 
 - An access token. Use the subscription key to create an access token by making a POST request to the authentication service. See the token service documentation for details. Pass the access token to the Translator service by using the `Authorization` header or the `access_token` query parameter. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests during the 10 minutes.
-- A subscription key used directly. Pass your subscription key as a value in the `Ocp-Apim-Subscription-Key` header included with your request to the Translator Text API. When you use the subscription key directly, you don't have to call the token authentication service to create an access token.
+- A subscription key used directly. Pass your subscription key as a value in the `Ocp-Apim-Subscription-Key` header included with your request to the Translator. When you use the subscription key directly, you don't have to call the token authentication service to create an access token.
 - An [Azure Cognitive Services multi-service subscription](https://azure.microsoft.com/pricing/details/cognitive-services/). This method allows you to use a single secret key to authenticate requests for multiple services.
 When you use a multi-service secret key, you need to include two authentication headers with your request. The first header passes the secret key. The second header specifies the region associated with your subscription:
    - `Ocp-Apim-Subscription-Key`
@@ -799,6 +799,6 @@ Response content type: application/xml
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Migrate to Translator Text API v3](../migrate-to-v3.md)
+> [Migrate to Translator v3](../migrate-to-v3.md)
 
 

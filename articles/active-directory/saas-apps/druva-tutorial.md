@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Druva | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Druva.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ab92b600-1fea-4905-b1c7-ef8e4d8c495c
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 03/06/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Druva
@@ -41,7 +34,8 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Druva supports **SP and IDP** initiated SSO
+* Druva supports **IDP** initiated SSO
+* Once you configure Druva SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -78,12 +72,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, the user does not have to perform any step as the app is already pre-integrated with Azure.
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+1. On the **Basic SAML Configuration** section, perform the following steps:
 
-    In the **Sign-on URL** text box, type a URL:
-    `https://login.druva.com/api/commonlogin/samlconsume`
+	a. In the **Identifier (Entity ID)** text box, type the string value: `DCP-login`.
+	
+	b. In the **Reply URL (Assertion Consumer Service URL)** text box, type the URL: `https://cloud.druva.com/wrsaml/consume`.
 
 1. Click **Save**.
 
@@ -146,7 +141,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. On the **Single Sign-On** tab, click **Edit**.
 
-	![Single Sign-On Settings](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
+	![Screenshot that shows the "Access Settings - Single Sign-On" tab with the "Edit" button selected.](./media/druva-tutorial/ic795092.png "Single Sign-On Settings")
 
 1. On the **Edit Single Sign-On Settings** page, perform the following steps:
 
@@ -180,3 +175,5 @@ When you click the Druva tile in the Access Panel, you should be automatically s
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Try Druva with Azure AD](https://aad.portal.azure.com/)
+
+- [What is session control in Microsoft Cloud App Security?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

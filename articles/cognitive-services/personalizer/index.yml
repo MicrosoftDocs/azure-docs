@@ -5,7 +5,7 @@ summary: Learn how to use Personalizer to allow your application to choose the b
 
 metadata:
   ms.topic: landing-page
-  ms.date: 10/03/2019
+  ms.date: 06/11/2020
   ms.author: nitinme
   author: nitinme
   ms.service: cognitive-services
@@ -43,6 +43,12 @@ landingContent:
             url: concepts-features.md
           - text: How to calculate a reward
             url: concept-rewards.md
+      - linkListType: tutorial
+        links:
+          - text: Use Personalizer in a .NET web app
+            url: tutorial-use-personalizer-web-app.md
+          - text: Use Personalizer with an Azure Notebooks file
+            url: tutorial-use-azure-notebook-generate-loop-data.md
       - linkListType: how-to-guide
         links:
           - text: How to create and configure Personalizer
@@ -64,7 +70,7 @@ landingContent:
       - linkListType: get-started
         links:
           - text: Develop Personalizer loop with Node.js
-            url: sdk-learning-loop.md?pivots=programming-language-nodejs
+            url: sdk-learning-loop.md?pivots=programming-language-javascript
           - text: NPM package
             url: https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0
       - linkListType: get-started
@@ -99,6 +105,8 @@ landingContent:
     linkLists:
       - linkListType: concept
         links:
+          - text: Use Apprentice mode
+            url: how-to-learning-behavior.md
           - text: Improve loop with offline evaluations
             url: concepts-offline-evaluation.md
           - text: Active and inactive events
@@ -119,4 +127,3 @@ landingContent:
             url: https://stackoverflow.com/questions/tagged/personalizer
           - text: Influence service with UserVoice
             url: https://cognitive.uservoice.com/forums/921562-personalizer
-

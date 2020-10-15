@@ -1,20 +1,14 @@
 ---
 title: Create an additional Azure subscription
-description: Learn how to add a new Azure subscription in the Azure portal.
-services: 'billing'
-documentationcenter: ''
-author: amberb
-manager: amberb
-editor: ''
+description: Learn how to add a new Azure subscription in the Azure portal. See information about billing account forms and view additional available resources.
+author: amberbhargava
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 11/28/2018
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Create an additional Azure subscription
 
 You can create an additional subscription for your [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/), [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) or [Microsoft Partner Agreement](https://www.microsoft.com/licensing/news/introducing-microsoft-partner-agreement) billing account in the Azure portal. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for security, or to isolate data for compliance reasons.
@@ -74,7 +68,7 @@ You need the following permissions to create subscriptions:
 
 ## Create an additional Azure subscription programmatically
 
-You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](../../azure-resource-manager/management/programmatically-create-subscription.md).
+You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure subscriptions](programmatically-create-subscription.md).
 
 ## Next steps
 
@@ -85,4 +79,4 @@ You can also create additional subscriptions programmatically. For more informat
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

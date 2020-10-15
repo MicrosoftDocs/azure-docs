@@ -3,27 +3,30 @@ title: "Quickstart: Azure Blob storage for JavaScript v10 in the browser"
 description: Learn to upload, list, and delete blobs using JavaScript v10 SDK in an HTML page.
 services: storage
 author: mhopkins-msft
-ms.custom: mvc
+ms.custom: mvc, devx-track-js
 ms.service: storage
 ms.author: mhopkins
-ms.date: 08/29/2019
+ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
 ---
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
-# Quickstart: Upload, list, and delete blobs using Azure Storage v10 SDK for JavaScript/HTML in the browser
+# Quickstart: Manage blobs with JavaScript v10 SDK in browser
 
-In this quickstart, you'll learn to use the [Azure Storage SDK V10 for JavaScript - Blob](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob#readme) library to manage blobs from JavaScript code running entirely in the browser. The approach used here shows how to use required security measures to ensure protected access to your blob storage account.
+In this quickstart, you learn to manage blobs by using JavaScript code running entirely in the browser. Blobs are objects that can hold large amounts of text or binary data, including images, documents, streaming media, and archive data. You'll use required security measures to ensure protected access to your blob storage account.
+
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Blob storage client library. To get started with the latest version, see [Quickstart: Manage blobs with JavaScript v12 SDK in a browser](quickstart-blobs-javascript-browser.md).
 
 ## Prerequisites
 
-[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
-
-The Azure Storage JavaScript client libraries won't work directly from the file system and must be served from a web server. This topic uses [Node.js](https://nodejs.org) to launch a basic server. If you prefer not to install Node, you can use any other means of running a local web server.
-
-To follow the steps on debugging, you'll need [Visual Studio Code](https://code.visualstudio.com) and either the [Debugger for Chrome](vscode:extension/msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](vscode:extension/msjsdiag.debugger-for-edge) extension.
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure Storage account. [Create a storage account](../common/storage-account-create.md).
+- A local web server. This article uses [Node.js](https://nodejs.org) to open a basic server.
+- [Visual Studio Code](https://code.visualstudio.com).
+- A VS Code extension for browser debugging, such as [Debugger for Chrome](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-chrome) or [Debugger for Microsoft Edge](https://marketplace.visualstudio.com/items?itemName=msjsdiag.debugger-for-edge).
 
 ## Setting up storage account CORS rules
 
@@ -38,10 +41,10 @@ The following table describes each CORS setting and explains the values used to 
 |Setting  |Value  | Description |
 |---------|---------|---------|
 | Allowed origins | * | Accepts a comma-delimited list of domains set as acceptable origins. Setting the value to `*` allows all domains access to the storage account. |
-| Allowed verbs     | delete, get, head, merge, post, options, and put | Lists the HTTP verbs allowed to execute against the storage account. For the purposes of this quickstart, select all available options. |
+| Allowed methods     | delete, get, head, merge, post, options, and put | Lists the HTTP verbs allowed to execute against the storage account. For the purposes of this quickstart, select all available options. |
 | Allowed headers | * | Defines a list of request headers (including prefixed headers) allowed by the storage account. Setting the value to `*` allows all headers access. |
 | Exposed headers | * | Lists the allowed response headers by the account. Setting the value to `*` allows the account to send any header.  |
-| Maximum age (seconds) | 86400 | The maximum amount of time the browser caches the preflight OPTIONS request. A value of *86400* allows the cache to remain for a full day. |
+| Max age (seconds) | 86400 | The maximum amount of time the browser caches the preflight OPTIONS request. A value of *86400* allows the cache to remain for a full day. |
 
 > [!IMPORTANT]
 > Ensure any settings you use in production expose the minimum amount of access necessary to your storage account to maintain secure access. The CORS settings described here are appropriate for a quickstart as it defines a lenient security policy. These settings, however, are not recommended for a real-world context.
@@ -85,11 +88,11 @@ You may find the series of values after each parameter a bit cryptic. These para
 Now that the SAS is generated, copy the return value and save it somewhere for use in an upcoming step. If you generated your SAS using a method other than the Azure CLI, you will need to remove the initial `?` if it is present. This character is a URL separator that is already provided in the URL template later in this topic where the SAS is used.
 
 > [!IMPORTANT]
-> In production, always pass SAS tokens using SSL. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
+> In production, always pass SAS tokens using TLS. Also, SAS tokens should be generated on the server and sent to the HTML page in order pass back to Azure Blob Storage. One approach you may consider is to use a serverless function to generate SAS tokens. The Azure Portal includes function templates that feature the ability to generate a SAS with a JavaScript function.
 
 ## Implement the HTML page
 
-In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](vscode:extension/ms-azuretools.vscode-azurestorage) for VS Code.
+In this section, you'll create a basic web page and configure VS Code to launch and debug the page. Before you can launch, however, you'll need to use Node.js to start a local web server and serve the page when your browser requests it. Next, you'll add JavaScript code to call various blob storage APIs and display the results in the page. You can also see the results of these calls in the [Azure portal](https://portal.azure.com), [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer), and the [Azure Storage extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage) for VS Code.
 
 ### Set up the web application
 

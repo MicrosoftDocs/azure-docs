@@ -1,17 +1,16 @@
 ---
-author: erhopf
+author: trevorbye
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: erhopf
+ms.date: 04/04/2020
+ms.author: trbye
 ---
 
 ## Prerequisites
 
 > [!div class="checklist"]
-> * [Create an Azure Speech resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=jre)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=jre)
+> * [Create an Azure Speech resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=jre&pivots=programming-language-java)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
@@ -43,8 +42,10 @@ ms.author: erhopf
            try {
                // Replace below with your own subscription key
                String speechSubscriptionKey = "YourSubscriptionKey";
-               // Replace below with your own service region (e.g., "westus").
+
+               // Replace with your own subscription key and region identifier from here: https://aka.ms/speech/sdkregion
                String serviceRegion = "YourServiceRegion";
+
                // Replace below with your own filename.
                String audioFileName = "whatstheweatherlike.wav";
 
@@ -103,7 +104,7 @@ ms.author: erhopf
 
 1. Replace the string `YourSubscriptionKey` with your subscription key.
 
-1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
+1. Replace the string `YourServiceRegion` with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription.
 
 1. Replace the string `whatstheweatherlike.wav` with your own filename.
 
@@ -124,4 +125,4 @@ The first 15 seconds of speech input from your audio file will be recognized and
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

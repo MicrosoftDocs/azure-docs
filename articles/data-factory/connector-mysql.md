@@ -6,20 +6,19 @@ documentationcenter: ''
 author: linda33wj
 manager: shwang
 ms.reviewer: douglasl
-
 ms.service: data-factory
 ms.workload: data-services
-
-
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 09/09/2020
 ms.author: jingwang
-
 ---
+
 # Copy data from MySQL using Azure Data Factory
+
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Current version](connector-mysql.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a MySQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -35,15 +34,13 @@ This MySQL connector is supported for the following activities:
 
 You can copy data from MySQL database to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Specifically, this MySQL connector supports MySQL **version 5.6 and 5.7**.
+Specifically, this MySQL connector supports MySQL **version 5.6, 5.7 and 8.0**.
 
 ## Prerequisites
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 The Integration Runtime provides a built-in MySQL driver starting from version 3.7, therefore you don't need to manually install any driver.
-
-For Self-hosted IR version lower than 3.7, you need to install the [MySQL Connector/Net for Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) version between 6.6.5 and 6.10.7 on the Integration Runtime machine. This 32-bit driver is compatible with 64-bit IR.
 
 ## Getting started
 
@@ -65,7 +62,9 @@ A typical connection string is `Server=<server>;Port=<port>;Database=<database>;
 
 | Property | Description | Options | Required |
 |:--- |:--- |:--- |:--- |
-| SSLMode | This option specifies whether the driver uses SSL encryption and verification when connecting to MySQL. E.g.,  `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | This option specifies whether the driver uses TLS encryption and verification when connecting to MySQL. E.g.,  `SSLMode=<0/1/2/3/4>`.| DISABLED (0) / PREFERRED (1) **(Default)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLCert | The full path and name of a .pem file containing the SSL certificate used for proving the identity of the client. <br/> To specify a private key for encrypting this certificate before sending it to the server, use the `SSLKey` property.| | Yes, if using two-way SSL verification. |
+| SSLKey | The full path and name of a file containing the private key used for encrypting the client-side certificate during two-way SSL verification.|  | Yes, if using two-way SSL verification. |
 | UseSystemTrustStore | This option specifies whether to use a CA certificate from the system trust store, or from a specified PEM file. E.g. `UseSystemTrustStore=<0/1>;`| Enabled (1) / Disabled (0) **(Default)** | No |
 
 **Example:**

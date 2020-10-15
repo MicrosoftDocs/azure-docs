@@ -48,9 +48,9 @@ Follow these steps.
 5. Go to the directory where the files were uploaded. By default, they're uploaded to the home directory under the username.
 6. Run the following script:
 
-    ```azurepowershell-interactive 
+    ```azurepowershell-interactive
 
-    ./generateCredentials.ps1   
+    ./generateCredentials.ps1
 
     ```
 
@@ -86,4 +86,4 @@ Files and images uploaded by the drone provider appear in the **Maps** section. 
 
 ## Next steps
 
-Learn how to use FarmBeats Datahub [APIs](references-for-azure-farmbeats.md#rest-api) to get your drone imagery.
+Learn how to use FarmBeats Datahub [APIs](rest-api-in-azure-farmbeats.md) to get your drone imagery.

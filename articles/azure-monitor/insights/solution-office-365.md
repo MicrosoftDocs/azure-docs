@@ -1,12 +1,11 @@
 ---
-title: Office 365 management solution in Azure | Microsoft Docs
+title: Office 365 management solution in Azure
 description: This article provides details on configuration and use of the Office 365 solution in Azure.  It includes detailed description of the Office 365 records created in Azure Monitor.
-ms.service:  azure-monitor
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/08/2019
+ms.date: 03/30/2020
 
 ---
 
@@ -14,10 +13,9 @@ ms.date: 01/08/2019
 
 ![Office 365 logo](media/solution-office-365/icon.png)
 
-
 > [!IMPORTANT]
 > ## Solution update
-> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Together they provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until March 30, 2020.
+> This solution has been replaced by the [Office 365](../../sentinel/connect-office-365.md) General Availability solution in [Azure Sentinel](../../sentinel/overview.md) and the [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Together they provide an updated version of the previous Azure Monitor Office 365 solution with an improved configuration experience. You can continue to use the existing solution until October 31, 2020.
 > 
 > Azure Sentinel is a cloud native Security Information and Event Management solution that ingests logs and provides additional SIEM functionality including detections, investigations, hunting and machine learning driven insights. Using Azure Sentinel will now provide you with ingestion of Office 365 SharePoint activity and Exchange management logs.
 > 
@@ -33,8 +31,8 @@ ms.date: 01/08/2019
 >
 > ## Frequently asked questions
 > 
-> ### Q: Is it possible to on-board the Office 365 Azure Monitor solution between now and March 30th?
-> No, the Azure Monitor Office 365 solution onboarding scripts are no longer available. The solution will be removed on March 30th.
+> ### Q: Is it possible to on-board the Office 365 Azure Monitor solution between now and October 31?
+> No, the Azure Monitor Office 365 solution onboarding scripts are no longer available. The solution will be removed on October 31.
 > 
 > ### Q: Will the tables and schemas be changed?
 > The **OfficeActivity** table name and schema will remain the same as in the current solution. You can continue using the same queries in the new solution excluding queries that reference Azure AD data.
@@ -50,7 +48,7 @@ ms.date: 01/08/2019
 > | where TimeGenerated >= ago(1d) 
 > | where OfficeWorkload == "AzureActiveDirectory"                      
 > | where Operation == 'UserLoginFailed'
-> | summarize count() by UserId	
+> | summarize count() by UserId    
 > ```
 > 
 > ```Kusto
@@ -79,10 +77,10 @@ ms.date: 01/08/2019
 > ### Q: Do I need Azure Sentinel to connect the Azure AD logs?
 > You can configure [Azure AD logs integration with Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md), which is not related to the Azure Sentinel solution. Azure Sentinel provides a native connector and out-of-the box content for Azure AD logs. For more information, see the question below on out-of-the-box security-oriented content.
 >
-> ###	Q: What are the differences when connecting Azure AD logs from Azure Sentinel and Azure Monitor?
+> ###    Q: What are the differences when connecting Azure AD logs from Azure Sentinel and Azure Monitor?
 > Azure Sentinel and Azure Monitor connect to Azure AD logs based on the same [Azure AD reporting and monitoring solution](../../active-directory/reports-monitoring/plan-monitoring-and-reporting.md). Azure Sentinel provides a one-click, native connector that connects the same data and provides monitoring information.
 >
-> ###	Q: What do I need to change when moving to the new Azure AD reporting and monitoring tables?
+> ###    Q: What do I need to change when moving to the new Azure AD reporting and monitoring tables?
 > All queries using Azure AD data, including queries in alerts, dashboards, and any content that you created using Office 365 Azure AD data, must be recreated using the new tables.
 >
 > Azure Sentinel and Azure AD provide built-in content that you can use when moving to the Azure AD reporting and monitoring solution. For more information, see the next question on out-of-the-box security-oriented content and [How to use Azure Monitor workbooks for Azure Active Directory reports](../../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md). 
@@ -100,11 +98,11 @@ ms.date: 01/08/2019
 > ### Q: Does Azure Sentinel provide additional connectors as part of the solution?
 > Yes, see [Azure Sentinel connect data sources](../../sentinel/connect-data-sources.md).
 > 
-> ###	Q: What will happen on March 30? Do I need to offboard beforehand?
+> ###    Q: What will happen on October 31? Do I need to offboard beforehand?
 > 
-> - You won’t be able to receive data from the **Office365** solution. The solution will no longer be available in the Marketplace
+> - You won't be able to receive data from the **Office365** solution. The solution will be removed from your workspace and will no longer be available in the Marketplace.
 > - For Azure Sentinel customers, the Log Analytics workspace solution **Office365** will be included in the Azure Sentinel **SecurityInsights** solution.
-> - If you don’t offboard your solution manually, your data will be disconnected automatically on March 30.
+> - If you don't offboard your solution manually by October 31, your data will be disconnected automatically, and the **OfficeActivity** table removed. Even so, you will still be able to restore the table when you enable the Office 365 connector in Azure Sentinel, as explained below.
 > 
 > ### Q: Will my data transfer to the new solution?
 > Yes. When you remove the **Office 365** solution from your workspace, its data will become temporarily unavailable because the schema is removed. When you enable the new **Office 365** connector in Sentinel, the schema is restored to the workspace and any data already collected will become available. 
@@ -226,7 +224,7 @@ You will be prompted for credentials. Provide the credentials for your Log Analy
 
 ## Data collection
 
-It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Azure Monitor each time a record is created. This record is available in Azure Monitor within a few minutes after being received.
+It may take a few hours for data to initially be collected. Once it starts collecting, Office 365 sends a [webhook notification](/office/office-365-management-api/office-365-management-activity-api-reference#receiving-notifications) with detailed data to Azure Monitor each time a record is created. This record is available in Azure Monitor within a few minutes after being received.
 
 ## Using the solution
 
@@ -245,7 +243,7 @@ The dashboard includes the columns in the following table. Each column lists the
 |:--|:--|
 | Operations | Provides information about the active users from your all monitored Office 365 subscriptions. You will also be able to see the number of activities that happen over time.
 | Exchange | Shows the breakdown of Exchange Server activities such as Add-Mailbox Permission, or Set-Mailbox. |
-| SharePoint | Shows the top activities that users perform on SharePoint documents. When you drill down from this tile, the search page shows the details of these activities, such as the target document and the location of this activity. For example, for a File Accessed event, you will be able to see the document that’s being accessed, its associated account name, and IP address. |
+| SharePoint | Shows the top activities that users perform on SharePoint documents. When you drill down from this tile, the search page shows the details of these activities, such as the target document and the location of this activity. For example, for a File Accessed event, you will be able to see the document that's being accessed, its associated account name, and IP address. |
 | Azure Active Directory | Includes top user activities, such as Reset User Password and Login Attempts. When you drill down, you will be able to see the details of these activities like the Result Status. This is mostly helpful if you want to monitor suspicious activities on your Azure Active Directory. |
 
 
@@ -312,7 +310,7 @@ These records are created when change or additions are made to Azure Active Dire
 | ActorContextId | The GUID of the organization that the actor belongs to. |
 | ActorIpAddress | The actor's IP address in IPV4 or IPV6 address format. |
 | InterSystemsId | The GUID that track the actions across components within the Office 365 service. |
-| IntraSystemId | 	The GUID that's generated by Azure Active Directory to track the action. |
+| IntraSystemId |     The GUID that's generated by Azure Active Directory to track the action. |
 | SupportTicketId | The customer support ticket ID for the action in "act-on-behalf-of" situations. |
 | TargetContextId | The GUID of the organization that the targeted user belongs to. |
 
@@ -327,7 +325,7 @@ These records are created from Data Center Security audit data.
 | ElevationApprovedTime | The timestamp for when the elevation was approved. |
 | ElevationApprover | The name of a Microsoft manager. |
 | ElevationDuration | The duration for which the elevation was active. |
-| ElevationRequestId | 	A unique identifier for the elevation request. |
+| ElevationRequestId |     A unique identifier for the elevation request. |
 | ElevationRole | The role the elevation was requested for. |
 | ElevationTime | The start time of the elevation. |
 | Start_Time | The start time of the cmdlet execution. |
@@ -341,8 +339,8 @@ These records are created when changes are made to Exchange configuration.
 |:--- |:--- |
 | OfficeWorkload | Exchange |
 | RecordType     | ExchangeAdmin |
-| ExternalAccess | 	Specifies whether the cmdlet was run by a user in your organization, by Microsoft datacenter personnel or a datacenter service account, or by a delegated administrator. The value False indicates that the cmdlet was run by someone in your organization. The value True indicates that the cmdlet was run by datacenter personnel, a datacenter service account, or a delegated administrator. |
-| ModifiedObjectResolvedName | 	This is the user friendly name of the object that was modified by the cmdlet. This is logged only if the cmdlet modifies the object. |
+| ExternalAccess |     Specifies whether the cmdlet was run by a user in your organization, by Microsoft datacenter personnel or a datacenter service account, or by a delegated administrator. The value False indicates that the cmdlet was run by someone in your organization. The value True indicates that the cmdlet was run by datacenter personnel, a datacenter service account, or a delegated administrator. |
+| ModifiedObjectResolvedName |     This is the user friendly name of the object that was modified by the cmdlet. This is logged only if the cmdlet modifies the object. |
 | OrganizationName | The name of the tenant. |
 | OriginatingServer | The name of the server from which the cmdlet was executed. |
 | Parameters | The name and value for all parameters that were used with the cmdlet that is identified in the Operations property. |
@@ -363,7 +361,7 @@ These records are created when changes or additions are made to Exchange mailbox
 | ClientVersion | The version of the email client . |
 | InternalLogonType | Reserved for internal use. |
 | Logon_Type | Indicates the type of user who accessed the mailbox and performed the operation that was logged. |
-| LogonUserDisplayName | 	The user-friendly name of the user who performed the operation. |
+| LogonUserDisplayName |     The user-friendly name of the user who performed the operation. |
 | LogonUserSid | The SID of the user who performed the operation. |
 | MailboxGuid | The Exchange GUID of the mailbox that was accessed. |
 | MailboxOwnerMasterAccountSid | Mailbox owner account's master account SID. |
@@ -402,7 +400,7 @@ These records are created when changes or additions are made to Exchange groups.
 | DestMailboxOwnerUPN | Set only if the CrossMailboxOperations parameter is True. Specifies the UPN of the owner of the target mailbox. |
 | DestFolder | The destination folder, for operations such as Move. |
 | Folder | The folder where a group of items is located. |
-| Folders | 	Information about the source folders involved in an operation; for example, if folders are selected and then deleted. |
+| Folders |     Information about the source folders involved in an operation; for example, if folders are selected and then deleted. |
 
 
 ### SharePoint Base
@@ -416,7 +414,7 @@ These properties are common to all SharePoint records.
 | EventSource | Identifies that an event occurred in SharePoint. Possible values are SharePoint or ObjectModel. |
 | ItemType | The type of object that was accessed or modified. See the ItemType table for details on the types of objects. |
 | MachineDomainInfo | Information about device sync operations. This information is reported only if it's present in the request. |
-| MachineId | 	Information about device sync operations. This information is reported only if it's present in the request. |
+| MachineId |     Information about device sync operations. This information is reported only if it's present in the request. |
 | Site_ | The GUID of the site where the file or folder accessed by the user is located. |
 | Source_Name | The entity that triggered the audited operation. Possible values are SharePoint or ObjectModel. |
 | UserAgent | Information about the user's client or browser. This information is provided by the client or browser. |
@@ -431,7 +429,7 @@ These records are created when configuration changes are made to SharePoint.
 | OfficeWorkload | SharePoint |
 | OfficeWorkload | SharePoint |
 | CustomEvent | Optional string for custom events. |
-| Event_Data | 	Optional payload for custom events. |
+| Event_Data |     Optional payload for custom events. |
 | ModifiedProperties | The property is included for admin events, such as adding a user as a member of a site or a site collection admin group. The property includes the name of the property that was modified (for example, the Site Admin group), the new value of the modified property (such the user who was added as a site admin), and the previous value of the modified object. |
 
 
@@ -449,9 +447,9 @@ These records are created in response to file operations in SharePoint.
 | SharingType | The type of sharing permissions that were assigned to the user that the resource was shared with. This user is identified by the UserSharedWith parameter. |
 | Site_Url | The URL of the site where the file or folder accessed by the user is located. |
 | SourceFileExtension | The file extension of the file that was accessed by the user. This property is blank if the object that was accessed is a folder. |
-| SourceFileName | 	The name of the file or folder accessed by the user. |
+| SourceFileName |     The name of the file or folder accessed by the user. |
 | SourceRelativeUrl | The URL of the folder that contains the file accessed by the user. The combination of the values for the SiteURL, SourceRelativeURL, and SourceFileName parameters is the same as the value for the ObjectID property, which is the full path name for the file accessed by the user. |
-| UserSharedWith | 	The user that a resource was shared with. |
+| UserSharedWith |     The user that a resource was shared with. |
 
 
 

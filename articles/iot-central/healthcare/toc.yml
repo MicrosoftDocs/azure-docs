@@ -15,7 +15,7 @@
       href: concept-continuous-patient-monitoring-architecture.md 
 
     - name: Connectivity
-      href: ../preview/overview-iot-central-get-connected.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+      href: ../core/concepts-get-connected.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: What are application templates?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: How-to guides
@@ -23,92 +23,100 @@
     - name: Create a health data triage dashboard  
       href: howto-health-data-triage.md 
   
-    - name: Connect devices
+    - name: Connect and develop devices
       items:
-        - name: Prepare and connect an MXChip IoT DevKit
-          href: ../preview/howto-connect-devkit.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Prepare and connect a Rigado Cascade 500
-          href: ../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Monitor device connectivity using Azure CLI
-          href: ../preview/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-monitor-devices-azure-cli.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Manage devices
       items:
         - name: Manage your devices
-          href: ../preview/howto-manage-devices.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-manage-devices.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Run a job
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Version device template
-          href: ../preview/howto-version-device-template.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-version-device-template.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Monitoring and analytics
       items:
         - name: Analyze your device data
-          href: ../preview/howto-create-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Create webhooks on rules
-          href: ../preview/howto-create-webhooks.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-webhooks.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 
     - name: Actions and extensibility
       items:
         - name: Configure continuous data export
-          href: ../preview/howto-export-data.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-export-data.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Create custom rules
-          href: ../preview/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Create custom analytics with Databricks
-          href: ../preview/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 
     - name: Administration
       items:
-        - name: Change application settings
-          href: ../preview/howto-administer.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Export your application
-          href: ../preview/howto-use-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Manage users and roles
-          href: ../preview/howto-manage-users-roles.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Manage your bill
-          href: ../preview/howto-view-bill.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Customize application UI
-          href: ../preview/howto-customize-ui.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Add tiles to your dashboard
-          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Manage from the Azure portal
-          href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Manage from Azure CLI
-          href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Manage from Azure PowerShell
-          href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Manage from CSP portal
-          href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-    - name: Personalization
-      items:
-        - name: Create Azure IoT Central personal dashboards
-          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Manage your personal preferences
-          href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-        - name: Toggle live chat
-          href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
-- name: Related
-  items:
-    - name: Platform services
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT Plug and Play
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: Location Based Services
-          href: /azure/location-based-services
-        - name: Service SDKs
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: IoT Edge
-      items:
-        - name: Azure IoT Edge
-          href: /azure/iot-edge
-        - name: IoT Device SDKs
-          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+        - name: Manage your application
+          items:
+            - name: Change application settings
+              href: ../core/howto-administer.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Manage users and roles
+              href: ../core/howto-manage-users-roles.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Manage your bill
+              href: ../core/howto-view-bill.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Customize application UI
+              href: ../core/howto-customize-ui.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Export your application
+              href: ../core/howto-use-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Monitor application health
+              href: ../core/howto-monitor-application-health.md
+            - name: About your application
+              href: ../core/howto-get-app-info.md
+        - name: Manage from other places
+          items: 
+            - name: Manage from the Azure portal
+              href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Manage from Azure CLI
+              href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Manage from Azure PowerShell
+              href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Manage programmatically
+              href: ../core/howto-manage-iot-central-programmatically.md
+            - name: Manage from CSP portal
+              href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+        - name: Personalization
+          items:
+            - name: Manage your personal preferences
+              href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+            - name: Toggle live chat
+              href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: Resources
   items:
+    - name: Support and help options
+      href: /azure/iot-fundamentals/iot-support-help
+    - name: Azure IoT services
+      items:
+      - name: IoT Hub
+        href: /azure/iot-hub
+      - name: IoT Hub Device Provisioning Service
+        href: /azure/iot-dps
+      - name: IoT Central
+        href: https://docs.microsoft.com/microsoft-iot-central/
+      - name: IoT Edge
+        href: /azure/iot-edge
+      - name: IoT solution accelerators
+        href: /azure/iot-accelerators
+      - name: IoT Plug and Play
+        href: /azure/iot-pnp
+      - name: Azure Maps
+        href: /azure/azure-maps
+      - name: Time Series Insights
+        href: /azure/time-series-insights
+    - name: Azure IoT SDKs
+      items:
+      - name: IoT Service SDKs
+        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+      - name: IoT Device SDKs
+        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Customer data requests
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: Supported browsers
@@ -117,3 +125,5 @@
       href: https://docs.microsoft.com/azure/healthcare-apis/
     - name: Designing secure health solutions
       href: https://docs.microsoft.com/azure/security/fundamentals/health-care-solution 
+    - name: Azure IoT Central (legacy templates)
+      href: https://docs.microsoft.com/previous-versions/azure/iot-central/core/overview-iot-central

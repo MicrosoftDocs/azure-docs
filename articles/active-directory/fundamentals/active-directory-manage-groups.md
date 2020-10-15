@@ -2,7 +2,7 @@
 title: Manage app & resource access using groups - Azure AD
 description: Learn about how to manage access to your organization's cloud-based apps, on-premises apps, and resources using Azure Active Directory groups.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 
 ms.service: active-directory
@@ -20,8 +20,6 @@ ms.collection: M365-identity-device-management
 Azure Active Directory (Azure AD) lets you use groups to manage access to your cloud-based apps, on-premises apps, and your resources. Your resources can be part of the Azure AD organization, such as permissions to manage objects through roles in Azure AD, or external to the organization, such as for Software as a Service (SaaS) apps, Azure services, SharePoint sites, and on-premises resources.
 
 >[!NOTE]
->To use Azure Active Directory, you need an Azure account. If you don't have an account, you can [sign up for a free Azure account](https://azure.microsoft.com/free/).
->
 > In the Azure portal, you can see some groups whose membership and group details you can't manage in the portal:
 >
 > - Groups synced from on-premises Active Directory can be managed only in on-premises Active Directory.

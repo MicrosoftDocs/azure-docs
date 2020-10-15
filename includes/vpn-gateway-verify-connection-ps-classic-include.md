@@ -18,12 +18,14 @@ You can verify that your connection succeeded by using the 'Get-AzureVNetConnect
    ```
 2. After the cmdlet has finished, view the values. In the example below, the Connectivity State shows as 'Connected' and you can see ingress and egress bytes.
 
-		ConnectivityState         : Connected
-		EgressBytesTransferred    : 181664
-		IngressBytesTransferred   : 182080
-		LastConnectionEstablished : 1/7/2016 12:40:54 AM
-		LastEventID               : 24401
-		LastEventMessage          : The connectivity state for the local network site 'RMVNetLocal' changed from Connecting to
-		                            Connected.
-		LastEventTimeStamp        : 1/7/2016 12:40:54 AM
-		LocalNetworkSiteName      : RMVNetLocal
+```output
+ConnectivityState         : Connected
+EgressBytesTransferred    : 181664
+IngressBytesTransferred   : 182080
+LastConnectionEstablished : 1/7/2016 12:40:54 AM
+LastEventID               : 24401
+LastEventMessage          : The connectivity state for the local network site 'RMVNetLocal' changed from Connecting to
+                            Connected.
+LastEventTimeStamp        : 1/7/2016 12:40:54 AM
+LocalNetworkSiteName      : RMVNetLocal
+```

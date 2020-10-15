@@ -30,12 +30,10 @@ By leveraging repository namespaces, you can allow sharing a single registry acr
 
 For example, consider the following container image tags. Images that are used corporate-wide, like `aspnetcore`, are placed in the root namespace, while container images owned by the Products and Marketing groups each use their own namespaces.
 
-```
-contoso.azurecr.io/aspnetcore:2.0
-contoso.azurecr.io/products/widget/web:1
-contoso.azurecr.io/products/bettermousetrap/refundapi:12.3
-contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42
-```
+- *contoso.azurecr.io/aspnetcore:2.0*
+- *contoso.azurecr.io/products/widget/web:1*
+- *contoso.azurecr.io/products/bettermousetrap/refundapi:12.3*
+- *contoso.azurecr.io/marketing/2017-fall/concertpromotions/campaign:218.42*
 
 ## Dedicated resource group
 
@@ -56,12 +54,15 @@ For in-depth information about Azure Container Registry authentication, see [Aut
 
 ## Manage registry size
 
-The storage constraints of each [container registry SKU][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
+The storage constraints of each [container registry service tier][container-registry-skus] are intended to align with a typical scenario: **Basic** for getting started, **Standard** for the majority of production applications, and **Premium** for hyper-scale performance and [geo-replication][container-registry-geo-replication]. Throughout the life of your registry, you should manage its size by periodically deleting unused content.
 
 Use the Azure CLI command [az acr show-usage][az-acr-show-usage] to display the current size of your registry:
 
-```console
-$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```azurecli
+az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+```
+
+```output
 NAME      LIMIT         CURRENT VALUE    UNIT
 --------  ------------  ---------------  ------
 Size      536870912000  185444288        Bytes
@@ -80,7 +81,7 @@ For details on deleting image data from your registry, including untagged (somet
 
 ## Next steps
 
-Azure Container Registry is available in several tiers, called SKUs, that each provide different capabilities. For details on the available SKUs, see [Azure Container Registry SKUs](container-registry-skus.md).
+Azure Container Registry is available in several tiers (also called SKUs) that each provide different capabilities. For details on the available service tiers, see [Azure Container Registry service tiers](container-registry-skus.md).
 
 <!-- IMAGES -->
 [delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png

@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Confluence SAML SSO by Microsoft | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Confluence SAML SSO by Microsoft.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 1ad1cf90-52bc-4b71-ab2b-9a5a1280fb2d
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Confluence SAML SSO by Microsoft
@@ -50,6 +43,9 @@ To configure Azure AD integration with Confluence SAML SSO by Microsoft, you nee
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment of Confluence. Test the integration first in development or staging environment of the application and then use the production environment.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 To get started, you need the following items:
 
 * Do not use your production environment, unless it is necessary.
@@ -62,7 +58,7 @@ As of now, following versions of Confluence are supported:
 
 - Confluence: 5.0 to 5.10
 - Confluence: 6.0.1 to 6.15.9
-- Confluence: 7.0.1 to 7.1.0
+- Confluence: 7.0.1 to 7.7.2
 
 > [!NOTE]
 > Please note that our Confluence Plugin also works on Ubuntu Version 16.04
@@ -161,11 +157,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Hover on cog and click the **Add-ons**.
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon1.png)
+	![Screenshot that shows the "Cog" icon selected, and "Add-ons" highlighted in the drop-down menu.](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. Download the plugin from [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=56503). Manually upload the plugin provided by Microsoft using **Upload add-on** menu. The download of plugin is covered under [Microsoft Service Agreement](https://www.microsoft.com/servicesagreement/).
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon12.png)
+	![Screenshot that shows the "Manage add-ons" page with the "Upload add-on" action selected.](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. For running the Confluence reverse proxy scenario or load balancer scenario perform the following steps:
 
@@ -176,19 +172,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	`scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+	![Screenshot that shows the "server.xml" file with the attribute added to the "connector" port.](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
 	b. Change **Base URL** in **System Settings** according to proxy/load balancer.
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+	![Screenshot that shows the "Administration - Settings" page with "Base URL" highlighted.](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon15.png)
+	![Screenshot that shows the "User Installed" section with the "Configure" button highlighted.](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Perform following steps on configuration page:
 
-	![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon54.png)
+	![Screenshot that shows the single sign-on configuration page.](./media/confluencemicrosoft-tutorial/addon54.png)
 
 	> [!TIP]
 	> Ensure that there is only one certificate mapped against the app so that there is no error in resolving the metadata. If there are multiple certificates, admin gets an error upon resolving the metadata.
@@ -239,7 +235,7 @@ To enable Azure AD users to sign in to Confluence on-premises server, they must 
 
 1. Under Users section, click **Add users** tab. On the **Add a User** dialog page, perform the following steps:
 
-	![Add Employee](./media/confluencemicrosoft-tutorial/user2.png)
+	![Screenshot that shows the "Confluence administration" with the "Add Users" tab selected and "Add a User" information entered.](./media/confluencemicrosoft-tutorial/user2.png)
 
 	a. In the **Username** textbox, type the email of user like B.Simon.
 

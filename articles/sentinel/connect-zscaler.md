@@ -3,7 +3,7 @@ title: Connect Zscaler data to Azure Sentinel| Microsoft Docs
 description: Learn how to connect Zscaler data to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -14,15 +14,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
+ms.author: yelevin
 
 ---
 # Connect Zscaler Internet Access to Azure Sentinel
-
-> [!IMPORTANT]
-> The Zscaler data connector in Azure Sentinel is currently in public preview.
-> This feature is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 This article explains how to connect your Zscaler Internet Access appliance to Azure Sentinel. The Zscaler data connector allows you to easily connect your Zscaler Internet Access (ZIA) logs with Azure Sentinel, to view dashboards, create custom alerts, and improve investigation. Using Zscaler on Azure Sentinel will provide you more insights into your organization’s Internet usage, and will enhance its security operation capabilities.​ 
 

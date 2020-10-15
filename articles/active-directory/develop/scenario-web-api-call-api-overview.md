@@ -2,15 +2,12 @@
 title: Build a web API that calls web APIs - Microsoft identity platform | Azure
 description: Learn how to build a web API that calls downstream web APIs (overview).
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
@@ -24,7 +21,7 @@ Learn what you need to know to build a web API that calls web APIs.
 
 ## Prerequisites
 
-This scenario, in which a protected web API calls web APIs, builds on top of the "Protect a web API" scenario. To learn more about this foundational scenario, see [Scenario: Protected web API](scenario-protected-web-api-overview.md).
+This scenario, in which a protected web API calls other web APIs, builds on [Scenario: Protected web API](scenario-protected-web-api-overview.md).
 
 ## Overview
 

@@ -1,5 +1,5 @@
 ---
-title: Security and data privacy
+title: Security overview
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search is compliant with SOC 2, HIPAA, and other certifications. Connection and data encryption, authentication, and identity access through user and group security identifiers in filter expressions.
 
@@ -8,58 +8,77 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/01/2020
+ms.custom: references_regions
 ---
 
-# Security and data privacy in Azure Cognitive Search
+# Security in Azure Cognitive Search - overview
 
-Comprehensive security features and access controls are built into Azure Cognitive Search to ensure private content remains that way. This article enumerates the security features and standards compliance built into Azure Cognitive Search.
+This article describes the key security features in Azure Cognitive Search that can protect content and operations.
 
-Azure Cognitive Search security architecture spans physical security, encrypted transmissions, encrypted storage, and platform-wide standards compliance. Operationally, Azure Cognitive Search only accepts authenticated requests. Optionally, you can add per-user access controls on content through security filters. This article touches on security at each layer, but is primarily focused on how data and operations are secured in Azure Cognitive Search.
++ At the storage layer, encryption-at-rest is built in for all service-managed content saved to disk, including indexes, synonym maps, and the definitions of indexers, data sources, and skillsets. Azure Cognitive Search also supports the addition of customer-managed keys (CMK) for supplemental encryption of indexed content. For services created after August 1 2020, CMK encryption extends to data on temporary disks, for full double encryption of indexed content.
 
-## Standards compliance: ISO 27001, SOC 2, HIPAA
++ Inbound security protects the search service endpoint at increasing levels of security: from API keys on the request, to inbound rules in the firewall, to private endpoints that fully shield your service from the public internet.
 
-Azure Cognitive Search is certified for the following standards, as [announced in June 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/):
++ Outbound security applies to indexers that pull content from external sources. For outbound requests, set up a managed identity to make search a trusted service when accessing data from Azure Storage, Azure SQL, Cosmos DB, or other Azure data sources. A managed identity is a substitute for credentials or access keys on the connection. Outbound security is not covered in this article. For more information about this capability, see [Connect to a data source using a managed identity](search-howto-managed-identities-data-sources.md).
 
-+ [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
-+ [SOC 2 Type 2 compliance](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) For the full report, go to [Azure - and Azure Government SOC 2 Type II Report](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
-+ [Health Insurance Portability and Accountability Act (HIPAA)](https://en.wikipedia.org/wiki/Health_Insurance_Portability_and_Accountability_Act)
-+ [GxP (21 CFR Part 11)](https://en.wikipedia.org/wiki/Title_21_CFR_Part_11)
-+ [HITRUST](https://en.wikipedia.org/wiki/HITRUST)
-+ [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
-+ [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
+Watch this fast-paced video for an overview of the security architecture and each feature category.
 
-Standards compliance applies to generally available features. Preview features are certified when they transition to general availability, and must not be used in solutions having strict standards requirements. Compliance certification is documented in [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) and the [Trust Center](https://www.microsoft.com/en-us/trustcenter). 
+> [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Azure-Cognitive-Search-Whats-new-in-security/player]
 
-## Encrypted transmission and storage
+<a name="encryption"></a>
 
-Encryption extends throughout the entire indexing pipeline: from connections, through transmission, and down to indexed data stored in Azure Cognitive Search.
+## Encrypted transmissions and storage
 
-| Security layer | Description |
-|----------------|-------------|
-| Encryption in transit <br>(HTTPS/SSL/TLS) | Azure Cognitive Search listens on HTTPS port 443. Across the platform, connections to Azure services are encrypted. <br/><br/>All client-to-service Azure Cognitive Search interactions are SSL/TLS 1.2 capable.  Be sure to use TLSv1.2 for SSL connections to your service.|
-| Encryption at rest <br>Microsoft managed keys | Encryption is fully internalized in the indexing process, with no measurable impact on indexing time-to-completion or index size. It occurs automatically on all indexing, including on incremental updates to an index that is not fully encrypted (created before January 2018).<br><br>Internally, encryption is based on [Azure Storage Service Encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard).<br><br> Encryption is internal to Azure Cognitive Search, with certificates and encryption keys managed internally by Microsoft, and universally applied. You cannot turn encryption on or off, manage or substitute your own keys, or view encryption settings in the portal or programmatically.<br><br>Encryption at rest was announced in January 24, 2018 and applies to all service tiers, including the free tier, in all regions. For full encryption, indexes created prior to that date must be dropped and rebuilt in order for encryption to occur. Otherwise, only new data added after January 24 is encrypted.|
-| Encryption at rest <br>Customer managed keys | Encryption with customer managed keys is now generally available for search services created on or after January 2019. It is not supported on Free (shared) services.<br><br>Azure Cognitive Search indexes and synonym maps can now be encrypted at rest with customer keys managed keys in Azure Key Vault. To learn more, see [Manage encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).<br><br>This feature is not replacing the default encryption at rest, but rather applied in addition to it.<br><br>Enabling this feature will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it.
+In Azure Cognitive Search, encryption starts with connections and transmissions, and extends to content stored on disk. For search services on the public internet, Azure Cognitive Search listens on HTTPS port 443. All client-to-service connections use TLS 1.2 encryption. Earlier versions (1.0 or 1.1) are not supported.
 
-## Azure-wide user access controls
+:::image type="content" source="media/search-security-overview/encryption-at-rest-cmk.png" alt-text="diagram depicting different types of security at each level of service engagement":::
 
-Several security mechanisms are available Azure-wide, and thus automatically available to the Azure Cognitive Search resources you create.
+For data handled internally by the search service, the following table describes the [data encryption models](../security/fundamentals/encryption-models.md). Some features, such as knowledge store, incremental enrichment, and indexer-based indexing, read from or write to data structures in other Azure Services. Those services have their own levels of encryption support separate from Azure Cognitive Search.
 
-+ [Locks at the subscription or resource level to prevent deletion](../azure-resource-manager/management/lock-resources.md)
-+ [Role-based Access Control (RBAC) to control access to information and administrative operations](../role-based-access-control/overview.md)
+| Model | Keys&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Requirements&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Restrictions | Applies to |
+|------------------|-------|-------------|--------------|------------|
+| server-side encryption | Microsoft-managed keys | None (built-in) | None, available on all tiers, in all regions, for content created after January 24 2018. | Content (indexes and synonym maps) and definitions (indexers, data sources, skillsets) |
+| server-side encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in all regions, for content created after January 2019. | Content (indexes and synonym maps) on data disks |
+| server-side double encryption | customer-managed keys | Azure Key Vault | Available on billable tiers, in selected regions, on search services after August 1 2020. | Content (indexes and synonym maps) on data disks and temporary disks |
 
-All Azure services support role-based access controls (RBAC) for setting levels of access consistently across all services. For example, viewing sensitive data, such as the admin key, is restricted to the Owner and Contributor roles, whereas viewing service status is available to members of any role. RBAC provides Owner, Contributor, and Reader roles. By default, all service administrators are members of the Owner role.
+### Service-managed keys
+
+Service-managed encryption is a Microsoft-internal operation, based on [Azure Storage Service Encryption](../storage/common/storage-service-encryption.md), using 256-bit [AES encryption](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard). It occurs automatically on all indexing, including on incremental updates to indexes that are not fully encrypted (created before January 2018).
+
+### Customer-managed keys (CMK)
+
+Customer-managed keys require an additional billable service, Azure Key Vault, which can be in a different region, but under the same subscription, as Azure Cognitive Search. Enabling CMK encryption will increase index size and degrade query performance. Based on observations to date, you can expect to see an increase of 30%-60% in query times, although actual performance will vary depending on the index definition and types of queries. Because of this performance impact, we recommend that you only enable this feature on indexes that really require it. For more information, see [Configure customer-managed encryption keys in Azure Cognitive Search](search-security-manage-encryption-keys.md).
+
+<a name="double-encryption"></a>
+
+### Double encryption
+
+In Azure Cognitive Search, double encryption is an extension of CMK. It is understood to be two-fold encryption (once by CMK, and again by service-managed keys), and comprehensive in scope, encompassing long term storage that is written to a data disk, and short term  storage written to temporary disks. The difference between CMK before August 1 2020 and after, and what makes CMK a double encryption feature in Azure Cognitive Search, is the additional encryption of data-at-rest on temporary disks.
+
+Double encryption is currently available on new services that are created in these regions after August 1:
+
++ West US 2
++ East US
++ South Central US
++ US Gov Virginia
++ US Gov Arizona
 
 <a name="service-access-and-authentication"></a>
 
-## Service access and authentication
+## Inbound security and endpoint protection
 
-While Azure Cognitive Search inherits the security safeguards of the Azure platform, it also provides its own key-based authentication. An api-key is a string composed of randomly generated numbers and letters. The type of key (admin or query) determines the level of access. Submission of a valid key is considered proof the request originates from a trusted entity. 
+Inbound security features protect the search service endpoint through increasing levels of security and complexity. First, all requests require an API key for authenticated access. Second, you can optionally set firewall rules that limit access to specific IP addresses. For advanced protection, a third option is to enable Azure Private Link to shield your service endpoint from all internet traffic.
 
-There are two levels of access to your search service, enabled by two types of keys:
+### Public access using API keys
 
-* Admin access (valid for any read-write operation against the service)
-* Query access (valid for read-only operations, such as queries, against the documents collection of an index)
+By default, a search service is accessed through the public cloud, using key-based authentication for admin or query access to the search service endpoint. An api-key is a string composed of randomly generated numbers and letters. The type of key (admin or query) determines the level of access. Submission of a valid key is considered proof the request originates from a trusted entity.
+
+There are two levels of access to your search service, enabled by the following API keys:
+
++ Admin key (allows read-write access for [create-read-update-delete](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) operations on the search service)
+
++ Query key (allows read-only access to the documents collection of an index)
 
 *Admin keys* are created when the service is provisioned. There are two admin keys, designated as *primary* and *secondary* to keep them straight, but in fact they are interchangeable. Each service has two admin keys so that you can roll one over without losing access to your service. You can [regenerate admin key](search-security-api-keys.md#regenerate-admin-keys) periodically per Azure security best practices, but you cannot add to the total admin key count. There are a maximum of two admin keys per search service.
 
@@ -67,9 +86,29 @@ There are two levels of access to your search service, enabled by two types of k
 
 Authentication is required on each request, where each request is composed of a mandatory key, an operation, and an object. When chained together, the two permission levels (full or read-only) plus the context (for example, a query operation on an index) are sufficient for providing full-spectrum security on service operations. For more information about keys, see [Create and manage api-keys](search-security-api-keys.md).
 
+### IP-restricted access
+
+To further control access to your search service, you can create inbound firewall rules that allow access to specific IP address or a range of IP addresses. All client connections must be made through an allowed IP address, or the connection is denied.
+
+:::image type="content" source="media/search-security-overview/inbound-firewall-ip-restrictions.png" alt-text="sample architecture diagram for ip restricted access":::
+
+You can use the portal to [configure inbound access](service-configure-firewall.md).
+
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
+
+### Private endpoint (no Internet traffic)
+
+A [Private Endpoint](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allows a client on a [virtual network](../virtual-network/virtual-networks-overview.md) to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md).
+
+The private endpoint uses an IP address from the virtual network address space for connections to your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. A VNET allows for secure communication among resources, with your on-premises network as well as the Internet.
+
+:::image type="content" source="media/search-security-overview/inbound-private-link-azure-cog-search.png" alt-text="sample architecture diagram for private endpoint access":::
+
+While this solution is the most secure, using additional services is an added cost so be sure you have a clear understanding of the benefits before diving in. or more information about costs, see the [pricing page](https://azure.microsoft.com/pricing/details/private-link/). For more information about how these components work together, watch the video at the top of this article. Coverage of the private endpoint option starts at 5:48 into the video. For instructions on how to set up the endpoint, see [Create a Private Endpoint for Azure Cognitive Search](service-create-private-endpoint.md).
+
 ## Index access
 
-In Azure Cognitive Search, an individual index is not a securable object. Instead, access to an index is determined at the service layer (read or write access), along with the context of an operation.
+In Azure Cognitive Search, an individual index is not a securable object. Instead, access to an index is determined at the service layer (read or write access to the service), along with the context of an operation.
 
 For end-user access, you can structure query requests to connect using a query key, which makes any request read-only, and include the specific index used by your app. In a query request, there is no concept of joining indexes or accessing multiple indexes simultaneously so all requests target a single index by definition. As such, construction of the query request itself (a key plus a single target index) defines the security boundary.
 
@@ -77,47 +116,38 @@ Administrator and developer access to indexes is undifferentiated: both need wri
 
 For multitenancy solutions requiring security boundaries at the index level, such solutions typically include a middle tier, which customers use to handle index isolation. For more information about the multitenant use case, see [Design patterns for multitenant SaaS applications and Azure Cognitive Search](search-modeling-multitenant-saas-applications.md).
 
-## Admin access
-
-[Role-based access (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) determines whether you have access to controls over the service and its content. If you are an Owner or Contributor on an Azure Cognitive Search service, you can use the portal or the PowerShell **Az.Search** module to create, update, or delete objects on the service. You can also use the [Azure Cognitive Search Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api).
-
 ## User access
 
-By default, user access to an index is determined by the access key on the query request. Most developers create and assign [*query keys*](search-security-api-keys.md) for client-side search requests. A query key grants read access to all content within the index.
+How a user accesses an index and other objects is determined by the type of API key on the request. Most developers create and assign [*query keys*](search-security-api-keys.md) for client-side search requests. A query key grants read-only access to searchable content within the index.
 
-If you require granular, per-user control over content, you can build security filters on your queries, returning documents associated with a given security identity. Instead of predefined roles and role assignments, identity-based access control is implemented as a *filter* that trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
+If you require granular, per-user control over search results, you can build security filters on your queries, returning documents associated with a given security identity. Instead of predefined roles and role assignments, identity-based access control is implemented as a *filter* that trims search results of documents and content based on identities. The following table describes two approaches for trimming search results of unauthorized content.
 
 | Approach | Description |
 |----------|-------------|
 |[Security trimming based on identity filters](search-security-trimming-for-azure-search.md)  | Documents the basic workflow for implementing user identity access control. It covers adding security identifiers to an index, and then explains filtering against that field to trim results of prohibited content. |
-|[Security trimming based on Azure Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (AAD), one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
+|[Security trimming based on Azure Active Directory identities](search-security-trimming-for-azure-search-with-aad.md)  | This article expands on the previous article, providing steps for retrieving identities from Azure Active Directory (Azure AD), one of the [free services](https://azure.microsoft.com/free/) in the Azure cloud platform. |
 
-## Table: Permissioned operations
+## Administrative rights
 
-The following table summarizes the operations allowed in Azure Cognitive Search and which key unlocks access a particular operation.
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) is an authorization system built on [Azure Resource Manager](../azure-resource-manager/management/overview.md) for provisioning of Azure resources. In Azure Cognitive Search, Resource Manager is used to create or delete the service, manage API keys, and scale the service. As such, Azure role assignments will determine who can perform those tasks, regardless of whether they are using the [portal](search-manage.md), [PowerShell](search-manage-powershell.md), or the [Management REST APIs](/rest/api/searchmanagement/search-howto-management-rest-api).
 
-| Operation | Permissions |
-|-----------|-------------------------|
-| Create a service | Azure subscription holder|
-| Scale a service | Admin key, RBAC Owner or Contributor on the resource  |
-| Delete a service | Admin key, RBAC Owner or Contributor on the resource |
-| Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters. | Admin key, RBAC Owner or Contributor on the resource  |
-| Query an index | Admin or query key (RBAC not applicable) |
-| Query system information, such as returning statistics, counts, and lists of objects. | Admin key, RBAC on the resource (Owner, Contributor, Reader) |
-| Manage admin keys | Admin key, RBAC Owner or Contributor on the resource. |
-| Manage query keys |  Admin key, RBAC Owner or Contributor on the resource.  |
+In contrast, admin rights over content hosted on the service, such as the ability to create or delete an index, is conferred through API keys as described in the [previous section](#index-access).
 
-## Physical security
+> [!TIP]
+> Using Azure-wide mechanisms, you can lock a subscription or resource to prevent accidental or unauthorized deletion of your search service by users with admin rights. For more information, see [Lock resources to prevent unexpected deletion](../azure-resource-manager/management/lock-resources.md).
 
-Microsoft data centers provide industry-leading physical security and are compliant with an extensive portfolio of standards and regulations. To learn more, go to the [Global data centers](https://www.microsoft.com/cloud-platform/global-datacenters) page or watch a short video on data center security.
+## Certifications and compliance
 
-> [!VIDEO https://www.youtube.com/embed/r1cyTL8JqRg]
+Azure Cognitive Search has been certified compliant for multiple global, regional, and industry-specific standards for both the public cloud and Azure Government. For the complete list, download the [**Microsoft Azure Compliance Offerings** whitepaper](https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/) from the official Audit reports page.
 
+For compliance, you can use [Azure Policy](../governance/policy/overview.md) to implement the high-security best practices of [Azure Security Benchmark](../security/benchmarks/introduction.md). Azure Security Benchmark is a collection of security recommendations, codified into security controls that map to key actions you should take to mitigate threats to services and data. There are currently 11 security controls, including [Network Security](../security/benchmarks/security-control-network-security.md), [Logging and Monitoring](../security/benchmarks/security-control-logging-monitoring.md), and [Data Protection](../security/benchmarks/security-control-data-protection.md) to name a few.
+
+Azure Policy is a capability built into Azure that helps you manage compliance for multiple standards, including those of Azure Security Benchmark. For well-known benchmarks, Azure Policy provides built-in definitions that provide both criteria as well as an actionable response that addresses non-compliance.
+
+For Azure Cognitive Search, there is currently one built-in definition. It is for diagnostic logging. With this built-in, you can assign a policy that identifies any search service that is missing diagnostic logging, and then turns it on. For more information, see [Azure Policy Regulatory Compliance controls for Azure Cognitive Search](security-controls-policy.md).
 
 ## See also
 
-+ [Get started .NET (demonstrates using an admin key to create an index)](search-create-index-dotnet.md)
-+ [Get started REST (demonstrates using an admin key to create an index)](search-create-index-rest-api.md)
-+ [Identity-based access control using Azure Cognitive Search filters](search-security-trimming-for-azure-search.md)
-+ [Active Directory identity-based access control using Azure Cognitive Search filters](search-security-trimming-for-azure-search-with-aad.md)
-+ [Filters in Azure Cognitive Search](search-filters.md)
++ [Azure security fundamentals](../security/fundamentals/index.yml)
++ [Azure Security](https://azure.microsoft.com/overview/security)
++ [Azure Security Center](../security-center/index.yml)

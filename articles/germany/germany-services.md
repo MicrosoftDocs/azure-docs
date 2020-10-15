@@ -83,7 +83,7 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | Service | Resource Manager | Portal |
 | --- | --- | --- |
 | [SQL Database](./germany-services-database.md#sql-database) | Yes | Yes |
-| SQL Data Warehouse | Yes | Yes |
+| Azure Synapse Analytics | Yes | Yes |
 | SQL Server Stretch Database | Yes | Yes |
 | [Azure Cache for Redis](./germany-services-database.md#azure-cache-for-redis) | Yes | Yes |
 | Azure Cosmos DB | Yes | Yes |
@@ -135,7 +135,6 @@ In the following tables, services specified as Azure Resource Manager enabled ha
 | Backup | Yes | Yes |
 | Azure Monitor logs | No | No |
 | Site Recovery | Yes | Yes |
-| Scheduler | Yes | Yes |
 
 
 

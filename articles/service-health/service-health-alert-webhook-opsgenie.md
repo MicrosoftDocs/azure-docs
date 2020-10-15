@@ -1,8 +1,7 @@
 ---
 title: Send Azure service health alerts with OpsGenie using webhooks
 description: Get personalized notifications about service health events to your OpsGenie instance.
-ms.service: service-health
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/10/2019
 ---
    
@@ -33,7 +32,7 @@ This article shows you how to set up Azure service health alerts with OpsGenie u
 
 ## Create an alert using OpsGenie in the Azure portal
 ### For a new action group:
-1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Follow steps 1 through 8 in [Create an alert on a service health notification for a new action group by using the Azure portal](./alerts-activity-log-service-notifications-portal.md).
 
 1. Define in the list of **Actions**:
 
@@ -81,5 +80,5 @@ This article shows you how to set up Azure service health alerts with OpsGenie u
 ## Next steps
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).
 - Review the [activity log alert webhook schema](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Learn about [service health notifications](../azure-monitor/platform/service-notifications.md).
+- Learn about [service health notifications](./service-notifications.md).
 - Learn more about [action groups](../azure-monitor/platform/action-groups.md).

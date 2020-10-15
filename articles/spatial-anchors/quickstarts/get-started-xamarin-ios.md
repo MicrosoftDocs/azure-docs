@@ -51,6 +51,8 @@ Locate the `SpatialAnchorsAccountKey` field and replace `Set me` with the accoun
 
 Locate the `SpatialAnchorsAccountId` field and replace `Set me` with the account identifier.
 
+Locate the `SpatialAnchorsAccountDomain` field and replace `Set me` with the account domain.
+
 ## Deploy the app to your iOS device
 
 Power on the iOS device, sign in, and connect it to the computer using a USB cable.

@@ -4,12 +4,13 @@ description: Learn how to create export jobs in Azure portal to transfer data fr
 author: alkohli
 services: storage
 ms.service: storage
-ms.topic: article
-ms.date: 04/08/2019
+ms.topic: how-to
+ms.date: 09/17/2020
 ms.author: alkohli
 ms.subservice: common
 ---
 # Use the Azure Import/Export service to export data from Azure Blob storage
+
 This article provides step-by-step instructions on how to use the Azure Import/Export service to securely export large amounts of data from Azure Blob storage. The service requires you to ship empty drives to the Azure datacenter. The service exports data from your storage account to the drives and then ships the drives back.
 
 ## Prerequisites
@@ -21,18 +22,18 @@ You must:
 - Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-account-create.md).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks).
 - Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
-    - The account must be valid, should have balance, and must have return shipping capabilities.
-    - Generate a tracking number for the export job.
-    - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
-    - If you do not have a carrier account, go to:
-        - [Create a FedEX account](https://www.fedex.com/en-us/create-account.html), or
-        - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+  - The account must be valid, should have balance, and must have return shipping capabilities.
+  - Generate a tracking number for the export job.
+  - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
+  - If you do not have a carrier account, go to:
+    - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
+    - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
 
 ## Step 1: Create an export job
 
 Perform the following steps to create an export job in the Azure portal.
 
-1. Log on to https://portal.azure.com/.
+1. Log on to <https://portal.azure.com/>.
 2. Go to **All services > Storage > Import/export jobs**.
 
     ![Go to Import/export jobs](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
@@ -52,7 +53,7 @@ Perform the following steps to create an export job in the Azure portal.
 
         ![Basics](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
 
-3. In **Job details**:
+5. In **Job details**:
 
     - Select the storage account where the data to be exported resides. Use a storage account close to where you are located.
     - The dropoff location is automatically populated based on the region of the storage account selected.
@@ -74,17 +75,16 @@ Perform the following steps to create an export job in the Azure portal.
    > [!NOTE]
    > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
 
-
-4. In **Return shipping info**:
+6. In **Return shipping info**:
 
     - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
     - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your export job is complete.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
+    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province, and country/region.
 
         > [!TIP]
         > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-5. In **Summary**:
+7. In **Summary**:
 
     - Review the details of the job.
     - Make a note of the job name and provided Azure datacenter shipping address for shipping disks to Azure.
@@ -93,6 +93,8 @@ Perform the following steps to create an export job in the Azure portal.
         > Always send the disks to the datacenter noted in the Azure portal. If the disks are shipped to the wrong datacenter, the job will not be processed.
 
     - Click **OK** to complete export job creation.
+
+<!--## (Optional) Step 2: -->
 
 ## Step 2: Ship the drives
 
@@ -104,19 +106,30 @@ If you do not know the number of drives you need, go to the [Check the number of
 
 [!INCLUDE [storage-import-export-update-job-tracking](../../../includes/storage-import-export-update-job-tracking.md)]
 
-
 ## Step 4: Receive the disks
+
 When the dashboard reports the job is complete, the disks are shipped to you and the tracking number for the shipment is available on the portal.
 
 1. After you receive the drives with exported data, you need to get the BitLocker keys to unlock the drives. Go to the export job in the Azure portal. Click **Import/Export** tab.
-2. Select and click your export job from the list. Go to **BitLocker keys** and copy the keys.
+2. Select and click your export job from the list. Go to **Encryption** and copy the keys.
 
-   ![View BitLocker keys for export job](./media/storage-import-export-service/export-job-bitlocker-keys.png)
+   ![View BitLocker keys for export job](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)
 
 3. Use the BitLocker keys to unlock the disks.
 
-The export is complete. At this time, you can delete the job or it automatically gets deleted after 90 days.
+The export is complete.
 
+## Step 5: Unlock the disks
+
+Use the following command to unlock the drive:
+
+   `WAImportExport Unlock /bk:<BitLocker key (base 64 string) copied from Encryption blade in Azure portal> /driveLetter:<Drive letter>`  
+
+Here is an example of the sample input.
+
+   `WAImportExport.exe Unlock /bk:CAAcwBoAG8AdQBsAGQAIABiAGUAIABoAGkAZABkAGUAbgA= /driveLetter:e`
+
+At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
 
 ## Check the number of drives
 
@@ -126,11 +139,11 @@ This *optional* step helps you determines the number of drives required for the 
 2. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
 3. Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
 
-    `cd C:\WaImportExportV1`
+   `cd C:\WaImportExportV1`
 
 4. To check the number of disks required for the selected blobs, run the following command:
 
-    `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
+   `WAImportExport.exe PreviewExport /sn:<Storage account name> /sk:<Storage account key> /ExportBlobListFile:<Path to XML blob list file> /DriveSize:<Size of drives used>`
 
     The parameters are described in the following table:
 
@@ -151,8 +164,8 @@ This *optional* step helps you determines the number of drives required for the 
 
 The following example demonstrates the `PreviewExport` command:  
 
-```  
-WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
+```powershell
+    WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB
 ```  
 
 The export blob list file may contain blob names and blob prefixes, as shown here:  
@@ -170,7 +183,7 @@ The Azure Import/Export Tool lists all blobs to be exported and calculates how t
 
 Here is an example of the output, with informational logs omitted:  
 
-```  
+```powershell
 Number of unique blob paths/prefixes:   3  
 Number of duplicate blob paths/prefixes:        0  
 Number of nonexistent blob paths/prefixes:      1  
@@ -181,7 +194,7 @@ Number of blobs that cannot be exported:        2
 Number of drives needed:        3  
         Drive #1:       blobs = 1, occupied space = 454.74 GB  
         Drive #2:       blobs = 3, occupied space = 441.37 GB  
-        Drive #3:       blobs = 2, occupied space = 131.28 GB    
+        Drive #3:       blobs = 2, occupied space = 131.28 GB
 ```
 
 ## Examples of valid blob paths
@@ -200,5 +213,5 @@ The following table shows examples of valid blob paths:
 
 ## Next steps
 
-* [View the job and drive status](storage-import-export-view-drive-status.md)
-* [Review Import/Export requirements](storage-import-export-requirements.md)
+- [View the job and drive status](storage-import-export-view-drive-status.md)
+- [Review Import/Export requirements](storage-import-export-requirements.md)

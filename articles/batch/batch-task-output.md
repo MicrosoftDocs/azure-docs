@@ -1,20 +1,9 @@
 ---
-title: Persist results or logs from completed jobs and tasks to a data store - Azure Batch | Microsoft Docs
+title: Persist job and task output to a data store
 description: Learn about different options for persisting output data from Batch tasks and jobs. You can persist data to Azure Storage, or to another data store.
-services: batch
-author: ju-shim
-manager: gwallace
-editor: ''
-
-ms.assetid: 16e12d0e-958c-46c2-a6b8-7843835d830e
-ms.service: batch
-ms.topic: article
-ms.tgt_pltfrm: 
-ms.workload: big-compute
+ms.topic: how-to
 ms.date: 11/14/2018
-ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Persist job and task output
@@ -41,7 +30,7 @@ The following sections briefly describe each approach as well as general design 
 
 ### Use the Batch service API
 
-The Batch service supports specifying output files in Azure Storage for task data when you [add a task to a job](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) or [add a collection of tasks to a job](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
+The Batch service supports specifying output files in Azure Storage for task data when you [add a task to a job](/rest/api/batchservice/add-a-task-to-a-job) or [add a collection of tasks to a job](/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
 For more information on persisting task output with the Batch service API, see [Persist task data to Azure Storage with the Batch service API](batch-task-output-files.md).
 

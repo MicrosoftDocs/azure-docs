@@ -54,25 +54,24 @@ Searches in AD starting from the SearchBase parameter and returns all objects, f
 ### EXAMPLES
 
 #### EXAMPLE 1
-```
 Find objects with disabled inheritance in 'Contoso' domain (by default returns 'organizationalUnit' objects only)
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso'
+```
 
 #### EXAMPLE 2
-```
 Find 'user' objects with disabled inheritance in 'Contoso' domain
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase 'Contoso' -ObjectClass 'user'
+```
 
 #### EXAMPLE 3
-```
 Find all types of objects with disabled inheritance in a OU
 ```
-
 Get-ADSyncObjectsWithInheritanceDisabled -SearchBase OU=AzureAD,DC=Contoso,DC=com -ObjectClass '*'
+```
+
+
 
 ### PARAMETERS
 
@@ -1080,29 +1079,20 @@ Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <
 The Set-ADSyncRestrictedPermissions Function will tighten permissions oo the 
 account provided.
 Tightening permissions involves the following steps:
-1.
-Disable inheritance on the specified object
-2.
-Remove all ACEs on the specific object, except ACEs specific to SELF.
+1. Disable inheritance on the specified object
+2. Remove all ACEs on the specific object, except ACEs specific to SELF.
 We want to keep
    the default permissions intact when it comes to SELF.
-3.
-Assign these specific permissions:
+3. Assign these specific permissions:
 
-        Type	Name										Access				Applies To
-        =============================================================================================
-        Allow	SYSTEM										Full Control		This object
-        Allow	Enterprise Admins							Full Control		This object
-        Allow	Domain Admins								Full Control		This object
-        Allow	Administrators								Full Control		This object
-
-        Allow	Enterprise Domain Controllers				List Contents
-                                                            Read All Properties
-                                                            Read Permissions	This object
-
-        Allow	Authenticated Users							List Contents
-                                                            Read All Properties
-                                                            Read Permissions	This object
+   | Type | Name | Access | Applies To |
+   |------|------|--------|------------|
+   | Allow | SYSTEM | Full Control | This object |
+   | Allow | Enterprise Admins | Full Control | This object |
+   | Allow | Domain Admins | Full Control | This object | 
+   | Allow | Administrators | Full Control | This object |
+   | Allow | Enterprise Domain Controllers | List Contents <br> Read All Properties <br> Read Permissions | This object |
+   | Allow | Authenticated Users | List Contents <br> Read All Properties <br> Read Permissions | This object |
 
 ### EXAMPLES
 

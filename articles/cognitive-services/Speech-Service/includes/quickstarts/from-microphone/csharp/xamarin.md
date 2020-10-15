@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 04/02/2020
 ms.author: erhopf
+ms.custom: devx-track-csharp
 ---
 
 ## Prerequisites
@@ -17,9 +18,8 @@ ms.author: erhopf
 Before you get started:
 
 > [!div class="checklist"]
-> * [Create an Azure Speech Resource](../../../../get-started.md)
-> * [Setup your development environment](../../../../quickstarts/setup-platform.md?tabs=xamarin)
-> * [Create an empty sample project](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * [Create an Azure Speech Resource](../../../../overview.md#try-the-speech-service-for-free)
+> * [Setup your development environment and create an empty project](../../../../quickstarts/setup-platform.md?tabs=xamarin&pivots=programming-language-csharp)
 > * Make sure that you have access to a microphone for audio capture
 
 If you've already done this, great. Let's keep going.
@@ -43,7 +43,7 @@ The common helloworld project contains platform-independent implementations for 
 1. In the source file's `OnRecognitionButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
 
-1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](~/articles/cognitive-services/Speech-Service/regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
+1. In the `OnRecognitionButtonClicked` handler, find the string `YourServiceregion`, and replace it with the **Region identifier** from [region](https://aka.ms/speech/sdkregion) associated with your subscription. 
 
 1. Next, you need to create a [Xamarin Service](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/), which is used to query microphone permissions from different platform projects, such as UWP, Android, and iOS. To do that, add a new folder named *Services* under the helloworld project, and create a new C# source file under it. You can right-click the *Services* folder, and select **Add** > **New Item** > **Code File**. Rename the file `IMicrophoneService.cs`, and place all code from the following snippet in that file:
 
@@ -142,4 +142,4 @@ Building and running Android and iOS applications in the device or simulator hap
 
 ## Next steps
 
-[!INCLUDE [footer](./footer.md)]
+[!INCLUDE [Speech recognition basics](../../speech-to-text-next-steps.md)]

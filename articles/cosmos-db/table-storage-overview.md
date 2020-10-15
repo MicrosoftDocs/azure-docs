@@ -1,13 +1,13 @@
 ---
 title: Overview of Azure Table storage
-description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
+description: Learn how to use Azure Table storage to store flexible datasets like user data for web applications, address books, device information, or other types of metadata.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 05/20/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
 
 ---

@@ -4,26 +4,28 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: overview.md
+  - name: What's new?
+    href: whats-new.md
+  - name: Windows Virtual Desktop (classic) documentation
+    href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutorials
   items:
-  - name: 1. Create a tenant in Windows Virtual Desktop
-    href: tenant-setup-azure-active-directory.md
-  - name: 2. Create service principals and role assignments by using PowerShell
-    href: create-service-principal-role-powershell.md
-  - name: 3. Create a host pool by using the Azure Marketplace
+  - name: 1. Create a host pool with the Azure portal
     href: create-host-pools-azure-marketplace.md
-  - name: 4. Manage app groups
+  - name: 2. Manage app groups
     href: manage-app-groups.md
-  - name: 5. Create a host pool to validate service updates
+  - name: 3. Create a host pool to validate service updates
     href: create-validation-host-pool.md
-  - name: 6. Set up service alerts
+  - name: 4. Set up service alerts
     href: set-up-service-alerts.md
 - name: How-to
   items:
+  - name: Migrate manually
+    href: manual-migration.md
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
-        href: connect-windows-7-and-10.md
+        href: connect-windows-7-10.md
       - name: Connect with the web client
         href: connect-web.md
       - name: Connect with the Android client
@@ -32,22 +34,38 @@
         href: connect-macos.md
       - name: Connect with the iOS client
         href: connect-ios.md
+      - name: Connect with the Microsoft Store client
+        href: connect-microsoft-store.md
+      - name: Connect with Linux devices
+        href: linux-overview.md
+  - name: Configure device redirections
+    href: configure-device-redirections.md
+  - name: Set up the PowerShell module
+    href: powershell-module.md
   - name: Create a host pool and session hosts
     items:
-      - name: Azure Resource Manager template
-        href: create-host-pools-arm-template.md
       - name: PowerShell
         href: create-host-pools-powershell.md
       - name: Deploy a Windows 7 virtual machine
         href: deploy-windows-7-virtual-machine.md
       - name: Deploy a GPU-based session host
         href: configure-vm-gpu.md
+      - name: Expand an existing host pool
+        href: expand-existing-host-pool.md
+      - name: Manage app groups with PowerShell
+        href: manage-app-groups-powershell.md
+  - name: Delete a host pool
+    href: delete-host-pool.md
   - name: Create a profile container
-    items: 
+    items:
       - name: Use a VM-based file share
         href: create-host-pools-user-profile.md
       - name: Use Azure NetApp Files
         href: create-fslogix-profile-container.md
+      - name: Use Azure Files and Azure AD DS
+        href: create-profile-container-adds.md
+      - name: Use Azure Files and AD DS
+        href: create-file-share.md
   - name: Configure host pool settings
     items:
       - name: RDP properties
@@ -64,28 +82,38 @@
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
         href: install-office-on-wvd-master-image.md
-  - name: Scale session hosts dynamically
+  - name: Scale session hosts automatically
     href: set-up-scaling-script.md
   - name: Customize feed
     href: customize-feed-for-virtual-desktop-users.md
-  - name: Deploy the management tool
-    items:
-      - name: Azure Resource Manager template
-        href: manage-resources-using-ui.md
-      - name: PowerShell
-        href: manage-resources-using-ui-powershell.md
   - name: Use service diagnostics
     items:
-        - name: Deploy the diagnostics tool
-          href: deploy-diagnostics.md
         - name: Use diagnostics with Log Analytics
           href: diagnostics-log-analytics.md
   - name: Publish built-in apps
     href: publish-apps.md
   - name: Set up MSIX app attach
     href: app-attach.md
+  - name: Use Microsoft Teams
+    href: teams-on-wvd.md
+  - name: Set up Azure Multi-Factor Authentication
+    href: set-up-mfa.md
+  - name: Configure automatic updates
+    href: configure-automatic-updates.md
+  - name: Install language packs
+    href: language-packs.md
+  - name: Use Azure Advisor
+    href: azure-advisor.md
+  - name: Resolve recommendations
+    href: azure-advisor-recommendations.md
+  - name: Set up a disaster recovery plan
+    href: disaster-recovery.md
 - name: Concepts
   items:
+  - name: Authentication
+    href: authentication.md
+  - name: Safe URL list
+    href: safe-url-list.md
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
   - name: Determine user connection latency
@@ -100,8 +128,18 @@
     href: store-fslogix-profile.md
   - name: Partner integrations
     href: partners.md
+  - name: Windows Virtual Desktop FAQ
+    href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
+  - name: MSIX app attach
+    items:
+      - name: What is MSIX app attach?
+        href: what-is-app-attach.md
+      - name: Glossary
+        href: app-attach-glossary.md
+      - name: FAQ
+        href: app-attach-faq.md
   - name: Data locations
     href: data-locations.md
 - name: Troubleshoot
@@ -110,14 +148,10 @@
     href: troubleshoot-set-up-overview.md
   - name: Identify and diagnose issues
     href: diagnostics-role-service.md
-  - name: Tenant and host pool creation
+  - name: Host pool creation
     href: troubleshoot-set-up-issues.md
   - name: Session host virtual machine configuration
     href: troubleshoot-vm-configuration.md
-  - name: Troubleshoot Windows 7 virtual machines in Windows Virtual Desktop
-    href: troubleshoot-windows-7-vm.md
-  - name: Troubleshoot the Windows Virtual Desktop management tool
-    href: troubleshoot-management-tool.md
   - name: Remote Desktop service connections
     href: troubleshoot-service-connection.md
   - name: Remote Desktop client issues
@@ -128,27 +162,41 @@
     href: remotefx-graphics-performance-counters.md
 - name: Reference
   items:
-  - name: PowerShell
-    href: /powershell/windows-virtual-desktop/overview
-  - name: REST API
-    href: /rest/api/virtual-desktop/
+  - name: Security best practices
+    href: security-guide.md
+  - name: Linux support
+    href: linux-overview.md
   - name: Supported RDP file settings
-    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
+    href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Network guidance
-    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
+    href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance
-    href: https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+    href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+  - name: Azure command-line interface (CLI)
+    href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+  - name: Azure example scenarios
+    href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+  - name: Email discovery
+    href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Resources
   items:
+  - name: PowerShell
+    href: /powershell/module/az.desktopvirtualization/?view=azps-4.2.0#desktopvirtualization
+  - name: REST API reference
+    href: /rest/api/desktopvirtualization/
   - name: Experience estimator
     href: https://azure.microsoft.com/services/virtual-desktop/assessment/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Learning path
-    href: https://docs.microsoft.com/learn/paths/m365-wvd/
+    href: /learn/paths/m365-wvd/
+  - name: How-to videos
+    href: https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop
   - name: Tech Community support group
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
   - name: UserVoice forum
     href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general
   - name: Microsoft 365 roadmap
     href: https://aka.ms/wvdroadmap
+  - name: Azure Resource Manager templates
+    href: https://github.com/Azure/RDS-Templates/tree/master/wvd-templates

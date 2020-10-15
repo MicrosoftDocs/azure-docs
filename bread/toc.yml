@@ -27,6 +27,9 @@
       - name: Develop
         tocHref: /azure/active-directory/develop/
         topicHref: /azure/active-directory/develop/
+      - name: Azure AD for developers
+        tocHref: /azure/active-directory/azuread-dev/
+        topicHref: /azure/active-directory/azuread-dev/
       - name: Privileged Identity Management
         tocHref: /azure/active-directory/privileged-identity-management/
         topicHref: /azure/active-directory/privileged-identity-management/
@@ -51,6 +54,9 @@
       - name: Identity Governance
         tocHref: /azure/active-directory/governance/
         topicHref: /azure/active-directory/governance/
+      - name: Application provisioning
+        tocHref: /azure/active-directory/app-provisioning/
+        topicHref: /azure/active-directory/app-provisioning/
       - name: Application management
         tocHref: /azure/active-directory/manage-apps/
         topicHref: /azure/active-directory/manage-apps/
@@ -96,15 +102,37 @@
     - name: Mobile Apps
       tocHref: /azure/app-service-mobile/
       topicHref: /azure/app-service-mobile/
+  - name: Azure Automanage
+    tocHref: https://azure.microsoft.com/services/azure-automanage/
+    topicHref: https://azure.microsoft.com/services/azure-automanage/
+  - name: Static Web Apps
+    tocHref: /azure/static-web-apps/
+    topicHref: /azure/static-web-apps/
   - name: Advisor
     tocHref: /azure/advisor/
     topicHref: /azure/advisor/
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
+  - name: Synapse Analytics
+    tocHref: /azure/synapse-analytics/
+    topicHref: /azure/synapse-analytics/
+  - name: Azure Arc
+    tocHref: /azure/azure-arc/
+    topicHref: /azure/azure-arc/
+    items:
+      - name: Arc enabled Kubernetes
+        tocHref: /azure/azure-arc/kubernetes/
+        topicHref: /azure/azure-arc/kubernetes/
+      - name: Arc enabled servers
+        tocHref: /azure/azure-arc/servers/
+        topicHref: /azure/azure-arc/servers/
   - name: ASC for IoT
     tocHref: /azure/asc-for-iot/
     topicHref: /azure/asc-for-iot/
+  - name: Attestation
+    tocHref: /azure/attestation/
+    topicHref: /azure/attestation/
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -149,12 +177,12 @@
   - name: Azure Spatial Anchors
     tocHref: /azure/spatial-anchors/
     topicHref: /azure/spatial-anchors/
+  - name: Azure Remote Rendering
+    tocHref: /azure/remote-rendering/
+    topicHref: /azure/remote-rendering/   
   - name: Container Registry
     tocHref: /azure/container-registry/
     topicHref: /azure/container-registry/
-  - name: Cost Management
-    tocHref: /azure/cost-management/
-    topicHref: /azure/cost-management/
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/
@@ -174,6 +202,9 @@
   - name: Azure NetApp Files
     tocHref: /azure/azure-netapp-files/
     topicHref: /azure/azure-netapp-files/
+  - name: Azure VMware Solution
+    tocHref: /azure/azure-vmware/
+    topicHref: /azure/azure-vmware/
   - name: Azure VMware Solution by CloudSimple
     tocHref: /azure/vmware-cloudsimple/
     topicHref: /azure/vmware-cloudsimple/
@@ -190,23 +221,20 @@
       - name: IoT Central
         tocHref: /azure/iot-central/
         topicHref: /azure/iot-central/
-        items: 
+        items:
         - name: IoT Central
           tocHref: /azure/iot-central/core/
           topicHref: /azure/iot-central/core/
-        - name: IoT Central (preview features)
-          tocHref: /azure/iot-central/preview/
-          topicHref: /azure/iot-central/preview/
-        - name: IoT Central for Energy (preview features)
+        - name: IoT Central for Energy
           tocHref: /azure/iot-central/energy/
           topicHref: /azure/iot-central/energy/
-        - name: IoT Central for Government (preview features)
+        - name: IoT Central for Government
           tocHref: /azure/iot-central/government/
           topicHref: /azure/iot-central/government/
-        - name: IoT Central for Healthcare (preview features)
+        - name: IoT Central for Healthcare
           tocHref: /azure/iot-central/healthcare/
           topicHref: /azure/iot-central/healthcare/
-        - name: IoT Central for Retail (preview features)
+        - name: IoT Central for Retail
           tocHref: /azure/iot-central/retail/
           topicHref: /azure/iot-central/retail/
       - name: IoT Edge
@@ -264,9 +292,6 @@
   - name: Batch AI
     tocHref: /azure/batch-ai/
     topicHref: /azure/batch-ai/
-  - name: Billing + cost management
-    tocHref: /azure/billing/
-    topicHref: /azure/billing/
   - name: Biztalk Services
     tocHref: /azure/biztalk-services/
     topicHref: /azure/biztalk-services/
@@ -276,9 +301,6 @@
   - name: Cache
     tocHref: /azure/cache/
     topicHref: /azure/cache/
-  - name: CDN
-    tocHref: /azure/cdn/
-    topicHref: /azure/cdn/
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
@@ -295,36 +317,40 @@
     - name: Anomaly Detector
       tocHref: /azure/cognitive-services/anomaly-detector/
       topicHref: /azure/cognitive-services/anomaly-detector/
-    - name: Bing Autosuggest
-      tocHref: /azure/cognitive-services/Bing-Autosuggest/
-      topicHref: /azure/cognitive-services/Bing-Autosuggest/
-    - name: Bing Custom Search
-      tocHref: /azure/cognitive-services/bing-custom-search/
-      topicHref: /azure/cognitive-services/bing-custom-search/
-    - name: Bing Entity Search
-      tocHref: /azure/cognitive-services/bing-entities-search/
-      topicHref: /azure/cognitive-services/bing-entities-search/
-    - name: Bing Image Search
-      tocHref: /azure/cognitive-services/bing-image-search/
-      topicHref: /azure/cognitive-services/bing-image-search/
-    - name: Bing News Search
-      tocHref: /azure/cognitive-services/bing-news-search/
-      topicHref: /azure/cognitive-services/bing-news-search/
-    - name: Bing Spell Check
-      tocHref: /azure/cognitive-services/bing-spell-check/
-      topicHref: /azure/cognitive-services/bing-spell-check/
-    - name: Bing Video Search
-      tocHref: /azure/cognitive-services/Bing-Video-Search/
-      topicHref: /azure/cognitive-services/Bing-Video-Search/
-    - name: Bing Visual Search
-      tocHref: /azure/cognitive-services/bing-visual-search/
-      topicHref: /azure/cognitive-services/bing-visual-search/
-    - name: Bing Web Search
-      tocHref: /azure/cognitive-services/bing-web-search/
-      topicHref: /azure/cognitive-services/bing-web-search/
-    - name: Bing Local Business Search
-      tocHref: /azure/cognitive-services/bing-local-business-search/
-      topicHref: /azure/cognitive-services/bing-local-business-search/
+    - name: Bing Search APIs
+      tocHref: /azure/cognitive-services/bing-web-search
+      topicHref: /azure/cognitive-services/bing-web-search
+      items:
+      - name: Bing Autosuggest
+        tocHref: /azure/cognitive-services/Bing-Autosuggest
+        topicHref: /azure/cognitive-services/Bing-Autosuggest/get-suggested-search-terms
+      - name: Bing Custom Search
+        tocHref: /azure/cognitive-services/bing-custom-search
+        topicHref: /azure/cognitive-services/bing-custom-search/overview
+      - name: Bing Entity Search
+        tocHref: /azure/cognitive-services/bing-entities-search
+        topicHref: /azure/cognitive-services/bing-entities-search/overview
+      - name: Bing Image Search
+        tocHref: /azure/cognitive-services/bing-image-search
+        topicHref: /azure/cognitive-services/bing-image-search/overview
+      - name: Bing News Search
+        tocHref: /azure/cognitive-services/bing-news-search
+        topicHref: /azure/cognitive-services/bing-news-search/search-the-web
+      - name: Bing Spell Check
+        tocHref: /azure/cognitive-services/bing-spell-check
+        topicHref: /azure/cognitive-services/bing-spell-check/overview
+      - name: Bing Video Search
+        tocHref: /azure/cognitive-services/Bing-Video-Search
+        topicHref: /azure/cognitive-services/Bing-Video-Search/overview
+      - name: Bing Visual Search
+        tocHref: /azure/cognitive-services/bing-visual-search
+        topicHref: /azure/cognitive-services/bing-visual-search/overview
+      - name: Bing Web Search
+        tocHref: /azure/cognitive-services/bing-web-search
+        topicHref: /azure/cognitive-services/bing-web-search/overview
+      - name: Bing Local Business Search
+        tocHref: /azure/cognitive-services/bing-local-business-search
+        topicHref: /azure/cognitive-services/bing-local-business-search/overview
     - name: Computer Vision
       tocHref: /azure/cognitive-services/computer-vision/
       topicHref: /azure/cognitive-services/computer-vision/
@@ -345,7 +371,7 @@
       topicHref: /azure/cognitive-services/entitylinking/home
     - name: Anomaly Finder
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
-      topicHref: /azure/cognitive-services/labs/anomaly-finder/overview
+      topicHref: /azure/cognitive-services/anomaly-detector/overview
     - name: Conversation Learner
       tocHref: /azure/cognitive-services/labs/conversation-learner/
       topicHref: /azure/cognitive-services/labs/conversation-learner/overview
@@ -366,7 +392,7 @@
       topicHref: /azure/cognitive-services/LUIS/
     - name: Linguistic Analysis
       tocHref: /azure/cognitive-services/linguisticanalysisapi/
-      topicHref: /azure/cognitive-services/linguisticanalysisapi/home
+      topicHref: https://www.programmableweb.com/api/microsoft-cognitive-services-linguistic-analysis
     - name: QnA Maker
       tocHref: /azure/cognitive-services/qnamaker/
       topicHref: /azure/cognitive-services/qnamaker/home
@@ -379,7 +405,7 @@
     - name: Text Analytics
       tocHref: /azure/cognitive-services/text-analytics/
       topicHref: /azure/cognitive-services/text-analytics/
-    - name: Translator Text
+    - name: Translator
       tocHref: /azure/cognitive-services/translator/
       topicHref: /azure/cognitive-services/translator/
 #    - name: Translator Speech
@@ -390,10 +416,10 @@
       topicHref: /azure/cognitive-services/video-indexer/video-indexer-overview
     - name: Web Language Model
       tocHref: /azure/cognitive-services/web-language-model/
-      topicHref: /azure/cognitive-services/web-language-model/home
+      topicHref: https://www.programmableweb.com/sdk/microsoft-cognitive-services-web-language-model-c-sdk-microsoft
     - name: Personality Chat
       tocHref: /azure/cognitive-services/project-personality-chat/
-      topicHref: /azure/cognitive-services/project-personality-chat/overview
+      topicHref: /azure/cognitive-services/qnamaker/overview/overview
     - name: Project Acoustics
       tocHref: /azure/cognitive-services/acoustics/
       topicHref: /azure/cognitive-services/acoustics/what-is-acoustics
@@ -409,6 +435,9 @@
     - name: Immersive Reader
       tocHref: /azure/cognitive-services/immersive-reader/
       topicHref: /azure/cognitive-services/immersive-reader/
+  - name: Communication Services
+    tocHref: /azure/communication-services/
+    topicHref: /azure/communication-services/
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
@@ -424,29 +453,26 @@
   - name: Container Service
     tocHref: /azure/container-service/
     topicHref: /azure/container-service/
-    items: 
+    items:
     - name: DC/OS and Swarm
       tocHref: /azure/container-service/dcos-swarm/
       topicHref: /azure/container-service/dcos-swarm/
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
-  - name: Bastion
-    tocHref: /azure/bastion/
-    topicHref: /azure/bastion/
   - name: Cosmos DB
     tocHref: /azure/cosmos-db/
     topicHref: /azure/cosmos-db/
-  - name: Data Box family
-    tocHref: /azure/databox-family/
-    topicHref: /azure/databox-family/
+  - name: Storage
+    tocHref: /azure/storage/
+    topicHref: /azure/storage/
     items:
     - name: Data Box offline transfer
       tocHref: /azure/databox/
       topicHref: /azure/databox/
     - name: Data Box online transfer
       tocHref: /azure/databox-online/
-      topicHref: /azure/databox-online/ 
+      topicHref: /azure/databox-online/
   - name: Data Catalog
     tocHref: /azure/data-catalog/
     topicHref: /azure/data-catalog/
@@ -462,30 +488,9 @@
   - name: Dedicated HSM
     tocHref: /azure/dedicated-hsm/
     topicHref: /azure/dedicated-hsm/
-  - name: Devtest Lab
-    tocHref: /azure/devtest-lab/
-    topicHref: /azure/devtest-lab/
-  - name: DNS
-    tocHref: /azure/dns/
-    topicHref: /azure/dns/
-  - name: Event Grid
-    tocHref: /azure/event-grid/
-    topicHref: /azure/event-grid
-  - name: Event Hubs
-    tocHref: /azure/event-hubs/
-    topicHref: /azure/event-hubs/
-  - name: ExpressRoute
-    tocHref: /azure/expressroute/
-    topicHref: /azure/expressroute/
-  - name: Firewall
-    tocHref: /azure/firewall/
-    topicHref: /azure/firewall/
-  - name: Firewall Manager
-    tocHref: /azure/firewall-manager
-    topicHref: /azure/firewall-manager
-  - name: Front Door Service
-    tocHref: /azure/frontdoor/
-    topicHref: /azure/frontdoor/
+  - name: Devtest Labs
+    tocHref: /azure/devtest-labs/
+    topicHref: /azure/devtest-labs/
   - name: FXT Edge Filer
     tocHref: /azure/fxt-edge-filer/
     topicHref: /azure/fxt-edge-filer/
@@ -552,7 +557,7 @@
 #  - name: Internet of Things
 #    tocHref: /azure/iot-fundamentals/
 #    topicHref: /azure/iot-fundamentals/
-#    items:  
+#    items:
 #    - name: IoT Fundamentals
 #      tocHref: /azure/iot-fundamentals/
 #      topicHref: /azure/iot-fundamentals/
@@ -561,7 +566,7 @@
 #      topicHref: /azure/iot-edge/
 #    - name: IoT Hub
 #      tocHref: /azure/iot-hub/
-#      topicHref: /azure/iot-hub/ 
+#      topicHref: /azure/iot-hub/
 #    - name: IoT Hub Device Provisioning Service
 #      tocHref: /azure/iot-dps/
 #      topicHref: /azure/iot-dps/
@@ -582,16 +587,29 @@
     topicHref: /azure/jenkins/
   - name: Key Vault
     tocHref: /azure/key-vault/
-    topicHref: /azure/key-vault/
+    topicHref: /azure/key-vault
+    items:
+      - name: General
+        tocHref: /azure/key-vault/general/
+        topicHref: /azure/key-vault/general/
+      - name: Certificates
+        tocHref: /azure/key-vault/certificates/
+        topicHref: /azure/key-vault/certificates/
+      - name: Keys
+        tocHref: /azure/key-vault/keys/
+        topicHref: /azure/key-vault/keys/
+      - name: Secrets
+        tocHref: /azure/key-vault/secrets/
+        topicHref: /azure/key-vault/secrets/
+      - name: Managed HSM
+        tocHref: /azure/key-vault/managed-hsm/
+        topicHref: /azure/key-vault/managed-hsm/
   - name: Azure Kinect DK
     tocHref: /azure/kinect-dk/
     topicHref: /azure/kinect-dk/
   - name: Lab Services
     tocHref: /azure/lab-services/
     topicHref: /azure/lab-services/
-  - name: Load Balancer
-    tocHref: /azure/load-balancer/
-    topicHref: /azure/load-balancer/
   - name: Logic Apps
     tocHref: /azure/logic-apps/
     topicHref: /azure/logic-apps/
@@ -611,16 +629,13 @@
     - name: Data Science Virtual Machine
       tocHref: /azure/machine-learning/data-science-virtual-machine
       topicHref: /azure/machine-learning/data-science-virtual-machine/
-  - name: Marketplace Consumer
-    tocHref: /azure/marketplace-consumer/
-    topicHref: /azure/marketplace-consumer/
-  - name: Marketplace Publishing
-    tocHref: /azure/marketplace-publishing/
-    topicHref: /azure/marketplace-publishing/
+  - name: Commercial marketplace
+    tocHref: /azure/marketplace
+    topicHref: /azure/marketplace/
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
-    items: 
+    items:
       - name: v3
         tocHref: /azure/media-services/latest/
         topicHref: /azure/media-services/latest/
@@ -630,6 +645,28 @@
       - name: Video Indexer
         tocHref: /azure/media-services/video-indexer/
         topicHref: /azure/media-services/video-indexer/
+      - name: Azure Media Player
+        tocHref: /azure/media-services/azure-media-player/
+        topicHref: /azure/media-services/azure-media-player/
+      - name: Live Video Analytics on IoT Edge
+        tocHref: /azure/media-services/live-video-analytics-edge/
+        topicHref: /azure/media-services/live-video-analytics-edge/        
+  - name: Messaging services
+    tocHref: /azure/messaging-services/
+    topicHref: /azure/messaging-services/
+    items:
+      - name: Event Grid
+        tocHref: /azure/event-grid/
+        topicHref: /azure/event-grid
+      - name: Event Hubs
+        tocHref: /azure/event-hubs/
+        topicHref: /azure/event-hubs/
+      - name: Service Bus Messaging
+        tocHref: /azure/service-bus-messaging/
+        topicHref: /azure/service-bus-messaging/
+      - name: Azure Relay
+        tocHref: /azure/service-bus-relay/
+        topicHref: /azure/azure-relay/
   - name: Migrate
     tocHref: /azure/migrate/
     topicHref: /azure/migrate/
@@ -638,7 +675,7 @@
     topicHref: /azure/mobile-engagement/
   - name: Mobile Services
     tocHref: /azure/mobile-services/
-    topicHref: /azure/mobile-services/
+    topicHref: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
   - name: Multi-Factor Authentication
     tocHref: /azure/multi-factor-authentication/
     topicHref: /azure/multi-factor-authentication/
@@ -649,12 +686,67 @@
   - name: MySQL
     tocHref: /azure/mysql/
     topicHref: /azure/mysql/
-  - name: Network Watcher
-    tocHref: /azure/network-watcher/
-    topicHref: /azure/network-watcher/
   - name: Networking
     tocHref: /azure/networking/
-    topicHref: /azure/networking/networking-overview
+    topicHref: /azure/networking/
+    items:
+      - name: Application Gateway
+        tocHref: /azure/application-gateway/
+        topicHref: /azure/application-gateway/
+      - name: Bastion
+        tocHref: /azure/bastion/
+        topicHref: /azure/bastion/
+      - name: CDN
+        tocHref: /azure/cdn/
+        topicHref: /azure/cdn/
+      - name: DNS
+        tocHref: /azure/dns/
+        topicHref: /azure/dns/
+      - name: ExpressRoute
+        tocHref: /azure/expressroute/
+        topicHref: /azure/expressroute/
+      - name: Firewall
+        tocHref: /azure/firewall/
+        topicHref: /azure/firewall/
+      - name: Firewall Manager
+        tocHref: /azure/firewall-manager/
+        topicHref: /azure/firewall-manager/
+      - name: Front Door Service
+        tocHref: /azure/frontdoor/
+        topicHref: /azure/frontdoor/
+      - name: Internet Analyzer
+        tocHref: /azure/internet-analyzer/
+        topicHref: /azure/internet-analyzer/
+      - name: Internet Peering
+        tocHref: /azure/internet-peering/
+        topicHref: /azure/internet-peering/
+      - name: Load Balancer
+        tocHref: /azure/load-balancer/
+        topicHref: /azure/load-balancer/
+      - name: Network Watcher
+        tocHref: /azure/network-watcher/
+        topicHref: /azure/network-watcher/
+      - name: Private Link
+        tocHref: /azure/private-link/
+        topicHref: /azure/private-link/
+      - name: Peering Service
+        tocHref: /azure/peering-service/
+        topicHref: /azure/peering-service/
+      - name: Traffic Manager
+        tocHref: /azure/traffic-manager/
+        topicHref: /azure/traffic-manager/
+      - name: Virtual Network
+        tocHref: /azure/virtual-network/
+        topicHref: /azure/virtual-network/
+      - name: Virtual WAN
+        tocHref: /azure/virtual-wan/
+        topicHref: /azure/virtual-wan/
+      - name: VPN Gateway
+        tocHref: /azure/vpn-gateway/
+        topicHref: /azure/vpn-gateway/
+      - name: Web Application Firewall
+        tocHref: /azure/web-application-firewall/
+        topicHref: /azure/web-application-firewall/
   - name: Notebooks
     tocHref: /azure/notebooks/
     topicHref: /azure/notebooks/azure-notebooks-overview
@@ -687,7 +779,7 @@
     topicHref: /azure/remoteapp/
   - name: Resiliency
     tocHref: /azure/resiliency/
-    topicHref: /azure/resiliency/
+    topicHref: /azure/architecture/framework/resiliency/overview
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
@@ -716,15 +808,6 @@
   - name: Azure Sentinel
     tocHref: /azure/sentinel/
     topicHref: /azure/sentinel/
-  - name: Service Bus
-    tocHref: /azure/service-bus/
-    topicHref: /azure/service-bus/
-  - name: Service Bus Messaging
-    tocHref: /azure/service-bus-messaging/
-    topicHref: /azure/service-bus-messaging/
-  - name: Service Bus Relay
-    tocHref: /azure/service-bus-relay/
-    topicHref: /azure/service-bus-relay/
   - name: Service Fabric
     tocHref: /azure/service-fabric/
     topicHref: /azure/service-fabric/
@@ -734,15 +817,35 @@
   - name: Site Recovery
     tocHref: /azure/site-recovery/
     topicHref: /azure/site-recovery/
+  - name: Site Reliability Engineering
+    tocHref: /azure/site-reliability-engineering/
+    topicHref: /azure/site-reliability-engineering/
   - name: Synapse Analytics
-    tocHref: /azure/sql-data-warehouse/
-    topicHref: /azure/sql-data-warehouse/
-  - name: SQL Database
-    tocHref: /azure/sql-database/
-    topicHref: /azure/sql-database/
-  - name: SQL Database Edge
-    tocHref: /azure/sql-database-edge/
-    topicHref: /azure/sql-database-edge/
+    tocHref: /azure/synapse-analytics/
+    topicHref: /azure/synapse-analytics/
+  - name: Azure SQL 
+    tocHref: /azure/azure-sql/
+    topicHref: /azure/azure-sql/
+    items: 
+      - name: SQL Database
+        tocHref: /azure/azure-sql/database
+        topicHref: /azure/azure-sql/database
+      - name: SQL Managed Instance
+        tocHref: /azure/azure-sql/managed-instance
+        topicHref: /azure/azure-sql/managed-instance
+      - name: SQL Server on Azure VM 
+        tocHref: /azure/azure-sql/virtual-machines
+        topicHref: /azure/azure-sql/virtual-machines
+        items: 
+          - name: Windows
+            tocHref: /azure/azure-sql/virtual-machines/windows
+            topicHref: /azure/azure-sql/virtual-machines/windows
+          - name: Linux
+            tocHref: /azure/azure-sql/virtual-machines/linux
+            topicHref: /azure/azure-sql/virtual-machines/linux
+  - name: Azure SQL Edge
+    tocHref: /azure/azure-sql-edge/
+    topicHref: /azure/azure-sql-edge/
   - name: SQL Server Stretch Database
     tocHref: /azure/sql-server-stretch-database/
     topicHref: /azure/sql-server-stretch-database/
@@ -758,7 +861,7 @@
         topicHref: /azure/storage/data-lake-storage/introduction
       - name: Files
         tocHref: /azure/storage/files/
-        topicHref: /azure/storage/files/storage-files-introduction 
+        topicHref: /azure/storage/files/storage-files-introduction
       - name: Queues
         tocHref: /azure/storage/queues/
         topicHref: /azure/storage/queues/storage-queues-introduction
@@ -771,12 +874,6 @@
   - name: Stream Analytics
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/
-  - name: Internet Analyzer
-    tocHref: /azure/internet-analyzer/
-    topicHref: /azure/internet-analyzer/
-  - name: Traffic Manager
-    tocHref: /azure/traffic-manager/
-    topicHref: /azure/traffic-manager/
   - name: Virtual Machine Scale Sets
     tocHref: /azure/virtual-machine-scale-sets/
     topicHref: /azure/virtual-machine-scale-sets/
@@ -817,18 +914,25 @@
           - name: SQL VM
             tocHref: /azure/virtual-machines/windows/sql
             topicHref: /azure/virtual-machines/windows/sql
-  - name: Virtual Network
-    tocHref: /azure/virtual-network/
-    topicHref: /azure/virtual-network/
-  - name: Peering Service
-    tocHref: /azure/peering-service/
-    topicHref: /azure/peering-service/ 
-  - name: VPN Gateway
-    tocHref: /azure/vpn-gateway/
-    topicHref: /azure/vpn-gateway/
-  - name: Web Application Firewall
-    tocHref: /azure/web-application-firewall/
-    topicHref: /azure/web-application-firewall/
+  - name: Confidential Computing
+    tocHref: /azure/confidential-computing/
+    topicHref: /azure/confidential-computing/overview
   - name: Windows Virtual Desktop
     tocHref: /azure/virtual-desktop/
     topicHref: /azure/virtual-desktop/
+  - name: Cost Management and Billing
+    tocHref: /azure/cost-management-billing/
+    topicHref: /azure/cost-management-billing/
+    items:
+    - name: Get started
+      tocHref: /azure/cost-management-billing/understand/
+      topicHref: /azure/cost-management-billing/understand/
+    - name: Manage costs and usage
+      tocHref: /azure/cost-management-billing/costs/
+      topicHref: /azure/cost-management-billing/costs/
+    - name: Manage accounts and subscriptions
+      tocHref: /azure/cost-management-billing/manage/
+      topicHref: /azure/cost-management-billing/manage/
+    - name: Reservations
+      tocHref: /azure/cost-management-billing/reservations/
+      topicHref: /azure/cost-management-billing/reservations/

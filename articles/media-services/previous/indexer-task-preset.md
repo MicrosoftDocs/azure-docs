@@ -15,7 +15,9 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ---
-# Task preset for Azure Media Indexer 
+# Task preset for Azure Media Indexer
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Azure Media Indexer is a Media Processor that you use to perform the following tasks: make media files and content searchable, generate closed captioning tracks and keywords, index asset files that are part of your asset.
 

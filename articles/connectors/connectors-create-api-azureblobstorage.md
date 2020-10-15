@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 tags: connectors
 ---
 
@@ -15,11 +15,12 @@ This article shows how you can access and manage files stored as blobs in your A
 
 Suppose that you have a tool that gets updated on an Azure website. which acts as the trigger for your logic app. When this event happens, you can have your logic app update some file in your blob storage container, which is an action in your logic app.
 
-If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](https://docs.microsoft.com/connectors/azureblobconnector/).
+If you're new to logic apps, review [What is Azure Logic Apps](../logic-apps/logic-apps-overview.md) and [Quickstart: Create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). For connector-specific technical information, see the [Azure Blob Storage connector reference](/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
-> To enable access from Azure Logic Apps to storage accounts behind firewalls, see the 
-> [Access storage accounts behind firewalls](#storage-firewalls) section later in this topic.
+> Logic apps can't directly access storage accounts that are behind firewalls if they're both in the same region. As a workaround, 
+> you can have your logic apps and storage account in different regions. For more information about enabling access from Azure Logic 
+> Apps to storage accounts behind firewalls, see the [Access storage accounts behind firewalls](#storage-firewalls) section later in this topic.
 
 <a name="blob-storage-limits"></a>
 
@@ -125,7 +126,7 @@ This example only gets the contents for a blob. To view the contents, add anothe
 
    For example:
 
-   ![Create Azure Blob storage account connection](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+   ![Create Azure Blob storage account connection](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
 1. When you're ready, select **Create**
 
@@ -133,7 +134,11 @@ This example only gets the contents for a blob. To view the contents, add anothe
 
 ## Connector reference
 
-For technical details, such as triggers, actions, and limits, as described by the connector's Open API (formerly Swagger) file, see the [connector's reference page](https://docs.microsoft.com/connectors/azureblobconnector/).
+For more technical details about this connector, such as triggers, actions, and limits as described by the connector's Swagger file, see the [connector's reference page](/connectors/azureblobconnector/).
+
+> [!NOTE]
+> For logic apps in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+> this connector's ISE-labeled version uses the [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) instead.
 
 <a name="storage-firewalls"></a>
 
@@ -155,9 +160,12 @@ Here are various options for accessing storage accounts behind firewalls from Az
 
 <a name="access-other-regions"></a>
 
-### Access to storage accounts in other regions
+### Problems accessing storage accounts in the same region
 
-Logic apps can't directly access storage accounts that have firewall rules and are in the same region. However, if you permit access for the [outbound IP addresses for managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound), your logic apps can access storage accounts in a different region except when you use the Azure Table Storage connector or Azure Queue Storage connector. To access your Table Storage or Queue Storage, you can still use the built-in HTTP trigger and actions.
+Logic apps can't directly access storage accounts behind firewalls when they're both in the same region. As a workaround, put your logic apps in a region that differs from your storage account and give access to the [outbound IP addresses for the managed connectors in your region](../logic-apps/logic-apps-limits-and-config.md#outbound).
+
+> [!NOTE]
+> This solution doesn't apply to the Azure Table Storage connector and Azure Queue Storage connector. Instead, to access your Table Storage or Queue Storage, use the built-in HTTP trigger and actions.
 
 <a name="access-trusted-virtual-network"></a>
 
@@ -188,7 +196,7 @@ To set up the exception and managed identity support, follow these general steps
    > make sure that the request header includes the `x-ms-version` property 
    > and the API version for the operation that you want to run on the storage account. 
    > For more information, see [Authenticate access with managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) and 
-   > [Versioning for Azure Storage services](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > [Versioning for Azure Storage services](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. On that action, [select the managed identity](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) to use for authentication.
 
@@ -201,3 +209,4 @@ If you use a dedicated tier for [API Management](../api-management/api-managemen
 ## Next steps
 
 * Learn about other [Logic Apps connectors](../connectors/apis-list.md)
+

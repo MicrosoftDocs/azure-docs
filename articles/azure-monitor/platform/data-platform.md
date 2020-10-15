@@ -4,8 +4,8 @@ description: Monitoring data collected by Azure Monitor is separated into metric
 documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: tysonn
-ms.service: azure-monitor
+
+
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
@@ -33,7 +33,7 @@ Azure resources generate a significant amount of monitoring data. Azure Monitor 
 
 Metrics in Azure Monitor are stored in a time-series database which is optimized for analyzing time-stamped data. This makes metrics particularly suited for alerting and fast detection of issues. They can tell you how your system is performing but typically need to be combined with logs to identify the root cause of issues.
 
-Metrics are available for interactive analysis in the Azure portal with [Metrics Explorer](../app/metrics-explorer.md). They can be added to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real time [alerting](alerts-metric.md).
+Metrics are available for interactive analysis in the Azure portal with [Azure Metrics Explorer](./metrics-getting-started.md). They can be added to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data and used for near-real time [alerting](alerts-metric.md).
 
 Read more about Azure Monitor Metrics including their sources of data in [Metrics in Azure Monitor](data-platform-metrics.md).
 
@@ -46,7 +46,7 @@ Logs in Azure Monitor are stored in a Log Analytics workspace that's based on [A
 > It's important to distinguish between Azure Monitor Logs and sources of log data in Azure. For example, subscription level events in Azure are written to an [activity log](platform-logs-overview.md) that you can view from the Azure Monitor menu. Most resources will write operational information to a [resource log](platform-logs-overview.md) that you can forward to different locations. Azure Monitor Logs is a log data platform that collects activity logs and resource logs along with other monitoring data to provide deep analysis across your entire set of resources.
 
 
- You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/portals.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts-log.md) which will trigger an alert based on the results of a schedule query.
+ You can work with [log queries](../log-query/log-query-overview.md) interactively with [Log Analytics](../log-query/log-query-overview.md) in the Azure portal or add the results to an [Azure dashboard](../learn/tutorial-app-dashboards.md) for visualization in combination with other data. You can also create [log alerts](alerts-log.md) which will trigger an alert based on the results of a schedule query.
 
 Read more about Azure Monitor Logs including their sources of data in [Logs in Azure Monitor](data-platform-logs.md).
 
@@ -78,7 +78,7 @@ See [Metrics in Azure Monitor](data-platform-metrics.md) and [Logs in Azure Moni
 
 
 ## Stream data to external systems
-In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](/azure/event-hubs/). Some sources can be configured to send data directly to an event hub while you can use another process such as a Logic App to retrieve the required data. See [Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) for details.
+In addition to using the tools in Azure to analyze monitoring data, you may have a requirement to forward it to an external tool such as a security information and event management (SIEM) product. This forwarding is typically done directly from monitored resources through [Azure Event Hubs](../../event-hubs/index.yml). Some sources can be configured to send data directly to an event hub while you can use another process such as a Logic App to retrieve the required data. See [Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) for details.
 
 
 
@@ -87,3 +87,4 @@ In addition to using the tools in Azure to analyze monitoring data, you may have
 - Read more about [Metrics in Azure Monitor](data-platform-metrics.md).
 - Read more about [Logs in Azure Monitor](data-platform-logs.md).
 - Learn about the [monitoring data available](data-sources.md) for different resources in Azure.
+

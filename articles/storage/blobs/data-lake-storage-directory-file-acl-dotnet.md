@@ -1,21 +1,19 @@
 ---
-title: Azure Data Lake Storage Gen2 .NET SDK for files & ACLs (preview)
+title: Azure Data Lake Storage Gen2 .NET SDK for files & ACLs
 description: Use the Azure Storage client library to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: normesta
 ms.service: storage
-ms.date: 01/09/2020
+ms.date: 08/26/2020
 ms.author: normesta
-ms.topic: article
+ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
+ms.custom: devx-track-csharp
 ---
 
-# Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2 (preview)
+# Use .NET to manage directories, files, and ACLs in Azure Data Lake Storage Gen2
 
 This article shows you how to use .NET to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
-
-> [!IMPORTANT]
-> The [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) NuGet package that is featured in this article is currently in public preview.
 
 [Package (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files.DataLake) | [Samples](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake) | [API reference](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
 
@@ -36,15 +34,20 @@ Then, add these using statements to the top of your code file.
 ```csharp
 using Azure.Storage.Files.DataLake;
 using Azure.Storage.Files.DataLake.Models;
+using Azure.Storage;
 using System.IO;
 using Azure;
 ```
 
 ## Connect to the account
 
-To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. The easiest way to get one is to use an account key. 
+To use the snippets in this article, you'll need to create a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. 
 
-This example creates an instance of the [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) by using an account key.
+### Connect by using an account key
+
+This is the easiest way to connect to an account. 
+
+This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) instance by using an account key.
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient,
@@ -60,11 +63,35 @@ public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceCl
 }
 ```
 
-## Create a file system
+### Connect by using Azure Active Directory (AD)
 
-A file system acts as a container for your files. You can create one by calling the [DataLakeServiceClient.CreateFileSystem](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync) method.
+You can use the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) to authenticate your application with Azure AD.
 
-This example creates a file system named `my-file-system`. 
+This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient?) instance by using a client ID, a client secret, and a tenant ID.  To get these values, see [Acquire a token from Azure AD for authorizing requests from a client application](../common/storage-auth-aad-app.md).
+
+```cs
+public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
+    String accountName, String clientID, string clientSecret, string tenantID)
+{
+
+    TokenCredential credential = new ClientSecretCredential(
+        tenantID, clientID, clientSecret, new TokenCredentialOptions());
+
+    string dfsUri = "https://" + accountName + ".dfs.core.windows.net";
+
+    dataLakeServiceClient = new DataLakeServiceClient(new Uri(dfsUri), credential);
+}
+
+```
+
+> [!NOTE]
+> For more examples, see the [Azure identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity) documentation..
+
+## Create a container
+
+A container acts as a file system for your files. You can create one by calling the [DataLakeServiceClient.CreateFileSystem](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakeserviceclient.createfilesystemasync) method.
+
+This example creates a container named `my-file-system`. 
 
 ```cs
 public async Task<DataLakeFileSystemClient> CreateFileSystem
@@ -78,7 +105,7 @@ public async Task<DataLakeFileSystemClient> CreateFileSystem
 
 Create a directory reference by calling the [DataLakeFileSystemClient.CreateDirectoryAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync) method.
 
-This example adds a directory named `my-directory` to a file system, and then adds a sub-directory named `my-subdirectory`. 
+This example adds a directory named `my-directory` to a container, and then adds a sub-directory named `my-subdirectory`. 
 
 ```cs
 public async Task<DataLakeDirectoryClient> CreateDirectory
@@ -158,7 +185,11 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
     PathAccessControl directoryAccessControl =
         await directoryClient.GetAccessControlAsync();
 
-    Console.WriteLine(directoryAccessControl.AccessControlList);
+    foreach (var item in directoryAccessControl.AccessControlList)
+    {
+        Console.WriteLine(item.ToString());
+    }
+
 
     IList<PathAccessControlItem> accessControlList
         = PathAccessControlExtensions.ParseAccessControlList
@@ -169,6 +200,8 @@ public async Task ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient)
 }
 
 ```
+
+You can also get and set the ACL of the root directory of a container. To get the root directory, pass an empty string (`""`) into the [DataLakeFileSystemClient.GetDirectoryClient](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getdirectoryclient) method.
 
 ## Upload a file to a directory
 
@@ -196,6 +229,32 @@ public async Task UploadFile(DataLakeFileSystemClient fileSystemClient)
 }
 ```
 
+> [!TIP]
+> If your file size is large, your code will have to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync). Consider using the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method instead. That way, you can upload the entire file in a single call. 
+>
+> See the next section for an example.
+
+## Upload a large file to a directory
+
+Use the [DataLakeFileClient.UploadAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync?view=azure-dotnet#Azure_Storage_Files_DataLake_DataLakeFileClient_UploadAsync_System_IO_Stream_) method to upload large files without having to make multiple calls to the [DataLakeFileClient.AppendAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
+
+```cs
+public async Task UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
+{
+    DataLakeDirectoryClient directoryClient =
+        fileSystemClient.GetDirectoryClient("my-directory");
+
+    DataLakeFileClient fileClient = directoryClient.GetFileClient("uploaded-file.txt");
+
+    FileStream fileStream =
+        File.OpenRead("C:\\file-to-upload.txt");
+
+    await fileClient.UploadAsync(fileStream);
+
+}
+
+```
+
 ## Manage a file ACL
 
 Get the access control list (ACL) of a file by calling the [DataLakeFileClient.GetAccessControlAsync](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.getaccesscontrolasync) method and set the ACL by calling the [DataLakeFileClient.SetAccessControlList](https://docs.microsoft.com/dotnet/api/azure.storage.files.datalake.datalakefileclient.setaccesscontrollist) method.
@@ -217,7 +276,10 @@ public async Task ManageFileACLs(DataLakeFileSystemClient fileSystemClient)
     PathAccessControl FileAccessControl =
         await fileClient.GetAccessControlAsync();
 
-    Console.WriteLine(FileAccessControl.AccessControlList);
+    foreach (var item in FileAccessControl.AccessControlList)
+    {
+        Console.WriteLine(item.ToString());
+    }
 
     IList<PathAccessControlItem> accessControlList
         = PathAccessControlExtensions.ParseAccessControlList
@@ -296,6 +358,10 @@ public async Task ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient
 
 }
 ```
+
+## Set an ACL recursively (preview)
+
+You can add, update, and remove ACLs recursively on the existing child items of a parent directory without having to make these changes individually for each child item. For more information, see [Set access control lists (ACLs) recursively for Azure Data Lake Storage Gen2](recursive-access-control-lists.md).
 
 ## See also
 

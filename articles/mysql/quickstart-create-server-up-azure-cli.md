@@ -6,8 +6,8 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 12/02/2019
-ms.custom: mvc
+ms.date: 3/18/2020
+ms.custom: mvc, devx-track-azurecli
 ---
 
 # Quickstart: Create an Azure Database for MySQL using a simple Azure CLI command - az mysql up (preview)
@@ -15,7 +15,7 @@ ms.custom: mvc
 > [!IMPORTANT]
 > The [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI command is in preview.
 
-Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart shows you how to use the [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) command to create an Azure Database for MySQL server using the Azure CLI. In addition to creating the server, the `az mysql up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. This helps to expedite the development process.
+Azure Database for MySQL is a managed service that enables you to run, manage, and scale highly available MySQL databases in the cloud. The Azure CLI is used to create and manage Azure resources from the command-line or in scripts. This quickstart shows you how to use the [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) command to create an Azure Database for MySQL server using the Azure CLI. In addition to creating the server, the `az mysql up` command creates a sample database, a root user in the database, opens the firewall for Azure services, and creates default firewall rules for the client computer. This helps to expedite the development process.
 
 ## Prerequisites
 
@@ -29,7 +29,7 @@ You'll need to login to your account using the [az login](/cli/azure/authenticat
 az login
 ```
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription id** property from the **az login** output for your subscription into the subscription id placeholder.
+If you have multiple subscriptions, choose the appropriate subscription in which the resource should be billed. Select the specific subscription ID under your account using [az account set](/cli/azure/account) command. Substitute the **subscription ID** property from the **az login** output for your subscription into the subscription ID placeholder.
 
 ```azurecli
 az account set --subscription <subscription id>
@@ -59,7 +59,7 @@ sku-name | GP_Gen5_2 | The name of the sku. Follows the convention {pricing tier
 backup-retention | 7 | How long a backup should be retained. Unit is days.
 geo-redundant-backup | Disabled | Whether geo-redundant backups should be enabled for this server or not.
 location | westus2 | The Azure location for the server.
-ssl-enforcement | Disabled | Whether ssl should be enabled or not for this server.
+ssl-enforcement | Enabled | Whether SSL should be enabled or not for this server.
 storage-size | 5120 | The storage capacity of the server (unit is megabytes).
 version | 5.7 | The MySQL major version.
 admin-user | System generated | The username for the administrator login.
@@ -70,7 +70,7 @@ admin-password | System generated | The password of the administrator user.
 
 Once your server is created, it comes with the following settings:
 
-- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az mysql up` command is run from and whitelists that IP address.
+- A firewall rule called "devbox" is created. The Azure CLI attempts to detect the IP address of the machine the `az mysql up` command is run from and allows that IP address.
 - "Allow access to Azure services" is set to ON. This setting configures the server's firewall to accept connections from all Azure resources, including resources not in your subscription.
 - The `wait_timeout` parameter is set to 8 hours
 - An empty database named "sampledb" is created

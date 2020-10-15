@@ -1,24 +1,26 @@
 ---
 title: Azure Event Grid schemas for Media Services events
-description: Describes the properties that are provided for Media Services events with Azure Event Grid
+description: Learn about the properties that are provided for Media Services events with Azure Event Grid.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: reference
-ms.date: 01/07/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Azure Event Grid schemas for Media Services events
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 This article provides the schemas and properties for Media Services events.
 
-For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-sources.md#azure-subscriptions).
+For a list of sample scripts and tutorials, see [Media Services event source](../../event-grid/event-schema-subscriptions.md).
 
 ## Job related event types
 
@@ -324,18 +326,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason the connection was rejected. The result codes are listed in the following table. |
 
-The result codes are:
-
-| Result code | Description |
-| ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | Incorrect ingest URL |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | Encoder IP isn't present in IP allow list configured |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | Encoder didn't send metadata about the stream. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | Codec specified isn't supported. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | Received a fragment before receiving and header for that stream. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | Number of qualities specified exceeds allowed max limit. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Aggregated bitrate exceeds max allowed limit. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
+You can find the error result codes in [live Event error codes](live-event-error-codes.md).
 
 ### LiveEventEncoderConnected
 
@@ -405,14 +396,7 @@ The data object has the following properties:
 | encoderPort | string | Port of the encoder from where this stream is coming. |
 | resultCode | string | The reason for the encoder disconnecting. It could be graceful disconnect or from an error. The result codes are listed in the following table. |
 
-The error result codes are:
-
-| Result code | Description |
-| ----------- | ----------- |
-| MPE_RTMP_SESSION_IDLE_TIMEOUT | RTMP session timed out after being idle for allowed time limit. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | The timestamp for video or audio FLVTag is invalid from RTMP encoder. |
-| MPE_CAPACITY_LIMIT_REACHED | Encoder sending data too fast. |
-| Unknown Error Codes | These error codes can range from memory error to duplicate entries in hash map. |
+You can find the error result codes in [live Event error codes](live-event-error-codes.md).
 
 The graceful disconnect result codes are:
 
@@ -688,3 +672,4 @@ An event has the following top-level data:
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [Live Event error codes](live-event-error-codes.md)

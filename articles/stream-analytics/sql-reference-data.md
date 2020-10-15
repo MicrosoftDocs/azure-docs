@@ -5,7 +5,7 @@ author: mamccrea
 ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2019
 ---
 # Use reference data from a SQL Database for an Azure Stream Analytics job
@@ -34,7 +34,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
    ![SQL Database reference configuration](./media/sql-reference-data/sql-input-config.png)
 
-3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../sql-database/sql-database-connect-query-portal.md)
+3. Test the snapshot query in the SQL query editor. For more information, see [Use the Azure portal's SQL query editor to connect and query data](../azure-sql/database/connect-query-portal.md)
 
 ### Specify storage account in Job config
 
@@ -63,7 +63,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
 ### Create a SQL Database table
 
-Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL database using SSMS](../sql-database/sql-database-design-first-database.md) for details.
+Use SQL Server Management Studio to create a table to store your reference data. See [Design your first Azure SQL Database using SSMS](../azure-sql/database/design-first-database-tutorial.md) for details.
 
 The example table used in the following example was created from the following statement:
 
@@ -109,7 +109,7 @@ create table chemicals(Id Bigint,Name Nvarchar(max),FullName Nvarchar(max));
 
 4. Open the SQL file in the editor and write the SQL query.
 
-5. If you are using Visual Studio 2019, and you have installed SQL Server Data tools, you can test the query by clicking **Execute**. A wizard window will pop up to help you connect to the SQL database and the query result will appear in the window at the bottom.
+5. If you are using Visual Studio 2019, and you have installed SQL Server Data tools, you can test the query by clicking **Execute**. A wizard window will pop up to help you connect to SQL Database and the query result will appear in the window at the bottom.
 
 ### Specify storage account
 
@@ -123,7 +123,7 @@ Before deploying the job to Azure, you can test the query logic locally against 
 
 ## Delta query
 
-When using the delta query, [temporal tables in Azure SQL Database](../sql-database/sql-database-temporal-tables.md) are recommended.
+When using the delta query, [temporal tables in Azure SQL Database](../azure-sql/temporal-tables.md) are recommended.
 
 1. Create a temporal table in Azure SQL Database.
    
@@ -141,7 +141,7 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
    ```
 2. Author the snapshot query. 
 
-   Use the **\@snapshotTime** parameter to instruct the Stream Analytics runtime to obtain the reference data set from SQL database temporal table valid at the system time. If  you don't provide this parameter, you risk obtaining an inaccurate base reference data set due to clock skews. An example of full snapshot query is shown below:
+   Use the **\@snapshotTime** parameter to instruct the Stream Analytics runtime to obtain the reference data set from SQL Database temporal table valid at the system time. If  you don't provide this parameter, you risk obtaining an inaccurate base reference data set due to clock skews. An example of full snapshot query is shown below:
    ```SQL
       SELECT DeviceId, GroupDeviceId, [Description]
       FROM dbo.DeviceTemporal
@@ -150,16 +150,16 @@ When using the delta query, [temporal tables in Azure SQL Database](../sql-datab
  
 2. Author the delta query. 
    
-   This query retrieves all of the rows in your SQL database that were inserted or deleted within a start time, **\@deltaStartTime**, and an end time **\@deltaEndTime**. The delta query must return the same columns as the snapshot query, as well as the column **_operation_**. This column defines if the row is inserted or deleted between **\@deltaStartTime** and **\@deltaEndTime**. The resulting rows are flagged as **1** if the records were inserted, or **2** if deleted. 
+   This query retrieves all of the rows in SQL Database that were inserted or deleted within a start time, **\@deltaStartTime**, and an end time **\@deltaEndTime**. The delta query must return the same columns as the snapshot query, as well as the column **_operation_**. This column defines if the row is inserted or deleted between **\@deltaStartTime** and **\@deltaEndTime**. The resulting rows are flagged as **1** if the records were inserted, or **2** if deleted. The query must also add **watermark** from the SQL Server side to ensure all the updates in the delta period are captured appropriately. Using delta query without **watermark** may result in incorrect reference dataset.  
 
    For records that were updated, the temporal table does bookkeeping by capturing an insertion and deletion operation. The Stream Analytics runtime will then apply the results of the delta query to the previous snapshot to keep the reference data up to date. An example of delta query is show below:
 
    ```SQL
-      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidFrom as _watermark_, 1 as _operation_
       FROM dbo.DeviceTemporal
       WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
       UNION
-      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      SELECT DeviceId, GroupDeviceId, Description, ValidTo as _watermark_, 2 as _operation_
       FROM dbo.DeviceHistory   -- table we created in step 1
       WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
    ```
@@ -177,12 +177,12 @@ There are no additional [cost per streaming unit](https://azure.microsoft.com/pr
 
 **How do I know reference data snapshot is being queried from SQL DB and used in the Azure Stream Analytics job?**
 
-There are two metrics filtered by Logical Name (under Metrics Azure Portal) which you can use to monitor the health of the SQL database reference data input.
+There are two metrics filtered by Logical Name (under Metrics Azure portal) which you can use to monitor the health of the SQL Database reference data input.
 
-   * InputEvents: This metric measures the number of records loaded in from the SQL database reference data set.
+   * InputEvents: This metric measures the number of records loaded in from the SQL Database reference data set.
    * InputEventBytes: This metric measures the size of the reference data snapshot loaded in memory of the Stream Analytics job. 
 
-The combination of both of these metrics can be used to infer if the job is querying the SQL database to fetch the reference data set and then loading it to memory.
+The combination of both of these metrics can be used to infer if the job is querying SQL Database to fetch the reference data set and then loading it to memory.
 
 **Will I require a special type of Azure SQL Database?**
 

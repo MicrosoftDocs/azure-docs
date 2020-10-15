@@ -1,15 +1,10 @@
 ---
 title: Regular expression entity type - LUIS
-titleSuffix: Azure Cognitive Services
 description: A regular expression is best for raw utterance text. It ignores case and ignores cultural variant.  Regular expression matching is applied after spell-check alterations at the character level, not the token level.
-services: cognitive-services
-author: diberry
-manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 09/29/2019
-ms.author: diberry
+ms.date: 04/14/2020
 ---
 # Regular expression entity
 
@@ -100,4 +95,7 @@ This is the JSON if `verbose=true` is set in the query string:
 
 ## Next steps
 
-In this [tutorial](tutorial-regex-entity.md), create an app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
+Learn more about entities:
+
+* [Concepts](luis-concept-entity-types.md)
+* [How to create](luis-how-to-add-entities.md)

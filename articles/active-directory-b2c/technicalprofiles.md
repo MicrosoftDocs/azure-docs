@@ -3,14 +3,14 @@ title: TechnicalProfiles
 titleSuffix: Azure AD B2C
 description: Specify the TechnicalProfiles element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
-ms.author: marsma
+ms.date: 10/12/2020
+ms.author: mimart
 ms.subservice: B2C
 ---
 
@@ -20,7 +20,7 @@ ms.subservice: B2C
 
 A **TechnicalProfiles** element contains a set of technical profiles supported by the claim provider. Every claims provider must have one or more technical profiles that determine the endpoints and the protocols needed to communicate with the claims provider. A claims provider can have multiple technical profiles.
 
-```XML
+```xml
 <ClaimsProvider>
   <DisplayName>Display name</DisplayName>
   <TechnicalProfiles>
@@ -80,8 +80,8 @@ The **TechnicalProfile** contains the following elements:
 | Element | Occurrences | Description |
 | ------- | ----------- | ----------- |
 | Domain | 0:1 | The domain name for the technical profile. For example, if your technical profile specifies the Facebook identity provider, the domain name is Facebook.com. |
-| DisplayName | 0:1 | The name of the technical profile that can be displayed to users. |
-| Description | 0:1 | The description of the technical profile that can be displayed to users. |
+| DisplayName | 1:1 | The display name of the technical profile. |
+| Description | 0:1 | The description of the technical profile. |
 | Protocol | 0:1 | The protocol used for the communication with the other party. |
 | Metadata | 0:1 | A collection of key/value pairs that are utilized by the protocol for communicating with the endpoint in the course of a transaction. |
 | InputTokenFormat | 0:1 | The format of the input token. Possible values: `JSON`, `JWT`, `SAML11`, or `SAML2`. The `JWT` value represents a JSON Web Token as per IETF specification. The `SAML11` value represents a SAML 1.1 security token as per OASIS specification.  The `SAML2` value represents a SAML 2.0 security token as per OASIS specification. |
@@ -95,9 +95,9 @@ The **TechnicalProfile** contains the following elements:
 | OutputClaimsTransformations | 0:1 | A list of previously defined references to claims transformations that should be executed after the claims are received from the claims provider. |
 | ValidationTechnicalProfiles | 0:n | A list of references to other technical profiles that the technical profile uses for validation purposes. For more information, see [validation technical profile](validation-technical-profile.md)|
 | SubjectNamingInfo | 0:1 | Controls the production of the subject name in tokens where the subject name is specified separately from claims. For example, OAuth or SAML.  |
-| IncludeInSso | 0:1 |  Whether usage of this technical profile should apply single sign-on (SSO) behavior for the session, or instead require explicit interaction. Possible values: `true` (default), or `false`. |
+| IncludeInSso | 0:1 |  Whether usage of this technical profile should apply single sign-on (SSO) behavior for the session, or instead require explicit interaction. This element is valid only in SelfAsserted profiles used within a Validation technical profile. Possible values: `true` (default), or `false`. |
 | IncludeClaimsFromTechnicalProfile | 0:1 | An identifier of a technical profile from which you want all of the input and output claims to be added to this technical profile. The referenced technical profile must be defined in the same policy file. |
-| IncludeTechnicalProfile |0:1 | An identifier of a technical profile from which you want all data to be added to this technical profile. The referenced technical profile must exist in the same policy file. |
+| IncludeTechnicalProfile |0:1 | An identifier of a technical profile from which you want all data to be added to this technical profile. |
 | UseTechnicalProfileForSessionManagement | 0:1 | A different technical profile to be used for session management. |
 |EnabledForUserJourneys| 0:1 |Controls if the technical profile is executed in a user journey.  |
 
@@ -107,7 +107,7 @@ The **Protocol** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, `session management`, `self-asserted`, or `None`. |
+| Name | Yes | The name of a valid protocol supported by Azure AD B2C that is used as part of the technical profile. Possible values: `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`, or `None`. |
 | Handler | No | When the protocol name is set to `Proprietary`, specify the fully-qualified name of the assembly that is used by Azure AD B2C to determine the protocol handler. |
 
 ## Metadata
@@ -282,7 +282,7 @@ The **IncludeTechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | An identifier of a technical profile already defined in the policy file or parent policy file. |
+| ReferenceId | Yes | An identifier of a technical profile already defined in the policy file, or parent policy file. |
 
 ## UseTechnicalProfileForSessionManagement
 
@@ -306,7 +306,7 @@ Using **OnClaimsExistence**, **OnItemExistenceInStringCollectionClaim** or **OnI
 
 The following technical profile is executed only if the **identityProviders** string collection contains the value of `facebook.com`:
 
-```XML
+```xml
 <TechnicalProfile Id="UnLink-Facebook-OAUTH">
   <DisplayName>Unlink Facebook</DisplayName>
 ...

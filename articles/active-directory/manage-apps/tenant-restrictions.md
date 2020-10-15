@@ -2,31 +2,27 @@
 title: Use tenant restrictions to manage access to SaaS apps - Azure AD
 description: How to use tenant restrictions to manage which users can access apps based on their Azure AD tenant.
 services: active-directory
-documentationcenter: ''
-author: msmimart
-manager: CelesteDG
-
+author: kenwith
+manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: mimart
-ms.reviewer: richagi
-
+ms.author: kenwith
+ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
 ---
+
 # Use tenant restrictions to manage access to SaaS cloud applications
 
-Large organizations that emphasize security want to move to cloud services like Office 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
+Large organizations that emphasize security want to move to cloud services like Microsoft 365, but need to know that their users only can access approved resources. Traditionally, companies restrict domain names or IP addresses when they want to manage access. This approach fails in a world where software as a service (or SaaS) apps are hosted in a public cloud, running on shared domain names like [outlook.office.com](https://outlook.office.com/) and [login.microsoftonline.com](https://login.microsoftonline.com/). Blocking these addresses would keep users from accessing Outlook on the web entirely, instead of merely restricting them to approved identities and resources.
 
-The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization’s Office 365 applications, while preventing access to other organizations’ instances of these same applications.  
+The Azure Active Directory (Azure AD) solution to this challenge is a feature called tenant restrictions. With tenant restrictions, organizations can control access to SaaS cloud applications, based on the Azure AD tenant the applications use for single sign-on. For example, you may want to allow access to your organization’s Microsoft 365 applications, while preventing access to other organizations’ instances of these same applications.  
 
 With tenant restrictions, organizations can specify the list of tenants that their users are permitted to access. Azure AD then only grants access to these permitted tenants.
 
-This article focuses on tenant restrictions for Office 365, but the feature should work with any SaaS cloud app that uses modern authentication protocols with Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by Office 365, make sure that all required tenants are permitted. For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
+This article focuses on tenant restrictions for Microsoft 365, but the feature should work with any SaaS cloud app that uses modern authentication protocols with Azure AD for single sign-on. If you use SaaS apps with a different Azure AD tenant from the tenant used by Microsoft 365, make sure that all required tenants are permitted. For more information about SaaS cloud apps, see the [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## How it works
 
@@ -34,13 +30,13 @@ The overall solution comprises the following components:
 
 1. **Azure AD**: If the `Restrict-Access-To-Tenants: <permitted tenant list>` is present, Azure AD only issues security tokens for the permitted tenants.
 
-2. **On-premises proxy server infrastructure**: This infrastructure is a proxy device capable of Secure Sockets Layer (SSL) inspection. You must configure the proxy to insert the header containing the list of permitted tenants into traffic destined for Azure AD.
+2. **On-premises proxy server infrastructure**: This infrastructure is a proxy device capable of Transport Layer Security (TLS) inspection. You must configure the proxy to insert the header containing the list of permitted tenants into traffic destined for Azure AD.
 
-3. **Client software**: To support tenant restrictions, client software must request tokens directly from Azure AD, so that the proxy infrastructure can intercept traffic. Browser-based Office 365 applications currently support tenant restrictions, as do Office clients that use modern authentication (like OAuth 2.0).
+3. **Client software**: To support tenant restrictions, client software must request tokens directly from Azure AD, so that the proxy infrastructure can intercept traffic. Browser-based Microsoft 365 applications currently support tenant restrictions, as do Office clients that use modern authentication (like OAuth 2.0).
 
-4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Office 365 cloud services to use modern authentication protocols by default. For the latest information on Office 365 support for modern authentication, read [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Modern Authentication**: Cloud services must use modern authentication to use tenant restrictions and block access to all non-permitted tenants. You must configure Microsoft 365 cloud services to use modern authentication protocols by default. For the latest information on Microsoft 365 support for modern authentication, read [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-The following diagram illustrates the high-level traffic flow. Tenant restrictions requires SSL inspection only on traffic to Azure AD, not to the Office 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
+The following diagram illustrates the high-level traffic flow. Tenant restrictions requires TLS inspection only on traffic to Azure AD, not to the Microsoft 365 cloud services. This distinction is important, because the traffic volume for authentication to Azure AD is typically much lower than traffic volume to SaaS applications like Exchange Online and SharePoint Online.
 
 ![Tenant restrictions traffic flow - diagram](./media/tenant-restrictions/traffic-flow.png)
 
@@ -58,15 +54,20 @@ The following configuration is required to enable tenant restrictions through yo
 
 #### Prerequisites
 
-- The proxy must be able to perform SSL interception, HTTP header insertion, and filter destinations using FQDNs/URLs.
+- The proxy must be able to perform TLS interception, HTTP header insertion, and filter destinations using FQDNs/URLs.
 
-- Clients must trust the certificate chain presented by the proxy for SSL communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
+- Clients must trust the certificate chain presented by the proxy for TLS communications. For example, if certificates from an internal [public key infrastructure (PKI)](/windows/desktop/seccertenroll/public-key-infrastructure) are used, the internal issuing root certificate authority certificate must be trusted.
 
-- This feature is included in Office 365 subscriptions, but if you want to use tenant restrictions to control access to other SaaS apps, then Azure AD Premium 1 licenses are required.
+- This feature is included in Microsoft 365 subscriptions, but if you want to use tenant restrictions to control access to other SaaS apps, then Azure AD Premium 1 licenses are required.
 
 #### Configuration
 
 For each incoming request to login.microsoftonline.com, login.microsoft.com, and login.windows.net, insert two HTTP headers: *Restrict-Access-To-Tenants* and *Restrict-Access-Context*.
+
+> [!NOTE]
+> When configuring SSL interception and header injection, ensure that traffic to https://device.login.microsoftonline.com is excluded. This URL is used for device authentication and performing TLS break-and-inspect may interfere with Client Certificate authentication, which may cause issues with device registration and device-based Conditional Access.
+
+
 
 The headers should include the following elements:
 
@@ -80,6 +81,9 @@ The headers should include the following elements:
 To prevent users from inserting their own HTTP header with non-approved tenants, the proxy needs to replace the *Restrict-Access-To-Tenants* header if it is already present in the incoming request.
 
 Clients must be forced to use the proxy for all requests to login.microsoftonline.com, login.microsoft.com, and login.windows.net. For example, if PAC files are used to direct clients to use the proxy, end users shouldn't be able to edit or disable the PAC files.
+
+> [!NOTE]
+> Do not include subdomains under *.login.microsoftonline.com in your proxy configuration. Doing so will include device.login.microsoftonline.com and may interfere with Client Certificate authentication, which is used in Device Registration and Device-based Conditional Access scenarios. Configure your proxy server to exclude device.login.microsoftonline.com from TLS break-and-inspect and header injection.
 
 ## The user experience
 
@@ -97,9 +101,12 @@ While configuration of tenant restrictions is done on the corporate proxy infras
 
 2. In the left pane, select **Azure Active Directory**. The Azure Active Directory overview page appears.
 
-3. In the **Other capabilities** heading, select **Tenant restrictions**.
+3. On the Overview page, select **Tenant restrictions**.
 
 The admin for the tenant specified as the Restricted-Access-Context tenant can use this report to see sign-ins blocked because of the tenant restrictions policy, including the identity used and the target directory ID. Sign-ins are included if the tenant setting the restriction is either the user tenant or resource tenant for the sign-in.
+
+> [!NOTE]
+> The report may contain limited information, such as target directory ID, when a user who is in a tenant other than the Restricted-Access-Context tenant signs in. In this case, user identifiable information, such as name and user principal name, is masked to protect user data in other tenants.
 
 Like other reports in the Azure portal, you can use filters to specify the scope of your report. You can filter on a specific time interval, user, application, client, or status. If you select the **Columns** button, you can choose to display data with any combination of the following fields:
 
@@ -117,16 +124,16 @@ Like other reports in the Azure portal, you can use filters to specify the scope
 - **Location**
 - **Target tenant ID**
 
-## Office 365 support
+## Microsoft 365 support
 
-Office 365 applications must meet two criteria to fully support tenant restrictions:
+Microsoft 365 applications must meet two criteria to fully support tenant restrictions:
 
 1. The client used supports modern authentication.
 2. Modern authentication is enabled as the default authentication protocol for the cloud service.
 
 Refer to [Updated Office 365 modern authentication](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) for the latest information on which Office clients currently support modern authentication. That page also includes links to instructions for enabling modern authentication on specific Exchange Online and Skype for Business Online tenants. SharePoint Online already enables Modern authentication by default.
 
-Office 365 browser-based applications (the Office Portal, Yammer, SharePoint sites, Outlook on the Web, and more) currently support tenant restrictions. Thick clients (Outlook, Skype for Business, Word, Excel, PowerPoint, and more) can enforce tenant restrictions only when using modern authentication.  
+Microsoft 365 browser-based applications (the Office Portal, Yammer, SharePoint sites, Outlook on the Web, and more) currently support tenant restrictions. Thick clients (Outlook, Skype for Business, Word, Excel, PowerPoint, and more) can enforce tenant restrictions only when using modern authentication.  
 
 Outlook and Skype for Business clients that support modern authentication may still able to use legacy protocols against tenants where modern authentication isn't enabled, effectively bypassing tenant restrictions. Tenant restrictions may block applications that use legacy protocols if they contact login.microsoftonline.com, login.microsoft.com, or login.windows.net during authentication.
 

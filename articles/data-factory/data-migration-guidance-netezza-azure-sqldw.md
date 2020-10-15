@@ -15,7 +15,9 @@ ms.date: 9/03/2019
 
 # Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure 
 
-Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from an on-premises Netezza server to your Azure storage account or Azure SQL Data Warehouse database. 
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+
+Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from an on-premises Netezza server to your Azure storage account or Azure Synapse Analytics (formerly SQL Data Warehouse) database. 
 
 This article provides the following information for data engineers and developers:
 
@@ -50,7 +52,7 @@ With Azure Data Factory copy activity, when you copy data between source and sin
 
 ## Network security 
 
-By default, Azure Data Factory transfers data from the on-premises Netezza server to an Azure storage account or Azure SQL Data Warehouse database by using an encrypted connection over Hypertext Transfer Protocol Secure (HTTPS). HTTPS provides data encryption in transit and prevents eavesdropping and man-in-the-middle attacks.
+By default, Azure Data Factory transfers data from the on-premises Netezza server to an Azure storage account or Azure Synapse Analytics database by using an encrypted connection over Hypertext Transfer Protocol Secure (HTTPS). HTTPS provides data encryption in transit and prevents eavesdropping and man-in-the-middle attacks.
 
 Alternatively, if you don't want data to be transferred over the public internet, you can help achieve higher security by transferring data over a private peering link via Azure Express Route. 
 
@@ -102,7 +104,7 @@ The preceding diagram can be interpreted as follows:
    
    - You can also use [service principal](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) or a [storage account key](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
 
-- To authenticate to Azure SQL Data Warehouse:
+- To authenticate to Azure Synapse Analytics:
 
    - We highly recommend using [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity).
    
@@ -124,7 +126,7 @@ For larger tables (that is, tables with a volume of 100 GB or greater or that *c
 
 If any copy job fails because of a network or data store transient issue, you can rerun the failed copy job to reload that specific partition from the table. Other copy jobs that load other partitions aren't affected.
 
-When you load data into an Azure SQL Data Warehouse database, we suggest that you enable PolyBase within the copy job with Azure Blob storage as staging.
+When you load data into an Azure Synapse Analytics database, we suggest that you enable PolyBase within the copy job with Azure Blob storage as staging.
 
 ### Migrate delta data 
 
@@ -155,7 +157,7 @@ When you encounter throttling errors, as reported by Azure Data Factory copy act
 
 ### Estimate your pricing 
 
-Consider the following pipeline, which is constructed to migrate data from the on-premises Netezza server to an Azure SQL Data Warehouse database:
+Consider the following pipeline, which is constructed to migrate data from the on-premises Netezza server to an Azure Synapse Analytics database:
 
 ![The pricing pipeline](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
 
@@ -189,7 +191,7 @@ For more information, see the following articles and guides:
 - [ODBC connector](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Azure Blob storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 connector](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Azure SQL Data Warehouse connector](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
+- [Azure Synapse Analytics connector](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
 - [Copy activity performance tuning guide](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Create and configure a self-hosted integration runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [Self-hosted integration runtime HA and scalability](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)

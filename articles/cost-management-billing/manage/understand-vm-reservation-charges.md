@@ -1,16 +1,14 @@
 ---
-title: Understand Azure Reserved VM Instances discount | Microsoft Docs
+title: Understand Azure Reserved VM Instances discount
 description: Learn how Azure Reserved VM Instance discount is applied to running virtual machines.
 author: yashesvi
-manager: yashar
 ms.service: cost-management-billing
-ms.devlang: na
+ms.subservice: reservations
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 08/20/2020
 ms.author: banders
 ---
+
 # How the Azure reservation discount is applied to virtual machines
 
 After you buy an Azure Reserved Virtual Machine Instance, the reservation discount is automatically applied to virtual machines that match the attributes and quantity of the reservation. A reservation covers the compute costs of your virtual machines.
@@ -54,11 +52,15 @@ When you're running Windows VM instances, the reservation is applied to cover th
 
 ## Discount can apply to different sizes
 
-When you buy a Reserved VM Instance, if you select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+When you buy a Reserved VM Instance and select **Optimized for instance size flexibility**, the discount coverage applies to the VM size you select. It can also apply to other VMs sizes that are in the same series instance size flexibility group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 
-## Discount applies to matching ServiceType only
+## Premium storage VMs don't get non-premium discounts
 
-A reservation discount applies only to the VM usage where the `ServiceType` value in `AdditionalInfo` matches the reservation that's purchased. Reservation discount application ignores the meter used for VMs and only evaluates `ServiceType`. Know which service type that you purchased the VM for. You can exchange a non-premium storage VM reservation for a premium storage reservation, or in the opposite manner.
+Here's an example. Assume you bought a reservation for five Standard_D1 VMs, the reservation discount applies only to Standard_D1 VMs or other VMs in the same instance family. The discount doesn't apply to Standard_DS1 VM or other sizes in the DS1 instance size flexibility group.
+
+The reservation discount application ignores the meter used for VMs and only evaluates ServiceType. Look at the `ServiceType` value in `AdditionalInfo` to determine the instance flexibility group/series information for your VMs. The values are in your usage CSV file.
+
+You can't directly change the instance flexibility group/series of the reservation after purchase. However, you can *exchange* a VM reservation from one instance flexibility group/series to another.
 
 ## Services that get VM reservation discounts
 
@@ -87,7 +89,7 @@ When the setting is on, reservation discounts automatically apply to matching VM
 
 Check the *ConsumedService* value in your usage data to determine if the usage is eligible for reservation discounts.
 
-For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
 
 
 ## Need help? Contact us
@@ -100,7 +102,7 @@ To learn more about Azure Reservations, see the following articles:
 
 - [What are reservations for Azure?](../reservations/save-compute-costs-reservations.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../sql-database/sql-database-reserved-capacity.md)
+- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../../azure-sql/database/reserved-capacity-overview.md)
 - [Manage reservations for Azure](../reservations/manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](../reservations/understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](../reservations/understand-reserved-instance-usage-ea.md)

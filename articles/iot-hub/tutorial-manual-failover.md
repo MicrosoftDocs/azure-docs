@@ -8,13 +8,13 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: robinsh
-ms.custom: mvc
+ms.custom: [mvc, mqtt]
 #Customer intent: As an IT Pro, I want to be able to perform a manual failover of my IoT hub to a different region, and then return it to the original region.
 ---
 
 # Tutorial: Perform manual failover for an IoT hub
 
-Manual failover is a feature of the IoT Hub service that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding Azure geo-paired region. Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover to test your disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature is offered to customers at no additional cost.
+Manual failover is a feature of the IoT Hub service that allows customers to [failover](https://en.wikipedia.org/wiki/Failover) their hub's operations from a primary region to the corresponding Azure geo-paired region. Manual failover can be done in the event of a regional disaster or an extended service outage. You can also perform a planned failover to test your disaster recovery capabilities, although we recommend using a test IoT hub rather than one running in production. The manual failover feature is offered to customers at no additional cost for IoT hubs created after May 18, 2017.
 
 In this tutorial, you perform the following tasks:
 
@@ -25,9 +25,13 @@ In this tutorial, you perform the following tasks:
 > * Perform a failback to return the IoT hub's operations to the primary location. 
 > * Confirm the hub is running correctly in the right location.
 
+For more information about manual failover and Microsoft-initiated failover with IoT Hub, see [Cross region disaster recovery](iot-hub-ha-dr.md#cross-region-dr).
+
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 
@@ -75,7 +79,7 @@ Note that there is a limit of two failovers and two failbacks per day for an IoT
 
    The amount of time it takes to perform the manual failover is proportional to the number of devices that are registered for your hub. For example, if you have 100,000 devices, it might take 15 minutes, but if you have five million devices, it might take an hour or longer.
 
-   ![Screenshot showing Manual Failover pane](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![Screenshot showing Manual Failover confirmation pane](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
    While the manual failover process is running, a banner appears to tell you a manual failover is in progress. 
 

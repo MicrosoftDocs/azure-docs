@@ -7,13 +7,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/22/2019
 ---
 # Import Data module
 
-This article describes a module in Azure Machine Learning designer (preview).
+This article describes a module in Azure Machine Learning designer.
 
 Use this module to load data into a machine learning pipeline from existing cloud data services. 
 
@@ -37,32 +37,35 @@ Before using cloud storage, you need to register a datastore in your Azure Machi
 
 After you define the data you want and connect to the source, **[Import Data](./import-data.md)** infers the data type of each column based on the values it contains, and loads the data into your designer pipeline. The output of **Import Data** is a dataset that can be used with any designer pipeline.
 
-If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md). However, if you don't want to re-read from the source each time you run the pipeline, set the **Use cached results** option to TRUE. When this option is selected, the module checks whether the pipeline has run previously using the same source and same input options. If a previous run is found, the data in the cache is used, instead of reloading the data from the source.
+If your source data changes, you can refresh the dataset and add new data by rerunning [Import Data](./import-data.md).
+
+> [!WARNING]
+> If your workspace is in a virtual network, you must configure your datastores to use the designer's data visualization features. For more information on how to use datastores and datasets in a virtual network, see [Use Azure Machine Learning studio in an Azure virtual network](../how-to-enable-studio-virtual-network.md).
+
 
 ## How to configure Import Data
 
 1. Add the **Import Data** module to your pipeline. You can find this module in the **Data Input and Output** category in the designer.
 
-1. Click **Launch Data Import Wizard** to configure the data source using a wizard.
-
-    The wizard gets the account name and credentials, and help you configure other options. If you are editing an existing configuration, it loads the current values first.
+1. Select the module to open the right pane.
 
 1. Select **Data source**, and choose the data source type. It could be HTTP or datastore.
 
     If you choose datastore, you can select existing datastores that already registered to your Azure Machine Learning workspace or create a new datastore. Then define the path of data to import in the datastore. You can easily browse the path by click **Browse Path**
-    ![import-data-path](media/module/import-data-path.png)
+    ![Screenshot shows the Browse path link which opens the Path selection dialog box.](media/module/import-data-path.png)
 
 1. Select the preview schema to filter the columns you want to include. You can also define advanced settings like Delimiter in Parsing options.
 
     ![import-data-preview](media/module/import-data.png)
 
-1. Select the **Use cached results** option if you want to cache the dataset for reuse on successive runs.
+1. The checkbox, **Regenerate output**, decides whether to execute the module to regenerate output at running time. 
 
-    Assuming there have been no other changes to module parameters, the pipeline loads the data only the first time the module is run, and thereafter uses a cached version of the dataset.
+    It's by default unselected, which means if the module has been executed with the same parameters previously, the system will reuse the output from last run to reduce run time. 
 
-    Deselect this option if you need to reload the data each time you run the pipeline.
+    If it is selected, the system will execute the module again to regenerate output. So select this option when underlying data in storage is updated, it can help to get the latest data.
 
-1. Run the pipeline.
+
+1. Submit the pipeline.
 
     When Import Data loads the data into the designer, it infers the data type of each column based on the values it contains, either numerical or categorical.
 

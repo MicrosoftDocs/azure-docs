@@ -4,13 +4,17 @@ description: This article describes how to run and debug OPC Publisher. It also 
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
+ms.custom:  [amqp, mqtt]
 ---
 
 # Run OPC Publisher
+
+> [!IMPORTANT]
+> While we update this article, see [Azure Industrial IoT](https://azure.github.io/Industrial-IoT/) for the most up to date content.
 
 This article describes how to run ad debug OPC Publisher. It also addresses performance and memory considerations.
 
@@ -359,7 +363,7 @@ Check [Docker Hub](https://hub.docker.com/_/microsoft-iotedge-opc-publisher) to 
 
 ## Run as an Azure IoT Edge module
 
-OPC Publisher is ready to be used as an [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge) module. When you use OPC Publisher as IoT Edge module, the only supported transport protocols are **Amqp_Tcp_Only** and **Mqtt_Tcp_Only**.
+OPC Publisher is ready to be used as an [Azure IoT Edge](../iot-edge/index.yml) module. When you use OPC Publisher as IoT Edge module, the only supported transport protocols are **Amqp_Tcp_Only** and **Mqtt_Tcp_Only**.
 
 To add OPC Publisher as module to your IoT Edge deployment, go to your IoT Hub settings in the Azure portal and complete the following steps:
 

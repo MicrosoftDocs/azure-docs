@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Jive | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Jive.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9fc5659a-c116-4a1b-a601-333325a26b46
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/16/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Jive
@@ -81,11 +75,13 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. On the **Basic SAML Configuration** section, enter the values for the following fields:
 
-a. In the **Sign on URL** text box, type a URL using the following pattern:
+   a. In the **Sign on URL** text box, type a URL using the following pattern:
     `https://<instance name>.jivecustom.com`
 
-    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
-    `https://<instance name>.jiveon.com`
+   b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+   ```http
+   https://<instance name>.jiveon.com
+   ```
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Jive Client support team](https://www.jivesoftware.com/services-support/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -140,7 +136,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the menu on the top, Click **SAML**.
 
-	![Configure Single Sign-On On App Side](./media/jive-tutorial/tutorial_jive_002.png)
+	![Screenshot shows the SAML tab with Enabled selected.](./media/jive-tutorial/tutorial_jive_002.png)
 
 	a. Select **Enabled** under the **General** tab.
 
@@ -148,7 +144,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to the **IDP METADATA** tab.
 
-    ![Configure Single Sign-On On App Side](./media/jive-tutorial/tutorial_jive_003.png)
+    ![Screenshot shows the SAML tab I D P METADATA selected.](./media/jive-tutorial/tutorial_jive_003.png)
 
     a. Copy the content of the downloaded metadata XML file, and then paste it into the **Identity Provider (IDP) Metadata** textbox.
 
@@ -156,7 +152,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Select **USER ATTRIBUTE MAPPING** tab.
 
-    ![Configure Single Sign-On On App Side](./media/jive-tutorial/tutorial_jive_004.png)
+    ![Screenshot shows the SAML tab with USER ATTRIBUTE MAPPING selected.](./media/jive-tutorial/tutorial_jive_004.png)
 
     a. In the **Email** textbox, copy and paste the attribute name of **mail** value.
 

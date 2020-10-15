@@ -21,44 +21,23 @@ Application templates consist of:
 - Pre-configured rules and jobs
 - Rich documentation including tutorials and how-tos
 
-## Preview templates
+You choose the application template when you create your application. You can't change the template after the application is created.
 
-Your choice of application template determines whether your application uses IoT Central preview features such as Plug and Play for devices.
+## Custom templates
 
-Currently, the application template that use _generally available_ features is:
-
-- Custom app > Legacy application
-
-
-Currently, the application templates that use _public preview_ features are:
-
-- Custom app > Preview application
-- Retail > Connected logistics
-- Retail > Digital distribution center
-- Retail > In-store analytics – condition monitoring
-- Retail > In-store analytics – checkout
-- Retail > Micro-fulfillment center
-- Retail > Smart inventory management
-- Energy > Smart meter monitoring
-- Energy > Solar panel monitoring
-- Government > Connected waste management
-- Government > Water consumption monitoring
-- Government > Water quality monitoring
-- Healthcare > Continuous patient monitoring
-
-> [!NOTE]
-> The **legacy application** templates are currently  available in the **United States**, **Australia**, **Asia Pacific**, or in the **Europe** locations, while other templates are currently available only in **Europe** and **US** locations.
+If you want to create your application from scratch, choose one of the **Custom application** template.
 
 ## Industry focused templates
 
 Azure IoT Central is an industry agnostic application platform. Application templates are industry focused examples available for these industries today, with more to come in the future:
 
-- [Retail](../retail/overview-iot-central-retail-pnp.md)
+- [Retail](../retail/overview-iot-central-retail.md)
   - Connected logistics
   - Digital distribution center
   - In-store analytics - condition monitoring
   - In-store analytics - checkout
   - Smart Inventory Management
+  - Video analytics - object and motion detection
 - [Energy](../energy/overview-iot-central-energy.md)
   - Smart meter monitoring
   - Solar panel monitoring
@@ -68,6 +47,10 @@ Azure IoT Central is an industry agnostic application platform. Application temp
   - Water quality monitoring
 - [Healthcare](../healthcare/overview-iot-central-healthcare.md).
   - Continuous patient monitoring
+
+## Application versions
+
+Templates are associated with specific IoT Central application versions. You can find the version of an application on the [About your app](./howto-get-app-info.md) page from the **Help** link.
 
 ## Next steps
 

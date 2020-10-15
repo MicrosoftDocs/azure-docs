@@ -4,7 +4,7 @@ description: Learn about sfctl, the Azure Service Fabric command line interface.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
@@ -67,9 +67,11 @@ Chaos will automatically schedule runs based on the Chaos Schedule. The Chaos Sc
 
 ### Examples
 
-The following command sets a schedule (assuming the current schedule has version 0) that starts on 2016-01-01 and expires on 2038-01-01 that runs Chaos 24 hours of the day, 7 days a week. Chaos will be scheduled on the cluster for that time.
-
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+The following command sets a schedule (assuming the current schedule has version 0) that starts
+on 2016-01-01 and expires on 2038-01-01 that runs Chaos 24 hours of the day, 7 days a week.
+Chaos will be scheduled on the cluster for that time.
+```
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
     {
@@ -130,8 +132,10 @@ The following command sets a schedule (assuming the current schedule has version
         ]
     }
     ]
+```
+
 
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

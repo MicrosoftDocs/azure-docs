@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 3/18/2020
 ---
 # Azure Database for MySQL Advanced Threat Protection
 
@@ -14,7 +14,7 @@ Advanced Threat Protection for Azure Database for MySQL detects anomalous activi
 > [!NOTE]
 > Advanced Threat Protection is in public preview.
 
-Advanced Threat Protection is part of the Advanced Data Security offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) or using [REST API](/rest/api/mysql/serversecurityalertpolicies). The feature is available for General Purpose and Memory Optimized servers.
+Advanced Threat Protection is part of the Advanced Data Security offering, which is a unified package for advanced security capabilities. Advanced Threat Protection can be accessed and managed via the [Azure portal](https://portal.azure.com) or using [REST API](/rest/api/mysql). The feature is available for General Purpose and Memory Optimized servers.
 
 > [!NOTE]
 > The Advanced Threat Protection feature is **not** available in the following Azure government and sovereign cloud regions: US Gov Texas, US Gov Arizona, US Gov Iowa, US, Gov Virginia, US DoD East, US DoD Central, Germany Central, Germany North, China East, China East 2. Please visit [products available by region](https://azure.microsoft.com/global-infrastructure/services/) for general product availability.
@@ -24,7 +24,7 @@ Advanced Threat Protection is part of the Advanced Data Security offering, which
 
 Advanced Threat Protection for Azure Database for MySQL provides a new layer of security, which enables customers to detect and respond to potential threats as they occur by providing security alerts on anomalous activities. Users receive an alert upon suspicious database activities, and potential vulnerabilities, as well as anomalous database access and queries patterns. Advanced Threat Protection for Azure Database for MySQL integrates alerts with [Azure Security Center](https://azure.microsoft.com/services/security-center/), which includes details of suspicious activity and recommends action on how to investigate and mitigate the threat. Advanced Threat Protection for Azure Database for MySQL makes it simple to address potential threats to the database without the need to be a security expert or manage advanced security monitoring systems. 
 
-![Advanced Threat Protection Concept](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png" alt-text="Advanced Threat Protection Concept":::
 
 ## Advanced Threat Protection alerts 
 Advanced Threat Protection for Azure Database for MySQL detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases and it can trigger the following alerts:

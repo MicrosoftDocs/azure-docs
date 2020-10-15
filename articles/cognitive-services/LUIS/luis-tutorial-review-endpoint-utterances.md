@@ -1,16 +1,11 @@
 ---
 title: "Tutorial: Reviewing endpoint utterances - LUIS"
-titleSuffix: Azure Cognitive Services
 description: In this tutorial, improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity.
 services: cognitive-services
-author: diberry
-manager: nitinme
-ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/17/2019
-ms.author: diberry
+ms.date: 07/02/2020
 #Customer intent: As a new user, I want to understand why and when to review endpoint utterances.
 
 ---
@@ -37,21 +32,22 @@ By reviewing the endpoint utterances, you verify or correct the utterance's pred
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## Import example app
+## Download JSON file for app
 
-Use the following steps to import an app.
+Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/luis/apps/tutorial-fix-unsure-predictions.json?raw=true).
 
-1.  Download and save [app JSON file](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true).
-
-1. On the [preview LUIS portal](https://preview.luis-ai), import the .json file into a new app.
-
-1. From the **Manage** section, on the **Versions** tab, clone the version, and name it `review`.
-
-    > [!TIP]
-    > Cloning into a new version is a best practice before you modify your app. When you finish a version, export the version (as a .json or .lu file), and check the file into your source control system.
+## Import JSON file for app
 
 
-1. To train the app, select **Train**.
+1. In the [LUIS portal](https://www.luis.ai), on the **My apps** page, select **+ New app for conversation**, then **Import as JSON**. Find the saved JSON file from the previous step. You don't need to change the name of the app. Select **Done**
+
+1. Select **Build** then **Intents** to see the intents, the main building blocks of a LUIS app.
+
+    :::image type="content" source="media/luis-tutorial-review-endpoint-utterances/initial-intents-in-app.png" alt-text="Change from the Versions page to the Intents page.":::
+
+## Train the app to apply the entity changes to the app
+
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## Publish the app to access it from the HTTP endpoint
 
@@ -63,7 +59,7 @@ In this app, you have intents and entities but you don't have any endpoint usage
 
 1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Use the endpoint to add the following utterances.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with the utterances in the following table. For each utterance, submit the utterance, and get the result. Then replace the utterance at the end with the next utterance.
 
     |Endpoint utterance|Aligned intent|
     |--|--|
@@ -85,15 +81,11 @@ Review the endpoint utterances for correctly aligned intent. While there is a si
 
 1. From the **Build** section of the portal, select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent.
 
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png)
+    :::image type="content" source="./media/luis-tutorial-review-endpoint-utterances/review-endpoint-utterances-with-entity-view.png" alt-text="Screenshot of Review endpoint utterances button in left navigation.":::
 
-    This utterance, `I'm looking for a job with Natural Language Processing`, is not in the correct intent.
+    This utterance, `I'm looking for a job with Natural Language Processing`, is not in the correct intent, _GetJobInformation_. It has been mispredicted as _ApplyForJob_ because of the similarity of job names and verbs in the two intents.
 
-1.  To align this utterance, on the utterance row, select the correct **Aligned Intent** of `GetJobInformation`. Add the changed utterance to the app by selecting the checkmark.
-
-    > [!div class="mx-imgBorder"]
-    > ![Screenshot of Review endpoint utterances button in left navigation](./media/luis-tutorial-review-endpoint-utterances/select-correct-aligned-intent-for-endpoint-utterance.png)
+1.  To align this utterance, select the correct **Aligned Intent** of `GetJobInformation`. Add the changed utterance to the app by selecting the checkmark.
 
     Review the remaining utterances in this intent, correcting the aligned intent as needed. Use the initial utterance table in this tutorial to view the aligned intent.
 
@@ -107,9 +99,9 @@ Review the endpoint utterances for correctly aligned intent. While there is a si
 
 To verify the correctly aligned example utterances improved the app's prediction, try an utterance close to the corrected utterance.
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](includes/howto-get-endpoint.md)]
 
-1. Go to the end of the URL in the address and enter `Are there any natural language processing jobs in my department right now?`. The last querystring parameter is `q`, the utterance **query**.
+1. Go to the end of the URL in the address bar and replace _YOUR_QUERY_HERE_ with `Are there any natural language processing jobs in my department right now?`.
 
    ```json
     {
@@ -118,37 +110,37 @@ To verify the correctly aligned example utterances improved the app's prediction
             "topIntent": "GetJobInformation",
             "intents": {
                 "GetJobInformation": {
-                    "score": 0.903607249
-                },
-                "EmployeeFeedback": {
-                    "score": 0.0312187821
+                    "score": 0.901367366
                 },
                 "ApplyForJob": {
-                    "score": 0.0230276529
+                    "score": 0.0307973567
+                },
+                "EmployeeFeedback": {
+                    "score": 0.0296942145
                 },
                 "MoveEmployee": {
-                    "score": 0.008322801
-                },
-                "Utilities.Stop": {
-                    "score": 0.004480808
+                    "score": 0.00739785144
                 },
                 "FindForm": {
-                    "score": 0.00425248267
+                    "score": 0.00449316856
+                },
+                "Utilities.Stop": {
+                    "score": 0.00417657848
                 },
                 "Utilities.StartOver": {
-                    "score": 0.004224336
+                    "score": 0.00407167152
                 },
                 "Utilities.Help": {
-                    "score": 0.00373591436
+                    "score": 0.003662492
                 },
                 "None": {
-                    "score": 0.0034621188
+                    "score": 0.00335733569
                 },
                 "Utilities.Cancel": {
-                    "score": 0.00230977475
+                    "score": 0.002225436
                 },
                 "Utilities.Confirm": {
-                    "score": 0.00112078607
+                    "score": 0.00107437756
                 }
             },
             "entities": {
@@ -164,7 +156,7 @@ To verify the correctly aligned example utterances improved the app's prediction
                                 "timex": "PRESENT_REF",
                                 "resolution": [
                                     {
-                                        "value": "2019-12-05 23:23:53"
+                                        "value": "2020-07-02 21:45:50"
                                     }
                                 ]
                             }

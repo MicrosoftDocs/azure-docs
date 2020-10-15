@@ -1,21 +1,21 @@
 ---
-title: Private Link for Azure Database for MySQL (Preview)
+title: Private Link - Azure Database for MySQL
 description: Learn how Private link works for Azure Database for MySQL.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/09/2020
+ms.date: 03/10/2020
 ---
 
-# Private Link for Azure Database for MySQL (Preview)
+# Private Link for Azure Database for MySQL
 
 Private Link allows you to connect to various PaaS services in Azure via a private endpoint. Azure Private Link essentially brings Azure services inside your private Virtual Network (VNet). The PaaS resources can be accessed using the private IP address just like any other resource in the VNet.
 
 For a list to PaaS services that support Private Link functionality, review the Private Link [documentation](https://docs.microsoft.com/azure/private-link/index). A private endpoint is a private IP address within a specific [VNet](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) and Subnet.
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for MySQL supports General Purpose and Memory Optimized pricing tiers.
+> The private link feature is only available for Azure Database for MySQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the database server is in one of these pricing tiers.
 
 ## Data exfiltration prevention
 
@@ -42,45 +42,46 @@ When you connect to the public endpoint from on-premises machines, your IP addre
 
 With Private Link, you can enable cross-premises access to the private endpoint using [Express Route](https://azure.microsoft.com/services/expressroute/) (ER), private peering or [VPN tunnel](https://docs.microsoft.com/azure/vpn-gateway/). They can subsequently disable all access via public endpoint and not use the IP-based firewall.
 
+> [!NOTE]
+> In some cases the Azure Database for MySQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
+> - Make sure that both the subscription has the **Microsoft.DBforMySQL** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
+
 ## Configure Private Link for Azure Database for MySQL
 
 ### Creation Process
 
-Private Endpoints are required to enable Private Link. This can be done using the following how-to guides.
+Private endpoints are required to enable Private Link. This can be done using the following how-to guides.
 
 * [Azure portal](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal)
 * [CLI](https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-cli)
 
 ### Approval Process
-Once the network admin creates the Private Endpoint (PE), the MySQL admin can manage the Private Endpoint Connection (PEC) to Azure Database for MySQL.
-
-> [!NOTE]
-> Currently, Azure Database for MySQL only supports auto-approval for the private endpoint.
+Once the network admin creates the private endpoint (PE), the MySQL admin can manage the private endpoint Connection (PEC) to Azure Database for MySQL. This separation of duties between the network admin and the DBA is helpful for management of the Azure Database for MySQL connectivity. 
 
 * Navigate to the Azure Database for MySQL server resource in the Azure portal. 
-    * Select the Private endpoint connections in the left pane
-    * Shows a list of all Private Endpoint Connections (PECs)
-    * Corresponding Private Endpoint (PE) created
+    * Select the private endpoint connections in the left pane
+    * Shows a list of all private endpoint Connections (PECs)
+    * Corresponding private endpoint (PE) created
 
-![select the Private endpoint portal](media/concepts-data-access-and-security-private-link/select-private-link-portal.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-portal.png" alt-text="select the private endpoint portal":::
 
 * Select an individual PEC from the list by selecting it.
 
-![select the Private endpoint pending approval](media/concepts-data-access-and-security-private-link/select-private-link.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="select the private endpoint pending approval":::
 
 * The MySQL server admin can choose to approve or reject a PEC and optionally add a short text response.
 
-![select the Private endpoint message](media/concepts-data-access-and-security-private-link/select-private-link-message.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="select the private endpoint message":::
 
 * After approval or rejection, the list will reflect the appropriate state along with the response text
 
-![select the Private endpoint final state](media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="select the private endpoint final state":::
 
 ## Use cases of Private Link for Azure Database for MySQL
 
-Clients can connect to the Private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
+Clients can connect to the private endpoint from the same VNet, peered VNet in same region, or via VNet-to-VNet connection across regions. Additionally, clients can connect from on-premises using ExpressRoute, private peering, or VPN tunneling. Below is a simplified diagram showing the common use cases.
 
-![select the Private endpoint overview](media/concepts-data-access-and-security-private-link/show-private-link-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="select the private endpoint overview":::
 
 ### Connecting from an Azure VM in Peered Virtual Network (VNet)
 Configure [VNet peering](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-powershell) to establish connectivity to the Azure Database for MySQL from an Azure VM in a peered VNet.
@@ -105,6 +106,19 @@ The following situations and outcomes are possible when you use Private Link in 
 
 * If you don't configure any public traffic or service endpoint and you create private endpoints, then the Azure Database for MySQL is accessible only through the private endpoints. If you don't configure public traffic or a service endpoint, after all approved private endpoints are rejected or deleted, no traffic will be able to access the Azure Database for MySQL.
 
+## Deny public access for Azure Database for MySQL
+
+If you want to rely only on private endpoints for accessing their Azure Database for MySQL, you can disable setting all public endpoints (i.e. [firewall rules](concepts-firewall-rules.md) and [VNet service endpoints](concepts-data-access-and-security-vnet.md)) by setting the **Deny Public Network Access** configuration on the database server. 
+
+When this setting is set to *YES*, only connections via private endpoints are allowed to your Azure Database for MySQL. When this setting is set to *NO*, clients can connect to your Azure Database for MySQL based on your firewall or VNet service endpoint settings. Additionally, once the value of the Private network access is set, customers cannot add and/or update existing 'Firewall rules' and 'VNet service endpoint rules'.
+
+> [!Note]
+> This feature is available in all Azure regions where Azure Database for PostgreSQL - Single server supports General Purpose and Memory Optimized pricing tiers.
+>
+> This setting does not have any impact on the SSL and TLS configurations for your Azure Database for MySQL.
+
+To learn how to set the **Deny Public Network Access** for your Azure Database for MySQL from Azure portal, refer to [How to configure Deny Public Network Access](howto-deny-public-network-access.md).
+
 ## Next steps
 
 To learn more about Azure Database for MySQL security features, see the following articles:
@@ -114,3 +128,6 @@ To learn more about Azure Database for MySQL security features, see the followin
 * To learn how to configure a virtual network service endpoint for your Azure Database for MySQL, see [Configure access from virtual networks](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet).
 
 * For an overview of Azure Database for MySQL connectivity, see [Azure Database for MySQL Connectivity Architecture](https://docs.microsoft.com/azure/mysql/concepts-connectivity-architecture)
+
+<!-- Link references, to text, Within this same GitHub repo. -->
+[resource-manager-portal]: ../azure-resource-manager/management/resource-providers-and-types.md

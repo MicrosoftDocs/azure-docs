@@ -7,15 +7,20 @@ ms.date: 12/04/2018
 
 # Quickstart: Clone a notebook in Azure Notebooks Preview
 
-Many data scientists and developers store their notebooks in [GitHub repositories](https://github.com), a free service that provides storage and version control for many different project types. GitHub is often used as a means of collaborating on Jupyter notebooks that are run locally. In such cases, every collaborator maintains a local copy of the repository and runs the notebooks from that copy.
-
-Cloning creates a copy of a GitHub notebook in your Azure Notebooks account instead. This clone is independent from its original repository; changes are stored in your Azure Notebooks account only and don't affect the original. Because your clone is in the cloud, you can share the project with other collaborators who need not make any local copies or even have Jupyter installed on their own computers. You might also clone a notebook simply as a starting point for a project of your own or to obtain data files.
-
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+In this quickstart, you copy a Jupyter notebook stored in GitHub to an Azure Notebooks account. 
+
+GitHub repositories provide storage and version control for Jupyter notebooks. Collaborators maintain local copies of the repositories, and run the notebooks from those copies. Cloning a Jupyter notebook from GitHub into your Azure Notebooks account creates an independent copy of the notebook. Changes are stored in your Azure Notebooks account only, and don't affect the original GitHub repository. 
+
+Because your Azure Notebooks clone is in the cloud, you can share it with collaborators, who need not make any local copies or have Jupyter installed on their computers. You might also clone a notebook simply as a starting point for a project of your own, or to obtain data files. 
+
+## Prerequisites
+None.
 
 ## Clone Azure Cognitive Services notebooks
 
-1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. (For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md)).
+1. Go to [Azure Notebooks](https://notebooks.azure.com) and sign in. For details, see [Quickstart - Sign in to Azure Notebooks](quickstart-sign-in-azure-notebooks.md).
 
 1. From your public profile page, select **My Projects** at the top of the page:
 
@@ -39,7 +44,7 @@ Cloning creates a copy of a GitHub notebook in your Azure Notebooks account inst
 
 1. Once cloning is finished, Azure Notebooks takes you to the new project where you can see the copies of all the files.
 
-    [![](media/quickstarts/completed-clone.png "View of a completed clone")](media/quickstarts/completed-clone.png#lightbox)
+    :::image type="content" source="media/quickstarts/completed-clone.png" alt-text="View of a completed clone." lightbox="media/quickstarts/completed-clone.png":::
 
 ## Share a notebook
 
@@ -64,4 +69,4 @@ Cloning creates a copy of a GitHub notebook in your Azure Notebooks account inst
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: Create and run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md)

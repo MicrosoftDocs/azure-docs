@@ -3,14 +3,12 @@ title: Analytics on knowledgebase - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker stores all chat logs and other telemetry, if you have enabled App Insights during the creation of your QnA Maker service. Run the sample queries to get your chat logs from App Insights.
 services: cognitive-services
-author: diberry
 manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.author: diberry
 ---
 
 # Get analytics on your knowledge base
@@ -51,7 +49,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 //Total Traffic
 requests
 | where url endswith "generateAnswer" and name startswith "POST"
-| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer" 
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
 | summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ```
 
@@ -63,8 +61,8 @@ let startDate = todatetime('2019-01-01');
 let endDate = todatetime('2020-12-31');
 requests
 | where timestamp <= endDate and timestamp >=startDate
-| where url endswith "generateAnswer" and name startswith "POST" 
-| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer" 
+| where url endswith "generateAnswer" and name startswith "POST"
+| parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
 | summarize ChatCount=count() by KbId
 ```
 
@@ -77,7 +75,7 @@ requests
 | project timestamp, id, url, resultCode, duration
 | parse kind = regex url with *"(?i)knowledgebases/"KbId"/generateAnswer"
 | join kind= inner (
-traces | extend id = operation_ParentId 
+traces | extend id = operation_ParentId
 ) on id
 | extend UserId = tostring(customDimensions['UserId'])
 | summarize ChatCount=count() by bin(timestamp, 1d), UserId, KbId
@@ -108,12 +106,12 @@ traces | extend id = operation_ParentId
 | extend question = tostring(customDimensions['Question'])
 | extend answer = tostring(customDimensions['Answer'])
 | extend score = tostring(customDimensions['Score'])
-| where  score  == "0"
-| project timestamp, KbId, question, answer, score 
+| where  score  == "0" and message == "QnAMaker GenerateAnswer"
+| project timestamp, KbId, question, answer, score
 | order  by timestamp  desc
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Choose capactiy](../tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Choose capactiy](./improve-knowledge-base.md)

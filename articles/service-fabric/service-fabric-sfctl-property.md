@@ -1,10 +1,10 @@
 ---
 title: Azure Service Fabric CLI- sfctl property 
-description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for storying and querying properties.
+description: Learn about sfctl, the Azure Service Fabric command line interface. Includes a list of commands for storing and querying properties.
 author: jeffj6123
 
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
 ---
 
@@ -101,7 +101,7 @@ Creates or updates the specified Service Fabric property under a given name.
 | --- | --- |
 | --name-id       [Required] | The Service Fabric name, without the 'fabric\:' URI scheme. |
 | --property-name [Required] | The name of the Service Fabric property. |
-| --value         [Required] | Describes a Service Fabric property value. This is a JSON string. <br><br> The json string has two fields, the 'Kind' of the data, and the 'Value' of the data. The 'Kind' value must be the first item to appear in the JSON string, and can be values 'Binary', 'Int64', 'Double', 'String', or 'Guid'. The value should be serialize-able to the given types. Both 'Kind' and 'Data' values should be provided as strings. |
+| --value         [Required] | Describes a Service Fabric property value. This is a JSON string. <br><br> The json string has two fields, the 'Kind' of the data, and the value, entered as 'Data' of the data. The 'Kind' value must be the first item to appear in the JSON string, and can be values 'Binary', 'Int64', 'Double', 'String', or 'Guid'. The value should be serialize-able to the given types. Both 'Kind' and 'Data' values should be provided as strings. |
 | --custom-id-type | The property's custom type ID. Using this property, the user is able to tag the type of the value of the property. |
 | --timeout -t | Default\: 60. |
 
@@ -118,4 +118,4 @@ Creates or updates the specified Service Fabric property under a given name.
 
 ## Next steps
 - [Set up](service-fabric-cli.md) the Service Fabric CLI.
-- Learn how to use the Service Fabric CLI using the [sample scripts](/azure/service-fabric/scripts/sfctl-upgrade-application).
+- Learn how to use the Service Fabric CLI using the [sample scripts](./scripts/sfctl-upgrade-application.md).

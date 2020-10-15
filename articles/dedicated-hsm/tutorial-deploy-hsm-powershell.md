@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tutorial deploy into an existing virtual network using PowerShell - Azure Dedicated HSM | Microsoft Docs
 description: Tutorial showing how to deploy a dedicated HSM using PowerShell into an existing virtual network
 services: dedicated-hsm
@@ -9,11 +9,11 @@ editor: ''
 
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: "mvc, seodec18"
+ms.custom: "mvc, seodec18, devx-track-azurepowershell"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
-ms.author: mbaldwin
+ms.date: 07/14/2020
+ms.author: johndaw
 ---
 
 # Tutorial – Deploying HSMs into an existing virtual network using PowerShell
@@ -36,7 +36,7 @@ This tutorial focuses on a pair of HSMs and the required ExpressRoute Gateway (s
 
 ## Prerequisites
 
-Azure Dedicated HSM is not currently available in the Azure portal, therefore all interaction with the service will be via command-line or using PowerShell. This tutorial will use PowerShell in the Azure Cloud Shell. If you are new to PowerShell, follow getting started instructions here: [Azure PowerShell Get Started](https://docs.microsoft.com/powershell/azure/get-started-azureps).
+Azure Dedicated HSM is not currently available in the Azure portal, therefore all interaction with the service will be via command-line or using PowerShell. This tutorial will use PowerShell in the Azure Cloud Shell. If you are new to PowerShell, follow getting started instructions here: [Azure PowerShell Get Started](/powershell/azure/get-started-azureps).
 
 Assumptions:
 
@@ -58,13 +58,7 @@ As mentioned above, any provisioning activity requires that the Dedicated HSM se
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-The following command verifies the networking features required for the Dedicated HSM service.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
-```
-
-Both commands should return a status of “Registered” (as shown below) before you proceed any further.  If you need to register for this service, contact your Microsoft account representative.
+The command should return a status of “Registered” (as shown below) before you proceed any further.  If you are not registered for this service please contact your Microsoft account representative.
 
 ![subscription status](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 
@@ -241,19 +235,12 @@ At this point, you have allocated all resources for a highly available, two HSM 
 
 ## Delete or clean up resources
 
-If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. To remove sensitive customer data the device should be factory reset using the Gemalto client. Refer to the Gemalto administrators guide for the SafeNet Network Luna 7 device and consider the following commands in order.
-
-1. `hsm factoryReset -f`
-2. `sysconf config factoryReset -f -service all`
-3. `my file clear -f`
-4. `my public-key clear -f`
-5. `syslog rotate`
-
+If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. The best way to "zeroize" a device is to get the HSM admin password wrong 3 times (note: this is not appliance admin, it's the actual HSM admin). As a safety measure to protect key material, the device cannot be deleted as an Azure resource until it is in the zeroized state.
 
 > [!NOTE]
 > if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
 
-If you have finished with resources in this resource group, then you can remove them all with the following command:
+If you want to remove the HSM resource in Azure you can use the following command replacing the "$" variables with your unique parameters:
 
 ```powershell
 

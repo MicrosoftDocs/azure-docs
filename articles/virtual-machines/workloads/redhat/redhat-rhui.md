@@ -1,17 +1,13 @@
 ---
 title: Red Hat Update Infrastructure | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
-services: virtual-machines-linux
-documentationcenter: ''
 author: asinn826
-manager: BorisB2015
-
 ms.service: virtual-machines-linux
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
-ms.date: 12/18/2019
+ms.date: 02/10/2020
 ms.author: alsin
+ms.reviewer: cynthn
+
 
 ---
 # Red Hat Update Infrastructure for on-demand Red Hat Enterprise Linux VMs in Azure
@@ -23,6 +19,10 @@ Additional information on RHEL images in Azure, including publishing and retenti
 
 Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 
+> [!IMPORTANT]
+> RHUI is intended only for pay-as-you-go (PAYG) images. For custom and golden images, also known as bring-your-own-subscription (BYOS), the system needs to be attached to RHSM or Satellite in order to receive updates. See [Red Hat article](https://access.redhat.com/solutions/253273) for more details.
+
+
 ## Important information about Azure RHUI
 
 * Azure RHUI is the update infrastructure that supports all RHEL PAYG VMs created in Azure. This does not preclude you from registering your PAYG RHEL VMs with Subscription Manager or Satellite or other source of updates, but doing so with a PAYG VM will result in indirect double-billing. See the following point for details.
@@ -32,6 +32,7 @@ Information on Red Hat support policies for all versions of RHEL can be found on
 
 * Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI. If that is the case, user-defined routes will need to be added for _all_ RHUI IP addresses.
 
+
 ## Image update behavior
 
 As of April 2019, Azure offers RHEL images that are connected to Extended Update Support (EUS) repositories by default and RHEL images that come connected to the regular (non-EUS) repositories by default. More details on RHEL EUS are available in Red Hat's [version lifecycle documentation](https://access.redhat.com/support/policy/updates/errata) and [EUS documentation](https://access.redhat.com/articles/rhel-eus). The default behavior of `sudo yum update` will vary depending which RHEL image you provisioned from, as different images are connected to different repositories.
@@ -40,7 +41,7 @@ For a full image list, run `az vm image list --publisher redhat --all` using the
 
 ### Images connected to non-EUS repositories
 
-If you provision a VM from a RHEL image that is connected to non-EUS repositories, you will be upgraded to the latest RHEL minor version when you run `sudo yum update`. For example, if you provision a VM from an RHEL 7.4 PAYG image and run `sudo yum update`, you end up with an RHEL 7.7 VM (the latest minor version in the RHEL7 family).
+If you provision a VM from a RHEL image that is connected to non-EUS repositories, you will be upgraded to the latest RHEL minor version when you run `sudo yum update`. For example, if you provision a VM from an RHEL 7.4 PAYG image and run `sudo yum update`, you end up with an RHEL 7.8 VM (the latest minor version in the RHEL7 family).
 
 Images that are connected to non-EUS repositories will not contain a minor version number in the SKU. The SKU is the third element in the URN (full name of the image). For example, all of the following images come attached to non-EUS repositories:
 
@@ -74,17 +75,17 @@ Extended Update Support (EUS) repositories are available to customers who may wa
 >[!NOTE]
 > EUS is not supported on RHEL Extras. This means that if you are installing a package that is usually available from the RHEL Extras channel, you will not be able to do so while on EUS. The Red Hat Extras Product Life Cycle is detailed [here](https://access.redhat.com/support/policy/updates/extras/).
 
-At the time of this writing, EUS support has ended for RHEL <= 7.4. See the "Red Hat Enterprise Linux Longer Support Add-Ons" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/) for more details.
+At the time of this writing, EUS support has ended for RHEL <= 7.4. See the "Red Hat Enterprise Linux Extended Maintenance" section in the [Red Hat documentation](https://access.redhat.com/support/policy/updates/errata/#Long_Support) for more details.
 * RHEL 7.4 EUS support ends August 31, 2019
 * RHEL 7.5 EUS support ends April 30, 2020
-* RHEL 7.6 EUS support ends October 31, 2020
+* RHEL 7.6 EUS support ends May 31, 2021
 * RHEL 7.7 EUS support ends August 30, 2021
 
-### Switch a RHEL VM to EUS (version-lock to a specific minor version)
-Use the following instructions to lock a RHEL VM to a particular minor release (run as root):
+### Switch a RHEL VM 7.x to EUS (version-lock to a specific minor version)
+Use the following instructions to lock a RHEL 7.x VM to a particular minor release (run as root):
 
 >[!NOTE]
-> This only applies for RHEL versions for which EUS is available. At the time of this writing, this includes RHEL 7.2-7.7. More details are available at the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
+> This only applies for RHEL 7.x versions for which EUS is available. At the time of this writing, this includes RHEL 7.2-7.7. More details are available at the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
 
 1. Disable non-EUS repos:
     ```bash
@@ -96,22 +97,60 @@ Use the following instructions to lock a RHEL VM to a particular minor release (
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Lock the releasever variable (run as root):
+1. Lock the `releasever` variable (run as root):
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
 
     >[!NOTE]
-    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 7.5 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 7.5
+    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 7.5 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 7.5.
 
 1. Update your RHEL VM
     ```bash
     sudo yum update
     ```
 
-### Switch a RHEL VM back to non-EUS (remove a version lock)
+### Switch a RHEL VM 8.x to EUS (version-lock to a specific minor version)
+Use the following instructions to lock a RHEL 8.x VM to a particular minor release (run as root):
+
+>[!NOTE]
+> This only applies for RHEL 8.x versions for which EUS is available. At the time of this writing, this includes RHEL 8.1-8.2. More details are available at the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.
+
+1. Disable non-EUS repos:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8'
+    ```
+
+1. Get the EUS repos config file:
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8-eus.config
+    ```
+
+1. Add EUS repos:
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8-eus.config install rhui-azure-rhel8-eus
+    ```
+
+1. Lock the `releasever` variable (run as root):
+    ```bash
+    echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
+    ```
+
+    >[!NOTE]
+    > The above instruction will lock the RHEL minor release to the current minor release. Enter a specific minor release if you are looking to upgrade and lock to a later minor release that is not the latest. For example, `echo 8.1 > /etc/yum/vars/releasever` will lock your RHEL version to RHEL 8.1.
+
+    >[!NOTE]
+    > If there are permission issues to access the releasever, you can edit the file using 'nano /etc/yum/vars/releaseve' and add the image version details and save ('Ctrl+o' then press enter and then 'Ctrl+x').  
+
+1. Update your RHEL VM
+    ```bash
+    sudo yum update
+    ```
+
+
+### Switch a RHEL 7.x VM back to non-EUS (remove a version lock)
 Run the following as root:
-1. Remove the releasever file:
+1. Remove the `releasever` file:
     ```bash
     rm /etc/yum/vars/releasever
      ```
@@ -126,6 +165,33 @@ Run the following as root:
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
     ```
 
+1. Update your RHEL VM
+    ```bash
+    sudo yum update
+    ```
+
+### Switch a RHEL 8.x VM back to non-EUS (remove a version lock)
+Run the following as root:
+1. Remove the `releasever` file:
+    ```bash
+    rm /etc/yum/vars/releasever
+     ```
+
+1. Disable EUS repos:
+    ```bash
+    yum --disablerepo='*' remove 'rhui-azure-rhel8-eus'
+   ```
+
+1. Get the regular repos config file:
+    ```bash
+    wget https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel8.config
+    ```
+
+1. Add EUS repos:
+    ```bash
+    yum --config=rhui-microsoft-azure-rhel8.config install rhui-azure-rhel8
+    ```
+    
 1. Update your RHEL VM
     ```bash
     sudo yum update
@@ -155,13 +221,18 @@ If you're using a network configuration to further restrict access from RHEL PAY
 51.5.243.77
 51.4.228.145
 ```
+>[!NOTE]
+>The new Azure US Government images,as of January 2020, will be using Public IP mentioned under Azure Global header above.
+
+>[!NOTE]
+>Also, note that Azure Germany is deprecated in favor of public Germany regions. Recommendation for Azure Germany customers is to start pointing to public RHUI using the steps [here](#manual-update-procedure-to-use-the-azure-rhui-servers).
 
 ## Azure RHUI Infrastructure
 
 
 ### Update expired RHUI client certificate on a VM
 
-If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired SSL client certificate. The error you see may look like _"SSL peer rejected your certificate as expired"_ or _"Error: Cannot retrieve repository metadata (repomd.xml) for repository: ... Please verify its path and try again"_. To overcome this problem, please update the RHUI client package on the VM using the following command:
+If you are using an older RHEL VM image, for example, RHEL 7.4 (image URN: `RedHat:RHEL:7.4:7.4.2018010506`), you will experience connectivity issues to RHUI due to a now-expired TLS/SSL client certificate. The error you see may look like _"SSL peer rejected your certificate as expired"_ or _"Error: Cannot retrieve repository metadata (repomd.xml) for repository: ... Please verify its path and try again"_. To overcome this problem, please update the RHUI client package on the VM using the following command:
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
@@ -207,7 +278,31 @@ This procedure is provided for reference only. RHEL PAYG images already have the
   yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
   ```
 
+- For RHEL 8:
+    1. Create a config file:
+        ```bash
+        vi rhel8.config
+        ```
+    1. Add the following content into the config file:
+        ```bash
+        [rhui-microsoft-azure-rhel8]
+        name=Microsoft Azure RPMs for Red Hat Enterprise Linux 8
+        baseurl=https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-2.microsoft.com/pulp/repos/microsoft-azure-rhel8 https://rhui-3.microsoft.com/pulp/repos/microsoft-azure-rhel8
+        enabled=1
+        gpgcheck=1
+        gpgkey=https://rhelimage.blob.core.windows.net/repositories/RPM-GPG-KEY-microsoft-azure-release sslverify=1
+        ```
+    1. Save the file and run the following command:
+        ```bash
+        dnf --config rhel8.config install 'rhui-azure-rhel8'
+        ```
+    1. Update your VM
+        ```bash
+        sudo dnf update
+        ```
+
+
 ## Next steps
-* To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
+* To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/RedHat.RHEL_6).
 * To learn more about the Red Hat images in Azure, go to the [documentation page](./redhat-images.md).
 * Information on Red Hat support policies for all versions of RHEL can be found on the [Red Hat Enterprise Linux Life Cycle](https://access.redhat.com/support/policy/updates/errata) page.

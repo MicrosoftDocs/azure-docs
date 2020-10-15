@@ -3,19 +3,18 @@ title: Using the Active Directory connected service (Visual Studio)
 description: Add an Azure Active Directory by using the Visual Studio Add Connected Services dialog box
 author: ghogen
 manager: jillfra
-ms.assetid: f599de6b-e369-436f-9cdc-48a0165684cb
 ms.prod: visual-studio-windows
 ms.technology: vs-azure
-ms.custom: aaddev, vs-azure
+ms.custom: "devx-track-csharp, aaddev, vs-azure"
 ms.workload: azure-vs
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 
 ---
 # Add an Azure Active Directory by using Connected Services in Visual Studio
 
-By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or Active Directory Authentication in Web API services. With Azure AD Authentication, your users can use their accounts from Azure Active Directory to connect to your web applications. The advantages of Azure AD Authentication with Web API include enhanced data security when exposing an API from a web application. With Azure AD, you do not have to manage a separate authentication system with its own account and user management.
+By using Azure Active Directory (Azure AD), you can support Single Sign-On (SSO) for ASP.NET MVC web applications, or Active Directory Authentication in web API services. With Azure AD Authentication, your users can use their accounts from Azure Active Directory to connect to your web applications. The advantages of Azure AD Authentication with web API include enhanced data security when exposing an API from a web application. With Azure AD, you do not have to manage a separate authentication system with its own account and user management.
 
 This article and its companion articles provide details of using the Visual Studio Connected Service feature for Active Directory. The capability is available in Visual Studio 2015 and later.
 
@@ -68,5 +67,5 @@ When you add the connected service the wizard, Visual Studio adds Azure Active D
 
 ## Next steps
 
-- [Authentication scenarios for Azure Active Directory](authentication-scenarios.md)
-- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v1-aspnet-webapp.md)
+- [Authentication scenarios for Azure Active Directory](./authentication-vs-authorization.md)
+- [Add sign-in with Microsoft to an ASP.NET web app](quickstart-v2-aspnet-webapp.md)

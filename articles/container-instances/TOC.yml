@@ -13,6 +13,11 @@
     href: container-instances-quickstart-portal.md
   - name: Deploy a container instance - PowerShell
     href: container-instances-quickstart-powershell.md
+  - name: Deploy a container instance - ARM template
+    displayName: Resource Manager
+    href: container-instances-quickstart-template.md
+  - name: Deploy a container instance - Docker CLI
+    href: quickstart-docker-cli.md
 - name: Tutorials
   items:
   - name: Create and deploy container image
@@ -29,6 +34,8 @@
       href: container-instances-multi-container-yaml.md
     - name: Deploy a container group - Resource Manager
       href: container-instances-multi-container-group.md
+    - name: Deploy a container group - Docker Compose
+      href: tutorial-docker-compose.md
   - name: Integrate with Azure services
     items:
     - name: Trigger with Azure Functions
@@ -36,7 +43,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?sort=0&term=aci
+    href: https://docs.microsoft.com/samples/browse/?products=azure&terms=container%20instance
   - name: Resource Manager templates
     href: container-instances-samples-rm.md
 - name: Concepts
@@ -49,8 +56,14 @@
     href: container-instances-region-availability.md
   - name: Relationship to orchestrators
     href: container-instances-orchestrator-relationship.md
-  - name: Security considerations
-    href: container-instances-image-security.md
+  - name: Security
+    items:
+     - name: Security baseline
+       href: security-baseline.md
+     - name: Security considerations
+       href: container-instances-image-security.md
+  - name: Virtual networking
+    href: container-instances-virtual-network-concepts.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -59,6 +72,8 @@
       href: container-instances-vnet.md
     - name: Deploy from Azure Container Registry
       href: container-instances-using-azure-container-registry.md
+    - name: Deploy with GitHub Actions (preview)
+      href: container-instances-github-action.md
     - name: Encrypt deployment data
       href: container-instances-encrypt-data.md
     - name: Deploy on dedicated hosts
@@ -75,14 +90,18 @@
       href: container-instances-start-command.md
     - name: Execute a command (exec)
       href: container-instances-exec.md
-    - name: Run Jenkins build job
-      href: container-instances-jenkins.md
+    - name: Run a setup container (init)
+      href: container-instances-init-container.md
     - name: Use a managed identity (preview)
       href: container-instances-managed-identity.md
     - name: Use GPU resources (preview)
       href: container-instances-gpu.md
-    - name: Enable SSL endpoint
-      href: container-instances-container-group-ssl.md     
+    - name: Enable SSL endpoint in sidecar
+      href: container-instances-container-group-ssl.md
+    - name: Expose static IP with App Gateway
+      href: container-instances-application-gateway.md  
+    - name: Use Azure Firewall for ingress and egress
+      href: container-instances-egress-ip-address.md
   - name: Mount data volumes
     items:
     - name: Azure file share

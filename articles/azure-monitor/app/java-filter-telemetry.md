@@ -1,13 +1,9 @@
 ---
 title: Filter Azure Application Insights telemetry in your Java web app
 description: Reduce telemetry traffic by filtering out the events you don't need to monitor.
-ms.service:  azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 3/14/2019
-
+ms.custom: devx-track-java
 ---
 
 # Filter telemetry in your Java web app
@@ -23,7 +19,7 @@ The out-of-the-box filters include:
 
 > [!NOTE]
 > Filters skew the metrics of your app. For example, you might decide that, in order to diagnose slow responses, you will set a filter to discard fast response times. But you must be aware that the average response times reported by Application Insights will then be slower than the true speed, and the count of requests will be smaller than the real count.
-> If this is a concern, use [Sampling](../../azure-monitor/app/sampling.md) instead.
+> If this is a concern, use [Sampling](./sampling.md) instead.
 
 ## Setting filters
 
@@ -77,10 +73,7 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
 ```
 
-
-
-
-[Inspect the full set of built-in processors](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Inspect the full set of built-in processors](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal).
 
 ## Built-in filters
 
@@ -152,7 +145,7 @@ Filter out telemetry for specific synthetic sources:
 
 ### Telemetry Event filter
 
-Filters custom events (logged using [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filters custom events (logged using [TrackEvent()](./api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -168,7 +161,7 @@ Filters custom events (logged using [TrackEvent()](../../azure-monitor/app/api-c
 
 ### Trace Telemetry filter
 
-Filters log traces (logged using [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-trace-logs.md)).
+Filters log traces (logged using [TrackTrace()](./api-custom-events-metrics.md#tracktrace) or a [logging framework collector](java-trace-logs.md)).
 
 ```XML
 
@@ -268,4 +261,5 @@ You will need to create your own filter parameters in `application.properties` a
 
 ## Next steps
 
-* [Sampling](../../azure-monitor/app/sampling.md) - Consider sampling as an alternative that does not skew your metrics.
+* [Sampling](./sampling.md) - Consider sampling as an alternative that does not skew your metrics.
+

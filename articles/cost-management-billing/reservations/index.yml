@@ -1,17 +1,17 @@
 ### YamlMime:Landing
 
 title: Save with Azure reservations
-summary: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
+summary: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
 metadata:
   title: Save with Azure reservations
-  description: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
+  description: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
   ms.service: cost-management-billing
+  ms.subservice: reservations
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.manager: dougeby
-  ms.date: 12/18/2019
+  ms.date: 04/30/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -33,7 +33,7 @@ landingContent:
       links:
       - text: Renew reservations
         url: reservation-renew.md
-      - text: SQL Data Warehouse
+      - text: Azure Synapse Analytics
         url: prepay-sql-data-warehouse-charges.md
       - text: Virtual machine
         url: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
@@ -44,7 +44,7 @@ landingContent:
       - text: SQL Database
         url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: Azure Data Explorer
-        url: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
       - text: Azure Databricks
         url: prepay-databricks-reserved-capacity.md
       - text: App Service
@@ -59,13 +59,13 @@ landingContent:
       links:
       - text: Reserved VM instances
         url: ../manage/understand-vm-reservation-charges.md
-      - text: Azure Strorage reserved capacity
+      - text: Azure Storage reserved capacity
         url: understand-storage-charges.md
       - text: Cosmos DB reserved capacity
         url: understand-cosmosdb-reservation-charges.md
       - text: SQL Database reserved capacity
         url: understand-reservation-charges.md
-      - text: SQL Data Warehouse
+      - text: Azure Synapse Analytics
         url: reservation-discount-azure-sql-dw.md
       - text: Azure Data Explorer
         url: understand-azure-data-explorer-reservation-charges.md

@@ -1,20 +1,10 @@
 ---
 title: Optimize your Linux VM on Azure 
 description: Learn some optimization tips to make sure you have set up your Linux VM for optimal performance on Azure
-keywords: linux virtual machine,virtual machine linux,ubuntu virtual machine
-services: virtual-machines-linux
-documentationcenter: ''
 author: rickstercdn
-manager: gwallace
-editor: tysonn
-tags: azure-resource-manager
-
-ms.assetid: 8baa30c8-d40e-41ac-93d0-74e96fe18d4c
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
-
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/06/2016
 ms.author: rclaus
 ms.subservice: disks
@@ -39,7 +29,7 @@ To achieve the highest IOps on Premium Storage disks where their cache settings 
 * If you use **XFS**, disable barriers using the mount option `nobarrier` (For enabling barriers, use the option `barrier`)
 
 ## Unmanaged storage account considerations
-The default action when you create a VM with the Azure CLI is to use Azure Managed Disks.  These disks are handled by the Azure platform and do not require any preparation or location to store them.  Unmanaged disks require a storage account and have some additional performance considerations.  For more information about managed disks, see [Azure Managed Disks overview](../windows/managed-disks-overview.md).  The following section outlines performance considerations only when you use unmanaged disks.  Again, the default and recommended storage solution is to use managed disks.
+The default action when you create a VM with the Azure CLI is to use Azure Managed Disks.  These disks are handled by the Azure platform and do not require any preparation or location to store them.  Unmanaged disks require a storage account and have some additional performance considerations.  For more information about managed disks, see [Azure Managed Disks overview](../managed-disks-overview.md).  The following section outlines performance considerations only when you use unmanaged disks.  Again, the default and recommended storage solution is to use managed disks.
 
 If you create a VM with unmanaged disks, make sure that you attach disks from storage accounts residing in the same region as your VM to ensure close proximity and minimize network latency.  Each Standard storage account has a maximum of 20k IOps and a 500 TB size capacity.  This  limit works out to approximately 40 heavily used disks including both the OS disk and any data disks you create. For Premium Storage accounts, there is no Maximum IOps limit but there is a 32 TB size limit. 
 
@@ -121,6 +111,8 @@ For the Red Hat distribution family, you only need the following command:
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
+Ubuntu 18.04 with the Azure-tuned kernel uses multi-queue I/O schedulers. In that scenario, `none` is the appropriate selection instead of `noop`. For more information, see [Ubuntu I/O Schedulers](https://wiki.ubuntu.com/Kernel/Reference/IOSchedulers).
+
 ## Using Software RAID to achieve higher I/Ops
 If your workloads require more IOps than a single disk can provide, you need to use a software RAID configuration of multiple disks. Because Azure already performs disk resiliency at the local fabric layer, you achieve the highest level of performance from a RAID-0 striping configuration.  Provision and create disks in the Azure environment and attach them to your Linux VM before partitioning, formatting and mounting the drives.  More details on configuring a software RAID setup on your Linux VM in azure can be found in the **[Configuring Software RAID on Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
 
@@ -132,5 +124,4 @@ Remember, as with all optimization discussions, you need to perform tests before
 Some useful links to additional resources:
 
 * [Azure Linux Agent User Guide](../extensions/agent-linux.md)
-* [Optimizing MySQL Performance on Azure Linux VMs](classic/optimize-mysql.md)
 * [Configure Software RAID on Linux](configure-raid.md)

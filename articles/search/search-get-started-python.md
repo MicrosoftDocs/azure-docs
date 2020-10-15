@@ -3,26 +3,27 @@ title: 'Quickstart: Create a search index in Python using REST APIs'
 titleSuffix: Azure Cognitive Search
 description: Explains how to create an index, load data, and run queries using Python, Jupyter Notebooks, and the Azure Cognitive Search REST API.
 
-author: heidisteen
+author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
-ms.date: 11/04/2019
+ms.date: 08/20/2020
+ms.custom: devx-track-python
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Python using Jupyter notebooks
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)](./search-get-started-powershell.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
-> * [Portal](search-create-index-portal.md)
+> * [Portal](search-get-started-portal.md)
 > 
 
-Build a Jupyter notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [Azure Cognitive Search REST APIs](https://docs.microsoft.com/rest/api/searchservice/). This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
+Build a Jupyter notebook that creates, loads, and queries an Azure Cognitive Search index using Python and the [Azure Cognitive Search REST APIs](/rest/api/searchservice/). This article explains how to build a notebook step by step. Alternatively, you can [download and run a finished Jupyter Python notebook](https://github.com/Azure-Samples/azure-search-python-samples).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -64,7 +65,7 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
 
    ```python
    endpoint = 'https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/'
-   api_version = '?api-version=2019-05-06'
+   api_version = '?api-version=2020-06-30'
    headers = {'Content-Type': 'application/json',
            'api-key': '<YOUR-ADMIN-API-KEY>' }
    ```
@@ -88,7 +89,7 @@ In this task, start a Jupyter notebook and verify that you can connect to Azure 
 
 ## 1 - Create an index
 
-Unless you are using the portal, an index must exist on the service before you can load data. This step uses the [Create Index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index) to push an index schema to the service.
+Unless you are using the portal, an index must exist on the service before you can load data. This step uses the [Create Index REST API](/rest/api/searchservice/create-index) to push an index schema to the service.
 
 Required elements of an index include a name, a fields collection, and a key. The fields collection defines the structure of a *document*. Each field has a name, type, and attributes that determine how the field is used (for example, whether it is full-text searchable, filterable, or retrievable in search results). Within an index, one of the fields of type `Edm.String` must be designated as the *key* for document identity.
 
@@ -122,7 +123,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
     }
     ```
 
-2. In another cell, formulate the request. This PUT request targets the indexes collection of your search service and creates an index based on the index schema you provided in the previous cell.
+2. In another cell, formulate the request. This POST request targets the indexes collection of your search service and creates an index based on the index schema you provided in the previous cell.
 
    ```python
    url = endpoint + "indexes" + api_version
@@ -144,7 +145,7 @@ This index is named "hotels-quickstart" and has the field definitions you see be
 
 ## 2 - Load documents
 
-To push documents, use an HTTP POST request to your index's URL endpoint. The REST API is [Add, Update, or Delete Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). Documents originate from [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) on GitHub.
+To push documents, use an HTTP POST request to your index's URL endpoint. The REST API is [Add, Update, or Delete Documents](/rest/api/searchservice/addupdate-or-delete-documents). Documents originate from [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) on GitHub.
 
 1. In a new cell, provide four documents that conform to the index schema. Specify an upload action for each document.
 
@@ -193,7 +194,7 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
         "@search.action": "upload",
         "HotelId": "3",
         "HotelName": "Triple Landscape Hotel",
-        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel’s restaurant services.",
+        "Description": "The Hotel stands out for its gastronomic excellence under the management of William Dough, who advises on and oversees all of the Hotel's restaurant services.",
         "Description_fr": "L'hôtel est situé dans une place du XIXe siècle, qui a été agrandie et rénovée aux plus hautes normes architecturales pour créer un hôtel moderne, fonctionnel et de première classe dans lequel l'art et les éléments historiques uniques coexistent avec le confort le plus moderne.",
         "Category": "Resort and Spa",
         "Tags": [ "air conditioning", "bar", "continental breakfast" ],
@@ -246,51 +247,65 @@ To push documents, use an HTTP POST request to your index's URL endpoint. The RE
 
 ## 3 - Search an index
 
-This step shows you how to query an index using the [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+This step shows you how to query an index using the [Search Documents REST API](/rest/api/searchservice/search-documents).
 
 1. In a cell, provide a query expression that executes an empty search (search=*), returning an unranked list (search score  = 1.0) of arbitrary documents. By default, Azure Cognitive Search returns 50 matches at a time. As structured, this query returns an entire document structure and values. Add $count=true to get a count of all documents in the results.
 
    ```python
    searchstring = '&search=*&$count=true'
-   ```
 
-1. In a new cell, provide the following example to search on the terms "hotels" and "wifi". Add $select to specify which fields to include in the search results.
-
-   ```python
-   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
-   ```
-
-1. In another cell, formulate a request. This GET request targets the docs collection of the hotels-quickstart index, and attaches the query you specified in the previous step.
-
-   ```python
    url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
    response  = requests.get(url, headers=headers, json=searchstring)
    query = response.json()
    pprint(query)
    ```
 
-1. Run each step. Results should look similar to the following output. 
+1. In a new cell, provide the following example to search on the terms "hotels" and "wifi". Add $select to specify which fields to include in the search results.
+
+   ```python
+   searchstring = '&search=hotels wifi&$count=true&$select=HotelId,HotelName'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)   
+   ```
+
+   Results should look similar to the following output. 
 
     ![Search an index](media/search-get-started-python/search-index.png "Search an index")
 
-1. Try a few other query examples to get a feel for the syntax. You can replace the `searchstring` with the following examples and then rerun the search request. 
-
-   Apply a filter: 
+1. Next, apply a $filter expression that selects only those hotels with a rating greater than 4. 
 
    ```python
    searchstring = '&search=*&$filter=Rating gt 4&$select=HotelId,HotelName,Description,Rating'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)     
    ```
 
-   Take the top two results:
+1. By default, the search engine returns the top 50 documents but you can use top and skip to add pagination and choose how many documents in each result. This query returns two documents in each result set.
 
    ```python
-   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description,Category'
+   searchstring = '&search=boutique&$top=2&$select=HotelId,HotelName,Description'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
    ```
 
-    Order by a specific field:
+1. In this last example, use $orderby to sort results by city. This example includes fields from the Address collection.
 
    ```python
-   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince, Tags'
+   searchstring = '&search=pool&$orderby=Address/City&$select=HotelId, HotelName, Address/City, Address/StateProvince'
+
+   url = endpoint + "indexes/hotels-quickstart/docs" + api_version + searchstring
+   response  = requests.get(url, headers=headers, json=searchstring)
+   query = response.json()
+   pprint(query)
    ```
 
 ## Clean up

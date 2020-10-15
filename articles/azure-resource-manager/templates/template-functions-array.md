@@ -1,22 +1,20 @@
 ---
-title: Template functions - arrays and objects
-description: Describes the functions to use in an Azure Resource Manager template for working with arrays and objects.
+title: Template functions - arrays
+description: Describes the functions to use in an Azure Resource Manager template for working with arrays.
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/12/2020
 ---
-# Array and object functions for Azure Resource Manager templates
+# Array functions for ARM templates
 
-Resource Manager provides several functions for working with arrays and objects.
+Resource Manager provides several functions for working with arrays in your Azure Resource Manager (ARM) template.
 
 * [array](#array)
-* [coalesce](#coalesce)
 * [concat](#concat)
 * [contains](#contains)
 * [createArray](#createarray)
 * [empty](#empty)
 * [first](#first)
 * [intersection](#intersection)
-* [json](#json)
 * [last](#last)
 * [length](#length)
 * [max](#max)
@@ -50,7 +48,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "intToConvert": {
@@ -93,110 +91,11 @@ The output from the preceding example with the default values is:
 | stringOutput | Array | ["efgh"] |
 | objectOutput | Array | [{"a": "b", "c": "d"}] |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
-```
-
-## coalesce
-
-`coalesce(arg1, arg2, arg3, ...)`
-
-Returns first non-null value from the parameters. Empty strings, empty arrays, and empty objects are not null.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |int, string, array, or object |The first value to test for null. |
-| additional args |No |int, string, array, or object |Additional values to test for null. |
-
-### Return value
-
-The value of the first non-null parameters, which can be a string, int, array, or object. Null if all parameters are null. 
-
-### Example
-
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/coalesce.json) shows the output from different uses of coalesce.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "objectToTest": {
-            "type": "object",
-            "defaultValue": {
-                "null1": null, 
-                "null2": null,
-                "string": "default",
-                "int": 1,
-                "object": {"first": "default"},
-                "array": [1]
-            }
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "stringOutput": {
-            "type": "string",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').string)]"
-        },
-        "intOutput": {
-            "type": "int",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').int)]"
-        },
-        "objectOutput": {
-            "type": "object",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').object)]"
-        },
-        "arrayOutput": {
-            "type": "array",
-            "value": "[coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2, parameters('objectToTest').array)]"
-        },
-        "emptyOutput": {
-            "type": "bool",
-            "value": "[empty(coalesce(parameters('objectToTest').null1, parameters('objectToTest').null2))]"
-        }
-    }
-}
-```
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| stringOutput | String | default |
-| intOutput | Int | 1 |
-| objectOutput | Object | {"first": "default"} |
-| arrayOutput | Array | [1] |
-| emptyOutput | Bool | True |
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
-```
-
 ## concat
 
 `concat(arg1, arg2, arg3, ...)`
 
-Combines multiple arrays and returns the concatenated array, or combines multiple string values and returns the concatenated string. 
+Combines multiple arrays and returns the concatenated array, or combines multiple string values and returns the concatenated string.
 
 ### Parameters
 
@@ -217,24 +116,24 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
-    "parameters": { 
-        "firstArray": { 
-            "type": "array", 
-            "defaultValue": [ 
-                "1-1", 
-                "1-2", 
-                "1-3" 
-            ] 
+    "parameters": {
+        "firstArray": {
+            "type": "array",
+            "defaultValue": [
+                "1-1",
+                "1-2",
+                "1-3"
+            ]
         },
         "secondArray": {
-            "type": "array", 
-            "defaultValue": [ 
-                "2-1", 
+            "type": "array",
+            "defaultValue": [
+                "2-1",
                 "2-2",
-                "2-3" 
-            ] 
+                "2-3"
+            ]
         }
     },
     "resources": [
@@ -254,23 +153,11 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
-```
-
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) shows how to combine two string values and return a concatenated string.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "prefix": {
@@ -293,18 +180,6 @@ The output from the preceding example with the default values is:
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | concatOutput | String | prefix-5yj4yjf5mbg72 |
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
-```
 
 ## contains
 
@@ -329,7 +204,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "stringToTest": {
@@ -387,18 +262,6 @@ The output from the preceding example with the default values is:
 | arrayTrue | Bool | True |
 | arrayFalse | Bool | False |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
-```
-
 ## createarray
 
 `createArray (arg1, arg2, arg3, ...)`
@@ -409,12 +272,11 @@ Creates an array from the parameters.
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |String, Integer, Array, or Object |The first value in the array. |
-| additional arguments |No |String, Integer, Array, or Object |Additional values in the array. |
+| args |No |String, Integer, Array, or Object |The values in the array. |
 
 ### Return value
 
-An array.
+An array. When no parameters are provided, it returns an empty array.
 
 ### Example
 
@@ -422,7 +284,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "objectToTest": {
@@ -452,6 +314,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "arrayArray": {
             "type": "array",
             "value": "[createArray(parameters('arrayToTest'))]"
+        },
+        "emptyArray": {
+            "type": "array",
+            "value": "[createArray()]"
         }
     }
 }
@@ -465,18 +331,7 @@ The output from the preceding example with the default values is:
 | intArray | Array | [1, 2, 3] |
 | objectArray | Array | [{"one": "a", "two": "b", "three": "c"}] |
 | arrayArray | Array | [["one", "two", "three"]] |
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
-```
+| emptyArray | Array | [] |
 
 ## empty
 
@@ -500,7 +355,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -543,18 +398,6 @@ The output from the preceding example with the default values is:
 | objectEmpty | Bool | True |
 | stringEmpty | Bool | True |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
-```
-
 ## first
 
 `first(arg1)`
@@ -577,7 +420,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -607,18 +450,6 @@ The output from the preceding example with the default values is:
 | arrayOutput | String | one |
 | stringOutput | String | O |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
-```
-
 ## intersection
 
 `intersection(arg1, arg2, arg3, ...)`
@@ -643,7 +474,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {
@@ -685,91 +516,6 @@ The output from the preceding example with the default values is:
 | objectOutput | Object | {"one": "a", "three": "c"} |
 | arrayOutput | Array | ["two", "three"] |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
-```
-
-## json
-
-`json(arg1)`
-
-Returns a JSON object.
-
-### Parameters
-
-| Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |string |The value to convert to JSON. |
-
-### Return value
-
-The JSON object from the specified string, or an empty object when **null** is specified.
-
-### Remarks
-
-If you need to include a parameter value or variable in the JSON object, use the [concat](template-functions-string.md#concat) function to create the string that you pass to the function.
-
-### Example
-
-The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function with arrays and objects:
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "testValue": {
-            "type": "string",
-            "defaultValue": "demo value"
-        }
-    },
-    "resources": [
-    ],
-    "outputs": {
-        "jsonOutput": {
-            "type": "object",
-            "value": "[json('{\"a\": \"b\"}')]"
-        },
-        "nullOutput": {
-            "type": "bool",
-            "value": "[empty(json('null'))]"
-        },
-        "paramOutput": {
-            "type": "object",
-            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
-        }
-    }
-}
-```
-
-The output from the preceding example with the default values is:
-
-| Name | Type | Value |
-| ---- | ---- | ----- |
-| jsonOutput | Object | {"a": "b"} |
-| nullOutput | Boolean | True |
-| paramOutput | Object | {"a": "demo value"}
-
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
-```
-
 ## last
 
 `last (arg1)`
@@ -792,7 +538,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -822,18 +568,6 @@ The output from the preceding example with the default values is:
 | arrayOutput | String | three |
 | stringOutput | String | e |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
-```
-
 ## length
 
 `length(arg1)`
@@ -848,7 +582,7 @@ Returns the number of elements in an array, characters in a string, or root-leve
 
 ### Return value
 
-An int. 
+An int.
 
 ### Example
 
@@ -856,7 +590,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -910,18 +644,6 @@ The output from the preceding example with the default values is:
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
-```
-
 You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
 ```json
@@ -931,7 +653,7 @@ You can use this function with an array to specify the number of iterations when
 }
 ```
 
-For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
+For more information about using this function with an array, see [Create multiple instances of resources in Azure Resource Manager](copy-resources.md).
 
 ## max
 
@@ -955,7 +677,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -984,18 +706,6 @@ The output from the preceding example with the default values is:
 | arrayOutput | Int | 5 |
 | intOutput | Int | 5 |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
-```
-
 ## min
 
 `min(arg1)`
@@ -1018,7 +728,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "arrayToTest": {
@@ -1047,21 +757,9 @@ The output from the preceding example with the default values is:
 | arrayOutput | Int | 0 |
 | intOutput | Int | 0 |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
-```
-
 ## range
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 Creates an array of integers from a starting integer and containing a number of items.
 
@@ -1069,8 +767,8 @@ Creates an array of integers from a starting integer and containing a number of 
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |Yes |int |The first integer in the array. |
-| numberofElements |Yes |int |The number of integers in the array. |
+| startIndex |Yes |int |The first integer in the array. The sum of startIndex and count must be no greater than 2147483647. |
+| count |Yes |int |The number of integers in the array. Must be non-negative integer up to 10000. |
 
 ### Return value
 
@@ -1082,7 +780,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "startingInt": {
@@ -1110,18 +808,6 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | rangeOutput | Array | [5, 6, 7] |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
-```
-
 ## skip
 
 `skip(originalValue, numberToSkip)`
@@ -1145,7 +831,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -1190,18 +876,6 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | ["three"] |
 | stringOutput | String | two three |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
-```
-
 ## take
 
 `take(originalValue, numberToTake)`
@@ -1225,7 +899,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "testArray": {
@@ -1270,18 +944,6 @@ The output from the preceding example with the default values is:
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | on |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
-```
-
 ## union
 
 `union(arg1, arg2, arg3, ...)`
@@ -1306,7 +968,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "firstObject": {
@@ -1348,22 +1010,6 @@ The output from the preceding example with the default values is:
 | objectOutput | Object | {"one": "a", "two": "b", "three": "c2", "four": "d", "five": "e"} |
 | arrayOutput | Array | ["one", "two", "three", "four"] |
 
-To deploy this example template with Azure CLI, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
-```
-
-To deploy this example template with PowerShell, use:
-
-```azurepowershell-interactive
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
-```
-
 ## Next steps
 
-* For a description of the sections in an Azure Resource Manager template, see [Authoring Azure Resource Manager templates](template-syntax.md).
-* To merge multiple templates, see [Using linked templates with Azure Resource Manager](linked-templates.md).
-* To iterate a specified number of times when creating a type of resource, see [Create multiple instances of resources in Azure Resource Manager](create-multiple-instances.md).
-* To see how to deploy the template you have created, see [Deploy an application with Azure Resource Manager template](deploy-powershell.md).
-
+* For a description of the sections in an Azure Resource Manager template, see [Understand the structure and syntax of ARM templates](template-syntax.md).

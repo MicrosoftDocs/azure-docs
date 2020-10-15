@@ -5,27 +5,29 @@ titleSuffix: Azure Media Services
 description: Learn about Streaming Endpoints (Origin), a dynamic packaging and streaming service that delivers content directly to a client player app or to a Content Delivery Network (CDN). 
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
+ms.topic: conceptual
+ms.date: 02/13/2020
+ms.author: inhenkel
 ---
 
 # Streaming Endpoints (Origin) in Azure Media Services
 
-In Microsoft Azure Media Services, a [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading DRMs.
+In Microsoft Azure Media Services, a [Streaming Endpoint](/rest/api/media/streamingendpoints) represents a dynamic (just-in-time) packaging and origin service that can deliver your live and on-demand content directly to a client player app using one of the common streaming media protocols (HLS or DASH). In addition, the **Streaming Endpoint** provides dynamic (just-in-time) encryption to industry-leading DRMs. 
 
-When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You can't delete the **default** Streaming Endpoint. More Streaming Endpoints can be created under the account (see [Quotas and limitations](limits-quotas-constraints.md)).
+When you create a Media Services account, a **default** Streaming Endpoint is created for you in a stopped state. You can't delete the **default** Streaming Endpoint. More Streaming Endpoints can be created under the account (see [Quotas and limits](limits-quotas-constraints.md)).
 
 > [!NOTE]
 > To start streaming videos, you need to start the **Streaming Endpoint** from which you want to stream the video.
 >
 > You're only billed when your Streaming Endpoint is in the running state.
+
+Make sure to also review the [Dynamic packaging](dynamic-packaging-overview.md) topic. 
 
 ## Naming convention
 
@@ -37,11 +39,13 @@ When using the default streaming endpoint, `servicename` is omitted so the URL i
 ### Limitations
 
 * The streaming endpoint name has a max value of 24 characters.
-* The name should follow this [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* The name should follow this [regex](/dotnet/standard/base-types/regular-expression-language-quick-reference) pattern: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## Types
 
 There are two **Streaming Endpoint** types: **Standard** (preview) and **Premium**. The type is defined by the number of scale units (`scaleUnits`) you allocate for the streaming endpoint.
+
+The maximum streaming unit limit is usually 10. Contact us [here](https://azure.microsoft.com/support/create-ticket/) to raise the limit for your account.
 
 The table describes the types:
 
@@ -71,9 +75,9 @@ Recommended usage |Recommended for the vast majority of streaming scenarios.|Pro
 
 <sup>1</sup> Only used directly on the Streaming Endpoint when the CDN isn't enabled on the endpoint.<br/>
 
-## Properties
+## Streaming Endpoint properties
 
-This section gives details about some of the Streaming Endpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create).
+This section gives details about some of the Streaming Endpoint's properties. For examples of how to create a new streaming endpoint and descriptions of all properties, see [Streaming Endpoint](/rest/api/media/streamingendpoints/create).
 
 - `accessControl`: Used to configure the following security settings for this streaming endpoint: Akamai Signature Header Authentication keys and IP addresses that are allowed to connect to this endpoint. This property can only be set when `cdnEnabled` is set to false.
 
@@ -88,7 +92,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
 - `cdnProfile`: When `cdnEnabled` is set to true, you can also pass `cdnProfile` values. `cdnProfile` is the name of the CDN profile where the CDN endpoint point will be created. You can provide an existing cdnProfile or use a new one. If value is NULL and `cdnEnabled` is true, the default value "AzureMediaStreamingPlatformCdnProfile" is used. If the provided `cdnProfile` already exists, an endpoint is created under it. If the profile doesn't exist, a new profile automatically gets created.
 - `cdnProvider`: When CDN is enabled, you can also pass `cdnProvider` values. `cdnProvider` controls which provider will be used. Currently, three values are supported: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". If no value is provided and `cdnEnabled` is true, "StandardVerizon" is used (that's the default value).
-- `crossSiteAccessPolicies`: Used to specify cross site access policies for various clients. For more information, see [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) and [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx). The settings only apply to Smooth Streaming.
+- `crossSiteAccessPolicies`: Used to specify cross site access policies for various clients. For more information, see [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) and [Making a Service Available Across Domain Boundaries](/previous-versions/azure/azure-services/gg185950(v=azure.100)). The settings only apply to Smooth Streaming.
 - `customHostNames`: Used to configure a Streaming Endpoint to accept traffic directed to a custom host name. This property is valid for Standard and Premium Streaming Endpoints and can be set when `cdnEnabled`: false.
 
     The ownership of the domain name must be confirmed by Media Services. Media Services verifies the domain name ownership by requiring a `CName` record containing the Media Services account ID as a component to be added to the domain in use. As an example, for "sports.contoso.com" to be used as a custom host name for the streaming endpoint, a record for `<accountId>.contoso.com` must be configured to point to one of Media Services verification host names. The verification host name is composed of verifydns.\<mediaservices-dns-zone>.
@@ -114,7 +118,7 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
     > [!NOTE]
     > Streaming Endpoints located in the same data center can't share the same custom host name.
 
-    Currently, Media Services doesn’t support SSL with custom domains.
+    Currently, Media Services doesn't support TLS with custom domains.
 
 - `maxCacheAge` -  Overrides the default max-age HTTP cache control header set by the streaming endpoint on media fragments and on-demand manifests. The value is set in seconds.
 - `resourceState` -
@@ -128,42 +132,41 @@ This section gives details about some of the Streaming Endpoint's properties. Fo
 
 - `scaleUnits`: Provide you with dedicated egress capacity that can be purchased in increments of 200 Mbps. If you need to move to a **Premium** type, adjust `scaleUnits`.
 
-## Working with CDN
+## Why use multiple streaming endpoints?
 
-In most cases, you should have CDN enabled. However, if you're anticipating max concurrency lower than 500 viewers, then it's recommended to disable CDN since CDN scales best with concurrency.
+A single streaming endpoint can stream both live and on-demand videos and most customers only use one streaming endpoint. This section gives some examples of why you may need to use multiple streaming endpoints.
 
-### Considerations
+* Each reserved unit allows for 200 Mbps of bandwidth. If you need more than 2,000 Mbps (2 Gbps) of bandwidth, you could use the second streaming endpoint and load balance to give you additional bandwidth.
 
-* The Streaming Endpoint `hostname` and the streaming URL remain the same whether or not you enable CDN.
-* If you need the ability to test your content with or without CDN, create another Streaming Endpoint that isn't CDN enabled.
+    However, CDN is the best way to achieve scale out for streaming content but if you are delivering so much content that the CDN is pulling more than 2 Gbps then you can add additional streaming endpoints (origins). In this case you would need to hand out content URLs that are balanced across the two streaming endpoints. This approach gives better caching than trying to send requests to each origin randomly (for example, via a traffic manager). 
+    
+    > [!TIP]
+    > Usually if the CDN is pulling more than 2 Gbps then something might be misconfigured (for example, no origin shielding).
+    
+* Load balancing different CDN providers. For example, you could set up the default streaming endpoint to use the Verizon CDN and create a second one to use Akamai. Then add some load balancing between the two to achieve multi-CDN balancing. 
 
-### Detailed explanation of how caching works
+    However, customer often do load balancing across multiple CDN providers using a single origin.
+* Streaming mixed content: Live and Video on Demand. 
 
-There's no specific bandwidth value when adding the CDN because the amount of bandwidth that's needed for a CDN enabled streaming endpoint varies. A lot depends on the type of content, how popular it is, the bitrates, and the protocols. The CDN is only caching what's being requested. That means that popular content will be served directly from the CDN–as long as the video fragment is cached. Live content is likely to be cached because you typically have many people watching the exact same thing. On-demand content can be a bit trickier because you could have some content that's popular and some that isn't. If you have millions of video assets where none of them are popular (only one or two viewers a week) but you have thousands of people watching all different videos, the CDN becomes much less effective. With this cache misses, you increase the load on the streaming endpoint.
+    The access patterns for live and on-demand content are very different. The live content tends to get a lot of demand for the same content all at once. The video on-demand content (long tail archive content for instance) has low usage on the same content. Thus caching works very well on the live content but not as well on the long tail content.
 
-You also need to consider how adaptive streaming works. Each individual video fragment is cached as it's own entity. For example, imagine the first time a certain video is watched. If the viewer skips around watching only a few seconds here and there, only the video fragments associated with what the person watched get cached in the CDN. With adaptive streaming, you typically have 5 to 7 different bitrates of video. If one person is watching one bitrate and another person is watching a different bitrate, then they're each cached separately in the CDN. Even if two people are watching the same bitrate, they could be streaming over different protocols. Each protocol (HLS, MPEG-DASH, Smooth Streaming) is cached separately. So each bitrate and protocol are cached separately and only those video fragments that have been requested are cached.
+    Consider a scenario in which your customers are mainly watching live content but are only occasionally watching on-demand content and it is served from the same Streaming Endpoint. The low usage of on-demand content would occupy cache space that would be better saved for the live content. In this scenario, we would recommend serving the live content from one Streaming Endpoint and the long tail content from another Streaming Endpoint. This will improve the performance of the live event content.
+    
+## Scaling streaming with CDN
 
-### Enable Azure CDN integration
+See the following articles:
 
-After a Streaming Endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the Streaming Endpoint to CDN endpoint.
+- [CDN overview](../../cdn/cdn-overview.md)
+- [Scaling streaming with CDN](scale-streaming-cdn.md)
 
-If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. It could take up to two hours for the Azure CDN integration to get enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint and once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
-
-When the Standard streaming endpoint is created, it's configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs.
-
-CDN integration is enabled in all the Azure data centers except China and Federal Government regions.
-
-> [!IMPORTANT]
-> Azure Media Services integration with Azure CDN is implemented on **Azure CDN from Verizon** for standard streaming endpoints. Premium streaming endpoints can be configured using all **Azure CDN pricing tiers and providers**. For more information about Azure CDN features, see the [CDN overview](../../cdn/cdn-overview.md).
-
-### Determine if DNS change was made
-
-You can determine if DNS change was made on a Streaming Endpoint (the traffic is being directed to the Azure CDN) by using https://www.digwebinterface.com. If the results has azureedge.net domain names in the results, the traffic is now being pointed to the CDN.
-
-## Ask questions, give feedback, get updates
+## Ask questions and  get updates
 
 Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
+## See also
+
+[Dynamic packaging](dynamic-packaging-overview.md)
+
 ## Next steps
 
-The sample [in this repository](https://github.com/Azure-Samples/media-services-v3-dotnet-quickstarts/blob/master/AMSV3Quickstarts/EncodeAndStreamFiles/Program.cs) shows how to start the default streaming endpoint with .NET.
+[Manage streaming endpoints](manage-streaming-endpoints-howto.md)

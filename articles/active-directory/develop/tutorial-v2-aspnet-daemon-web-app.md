@@ -1,18 +1,14 @@
 ---
-title: Build a multitenant daemon that uses the Microsoft identity platform endpoint
+title: "Tutorial: Build a multi-tenant daemon that accesses Microsoft Graph business data | Azure"
+titleSuffix: Microsoft identity platform
 description: In this tutorial, learn how to call an ASP.NET web API protected by Azure Active Directory from a Windows desktop (WPF) application. The WPF client authenticates a user, requests an access token, and calls the web API.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
@@ -20,7 +16,7 @@ ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:A
 #Customer intent: As an application developer, I want to know how to set up OpenId Connect authentication in a web application built using Node.js with Express.
 ---
 
-# Tutorial: Build a multitenant daemon that uses the Microsoft identity platform endpoint
+# Tutorial: Build a multi-tenant daemon that uses the Microsoft identity platform
 
 In this tutorial, you learn how to use the Microsoft identity platform to access the data of Microsoft business customers in a long-running, non-interactive process. The sample daemon uses the [OAuth2 client credentials grant](v2-oauth2-client-creds-grant-flow.md) to acquire an access token. The daemon then uses the token to call [Microsoft Graph](https://graph.microsoft.io) and access organizational data.
 
@@ -32,27 +28,23 @@ In this tutorial, you learn how to use the Microsoft identity platform to access
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect middleware to sign in users.  
-
-The "daemon" component in this sample is an API controller, `SyncController.cs`. When the controller is called, it pulls in a list of users in the customer's Azure Active Directory (Azure AD) tenant from Microsoft Graph. `SyncController.cs` is triggered by an AJAX call in the web application. It uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
-
-For a simpler console daemon application, see the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
-
-## Scenario
-
-Because the app is a multitenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a company administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
-
-![Topology](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
-
-For more information on the concepts used in this sample, read the [client credentials protocol documentation for the identity platform endpoint](v2-oauth2-client-creds-grant-flow.md).
-
 ## Prerequisites
-
-To run the sample in this quickstart, you'll need:
 
 - [Visual Studio 2017 or 2019](https://visualstudio.microsoft.com/downloads/).
 - An Azure AD tenant. For more information, see [How to get an Azure AD tenant](quickstart-create-new-tenant.md).
-- One or more user accounts in your Azure AD tenant. This sample won't work with a Microsoft account (formerly Windows Live account). If you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory, you need to do that now.
+- One or more user accounts in your Azure AD tenant. This sample won't work with a Microsoft account. If you signed in to the [Azure portal](https://portal.azure.com) with a Microsoft account and have never created a user account in your directory, do that now.
+
+## Scenario
+
+The app is built as an ASP.NET MVC application. It uses the OWIN OpenID Connect middleware to sign in users.
+
+The "daemon" component in this sample is an API controller, `SyncController.cs`. When the controller is called, it pulls in a list of users in the customer's Azure Active Directory (Azure AD) tenant from Microsoft Graph. `SyncController.cs` is triggered by an AJAX call in the web application. It uses the [Microsoft Authentication Library (MSAL) for .NET](msal-overview.md) to acquire an access token for Microsoft Graph.
+
+Because the app is a multi-tenant app for Microsoft business customers, it must provide a way for customers to "sign up" or "connect" the application to their company data. During the connection flow, a company administrator first grants *application permissions* directly to the app so that it can access company data in a non-interactive fashion, without the presence of a signed-in user. The majority of the logic in this sample shows how to achieve this connection flow by using the identity platform's [admin consent](v2-permissions-and-consent.md#using-the-admin-consent-endpoint) endpoint.
+
+![Diagram shows UserSync App with three local items connecting to Azure, with Start dot Auth acquiring a token interactively to connect to Azure A D, AccountController getting admin consent to connect to Azure A D, and SyncController reading user to connect to Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
+
+For more information on the concepts used in this sample, read the [client credentials protocol documentation for the identity platform endpoint](v2-oauth2-client-creds-grant-flow.md).
 
 ## Clone or download this repository
 
@@ -110,7 +102,7 @@ If you don't want to use the automation, use the steps in the following sections
    - In the **Redirect URI (optional)** section, select **Web** in the combo box and enter the following redirect URIs:
        - **https://localhost:44316/**
        - **https://localhost:44316/Account/GrantPermissions**
-          
+
      If there are more than two redirect URIs, you'll need to add them from the **Authentication** tab later, after the app is created successfully.
 1. Select **Register** to create the application.
 1. On the app's **Overview** page, find the **Application (client) ID** value and record it for later. You'll need it to configure the Visual Studio configuration file for this project.
@@ -122,7 +114,7 @@ If you don't want to use the automation, use the steps in the following sections
 
    1. Enter a key description (for example, **app secret**),
    1. Select a key duration of either **In 1 year**, **In 2 years**, or **Never Expires**.
-   1. Select the **Add** button. 
+   1. Select the **Add** button.
    1. When the key value appears, copy and save it in a safe location. You'll need this key later to configure the project in Visual Studio. It won't be displayed again or retrievable by any other means.
 1. In the list of pages for the app, select **API permissions**. Then:
    1. Select the **Add a permission** button.
@@ -175,21 +167,21 @@ The relevant code for this sample is in the following files:
 
 ## Re-create the sample app
 
-1. In Visual Studio, create a new **Visual C#** **ASP.NET Web Application (.NET Framework)** project. 
+1. In Visual Studio, create a new **Visual C#** **ASP.NET Web Application (.NET Framework)** project.
 1. On the next screen, choose the **MVC** project template. Also add folder and core references for **Web API**, because you'll add a web API controller later. Leave the project's chosen authentication mode as the default: **No Authentication**.
-1. Select the project in the **Solution Explorer** window and select the **F4** key. 
+1. Select the project in the **Solution Explorer** window and select the **F4** key.
 1. In the project properties, set **SSL Enabled** to **True**. Note the information in **SSL URL**. You'll need it when configuring this application's registration in the Azure portal.
-1. Add the following ASP.NET OWIN middleware NuGet packages: 
+1. Add the following ASP.NET OWIN middleware NuGet packages:
    - Microsoft.Owin.Security.ActiveDirectory
    - Microsoft.Owin.Security.Cookies
    - Microsoft.Owin.Host.SystemWeb
    - Microsoft.IdentityModel.Protocol.Extensions
    - Microsoft.Owin.Security.OpenIdConnect
-   - Microsoft.Identity.Client 
+   - Microsoft.Identity.Client
 1. In the **App_Start** folder:
-   1. Create a class called **Startup.Auth.cs**. 
-   1. Remove **.App_Start** from the namespace name. 
-   1. Replace the code for the **Startup** class with the code from the same file of the sample app.       
+   1. Create a class called **Startup.Auth.cs**.
+   1. Remove **.App_Start** from the namespace name.
+   1. Replace the code for the **Startup** class with the code from the same file of the sample app.
    Be sure to take the whole class definition. The definition changes from **public class Startup** to **public partial class Startup.**
 1. In **Startup.Auth.cs**, resolve missing references by adding **using** statements as suggested by Visual Studio IntelliSense.
 1. Right-click the project, select **Add**, and then select **Class**.
@@ -221,12 +213,12 @@ This project has web app and web API projects. To deploy them to Azure websites,
 1. After the website is created, find it in the **Dashboard** and select it to open the app service's **Overview** screen.
 1. From the **Overview** tab of the app service, download the publish profile by selecting the **Get publish profile** link and save it. You can use other deployment mechanisms, such as deploying from source control.
 1. Switch to Visual Studio and then:
-   1. Go to the **dotnet-web-daemon-v2** project. 
+   1. Go to the **dotnet-web-daemon-v2** project.
    1. Right-click the project in Solution Explorer, and then select **Publish**.
    1. Select **Import Profile** on the bottom bar, and import the publish profile that you downloaded earlier.
 1. Select **Configure**.
-1. On the **Connection** tab, update the destination URL so that it uses "https." For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net). Select **Next**.
-1. On the **Settings** tab, make sure that **Enable Organizational Authentication** is cleared.  
+1. On the **Connection** tab, update the destination URL so that it uses "https." For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`. Select **Next**.
+1. On the **Settings** tab, make sure that **Enable Organizational Authentication** is cleared.
 1. Select **Save**. Select **Publish** on the main screen.
 
 Visual Studio will publish the project and automatically open a browser to the project's URL. If you see the default webpage of the project, the publication was successful.
@@ -236,8 +228,8 @@ Visual Studio will publish the project and automatically open a browser to the p
 1. Go back to the [Azure portal](https://portal.azure.com).
 1. In the left pane, select the **Azure Active Directory** service, and then select **App registrations**.
 1. Select the **dotnet-web-daemon-v2** application.
-1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
-1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use [https://dotnet-web-daemon-v2-contoso.azurewebsites.net](https://dotnet-web-daemon-v2-contoso.azurewebsites.net).
+1. On the **Authentication** page for your application, update the **Logout URL** fields with the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
+1. From the **Branding** menu, update the **Home page URL** to the address of your service. For example, use `https://dotnet-web-daemon-v2-contoso.azurewebsites.net`.
 1. Save the configuration.
 1. Add the same URL in the list of values of the **Authentication** > **Redirect URIs** menu. If you have multiple redirect URLs, make sure that there's a new entry that uses the app service's URI for each redirect URL.
 
@@ -257,17 +249,8 @@ If you find a bug in MSAL.NET, please raise the issue on [MSAL.NET GitHub Issues
 To provide a recommendation, go to the [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
 
 ## Next steps
-Learn more about the different [Authentication flows and application scenarios](authentication-flows-app-scenarios.md) that the Microsoft identity platform supports.
 
-For more information, see the following conceptual documentation:
+Learn more about building daemon apps that use the Microsoft identity platform to access protected web APIs:
 
-- [Tenancy in Azure Active Directory](single-and-multi-tenant-apps.md)
-- [Understanding Azure AD application consent experiences](application-consent-experience.md)
-- [Sign in any Azure Active Directory user using the multitenant application pattern](howto-convert-app-to-be-multi-tenant.md)
-- [Understand user and admin consent](howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent)
-- [Application and service principal objects in Azure Active Directory](app-objects-and-service-principals.md)
-- [Quickstart: Register an application with the Microsoft identity platform](quickstart-register-app.md)
-- [Quickstart: Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
-- [Acquiring a token for an application with client credential flows](msal-client-applications.md)
-
-For a simpler multitenant console daemon application, see the [.NET Core daemon quickstart](quickstart-v2-netcore-daemon.md).
+> [!div class="nextstepaction"]
+> [Scenario: Daemon application that calls web APIs](scenario-daemon-overview.md)

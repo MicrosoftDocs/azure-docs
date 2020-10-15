@@ -4,16 +4,20 @@ description: In this quickstart, you learn how to use the Azure Storage client l
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 02/06/2018
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.reviewer: cbrooks
+ms.reviewer: dineshm
+ms.custom: devx-track-csharp
 ---
 
 # Quickstart: Use the Azure Storage SDK v11 for .NET to manage a queue
 
 In this quickstart, you learn how to use the Azure Storage client library version 11 for .NET to create a queue and add messages to it. Next, you learn how to read and process messages from the queue. 
+
+> [!NOTE]
+> This quickstart uses a legacy version of the Azure Queue storage client library. To get started with the latest version, see [Quickstart: Azure Queue storage client library v12 for .NET](storage-quickstart-queues-dotnet.md).
 
 ## Prerequisites
 
@@ -31,7 +35,7 @@ For information about choosing between .NET Core and the .NET Framework, see [Ch
 ### Linux
 
 - Install [.NET Core for Linux](https://www.microsoft.com/net/download/linux)
-- Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp&dotnetid=963890049.1518206068)
+- Optionally install [Visual Studio Code](https://www.visualstudio.com/) and the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp)
 
 ### macOS
 
@@ -258,7 +262,7 @@ See these additional resources for .NET development with Azure Queues:
 
 ### Binaries and source code
 
-- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client)
+- Download the NuGet packages for the latest version of the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet)
     - [Common](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
     - [Queues](https://www.nuget.org/packages/Azure.Storage.Queues/)
 - View the [.NET client library source code](https://github.com/Azure/azure-storage-net) on GitHub.

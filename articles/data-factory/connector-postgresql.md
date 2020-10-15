@@ -12,7 +12,7 @@ ms.workload: data-services
 
 
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 02/19/2020
 ms.author: jingwang
 
 ---
@@ -20,6 +20,8 @@ ms.author: jingwang
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-onprem-postgresql-connector.md)
 > * [Current version](connector-postgresql.md)
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -38,7 +40,7 @@ Specifically, this PostgreSQL connector supports PostgreSQL **version 7.4 and ab
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
-For Self-hosted IR version lower than 3.7, you need to install the [Ngpsql data provider for PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the Integration Runtime machine.
+The Integration Runtime provides a built-in PostgreSQL driver starting from version 3.7, therefore you don't need to manually install any driver.
 
 ## Getting started
 

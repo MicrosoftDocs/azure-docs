@@ -7,6 +7,7 @@ author: tgore03
 manager: carmonm
 ms.service: cloud-services
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: tagore
@@ -27,12 +28,12 @@ The application is an advertising bulletin board. Users create an ad by entering
 The application uses the [queue-centric work pattern](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern) to off-load the CPU-intensive work of creating thumbnails to a back-end process.
 
 ## Alternative architecture: App Service and WebJobs
-This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in [Azure App Service](/azure/app-service/) and use the [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure App Service, Cloud Services, and virtual machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
+This tutorial shows how to run both front-end and back-end in an Azure cloud service. An alternative is to run the front-end in [Azure App Service](../app-service/index.yml) and use the [WebJobs](https://go.microsoft.com/fwlink/?LinkId=390226) feature for the back-end. For a tutorial that uses WebJobs, see [Get Started with the Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki). For information about how to choose the services that best fit your scenario, see [Azure App Service, Cloud Services, and virtual machines comparison](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ## What you'll learn
 * How to enable your machine for Azure development by installing the Azure SDK.
 * How to create a Visual Studio cloud service project with an ASP.NET MVC web role and a worker role.
-* How to test the cloud service project locally, using the Azure storage emulator.
+* How to test the cloud service project locally, using the Azure Storage Emulator.
 * How to publish the cloud project to an Azure cloud service and test using an Azure storage account.
 * How to upload files and store them in the Azure Blob service.
 * How to use the Azure Queue service for communication between tiers.
@@ -99,9 +100,9 @@ In the following section you'll configure the solution to use Azure cloud resour
 You'll do the following steps to run the application in the cloud:
 
 * Create an Azure cloud service.
-* Create an Azure SQL database.
+* Create a database in Azure SQL Database.
 * Create an Azure storage account.
-* Configure the solution to use your Azure SQL database when it runs in Azure.
+* Configure the solution to use your database when it runs in Azure.
 * Configure the solution to use your Azure storage account when it runs in Azure.
 * Deploy the project to your Azure cloud service.
 
@@ -125,7 +126,7 @@ An Azure cloud service is the environment the application will run in.
 
     ![New Cloud Service](./media/cloud-services-dotnet-get-started/newcs.png)
 
-### Create an Azure SQL database
+### Create a database in Azure SQL Database
 When the app runs in the cloud, it will use a cloud-based database.
 
 1. In the [Azure portal](https://portal.azure.com), click **Create a resource > Databases > SQL Database**.
@@ -147,7 +148,7 @@ When the app runs in the cloud, it will use a cloud-based database.
 8. Check **Allow azure services to access server**.
 9. Click **Select** for the new server.
 
-    ![New SQL Database server](./media/cloud-services-dotnet-get-started/newdbserver.png)
+    ![New server](./media/cloud-services-dotnet-get-started/newdbserver.png)
 10. Click **Create**.
 
 ### Create an Azure storage account
@@ -163,7 +164,7 @@ In a real-world application, you would typically create separate accounts for ap
 
 4. Set the **Replication** drop-down list to **Locally redundant storage**.
 
-    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-create-storage-account.md).
+    When geo-replication is enabled for a storage account, the stored content is replicated to a secondary datacenter to enable failover if a major disaster occurs in the primary location. Geo-replication can incur additional costs. For test and development accounts, you generally don't want to pay for geo-replication. For more information, see [Create, manage, or delete a storage account](../storage/common/storage-account-create.md).
 
 5. In the **Resource group**, click **Use existing** and select the resource group used for the cloud service.
 6. Set the **Location** drop-down list to the same region you chose for the cloud service.
@@ -177,8 +178,9 @@ In a real-world application, you would typically create separate accounts for ap
 
     In the image, a storage account is created with the URL `csvccontosoads.core.windows.net`.
 
-### Configure the solution to use your Azure SQL database when it runs in Azure
-The web project and the worker role project each has its own database connection string, and each needs to point to the Azure SQL database when the app runs in Azure.
+### Configure the solution to use your database in Azure SQL Database when it runs in Azure
+
+The web project and the worker role project each has its own database connection string, and each needs to point to the database in Azure SQL Database when the app runs in Azure.
 
 You'll use a [Web.config transform](https://www.asp.net/mvc/tutorials/deployment/visual-studio-web-deployment/web-config-transformations) for the web role and a cloud service environment setting for the worker role.
 
@@ -283,7 +285,7 @@ The `<Instances>` setting specifies the number of virtual machines that Azure wi
 
     ![Settings step](./media/cloud-services-dotnet-get-started/pubsettings.png)
 
-    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](https://docs.microsoft.com/azure/vs-azure-tools-publish-azure-application-wizard).
+    The default settings in the **Advanced** tab are fine for this tutorial. For information about the advanced tab, see [Publish Azure Application Wizard](/visualstudio/azure/vs-azure-tools-publish-azure-application-wizard).
 4. In the **Summary** step, click **Publish**.
 
     ![Summary step](./media/cloud-services-dotnet-get-started/pubsummary.png)
@@ -526,7 +528,7 @@ The *Views\Home\Index.cshtml* file displays category links on the home page. The
 ### ContosoAdsWeb - AdController.cs
 In the *AdController.cs* file, the constructor calls the `InitializeStorage` method to create Azure Storage Client Library objects that provide an API for working with blobs and queues.
 
-Then the code gets a reference to the *images* blob container as you saw earlier in *Global.asax.cs*. While doing that it sets a default [retry policy](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) appropriate for a web app. The default exponential backoff retry policy could hang the web app for longer than a minute on repeated retries for a transient fault. The retry policy specified here waits three seconds after each try for up to three tries.
+Then the code gets a reference to the *images* blob container as you saw earlier in *Global.asax.cs*. While doing that it sets a default [retry policy](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/transient-fault-handling) appropriate for a web app. The default exponential backoff retry policy could cause the web app to stop responding for longer than a minute on repeated retries for a transient fault. The retry policy specified here waits three seconds after each try for up to three tries.
 
 ```csharp
 var blobClient = storageAccount.CreateCloudBlobClient();
@@ -770,8 +772,5 @@ For more information, see the following resources:
 
 * [Azure Cloud Services Part 1: Introduction](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
 * [How to manage Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Azure Storage](https://docs.microsoft.com/azure/storage/)
+* [Azure Storage](../storage/index.yml)
 * [How to choose a cloud service provider](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-
-
-

@@ -9,6 +9,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
+ms.custom:  mqtt
 ---
 
 # Send messages to an MQTT server
@@ -49,7 +50,7 @@ Expand left side **ARDUINO EXAMPLES** section, browse to **Examples for MXCHIP A
 
 Type `Ctrl+P` (macOS: `Cmd+P`) to run `task device-upload`. Once the upload is completed, DevKit restarts and runs the sketch.
 
-![device-upload](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
+![Screenshot shows a command prompt window which uploads and runs the Arduino sketch.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/device-upload.jpg)
 
 > [!NOTE]
 > You may receive an "Error: AZ3166: Unknown package" error message. This error occurs when the board package index is not refreshed correctly. To resolve this error, refer to the [development section of the IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
@@ -59,17 +60,17 @@ Type `Ctrl+P` (macOS: `Cmd+P`) to run `task device-upload`. Once the upload is c
 In VS Code, follow this procedure to open and set up the Serial Monitor:
 
 1. Click the `COM[X]` word on the status bar to set the right COM port with `STMicroelectronics`:
-  ![set-com-port](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
+  ![Screenshot shows Visual Studio Code with COM8 S T Micro electronics selected.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-com-port.jpg)
 
 2. Click the power plug icon on the status bar to open the Serial Monitor:
-  ![serial-monitor](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
+  ![Screenshot shows the Release summary and the power plug icon in the status bar.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-monitor.jpg)
   
 3. On the status bar, click the number that represents the Baud Rate and set it to `115200`:
-  ![set-baud-rate](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
+  ![Screenshot shows setting the Baud Rate in Visual Studio Code.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/set-baud-rate.jpg)
 
 The Serial Monitor displays all the messages sent by the sample sketch. The sketch connects the DevKit to Wi-Fi. Once the Wi-Fi connection is successful, the sketch sends a message to the MQTT broker. After that, the sample repeatedly sends two "iot.eclipse.org" messages using QoS 0 and QoS 1, respectively.
 
-![serial-output](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
+![Screenshot shows the Serial Monitor displaying the messages sent by the sketch.](media/iot-hub-arduino-iot-devkit-az3166-mqtt-helloworld/serial-output.jpg)
 
 ## Problems and feedback
 
@@ -85,7 +86,4 @@ If you encounter problems, refer to the [IoT DevKit FAQ](https://microsoft.githu
 
 ## Next steps
 
-Now that you have learned how to configure your MXChip Iot DevKit as an MQTT client and use the MQTT Client library to send messages to an MQTT broker, here are the suggested next steps:
-
-* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Azure IoT Central application](/azure/iot-central/core/howto-connect-devkit)
+Now that you have learned how to configure your MXChip Iot DevKit as an MQTT client and use the MQTT Client library to send messages to an MQTT broker, here is the suggested next step: [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)

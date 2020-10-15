@@ -1,9 +1,9 @@
 ---
-title: Validate connectivity to Azure Sentinel| Microsoft Docs
+title: Validate connectivity to Azure Sentinel | Microsoft Docs
 description: Validate connectivity of your security solution to make sure CEF messages are being forwarded to Azure Sentinel.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 
@@ -13,25 +13,203 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2019
-ms.author: rkarlin
+ms.date: 10/01/2020
+ms.author: yelevin
 
 ---
 # STEP 3: Validate connectivity
 
+Once you have deployed your log forwarder (in Step 1) and configured your security solution to send it CEF messages (in Step 2), follow these instructions to verify connectivity between your security solution and Azure Sentinel. 
 
+## Prerequisites
 
-After you deployed the agent and configured your security solution to forward CEF messages, use this article to understand how to verify connectivity between Azure Sentinel and your security solution. 
+- You must have elevated permissions (sudo) on your log forwarder machine.
+
+- You must have Python installed on your log forwarder machine.<br>
+Use the `python –version` command to check.
 
 ## How to validate connectivity
 
-1. Open Log Analytics to make sure that logs are received using the CommonSecurityLog schema.<br> It may take upwards of 20 minutes until your logs start to appear in Log Analytics. 
+1. From the Azure Sentinel navigation menu, open **Logs**. Run a query using the **CommonSecurityLog** schema to see if you are receiving logs from your security solution.<br>
+Be aware that it may take about 20 minutes until your logs start to appear in **Log Analytics**. 
 
-1. Before you run the script, we recommend that you send messages from your security solution to make sure they are being forwarded to the Syslog proxy machine you configured. 
-1. You must have elevated permissions (sudo) on your machine. Make sure that you have Python on your machine using the following command: `python –version`
-1. Run the following script to check connectivity between the agent, Azure Sentinel, and your security solution. It checks that the daemon forwarding is properly configured, listens on the correct ports, and that nothing is blocking communication between the daemon and the Log Analytics agent. The script also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
+1. If you don't see any results from the query, verify that events are being generated from your security solution, or try generating some, and verify they are being forwarded to the Syslog forwarder machine you designated. 
+
+1. Run the following script on the log forwarder to check connectivity between your security solution, the log forwarder, and Azure Sentinel. This script checks that the daemon is listening on the correct ports, that the forwarding is properly configured, and that nothing is blocking communication between the daemon and the Log Analytics agent. It also sends mock messages 'TestCommonEventFormat' to check end-to-end connectivity. <br>
  `sudo wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/cef_troubleshoot.py&&sudo python cef_troubleshoot.py [WorkspaceID]`
 
+## Validation script explained
+
+The validation script performs the following checks:
+
+# [rsyslog daemon](#tab/rsyslog)
+
+1. Checks that the file<br>
+    `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
+    exists and is valid.
+
+1. Checks that the file includes the following text:
+
+    ```bash
+    <source>
+        type syslog
+        port 25226
+        bind 127.0.0.1
+        protocol_type tcp
+        tag oms.security
+        format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
+        <parse>
+            message_format auto
+        </parse>
+    </source>
+
+    <filter oms.security.**>
+        type filter_syslog_security
+    </filter>
+    ```
+
+1. Checks that the Cisco ASA parsing for Firewall events is configured as expected:
+
+    ```bash
+    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
+        /opt/microsoft/omsagent/plugin/security_lib.rb && 
+        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent:
+
+    ```bash
+    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Checks if there are any security enhancements on the machine that might be blocking network traffic (such as a host firewall).
+
+1. Checks that the syslog daemon (rsyslog) is properly configured to send messages (that it identifies as CEF) to the Log Analytics agent on TCP port 25226:
+
+    - Configuration file: `/etc/rsyslog.d/security-config-omsagent.conf`
+
+        ```bash
+        if $rawmsg contains "CEF:" or $rawmsg contains "ASA-" then @@127.0.0.1:25226 
+        ```
+
+1. Restarts the syslog daemon and the Log Analytics agent:
+
+    ```bash
+    service rsyslog restart
+
+    /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Checks that the necessary connections are established: tcp 514 for receiving data, tcp 25226 for internal communication between the syslog daemon and the Log Analytics agent:
+
+    ```bash
+    netstat -an | grep 514
+
+    netstat -an | grep 25226
+    ```
+
+1. Checks that the syslog daemon is receiving data on port 514, and that the agent is receiving data on port 25226:
+
+    ```bash
+    sudo tcpdump -A -ni any port 514 -vv
+
+    sudo tcpdump -A -ni any port 25226 -vv
+    ```
+
+1. Sends MOCK data to port 514 on localhost. This data should be observable in the Azure Sentinel workspace by running the following query:
+
+    ```kusto
+    CommonSecurityLog
+    | where DeviceProduct == "MOCK"
+    ```
+
+# [syslog-ng daemon](#tab/syslogng)
+
+1. Checks that the file<br>
+    `/etc/opt/microsoft/omsagent/[WorkspaceID]/conf/omsagent.d/security_events.conf`<br>
+    exists and is valid.
+
+1. Checks that the file includes the following text:
+
+    ```bash
+    <source>
+        type syslog
+        port 25226
+        bind 127.0.0.1
+        protocol_type tcp
+        tag oms.security
+        format /(?<time>(?:\w+ +){2,3}(?:\d+:){2}\d+|\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}.[\w\-\:\+]{3,12}):?\s*(?:(?<host>[^: ]+) ?:?)?\s*(?<ident>.*CEF.+?(?=0\|)|%ASA[0-9\-]{8,10})\s*:?(?<message>0\|.*|.*)/
+        <parse>
+            message_format auto
+        </parse>
+    </source>
+
+    <filter oms.security.**>
+        type filter_syslog_security
+    </filter>
+    ```
+
+1. Checks that the Cisco ASA parsing for Firewall events is configured as expected:
+
+    ```bash
+    sed -i "s|return '%ASA' if ident.include?('%ASA')|return ident if ident.include?('%ASA')|g" 
+        /opt/microsoft/omsagent/plugin/security_lib.rb && 
+        sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Checks that the *Computer* field in the syslog source is properly mapped in the Log Analytics agent:
+
+    ```bash
+    sed -i -e "/'Severity' => tags\[tags.size - 1\]/ a \ \t 'Host' => record['host']" 
+        -e "s/'Severity' => tags\[tags.size - 1\]/&,/" /opt/microsoft/omsagent/pl ugin/
+        filter_syslog_security.rb && sudo /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Checks if there are any security enhancements on the machine that might be blocking network traffic (such as a host firewall).
+
+1. Checks that the syslog daemon (syslog-ng) is properly configured to send messages that it identifies as CEF (using a regex) to the Log Analytics agent on TCP port 25226:
+
+    - Configuration file: `/etc/syslog-ng/conf.d/security-config-omsagent.conf`
+
+        ```bash
+        filter f_oms_filter {match(\"CEF\|ASA\" ) ;};
+        destination oms_destination {tcp(\"127.0.0.1\" port("25226"));};
+        log {source(s_src);filter(f_oms_filter);destination(oms_destination);};
+        ```
+
+1. Restarts the syslog daemon and the Log Analytics agent:
+
+    ```bash
+    service syslog-ng restart
+
+    /opt/microsoft/omsagent/bin/service_control restart [workspaceID]
+    ```
+
+1. Checks that the necessary connections are established: tcp 514 for receiving data, tcp 25226 for internal communication between the syslog daemon and the Log Analytics agent:
+
+    ```bash
+    netstat -an | grep 514
+
+    netstat -an | grep 25226
+    ```
+
+1. Checks that the syslog daemon is receiving data on port 514, and that the agent is receiving data on port 25226:
+
+    ```bash
+    sudo tcpdump -A -ni any port 514 -vv
+
+    sudo tcpdump -A -ni any port 25226 -vv
+    ```
+
+1. Sends MOCK data to port 514 on localhost. This data should be observable in the Azure Sentinel workspace by running the following query:
+
+    ```kusto
+    CommonSecurityLog
+    | where DeviceProduct == "MOCK"
+    ```
+---
 
 ## Next steps
 In this document, you learned how to connect CEF appliances to Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
