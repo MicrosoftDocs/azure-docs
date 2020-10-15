@@ -77,7 +77,7 @@ Here are the ways that you can enable Change Tracking and Inventory and select m
 * [From an Azure virtual machine](enable-from-vm.md).
 * [From browsing multiple Azure virtual machines](enable-from-portal.md).
 * [From an Azure Automation account](enable-from-automation-account.md).
-* For Arc enabled servers (preview) or non-Azure machines, install the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) and then [enable machines in the workspace](enable-from-automation-account.md/#enable-machines-in-the-workspace) to Change Tracking and Inventory.
+* For Arc enabled servers (preview) or non-Azure machines, install the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md) and then [enable machines in the workspace](enable-from-automation-account.md#enable-machines-in-the-workspace) to Change Tracking and Inventory.
 * [Using an Automation runbook](enable-from-runbook.md).
 
 ## Tracking file changes
