@@ -33,6 +33,10 @@ While certain Teams meeting features such as raised hand, together mode, and bre
 
 When a Communication Services user joins the Teams meeting, the display name provided through the Calling client library will be shown to Teams users. The Communication Services user will otherwise be treated like an anonymous user in Teams. Your custom application should consider user authentication and other security measures to protect Teams meetings. Be mindful of the security implications of enabling anonymous users to join meetings, and use the [Teams security guide](https://docs.microsoft.com/microsoftteams/teams-security-guide#addressing-threats-to-teams-meetings) to configure capabilities available to anonymous users.
 
+Note that Communication Services users can join scheduled Teams meetings as long as anonymous joins are enabled in the [meeting settings](https://docs.microsoft.com/microsoftteams/meeting-settings-in-teams).
+
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
