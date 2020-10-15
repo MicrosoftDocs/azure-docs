@@ -1,12 +1,12 @@
 ---
 title: Deploy Resource Manager templates by using GitHub Actions
 description: Describes how to deploy Azure Resource Manager templates by using GitHub Actions.
-ms.topic: quickstart
+ms.topic: how-to
 ms.date: 10/13/2020
 ms.custom: github-actions-azure,subject-armqs
 ---
 
-# Quickstart: Deploy Azure Resource Manager templates by using GitHub Actions
+# Deploy Azure Resource Manager templates by using GitHub Actions
 
 [GitHub Actions](https://help.github.com/actions/getting-started-with-github-actions/about-github-actions) is a suite of features in GitHub to automate your software development workflows in the same place you store code and collaborate on pull requests and issues.
 
@@ -135,7 +135,7 @@ Because the workflow is configured to be triggered by either the workflow file o
 
 1. Select the **Actions** tab. You will see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to run the workflow.
 1. Select the workflow to open it.
-1. Select **Run azure/arm-deploy@v1**from the menu to verify that the deployment.
+1. Select **Run azure/arm-deploy@v1** from the menu to verify that the deployment.
 
 ## Clean up resources
 
