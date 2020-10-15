@@ -29,7 +29,7 @@ You can also see the [*Best practices*](#best-practices) section for general Azu
 
 ## Intra-region HA
  
-Azure Digital Twins provides intra-region HA by implementing redundancies within the service. **No additional work is required by the developers of an Azure Digital Twins solution to take advantage of these HA features.** Although Azure Digital Twins offers a reasonably high uptime guarantee, transient failures can still be expected, as with any distributed computing platform. Appropriate retry policies should be built in to the components interacting with a cloud application to deal with transient failures.
+Azure Digital Twins provides intra-region HA by implementing redundancies within the service. This is reflected in the SLA for uptime. **No additional work is required by the developers of an Azure Digital Twins solution to take advantage of these HA features.** Although Azure Digital Twins offers a reasonably high uptime guarantee, transient failures can still be expected, as with any distributed computing platform. Appropriate retry policies should be built in to the components interacting with a cloud application to deal with transient failures.
 
 ## Cross region DR
 
