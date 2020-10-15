@@ -5,7 +5,7 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 10/15/2020
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,7 +20,7 @@ The following Azure File Sync agent versions are supported:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V11 Release - [KB4539949](https://support.microsoft.com/en-us/help/4539949)| 11.0.0.0 | October 14, 2020 | Supported - Flighting |
+| V11 Release - [KB4539949](https://support.microsoft.com/en-us/help/4539949)| 11.0.0.0 | October 15, 2020 | Supported - Flighting |
 | V10.1 Release - [KB4522411](https://support.microsoft.com/en-us/help/4522411)| 10.1.0.0 | June 5, 2020 | Supported |
 | May 2020 update rollup - [KB4522412](https://support.microsoft.com/help/4522412)| 10.0.2.0 | May 19, 2020 | Supported |
 | V10 Release - [KB4522409](https://support.microsoft.com/en-us/help/4522409)| 10.0.0.0 | April 9, 2020 | Supported |
@@ -44,12 +44,12 @@ The following Azure File Sync agent versions have expired and are no longer supp
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## Agent version 11.0.0.0
-The following release notes are for version 11.0.0.0 of the Azure File Sync agent (released October 14, 2020).
+The following release notes are for version 11.0.0.0 of the Azure File Sync agent (released October 15, 2020).
 
 ### Improvements and issues that are fixed
 - New cloud tiering modes to control initial download and proactive recall
-	- Initial download mode: you can now choose how you want your files to be initially downloaded onto your new server endpoint. Want all your files tiered or as many files as possible downloaded onto your server by last modified timestamp? You can do that! Can't use cloud tiering? You can now opt to avoid tiered files on your system.
-	- Proactive recall mode: whenever a file is created or modified, you can proactively recall it to servers that you specify within the same sync group. This makes the file readily available for consumption in each server you specified. Have teams across the globe working on the same data? Enable proactive recalling so that when the team arrives the next morning, all the files updated by a team in a different time zone are downloaded and ready to go!
+	- Initial download mode: you can now choose how you want your files to be initially downloaded onto your new server endpoint. Want all your files tiered or as many files as possible downloaded onto your server by last modified timestamp? You can do that! Can't use cloud tiering? You can now opt to avoid tiered files on your system. To learn more, see [Create a server endpoint](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#create-a-server-endpoint) section in the Deploy Azure File Sync documentation.
+	- Proactive recall mode: whenever a file is created or modified, you can proactively recall it to servers that you specify within the same sync group. This makes the file readily available for consumption in each server you specified. Have teams across the globe working on the same data? Enable proactive recalling so that when the team arrives the next morning, all the files updated by a team in a different time zone are downloaded and ready to go! To learn more, see [Proactively recall new and changed files from an Azure file share](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal%2Cproactive-portal#proactively-recall-new-and-changed-files-from-an-azure-file-share) section in the Deploy Azure File Sync documentation.
 
 - Exclude applications from cloud tiering last access time tracking
 	You can now exclude applications from last access time tracking. When an application accesses a file, the last access time for the file is updated in the cloud tiering database. Applications that scan the file system like anti-virus cause all files to have the same last access time which impacts when files are tiered.
