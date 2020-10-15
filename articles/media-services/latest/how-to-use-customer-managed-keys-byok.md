@@ -85,7 +85,7 @@ Media services will automatically detect when the key has been changed.  To test
 1. Create another key version for the same key -- Media Services should detect this key after 5 minutes<br/>
 [!INCLUDE [Create an RSA key in the Key Vault](./includes/task-create-an-rsa-key-for-key-vault-rest.md)]
 1. Get the Media Services (after some time, this should show the return the new customer key version)
-[!INCLUDE [Get the media services](includes\task-get-media-services-rest.md)]
+[!INCLUDE [Get the media services](./includes/task-get-media-services-rest.md)]
 
 ## Shutting down resources
 
@@ -113,4 +113,4 @@ BYOK is currently not available for the portal
 
 ## Next steps
 
-* [changeme](changeme.md)
+* [Media Services Overview](media-services-overview.md)
