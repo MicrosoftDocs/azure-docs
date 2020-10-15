@@ -135,7 +135,7 @@ Because the workflow is configured to be triggered by either the workflow file o
 
 1. Select the **Actions** tab. You will see a **Create deployStorageAccount.yml** workflow listed. It takes 1-2 minutes to run the workflow.
 1. Select the workflow to open it.
-1. Select **Run azure/arm-deploy@v1** from the menu to verify that the deployment.
+1. Select **Run** **azure/arm-deploy@v1** from the menu to verify that the deployment.
 
 ## Clean up resources
 
