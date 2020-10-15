@@ -62,7 +62,9 @@ Private endpoint works for IoT Hub device APIs (like device-to-cloud messages) a
 
 ### Built-in Event Hub compatible endpoint 
 
-The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) can also be accessed over private endpoint. When private link is configured, you should see an additional private endpoint connection for the built-in endpoint.
+The [built-in Event Hub compatible endpoint](iot-hub-devguide-messages-read-builtin.md) can also be accessed over private endpoint. When private link is configured, you should see an additional private endpoint connection for the built-in endpoint. It's the one with `servicebus.windows.net` in the FQDN.
+
+:::image type="content" source="media/virtual-network-support/private-built-in-endpoint.png" alt-text="Image showing two private endpoints given each IoT Hub private link":::
 
 IoT Hub's [IP filter](iot-hub-ip-filtering.md) can optionally control public access to the built-in endpoint. 
 
