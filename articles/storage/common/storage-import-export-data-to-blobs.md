@@ -143,41 +143,41 @@ Perform the following steps to create an import job in the Azure portal.
 
 Use the following steps to create an import job in the Azure CLI.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../../includes/azure-cli-prepare-your-environment-h3.md)]
 
 ### Create a job
 
-1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension.
+1. Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az import-export](/cli/azure/ext/import-export/import-export) extension:
 
     ```azurecli
     az extension add --name import-export
     ```
 
-1. You can use an existing resource group or create one. To create a resource group, use the [az group create](/cli/azure/group#az_group_create) command.
+1. You can use an existing resource group or create one. To create a resource group, run the [az group create](/cli/azure/group#az_group_create) command:
 
     ```azurecli
     az group create --name myierg --location "West US"
     ```
 
-1. You can use an existing storage account or create one. To create a storage account, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
+1. You can use an existing storage account or create one. To create a storage account, run the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command:
 
     ```azurecli
     az storage account create --resource-group myierg --name myssdocsstorage --https-only
     ```
 
-1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command.
+1. To get a list of the locations to which you can ship disks, use the [az import-export location list](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_list) command:
 
     ```azurecli
     az import-export location list
     ```
 
-1. Use the [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) command to get locations for your region.
+1. Use the [az import-export location show](/cli/azure/ext/import-export/import-export/location#ext_import_export_az_import_export_location_show) command to get locations for your region:
 
     ```azurecli
     az import-export location show --location "West US"
     ```
 
-1. Use the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an import job.
+1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an import job:
 
     ```azurecli
     az import-export create \
@@ -197,13 +197,13 @@ Use the following steps to create an import job in the Azure CLI.
         --storage-account myssdocsstorage
     ```
 
-1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group.
+1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group:
 
     ```azurecli
     az import-export list --resource-group myierg
     ```
 
-1. To update your job or cancel your job, use the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command.
+1. To update your job or cancel your job, run the [az import-export update](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_update) command:
 
     ```azurecli
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
