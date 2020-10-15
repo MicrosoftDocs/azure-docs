@@ -80,7 +80,7 @@ The following table provides a comparison of the options available:
 |Creates the cluster for you|Yes|Yes | Yes |No|
 |Creates the availability group for you |Yes |No|No|No|
 |Creates listener and load balancer independently |No|No|No|Yes|
-|Can I create a DNN listener using this method? |No|No|No|Yes|
+|Possible to create DNN listener using this method? |No|No|No|Yes|
 |WSFC quorum configuration|Cloud witness|Cloud witness|Cloud witness|All|
 |DR with multiple regions |No|No|No|Yes|
 |Multisubnet support |Yes|Yes|Yes|Yes|
