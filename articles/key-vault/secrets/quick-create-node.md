@@ -25,7 +25,7 @@ Get started with the Azure Key Vault secret client library for JavaScript. Follo
 This quickstart assumes you are running [Azure CLI](/cli/azure/install-azure-cli) in a Linux terminal window.
 
 ## Setting up
-This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme)
+This quickstart is using Azure Identity library with Azure CLI to authenticate user to Azure Services. Developers can also use Visual Studio or Visual Studio Code to authenticate their calls, for more information, see [Authenticate the client with Azure Identity client library](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme).
 
 ### Sign in to Azure
 
@@ -62,7 +62,7 @@ npm install @azure/identity
 
 #### Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permission to your user account
+Create an access policy for your key vault that grants secret permission to your user account.
 
 ```console
 az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --secret-permissions delete get list set
