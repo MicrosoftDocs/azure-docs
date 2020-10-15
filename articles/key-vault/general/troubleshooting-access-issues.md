@@ -48,6 +48,8 @@ The application also needs at least one Identity and Access Management (IAM) rol
 
 Currently Key Vault redeployment deletes any access policy in Key Vault and replace them with access policy in ARM template. There is no incremental option for Key Vault access policies. To preserve access policies in Key Vault, you need read existing access policies in Key Vault and populate ARM template with those policies to avoid any access outages.
 
+Another option that can help for this scenario is using RBAC roles as an alternative to access policies. With RBAC, you can re-deploy the key vault without specifying the policy again. You can read more this solution [here](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+
 ### Recommended troubleshooting Steps for following error types
 
 * HTTP 401: Unauthenticated Request - [Troubleshooting steps](rest-error-codes.md#http-401-unauthenticated-request)

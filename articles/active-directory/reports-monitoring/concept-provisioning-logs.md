@@ -38,7 +38,7 @@ This topic gives you an overview of the provisioning report.
 ## Prerequisites
 
 ### Who can access the data?
-* Application owners
+* Application owners can view logs for applications they own
 * Users in the Security Administrator, Security Reader, Report Reader, Application Administrator, and Cloud Application Administrator roles
 * Global Administrators
 
@@ -52,7 +52,7 @@ Your tenant must have an Azure AD Premium license associated with it to see the 
 The provisioning logs provide answers to the following questions:
 
 * What groups were successfully created in ServiceNow?
-* How roles were imported from Amazon Web Services?
+* What roles were imported from Amazon Web Services?
 * What users were unsuccessfully created in DropBox?
 
 You can access the provisioning logs by selecting **Provisioning Logs** in the **Monitoring** section of the **Azure Active Directory** blade in the [Azure portal](https://portal.azure.com). It can take up to two hours for some provisioning records to show up in the portal.
@@ -207,7 +207,7 @@ The **summary** tab provides an overview of what happened and identifiers for th
 
 ## What you should know
 
-- The Azure portal stores reported provisioning data for 30 days if you have a premium edition and 7 days if you have a free edition.The provisioning logs can be published to log analytics for retention beyond 30 days. 
+- The Azure portal stores reported provisioning data for 30 days if you have a premium edition and 7 days if you have a free edition.The provisioning logs can be published to [log analytics](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics) for retention beyond 30 days. 
 
 - You can use the Change ID attribute as unique identifier. This is, for example, helpful when interacting with product support.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Create a Bastion host from a VM and connect via private IP address'
 titleSuffix: Azure Bastion
-description: In this article, learn how to create an Azure Bastion host from a virtual machine and connect securely using a private IP address.
+description: In this quickstart article, learn how to create an Azure Bastion host from a virtual machine and connect securely using a private IP address.
 services: bastion
 author: cherylmc
 
@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 # Quickstart: Connect to a virtual machine using a private IP address and Azure Bastion
 
-This quickstart article shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, from your Azure VM, you can deploy Bastion to your virtual network. After deploying Bastion, you can connect to the VM via the private IP address using the Azure portal. Your VM does not need a public IP address or special software. One advantage of creating a Bastion host for your VNet directly from your VM is that many of the settings are prepopulated for you.
+This quickstart article shows you how to connect to a virtual machine through your browser using Azure Bastion and the Azure portal. In the Azure portal, from your Azure VM, you can deploy Bastion to your virtual network. After deploying Bastion, you can connect to the VM via its private IP address using the Azure portal. Your VM does not need a public IP address or special software. One advantage of creating a Bastion host for your VNet directly from your VM is that many of the settings are prepopulated for you.
 
 Once the service is provisioned, the RDP/SSH experience is available to all of the virtual machines in the same virtual network. For more information about Azure Bastion, see [What is Azure Bastion?](bastion-overview.md).
 
@@ -94,7 +94,7 @@ When you're done using the virtual network and the virtual machines, delete the 
 
 ## Next steps
 
-In this quickstart, you created a Bastion host for your virtual network, and then connected to a virtual machine securely via the Bastion host.
+In this quickstart, you created a Bastion host for your virtual network, and then connected to a virtual machine securely via the Bastion host. Next, you can continue with the following step if you want to connect to a virtual machine scale set.
 
-* To learn more about Azure Bastion, see the [What is Azure Bastion?](bastion-overview.md) and the [Bastion FAQ](bastion-faq.md).
-* To connect to a virtual machine scale set, see [Connect to a virtual machine scale set using Azure Bastion](bastion-connect-vm-scale-set.md).
+> [!div class="nextstepaction"]
+> [Connect to a virtual machine scale set using Azure Bastion](bastion-connect-vm-scale-set.md)

@@ -15,7 +15,7 @@ This article lists the steps that will help you deploy Live Video Analytics on y
 
 ## Prerequisites
 
-* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](https://docs.microsoft.com/azure/iot-edge/support#operating-systems)
+* An x86-64 or an ARM64 device running one of the [supported Linux operating systems](../../iot-edge/support.md#operating-systems)
 * Azure subscription to which you have [owner privileges](../../role-based-access-control/built-in-roles.md#owner)
 * [Create and setup IoT Hub](../../iot-hub/iot-hub-create-through-portal.md)
 * [Register IoT Edge device](../../iot-edge/how-to-register-device.md)

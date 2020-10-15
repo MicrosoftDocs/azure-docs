@@ -113,5 +113,5 @@ You can then use this client ID in conjunction with the tenant ID to add the man
 
 ## Related information
 
-* [Download SQL Server PowerShell Module](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Download SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [Download SQL Server PowerShell Module](/sql/ssms/download-sql-server-ps-module)   
+* [Download SSMS](/sql/ssms/download-sql-server-management-studio-ssms)
