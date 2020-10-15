@@ -88,7 +88,7 @@ az network public-ip update \
 ```
 ---
 
-## Migrate a classic Azure Reserved IP to an Azure Resource Manager (ARM) Basic SKU public IP
+## Upgrade (migrate) a classic Azure Reserved IP to an Azure Resource Manager (ARM) Basic SKU public IP
 
 To benefit from the new capabilities in Azure Resource Manager, you can migrate existing public static IP address--called Reserved IPs--from the Classic model to the modern Azure Resource Manager (ARM) model.
 
@@ -154,4 +154,4 @@ A new resource group in Azure Resource Manager is created using the name of the 
 - Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Learn how to [Upgrade Azure Public Load Balancers from Basic to Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard).
-- Read about [migration of Classic resources to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+- Read about [Migration of Classic resources to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
