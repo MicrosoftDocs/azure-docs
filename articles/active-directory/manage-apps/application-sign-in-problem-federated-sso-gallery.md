@@ -33,7 +33,7 @@ To open the SAML-based single sign-on configuration page:
 1. Select SAML-based SSO.
 
 ## Application not found in directory
-*Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory*.
+`Error AADSTS70001: Application with Identifier 'https:\//contoso.com' was not found in the directory.`
 
 **Possible cause**
 
@@ -46,7 +46,7 @@ Ensure that the `Issuer` attribute in the SAML request matches the Identifier va
 On the SAML-based SSO configuration page, in the **Basic SAML configuration** section, verify that the value in the Identifier textbox matches the value for the identifier value displayed in the error.
 
 ## The reply address does not match the reply addresses configured for the application
-*Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application*
+`Error AADSTS50011: The reply address 'https:\//contoso.com' does not match the reply addresses configured for the application.`
 
 **Possible cause**
 
@@ -61,7 +61,7 @@ Verify or update the value in the Reply URL textbox to match the `AssertionConsu
 After you've updated the Reply URL value in Azure AD, and it matches the value sent by the application in the SAML request, you should be able to sign in to the application.
 
 ## User not assigned a role
-*Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application*.
+`Error AADSTS50105: The signed in user 'brian\@contoso.com' is not assigned to a role for the application.`
 
 **Possible cause**
 
@@ -72,7 +72,7 @@ The user has not been granted access to the application in Azure AD.
 To assign one or more users to an application directly, see [Quickstart: Assign users to an app](add-application-portal-assign-users.md).
 
 ## Not a valid SAML request
-*Error AADSTS75005: The request is not a valid Saml2 protocol message.*
+`Error AADSTS75005: The request is not a valid Saml2 protocol message.`
 
 **Possible cause**
 
@@ -90,7 +90,7 @@ Azure AD doesn’t support the SAML request sent by the application for single s
 The application vendor should validate that they support the Azure AD SAML implementation for single sign-on.
 
 ## Misconfigured application
-*Error AADSTS650056: Misconfigured application. This could be due to one of the following: The client has not listed any permissions in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant.*.
+`Error AADSTS650056: Misconfigured application. This could be due to one of the following: The client has not listed any permissions in the requested permissions in the client's application registration. Or, The admin has not consented in the tenant. Or, Check the application identifier in the request to ensure it matches the configured client application identifier. Please contact your admin to fix the configuration or consent on behalf of the tenant.`
 
 **Possible cause**
 
@@ -103,7 +103,7 @@ Ensure that the `Issuer` attribute in the SAML request matches the Identifier va
 Verify that the value in the Identifier textbox matches the value for the identifier value displayed in the error.
 
 ## Certificate or key not configured
-*Error AADSTS50003: No signing key configured.*
+`Error AADSTS50003: No signing key configured.`
 
 **Possible cause**
 
@@ -118,7 +118,7 @@ To delete and create a new certificate, follow the steps below:
 1. Under the **SAML Signing Certificate** section, click **remove** to remove the **Unused** certificate.
 
 ## SAML Request not present in the request
-*Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.*
+`Error AADSTS750054: SAMLRequest or SAMLResponse must be present as query string parameters in HTTP request for SAML Redirect binding.`
 
 **Possible cause**
 
@@ -145,7 +145,6 @@ On the SAML-based SSO configuration page, in the **Reply URL (Assertion Consumer
 To learn how to customize the SAML attribute claims sent to your application, see [Claims mapping in Azure Active Directory](../develop/active-directory-claims-mapping.md).
 
 ## Errors related to misconfigured apps
-
 Verify both the configurations in the portal match what you have in your app. Specifically, compare Client/Application ID, Reply URLs, Client Secrets/Keys, and App ID URI.
 
 Compare the resource you’re requesting access to in code with the configured permissions in the **Required Resources** tab to make sure you only request resources you’ve configured.
