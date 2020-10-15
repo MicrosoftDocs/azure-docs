@@ -21,7 +21,7 @@ To complete this tutorial, make sure you have:
 
 1. A Windows machine with <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017+</a> installed with the **Universal Windows Platform development** workload and the **Windows 10 SDK (10.0.18362.0 or newer)** component, and <a href="https://git-scm.com/download/win" target="_blank">Git for Windows</a>.
 2. The [C++/WinRT Visual Studio Extension (VSIX)](https://aka.ms/cppwinrt/vsix) for Visual Studio should be installed from the [Visual Studio Marketplace](https://marketplace.visualstudio.com/).
-3. A HoloLens device with [developer mode](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 May 2020 Update](https://docs.microsoft.com/windows/mixed-reality/whats-new/release-notes-may-2020 ). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
+3. A HoloLens device with [developer mode](/windows/mixed-reality/using-visual-studio) enabled. This article requires a HoloLens device with the [Windows 10 May 2020 Update](/windows/mixed-reality/whats-new/release-notes-may-2020). To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, then select the **Check for updates** button.
 
 ## Getting started
 
@@ -85,7 +85,7 @@ We need to configure our Unity app with an immersive view, rather than a 2D view
 You should now have a sphere prefab in your **Project** pane.
 
 ## Trying it out
-To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow Chapter 6 from the [**MR Basics 100: Getting started with Unity** course](https://docs.microsoft.com/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
+To test out that everything is working, build your app in **Unity** and deploy it from **Visual Studio**. Follow Chapter 6 from the [**MR Basics 100: Getting started with Unity** course](/windows/mixed-reality/holograms-100#chapter-6---build-and-deploy-to-device-from-visual-studio) to do so. You should see the Unity start screen, and then a clear display.
 
 ## Place an object in the real world
 Let's create & place an object using your app. Open the Visual Studio solution that we created when we [deployed our app](#trying-it-out).
@@ -206,7 +206,7 @@ Finally, let's hook everything together. In your `CreateAndSaveSphere()` method,
 
 Run your app from **Visual Studio** once more. Move around your head and then air tap to place your sphere. Once we have
 enough frames, the sphere will turn yellow, and the cloud upload will start. Once the upload finishes, your sphere will
-turn blue. Optionally, you can also use the [Output window](https://docs.microsoft.com/visualstudio/ide/reference/output-window)
+turn blue. Optionally, you can also use the [Output window](/visualstudio/ide/reference/output-window)
 while debugging inside **Visual Studio** to monitor the log messages your app is sending. Make sure you deploy the `Debug`
 configuration of your app from Visual Studio to see the log messages. You can watch the `RecommendedForCreateProgress`,
 and once the upload is complete, you'll be able to see the anchor identifier returned from the cloud.

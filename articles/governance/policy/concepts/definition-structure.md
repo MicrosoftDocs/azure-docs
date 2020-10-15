@@ -144,7 +144,9 @@ The following Resource Provider modes are currently supported as a **preview**:
   Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
   mode is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
-  [Azure Key Vault](../../../key-vault/general/overview.md).
+  [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
+  definitions, see
+  [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 
 > [!NOTE]
 > Resource Provider modes only support built-in policy definitions and don't support
