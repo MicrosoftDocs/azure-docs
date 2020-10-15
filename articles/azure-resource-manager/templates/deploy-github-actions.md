@@ -60,7 +60,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
 ## Configure the GitHub secrets
 
-You need to create secrets for your azure credentials, resource group, and subscriptions. 
+You need to create secrets for your Azure credentials, resource group, and subscriptions. 
 
 1. In [GitHub](https://github.com/), browse your repository.
 
