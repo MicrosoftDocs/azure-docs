@@ -86,16 +86,42 @@ The following values are set in the previous example:
 
 ## Provide optional claims to your app
 
-The [Relying party policy technical profile](relyingparty.md#technicalprofile) output claims are values that are returned to the application. Update the relying party (RP) file that initiates the user journey that you created.
+The [Relying party policy technical profile](relyingparty.md#technicalprofile) output claims are values that are returned to an application. Adding output claims will issue the claims into the token after a successful user journey, and will be sent to the application. Modify the technical profile element within the relying party section to add the desired claims as an output claim.
 
 1. Open your custom policy file. For example, SignUpOrSignin.xml.
 1. Find the OutputClaims element. Add the OutputClaim you want to be included in the token. 
-1. Set the output claim attributes.
-  - **ClaimTypeReferenceId** - The identifier of a claim type already defined in the ClaimsSchema section in the policy file or parent policy file.
-  - **PartnerClaimType** - Allows you to change the name of the claim. For example, the first claim name is 'givenName', while your application uses a claim.
-  - **DefaultValue** - A default value. You may want to set the default value to a [claim resolver](claim-resolver-overview.md), such as tenant ID, or correlation ID.
-  - **AlwaysUseDefaultValue** - Force the use of the default value.
+1. Set the output claim attributes. 
 
+The following example add the `accountBalance` claim. The accountBalance claim is sent to the application as balance. 
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="OpenIdConnect" />
+    <OutputClaims>
+      <OutputClaim ClaimTypeReferenceId="displayName" />
+      <OutputClaim ClaimTypeReferenceId="givenName" />
+      <OutputClaim ClaimTypeReferenceId="surname" />
+      <OutputClaim ClaimTypeReferenceId="email" />
+      <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+      <OutputClaim ClaimTypeReferenceId="identityProvider" />
+      <OutputClaim ClaimTypeReferenceId="tenantId" AlwaysUseDefaultValue="true" DefaultValue="{Policy:TenantObjectId}" />
+      <!--Add the optional claims here-->
+      <OutputClaim ClaimTypeReferenceId="accountBalance" DefaultValue="" PartnerClaimType="balance" />
+    </OutputClaims>
+    <SubjectNamingInfo ClaimType="sub" />
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+The OutputClaim element contains the following attributes:
+
+  - **ClaimTypeReferenceId** - The identifier of a claim type already defined in the [ClaimsSchema](claimsschema.md) section in the policy file or parent policy file.
+  - **PartnerClaimType** - Allows you to change the name of the claim in the token. 
+  - **DefaultValue** - A default value. You can aslo set the default value to a [claim resolver](claim-resolver-overview.md), such as tenant ID.
+  - **AlwaysUseDefaultValue** - Force the use of the default value.
 
 ## Next steps
 
