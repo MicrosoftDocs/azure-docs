@@ -518,6 +518,8 @@
       displayName: RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO
     - name: Containers
       items:
+        - name: Cognitive Services containers documentation
+          href: ../containers/index.yml
         - name: Install and run Speech containers
           displayName: 'containers,install container,run container'
           href: speech-container-howto.md

@@ -32,6 +32,8 @@
       href: how-to/identify-anomalies.md
     - name: Use containers
       items:
+      - name: Cognitive Services containers documentation
+        href: ../containers/index.yml
       - name: Install and run containers
         displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull
         href: anomaly-detector-container-howto.md
