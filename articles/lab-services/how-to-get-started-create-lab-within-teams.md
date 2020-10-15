@@ -53,7 +53,7 @@ After the lab account is selected, Team owners will be able to create labs for t
 
 When a lab is created within Teams, the lab user list is automatically populated and synced with the team membership. Everyone on the team, including Owners, Members and Guests will be automatically added to the lab user list. Azure lab Services will maintain a sync with the team membership and an automatic sync is triggered every 24 hours. For details, see:
 
-[Manage Lab Services user lists withing Teams](how-to-manage-user-lists-within-teams.md)
+[Manage Lab Services user lists within Teams](how-to-manage-user-lists-within-teams.md)
 
 ### See also
 
