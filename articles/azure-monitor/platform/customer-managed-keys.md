@@ -32,7 +32,7 @@ Data ingested in the last 14 days is also kept in hot-cache (SSD-backed) for eff
 Azure Monitor leverages system-assigned managed identity to grant access to your Azure Key Vault. 
 System-assigned managed identity can only be associated with a single Azure resource while the identity of the Log Analytics cluster is supported at the cluster level -- This dictates that the CMK capability is delivered on a dedicated Log Analytics cluster. To support CMK on multiple workspaces, a new Log Analytics *Cluster* resource performs as an intermediate identity connection between your Key Vault and your Log Analytics workspaces. The Log Analytics cluster storage uses the managed identity that\'s associated with the *Cluster* resource to authenticate to your Azure Key Vault via Azure Active Directory. 
 
-After CMK configuration, any data ingested to workspaces linked to your dedicated cluster get encrypted with your key in Key Vault. You can Unlink workspaces from the custer at any time. New data gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
+After CMK configuration, any data ingested to workspaces linked to your dedicated cluster get encrypted with your key in Key Vault. You can Unlink workspaces from the cluster at any time. New data gets ingested to Log Analytics storage and encrypted with Microsoft key, while you can query your new and old data seamlessly.
 
 
 ![CMK Overview](media/customer-managed-keys/cmk-overview.png)
