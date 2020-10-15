@@ -14,7 +14,13 @@ See [Monitor Azure IoT Hub](monitor-iot-hub.md) for details on collecting and an
 
 ## Metrics
 
-This section lists all the automatically collected platform metrics for Azure IoT Hub. The resource provider namespace for IoT Hub metrics is **Microsoft.Devices** and the type Namespace is **IoTHubs**. The following sub-sections provide important information specific to IoT Hub metrics, break them out by general category, and list them by the display name that they appear in the Azure portal with. You can also find a listing of the IoT Hub metrics by metric name, see [Microsoft.Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs). To learn about metrics supported by other Azure services, you can see a list of [all platform metrics supported in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+This section lists all the automatically collected platform metrics for Azure IoT Hub. The resource provider namespace for IoT Hub metrics is **Microsoft.Devices** and the type Namespace is **IoTHubs**.
+
+The following subsections break out the IoT Hub platform metrics by general category and list them by the display name that they appear in the Azure portal with. Information is also provided relevant to the metrics that appear in each subsection.
+
+You can also find a single table that lists all of the IoT Hub platform metrics by metric name under [Microsoft.Devices/IotHubs](/azure/azure-monitor/platform/metrics-supported#microsoftdevicesiothubs) in the Azure Monitor documentation. Be aware that this table does not provide some of the information, like [supported aggregations](#supported-aggregations) for some metrics, available in this article.
+
+To learn about metrics supported by other Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 ### Supported aggregations
 
