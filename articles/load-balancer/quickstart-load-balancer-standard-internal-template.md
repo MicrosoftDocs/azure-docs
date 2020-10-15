@@ -1,6 +1,6 @@
 ---
-title: Create an internal load balancer by using an Azure Resource Manager template (ARM template)
-description: Learn how to create an internal Azure load balancer by using an Azure Resource Manager template (ARM template).
+title: 'Quickstart: Create an internal load balancer by using a template'
+description: This quickstart shows how to create an internal Azure load balancer by using an Azure Resource Manager template (ARM template).
 services: load-balancer
 author: asudbring
 ms.service: load-balancer

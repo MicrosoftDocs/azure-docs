@@ -107,6 +107,6 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Browse by asset type
-          url: starter-kit-tutorial-1.md # update link
+          url: how-to-browse-catalog.md # update link
         - text: Search for assets, terms, annotations, and contacts
           url: starter-kit-tutorial-1.md # update link

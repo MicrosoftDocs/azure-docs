@@ -44,7 +44,7 @@
     href: supported-stores-and-classifications.md
 - name: How-to guides
   items:
-  - name: Scan
+  - name: Register & scan
     items:
     - name: Register and scan Azure Files
       href: register-scan-azure-files-storage-source.md
@@ -60,24 +60,34 @@
       href: register-scan-azure-sql-database
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
-    - name: Apply classifications
-      href: apply-classifications.md
   - name: Classify
     items: 
-    - name: Apply classifications
+    - name: Use classifications
       href: use-classifications.md
     - name: Create a custom classification
       href: create-a-custom-classification.md
     - name: Create a custom classification rule
-      href: create-custom-classification-rule.md      
-  - name: Security
+      href: create-custom-classification-rule.md
+    - name: Apply classifications
+      href: apply-classifications.md
+  - name: Search & browse
     items:
+    - name: Browse Babylon
+      href: how-to-browse-catalog.md  
+  - name: Lineage 
+    items:
+    - name: Azure Data Share
+      href: how-to-link-azure-data-share.md
+ #- name: Security
+ #  items:
+  - name: Insights
+    items:
+    - name: Map and discover insights
+      href: map-discover.md
     - name: View classification insights
       href: classification-reporting-data-azure-blob-storage.md
     - name: View sensitivity label insights
       href: sensitivity-label-reporting-data-azure-blob-storage.md
-  - name: Map and discover insights
-    href: map-discover.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
   - name: Provide feedback
