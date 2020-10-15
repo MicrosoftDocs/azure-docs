@@ -388,8 +388,8 @@ This FAQ helps you provide a virtual machine (VM) image when a vulnerability or 
 Do one of the following:
 
 1. If you have a new VM image to replace the vulnerable VM image, then go to [How to provide a fixed VM image](#how-to-provide-a-fixed-vm-image).
-1. If you don’t have a new VM image to replace the only VM image in a plan and if you’re done with the plan, then you can [stop selling the plan](update-existing-offer.md#stop-selling-an-offer-or-plan).
-1. If you don’t plan to replace the only VM image in the offer, then we recommend that you [stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan).
+1. If you don’t have a new VM image to replace the only VM image in a plan and if you’re done with the plan, then you can [stop selling the plan](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
+1. If you don’t plan to replace the only VM image in the offer, then we recommend that you [stop selling the offer](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan).
 
 ### How to provide a fixed VM image
 
@@ -401,7 +401,7 @@ To provide a fixed VM image to replace a VM image that has a vulnerability or ex
 
 #### Provide a new VM image to address the security vulnerability or exploit
 
-To complete these steps, you’ll need prepare the technical asset for the VM image you want to add. For more information, see [Create technical assets for an Azure Marketplace virtual machine offer](create-azure-vm-technical-asset.md) and [Get a SAS URI for your VM image](get-sas-uri.md).
+To complete these steps, you’ll need prepare the technical asset for the VM image you want to add. For more information, see [Create technical assets for an Azure Marketplace virtual machine offer](partner-center-portal/create-azure-vm-technical-asset.md) and [Get a SAS URI for your VM image](partner-center-portal/get-sas-uri.md).
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
@@ -432,7 +432,7 @@ After you’ve removed or replaced the VM image, you need to republish the offer
 1. If you need to provide any information to the certification team, add it to the **Notes for certification** box.
 1. Select **Publish**.
 
-For more details about the publishing process, see [How to review and publish an offer to the commercial marketplace](../review-publish-offer.md).
+For more details about the publishing process, see [How to review and publish an offer to the commercial marketplace](review-publish-offer.md).
 
 ## Next steps
 
