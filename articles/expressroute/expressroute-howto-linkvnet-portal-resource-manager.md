@@ -59,11 +59,19 @@ In this tutorial, you learn how to:
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/express-route-circuit.png" alt-text="ExpressRoute circuit screenshot":::
 
-2. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Select **Connection** > **Add** to open the **Add connection** page, and then configure the values.
+1. You can now start provisioning a connection to link your virtual network gateway to your ExpressRoute circuit. Select **Connection** > **Add** to open the **Add connection** page.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/add-connection.png" alt-text="Add connection screenshot":::
 
-3. After your connection has been successfully configured, your connection object will show the information for the connection.
+1. Enter a name for the connection and then select **Next: Settings >**.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-basic.png" alt-text="Create connection basic page":::
+
+1. Select the gateway that belongs to the virtual network that you want to link to the circuit and select **Review + create**. Then select **Create** after validation completes.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-connection-settings.png" alt-text="Create connection settings page":::
+
+1. After your connection has been successfully configured, your connection object will show the information for the connection.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-object.png" alt-text="Connection object screenshot":::
 
@@ -113,25 +121,24 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
 **To redeem a connection authorization**
 
-1. Select the **+New** button.
+1. Select the **+ Create a resource** button. Search for **Connection** and select **Create**.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/create-new-resources.png" alt-text="Create new resources":::
 
-2. Search for **"Connection"** in the Marketplace, select it, and select **Create**.
+1. Make sure the *Connection type* is set to **ExpressRoute**. Select the *Resource group* and *Location*, then select **OK** in the Basics page.
 
-    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/search-connection.png" alt-text="Search for connection":::
-
-3. Make sure the **Connection type** is set to "ExpressRoute".
-4. Fill in the details, then select **OK** in the Basics page.
+    > [!NOTE]
+    > The location *must* match the virtual network gateway location you're creating the connection for.
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-basics.png" alt-text="Basics page":::
 
-5. In the **Settings** page, Select the **Virtual network gateway** and check the **Redeem authorization** check box.
-6. Enter the **Authorization key** and the **Peer circuit URI** and give the connection a name. Select **OK**. The **Peer Circuit URI** is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
+1. In the **Settings** page, Select the *Virtual network gateway* and check the **Redeem authorization** check box. Enter the *Authorization key* and the *Peer circuit URI* and give the connection a name. Select **OK**. The *Peer Circuit URI* is the Resource ID of the ExpressRoute circuit (which you can find under the Properties Setting pane of the ExpressRoute Circuit).
 
     :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-settings.png" alt-text="Settings page":::
 
-7. Review the information in the **Summary** page and select **OK**.
+1. Review the information in the **Summary** page and select **OK**.
+
+    :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/connection-summary.png" alt-text="Summary page":::
 
 **To release a connection authorization**
 
