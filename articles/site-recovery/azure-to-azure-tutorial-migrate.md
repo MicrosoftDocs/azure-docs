@@ -99,7 +99,6 @@ The following steps shows how to prepare the virtual machine for the move using 
 1. In the dropdown, select **Azure Virtual Machines**.
 1. In **Source location**, select the source Azure region where your VMs are currently running.
 1. Select the Resource Manager deployment model. Then select the **Source subscription** and **Source resource group**.
-1. Select appropriate option for **Disaster Recovery between Availability Zones?**. If selected **Yes**, then provide Availability Zone too.
 1. Select **OK** to save the settings.
 
 ### Enable replication for Azure VMs and start copying the data
