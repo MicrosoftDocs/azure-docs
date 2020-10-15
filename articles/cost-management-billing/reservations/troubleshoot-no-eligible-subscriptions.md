@@ -1,8 +1,10 @@
 ---
 title: Troubleshoot no eligible subscriptions
 description: This article helps you troubleshoot the No eligible subscriptions error message in the Azure portal when you try to purchase a reservation.
-author: banders
-ms.author: bandersmsft
+author: bandersmsft
+ms.service: cost-management-billing
+ms.subservice: reservations
+ms.author: banders
 ms.reviewer: yashar
 ms.topic: troubleshooting
 ms.date: 10/14/2020
