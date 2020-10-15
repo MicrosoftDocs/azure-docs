@@ -30,17 +30,20 @@ You, as a Team owner, can add **Azure Lab Services** app directly in your Teams 
     > [!NOTE]
     > Only Team **Owners** will be able to create labs for the team.
 
-   ![Add a tab](./media/integrate-with-teams/add.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/add.png" alt-text="Add a tab":::
 1. Select a Lab Services account, which you would like to use for creating classroom labs in this team. 
 
     Azure Lab Services uses single sign-on into the [Azure Lab Services website](https://labs.azure.com) and pulls all the lab accounts that you have access to. 
 
     The accounts that are in the same tenant as Teams and for which you have **Owner**, **Contributor**, or **Creator** access are displayed. 
 
-   ![Welcome to ALS](./media/integrate-with-teams/welcome.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/welcome.png" alt-text="Welcome to ALS":::
 1. Press **Save** and the tab gets added to the channel.
 
-   ![Created the ALS tab](./media/integrate-with-teams/created.png) 
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/integrate-with-teams/created.png" alt-text="Created the ALS tab":::
 
     Now you can select the **Azure Lab Services** tab from your channel and start managing labs as described in the following articles.
 
