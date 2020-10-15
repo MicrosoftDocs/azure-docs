@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
 
 1. Select **Create** to deploy your Traffic Manager profile.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Create a Traffic Manager profile":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/create-traffic-manager-profile.png" alt-text="Create a Traffic Manager profile page":::
 
 ## Add endpoints
 
