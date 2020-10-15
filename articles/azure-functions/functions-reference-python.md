@@ -297,7 +297,10 @@ It's important to understand how your functions perform and how that performance
 ### Horizontal scaling
 By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-### Improving Throughput Performance
+### Improving throughput performance
+
+A key to improving performance is understanding how your app uses resources and being able to configure your function app accordingly.
+
 #### Understanding your workload
 
 The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
