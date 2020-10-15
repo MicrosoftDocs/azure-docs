@@ -93,6 +93,7 @@ az network public-ip update \
 To benefit from the new capabilities in Azure Resource Manager, you can migrate existing public static IP address--called Reserved IPs--from the Classic model to the modern Azure Resource Manager (ARM) model.
 
 ---
+
 # [**Reserved to Basic - PowerShell**](#tab/option-migrate-powershell)
 
 The following example assumes previous creation of a classic Azure Reserved IP **myReservedIP** in **myResourceGroup**. Another prerequisite for migration is to ensure the Azure Resource Manager subscription has registered for migration. This is covered in detail on Steps 3 and 4 of [this page](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-ps).
@@ -143,14 +144,14 @@ A new resource group in Azure Resource Manager is created using the name of the 
 
 ---
 
-### Caveats\Limitations
+## Limitations
 
-* Caveat 1
-* Caveat 2
-* Caveat 3
+* In order to upgrade a Basic Public IP, it cannot be associated with any Azure resource.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information on how to disassociate public IPs.  Similarly, in order to migrate a Reserved IP, it cannot be associated with any Cloud Service.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) for more information on how to disassociate reserved IPs.  
+* Public IPs upgraded from Basic to Standard SKU will continue to have no [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) and therefore cannot be associated with an Azure resource that is either zone-redundant or zonal.  Note this only applies to regions that offer availability zones.
 
 ## Additional Information
 
 - Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
 - Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
-- Learn how to [Upgrade Azure Public Load Balancers from Basic to Standard](../load-balancer/upgrade-basic-standard).
+- Learn how to [Upgrade Azure Public Load Balancers from Basic to Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard).
+- Read about [migration of Classic resources to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
