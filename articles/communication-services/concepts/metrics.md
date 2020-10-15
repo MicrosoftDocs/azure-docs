@@ -36,13 +36,13 @@ TODO: clarify what 'Count' means, and what the following items represent (to a d
 
 The following operations are available on Chat API request metrics:
 
-TODO: turn this into a table that describes each item, maybe explain how a dev might invoke/consume these
+TODO: turn this into a table that describes each item, maybe explain how a dev might invoke/consume these, how they can help the developer
 
 Operation – (All routes) - GetChatMessage, ListChatMessages, SendChatMessage, UpdateChatMessage, DeleteChatMessage, GetChatThread, ListChatThreads, UpdateChatThread,  CreateChatThread, DeleteChatThread, GetReadReceipts, SendTypingIndicator, ListChatThreadParticipants, AddChatThreadParticipants and RemoveChatThreadParticipant.
 
 :::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
-If a request is made to a route that is not recognized, you'll receive a "Bad Route" value for Operation.
+If a request is made to an operation that isn't recognized, you'll receive a "Bad Route" value response.
 
 ### SMS API requests
 
