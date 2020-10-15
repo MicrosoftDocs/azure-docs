@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 02/01/2020
+ms.date: 10/14/2020
 ms.author: victorh
 ---
 
@@ -57,4 +57,4 @@ All new Web Application Firewall's WAF settings (custom rules, managed rule set 
 
 ## Next steps
 
-Create per-site and per-URI policies using Azure PowerShell.
+- [Create per-site and per-URI policies using Azure PowerShell](per-site-policies.md).
