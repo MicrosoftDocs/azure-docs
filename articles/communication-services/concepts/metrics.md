@@ -39,7 +39,7 @@ Operation – (All routes) - GetChatMessage, ListChatMessages, SendChatMessage, 
 
 :::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
-### SMSGatewayAPIRequests
+### SMSAPIRequests
 
 The SMS API request metric contains three dimension to filter on. The dimensions can be aggregated together using count and supports all standard Azure Aggregation time series.
 
