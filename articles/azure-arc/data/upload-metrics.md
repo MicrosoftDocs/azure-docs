@@ -12,7 +12,7 @@ ms.topic: how-to
 zone_pivot_groups: client-operating-system
 ---
 
-# Upload usage data, metrics, and logs to Azure Monitor
+# Upload metrics, and logs to Azure Monitor
 
 Periodically, you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure. The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
@@ -478,43 +478,6 @@ Change the frequency to last 30 minutes:
 > [!NOTE]
 > You can only upload metrics only for the last 30 minutes. Azure Monitor rejects metrics older than 30 minutes.
 
-## Upload logs to Azure Monitor
-
- To upload logs for your Azure Arc enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
-
-1. Export all logs to the specified file:
-
-   ```console
-   #login to the data controller and enter the values at the prompt
-   azdata login
-
-   #export the logs
-   azdata arc dc export --type logs --path logs.json
-   ```
-
-2. Upload logs to an Azure monitor log analytics workspace:
-
-   ```console
-   #login to the data controller and enter the values at the prompt
-   azdata login
-
-   #Upload the logs
-   azdata arc dc upload --path logs.json
-   ```
-
-## View your logs in Azure portal
-
-Once your logs are uploaded, you should be able to query them using the log query explorer as follows:
-
-1. Open the Azure portal and then search for your workspace by name in the search bar at the top and then select it
-2. Click Logs in the left panel
-3. Click Get Started (or click the links on the Getting Started page to learn more about Log Analytics if you are new to it)
-4. Follow the tutorial to learn more about Log Analytics if this is your first time using Log Analytics
-5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL'.
-6. Click the 'eye' icon next to the table name
-7. Click the 'View in query editor' button
-8. You'll now have a query in the query editor that will show the most recent 10 events in the log
-9. From here, you can experiment with querying the logs using the query editor, set alerts, etc.
 
 ## Automating uploads (optional)
 
