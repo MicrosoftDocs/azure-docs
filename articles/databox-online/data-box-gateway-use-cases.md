@@ -1,13 +1,13 @@
 ---
 title: Microsoft Azure Data Box Gateway use cases | Microsoft Docs
-description: Describes the use cases for Azure Data Box Gateway, a virtual appliance storage solution that lets you transfer data to Azure
+description: Describes the use cases for Azure Data Box Gateway, a virtual appliance storage solution that lets you transfer data to Azure,
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 10/14/2020
 ms.author: alkohli
 ---
 
@@ -34,22 +34,22 @@ As the device fills up with data, it starts throttling the ingress rate (as need
 
 ## Cloud archival of data
 
-Use Data Box Gateway when you want to retain your data for long term in the cloud. You can use the **Archive** tier of storage for long-term retention.
+Use Data Box Gateway when you want to retain your data for long term in the cloud. You can use the Archive tier of storage for long-term retention.
 
-Archive tier is optimized to store rarely accessed data for at least 180 days. The **Archive** tier offers the lowest storage costs but has the highest access costs. For more information, go to [Archive access tier](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
+The Archive tier is optimized to store rarely accessed data for at least 180 days. The Archive tier offers the lowest storage costs but has the highest access costs. For more information, go to [Archive access tier](/azure/storage/blobs/storage-blob-storage-tiers#archive-access-tier).
 
-### Move data to Archive tier
+### Move data to the Archive tier
 
 Before you begin, make sure that you have a running Data Box Gateway device. Follow the steps detailed in [Tutorial: Prepare to deploy Azure Data Box Gateway](data-box-gateway-deploy-prep.md) and keep advancing to the next tutorial until you have an operational device.
 
 - Use the Data Box Gateway device to upload data to Azure through the usual transfer procedure as described in [Transfer data via Data Box Gateway](data-box-gateway-deploy-add-shares.md).
-- After the data is uploaded, you will need to move it to Archive tier. You can set the blob tier in two ways: Azure PowerShell script or an Azure Storage Lifecycle Management policy.  
-    - If using Azure PowerShell, follow these [steps](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) to move the data to Archive tier.
-    - If using Azure Lifecycle Management, follow these steps to move the data to Archive tier.
-        - [Register](/azure/storage/common/storage-lifecycle-management-concepts) for the preview of Blob Lifecycle management service to use Archive tier.
+- After the data is uploaded, you will need to move it to Archive tier. You can set the blob tier in two ways: by using an Azure PowerShell script or an Azure Storage Lifecycle Management policy.  
+    - If using Azure PowerShell, follow these [steps](/azure/databox/data-box-how-to-set-data-tier#use-azure-powershell-to-set-the-blob-tier) to move the data to the Archive tier.
+    - If using Azure Lifecycle Management, follow these steps to move the data to the Archive tier.
+        - [Register](/azure/storage/common/storage-lifecycle-management-concepts) for the preview of the Blob Lifecycle Management service to use the Archive tier.
         - Use the following policy to [Archive data on ingest](/azure/storage/blobs/storage-lifecycle-management-concepts#archive-data-after-ingest).
-- Once the blobs are marked as Archive, they can no longer be modified by the gateway unless they are moved to hot or cold tier. If the file is in the local storage, any changes made to the local copy (including deletes) are not uploaded to archive tier.
-- To read data in Archive storage, it must be rehydrated by changing the blob tier to hot or cool. [Refreshing the share](data-box-gateway-manage-shares.md#refresh-shares) on the gateway does not rehydrate the blob.
+- Once the blobs are marked as Archive, they can no longer be modified by the gateway unless they are moved to the hot or cold tier. If the file is in the local storage, any changes made to the local copy (including deletes) are not uploaded to the Archive tier.
+- To read data in Archive storage, you must rehydrate the data by changing the blob tier to hot or cool. [Refreshing the share](data-box-gateway-manage-shares.md#refresh-shares) on the gateway does not rehydrate the blob.
 
 For more information, learn more about how to [Manage Azure Blob Storage Lifecycle](/azure/storage/common/storage-lifecycle-management-concepts).
 

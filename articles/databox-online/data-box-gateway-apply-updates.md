@@ -6,7 +6,7 @@ author: alkohli
 
 ms.service: databox
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 10/14/2020
 ms.author: alkohli
 ---
 # Update your Azure Data Box Gateway
@@ -30,7 +30,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
 1. When the updates are available for your device, you see a notification. Select the notification or from the top command bar, **Update device**. This will allow you to apply device software updates.
 
-    ![Screenshot of the Azure Stack Edge Data Box Gateway Home page with the Overview and Update device options called out.](./media/data-box-gateway-apply-updates/portal-apply-update-01a.png)
+    ![Screenshot of the Azure Data Box Gateway Home page with the Overview and Update device options called out.](./media/data-box-gateway-apply-updates/portal-apply-update-01a.png)
 
 2. In the **Device updates** blade, check that you have reviewed the license terms associated with new features in the release notes.
 
@@ -48,7 +48,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
     A notification banner is also displayed in the Azure portal. This indicates the download progress.
 
-    ![Screenshot of the Azure Stack Edge Data Box Gateway Home page with the Overview option and the Downloading updates notification banner called out.](./media/data-box-gateway-apply-updates/portal-apply-update-08a.png)
+    ![Screenshot of the Azure Data Box Gateway Home page with the Overview option and the Downloading updates notification banner called out.](./media/data-box-gateway-apply-updates/portal-apply-update-08a.png)
 
     You can select this notification or select **Update device** to see the detailed status of the update.
 
@@ -56,7 +56,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
 4. After the download is complete, the notification banner updates to indicate the completion. If you chose to download and install the updates, the installation will begin automatically.
 
-    ![Screenshot of the Azure Stack Edge Data Box Gateway Home page with the Overview option and the Downloaded Updates notification banner called out.](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
+    ![Screenshot of the Azure Data Box Gateway Home page with the Overview option and the Downloaded Updates notification banner called out.](./media/data-box-gateway-apply-updates/portal-apply-update-10a.png)
 
     If you chose to download updates only, then select the notification to open the **Device updates** blade. Select **Install**.
   
@@ -64,7 +64,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
 5. You see a notification that the install is in progress.
 
-    ![Screenshot of the Azure Stack Edge Data Box Gateway Home page with the Overview option and the Download and install progress message called out.](./media/data-box-gateway-apply-updates/portal-apply-update-12a.png)
+    ![Screenshot of the Azure Data Box Gateway Home page with the Overview option and the Download and install progress message called out.](./media/data-box-gateway-apply-updates/portal-apply-update-12a.png)
 
     The portal also displays an informational alert to indicate that the install is in progress. <!-- The device goes offline and is in maintenance mode.-->
 
@@ -72,7 +72,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
 6. As this is a 1-node device, the device will restart after the updates are installed. The critical alert during the restart will indicate that the device heartbeat is lost.
 
-    ![Screenshot of the Azure Stack Edge Data Box Gateway Home page with the Overview option and the critical alert notification banner called out.](./media/data-box-gateway-apply-updates/portal-apply-update-19a.png)
+    ![Screenshot of the Azure Data Box Gateway Home page with the Overview option and the critical alert notification banner called out.](./media/data-box-gateway-apply-updates/portal-apply-update-19a.png)
 
     Select the alert to see the corresponding device event.
 
@@ -80,7 +80,7 @@ We recommend that you install updates through the Azure portal. The device autom
 
 7. The device status updates to **Online** after the updates are installed.
 
-    ![Screenshot of the Azure Stack Edge Data Box Gateway Home page with the Overview option and the Online status called out.](./media/data-box-gateway-apply-updates/portal-apply-update-23a.png)
+    ![Screenshot of the Azure Data Box Gateway Home page with the Overview option and the Online status called out.](./media/data-box-gateway-apply-updates/portal-apply-update-23a.png)
 
     From the top command bar, select **Device updates**. Verify that update has successfully installed and the device software version reflects that.
 
@@ -139,6 +139,7 @@ This procedure takes around 20 minutes to complete. Perform the following steps 
    ![Screenshot of the Data Box Gateway local web U I with the Software update option, the Update file path text box, and the Apply Update option called out.](./media/data-box-gateway-apply-updates/local-ui-update-4.png)
 
 4. When prompted for confirmation, select **Yes** to proceed. Given the device is a single node device, after the update is applied, the device restarts and there is downtime.
+
    ![Screenshot of the Software update dialog box with the Yes option highlighted.](./media/data-box-gateway-apply-updates/local-ui-update-5.png)
 
 5. The update starts. After the device is successfully updated, it restarts. The local UI is not accessible in this duration.

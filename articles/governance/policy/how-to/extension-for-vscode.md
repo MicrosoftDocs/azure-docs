@@ -1,7 +1,7 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
@@ -87,11 +87,13 @@ these steps:
 
    - Command Palette: 
 
-     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select Subscriptions**.
+     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select
+     Subscriptions**.
 
    - Window footer
 
-     In the window footer at the bottom of the screen, select the segment that matches **Azure: \<your account\>**.
+     In the window footer at the bottom of the screen, select the segment that matches **Azure:
+     \<your account\>**.
 
 1. Use the filter box to quickly find subscriptions by name. Then, check or remove the check from
    each subscription to set the subscriptions shown by the Azure Policy extension. When done adding
