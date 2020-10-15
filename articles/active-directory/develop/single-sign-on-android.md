@@ -23,7 +23,7 @@ ROBOTS: NOINDEX
 
 Single sign-on (SSO) allows users to only enter their credentials once and have those credentials automatically work across applications.
 
-Microsoft's identity platform, along with the SDKs, makes it easy to enable SSO within your own suite of apps, or with the broker capability and Authenticator applications, across the entire device.
+[The Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/), along with the developer SDKs, makes it easy to enable SSO within your own suite of apps. With the broker capability and Authenticator applications, you can extend SSO across the entire device.
 
 In this how-to, you'll learn how to configure the SDK within your application to provide SSO to your customers. 
 
