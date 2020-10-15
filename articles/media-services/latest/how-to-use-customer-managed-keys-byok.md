@@ -70,9 +70,9 @@ resourceLocation = the region where you want your resources
 1. Create a Key Vault<br/>
 [!INCLUDE [create a Key Vault](./includes/task-create-key-vault-rest.md)]
 1. Get a token for the Key Vault<br/>
-[!INCLUDE [Get a token for the Key Vault](./includes/task-create-an-rsa-key-for-key-vault-rest.md)]
+[!INCLUDE [Get a token for the Key Vault](./includes/task-get-token-for-key-vault-rest.md)]
 1. Create an RSA key in the Key Vault
-[!INCLUDE [Create an RSA key in the Key Vault](./includes/task-create-rsa-key-for-key-vault-rest.md)]
+[!INCLUDE [Create an RSA key in the Key Vault](./includes/task-create-an-rsa-key-for-key-vault-rest.md)]
 1. Store the key identifier
 [!INCLUDE [store the key identifier](./includes/task-store-key-identifier-rest.md)]
 1. Update the Media Services account to use the key
@@ -83,39 +83,25 @@ resourceLocation = the region where you want your resources
 Media services will automatically detect when the key has been changed.  To test this:
 
 1. Create another key version for the same key -- Media Services should detect this key after 5 minutes<br/>
-[!INCLUDE [Create an RSA key in the Key Vault](./includes/task-create-rsa-key-for-key-vault-rest.md)]
+[!INCLUDE [Create an RSA key in the Key Vault](./includes/task-create-an-rsa-key-for-key-vault-rest.md)]
 1. Get the Media Services (after some time, this should show the return the new customer key version)
-
-```
-GET https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaservices/{{accountName}}?api-version=2020-05-01
-Authorization: Bearer {{getArmToken.response.body.access_token}}
-Content-Type: application/json; charset=utf-8
-```
+[!INCLUDE [Get the media services](includes\task-get-media-services-rest.md)]
 
 ## Shutting down resources
 
 If you aren't planning to use the resources you just created and you don't want to be billed for them, use the following requests to delete them.
 
-### Clean up the Media Services account
+### Delete the Media Services account
 
-```
-DELETE https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Media/mediaservices/{{accountName}}?api-version=2020-05-01
-Authorization: Bearer {{getArmToken.response.body.access_token}}
-```
+[!INCLUDE [Delete a Media Services account](./includes/task-delete-media-services-account-rest.md)]
 
-### Clean up the Storage account
+### Delete the storage account
 
-```
-DELETE https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.Storage/storageAccounts/{{storageName}}?api-version=2019-06-01
-Authorization: Bearer {{getArmToken.response.body.access_token}}
-```
+[!INCLUDE [Delete a storage account](./includes/task-delete-storage-account-rest.md)]
 
-### Clean up the Key Vault
+### Delete the Key Vault
 
-```
-DELETE https://{{armEndpoint}}/subscriptions/{{subscription}}/resourceGroups/{{resourceGroup}}/providers/Microsoft.KeyVault/vaults/{{keyVaultName}}?api-version=2018-02-14
-Authorization: Bearer {{getArmToken.response.body.access_token}}
-```
+[!INCLUDE [Delete the Key Vault](./includes/task-delete-key-vault-rest.md)]
 
 ## [CLI](#tab/cli/)
 
