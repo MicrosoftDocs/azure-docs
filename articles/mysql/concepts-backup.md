@@ -24,19 +24,19 @@ The backup type and frequency is depending on the backend storage for the server
 
 #### Basic storage servers
 
-The Basic storage servers are the backend storage for [Basic SKU servers](concepts-pricing-tiers.md). Backups on Basic storage servers are snapshot-based. A full database snapshot is performed daily. There are no differential backups performed for basic storage servers and all snapshot backups are full database backups only. 
+The Basic storage is the backend storage supporting [Basic tier servers](concepts-pricing-tiers.md). Backups on Basic storage servers are snapshot-based. A full database snapshot is performed daily. There are no differential backups performed for basic storage servers and all snapshot backups are full database backups only. 
 
 Transaction log backups occur every five minutes. 
 
 #### General purpose storage servers with up to 4-TB storage
 
-For servers which support up to 4-TB maximum general purpose storage, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.The backups on general purpose storage up to 4-TB storage are not snapshot based and consumes IO bandwidth at the time of backup. For large databases (> 1TB) on 4-TB storage, we recommend you consider 
+The General purpose storage is the backend storage supporting [General Purpose](concepts-pricing-tiers.md) and [Memory Optimized tier](concepts-pricing-tiers.md) server. For servers with general purpose storage up to 4-TB, full backups occur once every week. Differential backups occur twice a day. Transaction log backups occur every five minutes.The backups on general purpose storage up to 4-TB storage are not snapshot based and consumes IO bandwidth at the time of backup. For large databases (> 1TB) on 4-TB storage, we recommend you consider 
 
-- Provisioning more IOPs to account for backup IOs  
-- Alternatively, migrate to general purpose storage that supports up to 16-TB storage if the storage is available in your preferred [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). There is no additional cost for general purpose storage that supports up to 16-TB storage. For assistance with migration to 16-TB storage, please open a support ticket from Azure portal. 
+- Provisioning more IOPs to account for backup IOs  OR
+- Alternatively, migrate to general purpose storage that supports up to 16-TB storage if the underlying storage infastructure is available in your preferred [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage). There is no additional cost for general purpose storage that supports up to 16-TB storage. For assistance with migration to 16-TB storage, please open a support ticket from Azure portal. 
 
 #### General purpose storage servers with up to 16-TB storage
-In a subset of [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
+In a subset of [Azure regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage), all newly provisioned servers can support general purpose storage up to 16-TB storage. In other words, storage up to 16-TB storage is the default general purpose storage for all the [regions](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage) where it is supported. Backups on these 16-TB storage servers are snapshot-based. The first full snapshot backup is scheduled immediately after a server is created. That first full snapshot backup is retained as the server's base backup. Subsequent snapshot backups are differential backups only. 
 
 Differential snapshot backups occur at least once a day. Differential snapshot backups do not occur on a fixed schedule. Differential snapshot backups occur every 24 hours unless the transaction log (binlog in MySQL) exceeds 50-GB since the last differential backup. In a day, a maximum of six differential snapshots are allowed. 
 

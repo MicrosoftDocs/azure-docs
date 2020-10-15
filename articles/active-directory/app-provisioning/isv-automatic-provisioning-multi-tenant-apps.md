@@ -106,7 +106,7 @@ SAML JIT uses the claims information in the SAML token to create and update user
 
 ## Next Steps
 
-* [Enable Single Sign-on for your application](../manage-apps/isv-sso-content.md)
+* [Enable Single Sign-on for your application](../develop/v2-howto-app-gallery-listing.md)
 
 * [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 
