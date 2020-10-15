@@ -255,6 +255,7 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Exchange Online |12076:5110 |
 | SharePoint Online |12076:5120 |
 | Skype For Business Online |12076:5130 |
+| Azure Active Directory |12076:5160 |
 | Other Office 365 Online services |12076:5200 |
 
 ## Next steps
