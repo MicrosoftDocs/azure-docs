@@ -180,7 +180,7 @@ Tasks: 32
 Duration: 00:30:01.4638023
 ```
 
-The second run of the sample shows a significant decrease in job duration. This is because the pool was configured with four tasks per node, alloing for parallel task execution to complete the job in nearly a quarter of the time.
+The second run of the sample shows a significant decrease in job duration. This is because the pool was configured with four tasks per node, allowing for parallel task execution to complete the job in nearly a quarter of the time.
 
 ```
 Nodes: 1
