@@ -6,7 +6,6 @@ services: active-directory
 author: knicholasa
 manager: CelesteDG
 
-ms.assetid:
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
