@@ -25,7 +25,7 @@ There are two types of requests that are represented within Communication Servic
 
 Both Chat and SMS API request metrics contain three dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using `count` and support all standard Azure Aggregation time series:
 
-TODO: clarify what 'Count' means, and what the following items represent (to a developer who is new to Azure and Aggregation)
+More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts#changing-aggregation)
 
 - **Operation** - All operations or routes that can be called on the ACS Chat gateway.
 - **Status Code** - The status code response sent after the request.
@@ -41,21 +41,22 @@ TODO: turn this into a table that describes each item, maybe explain how a dev m
 
 | Operation / Route    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| GetChatMessage       | TODO |
-| ListChatMessages     | TODO |
-| SendChatMessage      | TODO |
-| UpdateChatMessage    | TODO |
-| DeleteChatMessage    | TODO |
-| GetChatThread        | TODO |
-| ListChatThreads      | TODO |
-| UpdateChatThread     | TODO |
-| CreateChatThread     | TODO |
-| DeleteChatThread     | TODO |
-| GetReadReceipts      | TODO |
-| SendTypingIndicator           | TODO |
-| ListChatThreadParticipants    | TODO |
-| AddChatThreadParticipants     | TODO |
-| RemoveChatThreadParticipant   | TODO |
+| GetChatMessage       | Gets a message by message id. |
+| ListChatMessages     | Gets a list of chat messages from a thread. |
+| SendChatMessage      | Sends a chat message to a thread. |
+| UpdateChatMessage    | Updates a chat message. |
+| DeleteChatMessage    | Deletes a chat message. |
+| GetChatThread        | Gets a chat thread. |
+| ListChatThreads      | Gets the list of chat threads of a user. |
+| UpdateChatThread     | Updates a chat thread's properties. |
+| CreateChatThread     | Creates a chat thread. |
+| DeleteChatThread     | Deletes a thread. |
+| GetReadReceipts      | Gets read receipts for a thread. |
+| SendReadReceipt      | Sends a read receipt event to a thread, on behalf of a user. |
+| SendTypingIndicator           | Posts a typing event to a thread, on behalf of a user. |
+| ListChatThreadParticipants    | Gets the members of a thread. |
+| AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
+| RemoveChatThreadParticipant   | Remove a member from a thread. |
 
 :::image type="content" source="./media/chat-metric.png" alt-text="Chat API Request Metric.":::
 
@@ -67,9 +68,9 @@ The following operations are available on SMS API request metrics:
 
 | Operation / Route    | Description                                                                                    |
 | -------------------- | ---------------------------------------------------------------------------------------------- |
-| SMSMessageSent       | TODO |
-| SMSDeliveryReportsReceived     | TODO |
-| SMSMessagesReceived      | TODO |
+| SMSMessageSent       | Sends a SMS message. |
+| SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
+| SMSMessagesReceived      | Gets SMS messages. |
 
 
 :::image type="content" source="./media/sms-metric.png" alt-text="SMS API Request Metric.":::
