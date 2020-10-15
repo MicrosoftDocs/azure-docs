@@ -13,7 +13,7 @@ Collaboration is provided at the QnA Maker resource level to allow you to restri
 
 ## Add Azure role-based access control (Azure RBAC) to your QnA Maker resource
 
-QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with the [Azure role-based access control (Azure RBAC)](../../../active-directory/role-based-access-control-configure.md).
+QnA Maker allows multiple people to collaborate on all knowledge bases in the same QnA Maker resource. This feature is provided with the [Azure role-based access control (Azure RBAC)](../../../role-based-access-control/role-assignments-portal.md).
 
 ## Access at the QnA Maker resource level
 
@@ -67,5 +67,5 @@ When they select a knowledge base, their current role on that QnA Maker resource
 > [Test a knowledge base](./test-knowledge-base.md)
 
 Learn more about collaboration:
-* [Azure](../../../active-directory/role-based-access-control-configure.md) role-based access control
-* QnA Maker role-based access control [concepts](../Concepts/role-based-access-control.md)
+* [Azure role-based access control](../../../role-based-access-control/role-assignments-portal.md)
+* QnA Maker and Azure role-based access control [concepts](../Concepts/role-based-access-control.md)
