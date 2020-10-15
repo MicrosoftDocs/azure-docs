@@ -1,21 +1,16 @@
 ---
-title: Problem installing the Application Proxy Agent Connector | Microsoft Docs
-description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector 
+title: Problem installing the Application Proxy Agent Connector
+description: How to troubleshoot issues you might face when installing the Application Proxy Agent Connector.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: 
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/21/2018
 ms.author: kenwith
 ms.reviewer: japere
-ms.collection: M365-identity-device-management
 ---
 
 # Problem installing the Application Proxy Agent Connector
@@ -74,23 +69,17 @@ Verify the thumbprint of the current client certificate. The certificate store c
 </ConnectorTrustSettingsFile>
 ```
 
-Here are the possible **IsInUserStore** values and meanings:
+The possible **IsInUserStore** values are **true** and **false**. A value of **true** means the automatically renewed certificate is stored in the personal container in the user certificate store of the Network Service. A value of **false** means the client certificate was created during the installation or registration initiated by Register-AppProxyConnector command and it is stored in the personal container in the certificate store of the local machine.
 
-- **false** - The client certificate was created during the installation or registration initiated by Register-AppProxyConnector command. It is stored in the personal container in the certificate store of the local machine. 
-
-Follow the steps to verify the certificate:
-
-1. Run **certlm.msc**
-2. In the management console expand the Personal container and click on Certificates
-3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
-
-- **true** - The automatically renewed certificate is stored in the personal container in the user certificate store of the Network Service. 
-
-Follow the steps to verify the certificate:
-
+If the value is **true**, follow these steps to verify the certificate:
 1. Download [PsTools.zip](https://docs.microsoft.com/sysinternals/downloads/pstools)
 2. Extract [PsExec](https://docs.microsoft.com/sysinternals/downloads/psexec) from the package and run **psexec -i -u "nt authority\network service" cmd.exe** from an elevated command prompt.
 3. Run **certmgr.msc** in the newly appeared command prompt
+4. In the management console expand the Personal container and click on Certificates
+5. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
+
+If the value is **false**, follow these steps to verify the certificate:
+1. Run **certlm.msc**
 2. In the management console expand the Personal container and click on Certificates
 3. Locate the certificate issued by **connectorregistrationca.msappproxy.net**
 
