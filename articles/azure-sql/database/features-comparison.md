@@ -179,7 +179,7 @@ You can use different migration methods to move your data between SQL Server, Az
 Microsoft continues to add features to Azure SQL Database. Visit the Service Updates webpage for Azure for the newest updates using these filters:
 
 - Filtered to [Azure SQL Database](https://azure.microsoft.com/updates/?service=sql-database).
-- Filtered to General Availability [(GA) announcements](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
+- Filtered to [General Availability(GA) announcements](https://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
 For more information about Azure SQL Database and Azure SQL Managed Instance, see:
 
