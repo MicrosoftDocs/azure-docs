@@ -156,7 +156,8 @@ Run this command to assign the service principal to the 'Monitoring Metrics Publ
 ::: zone pivot="client-operating-system-windows"
 
 > [!NOTE]
-> You need to use double quotes for role names when running from a Windows environment.
+> - You need to use double quotes for role names when running from a Windows environment.
+> - Creating a service principal requires [certain permissions in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ```console
 az role assignment create --assignee <appId value from output above> --role "Monitoring Metrics Publisher" --scope subscriptions/<sub ID>
