@@ -5,7 +5,7 @@ services: synapse-analytics
 author: manojraheja
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: overview
 ms.date: 10/07/2020
 ms.author: maraheja
 ms.reviewer: jrasnick

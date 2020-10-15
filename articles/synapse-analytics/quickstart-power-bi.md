@@ -5,7 +5,7 @@ services: synapse-analytics
 author: jocaplan 
 ms.service: synapse-analytics 
 ms.topic: quickstart
-ms.subservice: 
+ms.subservice: overview
 ms.date: 04/29/2020
 ms.author: jocaplan
 ms.reviewer: jrasnick 
