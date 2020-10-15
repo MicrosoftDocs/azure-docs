@@ -75,7 +75,7 @@ Automate the backup and restoration of Conditional Access policies with approval
 
 ### Emergency access accounts
 
-Multiple administrators may create Conditional Access policies and may forget to add your [emergency access accounts](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access) as an exclusion to those policies. This example ensures that all policies are updated to include your designated emergency access accounts.
+Multiple administrators may create Conditional Access policies and may forget to add your [emergency access accounts](../users-groups-roles/directory-emergency-access.md) as an exclusion to those policies. This example ensures that all policies are updated to include your designated emergency access accounts.
 
 - [Manage the assignment of emergency access accounts to Conditional Access policies using Microsoft Graph API calls](https://github.com/Azure-Samples/azure-ad-conditional-access-apis/tree/main/05-manage/02-emergency-access)
 

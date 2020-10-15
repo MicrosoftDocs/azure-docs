@@ -183,6 +183,8 @@
           href: roles-custom-available-permissions.md
         - name: Enterprise app permissions
           href: custom-enterprise-app-permissions.md
+        - name: App consent permissions
+          href: custom-consent-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
     - name: Use groups to manage role assignments

@@ -114,7 +114,10 @@ Where the above `ptr` must be a pointer to a native `ABI::Windows::Perception::S
 
 #### Render remote image
 
-At the start of each frame the remote frame needs to be rendered into the back buffer. This is done by calling `BlitRemoteFrame`, which will fill both color and depth information into the currently bound render target. Thus it is important that this is done after binding the back buffer as a render target.
+At the start of each frame, the remote frame needs to be rendered into the back buffer. This is done by calling `BlitRemoteFrame`, which will fill both color and depth information for both eyes into the currently bound render target. Thus it is important to do so after binding the full back buffer as a render target.
+
+> [!WARNING]
+> After the remote image was blit into the backbuffer, the local content should be rendered using a single-pass stereo rendering technique, e.g. using **SV_RenderTargetArrayIndex**. Using other stereo rendering techniques, such as rendering each eye in a separate pass, can result in major performance degradation or graphical artifacts and should be avoided.
 
 ```cs
 AzureSession currentSession = ...;

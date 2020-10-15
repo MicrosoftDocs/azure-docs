@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with your HighGear system, perform the foll
 
 4. On the **Basic SAML Configuration** section, perform the following steps:
 
-    ![HighGear Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system.
 
@@ -110,7 +110,7 @@ To configure Azure AD single sign-on with your HighGear system, perform the foll
 
     c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	 ![HighGear Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+	 ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
      In the **Sign-on URL** text box, paste the value of the **Service Provider Entity ID** field that is on the Single Sign-On Settings page in your HighGear system. (This Entity ID is also the base URL of the HighGear system that is to be used for SP-initiated sign-on.)
 

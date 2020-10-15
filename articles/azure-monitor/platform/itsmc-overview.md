@@ -108,6 +108,10 @@ Once you have your ITSM connection created, you can create work item(s) in your 
 
 Action Groups provide a modular and reusable way of triggering actions for your Azure Alerts. You can use Action Groups with metric alerts, Activity Log alerts and Azure Log Analytics alerts in Azure portal.
 
+> [!NOTE]
+> Once ITSM connection created there is a need to wait for 30 min after connector created to the sync process will finish
+> 
+
 Use the following procedure:
 
 1. In Azure portal, click  **Monitor**.

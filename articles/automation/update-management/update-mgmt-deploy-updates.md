@@ -3,13 +3,13 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 09/16/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ---
 
 # How to deploy updates and review results
 
-This article describes how to schedule an update deployment and review the process after the deployment is complete. You can configure an update deployment from a selected Azure virtual machine, from the selected Arc enabled server, or from the Automation account across all configured machines and servers. 
+This article describes how to schedule an update deployment and review the process after the deployment is complete. You can configure an update deployment from a selected Azure virtual machine, from the selected Arc enabled server, or from the Automation account across all configured machines and servers.
 
 Under each scenario, the deployment you create targets that selected machine or server, or in the case of creating a deployment from your Automation account, you can target one or more machines. When you schedule an update deployment from an Azure VM or Arc enabled server, the steps are the same as deploying from your Automation account, with the following exceptions:
 
@@ -54,7 +54,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
 
-6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md).
+6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md). You can include up to a maximum of 500 machines in a scheduled update deployment.
 
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
@@ -84,7 +84,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
     * Maintenance windows control how many updates are installed.
     * Update Management doesn't stop installing new updates if the end of a maintenance window is approaching.
-    * Update Management doesn't terminate in-progress updates if the maintenance window is exceeded.
+    * Update Management doesn't terminate in-progress updates if the maintenance window is exceeded. Any remaining updates to be installed are not attempted. If this is consistently happening, you should reevaluate the duration of your maintenance window.
     * If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
 
     > [!NOTE]

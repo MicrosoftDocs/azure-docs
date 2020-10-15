@@ -11,7 +11,7 @@ services: iot-pnp
 
 # Manage IoT Plug and Play digital twins
 
-IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](libraries-sdks.md).
+IoT Plug and Play supports **Get digital twin** and **Update digital twin** operations to manage digital twins. You can use either the [REST APIs](/rest/api/iothub/service/digitaltwin) or one of the [service SDKs](libraries-sdks.md).
 
 At the time of writing, the digital twin API version is `2020-09-30`.
 
@@ -174,11 +174,11 @@ All map keys should be valid DTDL v2 names.
 
 ## Troubleshoot update digital twin API errors
 
-During public preview, the update digital twin API throws the following generic error message:
+The digital twin API throws the following generic error message:
 
 `ErrorCode:ArgumentInvalid;'{propertyName}' exists within the device twin and is not digital twin conformant property. Please refer to aka.ms/dtpatch to update this to be conformant.`
 
-Make sure the update patch follows the [rules for setting desired value of a digital twin property](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
+If you see this error, make sure the update patch follows the [rules for setting desired value of a digital twin property](#rules-for-setting-the-desired-value-of-a-digital-twin-property)
 
 When you update a component, make sure that the [empty object $metadata marker](#add-replace-or-remove-a-component) is set.
 
@@ -189,5 +189,5 @@ Updates can fail if a device's reported values don't conform to the [IoT plug an
 Now that you've learned about digital twins, here are some additional resources:
 
 - [Interact with a device from your solution](quickstart-service-node.md)
-- [IoT Digital Twin REST API](https://docs.microsoft.com/rest/api/iothub/service/digitaltwin)
+- [IoT Digital Twin REST API](/rest/api/iothub/service/digitaltwin)
 - [Azure IoT explorer](howto-use-iot-explorer.md)

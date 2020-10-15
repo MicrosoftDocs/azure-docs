@@ -43,12 +43,16 @@
       href: cache-java-spring-boot-initializer-with-redis-cache.md
   - name: Create leaderboards
     href: cache-web-app-cache-aside-leaderboard.md
+  - name: Deploy a machine learning model 
+    href: cache-ml.md
   - name: Manage with Azure PowerShell
     href: cache-how-to-manage-redis-cache-powershell.md
   - name: Manage with Azure CLI
     href: cli-samples.md
 - name: Concepts
   items:
+    - name: High availability
+      href: cache-high-availability.md
     - name: Failover and patching
       href: cache-failover.md
     - name: Best practices
@@ -88,8 +92,6 @@
       href: cache-reserved-pricing.md
     - name: Migrate to Azure Cache for Redis
       href: cache-migration-guide.md
-    - name: Migrate from Managed Cache Service (deprecated)
-      href: cache-migrate-to-redis.md
     - name: Planning FAQs
       href: cache-planning-faq.md
   - name: Build

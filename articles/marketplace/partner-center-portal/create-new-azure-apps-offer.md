@@ -237,7 +237,7 @@ Provide the name, email, and phone number for a **Support contact**, **Engineeri
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >If you have an issue uploading files, ensure your local network does not block the https://upload.xboxlive.com service used by Partner Center.

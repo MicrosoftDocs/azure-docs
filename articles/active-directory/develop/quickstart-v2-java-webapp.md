@@ -1,6 +1,7 @@
 ---
-title: Microsoft identity platform Java web app quickstart | Azure
-description: Learn how to implement Microsoft Sign-In on a Java web app using OpenID Connect
+title: "Quickstart: Add sign-in with Microsoft to a Java web app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how to implement Microsoft sign-in in a Java web application using OpenID Connect.
 services: active-directory
 author: sangonzal
 manager: CelesteDG
@@ -253,4 +254,4 @@ import com.microsoft.aad.msal4j.*;
 For a more in-depth discussion of building web apps that sign in users on the Microsoft identity platform, move on to our multi-part scenario series:
 
 > [!div class="nextstepaction"]
-[Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md?tabs=java)
+> [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md?tabs=java)

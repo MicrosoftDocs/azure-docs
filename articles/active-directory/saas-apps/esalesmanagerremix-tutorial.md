@@ -115,7 +115,7 @@ Enable Azure AD single sign-on in the Azure portal and configure single sign-on 
 
 1. Under **E Sales Manager Remix Configuration**, select **Configure E Sales Manager Remix**.
 
-	![E Sales Manager Remix Configuration](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
+	![Screenshot that shows the "E Sales Manager Remix Configuration" section with "Configure E Sales Manager Remix" selected.](./media/esalesmanagerremix-tutorial/tutorial_esalesmanagerremix_configure.png) 
 
     The **Configure sign-on** window opens.
 

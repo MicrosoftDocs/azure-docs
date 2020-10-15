@@ -54,13 +54,13 @@ This sample implements an IoT Plug and Play temperature controller device. The m
 The *azure-iot-sdk-python\azure-iot-device\samples\pnp* folder contains the sample code for the IoT Plug and Play device. The files for the temperature controller sample are:
 
 - temp_controller_with_thermostats.py
-- pnp_helper_preview_refresh.py
+- pnp_helper.py
 
 Temperature controller has multiple components and a default component, based on the temperature controller DTDL model.
 
 Open the *temp_controller_with_thermostats.py* file in an editor of your choice. The code in this file:
 
-1. Imports `pnp_helper_preview_refresh.py` to get access to helper methods.
+1. Imports `pnp_helper.py` to get access to helper methods.
 
 1. Defines two digital twin model identifiers (DTMIs) that uniquely represent two different interfaces, defined in the DTDL model. The components in a real temperature controller should implement these two interfaces. These two interfaces are already published in a central repository. These DTMIs must be known to the user and vary dependent on the scenario of device implementation. For the current sample, these two interfaces represent:
 

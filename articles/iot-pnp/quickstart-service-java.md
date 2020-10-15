@@ -24,7 +24,7 @@ IoT Plug and Play simplifies IoT by enabling you to interact with a device's cap
 
 To complete this quickstart on Windows, install the following software on your local Windows environment:
 
-* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable&preserve-view=true), under **Long-term support**, select **Java 8**.
+* Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), under **Long-term support**, select **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ### Clone the SDK repository with the sample code
@@ -68,12 +68,12 @@ The device is now ready to receive commands and property updates, and has starte
 In [Set up your environment for the IoT Plug and Play quickstarts and tutorials](set-up-environment.md) you created two environment variables to configure the sample to connect to your IoT hub and device:
 
 * **IOTHUB_CONNECTION_STRING**: the IoT hub connection string you made a note of previously.
-* **DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
 
 In this quickstart, you use a sample IoT solution written in Java to interact with the sample device you just set up.
 
 > [!NOTE]
-> This sample uses the **com.microsoft.azure.sdk.iot.service.*;** namespace from the **IoT Hub service client**. To learn more about how to retrieve the model ID, see the [developer guide](concepts-developer-guide-device-csharp.md).
+> This sample uses the **com.microsoft.azure.sdk.iot.service** namespace from the **IoT Hub service client**. To learn more about the APIs, including the digital twins API, see the [service developer guide](concepts-developer-guide-service.md).
 
 1. Open another terminal window to use as your **service** terminal.
 
@@ -85,7 +85,7 @@ In this quickstart, you use a sample IoT solution written in Java to interact wi
     mvm exec:java -Dexec.mainClass="samples.com.microsoft.azure.sdk.iot.service.Thermostat"
     ```
 
-### Get digital twin
+### Get device twin
 
 The following code snippet shows how to retrieve the device twin in the service:
 
@@ -96,9 +96,9 @@ twinClient.getTwin(twin);
 System.out.println("Model Id of this Twin is: " + twin.getModelId());
 ```
 
-### Update a digital twin
+### Update a device twin
 
-The following code snippet shows you how to use a *patch* to update properties through the digital twin:
+The following code snippet shows you how to use a *patch* to update properties through the device twin:
 
 ```java
 String propertyName = "targetTemperature";

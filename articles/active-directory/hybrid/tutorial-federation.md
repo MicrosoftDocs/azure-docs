@@ -83,7 +83,7 @@ In order to finish building the virtual machine, you need to finish the operatin
 4. On the Windows Server start up screen select your language and click **Next**.
 5. Click **Install Now**.
 6. Enter your license key and click **Next**.
-7. Check **I accept the license terms and click **Next**.
+7. Check **I accept the license terms** and click **Next**.
 8. Select **Custom:  Install Windows Only (Advanced)**
 9. Click **Next**
 10. Once the installation has completed, restart the virtual machine, sign-in and run Windows updates to ensure the VM is the most up-to-date.  Install the latest updates.

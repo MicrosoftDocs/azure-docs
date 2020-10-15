@@ -15,7 +15,7 @@ ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ---
 
-# Call the Microsoft Graph API from a Windows Desktop app
+# Tutorial: Call the Microsoft Graph API from a Windows Desktop app
 
 This guide demonstrates how a native Windows Desktop .NET (XAML) application uses an access token to call the Microsoft Graph API. The app can also access other APIs that require access tokens from the  Microsoft identity platform.
 

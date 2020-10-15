@@ -7,11 +7,12 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: sql
 ms.topic: tutorial
 ms.date: 07/20/2020 
 ---
 
-# Analyze data with SQL dedicated pools
+# Analyze data with dedicated SQL pools
 
 Azure Synapse Analytics provides you with the capability to analyze data with a dedicated SQL pool. In this tutorial, you'll use the NYC Taxi data to explore a dedicted SQL pool's capabilities.
 

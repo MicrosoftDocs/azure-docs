@@ -1,10 +1,11 @@
-- name: Virtual WAN Documentation
+- name: Virtual WAN documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is Virtual WAN?
     href: virtual-wan-about.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create a site-to-site connection
     href: virtual-wan-site-to-site-portal.md
@@ -134,14 +135,12 @@
     items:
     - name: Install Azure Firewall in a hub
       href: howto-firewall.md
+    - name: Configure Private Link connectivity
+      href: howto-private-link.md
   - name: Monitoring
     items:
     - name: Logs and metrics
       href: logs-metrics.md
-  - name: Private Link
-    items: 
-    - name: Configure Private Link connectivity
-      href: howto-private-link.md
 - name: Reference
   items:
   - name: Azure PowerShell

@@ -4,6 +4,8 @@
   items:
   - name: What is Microsoft identity platform?
     href: v2-overview.md
+  - name: What's new in docs?
+    href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items:
@@ -384,6 +386,9 @@
       - name: Migrate apps from ADAL to MSAL
         href: msal-migration.md
         displayName: migration
+  - name: Microsoft Identity Web library
+    href: microsoft-identity-web.md
+    displayName: auth, library, .NET Core
   - name: Authentication protocols
     displayName: Auth protocol
     items:
@@ -532,10 +537,6 @@
   - name: Application configuration
     displayName: App configuration
     items:
-    - name: Azure portal app registration training guide
-      href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-    - name: Azure portal app registration experience
-      href: app-registration-portal-training-guide.md
     - name: Convert a single-tenant app to a multi-tenant app
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Create a service principal

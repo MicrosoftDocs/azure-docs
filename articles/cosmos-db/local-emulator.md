@@ -11,7 +11,13 @@ ms.custom: devx-track-csharp, contperfq1
 
 # Install and use the Azure Cosmos emulator for local development and testing
 
-The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos emulator, you can switch to using an Azure Cosmos account in the cloud. To get started, download and install the latest version of [Azure Cosmos emulator](https://aka.ms/cosmosdb-emulator) on your local computer. This article describes how to install and use the emulator on Windows, Linux, macOS, and Windows docker environments.
+The Azure Cosmos emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos emulator, you can switch to using an Azure Cosmos account in the cloud. This article describes how to install and use the emulator on Windows, Linux, macOS, and Windows docker environments.
+
+## Download the emulator
+
+To get started, download and install the latest version of Azure Cosmos emulator on your local computer. The [emulator release notes](local-emulator-release-notes.md) article lists all the available versions and the feature updates that were made in each release.
+
+:::image type="icon" source="media/local-emulator/download-icon.png" border="false":::**[Download the Azure Cosmos emulator](https://aka.ms/cosmosdb-emulator)**
 
 You can develop applications using Azure Cosmos emulator with the [SQL](local-emulator.md#sql-api), [Cassandra](local-emulator.md#cassandra-api), [MongoDB](local-emulator.md#azure-cosmos-dbs-api-for-mongodb), [Gremlin](local-emulator.md#gremlin-api), and [Table](local-emulator.md#table-api) API accounts. Currently the data explorer in the emulator fully supports viewing SQL data only; the data created using MongoDB, Gremlin/Graph and Cassandra client applications it is not viewable at this time. To learn more, see [how to connect to the emulator endpoint](#connect-with-emulator-apis) from different APIs.
 
@@ -33,7 +39,7 @@ Because the Azure Cosmos emulator provides an emulated environment that runs on 
 
 * With the emulator, you can create an Azure Cosmos account in [provisioned throughput](set-throughput.md) mode only; currently it doesn't support [serverless](serverless.md) mode.
 
-* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value]emulator-command-line-parameters.md#set-partitioncount) article.
+* The emulator is not a scalable service and it doesn't support a large number of containers. When using the Azure Cosmos emulator, by default, you can create up to 25 fixed size containers at 400 RU/s (only supported using Azure Cosmos DB SDKs), or 5 unlimited containers. For more information on how to change this value, see [Set the PartitionCount value](emulator-command-line-parameters.md#set-partitioncount) article.
 
 * The emulator does not offer different [Azure Cosmos DB consistency levels](consistency-levels.md) like the cloud service does.
 
@@ -59,7 +65,7 @@ Before you install the emulator, make sure you have the following hardware and s
 
 To get started, download and install the latest version of [Azure Cosmos emulator](https://aka.ms/cosmosdb-emulator) on your local computer. If you run into any issues when installing the emulator, see the [emulator troubleshooting](troubleshoot-local-emulator.md) article to debug.
 
-Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux, or [macOS](#run-on-linux-macos) as described in next sections of this article.
+Depending upon your system requirements, you can run the emulator on [Windows](#run-on-windows), [Docker for Windows](#run-on-windows-docker), [Linux, or macOS](#run-on-linux-macos) as described in next sections of this article.
 
 ## Check for emulator updates
 
@@ -126,7 +132,7 @@ You can run the Azure Cosmos emulator on the Windows Docker container. See the [
    ```bash
    Starting emulator
    Emulator Endpoint: https://172.20.229.193:8081/
-   Master Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
+   Primary Key: C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==
    Exporting SSL Certificate
    You can import the SSL certificate from an administrator command prompt on the host by running:
    cd /d %LOCALAPPDATA%\CosmosDBEmulatorCert

@@ -25,7 +25,8 @@ Container support is currently available for a subset of Azure Cognitive Service
 
 > [!div class="checklist"]
 > * [Anomaly Detector][ad-containers]
-> * [Computer Vision][cv-containers]
+> * [Read OCR (Optical Character Recognition) ][cv-containers]
+> * [Spatial analysis][spa-containers]
 > * [Face][fa-containers]
 > * [Form Recognizer][fr-containers]
 > * [Language Understanding (LUIS)][lu-containers]
@@ -54,7 +55,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | Service | Supported Pricing Tier | Container | Description |
 |--|--|--|--|
 | [Anomaly detector][ad-containers] | F0, S0 | **Anomaly-Detector** ([image](https://hub.docker.com/_/azure-cognitive-services-decision-anomaly-detector))  | The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning.<br>[Request access][request-access] |
-| [Computer Vision][cv-containers] | F0, S1 | **Read** | Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards. The Read container also detects *handwritten text* in images and provides PDF/TIFF/multi-page support.<br/><br/>**Important:** The Read container currently works only with English. |
+| [Computer Vision][cv-containers] | F0, S1 | **Read** OCR ([image](https://hub.docker.com/_/microsoft-azure-cognitive-services-vision-read)) | The Read OCR container allows you to extract printed and handwritten text from images and documents with support for JPEG, PNG, BMP, PDF, and TIFF file formats. For more information, see the [Read API documentation](./computer-vision/concept-recognizing-text.md).<br>[Request access][request-access] |
 | [Face][fa-containers] | F0, S0 | **Face** | Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits. |
 | [Form recognizer][fr-containers] | F0, S0 | **Form Recognizer** | Form Understanding applies machine learning technology to identify and extract key-value pairs and tables from forms. |
 | [LUIS][lu-containers] | F0, S0 | **LUIS** ([image](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409)) | Loads a trained or published Language Understanding model, also known as a LUIS app, into a docker container and provides access to the query predictions from the container's API endpoints. You can collect query logs from the container and upload these back to the [LUIS portal](https://www.luis.ai) to improve the app's prediction accuracy. |
@@ -67,7 +68,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 | [Text Analytics][ta-containers-language] | F0, S | **Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 | [Text Analytics][ta-containers-sentiment] | F0, S | **Sentiment Analysis v3** ([image](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analyzes raw text for clues about positive or negative sentiment. This version of sentiment analysis returns sentiment labels (for example *positive* or *negative*) for each document and sentence within it. |
 | [Text Analytics][ta-containers-health] | F0, S | **Text Analytics for health** | Extract and label medical information from unstructured clinical text. |
-| [Spatial Analysis][spa-containers] | S0 | **Spatial analysis** | Extract and label medical information from unstructured clinical text. |
+| [Spatial Analysis][spa-containers] | S0 | **Spatial analysis** | Analyzes real-time streaming video to understand spatial relationships between people, their movement, and interactions with objects in physical environments. |
 
 <!--
 |[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|

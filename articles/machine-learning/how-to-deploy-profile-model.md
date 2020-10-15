@@ -10,6 +10,8 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
+ms.reviewer: larryfr
+ms.custom: deploy
 ---
 
 # Profile your model to determine resource utilization
@@ -19,6 +21,10 @@ This article shows how to profile a machine learning to model to determine how m
 ## Prerequisites
 
 This article assumes you have trained and registered a model with Azure Machine Learning. See the [sample tutorial here](how-to-train-scikit-learn.md) for an example of training and registering a scikit-learn model with Azure Machine Learning.
+
+## Limitations
+
+* Profiling will not work when the Azure Container Registry (ACR) for your workspace is behind a virtual network.
 
 ## Run the profiler
 
