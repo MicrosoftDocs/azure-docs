@@ -176,7 +176,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. In the **USER ACCOUNTS** section, select **Manage Accounts**.
 
-    ![Screenshot show SAML Configuration selected from User Accounts.](./media/solarwinds-orion-tutorial/user-accounts.png)
+    ![Screenshot show SAML Configuration selected.](./media/solarwinds-orion-tutorial/user-accounts.png)
 
 1. In the **INDIVIDUAL ACCOUNTS** tab, click on **ADD NEW ACCOUNT**.
 
