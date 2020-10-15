@@ -30,7 +30,7 @@ In addition, enabling single sign-on in your app unlocks new authentication mech
 
 [App protection policies (APP)](https://docs.microsoft.com/mem/intune/apps/app-protection-policy) ensure that an organization's data remains safe and contained. They allow companies to manage and protect their data within an app and allow control over who can access the app and its data. Implementing app protection policies enables your app to connect users to resources protected by Conditional Access policies and securely transfer data to and from other protected apps. Scenarios unlocked by app protection policies include requiring a PIN to open an app, controlling the sharing of data between apps, and preventing company app data from being saved to a personal storage location on the device.
 
-## Implementing Single Sign-On
+## Implementing single sign-on
 
 We recommend the following steps to enable your app to take advantage of single sign-on.
 
