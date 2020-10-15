@@ -368,7 +368,6 @@ The following are the IDs for a [Verification display control](display-control-v
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_verify_code">Verify code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_new_code">Send new code</LocalizedString>
     <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_change_claims">Change e-mail</LocalizedString>
-LocalizedString>
   </LocalizedStrings>
 </LocalizedResources>
 ```
