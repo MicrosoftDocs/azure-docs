@@ -35,15 +35,15 @@ The network connectivity between your source data and Data Lake Storage Gen1 can
 
 ### Configure data ingestion tools for maximum parallelization
 
-After you've addressed the source hardware and network connectivity bottlenecks, you're ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them. To learn more about which tool to use for your scenario, visit this [article](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-data-scenarios).
+After you've addressed the source hardware and network connectivity bottlenecks, you're ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them. To learn more about which tool to use for your scenario, visit this [article](./data-lake-store-data-scenarios.md).
 
 | Tool          | Settings | More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
-| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-powershell) |
-| AdlCopy    | Azure Data Lake Analytics units | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob#performance-considerations-for-using-adlcopy)         |
-| DistCp            | -m (mapper) | [Link](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-wasb-distcp#performance-considerations-while-using-distcp)                             |
+| Powershell       | PerFileThreadCount, ConcurrentFileCount | [Link](./data-lake-store-get-started-powershell.md) |
+| AdlCopy    | Azure Data Lake Analytics units | [Link](./data-lake-store-copy-data-azure-storage-blob.md#performance-considerations-for-using-adlcopy)         |
+| DistCp            | -m (mapper) | [Link](./data-lake-store-copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies | [Link](../data-factory/copy-activity-performance.md)                          |
-| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](https://docs.microsoft.com/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
+| Sqoop           | fs.azure.block.size, -m (mapper) | [Link](/archive/blogs/shanyu/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs)        |
 
 ## Structure your data set
 

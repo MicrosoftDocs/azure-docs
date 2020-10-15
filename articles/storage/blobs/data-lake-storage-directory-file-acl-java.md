@@ -281,7 +281,6 @@ static public void UploadFileBulk(DataLakeFileSystemClient fileSystemClient)
 
 ```
 
-
 ## Manage a file ACL
 
 This example gets and then sets the ACL of a file named `upload-file.txt`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.

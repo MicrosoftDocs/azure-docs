@@ -230,12 +230,8 @@
           href: application-sign-in-problem-application-error.md
         - name: Problem signing into a Microsoft app
           href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problem with federated single sign-on - non-gallery app
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Problem with federated single sign-on - gallery app
+        - name: Problem with single sign-on
           href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Problem with custom-developed app
-          href: application-sign-in-problem-custom-dev.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
