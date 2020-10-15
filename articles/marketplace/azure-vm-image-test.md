@@ -595,7 +595,7 @@ The last screen lets you provide more information, such as SSH access informatio
 
 Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire. 
 > [!Note]
-> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
+> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here and submit the report at Partner Center [support](https://aka.ms/marketplacepublishersupport).
 
 ## How to use PowerShell to consume the Self-Test API
 

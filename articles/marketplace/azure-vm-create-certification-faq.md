@@ -16,7 +16,7 @@ When you publish your virtual machine (VM) image to Azure Marketplace, the Azure
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> If you have questions or feedback for improvement, please contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
+> If you have questions or feedback for improvement, please contact Partner Center [support](https://aka.ms/marketplacepublishersupport).
 
 ## Approved base image
 
@@ -143,7 +143,7 @@ The following table lists the Windows test cases that the toolkit will run, alon
 |17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |
 
-If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team. 
+If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team.
 
 ## Data disk size verification
 
@@ -176,7 +176,7 @@ As VMs allow access to the underlying operating system, ensure that the VHD size
 
 To prevent a potential attack related to the WannaCry virus, ensure that all Windows image requests are updated with the latest patch.
 
-To check the Windows Server patched version for the OS detail and the minimum version it will support, refer to the following table: 
+To check the Windows Server patched version for the OS detail and the minimum version it will support, refer to the following table:
 
 The image file version can be verified from `C:\windows\system32\drivers\srv.sys` or `srv2.sys`.
 
@@ -348,26 +348,23 @@ Step 5. Re-Submit the generalized image.
 
 ## Requesting exceptions (custom templates) on VM images for selective tests
 
-Publishers can reach out to request exceptions for few tests performed during VM certification. Exceptions are provided in extremely rare cases when publisher provides evidence to support the request.
-The Certification team reserves the right to deny or approve exceptions at any point of time.
+Publishers can request exceptions for few tests performed during VM certification. Exceptions are provided in extremely rare cases when publisher provides evidence to support the request. The Certification team reserves the right to deny or approve exceptions at any time.
 
-In the sections below, we will talk about main scenarios where exceptions are requested and how to request exception.
+In the sections below, we will talk about main scenarios where exceptions are requested and how to request one.
 
-Scenarios for exception
+### Scenarios for exception
 
-There are three scenarios/cases where publishers generally request these exceptions.
+There are generally three scenarios/cases where publishers request exceptions.
 
-* **Exception for one or more test cases:** Publishers can reach out to [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases.
+- **Exception for one or more test cases** – Publishers contact Partner Center [support](https://aka.ms/marketplacepublishersupport) to request exceptions for test cases.
 
-* **Locked Down VMs/No root access:** Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. 
-       In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
+- **Locked-down VMs/No root access** – Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at Partner Center [support](https://aka.ms/marketplacepublishersupport).
 
-* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs.
-In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation.
+- **Custom templates** – Some publishers publish VM images that require a custom ARM template to deploy the VMs. In this case, publishers should submit the custom templates at Partner Center [support](https://aka.ms/marketplacepublishersupport) so the same can be used by the Certification team for validation.
 
 ### Information to provide for exception scenarios
 
-Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
+Publishers should contact Partner Center [support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
 
    1. Publisher ID – The publisher ID on Partner Center portal
    2. Offer ID/name – The Offer ID/name for which exception is requested
@@ -441,4 +438,4 @@ To complete the publishing process, see [Review and publish a virtual machine of
 
 - [Configure VM offer properties](azure-vm-create-properties.md)
 - [Active marketplace rewards](partner-center-portal/marketplace-rewards.md)
-- If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1)
+- If you have questions or feedback for improvement, contact Partner Center [support](https://aka.ms/marketplacepublishersupport).

@@ -34,9 +34,8 @@ There are two common tools used to create a SAS address (URL):
 
     :::image type="content" source="media/create-vm/storge-account-explorer.png" alt-text="Storage account window.":::
 
-1. Go to your **Container** and select your **VHD file**.
-1. Right-click your VHD and select **Get Share Access Signature**.
-1. In the **Shared Access Signature** dialog box, complete the following fields:
+3. In the **Container**, right-click the VHD file and select **Get Share Access Signature**.
+4. In the **Shared Access Signature** dialog box, complete the following fields:
 
     1. Start time – Permission start date for VHD access. Provide a date that is one day before the current date.
     2. Expiry time – Permission expiration date for VHD access. Provide a date at least three weeks beyond the current date.
@@ -45,19 +44,13 @@ There are two common tools used to create a SAS address (URL):
 
     ![Shared access signature dialog box.](media/vm/create-sas-uri-storage-explorer.png)
 
-6. To create the associated SAS URI for this VHD, select **Create**.
-
-7. Copy the URI and save it to a text file in a secure location.
-
-    ![Copying the URI.](media/vm/create-sas-uri-shared-access-signature-details.png)
-
-    This generated SAS URI is for container-level access. To make it specific, edit the text file to add the VHD name.
-
-8. Insert your VHD name after the vhds string in the SAS URI (include a forward slash). The final SAS URI should look like this:
+5. To create the associated SAS URI for this VHD, select **Create**.
+6. Copy the URI and save it to a text file in a secure location. This generated SAS URI is for container-level access. To make it specific, edit the text file to add the VHD name.
+7. Insert your VHD name after the vhds string in the SAS URI (include a forward slash). The final SAS URI should look like this:
 
     `<blob-service-endpoint-url> + /vhds/ + <vhd-name>? + <sas-connection-string>`
 
-9. Repeat these steps for each VHD in the plans you will publish.
+8. Repeat these steps for each VHD in the plans you will publish.
 
 ### Using Tool 2: Azure CLI
 
