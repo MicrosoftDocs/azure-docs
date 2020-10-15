@@ -1089,6 +1089,7 @@
           - name: Configure connectivity
             items:  
             - name: VNN listener
+              displayName: virtual network name
               href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
             - name: DNN listener
               displayName: distributed network name
