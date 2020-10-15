@@ -16,7 +16,7 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 
 ---
-# Configure an availability group for SQL Server on Azure VM (PowerShell & Az CLI)
+# Use PowerShell or Az CLI to configure an availability group for SQL Server on Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to use [PowerShell](/powershell/scripting/install/installing-powershell) or the [Azure CLI](/cli/azure/sql/vm) to deploy a Windows failover cluster, add SQL Server VMs to the cluster, and create the internal load balancer and listener for an Always On availability group. 

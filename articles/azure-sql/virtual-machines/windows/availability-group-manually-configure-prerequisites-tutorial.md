@@ -19,7 +19,7 @@ ms.custom: "seo-lt-2019"
 
 ---
 
-# Prerequisites for creating Always On availability groups on SQL Server on Azure Virtual Machines
+# Tutorial: Prerequisites for creating availability groups on SQL Server on Azure Virtual Machines
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
