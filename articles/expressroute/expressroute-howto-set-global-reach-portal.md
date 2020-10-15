@@ -11,7 +11,7 @@ ms.author: duau
 
 ---
 
-# Configure ExpressRoute Global Reach
+# Configure ExpressRoute Global Reach using the Azure portal
 
 This article helps you configure ExpressRoute Global Reach using PowerShell. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
 
