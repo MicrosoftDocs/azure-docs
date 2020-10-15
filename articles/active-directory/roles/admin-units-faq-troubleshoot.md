@@ -33,7 +33,7 @@ For more granular administrative control in Azure Active Directory (Azure AD), y
 
 **Q: I just added (or removed) a member of the administrative unit. Why is the member not showing up (or still showing up) in the user interface?**
 
-**A:** Sometimes, processing of the addition or removal of one or more members of the administrative unit might take a few minutes to be reflected on the **Administrative units** page. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about users and groups in AUs, see [List administrative units for a user](admin-units-add-manage-users.md) and [List administrative units for a group](../users-groups-roles/roles-admin-units-add-manage-groups.md).
+**A:** Sometimes, processing of the addition or removal of one or more members of the administrative unit might take a few minutes to be reflected on the **Administrative units** page. Alternatively, you can go directly to the associated resource's properties and see whether the action has been completed. For more information about users and groups in AUs, see [List administrative units for a user](admin-units-add-manage-users.md) and [List administrative units for a group](admin-units-add-manage-groups.md).
 
 **Q: I am a delegated password administrator on an administrative unit. Why am I unable to reset a specific user's password?**
 
@@ -69,5 +69,5 @@ Find support for the [administrativeUnit resource type](/graph/api/resources/adm
 
 ## Next steps
 
-- [Restrict scope for roles by using administrative units](../users-groups-roles/directory-administrative-units.md)
+- [Restrict scope for roles by using administrative units](administrative-units.md)
 - [Manage administrative units](admin-units-manage.md)

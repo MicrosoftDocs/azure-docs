@@ -146,4 +146,4 @@ Once you have saved the entries in the file, upload the file, select **Submit**.
 ## Next steps
 
 - [Assign a role to an administrative unit](admin-units-assign-roles.md)
-- [Add groups to an administrative unit](../users-groups-roles/roles-admin-units-add-manage-groups.md)
+- [Add groups to an administrative unit](admin-units-add-manage-groups.md)

@@ -61,7 +61,7 @@ There are changes that require special considerations when testing, from simple 
 |Rolling out a new feature|If the feature supports roll out to a target set of users, identify pilot users and build out. For example, self-service password reset and multi-factor authentication can target specific users or groups.|
 |Cutover an application from an on-premises Identity provider (IdP), for example, Active Directory, to Azure AD|If the application supports multiple IdP configurations, for example, Salesforce, configure both and test Azure AD during a change window (in case the application introduces HRD page). If the application does not support multiple IdPs, schedule the testing during a change control window and program downtime.|
 |Update dynamic group rules|Create a parallel dynamic group with the new rule. Compare against the calculated outcome, for example, run PowerShell with the same condition.<br>If test pass, swap the places where the old group was used (if feasible).|
-|Migrate product licenses|Refer to [Change the license for a single user in a licensed group in Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md).|
+|Migrate product licenses|Refer to [Change the license for a single user in a licensed group in Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md).|
 |Change AD FS rules such as Authorization, Issuance, MFA|Use group claim to target subset of users.|
 |Change AD FS authentication experience or similar farm-wide changes|Create a parallel farm with same host name, implement config changes, test from clients using HOSTS file, NLB routing rules, or similar routing.<br>If the target platform does not support HOSTS files (for example mobile devices), control change.|
 

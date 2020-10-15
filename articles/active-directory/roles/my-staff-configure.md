@@ -25,7 +25,7 @@ SMS-based authentication for users is a public preview feature of Azure Active D
 
 ## How My Staff works
 
-My Staff is based on administrative units (AUs), which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. In My Staff, AUs are used to define a subset of an organization's users such as a store or department. Then, for example, a team manager could be assigned to a role whose scope is one or more AUs. In the example below, the user has been granted the Authentication Administrative role, and the three AUs are the scope of the role. For more information about administrative units, see [Administrative units management in Azure Active Directory](../users-groups-roles/directory-administrative-units.md).
+My Staff is based on administrative units (AUs), which are a container of resources which can be used to restrict the scope of a role assignment's administrative control. In My Staff, AUs are used to define a subset of an organization's users such as a store or department. Then, for example, a team manager could be assigned to a role whose scope is one or more AUs. In the example below, the user has been granted the Authentication Administrative role, and the three AUs are the scope of the role. For more information about administrative units, see [Administrative units management in Azure Active Directory](administrative-units.md).
 
 ## Before you begin
 
@@ -76,7 +76,7 @@ We strongly recommend that you protect My Staff using [Azure AD Conditional Acce
 
 ## Using My Staff
 
-When a user goes to My Staff, they are shown the names of the [administrative units](../users-groups-roles/directory-administrative-units.md) over which they have administrative permissions. In the [My Staff user documentation](../user-help/my-staff-team-manager.md), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an AU scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the users in that AU, and select a user to open their profile.
+When a user goes to My Staff, they are shown the names of the [administrative units](administrative-units.md) over which they have administrative permissions. In the [My Staff user documentation](../user-help/my-staff-team-manager.md), we use the term "location" to refer to administrative units. If an administrator's permissions do not have an AU scope, the permissions apply across the organization. After My Staff has been enabled, the users who are enabled and have been assigned an administrative role can access it through [https://mystaff.microsoft.com](https://mystaff.microsoft.com). They can select an AU to view the users in that AU, and select a user to open their profile.
 
 ## Reset a user's password
 
@@ -127,4 +127,4 @@ You can view audit logs for actions taken in My Staff in the Azure Active Direct
 ## Next steps
 
 [My Staff user documentation](../user-help/my-staff-team-manager.md)
-[Administrative units documentation](../users-groups-roles/directory-administrative-units.md)
+[Administrative units documentation](administrative-units.md)

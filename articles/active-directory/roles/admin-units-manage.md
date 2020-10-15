@@ -101,4 +101,4 @@ Request body
 ## Next steps
 
 * [Manage users in an administrative unit](admin-units-add-manage-users.md)
-* [Manage groups in an administrative unit](../users-groups-roles/roles-admin-units-add-manage-groups.md)
+* [Manage groups in an administrative unit](admin-units-add-manage-groups.md)

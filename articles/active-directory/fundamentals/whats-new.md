@@ -143,7 +143,7 @@ The Azure AD portal has been updated to make it easier to find users in the All 
 - New sorting capabilities on properties like name, user principal name and deletion date.
 - A new total users count that updates with any searches or filters.
 
-For more information, please see [User management enhancements (preview) in Azure Active Directory](../users-groups-roles/users-search-enhanced.md).
+For more information, please see [User management enhancements (preview) in Azure Active Directory](../enterprise-users/users-search-enhanced.md).
 
 ---
 
@@ -254,7 +254,7 @@ In this preview, customers can toggle between the existing experience and the ne
 
 We've updated directory level permissions for guest users. These permissions allow administrators to require additional restrictions and controls on external guest user access. Admins can now add additional restrictions for external guests' access to user and groups' profile and membership information. With this public preview feature, customers can manage external user access at scale by obfuscating group memberships, including restricting guest users from seeing memberships of the group(s) they are in.
 
-To learn more, see [Restricted Guest Access Permissions](../users-groups-roles/users-restrict-guest-permissions.md) and [Users Default Permissions](./users-default-permissions.md).
+To learn more, see [Restricted Guest Access Permissions](../enterprise-users/users-restrict-guest-permissions.md) and [Users Default Permissions](./users-default-permissions.md).
  
 ---
 
@@ -1274,9 +1274,9 @@ You can also download lists of Azure AD resources from the Azure AD admin portal
 
 For more information, check out the following:
 
-- [Create users](../users-groups-roles/users-bulk-add.md) or [invite guest users](../external-identities/tutorial-bulk-invite.md)
-- [Delete users](../users-groups-roles/users-bulk-delete.md) or [restore deleted users](../users-groups-roles/users-bulk-restore.md)
-- [Download list of users](../users-groups-roles/users-bulk-download.md) or [Download list of groups](../users-groups-roles/groups-bulk-download.md)
+- [Create users](../enterprise-users/users-bulk-add.md) or [invite guest users](../external-identities/tutorial-bulk-invite.md)
+- [Delete users](../enterprise-users/users-bulk-delete.md) or [restore deleted users](../enterprise-users/users-bulk-restore.md)
+- [Download list of users](../enterprise-users/users-bulk-download.md) or [Download list of groups](../users-groups-roles/groups-bulk-download.md)
 - [Add (import) members](../users-groups-roles/groups-bulk-import-members.md) or [remove members](../users-groups-roles/groups-bulk-remove-members.md) or [Download list of members](../users-groups-roles/groups-bulk-download-members.md) for a group
 
 ---

@@ -129,7 +129,7 @@ You can use a PowerShell script to check if users have a license assigned direct
 
    ![Screenshot of the Get-Msolaccountsku cmdlet](./media/licensing-group-advanced/get-msolaccountsku-cmdlet.png)
 
-3. Use the *AccountSkuId* value for the license you are interested in with [this PowerShell script](licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). This will produce a list of users who have this license with the information about how the license is assigned.
+3. Use the *AccountSkuId* value for the license you are interested in with [this PowerShell script](../enterprise-users/licensing-ps-examples.md#check-if-user-license-is-assigned-directly-or-inherited-from-a-group). This will produce a list of users who have this license with the information about how the license is assigned.
 
 ## Use Audit logs to monitor group-based licensing activity
 
@@ -221,7 +221,7 @@ To learn more about other scenarios for license management through group-based l
 
 * [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
 * [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
-* [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
-* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](../users-groups-roles/licensing-groups-change-licenses.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](../enterprise-users/licensing-groups-resolve-problems.md)
+* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](../enterprise-users/licensing-groups-migrate-users.md)
+* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](../enterprise-users/licensing-groups-change-licenses.md)
 * [PowerShell examples for group-based licensing in Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)
