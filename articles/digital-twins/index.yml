@@ -86,5 +86,4 @@ landingContent:
       - linkListType: reference
         links:
           - text: REST APIs
-            url:  https://docs.microsoft.com/rest/api/azure-digitaltwins/ 
-
+            url:  /rest/api/azure-digitaltwins/

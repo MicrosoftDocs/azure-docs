@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/09/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -361,7 +361,16 @@ To check the replication status for a blob in the source account in the Azure po
 
 # [PowerShell](#tab/powershell)
 
-N/A
+To check the replication status for a blob in the source account with PowerShell, get the value of the object replication **ReplicationStatus** property, as shown in the following example. Remember to replace values in angle brackets with your own values:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
 
 # [Azure CLI](#tab/azure-cli)
 

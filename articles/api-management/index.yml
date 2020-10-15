@@ -76,7 +76,7 @@ landingContent:
           - text: Azure PowerShell
             url: powershell-samples.md
           - text: Azure Policy built-ins
-            url: ./policy-samples.md
+            url: ./policy-reference.md
 
   # Card
   - title: Architecture

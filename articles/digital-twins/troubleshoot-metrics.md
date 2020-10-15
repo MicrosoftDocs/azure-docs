@@ -68,7 +68,7 @@ Metrics having to do with billing:
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Billing API Operations | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter Id |
 | BillingMessagesProcessed | Billing Messages Processed | Count | Total | Billing metric for the number of messages sent out from Azure Digital Twins to external endpoints.<br><br>To be considered a single message for billing purposes, a payload must be no larger than 1 KB. Payloads larger than this will be counted as additional messages in 1 KB increments (so a message between 1 and 2 KB will be counted as 2 messages, between 2 and 3 KB will be 3 messages, and so on).<br>This restriction also applies to responses—so a call that returns 1.5KB in the response body, for example, will be billed as 2 operations. | Meter Id |
-| BillingQueryUnits | Billing Query Units | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](https://docs.microsoft.com/dotnet/api/azure.digitaltwins.core.querychargehelper?view=azure-dotnet&preserve-view=true) | Meter Id |
+| BillingQueryUnits | Billing Query Units | Count | Total | The number of Query Units, an internally computed measure of service resource usage, consumed to execute queries. There is also a helper API available for measuring Query Units: [QueryChargeHelper Class](/dotnet/api/azure.digitaltwins.core.querychargehelper?preserve-view=true&view=azure-dotnet-preview) | Meter Id |
 
 #### Ingress metrics
 

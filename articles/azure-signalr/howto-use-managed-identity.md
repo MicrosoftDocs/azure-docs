@@ -60,7 +60,7 @@ Azure SignalR Service is a fully managed service, so you can't use a managed ide
     - [Resource ID of an Azure service](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication)
 
     > [!NOTE]
-    > If you validate an access token by yourself in your service, you can choose any one of the resource formats. Just make sure that the **Resource** value in **Auth** settings and the validation are consistent. If you use role-based access control (RBAC) for a data plane, you must use the resource that the service provider requests.
+    > If you validate an access token by yourself in your service, you can choose any one of the resource formats. Just make sure that the **Resource** value in **Auth** settings and the validation are consistent. If you use Azure role-based access control (Azure RBAC) for a data plane, you must use the resource that the service provider requests.
 
 ### Validate access tokens
 

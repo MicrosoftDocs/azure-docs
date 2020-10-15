@@ -3,13 +3,13 @@ title: How to add data feeds from different sources to Metrics Advisor
 titleSuffix: Azure Cognitive Services
 description: add different data feeds to Metrics Advisor
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.author: aahi
+ms.author: mbullwin
 ---
 
 # Add data feeds from different data sources to Metrics Advisor
