@@ -198,13 +198,13 @@
               href: how-to/region-mappings.md
             - name: Enable
               items:
-                - name: Enable Change Tracking and Inventory from the Azure portal
+                - name: Enable from the Azure portal
                   href: change-tracking/enable-from-portal.md
-                - name: Enable Change Tracking and Inventory from an Azure VM
+                - name: Enable from an Azure VM
                   href: change-tracking/enable-from-vm.md
-                - name: Enable Change Tracking and Inventory from an Automation account
+                - name: Enable from an Automation account
                   href: change-tracking/enable-from-automation-account.md
-                - name: Enable Change Tracking and Inventory from a runbook
+                - name: Enable from a runbook
                   href: change-tracking/enable-from-runbook.md
             - name: Manage change tracking and inventory
               href: change-tracking/manage-change-tracking.md
@@ -246,15 +246,15 @@
           href: how-to/region-mappings.md
         - name: Enable
           items:
-            - name: Enable Update Management using Azure Resource Manager template
+            - name: Enable using Azure Resource Manager template
               href: update-management/update-mgmt-enable-template.md
-            - name: Enable Update Management from the Azure portal
+            - name: Enable from the Azure portal
               href: update-management/update-mgmt-enable-portal.md
-            - name: Enable Update Management from an Azure VM
+            - name: Enable from an Azure VM
               href: update-management/update-mgmt-enable-vm.md
-            - name: Enable Update Management from an Automation account
+            - name: Enable from an Automation account
               href: update-management/update-mgmt-enable-automation-account.md
-            - name: Enable Update Management from a runbook
+            - name: Enable from a runbook
               href: update-management/update-mgmt-enable-runbook.md
         - name: Manage updates for your VMs
           items:
