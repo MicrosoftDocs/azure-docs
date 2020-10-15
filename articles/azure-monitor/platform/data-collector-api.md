@@ -549,7 +549,8 @@ post_data(customer_id, shared_key, body, log_type)
 
 
 ### Java sample
-```Java
+
+```java
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpPost;
@@ -618,7 +619,7 @@ public class ApiExample {
     try(CloseableHttpClient httpClient = HttpClients.createDefault()){
       HttpResponse response = httpClient.execute(httpPost);
       int statusCode = response.getStatusLine().getStatusCode();
-      System.out.println(statusCode);
+      System.out.println(("Status code: " + statusCode));
     }
   }
 
