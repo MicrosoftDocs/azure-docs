@@ -190,7 +190,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 }
 ```
 
-Next, provide a map of protected resources to `MsalModule.forRoot()` as `protectedResourceMap` and include those scopes in `consentScopes`. The URLs you provide in the `protectedResourceMap` are case-sensitive.
+Next, provide a map of protected resources to `MsalModule.forRoot()` as `protectedResourceMap` and include those scopes in `consentScopes`. The URLs you provide in the `protectedResourceMap` collection are case-sensitive.
 
 ```javascript
 @NgModule({
