@@ -21994,7 +21994,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/azure-vm-common-issues-during-vhd-creation.md",
-      "redirect_url": "/azure/marketplace/azure-vm-vhd-creation-faq",
+      "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
       "redirect_document_id": false
     },
     {
@@ -31879,7 +31879,7 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation",
+      "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
       "redirect_document_id": false
     },
     {
