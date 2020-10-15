@@ -95,11 +95,11 @@ To configure Azure AD single sign-on with GTNexus SSO System, perform the follow
 
 	a. Click **Upload metadata file**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" page with the "Upload metadata file" action selected.](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![image](common/browse-upload-metadata.png)
+	![Screenshot that shows the "Select a file" field with the "folder" logo and "Upload" button selected.](common/browse-upload-metadata.png)
 
 	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in GTNexus SSO System section textbox:
 

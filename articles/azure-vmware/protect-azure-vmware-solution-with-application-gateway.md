@@ -164,4 +164,4 @@ You can use Azure Application Gateway to configure URL path-based routing rules.
 
 ## Next Steps
 
-Review the [Azure Application Gateway documentation](https://docs.microsoft.com/azure/application-gateway/) for more configuration examples.
+Review the [Azure Application Gateway documentation](../application-gateway/index.yml) for more configuration examples.

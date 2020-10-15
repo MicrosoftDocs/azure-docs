@@ -9,6 +9,8 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 
 # Frequently asked questions about Azure Dev Spaces
 
+[!INCLUDE [Azure Dev Spaces deprecation](../../includes/dev-spaces-deprecation.md)]
+
 This addresses frequently asked questions about Azure Dev Spaces.
 
 ## What versions of Kubernetes are supported for Azure Dev Spaces?

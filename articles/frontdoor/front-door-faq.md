@@ -244,6 +244,10 @@ For having successful HTTPS connections to your backend whether for health probe
     1. **Solution**: While it is not recommended from a compliance standpoint, you can workaround this error by disabling certificate subject name check for your Front Door. This is present under Settings in Azure portal and under BackendPoolsSettings in the API.
 2. **Backend hosting certificate from invalid CA**: Only certificates from [valid CAs](/azure/frontdoor/front-door-troubleshoot-allowed-ca) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates are not allowed.
 
+### Can I use client/mutual authentication with Azure Front Door?
+
+No. Although Azure Front Door supports TLS 1.2, which introduced client/mutual authentication in [RFC 5246](https://tools.ietf.org/html/rfc5246), currently, Azure Front Door doesn't support client/mutual authentication.
+
 ## Diagnostics and logging
 
 ### What types of metrics and logs are available with Azure Front Door?

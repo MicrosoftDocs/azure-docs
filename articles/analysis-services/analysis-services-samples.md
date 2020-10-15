@@ -23,7 +23,7 @@ The [Analysis Services](https://github.com/Microsoft/Analysis-Services) reposito
 
 ## Sample database on Azure
 
-Azure Synapse Analytics (SQL Data Warehouse) provides a sample AdventureWorksDW database that can be included in a provisioned resource. To learn more, see [Quickstart: Create and query an Azure Synapse Analytics SQL pool](/azure/sql-data-warehouse/create-data-warehouse-portal).
+Azure Synapse Analytics (SQL Data Warehouse) provides a sample AdventureWorksDW database that can be included in a provisioned resource. To learn more, see [Quickstart: Create and query an Azure Synapse Analytics SQL pool](../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md).
 
 ## Sample databases on GitHub
 
@@ -41,5 +41,5 @@ If you have an Analysis Services server in Azure portal, you can quickly and eas
 
 ## Next steps
 
-[Adventure Works tutorial](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
-[Azure On-premises Data Gateway](analysis-services-gateway.md)  
+[Adventure Works tutorial](/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)   
+[Azure On-premises Data Gateway](analysis-services-gateway.md)
