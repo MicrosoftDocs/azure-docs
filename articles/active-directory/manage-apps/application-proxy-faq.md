@@ -1,5 +1,5 @@
 ---
-title: Azure AD Application Proxy frequently asked questions | Microsoft Docs
+title: Azure Active Directory Application Proxy frequently asked questions
 description: Learn answers to frequently asked questions (FAQ) about using Azure AD Application Proxy to publish internal, on-premises applications to remote users.  
 services: active-directory
 author: kenwith
@@ -119,6 +119,12 @@ For more information, see the whitepaper [Understanding Kerberos Constrained Del
 ### Does NTLM authentication work with Azure AD Application Proxy?
 
 NTLM authentication can’t be used as a pre-authentication or single sign-on method. NTLM authentication can be used only when it can be negotiated directly between the client and the published web application. Using NTLM authentication usually causes a sign-in prompt to appear in the browser.
+
+### Can I use the logon identity “On-premises user principal name” or “On-premises SAM account name” in a B2B IWA Single sing-on scenario?
+
+No, this won’t work, because a guest user in Azure AD doesn't have the attribute that is required by any of the logon identities mentioned above.
+
+In this case there will be a fallback to “User principal name”. For more details on the B2B scenario please read [Grant B2B users in Azure AD access to your on-premises applications](../external-identities/hybrid-cloud-to-on-premises.md).
 
 ## Pass-through authentication
 
