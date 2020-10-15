@@ -25,7 +25,7 @@ This article teaches you to configure a DNN listener to replace the VNN listener
 
 The DNN listener feature is currently only available starting with SQL Server 2019 CU8 on Windows Server 2016 and later. 
 
-For an alternative connectivity option, consider a [VNN listener + Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) instead. 
+For an alternative connectivity option, consider a [VNN listener and Azure Load Balancer](availability-group-vnn-azure-load-balancer-configure.md) instead. 
 
 ## Overview
 

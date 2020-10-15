@@ -47,11 +47,11 @@ In a traditional on-premises deployment, clients connect to the availability gro
 With SQL Server on Azure VMs, configure a [load balancer](availability-group-vnn-azure-load-balancer-configure.md) to route traffic to your availability group listener, or, if you're on SQL Server 2019 CU8 and later, you can configure a [distributed network name (DNN) listener](availability-group-distributed-network-name-dnn-listener-configure.md) to replace the traditional VNN availability group listener. 
 
 
-### Load balancer 
+### VNN listener 
 
-Use an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) to route traffic from the client to the availability group listener on the Azure network. 
+Use an [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md) to route traffic from the client to the traditional availability group virtual network name (VNN) listener on the Azure network. 
 
-The load balancer holds the IP addresses for the availability group listener. If you have more than one availability group, each group requires a listener. One load balancer can support multiple listeners.
+The load balancer holds the IP addresses for the VNN listener. If you have more than one availability group, each group requires a VNN listener. One load balancer can support multiple listeners.
 
 To get started, see [configure a load balancer](availability-group-vnn-azure-load-balancer-configure.md). 
 

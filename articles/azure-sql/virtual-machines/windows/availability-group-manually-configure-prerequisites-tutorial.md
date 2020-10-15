@@ -25,18 +25,17 @@ ms.custom: "seo-lt-2019"
 
 This tutorial shows how to complete the prerequisites for creating a [SQL Server Always On availability group on Azure Virtual Machines (VMs)](availability-group-manually-configure-tutorial.md). When you've completed the prerequisites, you'll have a domain controller, two SQL Server VMs, and a witness server in a single resource group.
 
+While this article manually configures the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Quickstart templates](availability-group-quickstart-template-configure.md) as well. 
+
 **Time estimate**: It might take a couple of hours to complete the prerequisites. Much of this time is spent creating virtual machines.
 
 The following diagram illustrates what you build in the tutorial.
 
 ![Availability group](./media/availability-group-manually-configure-prerequisites-tutorial-/00-EndstateSampleNoELB.png)
 
-While this article manually configures the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Quickstart templates](availability-group-quickstart-template-configure.md) as well. 
-
-
 ## Review availability group documentation
 
-This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
+This tutorial assumes that you have a basic understanding of SQL Server Always On availability groups. If you're not familiar with this technology, see [Overview of Always On availability groups (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 
 ## Create an Azure account

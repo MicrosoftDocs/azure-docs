@@ -984,7 +984,7 @@
           href: virtual-machines/windows/backup-restore.md
         - name: Azure Storage for backup
           href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
-        - name: Always On availability group
+        - name: Availability group (AG)
           href: virtual-machines/windows/availability-group-overview.md
         - name: Failover cluster instance
           href: virtual-machines/windows/failover-cluster-instance-overview.md

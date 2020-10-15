@@ -29,6 +29,8 @@ This article describes how to use the Azure quickstart templates to partially au
    | &nbsp; | &nbsp; |
 
 Other parts of the availability group configuration must be done manually, such as creating the availability group and creating the internal load balancer. This article provides the sequence of automated and manual steps.
+
+While this article uses the Azure Quickstart templates to configure the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
  
 
 ## Prerequisites 
