@@ -3,10 +3,10 @@ title: What is the Microsoft commercial marketplace?
 description: An overview of the benefits and options for Microsoft partners who list solutions on the Microsoft commercial marketplace.
 author: mingshen-ms 
 ms.author: mingshen
-ms.reviewer: dannyevers
+ms.reviewer: dsindona
 ms.service: marketplace 
 ms.topic: overview
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ---
 
 # What is the Microsoft commercial marketplace?
@@ -29,6 +29,16 @@ Here’s an example of an offer listing page in AppSource:
 
 :::image type="content" source="media/overview/example-appsource.png" alt-text="Illustrates an offer listing page in Microsoft AppSource.":::
 
+####  AppSource in-product experience
+
+Customers can also access your AppSource offers through Microsoft 365, Dynamics 365, the Power Platform, and Azure. The following example shows how to access AppSource add-ins from the Power BI **File** menu.
+
+:::image type="content" source="media/overview/power-bi.png" alt-text="Shows how to access Power BI Visuals in AppSource from the Power BI File menu."::: 
+
+This option opens a window where the customer can search for Power BI add-ins by name or category. 
+
+:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Shows the list of AppSource add-ins from within Power BI."::: 
+
 ### Azure Marketplace
 
 [Azure Marketplace](https://azuremarketplace.microsoft.com/) is for solutions that are built on or built for Azure and intended for IT professionals and developers. This includes listings for consulting and managed services. Azure Marketplace consulting services are professional service offerings that help customers get started with or accelerate the use of Azure.
@@ -37,17 +47,7 @@ Here’s an example of an offer listing page in Azure Marketplace:
 
 :::image type="content" source="media/overview/example-marketplace.png" alt-text="Illustrates an offer listing page in Azure Marketplace."::: 
 
-### In-product experiences
-
-The online storefronts integrate with Microsoft technology, which means customers can also access your solutions from products such as Power Apps, Dynamics 365, and Microsoft 365 and the Azure portal. 
-
-The following example shows how to access AppSource add-ins from the Power BI **File** menu.
-
-:::image type="content" source="media/overview/power-bi.png" alt-text="Shows how to access Power BI Visuals in AppSource from the Power BI File menu."::: 
-
-This option opens a window where the customer can search for Power BI add-ins by name or category. 
-
-:::image type="content" source="media/overview/power-bi-apps.png" alt-text="Shows the list of AppSource add-ins from within Power BI."::: 
+#### Azure Marketplace in the Azure portal
 
 Azure customers can discover and deploy Azure Marketplace solutions through the **Create a resource** option in the [Azure portal](https://portal.azure.com/).
 
