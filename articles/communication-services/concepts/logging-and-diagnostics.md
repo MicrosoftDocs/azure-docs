@@ -23,7 +23,7 @@ Logging is turned off by default when a resource is created. To enable logging, 
 
 Next, select the archive target you want. Currently, we support storage accounts and Log Analytics as archive targets. After selecting the types of logs that you'd like to capture, save the diagnostic settings.
  
-New settings take effect in about ten minutes. Logs will begin appearing in the the configured archival target within the Logs pane of your Communication Services resource.
+New settings take effect in about ten minutes. Logs will begin appearing in the configured archival target within the Logs pane of your Communication Services resource.
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="ACS Diagnostic Settings Options.":::
 
@@ -33,9 +33,9 @@ For more information about configuring diagnostics, see the overview of [Azure r
 
 Communication Services offers three types of logs that you can enable:
 
-* **Usage logs** - shows the usage for each billed service offering
-* **Chat operational logs** - shows basic information related to the chat service
-* **SMS operational logs** - shows basic information related to the SMS service
+* **Usage logs** - provides usage data associated with each billed service offering
+* **Chat operational logs** - provides basic information related to the chat service
+* **SMS operational logs** - provides basic information related to the SMS service
 
 ### Usage logs schema
 
