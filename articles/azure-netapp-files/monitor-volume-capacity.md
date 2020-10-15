@@ -49,7 +49,7 @@ The following snapshot shows volume capacity reporting in Linux:
 ![Screenshot that shows volume capacity reporting in Linux.](../media/azure-netapp-files/monitor-volume-properties-linux-command.png) 
 
 ## Using Azure portal
-Azure NetApp Files leverages the standard [Azure Monitor](/azure/azure-monitor/overview) and [Azure Monitor for VMs](/azure/azure-monitor/insights/vminsights-overview) functionality.  As such, you can use Azure Monitor to monitor Azure NetApp Files volumes.  
+Azure NetApp Files leverages the standard [Azure Monitor](/azure/azure-monitor/overview) functionality. As such, you can use Azure Monitor to monitor Azure NetApp Files volumes.  
 
 ## Using Azure CLI  
 
