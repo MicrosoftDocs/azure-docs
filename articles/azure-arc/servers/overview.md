@@ -2,7 +2,7 @@
 title: Azure Arc enabled servers Overview
 description: Learn how to use Azure Arc enabled servers to manage servers hosted outside of Azure like an Azure resource.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.topic: overview
 ---
 
@@ -24,7 +24,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 
 - Simplify deployment with other Azure services like Azure Automation [State Configuration](../../automation/automation-dsc-overview.md) and Azure Monitor Log Analytics workspace using the supported [Azure VM extensions](manage-vm-extensions.md) for your non-Azure Windows or Linux machine. This includes performing post-deployment configuration or software installation using the Custom Script Extension.
 
-- Use [Update Management](../../automation/update-management/update-mgmt-overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers. First deploy the [Hybrid Runbook worker](../../automation/automation-hybrid-runbook-worker.md) role and then follow the steps to [enable Update Management](../../automation/update-management/update-mgmt-enable-portal.md) on your non-Azure Windows or Linux machine.
+- Use [Update Management](../../automation/update-management/update-mgmt-overview.md) in Azure Automation to manage operating system updates for your Windows and Linux servers.
 
 - Include your non-Azure servers for threat detection and proactively monitor for potential security threats using [Azure Security Center](../../security-center/security-center-intro.md).
 
