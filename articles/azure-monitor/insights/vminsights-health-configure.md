@@ -35,8 +35,8 @@ You can disable monitoring for a VM to temporarily stop all monitors. You may di
 
 | Setting | Description |
 |:---|:---|
-| Enabled and alerting | The health state of the computer is displayed, and alerts are created when the state groups below Healthy. |
-| Disabled and not alerting | The health state of the computer is shwon as **disabled**. Alerts are not created. |
+| Enabled and alerting | The health state of the computer is displayed. |
+| Disabled and not alerting | The health state of the computer is shown as **disabled**. Alerts are not created. |
 
 ## Health state logic
 The health state logic for a unit monitor defines the criteria for setting its health state. You can specify how many health states a monitor has and the threshold for how each health state is calculated.

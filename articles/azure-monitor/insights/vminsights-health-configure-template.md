@@ -21,8 +21,33 @@ The default configuration for each monitor can't be changed, and you can't curre
 Overrides are defined in a [Data Collection Rule (DCR)](../platform/data-collection-rule-overview.md). You can create multiple DCRs with different sets of overrides and apply them to multiple virtual machines. You apply a DCR to a virtual machine by creating an association as described in [Configure data collection for the Azure Monitor agent (preview)](../platform/data-collection-rule-azure-monitor-agent.md#dcr-associations).
 
 
-## How overrides are applied
-A single monitor on a single virtual machine might have multiple overrides. Overrides will be applied from the most general to the most specific. This means that subscription level overrides are applied first, then resource group, then virtual machine. This means that the most specific overrides will have the greatest chance of being applied. If multiple overrides are applied at the same level, then they are applied in alphabetical order of their resource ID.
+## Multiple overrides
+
+### Different properties
+A single monitor may have multiple overrides. If the overrides define different properties, then the resulting configuration is a combination of all the overrides.
+
+For example, the `memory|available` monitor does not specify a warning threshold or enable monitoring by default. Consider the following overrides applied to this monitor:
+
+- Override 1 defines `alertConfiguration.isEnabled` property value as `true`
+- Override 2 defines `monitorConfiguration.warningCondition` with with a threshold condition of `< 250`.
+
+The resulting configuration would be a monitor that goes into a warning health state when less than 250Mb of memory is available and creates Severity 2 alert and also goes into critical health state when less than 100Mb of available memory is available and creates alert Severity 1 (or changes existing alert from severity 2 to 1 if it already existed).
+
+### Same property
+If two overrides define the same property on the same monitor, one value will take precedence. Overrides will be applied based on their scope, from the most general to the most specific. This means that rules with global scope are applied first followed by subscription, then resource group, then virtual machine. This means that the most specific overrides will have the greatest chance of being applied. 
+
+If multiple overrides at the same scope level define the same property on the same monitor, then they are applied in the order they appear in the DCR. If the overrides are in different DCRs, then they are applied in alphabetical order of the DCR resource IDs.
+
+## Default configuration
+The following table lists the default configuration for each monitor. 
+
+
+| Monitor | Enabled | Alerting | Warning | Critical | Evaluation Frequency | Lookback | Evaluation type | Min sample | Max samples |
+|:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
+| CPU utilization  | True | False | None | \> 90%    | 60 sec | 240 sec | Min | 2 | 3 |
+| Available memory | True | False | None | \< 100 MB | 60 sec | 240 sec | Max | 2 | 3 |
+| File system      | True | False | None | \< 100 MB | 60 sec | 120 sec | Max | 1 | 1 |
+
 
 
 ## extensions structure
