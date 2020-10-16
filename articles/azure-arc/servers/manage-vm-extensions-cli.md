@@ -15,7 +15,9 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Before using the Azure CLI to manage VM extensions on your machine, you need to install the `ConnectedMachine` CLI extension. Run the following command on your Arc enabled server `az extension add connectedmachine`.
+Before using the Azure CLI to manage VM extensions on your machine, you need to install the `ConnectedMachine` CLI extension. Run the following command on your Arc enabled server `az extension add connectedmachine`. When the installation completes, the following message is returned:
+
+`The installed extension ``connectedmachine`` is experimental and not covered by customer support. Please use with discretion.`
 
 ## Enable extension
 
@@ -37,11 +39,28 @@ az connectedmachine machine-extension create --machine-name "myMachine" --name "
 
 To get a list of the VM extensions on your Arc enabled server, use [az connectedmachine machine-extension list](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_list) with the `machine-name` and `resource-group` parameters.
 
+Example:
+
 `az connectedmachine machine-extension list --machine-name "myMachine" --resource-group "myResourceGroup"`
+
+By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format.
+
+The following example shows the JSON output from the `az connectedmachine machine-extension -list` command:
+
+```json
+[
+  {
+    "autoUpgradingMinorVersion": "false",
+    "forceUpdateTag": null,
+    "id": "/subscriptions/subscriptionId/resourceGroups/resourceGroupName/providers/Microsoft.HybridCompute/machines/SVR01/extensions/DependencyAgentWindows",
+    "location": "eastus",
+    "name": "DependencyAgentWindows",
+    "namePropertiesInstanceViewName": "DependencyAgentWindows",
+```
 
 ## Remove an installed extension
 
-To remove an installed VM extension on your Arc enabled server, use [az connectedmachine machine-extension delete](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_delete) with the `extension-name`, `machine-name` and `resource-group` parameters.
+To remove an installed VM extension on your Arc enabled server, use [az connectedmachine machine-extension delete](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_delete) with the `extension-name`, `machine-name` and `resource-group` parameters. 
 
+Example:
 
- 
