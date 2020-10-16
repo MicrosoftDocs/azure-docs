@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/12/2020
+ms.date: 10/16/2020
 ms.author: alkohli
 ---
 # Azure Stack Edge Blob storage requirements
@@ -16,16 +16,14 @@ This article lists the versions of the Azure APIs, Azure client libraries, and t
 
 We recommend that you review the information carefully before you connect to the Azure Stack Edge Blob storage, and then refer back to it as necessary.
 
-
 ## Storage differences
 
 |     Feature                                             |     Azure Storage                                     |     Azure Stack Edge Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
 |    Azure File storage                                   |    Cloud-based SMB file shares supported              |    Not supported      |
-|    Service encryption for data at Rest                  |    256-bit AES encryption                             |    256-bit AES encryption |
 |    Storage account type                                 |    General-purpose and Azure blob storage accounts    |    General-purpose v1 only|
 |    Blob name                                            |    1,024 characters (2,048 bytes)                     |    880 characters (1,760 bytes)|
-|    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Stack Edge v 2.1.1377.2170 onwards|
+|    Block blob maximum size                              |    4.75 TB (100 MB X 50,000 blocks)                   |    4.75 TB (100 MB x 50,000 blocks) for Azure Stack Edge|
 |    Page blob maximum size                               |    8 TB                                               |    1 TB                   |
 |    Page blob page size                                  |    512 bytes                                          |    4 KB                   |
 
@@ -33,13 +31,13 @@ We recommend that you review the information carefully before you connect to the
 
 The following versions of Azure Storage service APIs are supported with Azure Stack Edge Blob storage.
 
-### Azure Stack Edge 2.1.1377.2170 onwards
+#### Azure Stack Edge 2.1.1377.2170 onwards
 
 [!INCLUDE [data-box-rest-supported-api-versions](../../includes/data-box-rest-supported-api-versions.md)]
 
 ## Supported Azure client libraries
 
-For Azure Stack Edge Blob storage, there are specific client libraries and specific endpoint suffix requirements. The Azure Stack Edge Blob storage endpoints do not have full parity with the latest version of the Azure Blob Storage REST API; see the [supported API versions for Azure Stack Edge 2.1.1377.2170 onwards](#supported-api-versions). For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
+For Azure Stack Edge Blob storage, there are specific client libraries and specific endpoint suffix requirements. The Azure Stack Edge Blob storage endpoints do not have full parity with the latest version of the Azure Blob Storage REST API; see the [supported API versions for Azure Stack Edge](#supported-api-versions). For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
 
 ### Azure Stack Edge 2.1.1377.2170 onwards
 
@@ -50,6 +48,7 @@ The following Azure client library versions are supported for Azure Stack Edge B
 ### Install PHP client via Composer - current
 
 To install via Composer: (take blob as example).
+
 1. Create a file named composer.json in the root of the project with following code:
 
     ```
