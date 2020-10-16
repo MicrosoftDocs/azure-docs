@@ -35,7 +35,10 @@ The new developer portal addresses many limitations of the legacy portal. It fea
 
 The new developer portal is incompatible with the legacy portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Precise steps will vary depending on the customizations and complexity of your portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance. Remaining configuration, like the list of APIs, Products, users, identity providers, is automatically shared across both portals.
 
-The new developer portal doesn't support the *Issues* functionality.
+The new developer portal doesn't support the following features:
+
+- *Issues* 
+- Direct integration with Facebook, Microsoft, Twitter, and Google as identity providers (you can use Azure AD B2C instead)
 
 ## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
