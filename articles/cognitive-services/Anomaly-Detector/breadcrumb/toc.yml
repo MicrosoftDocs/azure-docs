@@ -3,9 +3,9 @@
   topicHref: /azure/index
   items:
   - name: Cognitive Services
-    tocHref: /azure/cognitive-services/
+    tocHref: /azure/cognitive-services
     topicHref: /azure/cognitive-services/index
     items:
     - name: Anomaly Detector
-      tocHref: /azure/cognitive-services/
+      tocHref: /azure/cognitive-services/anomaly-detector/
       topicHref: /azure/cognitive-services/anomaly-detector/index
