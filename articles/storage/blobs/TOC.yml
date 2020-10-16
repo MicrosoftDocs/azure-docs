@@ -686,7 +686,9 @@
       items:
       - name: Security recommendations
         href: security-recommendations.md
-      - name: Access control (directories and files)
+      - name: Access control model
+        href: data-lake-storage-access-control-model.md
+      - name: Access control lists
         href: data-lake-storage-access-control.md
       - name: Security controls by Azure Policy
         displayName: regulatory, compliance, standards, domains
