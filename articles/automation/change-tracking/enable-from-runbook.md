@@ -16,17 +16,48 @@ This article describes how you can use a runbook to enable [Change Tracking and 
 ## Prerequisites
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](../index.yml) to manage machines.
+* [Automation account](../automation-security-overview.md) to manage machines.
+* [Log Analytics workspace](../../azure-monitor/platform/design-logs-deployment.md)
 * A [virtual machine](../../virtual-machines/windows/quick-create-portal.md).
+* Two Automation assets, which are used by the **Enable-AutomationSolution** runbook. This runbook, if it doesn't already exist in your Automation account, is automatically imported by the **Enable-MultipleSolution** runbook during its first run.
+    * *LASolutionSubscriptionId*: Subscription ID of where the Log Analytics workspace is located.
+    * *LASolutionWorkspaceId*: Workspace ID of the Log Analytics workspace linked to your Automation account.
+
+    These variables are used to configure the workspace of the onboarded VM. If these are not specified, the script first searches for any VM onboarded to Update Management in its subscription, followed by the subscription the Automation account is in, followed by all other subscriptions your user account has access to. If not properly configured, this may result in your machines getting onboarded to some random Log Analytics workspace.
+
+## Sign in to Azure
+
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable Change Tracking and Inventory
 
-1. In the Azure portal, select **Automation Accounts**, and then select your Automation account in the list.
-1. Select **Inventory** under **Configuration Management**.
-1. Select an existing Log Analytics workspace or create a new one.
-1. Click **Enable**.
+1. In the Azure portal, navigate to **Automation Accounts**. On the **Automation Accounts** page, select your account from the list.
 
-    ![Enable Change Tracking and Inventory](media/enable-from-runbook/inventory-onboard.png)
+1. In your Automation account, select **Inventory** or **Change Tracking** under **Configuration Management**.
+
+1. Select the Log Analytics workspace, then click **Enable**. While Inventory or Change Tracking is being enabled, a banner is shown.
+
+    ![Enable Change Tracking and Inventory](media/enable-from-automation-account/enable-feature.png)
+
+## Install and update modules
+
+It's required to update to the latest Azure modules and import the [Az.OperationalInsights](/powershell/module/az.operationalinsights) module to successfully enable Update Management for your VMs with the runbook.
+
+1. In your Automation account, select **Modules** under **Shared Resources**.
+
+2. Select **Update Azure Modules** to update the Azure modules to the latest version.
+
+3. Click **Yes** to update all existing Azure modules to the latest version.
+
+    ![Update modules](media/update-mgmt-enable-runbook/update-modules.png)
+
+4. Return to **Modules** under **Shared Resources**.
+
+5. Select **Browse gallery** to open the module gallery.
+
+6. Search for `Az.OperationalInsights` and import this module into your Automation account.
+
+    ![Import OperationalInsights module](media/update-mgmt-enable-runbook/import-operational-insights-module.png)
 
 ## Select Azure VM to manage
 
@@ -43,56 +74,46 @@ With Change Tracking and Inventory enabled, you can add an Azure VM for manageme
     > [!NOTE]
     > If you try to enable another feature before setup of Change Tracking and Inventory has completed, you receive this message: `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
 
-## Install and update modules
-
-It's required to update to the latest Azure modules and import the [Az.OperationalInsights](/powershell/module/az.operationalinsights/?view=azps-3.7.0) module to successfully enable Change Tracking and Inventory for your VM.
-
-1. In your Automation account, select **Modules** under **Shared Resources**.
-2. Select **Update Azure Modules** to update the Azure modules to the latest version.
-3. Click **Yes** to update all existing Azure modules to the latest version.
-
-    ![Update modules](media/enable-from-runbook/update-modules.png)
-
-4. Return to **Modules** under **Shared Resources**.
-5. Select **Browse gallery** to open up the module gallery.
-6. Search for Az.OperationalInsights and import this module into the Automation account.
-
-    ![Import OperationalInsights module](media/enable-from-runbook/import-operational-insights-module.png)
-
 ## Import a runbook to enable Change Tracking and Inventory
 
 1. In your Automation account, select **Runbooks** under **Process Automation**.
+
 2. Select **Browse gallery**.
-3. Search for `update and change tracking`.
-4. Select the runbook and click **Import** on the View Source page. 
+
+3. Search for **update and change tracking**.
+
+4. Select the runbook and click **Import** on the **View Source** page.
+
 5. Click **OK** to import the runbook into the Automation account.
 
-   ![Import runbook for setup](media/enable-from-runbook/import-from-gallery.png)
+   ![Import runbook for setup](media/update-mgmt-enable-runbook/import-from-gallery.png)
 
-6. On the Runbook page, click **Edit**, then select **Publish**. 
-7. On the Publish Runbook pane, click **Yes** to publish the runbook.
+6. On the **Runbook** page, select the **Enable-MultipleSolution** runbook and then click **Edit**. On the textual editor, select  **Publish**.
+
+7. When prompted to confirm, click **Yes** to publish the runbook.
 
 ## Start the runbook
 
-You must have enabled Change Tracking and Inventory for an Azure VM to start this runbook. It requires an existing VM and resource group with the feature enabled for parameters.
+You must have enabled Change Tracking and Inventory for an Azure VM to start this runbook. It requires an existing VM and resource group with the feature enabled in order to configure one or more VMs in the target resource group.
 
 1. Open the **Enable-MultipleSolution** runbook.
 
-   ![Multiple solution runbooks](media/enable-from-runbook/runbook-overview.png)
+   ![Multiple solution runbook](media/enable-from-runbook/runbook-overview.png)
 
-1. Click the start button and enter parameter values in the following fields:
+2. Click the start button and enter parameter values in the following fields:
 
-   * **VMNAME** - The name of an existing VM to add to Change Tracking and Inventory. Leave this field blank to add all VMs in the resource group.
+   * **VMNAME** - The name of an existing VM to add to Update Management. Leave this field blank to add all VMs in the resource group.
    * **VMRESOURCEGROUP** - The name of the resource group for the VMs to enable.
    * **SUBSCRIPTIONID** - The subscription ID of the new VM to enable. Leave this field blank to use the subscription of the workspace. When you use a different subscription ID, add the Run As account for your Automation account as a contributor for the subscription.
-   * **ALREADYONBOARDEDVM** - The name of the VM that is already manually enabled for changes.
+   * **ALREADYONBOARDEDVM** - The name of the VM that is already manually enabled for updates.
    * **ALREADYONBOARDEDVMRESOURCEGROUP** - The name of the resource group to which the VM belongs.
    * **SOLUTIONTYPE** - Enter **ChangeTracking**.
 
    ![Enable-MultipleSolution runbook parameters](media/enable-from-runbook/runbook-parameters.png)
 
-1. Select **OK** to start the runbook job.
-1. Monitor progress and any errors on the runbook job page.
+3. Select **OK** to start the runbook job.
+
+4. Monitor progress of the runbook job and any errors from the **Jobs** page.
 
 ## Next steps
 
