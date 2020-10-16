@@ -172,6 +172,8 @@
         href: ../../storage/common/storage-account-create.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Web
       items:
+      - name: App Service
+        href: ../../app-service/quickstart-arm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Notification Hubs
         href: ../../notification-hubs/create-notification-hub-template.md?toc=/azure/azure-resource-manager/templates/toc.json
 - name: Tutorials
