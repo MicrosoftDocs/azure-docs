@@ -56,6 +56,10 @@
       href: register-scan-adls-gen1.md
     - name: Register and scan Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
+    - name: Register and scan Azure Cosmos Database
+      href: register-scan-azure-cosmos-database.md
+    - name: Register and scan Azure Data Explorer
+      href: register-scan-azure-data-explorer.md
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
     - name: Apply classifications

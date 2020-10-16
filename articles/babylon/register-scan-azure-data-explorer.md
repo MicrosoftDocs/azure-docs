@@ -57,7 +57,12 @@ To do this in the Azure portal:
 
 10. Add your service principal to a role on the Azure Data Explorer account that you would like to scan. You do this in the Azure portal. For more information about service principals, see [Acquire a token from Azure AD for authorizing requests from a client application](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app?tabs=dotnet)
 
-11. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.
+
+11. Once service principal is created, add the same to the AllDatabasesViewer role in Permissions tab on Azure portal as shown in below screenshot
+
+![Screenshot showing service principal authorization](./media/register-scan-azure-data-explorer/permissions-auth.png)
+
+12. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.
 
 ![Screenshot showing service principal authorization](./media/register-scan-azure-data-explorer/service-principal-auth.png)
 
