@@ -92,6 +92,8 @@
     - name: Self diagnose and solve problems
       href: spring-cloud-howto-self-diagnose-solve.md
     - name: Monitor
+    - name: Create roles and permissions
+      href: spring-cloud-howto-permissions.md
       items:
         - name: Distributed tracing and App Insights
           href: spring-cloud-tutorial-distributed-tracing.md
