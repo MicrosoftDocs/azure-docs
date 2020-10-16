@@ -41,7 +41,7 @@ After you're finished, you can follow the recommended next steps at the end of t
 
 Sizing workloads against compute and storage resources is an essential planning step. Address the sizing step as part of the initial planning for a private cloud environment. 
 
-You also can size workloads by completing an [Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
+You can size workloads by completing an [Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
 
 ## Software version requirements
 
