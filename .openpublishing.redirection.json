@@ -14668,6 +14668,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-vmware/pre-deployment-checklist.md",
+      "redirect_url": "/azure/azure-vmware/production-ready-deployment-steps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-vmware/disaster-recovery.md",
       "redirect_url": "/azure/azure-vmware/disaster-recovery-for-virtual-machines",
       "redirect_document_id": false
@@ -43564,17 +43569,17 @@
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-stream-event-hubs.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-azure-event-hubs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#send-to-azure-event-hubs",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-collect-storage.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-azure-storage",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#send-to-azure-storage",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-collect-workspace.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-log-analytics-workspace",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#send-to-log-analytics-workspace",
       "redirect_document_id": false
     },
     {
