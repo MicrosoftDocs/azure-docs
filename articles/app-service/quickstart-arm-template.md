@@ -1,32 +1,37 @@
 ---
 title: 'Create an App Service app using an Azure Resource Manager template'
-description: Create your first app to Azure App Service in seconds using an Azure Resource Manager Template, which is one of many ways to deploy to App Service.
+description: Create your first app to Azure App Service in seconds using an Azure Resource Manager template (ARM template), which is one of many ways to deploy to App Service.
 author: msangapu-msft
 ms.author: msangapu
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.topic: quickstart
-ms.date: 05/25/2020
+ms.date: 10/15/2020
 ms.custom: subject-armqs
 zone_pivot_groups: app-service-platform-windows-linux
 ---
-# Create App Service app using an Azure Resource Manager template
 
-Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an Azure Resource Manager template and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
+# Quickstart: Create App Service app using an ARM template
+
+Get started with [Azure App Service](overview.md) by deploying a app to the cloud using an Azure Resource Manager template (ARM template) and [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in Cloud Shell. Because you use a free App Service tier, you incur no costs to complete this quickstart.
 
  [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+
+Use the following button to deploy on **Linux**:
+
+[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-app-service-docs-linux%2Fazuredeploy.json)
 
 ## Prerequisites
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create an Azure App Service app
-
-### Review the template
+## Review the template
 
 ::: zone pivot="platform-windows"
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](app-service-web-get-started-java.md). 
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](app-service-web-get-started-java.md).
 
-[!code-json[<Azure Resource Manager template App Service Windows app>](~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -45,9 +50,9 @@ This template contains several parameters that are predefined for your convenien
 | repoUrl    | string  | " "                          | External Git repo (optional) |
 ::: zone-end
 ::: zone pivot="platform-linux"
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service plan and an App Service app on Linux. It's compatible with all supported programming languages on App Service.
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-linux). It deploys an App Service plan and an App Service app on Linux. It's compatible with all supported programming languages on App Service.
 
-[!code-json[<Azure Resource Manager template App Service Linux app>](~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-app-service-docs-linux/azuredeploy.json":::
 
 Two Azure resources are defined in the template:
 
@@ -67,10 +72,9 @@ This template contains several parameters that are predefined for your convenien
 ---
 ::: zone-end
 
+## Deploy the template
 
-### Deploy the template
-
-Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md). 
+Azure CLI is used here to deploy the template. You can also use the Azure portal, Azure PowerShell, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-powershell.md).
 
 The following code creates a resource group, an App Service plan, and a web app. A default resource group, App Service plan, and location have been set for you. Replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
@@ -80,11 +84,11 @@ Run the code below to deploy a .NET framework app on Windows.
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
 az deployment group create --resource-group myResourceGroup \
---parameters language=".net" sample="true" webAppName="<app-name>" \
+--parameters language=".net" helloWorld="true" webAppName="<app-name>" \
 --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-app-service-docs-windows/azuredeploy.json"
 ::: zone-end
 ::: zone pivot="platform-linux"
-Run the code below to create a Python app on Linux. 
+Run the code below to create a Python app on Linux.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location "southcentralus" &&
@@ -108,7 +112,6 @@ To deploy a different language stack, update `linuxFxVersion` with appropriate v
 
 > [!NOTE]
 > You can find more [Azure App Service template samples here](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sites).
-
 
 ## Validate the deployment
 
