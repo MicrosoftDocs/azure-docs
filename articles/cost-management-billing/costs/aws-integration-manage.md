@@ -174,7 +174,7 @@ This error relates to the definition of AWS Cost and Usage Report, we require sp
 
 ### Internal error when creating connector
 
-**Error code:** _Create connector - Failed to create connector <ConnectorName>. Reason: Internal error. Please verify that the correct AWS properties were provided._
+**Error code:** _Create connector - Failed to create connector &lt;ConnectorName&gt;. Reason: Internal error. Please verify that the correct AWS properties were provided._
 
 This error can occur when your AWS connector and subscription are in different management groups. The AWS connector and subscription need to be in the same management group.
 
