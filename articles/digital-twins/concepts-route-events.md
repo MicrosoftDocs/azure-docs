@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand how to route events within Azure Digital Twins and to other Azure Services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -92,6 +92,21 @@ await client.CreateEventRoute("routeName", er);
 > All SDK functions come in synchronous and asynchronous versions.
 
 Routes can be also created using the [Azure Digital Twins CLI](how-to-use-cli.md).
+
+## Dead-letter events
+When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Azure Digital Twins will dead-letter an event when **one of the following** conditions is met. 
+
+- Event isn't delivered within the time-to-live period
+- The number of tries to deliver the event has exceeded the limit
+
+If either of the conditions is met, the event is dropped or dead-lettered.  By default, each endpoint **does not** turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the endpoint. You pull events from this storage account to resolve deliveries.
+
+Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
+`https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+To learn more about SAS tokens, see: [*Grant limited access to Azure Storage resources using shared access signatures (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+To learn how to set up a dead-letter see [*How-to: Manage endpoints and routes in Azure Digital Twins (APIs and CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### Types of event messages
 
