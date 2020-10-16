@@ -61,7 +61,6 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &code_challenge_method=S256
 ```
 
-
 | Parameter | Required? | Description |
 | --- | --- | --- |
 |{tenant}| Required | Name of your Azure AD B2C tenant|

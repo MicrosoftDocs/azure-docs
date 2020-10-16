@@ -27,13 +27,13 @@ Azure AD B2C provides **two** options to enable single-page applications to sign
 
 - [OAuth 2.0 Authorization code flow (with PKCE)](./authorization-code-flow.md). The authorization code flow allows the application to exchange an authorization code for **ID** tokens to represent the authenticated user and **Access** tokens needed to call protected APIs. In addition, it returns **Refresh** tokens that provide long-term access to resources on behalf of users without requiring interaction with those users. 
 
-This is the **recommended** approach. Having limited-lifetime refresh tokens helps your application adapt to [modern browser cookie privacy limitations](reference-third-party-cookies-spas.md), like Safari ITP.
+This is the **recommended** approach. Having limited-lifetime refresh tokens helps your application adapt to [modern browser cookie privacy limitations](../active-directory/develop/reference-third-party-cookies-spas.md), like Safari ITP.
 
 To take advantage of this flow, your application must use an authentication library that supports it, like [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
 
 ![Single-page applications-auth](./media/spa/spa-app-auth.svg)
 
-- [OAuth 2.0 implicit flow](./v2-oauth2-implicit-grant-flow.md). Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow,. The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow does not return a **Refresh token**. 
+- [OAuth 2.0 implicit flow](implicit-flow-single-page-application.md). Some frameworks, like [MSAL.js 1.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core), only support the implicit grant flow. The implicit grant flow allows the application to get **ID** and **Access** tokens. Unlike the authorization code flow, implicit grant flow does not return a **Refresh token**. 
 
 ![Single-page applications-implicit](./media/spa/spa-app.svg)
 
