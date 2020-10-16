@@ -86,7 +86,8 @@ Infrastructure components must be running the required minimum version.
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Screenshot of browsing to an OVF template." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Select a name and location, and select a resource/cluster where you're deploying the HCX Connector. Then review the details and required resources.  
+1. Select a name and location, and select a resource/cluster where you deploy the HCX Connector. 
+1. Review the details and required resources.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Screenshot of reviewing details for the template." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
