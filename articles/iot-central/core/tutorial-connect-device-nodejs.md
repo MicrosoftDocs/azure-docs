@@ -1,15 +1,15 @@
 ---
 title: Tutorial - Connect a generic Node.js client app to Azure IoT Central | Microsoft Docs
-description: This tutorial shows you how, as a device developer, to connect a device running a Node.js client app to your Azure IoT Central application. You create a device template by importing a device capability model and add views that let you interact with a connected device
+description: This tutorial shows you how, as a device developer, to connect a device running a Node.js client app to your Azure IoT Central application. You create a device template by importing a device twins definition language (DTDL) model and add views that let you interact with a connected device.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/07/2020
+ms.date: 11/03/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: [mqtt, device-developer, devx-track-js]
 
-# As a device developer, I want to try out using Node.js device code that uses the Azure IoT Node.js SDK. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using synchronous and asynchronous commands.
+# As a device developer, I want to try out using Node.js device code that uses the Azure IoT Node.js SDK. I want to understand how to send telemetry from a device, synchronize properties with the device, and control the device using commands.
 ---
 
 # Tutorial: Create and connect a client application to your Azure IoT Central application (Node.js)
@@ -18,317 +18,269 @@ ms.custom: [mqtt, device-developer, devx-track-js]
 
 *This article applies to solution builders and device developers.*
 
-This tutorial shows you how, as a device developer, to connect a Node.js client application to your Azure IoT Central application. The Node.js application simulates the behavior of an environmental sensor device. You use a sample _device capability model_ to create a _device template_ in IoT Central. You add views to the device template to enable an operator to interact with a device.
+This tutorial shows you how, as a device developer, to connect a Node.js client application to your Azure IoT Central application. The Node.js application simulates the behavior of a thermostat device. When the application connects to IoT Central, it sends the model ID of the thermostat device model. IoT Central uses the model ID to retrieve the device model and create a device template for you. You add customizations and views to the device template to enable an operator to interact with a device.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Import a device capability model to create a device template.
-> * Add default and custom views to a device template.
-> * Publish a device template and add a real device to your IoT Central application.
 > * Create and run the Node.js device code and see it connect to your IoT Central application.
 > * View the simulated telemetry sent from the device.
+> * Add custom views to a device template.
+> * Publish the device template.
 > * Use a view to manage device properties.
-> * Call synchronous and asynchronous commands to control the device.
+> * Call a command to control the device.
 
 ## Prerequisites
 
 To complete the steps in this article, you need the following:
 
-* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md). The application must have been created on or after 07/14/2020.
-* A development machine with [Node.js](https://nodejs.org/) version 10.0.0 or later installed. You can run `node --version` in the command line to check your version. The instructions in this tutorial assume you're running the **node** command at the Windows command prompt. However, you can use Node.js on many other operating systems.
+* An Azure IoT Central application created using the **Custom application** template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md). The application must have been created on or after 14 July 2020.
+* A development machine with [Node.js](https://nodejs.org/) version 6 or later installed. You can run `node --version` in the command line to check your version. The instructions in this tutorial assume you're running the **node** command at the Windows command prompt. However, you can use Node.js on many other operating systems.
+* A local copy of the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-node/archive/master.zip). Then unzip the file to a suitable location on your local machine.
 
-[!INCLUDE [iot-central-add-environmental-sensor](../../../includes/iot-central-add-environmental-sensor.md)]
+## Review the code
 
-### Create a Node.js application
+In the copy of the Microsoft Azure IoT SDK for Node.js you downloaded previously, open the *azure-iot-sdk-node/device/samples/pnp/simple_thermostat.js* file in a text editor.
 
-The following steps show you how to create a Node.js client application that connects to the real device you added to the application. This Node.js application simulates the behavior of a real device.
+When you run the sample to connect to IoT Central, it uses the Device Provisioning Service (DPS) to register the device and generate a connection string. The sample retrieves the DPS connection information it needs from the command-line environment.
 
-1. In your command-line environment, navigate to the `environmental-sensor` folder you created previously.
+The `main` method:
 
-1. To initialize your Node.js project and install the required dependencies, run the following commands - accept all the default options when you run `npm init`:
+* Creates a `client` object and sets the `dtmi:com:example:Thermostat;1` model ID before it opens the connection.
+* Creates a command handler.
+* Starts a loop to send temperature telemetry every 10 seconds.
+* Sends the `maxTempSinceLastReboot` property to IoT Central. IoT Central ignores the `serialNumber` property because it's not part of the device model.
+* Creates a writable properties handler.
 
-    ```cmd/sh
-    npm init
-    npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
-    ```
+```javascript
+async function main() {
 
-1. Create a file called **environmentalSensor.js** in the `environmental-sensor` folder.
+  // ...
 
-1. Add the following `require` statements at the start of the **environmentalSensor.js** file:
+  // fromConnectionString must specify a transport, coming from any transport package.
+  const client = Client.fromConnectionString(deviceConnectionString, Protocol);
 
-    ```javascript
-    "use strict";
+  let resultTwin;
+  try {
+    // Add the modelId here
+    await client.setOptions(modelIdObject);
+    await client.open();
 
-    // Use the Azure IoT device SDK for devices that connect to Azure IoT Central.
-    var iotHubTransport = require('azure-iot-device-mqtt').Mqtt;
-    var Client = require('azure-iot-device').Client;
-    var Message = require('azure-iot-device').Message;
-    var ProvisioningTransport = require('azure-iot-provisioning-device-mqtt').Mqtt;
-    var SymmetricKeySecurityClient = require('azure-iot-security-symmetric-key').SymmetricKeySecurityClient;
-    var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
-    ```
+    client.onDeviceMethod(commandMaxMinReport, commandHandler);
 
-1. Add the following variable declarations to the file:
+    // Send Telemetry every 10 secs
+    let index = 0;
+    intervalToken = setInterval(() => {
+      sendTelemetry(client, index).catch((err) => console.log('error', err.toString()));
+      index += 1;
+    }, telemetrySendInterval);
 
-    ```javascript
-    var provisioningHost = 'global.azure-devices-provisioning.net';
-    var idScope = '{your Scope ID}';
-    var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key}';
-    var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
-    var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
-    var hubClient;
+    // attach a standard input exit listener
+    attachExitHandler(client);
 
-    var targetTemperature = 0;
-    var ledOn = true;
-    ```
-
-    Update the placeholders `{your Scope ID}`, `{your Device ID}`, and `{your Primary Key}` with the values you made a note of previously. In this sample, you initialize `targetTemperature` to zero, you could use the current reading from the device or a value from the device twin.
-
-1. To send simulated telemetry to your Azure IoT Central application, add the following function to the file:
-
-    ```javascript
-    // Send simulated device telemetry.
-    function sendTelemetry() {
-      var temp = targetTemperature + (Math.random() * 15);
-      var humid = 70 + (Math.random() * 10);
-      var data = JSON.stringify({
-        temp: temp,
-        humid: humid,
-        });
-      var message = new Message(data);
-      hubClient.sendEvent(message, (err, res) => console.log(`Sent message: ${message.getData()}` +
-        (err ? `; error: ${err.toString()}` : '') +
-        (res ? `; status: ${res.constructor.name}` : '')));
-    }
-    ```
-
-    The names of the telemetry items (`temp` and `humid`) must match the names used in the device template.
-
-1. To send device twin properties to your Azure IoT Central application, add the following function to your file:
-
-    ```javascript
-    // Send device twin reported properties.
-    function sendDeviceProperties(twin, properties) {
-      twin.properties.reported.update(properties, (err) => console.log(`Sent device properties: ${JSON.stringify(properties)}; ` +
-        (err ? `error: ${err.toString()}` : `status: success`)));
-    }
-    ```
-
-    IoT Central uses device twins to synchronize property values between the device and the IoT Central application. Device property values use device twin reported properties. Writeable properties use both device twin reported and desired properties.
-
-1. To define and handle the writeable properties your device responds to, add the following code. The message the device sends in response to the [writeable property update](concepts-telemetry-properties-commands.md#writeable-property-types) must include the `av` and `ac` fields. The `ad` field is optional:
-
-    ```javascript
-    // Add any writeable properties your device supports,
-    // mapped to a function that's called when the writeable property
-    // is updated in the IoT Central application.
-    var writeableProperties = {
-      'name': (newValue, callback) => {
-          setTimeout(() => {
-            callback(newValue, 'completed', 200);
-          }, 1000);
-      },
-      'brightness': (newValue, callback) => {
-        setTimeout(() => {
-            callback(newValue, 'completed', 200);
-        }, 5000);
-      }
-    };
-
-    // Handle writeable property updates that come from IoT Central via the device twin.
-    function handleWriteablePropertyUpdates(twin) {
-      twin.on('properties.desired', function (desiredChange) {
-        for (let setting in desiredChange) {
-          if (writeableProperties[setting]) {
-            console.log(`Received setting: ${setting}: ${desiredChange[setting]}`);
-            writeableProperties[setting](desiredChange[setting], (newValue, status, code) => {
-              var patch = {
-                [setting]: {
-                  value: newValue,
-                  ad: status,
-                  ac: code,
-                  av: desiredChange.$version
-                }
-              }
-              sendDeviceProperties(twin, patch);
-            });
-          }
-        }
+    // Deal with twin
+    try {
+      resultTwin = await client.getTwin();
+      const patchRoot = createReportPropPatch({ serialNumber: deviceSerialNum });
+      const patchThermostat = createReportPropPatch({
+        maxTempSinceLastReboot: deviceTemperatureSensor.getMaxTemperatureValue()
       });
+
+      // the below things can only happen once the twin is there
+      updateComponentReportedProperties(resultTwin, patchRoot);
+      updateComponentReportedProperties(resultTwin, patchThermostat);
+
+      // Setup the handler for desired properties
+      desiredPropertyPatchHandler(resultTwin);
+
+    } catch (err) {
+      console.error('could not retrieve twin or report twin properties\n' + err.toString());
     }
-    ```
-
-    When the operator sets a writeable property in the IoT Central application, the application uses a device twin desired property to send the value to the device. The device then responds using a device twin reported property. When IoT Central receives the reported property value, it updates the property view with a status of **synced**.
-
-    The names of the properties (`name` and `brightness`) must match the names used in the device template.
-
-1. Add the following code to handle the commands sent from the IoT Central application:
-
-    ```javascript
-    // Setup command handlers
-    function setupCommandHandlers(twin) {
-
-      // Handle synchronous LED blink command with request and response payload.
-      function onBlink(request, response) {
-        console.log('Received synchronous call to blink');
-        var responsePayload = {
-          status: 'Blinking LED every ' + request.payload  + ' seconds'
-        }
-        response.send(200, responsePayload, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          } else {
-            console.log('Blinking LED every ' + request.payload  + ' seconds');
-          }
-        });
-      }
-
-      // Handle synchronous LED turn on command
-      function turnOn(request, response) {
-        console.log('Received synchronous call to turn on LED');
-        if(!ledOn){
-          console.log('Turning on the LED');
-          ledOn = true;
-        }
-        response.send(200, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          }
-        });
-      }
-
-      // Handle synchronous LED turn off command
-      function turnOff(request, response) {
-        console.log('Received synchronous call to turn off LED');
-        if(ledOn){
-          console.log('Turning off the LED');
-          ledOn = false;
-        }
-        response.send(200, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          }
-        });
-      }
-
-      // Handle asynchronous sensor diagnostics command with response payload.
-      function diagnostics(request, response) {
-        console.log('Starting asynchronous diagnostics run...');
-        response.send(202, (err) => {
-          if (err) {
-            console.error('Unable to send method response: ' + err.toString());
-          } else {
-            var repetitions = 3;
-            var intervalID = setInterval(() => {
-              console.log('Generating diagnostics...');
-              if (--repetitions === 0) {
-                clearInterval(intervalID);
-                var properties = {
-                  rundiagnostics: {
-                    value: 'Diagnostics run complete at ' + new Date().toLocaleString()
-                  }
-                };
-                sendDeviceProperties(twin, properties);
-              }
-            }, 2000);
-          }
-        });
-      }
-
-      hubClient.onDeviceMethod('blink', onBlink);
-      hubClient.onDeviceMethod('turnon', turnOn);
-      hubClient.onDeviceMethod('turnoff', turnOff);
-      hubClient.onDeviceMethod('rundiagnostics', diagnostics);
-    }
-    ```
-
-    The names of the commands (`blink`, `turnon`, `turnoff`, and `rundiagnostics`) must match the names used in the device template.
-
-    Currently, IoT Central doesn't use the response schema defined in the device capability model. For a synchronous command, the response payload can be any valid JSON. For an asynchronous command, the device should return a 202 response immediately, followed by reported property update when the work is finished. The format of the reported property update is:
-
-    ```json
-    {
-      [command name] : {
-        value: 'response message'
-      }
-    }
-    ```
-
-    An operator can view the response payload in the command history.
-
-1. Add the following code to complete the connection to Azure IoT Central and hook up the functions in the client code:
-
-    ```javascript
-    // Handle device connection to Azure IoT Central.
-    var connectCallback = (err) => {
-      if (err) {
-        console.log(`Device could not connect to Azure IoT Central: ${err.toString()}`);
-      } else {
-        console.log('Device successfully connected to Azure IoT Central');
-
-        // Send telemetry to Azure IoT Central every 1 second.
-        setInterval(sendTelemetry, 1000);
-
-        // Get device twin from Azure IoT Central.
-        hubClient.getTwin((err, twin) => {
-          if (err) {
-            console.log(`Error getting device twin: ${err.toString()}`);
-          } else {
-            // Send device properties once on device start up.
-            var properties = {
-              state: 'true',
-              processorArchitecture: 'ARM',
-              swVersion: '1.0.0'
-            };
-            sendDeviceProperties(twin, properties);
-
-            handleWriteablePropertyUpdates(twin);
-
-            setupCommandHandlers(twin);
-          }
-        });
-      }
-    };
-
-    // Start the device (register and connect to Azure IoT Central).
-    provisioningClient.register((err, result) => {
-      if (err) {
-        console.log('Error registering device: ' + err);
-      } else {
-        console.log('Registration succeeded');
-        console.log('Assigned hub=' + result.assignedHub);
-        console.log('DeviceId=' + result.deviceId);
-        var connectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
-        hubClient = Client.fromConnectionString(connectionString, iotHubTransport);
-
-        hubClient.open(connectCallback);
-      }
-    });
-    ```
-
-## Run your Node.js application
-
-To start the device client application, run the following command in your command-line environment:
-
-```cmd/sh
-node environmentalSensor.js
+  } catch (err) {
+    console.error('could not connect Plug and Play client or could not attach interval function for telemetry\n' + err.toString());
+  }
+}
 ```
 
-You can see the device connects to your Azure IoT Central application and starts sending telemetry:
+The `provisionDevice` function shows how the device uses DPS to register and connect to IoT Central. The payload includes the model ID:
 
-![Run the client application](media/tutorial-connect-device-nodejs/run-application.png)
+```javascript
+async function provisionDevice(payload) {
+  var provSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
+  var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvProtocol(), provSecurityClient);
 
-[!INCLUDE [iot-central-monitor-environmental-sensor](../../../includes/iot-central-monitor-environmental-sensor.md)]
+  if (!!(payload)) {
+    provisioningClient.setProvisioningPayload(payload);
+  }
+
+  try {
+    let result = await provisioningClient.register();
+    deviceConnectionString = 'HostName=' + result.assignedHub + ';DeviceId=' + result.deviceId + ';SharedAccessKey=' + symmetricKey;
+  } catch (err) {
+    console.error("error registering device: " + err.toString());
+  }
+}
+```
+
+The `sendTelemetry` function shows how the device sends the temperature telemetry to IoT Central. The `getCurrentTemperatureObject` method returns an object that looks like `{ temperature: 45.6 }`:
+
+```javascript
+async function sendTelemetry(deviceClient, index) {
+  console.log('Sending telemetry message %d...', index);
+  const msg = new Message(
+    JSON.stringify(
+      deviceTemperatureSensor.updateSensor().getCurrentTemperatureObject()
+    )
+  );
+  msg.contentType = 'application/json';
+  msg.contentEncoding = 'utf-8';
+  await deviceClient.sendEvent(msg);
+}
+```
+
+The `main` method uses the following two methods to send the `maxTempSinceLastReboot` property to IoT Central. The `main` method calls `createReportPropPatch` with an object that looks like `{maxTempSinceLastReboot: 80.9}`:
+
+```javascript
+const createReportPropPatch = (propertiesToReport) => {
+  let patch;
+  patch = { };
+  patch = propertiesToReport;
+  return patch;
+};
+
+const updateComponentReportedProperties = (deviceTwin, patch) => {
+  deviceTwin.properties.reported.update(patch, function (err) {
+    if (err) throw err;
+    console.log('Properties have been reported for component');
+  });
+};
+```
+
+The `main` method uses the following two methods to handle updates to the _target temperature_ writable property from IoT Central. Notice how `propertyUpdateHandle` builds the response with the version and status code:
+
+```javascript
+const desiredPropertyPatchHandler = (deviceTwin) => {
+  deviceTwin.on('properties.desired', (delta) => {
+    const versionProperty = delta.$version;
+
+    Object.entries(delta).forEach(([propertyName, propertyValue]) => {
+      if (propertyName !== '$version') {
+        propertyUpdateHandler(deviceTwin, propertyName, null, propertyValue, versionProperty);
+      }
+    });
+  });
+};
+
+const propertyUpdateHandler = (deviceTwin, propertyName, reportedValue, desiredValue, version) => {
+  console.log('Received an update for property: ' + propertyName + ' with value: ' + JSON.stringify(desiredValue));
+  const patch = createReportPropPatch(
+    { [propertyName]:
+      {
+        'value': desiredValue,
+        'ac': 200,
+        'ad': 'Successfully executed patch for ' + propertyName,
+        'av': version
+      }
+    });
+  updateComponentReportedProperties(deviceTwin, patch);
+  console.log('updated the property');
+};
+```
+
+The `main` method uses the following two methods to handle calls to the `getMaxMinReport` command. The `getMaxMinReportObject` method generates the report as a JSON object:
+
+```javascript
+const commandHandler = async (request, response) => {
+  switch (request.methodName) {
+  case commandMaxMinReport: {
+    console.log('MaxMinReport ' + request.payload);
+    await sendCommandResponse(request, response, 200, deviceTemperatureSensor.getMaxMinReportObject());
+    break;
+  }
+  default:
+    await sendCommandResponse(request, response, 404, 'unknown method');
+    break;
+  }
+};
+
+const sendCommandResponse = async (request, response, status, payload) => {
+  try {
+    await response.send(status, payload);
+    console.log('Response to method \'' + request.methodName +
+              '\' sent successfully.' );
+  } catch (err) {
+    console.error('An error ocurred when sending a method response:\n' +
+              err.toString());
+  }
+};
+```
+
+## Get connection information
+
+[!INCLUDE [iot-central-connection-configuration](../../../includes/iot-central-connection-configuration.md)]
+
+## Run the code
+
+To run the sample application, open a command-line environment and navigate to the folder *azure-iot-sdk-node/device/samples/pnp* folder that contains the *simple_thermostat.js* sample file.
+
+[!INCLUDE [iot-central-connection-environment](../../../includes/iot-central-connection-environment.md)]
+
+Install the required packages:
+
+```cmd/sh
+npm install
+```
+
+Run the sample:
+
+```cmd/sh
+node simple_thermostat.js
+```
+
+The following output shows the device registering and connecting to IoT Central. The sample then sends the `maxTempSinceLastReboot` property before it starts sending telemetry:
+
+```cmd/sh
+registration succeeded
+assigned hub=iotc-.......azure-devices.net
+deviceId=sample-device-01
+payload=undefined
+Connecting using connection string HostName=iotc-........azure-devices.net;DeviceId=sample-device-01;SharedAccessKey=Ci....=
+Enabling the commands on the client
+Please enter q or Q to exit sample.
+The following properties will be updated for root interface:
+{ maxTempSinceLastReboot: 55.20309427428496 }
+Properties have been reported for component
+Sending telemetry message 0...
+Sending telemetry message 1...
+Sending telemetry message 2...
+Sending telemetry message 3...
+```
+
+[!INCLUDE [iot-central-monitor-thermostat](../../../includes/iot-central-monitor-thermostat.md)]
 
 You can see how the device responds to commands and property updates:
 
-![Observe the client application](media/tutorial-connect-device-nodejs/run-application-2.png)
+```cmd/sh
+MaxMinReport 2020-10-15T12:00:00.000Z
+Response to method 'getMaxMinReport' sent successfully.
+
+...
+
+Received an update for property: targetTemperature with value: {"value":86.3}
+The following properties will be updated for root interface:
+{
+  targetTemperature: {
+    value: { value: 86.3 },
+    ac: 200,
+    ad: 'Successfully executed patch for targetTemperature',
+    av: 2
+  }
+}
+```
 
 ## View raw data
 
-[!INCLUDE [iot-central-monitor-environmental-sensor-raw-data](../../../includes/iot-central-monitor-environmental-sensor-raw-data.md)]
+[!INCLUDE [iot-central-monitor-thermostat-raw-data](../../../includes/iot-central-monitor-thermostat-raw-data.md)]
 
 ## Next steps
 
@@ -341,3 +293,4 @@ As a device developer, now that you've learned the basics of how to create a dev
 
 * Read [What are device templates?](./concepts-device-templates.md) to learn more about the role of device templates when you're implementing your device code.
 * Read [Get connected to Azure IoT Central](./concepts-get-connected.md) to learn more about how to register devices with IoT Central and how IoT Central secures device connections.
+* Read [Telemetry, property, and command payloads](concepts-telemetry-properties-commands.md) to learn more about the data the device exchanges with IoT Central.
