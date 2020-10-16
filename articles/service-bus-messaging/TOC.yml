@@ -78,7 +78,9 @@
   items:
   - name: Update inventory
     href: service-bus-tutorial-topics-subscriptions-portal.md
-  - name: Respond to events via Event Grid
+  - name: Respond to Service Bus events via Event Grid using Azure Logic Apps
+    href: service-bus-to-event-grid-integration-example.md
+  - name: Respond to Service Bus events via Event Grid using Azure Functions
     href: service-bus-to-event-grid-integration-example.md
 - name: Samples
   items:
