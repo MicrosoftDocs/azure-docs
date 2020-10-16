@@ -18,7 +18,7 @@ Azure Spring Cloud provides robust services to host, monitor, scale, and update 
 This article explains the dependencies, configuration, and code that are required to run a .NET Core Steeltoe app in Azure Spring Cloud. For information about how to deploy an application to Azure Spring Cloud, see [Deploy your first Azure Spring Cloud application](spring-cloud-quickstart.md).
 
 >[!Note]
-> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request).
+> Steeltoe support for Azure Spring Cloud is currently offered as a public preview. Public preview offerings allow customers to experiment with new features prior to their official release.  Public preview features and services are not meant for production use.  For more information about support during previews, see the [FAQ](https://azure.microsoft.com/support/faq/) or file a [Support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ##  Supported versions
 
@@ -94,7 +94,7 @@ This article explains the required dependencies and how to add them to the POM f
 
 Only Spring/Java applications can run in Azure Spring Cloud.
 
-Azure Spring Cloud supports both Java 8 and Java 11. The hosting environment contains the latest version of Azul Zulu OpenJDK for Azure. For more information about Azul Zulu OpenJDK for Azure, see [Install the JDK](https://docs.microsoft.com/azure/developer/java/fundamentals/java-jdk-install).
+Azure Spring Cloud supports both Java 8 and Java 11. The hosting environment contains the latest version of Azul Zulu OpenJDK for Azure. For more information about Azul Zulu OpenJDK for Azure, see [Install the JDK](/azure/developer/java/fundamentals/java-jdk-install).
 
 ## Spring Boot and Spring Cloud versions
 
@@ -205,6 +205,8 @@ Include the following dependenciy in your pom.xml file if you are using Spring B
         <version>2.1.2</version>
 </dependency>
 ```
+> [!WARNING]
+> Don't specify `server.port` in your configuration. Azure Spring Cloud will overide this setting to a fixed port number. Please also respect this setting and not specify server port in your code.
 
 ## Other recommended dependencies to enable Azure Spring Cloud features
 
@@ -222,6 +224,7 @@ To use the managed Azure Service Registry service, include the `spring-cloud-sta
 ```
 
 The endpoint of the Service Registry server is automatically injected as environment variables with your app. Applications can register themselves with the Service Registry server and discover other dependent microservices.
+
 
 #### EnableDiscoveryClient annotation
 
@@ -297,9 +300,9 @@ Include the following `spring-cloud-starter-sleuth` and `spring-cloud-starter-zi
  You also need to enable an Azure Application Insights instance to work with your Azure Spring Cloud service instance. For information about how to use Application Insights with Azure Spring Cloud, see the [documentation on distributed tracing](spring-cloud-tutorial-distributed-tracing.md).
 
 ## See also
-* [Analyze application logs and metrics](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)
-* [Set up your Config Server](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-config-server)
-* [Use distributed tracing with Azure Spring Cloud](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)
+* [Analyze application logs and metrics](./diagnostic-services.md)
+* [Set up your Config Server](./spring-cloud-tutorial-config-server.md)
+* [Use distributed tracing with Azure Spring Cloud](./spring-cloud-tutorial-distributed-tracing.md)
 * [Spring Quickstart Guide](https://spring.io/quickstart)
 * [Spring Boot documentation](https://spring.io/projects/spring-boot)
 

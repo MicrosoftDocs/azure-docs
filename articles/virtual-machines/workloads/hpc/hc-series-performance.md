@@ -1,18 +1,13 @@
 ---
 title: HC-series VM size performance
 description: Learn about performance testing results for HC-series VM sizes in Azure. 
-services: virtual-machines
-documentationcenter: ''
 author: vermagit
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-
 ms.service: virtual-machines
-ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 09/10/2020
 ms.author: amverma
+ms.reviewer: cynthn
+
 ---
 
 # HC-series virtual machine sizes

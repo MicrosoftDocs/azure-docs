@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 08/28/2020
+ms.date: 10/12/2020
 ms.author: alkohli
 ---
 
@@ -23,12 +23,16 @@ Consider these limits as you deploy and operate your Microsoft Azure Stack Edge 
 
 The following table describes the limits for the Azure Stack Edge Pro device. 
 
+The following table describes the limits for the Azure Stack Edge device.
+
 | Description | Value |
 |---|---|
 |No. of files per device |100 million |
-|No. of shares per device |24 |
 |No. of shares per container |1 |
+|Maximum no. of share endpoints and REST endpoints per device| 24 |
+|Maximum no. of tiered storage accounts per device| 24|
 |Maximum file size written to a share| 5 TB |
+|Maximum number of resource groups per device| 800 |
 
 ## Azure storage limits
 

@@ -34,11 +34,12 @@ composed of:
   - NetOps role has the rights to manage the network environment, including firewall settings, NSG
     settings, routing, and other networking functionality
   - SecOps role has the necessary rights to deploy and manage
-    [Azure Security Center](../../../../security-center/security-center-intro.md), define
-    [Azure Policies](../../../policy/overview.md), and other security-related rights
-  - SysOps role has the necessary rights to define [Azure Policies](../../../policy/overview.md)
-    within the subscription, manage [Log Analytics](../../../../azure-monitor/overview.md) for the
-    entire environment, among other operational rights
+    [Azure Security Center](../../../../security-center/security-center-introduction.md), define
+    [Azure Policy](../../../policy/overview.md) definitions, and other security-related rights
+  - SysOps role has the necessary rights to define [Azure Policy](../../../policy/overview.md)
+    definitions within the subscription, manage
+    [Log Analytics](../../../../azure-monitor/overview.md) for the entire environment, among other
+    operational rights
 - [Log Analytics](../../../../azure-monitor/overview.md) is deployed as the first Azure service to
   ensure all actions and services log to a central location from the moment you start your secure
   deployment
@@ -68,8 +69,7 @@ For more information, see the [Virtual Datacenter documentation](/azure/architec
 ## Next steps
 
 You've reviewed the overview and architecture of the ISO 27001 Shared Services blueprint sample.
-Next, visit the following articles to learn about the control mapping and how to deploy this
-sample:
+Next, visit the following articles to learn about the control mapping and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [ISO 27001 Shared Services blueprint - Control mapping](./control-mapping.md)
