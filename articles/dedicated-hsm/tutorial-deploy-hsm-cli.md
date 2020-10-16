@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: "mvc, seodec18, devx-track-azurecli"
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 10/20/2020
 ms.author: mbaldwin
 ---
 
