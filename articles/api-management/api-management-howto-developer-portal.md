@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/28/2020
+ms.date: 08/14/2020
 ms.author: apimpm
 ---
 
@@ -20,14 +20,23 @@ ms.author: apimpm
 
 Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture and provides answers to frequently asked questions.
+This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture, migration from the legacy portal, and provides answers to frequently asked questions.
 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-> [!NOTE]
-> <a name="migrate-from-legacy"></a> The new developer portal is incompatible with the legacy developer portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance.
+## <a name="migrate-from-legacy"></a> Migrate from the legacy portal
+
+The new developer portal addresses many limitations of the legacy portal. It features a visual drag-and-drop editor for editing content and a dedicated page for designers to style and brand the website. Pages, customizations, and configuration are saved as Azure Resource Manager resources in your API Management service, which lets you [automate portal deployments](#automate). Lastly, if you need to extend the portal with custom functionality, [you can do it on top of our open-source codebase](#managed-vs-self-hosted). The new developer portal doesn't support the following features:
+
+- *Issues* 
+- Direct integration with Facebook, Microsoft, Twitter, and Google as identity providers (you can use Azure AD B2C instead)
+
+> [!IMPORTANT]
+> The legacy developer portal is now deprecated and it will receive security updates only. It will be retired and removed from API Management services in September 2023.
+
+The new developer portal is incompatible with the legacy portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Precise steps will vary depending on the customizations and complexity of your portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance.
 
 ## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
@@ -81,21 +90,11 @@ If you're using the self-hosted version, run `scripts.v2/cleanup.bat` and `scrip
 
 If you first accessed the portal after the general availability announcement in November 2019, it should already feature the new default content and no further action is required.
 
-### Does the portal have all the features of the legacy portal?
-
-The developer portal no longer supports *Applications*, *Issues*, and direct integration with Facebook, Microsoft, Twitter, and Google as identity providers (you can use Azure AD B2C instead).
-
-### Has the legacy portal been deprecated?
-
-The legacy developer and publisher portals are now *legacy* features - they will be receiving security updates only. New features will be implemented in the new developer portal only.
-
-Deprecation of the legacy portals will be announced separately. If you have questions, concerns, or comments, raise them [in a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/121).
-
 ### Functionality I need isn't supported in the portal
 
 You can open a [feature request](https://aka.ms/apimwish) or [implement the missing functionality yourself][3]. If you implement the functionality yourself, you can either self-host the developer portal or open a pull request on GitHub to include the changes in the managed version.
 
-### How can I automate portal deployments?
+### <a id="automate"></a> How can I automate portal deployments?
 
 You can programmatically access and manage the developer portal's content through the REST API, regardless if you're using a managed or a self-hosted version.
 
