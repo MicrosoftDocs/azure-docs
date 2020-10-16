@@ -1,5 +1,5 @@
 ---
-title: Virtual network isolation and privacy overview
+title: Virtual network isolation and security overview
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network with Azure Machine Learning to secure workspace resources and compute environments.
 services: machine-learning
