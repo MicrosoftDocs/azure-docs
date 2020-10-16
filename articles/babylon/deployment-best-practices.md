@@ -97,7 +97,7 @@ These scenarios can be written up in various ways, but you need to include at le
 4. Detail scenarios – How the users use Babylon to solve problems?
 5. Expected outcome – What is the success criteria?
 
-The scenarios must be specific, actionable, and executable with measurable results. Some example scenarios that you can leverage:
+The scenarios must be specific, actionable, and executable with measurable results. Some example scenarios that you can use:
 
 |Scenario|Detail|Persona|
 |---------|---------|---------|
@@ -132,8 +132,8 @@ In Babylon, there are several areas where the Catalog Administrators need to ens
 
 * **Data assets** – Data sources will need to be re-scanned across environments. It’s not recommended to scan only in Development and then re-generate them using APIs in Production. The main reason is that the Babylon scanners did a lot more “wiring” behind the scene on the data assets which could be very complex to move them to a different Babylon instance. It’s much easier to just add the same data source in Production and scan the sources again. The general best practice is to have documentation of all scans, connections and authentication mechanisms being used.
 * **Scan rule sets** – This is your collection of rules assigned to specific scan such as file type and classifications to detect. If you don’t have that many scan rule sets, it’s possible to just re-create them manually again via Production. This will require an internal process and good documentation. However, if you rule sets change on the daily or weekly basis, this could be addressed by exploring the REST API route.
-* **Custom classifications** – Your classifications may not also change on a regular basis. During the initial phase of deployment, it may take some time to understand various requirements to come up with custom classifications. However, once settled, this will require very little change. So the recommendation here is to manually migrate any custom classifications over or leverage the REST API.
-* **Glossary** – It’s possible to export and import glossary terms via the UX. For automation scenarios, you can also leverage the REST API.
+* **Custom classifications** – Your classifications may not also change on a regular basis. During the initial phase of deployment, it may take some time to understand various requirements to come up with custom classifications. However, once settled, this will require very little change. So the recommendation here is to manually migrate any custom classifications over or use the REST API.
+* **Glossary** – It’s possible to export and import glossary terms via the UX. For automation scenarios, you can also use the REST API.
 * **Resource set pattern policies** – This functionality is very advance for any typical organizations to apply. In some cases, your Azure Data Lake Storage has folder naming convention and specific structure that may cause problem for Babylon to generate the resource set. Your business unit may also want to change the resource set construction with additional customization to fit the business needs. For this scenario, it’s best to keep track of all changes via REST API and document the changes through external versioning platform.
 * **Role assignment** – This is where you control who has access to Babylon and which permissions they have. Babylon also has REST API to support export and import of users and roles but this is not Atlas API-compatible. The recommendation is to assign an Azure Security Group and manage the group membership instead.
 
@@ -226,7 +226,7 @@ Tasks to complete
 The above phases should be followed to create an effective information governance, which is the foundation for better governance programs. Data governance will help your organization prepare for the growing trends such as AI, Hadoop, IoT, and blockchain. It is just the start for many things data and analytics, and there is plenty more that can be discussed. The outcome of this solution would deliver:
 
 * **Business Focused** - A solution that is aligned to business requirements and scenarios over technical requirements. 
-* **Future Ready** - A solution will maximise default features of the platform and use standardised industry practices for configuration or scripting activities to support the advancements/evolution of the platform. 
+* **Future Ready** - A solution will maximize default features of the platform and use standardized industry practices for configuration or scripting activities to support the advancements/evolution of the platform. 
 
 |Task|Detail|Duration|
 |---------|---------|---------|
@@ -245,7 +245,7 @@ The above phases should be followed to create an effective information governanc
 
 Additional hardening steps can be taken:
 
-* Increase security posture by enabling scan on firewall resources or leverage Private Link
+* Increase security posture by enabling scan on firewall resources or use Private Link
 * Fine-tune scope scan to improve scan performance
 * Use REST APIs to export critical metadata and properties for backup and recovery
 * Use workflow to automate ticketing and eventing to avoid human errors
