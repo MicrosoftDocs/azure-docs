@@ -25,6 +25,7 @@ You need the Azure CLI version 2.0.76 or later installed and configured. Run `a
 AKS clusters can currently be created using availability zones in the following regions:
 
 * Australia East
+* Canada Central
 * Central US
 * East US 2
 * East US

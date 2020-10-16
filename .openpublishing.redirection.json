@@ -24623,6 +24623,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/conditional-access/best-practices.md",
+      "redirect_url": "/azure/active-directory/conditional-access/overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/conditional-access/app-sign-in-risk.md",
       "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-policy-risk",
       "redirect_document_id": true
@@ -39745,7 +39750,7 @@
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal.md",
       "redirect_url": "/azure/active-directory/conditional-access/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",
@@ -54197,6 +54202,16 @@
       "source_path": "articles/active-directory/develop/active-directory-graph-api-quickstart.md",
       "redirect_url": "/azure/active-directory/develop/microsoft-graph-intro",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/jenkins/container-instances-jenkins.md",
