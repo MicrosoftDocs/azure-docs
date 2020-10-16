@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-mongo
 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 10/15/2020
 ms.custom: devx-track-csharp
 ---
 
@@ -49,7 +49,7 @@ First, download the sample app from GitHub.
 1. Open a command prompt, create a new folder named git-samples, then close the command prompt.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Open a git terminal window, such as git bash, and use the `cd` command to change to the new folder to install the sample app.

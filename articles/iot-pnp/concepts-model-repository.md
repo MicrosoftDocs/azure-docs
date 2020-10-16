@@ -25,7 +25,7 @@ Microsoft hosts a public DMR with these characteristics:
 
 ## Custom device model repository
 
-You can use the same DMR pattern in any storage medium, such as local file system or custom HTTP web servers, to create a custom DMR. You can retrieve models from the custom DMR in the same way as from the public DRM simply by changing the base URL used to access the DMR.
+You can use the same DMR pattern in any storage medium, such as local file system or custom HTTP web servers, to create a custom DMR. You can retrieve models from the custom DMR in the same way as from the public DMR simply by changing the base URL used to access the DMR.
 
 > [!NOTE]
 > The tools used to validate the models in the public DMR can be reused in custom repositories.
