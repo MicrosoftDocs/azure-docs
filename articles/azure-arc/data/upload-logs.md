@@ -82,7 +82,7 @@ Example output:
 
 ## Assign ID and shared key to environment variables
 
-Save the log workspace analytyics `customerId` as an environment variable to be used later:
+Save the log workspace analytics `customerId` as an environment variable to be used later:
 
 ::: zone pivot="client-operating-system-windows-command"
 
@@ -253,12 +253,12 @@ With the environment variables set, you can upload logs to the log workspace.
 Once your logs are uploaded, you should be able to query them using the log query explorer as follows:
 
 1. Open the Azure portal and then search for your workspace by name in the search bar at the top and then select it.
-2. Click Logs in the left panel.
-3. Click Get Started (or click the links on the Getting Started page to learn more about Log Analytics if you are new to it).
+2. Select Logs in the left panel.
+3. Select Get Started (or select the links on the Getting Started page to learn more about Log Analytics if you are new to it).
 4. Follow the tutorial to learn more about Log Analytics if this is your first time using Log Analytics.
 5. Expand Custom Logs at the bottom of the list of tables and you will see a table called 'sql_instance_logs_CL'.
-6. Click the 'eye' icon next to the table name.
-7. Click the 'View in query editor' button.
+6. Select the 'eye' icon next to the table name.
+7. Select the 'View in query editor' button.
 8. You'll now have a query in the query editor that will show the most recent 10 events in the log.
 9. From here, you can experiment with querying the logs using the query editor, set alerts, etc.
 
