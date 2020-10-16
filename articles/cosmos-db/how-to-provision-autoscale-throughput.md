@@ -107,7 +107,7 @@ int? currentThroughput = autoscaleContainerThroughput.Throughput;
 await container.ReplaceThroughputAsync(ThroughputProperties.CreateAutoscaleThroughput(newAutoscaleMaxThroughput));
 ```
 
-## Azure Cosmos DB Java V4 SDK for SQL API
+## Azure Cosmos DB Java V4 SDK
 
 You can use [version 4.0 or higher](https://mvnrepository.com/artifact/com.azure/azure-cosmos) of the Azure Cosmos DB Java SDK for SQL API to manage autoscale resources.
 

@@ -44,8 +44,6 @@ To create a container with dedicated throughput see,
 > [!Note]
 > Use the Cosmos SDKs for SQL API to provision throughput for all Cosmos DB APIs, except Cassandra and MongoDB API.
 
-### <a id="dotnet-most"></a>SQL
-
 # [.NET SDK V2](#tab/dotnetv2)
 
 ```csharp

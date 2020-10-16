@@ -17,8 +17,6 @@ If you are using a different API, see [API for MongoDB](how-to-provision-through
 
 ## Provision throughput using Azure portal
 
-### <a id="portal-sql"></a>SQL (Core) API
-
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 1. [Create a new Azure Cosmos account](create-sql-api-dotnet.md#create-account), or select an existing Azure Cosmos account.
@@ -43,8 +41,6 @@ To create a database with shared throughput see,
 
 > [!Note]
 > You can use Azure Cosmos SDKs for SQL API to provision throughput for all APIs. You can optionally use the following example for Cassandra API as well.
-
-### <a id="dotnet-all"></a>SQL API
 
 # [.NET SDK V2](#tab/dotnetv2)
 
