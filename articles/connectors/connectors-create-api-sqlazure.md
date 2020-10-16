@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/06/2020
+ms.date: 10/16/2020
 tags: connectors
 ---
 
@@ -61,6 +61,9 @@ Now, continue with these steps:
 <a name="connect-azure-sql-db"></a>
 
 ### Connect to Azure SQL Database or Managed Instance
+
+If you are not using on-premises data gateway or integration service environment, the SQL Managed Instance must have its public endpoint enabled. Please see [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md) for instructions. Additionally the public endpoint runs on port 3342 and be sure to specify this port number when creating the API connection.
+
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
 
@@ -245,6 +248,18 @@ When you call a stored procedure by using the SQL Server connector, the returned
 1. On the designer toolbar, select **Save**.
 
 1. To reference the JSON content properties, click inside the edit boxes where you want to reference those properties so that the dynamic content list appears. In the list, under the [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) heading, select the data tokens for the JSON content properties that you want.
+
+## Troubleshooting 
+
+It is very common to encounter connectivity issue. The following is an example of an error message:
+
+> `A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections.`
+>
+> `(provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server) (Microsoft SQL Server, Error: 53)`
+>
+> `(provider: TCP Provider, error: 0 - No such host is known.) (Microsoft SQL Server, Error: 11001)`
+
+Please follow [Solving Connectivity errors to SQL Server](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server) to troubleshoot the issue.
 
 ## Connector-specific details
 
