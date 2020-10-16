@@ -58,7 +58,7 @@ Use the Elevation service APIs to request elevation data in GeoJSON format. This
 
 ### Request elevation data for points
 
-In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) in order to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
+In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
  >[!IMPORTANT]
  >Due to the URL character length limit of 2048, it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the POST Data For Points.
@@ -123,7 +123,7 @@ In the first part of this example, we'll use the [Get Data for Polyline](https:/
 
 Then, we'll use the Get Data for Polyline to request three equally spaced samples of elevation data along a path. We'll define the precise location for the samples by passing in three Long/Lat coordinate pairs.
 
-Finally, we'll use the [Post Data For Polyline API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) in order to request elevation data at the same three equally spaced samples. 
+Finally, we'll use the [Post Data For Polyline API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) to request elevation data at the same three equally spaced samples. 
 
 Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
 
@@ -255,7 +255,7 @@ Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic 
 
 Now we'll use the [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox) to request elevation data near Mt. Rainier, WA. The elevation data will be returned at equally spaced locations within a bounding box. The bounding area defined by (2) sets of lat/long coordinates (south latitude, west longitude | north latitude, east longitude) is divided into rows and columns. The edges of the bounding box account for two (2) of the rows and two (2) of the columns. Elevations are returned for the vertices of the grid created at the intersections of the rows and columns. Up to 2000 elevations can be returned in a single request.
 
-In this example, we'll specify rows=3 and columns=6. Eighteen elevation values are returned in the response. The elevation values are ordered starting with the southwest corner, and then proceed west to east and south to north. This is illustrated in the following diagram. The elevation points are numbered in the order that they are returned.
+In this example, we'll specify rows=3 and columns=6. 18 elevation values are returned in the response. In the following diagram, the elevation values are ordered starting with the southwest corner, and then continue west to east and south to north.  The elevation points are numbered in the order that they are returned.
 
 :::image type="content" source="./media/how-to-request-elevation-data/bounding-box.png" border="false" alt-text="Bounding box coordinates at NE and SE corners.":::
 
@@ -267,7 +267,7 @@ In this example, we'll specify rows=3 and columns=6. Eighteen elevation values a
     https://atlas.microsoft.com/elevation/lattice/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&bounds=-121.66853362143818, 46.84646479863713,-121.65853362143818, 46.85646479863713&rows=2&columns=3
     ```
 
-3. Click the blue **Send** button. You'll receive the following JSON response. Notice that there are 18 elevation data samples, one for each vertex of the grid.
+3. Click the blue **Send** button. 18  elevation data samples, one for each vertex of the grid, are returned in the response.
 
     ```json
     {
