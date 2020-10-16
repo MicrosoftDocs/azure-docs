@@ -313,6 +313,10 @@
         href: platform/logs-export-logic-app.md
       - name: Query exported data with Data Explorer
         href: platform/azure-data-explorer-query-storage.md
+      - name: Send to Excel
+        href: log-query/log-excel.md
+      - name: Send to Power BI
+        href: log-query/log-powerbi-excel.md
   - name: Metrics explorer
     items:
     - name: Getting started with Metrics Explorer
