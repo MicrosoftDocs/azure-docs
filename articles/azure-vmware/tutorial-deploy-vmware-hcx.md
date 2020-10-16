@@ -104,7 +104,6 @@ Infrastructure components must be running the required minimum version.
    
    > [!IMPORTANT]
    > You might need to turn on the virtual appliance manually.  If that's the case, wait 10-15 minutes before proceeding to the next step.
-   > Wait 10-15 minutes after turning on the HCX appliance to move to the next step.
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Appliance Deployment](https://www.youtube.com/embed/BwSnQeefnso) video. 
 
