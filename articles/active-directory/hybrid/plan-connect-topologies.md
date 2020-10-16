@@ -155,7 +155,11 @@ A DNS domain can be registered in only a single Azure AD tenant. The UPNs of the
 
 This topology has the following restrictions on otherwise supported scenarios:
 
-* Only one of the Azure AD tenants can enable an Exchange hybrid with the on-premises Active Directory instance.
+* A maximum of 5 Azure Active Directory tenants can have Exchange Hybrid with the on-Premises Active Directory instance. 
+(as described in https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698)
+Exchange Server running Hybrid Configuration Wizard should be either 2016 CU18 or 2019 CU7 or above.
+Each “AD Connect” instance should  be running on a domain joined machine.
+Azure AD Connect must be configured using the Domain/OU filtering option to filter users from your on-premises directory to ensure they appear only in a single online Exchange tenant.
 * Windows 10 devices can be associated with only one Azure AD tenant.
 * The single sign-on (SSO) option for password hash synchronization and pass-through authentication can be used with only one Azure AD tenant.
 
