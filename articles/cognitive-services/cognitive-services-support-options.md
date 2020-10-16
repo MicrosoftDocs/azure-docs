@@ -28,10 +28,6 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Post a question on Microsoft Q&A
 
-<div class='icon is-large'>
-    <img alt='Microsoft QnA' src='./media/logo_ms.png'>
-</div>
-
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://docs.microsoft.com/answers/products/azure?product=all), Azure's preferred destination for community support.
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
