@@ -41,8 +41,8 @@ Platform logs and metrics can be sent to the destinations in the following table
 | Destination | Description |
 |:---|:---|
 | [Log Analytics workspace](design-logs-deployment.md) | Sending logs and metrics to a Log Analytics workspace allows you to analyze them with other monitoring data collected by Azure Monitor using powerful log queries and also to leverage other Azure Monitor features such as alerts and visualizations. |
-| [Event hubs](/azure/event-hubs/) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions.  |
-| [Azure storage account](/azure/storage/blobs/) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  |
+| [Event hubs](../../event-hubs/index.yml) | Sending logs and metrics to Event Hubs allows you to stream data to external systems such as third-party SIEMs and other log analytics solutions.  |
+| [Azure storage account](../../storage/blobs/index.yml) | Archiving logs and metrics to an Azure storage account is useful for audit, static analysis, or backup. Compared to Azure Monitor Logs and a Log Analytics workspace, Azure storage is less expensive and logs can be kept there indefinitely.  |
 
 
 ### Destination requirements
@@ -132,7 +132,7 @@ After a few moments, the new setting appears in your list of settings for this r
 Use the [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting) cmdlet to create a diagnostic setting with [Azure PowerShell](../samples/powershell-samples.md). See the documentation for this cmdlet for descriptions of its parameters.
 
 > [!IMPORTANT]
-> You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create a Resource Manager template and deploy it with PowerShell.
+> You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](../samples/resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with PowerShell.
 
 Following is an example PowerShell cmdlet to create a diagnostic setting using all three destinations.
 
@@ -145,7 +145,7 @@ Set-AzDiagnosticSetting -Name KeyVault-Diagnostics -ResourceId /subscriptions/xx
 Use the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) command to create a diagnostic setting with [Azure CLI](/cli/azure/monitor?view=azure-cli-latest). See the documentation for this command for descriptions of its parameters.
 
 > [!IMPORTANT]
-> You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](diagnostic-settings-template.md) to create a Resource Manager template and deploy it with CLI.
+> You cannot use this method for the Azure Activity log. Instead, use [Create diagnostic setting in Azure Monitor using a Resource Manager template](../samples/resource-manager-diagnostic-settings.md) to create a Resource Manager template and deploy it with CLI.
 
 Following is an example CLI command to create a diagnostic setting using all three destinations.
 

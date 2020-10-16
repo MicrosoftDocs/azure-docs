@@ -6,8 +6,8 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/07/2020
-ms.author: cherylmc
+ms.date: 10/15/2020
+ms.author: alzam
 
 ---
 # Azure Active Directory authentication: Configure a VPN client for P2S OpenVPN protocol connections
@@ -149,6 +149,10 @@ These steps help you configure your connection to connect automatically with Alw
     ![diagnose](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
 
 ## FAQ
+
+### Is the Azure VPN Client supported with Windows FIPS mode?
+
+Yes, with the [KB4577063](https://support.microsoft.com/help/4577063/windows-10-update-kb4577063) hotfix.
 
 ### How do I add DNS suffixes to the VPN client?
 
