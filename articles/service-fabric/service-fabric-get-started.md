@@ -11,7 +11,7 @@ ms.custom: sfrev, devx-track-azurepowershell
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
+> * [Mac OS X](service-fabric-get-started-mac.md)
 >
 >
 
@@ -90,6 +90,7 @@ Now that you've finished setting up your development environment, start building
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"
