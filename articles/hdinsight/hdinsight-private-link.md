@@ -51,7 +51,7 @@ Private Link, which is disabled by default, requires extensive networking knowle
 
 When `privateLink` is set to *enable*, internal [standard load balancers](../load-balancer/load-balancer-overview.md) (SLB) are created, and an Azure Private Link Service is provisioned for each SLB. The Private Link Service is what allows you to access the HDInsight cluster from private endpoints.
 
-Standard load balancers do not automatically provide the public outbound NAT like basic load balancers do. You must provide your own NAT solution, such as [Virtual Network NAT](../virtual-network/nat-overview.md) or a [firewall](./hdinsight-restrict-outbound-traffic.md), for outbound dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, the cluster creation may fail.
+Standard load balancers do not automatically provide the [public outbound NAT](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) like basic load balancers do. You must provide your own NAT solution, such as [Virtual Network NAT](../virtual-network/nat-overview.md) or a [firewall](./hdinsight-restrict-outbound-traffic.md), for outbound dependencies. Your HDInsight cluster still needs access to its outbound dependencies. If these outbound dependencies are not allowed, the cluster creation may fail.
 
 ### Prepare your environment
 

@@ -323,13 +323,20 @@ Notice that no error is thrown when the twins are created the second time, even 
 
 Next, you can create **relationships** between the twins you've created, to connect them into a **twin graph**. [Twin graphs](concepts-twins-graph.md) are used to represent your entire environment.
 
-To be able to create relationships, you'll need the `Azure.DigitalTwins.Core.Serialization` namespace. You added this to the project earlier with this `using` statement:
+To help with creating relationships, this code sample uses the `Azure.DigitalTwins.Core.Serialization` namespace. You added this to the project earlier with this `using` statement:
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` is not required to work with digital twins and relationships; it's an optional namespace that can help get data into the right format. Some alternatives to using it include:
+>* Concatenating strings to form a JSON object
+>* Using a JSON parser like `System.Text.Json` to build up a JSON object dynamically
+>* Modeling your custom types in C#, instantiating them, and serializing them to strings
+
 Add a new static method to the `Program` class, underneath the `Main` method:
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -351,7 +358,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Then, add the following code to the end of the `Main` method to call the `CreateRelationship` code:
+Next, add the following code to the end of the `Main` method, to call the `CreateRelationship` method and use the code you just wrote:
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
