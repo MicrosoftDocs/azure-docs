@@ -653,6 +653,9 @@
             href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Change feed
           href: cassandra-change-feed.md
+        - name: Provision throughput- Cassandra
+          displayName: request units, RUs, RU, collection level
+          href: how-to-provision-throughput-cassandra.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-cassandra.md
@@ -776,6 +779,9 @@
           href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
+        - name: Provision throughput- MongoDB
+          displayName: request units, RUs, RU, collection level
+          href: how-to-provision-throughput-mongodb.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-mongodb.md
@@ -840,6 +846,9 @@
           href: bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph-execution-profile.md
+        - name: Provision throughput- Gremlin
+          displayName: request units, RUs, RU, collection level
+          href: how-to-provision-throughput-gremlin.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-gremlin.md

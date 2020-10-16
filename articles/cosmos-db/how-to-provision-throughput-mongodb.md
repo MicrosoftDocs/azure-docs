@@ -5,18 +5,37 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
 ---
 
-# Provision throughput on Azure Cosmos DB API for MongoDB resources
+# Provision database, container or autoscale throughput on Azure Cosmos DB API for MongoDB resources
 
-This article explains how to provision standard (manual) throughput on a container (collection, graph, or table) in Azure Cosmos DB. You can provision throughput on a single container, or [provision throughput on a database](how-to-provision-database-throughput.md) and share it among the containers within the database. You can provision throughput on a container using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
+This article explains how to provision throughput in Azure Cosmos DB API for MongoDB. You can provision standard(manual) or autoscale throughput on a container, or a database and share it among the containers within the database. You can provision throughput using Azure portal, Azure CLI, or Azure Cosmos DB SDKs.
 
-## Provision standard(manual) throughput on a container
+If you are using a different API, see [SQL API](how-to-provision-throughput.md), [Cassandra API](how-to-provision-throughput-cassandra.md), [Gremlin API](how-to-provision-throughput-gremlin.md) articles to provision the throughput.
 
-### <a id="dotnet-mongodb"></a> .NET SDK
+## <a id="portal-mongodb"></a> Azure portal
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. [Create a new Azure Cosmos account](create-mongodb-dotnet.md#create-a-database-account), or select an existing Azure Cosmos account.
+
+1. Open the **Data Explorer** pane, and select **New Collection**. Next, provide the following details:
+
+   * Indicate whether you are creating a new database or using an existing one. Select the **Provision database throughput** option if you want to provision throughput at the database level.
+   * Enter a collection ID.
+   * Enter a partition key value (for example, `/ItemID`).
+   * Enter a throughput that you want to provision (for example, 1000 RUs).
+   * Select **OK**.
+
+    :::image type="content" source="./media/how-to-provision-container-throughput-mongodb/provision-database-throughput-portal-mongodb-api.png" alt-text="Screenshot of Data Explorer, when creating a new collection with database level throughput":::
+
+> [!Note]
+> If you are provisioning throughput on a container in an Azure Cosmos account configured with the Azure Cosmos DB API for MongoDB, use `/myShardKey` for the partition key path.
+
+## <a id="dotnet-mongodb"></a> .NET SDK
 
 ```csharp
 // refer to MongoDB .NET Driver
@@ -37,18 +56,20 @@ mongoDatabase = mongoClient.GetDatabase("testdb");
 var result = mongoDatabase.RunCommand<BsonDocument>(@"{customAction: ""UpdateCollection"", collection: ""testcollection"", offerThroughput: 400}");
 ```
 
-## Provision autoscale throughput on a database or a container
-
-Azure Cosmos DB accounts for MongoDB API can be provisioned for autoscale using [MongoDB extension commands](mongodb-custom-commands.md), [Azure CLI](cli-samples.md), [Azure PowerShell](powershell-samples.md) or [Azure Resource Manager templates](resource-manager-samples.md).
-
 ## Azure Resource Manager
 
-Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](resource-manager-samples.md) for samples.
+Azure Resource Manager templates can be used to provision autoscale throughput on database or container-level resources for all Azure Cosmos DB APIs. See [Azure Resource Manager templates for Azure Cosmos DB](templates-samples-mongodb.md) for samples.
 
 ## Azure CLI
 
-Azure CLI can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure CLI Samples for Azure Cosmos DB](cli-samples.md).
+Azure CLI can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure CLI Samples for Azure Cosmos DB](cli-samples-mongodb.md).
 
 ## Azure PowerShell
 
-Azure PowerShell can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure PowerShell samples for Azure Cosmos DB](powershell-samples.md).
+Azure PowerShell can be used to provision autoscale throughput on a database or container-level resources for all Azure Cosmos DB APIs. For samples see [Azure PowerShell samples for Azure Cosmos DB](powershell-samples-mongodb.md).
+
+## Next steps
+
+See the following articles to learn about throughput provisioning in Azure Cosmos DB:
+
+* [Request units and throughput in Azure Cosmos DB](request-units.md)
