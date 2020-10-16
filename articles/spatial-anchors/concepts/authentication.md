@@ -13,7 +13,7 @@ ms.custom: devx-track-csharp
 ---
 # Authentication and authorization to Azure Spatial Anchors
 
-In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use role-based access control in Azure Directory (Azure AD) to control access to your Spatial Anchors accounts.
+In this article, you'll learn the various ways you can authenticate to Azure Spatial Anchors from your app or web service. You'll also learn about the ways you can use role-based access control in Azure Active Directory (Azure AD) to control access to your Spatial Anchors accounts.
 
 ## Overview
 
@@ -108,7 +108,7 @@ For applications that target Azure Active Directory users, we recommend that you
 3.    Select **Save**.
 
 **In your code**
-1.    Use the application ID and redirect URI of your own Azure AD application for the **client ID** and **RedirectUri** parameters in MSAL.
+1.    Be sure to use the application ID and redirect URI of your own Azure AD application for the **client ID** and **RedirectUri** parameters in MSAL.
 2.    Set the tenant information:
         1.    If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com.
         2.    If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**.
@@ -178,18 +178,21 @@ The Azure AD access token is retrieved via the [MSAL library](../../active-direc
         2.    Go to the **Access control (IAM)** tab.
         3.    Select **Add role assignment**.
         1.    [Select a role](#role-based-access-control).
-        2.    In the **select** box, enter the name or names of the applications to which you want to assign access. If you want your app's users to have different roles against the Spatial Anchors account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users.
-        3.    Note - In the **Add role assignment** selection you want the **Assign access to** to be set to "Azure AD user, group, or service principal".
-    3.    Hit **Save**.
+        2.    In the **Select** box, enter the name or names of the applications to which you want to assign access. If you want your app's users to have different roles against the Spatial Anchors account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users.
+        
+              > [!NOTE] In the **Add role assignment** pane, in **Assign access to**, select **Azure AD user, group, or service principal**.
+    
+      3.    Select **Save**.
+    
 **In your code** 
 
->[!NOTE] You can use the service sample availalbe on GitHub.
+>[!NOTE] You can use the service sample that's available on GitHub.
 
-1.    Make sure to use the application ID, application secret, and redirect Uri of your own Azure AD application as the client ID, secret, and RedirectUri parameters in MSAL
-    2.    Set the tenant ID to your own Azure ADD tenant ID in the authority parameter in MSAL.
-    3.    On your token request, set the **scope** to "https://sts.mixedreality.azure.com//.default"
+1.    Be sure to use the application ID, application secret, and redirect URI of your own Azure AD application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
+2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.
+3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**.
 
-With that, your backend service can retrieve an Azure AD token. It can then exchange it for an MR token that it will return back to the client. Using an Azure AD token to retrieve an MR token is done via a REST call. Here is a sample call:
+After you complete these steps, your back-end service can retrieve an Azure AD token. It can then exchange it for an MR token that it will return back to the client. Using an Azure AD token to retrieve an MR token is done via a REST call. Here's a sample call:
 
 ```
 GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
@@ -206,11 +209,11 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 {"AccessToken":"eyJhbGciOiJSUzI1NiIsImtpZCI6IjI2MzYyMTk5ZTI2NjQxOGU4ZjE3MThlM2IyMThjZTIxIiwidHlwIjoiSldUIn0.eyJqdGkiOiJmMGFiNWIyMy0wMmUxLTQ1MTQtOWEzNC0xNzkzMTA1NTc4NzAiLCJjYWkiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJ0aWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDAiLCJhaWQiOiIzNWQ4MzBjYi1mMDYyLTQwNjItOTc5Mi1kNjMxNjAzOWRmNTYiLCJhYW8iOi0xLCJhcHIiOiJlYXN0dXMyIiwicmlkIjoiL3N1YnNjcmlwdGlvbnMvNzIzOTdlN2EtNzA4NC00ODJhLTg3MzktNjM5Y2RmNTMxNTI0L3Jlc291cmNlR3JvdXBzL3NhbXBsZV9yZXNvdXJjZV9ncm91cC9wcm92aWRlcnMvTWljcm9zb2Z0Lk1peGVkUmVhbGl0eS9TcGF0aWFsQW5jaG9yc0FjY291bnRzL2RlbW9fYWNjb3VudCIsIm5iZiI6MTU0NDU0NzkwMywiZXhwIjoxNTQ0NjM0MzAzLCJpYXQiOjE1NDQ1NDc5MDMsImlzcyI6Imh0dHBzOi8vbXJjLWF1dGgtcHJvZC50cmFmZmljbWFuYWdlci5uZXQvIiwiYXVkIjoiaHR0cHM6Ly9tcmMtYW5jaG9yLXByb2QudHJhZmZpY21hbmFnZXIubmV0LyJ9.BFdyCX9UJj0i4W3OudmNUiuaGgVrlPasNM-5VqXdNAExD8acFJnHdvSf6uLiVvPiQwY1atYyPbOnLYhEbIcxNX-YAfZ-xyxCKYb3g_dbxU2w8nX3zDz_X3XqLL8Uha-rkapKbnNgxq4GjM-EBMCill2Svluf9crDmO-SmJbxqIaWzLmlUufQMWg_r8JG7RLseK6ntUDRyDgkF4ex515l2RWqQx7cw874raKgUO4qlx0cpBAB8cRtGHC-3fA7rZPM7UQQpm-BC3suXqRgROTzrKqfn_g-qTW4jAKBIXYG7iDefV2rGMRgem06YH_bDnpkgUa1UgJRRTckkBuLkO2FvA"}
 ```
 
-Where the Authorization header is formatted as follows: `Bearer <Azure_AD_token>`
+The Authorization header is formatted as follows: `Bearer <Azure_AD_token>`
 
-And the response contains the MR token in plain text.
+The response contains the MR token in plain text.
 
-That MR token is then returned to the client. Your client app can then set it as its access token in the cloud session config.
+That MR token is then returned to the client. Your client app can then set it as its access token in the cloud session configuration:
 
 # [C#](#tab/csharp)
 
@@ -218,7 +221,7 @@ That MR token is then returned to the client. Your client app can then set it as
 this.cloudSession.Configuration.AccessToken = @"MyAccessToken";
 ```
 
-# [ObjC](#tab/objc)
+# [Objective-C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.accessToken = @"MyAccessToken";
@@ -243,7 +246,7 @@ auto configuration = cloudSession_->Configuration();
 configuration->AccessToken(R"(MyAccessToken)");
 ```
 
-# [C++ WinRT](#tab/cppwinrt)
+# [C++/WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -254,15 +257,15 @@ configuration.AccessToken(LR"(MyAccessToken)");
 
 ## Role-based access control
 
-To help control the level of access granted to applications, services or Azure AD users of your service, the following roles have been created for you to assign as needed against your Azure Spatial Anchors accounts:
+To help you control the level of access granted to applications, services, or Azure AD users of your service, you can assign these pre-existing roles as needed against your Azure Spatial Anchors accounts:
 
-- **Spatial Anchors Account Owner**: applications or users that have this role are able to create spatial anchors, query for them, and delete them. When you authenticate to your account using account keys, the **Spatial Anchors Account Owner** role is assigned to the authenticated principal.
-- **Spatial Anchors Account Contributor**: applications or users that have this role are able to create spatial anchors, query for them, but cannot delete them.
-- **Spatial Anchors Account Reader**: applications or users that have this role are only able to query for spatial anchors, but cannot create new ones, delete existing ones, or update metadata on spatial anchors. This is typically used for applications where some users curate the environment, while others can only recall anchors previously placed in that environment.
+- **Spatial Anchors Account Owner**. Applications or users that have this role can create spatial anchors, query for them, and delete them. When you authenticate to your account by using account keys, the Spatial Anchors Account Owner role is assigned to the authenticated principal.
+- **Spatial Anchors Account Contributor**. Applications or users that have this role can create spatial anchors and query for them, but they can't delete them.
+- **Spatial Anchors Account Reader**. Applications or users that have this role can only query for spatial anchors. They can't create new ones, delete existing ones, or update metadata on them. This role is typically used for applications where some users curate the environment but others can only recall anchors previously placed in the environment.
 
 ## Next steps
 
-Create your first app with Azure Spatial Anchors.
+Create your first app with Azure Spatial Anchors:
 
 > [!div class="nextstepaction"]
 > [Unity (HoloLens)](../quickstarts/get-started-unity-hololens.md)
