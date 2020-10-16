@@ -32,7 +32,7 @@ You can obtain Azure AD authentication tokens in two ways:
 
 ## Account keys
 
-The easiest way to get started is to use account keys for access to your Azure Spatial Anchors account. You can get your account keys on the Azure portal. Go to your account and select the **Keys** tab.
+The easiest way to get started is to use account keys for access to your Azure Spatial Anchors account. You can get your account keys on the Azure portal. Go to your account and select the **Keys** tab:
 
 ![Screenshot that shows the Keys tab with the Copy button for the Primary key highlighted.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
@@ -83,11 +83,11 @@ configuration.AccountKey(LR"(MyAccountKey)");
 After you set that property, the SDK will handle the exchange of the account key for an access token and the necessary caching of tokens for your app.
 
 > [!WARNING]
-> We recommend that you use account keys for quick onboarding, but only during development/prototyping. We don't recommend that you ship your application to production with an embedded account key in it. Instead, use the user-based or service-based Azure AD authentication approaches listed next.
+> We recommend that you use account keys for quick onboarding, but only during development/prototyping. We don't recommend that you ship your application to production with an embedded account key in it. Instead, use the user-based or service-based Azure AD authentication approaches described next.
 
 ## Azure AD user authentication
 
-For applications that target Azure Active Directory users, we recommend that you use an Azure AD token for the user. You can obtain this token by using the [MSAL library](../../active-directory/develop/msal-overview.md). Follow the steps listed in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
+For applications that target Azure Active Directory users, we recommend that you use an Azure AD token for the user. You can obtain this token by using the [MSAL](../../active-directory/develop/msal-overview.md). Follow the steps in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
 
 **In the Azure portal**
 1.    Register your application in Azure AD as a native application. As part of registering, you'll need to determine whether your application should be multitenant. You'll also need to provide the redirect URLs allowed for your application.
@@ -100,12 +100,12 @@ For applications that target Azure Active Directory users, we recommend that you
 3.  Select **Grant admin consent**.
     
 2. Grant your application or users access to your resource:
-1.    Go to your Spatial Anchors resource in the Azure portal.
-2.    Go to the **Access control (IAM)** tab.
-3.    Select **Add role assignment**
-1.    [Select a role](#role-based-access-control).
-2.    In the **Select** box, enter the names of the users, groups, and/or applications to which you want to assign access.
-3.    Select **Save**.
+   1.    Go to your Spatial Anchors resource in the Azure portal.
+   2.    Go to the **Access control (IAM)** tab.
+   3.    Select **Add role assignment**.
+   1.    [Select a role](#role-based-access-control).
+   2.    In the **Select** box, enter the names of the users, groups, and/or applications to which you want to assign access.
+   3.    Select **Save**.
 
 **In your code**
 1.    Be sure to use the application ID and redirect URI of your own Azure AD application for the **client ID** and **RedirectUri** parameters in MSAL.
@@ -159,13 +159,13 @@ configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 
 ## Azure AD service authentication
 
-To deploy apps that use Azure Spatial Anchors to production, we recommend that you use a back-end service that will broker authentication requests. Here's an overview of the process:
+To deploy apps that use Azure spatial anchors to production, we recommend that you use a back-end service that will broker authentication requests. Here's an overview of the process:
 
 ![Diagram that provides an overview of authentication to Azure Spatial Anchors.](./media/spatial-anchors-aad-authentication.png)
 
 Here, it's assumed that your app uses its own mechanism to authenticate to its back-end service. (For example, a Microsoft account, PlayFab, Facebook, a Google ID, or a custom user name and password.)  After your users are authenticated to your back-end service, that service can retrieve an Azure AD token, exchange it for an access token for Azure Spatial Anchors, and return it back to your client application.
 
-The Azure AD access token is retrieved via the [MSAL library](../../active-directory/develop/msal-overview.md). Follow the steps in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
+The Azure AD access token is retrieved via the [MSAL](../../active-directory/develop/msal-overview.md). Follow the steps in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
 
 **In the Azure portal**
 1.    Register your application in Azure AD:
