@@ -19,11 +19,7 @@ ms.author: nichola
 
 Single sign-on (SSO) provides easy and secure logins for users of your app. App protection policies (APP) enable support of the key security policies that keep your user's data safe. Together, these features enable secure user logins and management of your app's data.
 
-<<<<<<< HEAD
-This article explains why SSO and APP are important and provides the high-level guidance for building mobile applications that support these features. This applies for both phone and tablet apps. If you are an IT administrator that wants to deploy SSO across your organization’s Azure Active Directory tenant, check out our [guidance for planning a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
-=======
-This article explains why SSO and APP are important and provides the high-level guidance for building mobile applications that support these features. This applies for both phone and tablet apps. If you're an IT administrator that wants to deploy SSO across your organization's Azure Active Directory tenant, check out our [guidance for planning a single sign-on deployment](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment).
->>>>>>> aaee28119697ff7b4c3f78cbcccad073b5f2a994
+This article explains why SSO and APP are important and provides the high-level guidance for building mobile applications that support these features. This applies for both phone and tablet apps. If you're an IT administrator that wants to deploy SSO across your organization's Azure Active Directory tenant, check out our [guidance for planning a single sign-on deployment](../manage-apps/plan-sso-deployment.md)
 
 ## About single sign-on and app protection policies
 
