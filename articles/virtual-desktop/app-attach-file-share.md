@@ -77,10 +77,16 @@ Once you've assigned the identity to the profiles, follow the instructions in th
 
 ## Next steps
 
+Here are the other things you'll need to do after you've set up the file share:
+
 - Learn how to set up Azure Active Directory Domain Services (AD DS) at [Create a profile container with Azure Files and AD DS](create-file-share.md).
-
 - Learn how to set up Azure Files and Azure AD DS at [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
-
 - Learn how to set up Azure NetApp Files for MSIX app attach at [Create a profile container with Azure NetApp Files and AD DS](create-fslogix-profile-container.md).
-
 - Learn how to use a virtual machine-based file share at [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
+
+Once you're finished, here are some other resources you might find helpful:
+
+- Ask our community questions about this feature at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+- You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+- [MSIX app attach glossary](app-attach-glossary.md)
+- [MSIX app attach FAQ](app-attach-faq.md)
