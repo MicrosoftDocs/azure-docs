@@ -113,9 +113,9 @@ For applications that target Azure Active Directory users, we recommend that you
         1.    If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com.
         2.    If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**.
         3.    If your application supports **All Microsoft account users**, replace this value with **Common**.
-3.    On your token request, set the **scope** to **https:\//sts.mixedreality.azure.com//.default**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
+3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
 
-With that, your application should be able to obtain from MSAL an Azure AD token; you can set that Azure AD token as the **authenticationToken** on your cloud session config object.
+After you complete these steps, your application should be able to obtain from MSAL an Azure AD token. You can set that Azure AD token as the `authenticationToken` on your cloud session configuration object:
 
 # [C#](#tab/csharp)
 
@@ -123,7 +123,7 @@ With that, your application should be able to obtain from MSAL an Azure AD token
 this.cloudSession.Configuration.AuthenticationToken = @"MyAuthenticationToken";
 ```
 
-# [ObjC](#tab/objc)
+# [Objective-C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.authenticationToken = @"MyAuthenticationToken";
@@ -148,7 +148,7 @@ auto configuration = cloudSession_->Configuration();
 configuration->AuthenticationToken(R"(MyAuthenticationToken)");
 ```
 
-# [C++ WinRT](#tab/cppwinrt)
+# [C++/WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -159,30 +159,33 @@ configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 
 ## Azure AD service authentication
 
-The recommended option to deploy apps leveraging Azure Spatial Anchors to production is to leverage a backend service that will broker authentication requests. The general scheme should be as described in this diagram:
+To deploy apps that use Azure Spatial Anchors to production, we recommend that you use a back-end service that will broker authentication requests. Here's an overview of the process:
 
-![An overview of authentication to Azure Spatial Anchors](./media/spatial-anchors-aad-authentication.png)
+![Diagram that provides an overview of authentication to Azure Spatial Anchors.](./media/spatial-anchors-aad-authentication.png)
 
-Here, it is assumed that your app uses its own mechanism (for example: Microsoft account, PlayFab, Facebook, Google ID, custom username/password, etc.) to authenticate to its backend service. Once your users are authenticated to your backend service, that service can retrieve an Azure AD token, exchange it for an access token for Azure Spatial Anchors, and return it back to your client application.
+Here, it's assumed that your app uses its own mechanism to authenticate to its back-end service. (For example, a Microsoft account, PlayFab, Facebook, a Google ID, or a custom user name and password.)  After your users are authenticated to your back-end service, that service can retrieve an Azure AD token, exchange it for an access token for Azure Spatial Anchors, and return it back to your client application.
 
-The Azure AD access token is retrieved using the [MSAL library](../../active-directory/develop/msal-overview.md). You should follow the steps listed the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
+The Azure AD access token is retrieved via the [MSAL library](../../active-directory/develop/msal-overview.md). Follow the steps in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
 
-1.    Configuration in Azure portal:
-    1.    Register your application in Azure AD:
-        1.    In Azure portal, navigate to **Azure Active Directory**, and select **app registrations**
-        2.    Select **new application registration**
-        3.    Enter the name of your application, select **Web app / API** as the application type, and enter the auth URL for your service. Then hit **Create**.
-        4.    On that application, hit **Settings**, then select the **Certificates and secrets** tab. Create a new client secret, select a duration, and hit **Add**. Make sure to save the secret value, as you will need to include it in your web service's code.
-    2.    Grant your application and/or users access to your resource:
-        1.    Navigate to your Spatial Anchors resource in Azure portal
-        2.    Switch to the **Access control (IAM)** tab
-        3.    Hit **Add role assignment**
-        1.    [Select a role](#role-based-access-control)
-        2.    In the **select** field, enter the name of the application(s) you created and to which you want to assign access. If you want your app's users to have different roles against the Spatial Anchors account, you should register multiple applications in Azure AD, and assign to each a separate role. Then implement your authorization logic to use the right role for your users.
+**In the Azure portal**
+1.    Register your application in Azure AD:
+        1.    In the Azure portal, select **Azure Active Directory**, and then select **App registrations**.
+        2.    Select **New registration**.
+        3.    Enter the name of your application, select **Web app / API** as the application type, and enter the auth URL for your service. Select **Create**.
+4.    On the application, select **Settings**, and then select the **Certificates and secrets** tab. Create a new client secret, select a duration, and then select **Add**. Be sure to save the secret value. You'll need to include it in your web service's code.
+2.    Grant your application and/or users access to your resource:
+        1.    Go to your Spatial Anchors resource in the Azure portal.
+        2.    Go to the **Access control (IAM)** tab.
+        3.    Select **Add role assignment**.
+        1.    [Select a role](#role-based-access-control).
+        2.    In the **select** box, enter the name or names of the applications to which you want to assign access. If you want your app's users to have different roles against the Spatial Anchors account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users.
         3.    Note - In the **Add role assignment** selection you want the **Assign access to** to be set to "Azure AD user, group, or service principal".
     3.    Hit **Save**.
-2.    In your code (note: you can use the service sample included on GitHub):
-    1.    Make sure to use the application ID, application secret, and redirect Uri of your own Azure AD application as the client ID, secret, and RedirectUri parameters in MSAL
+**In your code** 
+
+>[!NOTE] You can use the service sample availalbe on GitHub.
+
+1.    Make sure to use the application ID, application secret, and redirect Uri of your own Azure AD application as the client ID, secret, and RedirectUri parameters in MSAL
     2.    Set the tenant ID to your own Azure ADD tenant ID in the authority parameter in MSAL.
     3.    On your token request, set the **scope** to "https://sts.mixedreality.azure.com//.default"
 
