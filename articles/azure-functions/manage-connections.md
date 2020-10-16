@@ -100,7 +100,25 @@ public static async Task Run(string input)
     // Rest of function
 }
 ```
+If you are working with functions v3.x, you need a refernce to Microsoft.Azure.DocumentDB.Core. Add a reference in the code:
 
+```cs
+#r "Microsoft.Azure.DocumentDB.Core"
+```
+Also, create a file named "function.proj" for your trigger and add the below content :
+
+```cs
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Azure.DocumentDB.Core" Version="2.12.0" />
+    </ItemGroup>
+</Project>
+
+```
 ### CosmosClient code example (JavaScript)
 [CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) connects to an Azure Cosmos DB instance. The Azure Cosmos DB documentation recommends that you [use a singleton Azure Cosmos DB client for the lifetime of your application](../cosmos-db/performance-tips.md#sdk-usage). The following example shows one pattern for doing that in a function:
 
