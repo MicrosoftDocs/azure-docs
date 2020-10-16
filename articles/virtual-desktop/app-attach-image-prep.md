@@ -95,3 +95,9 @@ To expand the MSIX image:
 ## Upload MSIX image to share
 
 After you've created the MSIX package, you'll need to upload the VHD/VHDx image to a share where your users' virtual machines can access it.
+
+## Next steps
+
+Ask our community questions about this feature at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
+
+You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
