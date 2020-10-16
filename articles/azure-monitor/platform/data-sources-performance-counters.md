@@ -152,7 +152,7 @@ Following is the default configuration for performance metrics.
 <source>
 	type oms_omi
 	object_name "Logical Disk"
-	instance_regex ".*
+	instance_regex ".*"
 	counter_name_regex ".*"
 	interval 5m
 </source>
@@ -160,7 +160,7 @@ Following is the default configuration for performance metrics.
 <source>
     type oms_omi
 	object_name "Processor"
-	instance_regex ".*
+	instance_regex ".*"
 	counter_name_regex ".*"
 	interval 30s
 </source>
