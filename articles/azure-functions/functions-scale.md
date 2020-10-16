@@ -22,7 +22,7 @@ Both Consumption and Premium plans automatically add compute power when your cod
 
 Premium plan provides additional features, such as premium compute instances, the ability to keep instances warm indefinitely, and VNet connectivity.
 
-App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means is never scales in to zero. (Requires that [Always on](#always-on) is enabled.)
+App Service plan allows you to take advantage of dedicated infrastructure, which you manage. Your function app doesn't scale based on events, which means it never scales in to zero. (Requires that [Always on](#always-on) is enabled.)
 
 For a detailed comparison between the various hosting plans (including Kubernetes-based hosting), see the [Hosting plans comparison section](#hosting-plans-comparison).
 
@@ -164,7 +164,7 @@ az resource update --resource-type Microsoft.Web/sites -g <resource_group> -n <f
 
 There are many aspects of a function app that will impact how well it will scale, including host configuration, runtime footprint, and resource efficiency.  For more information, see the [scalability section of the performance considerations article](functions-best-practices.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).
 
-For more information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-concurrency) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
+For more information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-performance) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
 
 ### Billing model
 
