@@ -22,9 +22,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.16.0
 + **Bug fixes and improvements**
   + **azure-cli-ml**
-    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via following:
-    1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 
-    2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be used by setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls
   + **azureml-core**
     + Pin major versions of direct dependencies of azureml-core
     + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
