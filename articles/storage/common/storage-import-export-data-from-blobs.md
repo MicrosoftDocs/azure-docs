@@ -140,7 +140,7 @@ Use the following steps to create an export job in the Azure portal.
     > [!TIP]
     > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-   This job exports all the blobs in your storage account. You can specify a blob for export by substituting this value for **--export**:
+   This job exports all the blobs in your storage account. You can specify a blob for export by replacing this value for **--export**:
 
     ```azurecli
     --export blob-path=$root/logo.bmp
@@ -148,7 +148,7 @@ Use the following steps to create an export job in the Azure portal.
 
    This parameter value exports the blob named *logo.bmp* in the root container.
 
-   You also have the option of selecting all the blobs in a container by using a prefix. Substitute this value for **--export**:
+   You also have the option of selecting all the blobs in a container by using a prefix. Replace this value for **--export**:
 
     ```azurecli
     blob-path-prefix=/myiecontainer
