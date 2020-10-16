@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 08/14/2020
+ms.date: 10/13/2020
 ms.custom: Build2020, devx-track-python
 ---
 
@@ -21,6 +21,9 @@ This article shows you how to run your Azure Machine Learning model in parallel,
 Inferencing over large datasets or with complicated models can be time-consuming. The `ParallelRunStep` class allows you to perform processing in parallel, potentially getting overall results faster. Even if running a single evaluation is fairly speedy, many scenarios (object detection, video processing, natural language processing, etc.) involve running many evaluations. 
 
 With `ParallelRunStep`, it's straightforward to scale batch inferences to large clusters of machines. Such clusters can handle terabytes of structured or unstructured data with improved productivity and optimized cost.
+
+> [!NOTE]
+> ParallelRunStep is designed for embarrassingly parallel workloads, it can also be used to train many models concurrently, or process large data.
 
 In this article, you learn the following tasks:
 
