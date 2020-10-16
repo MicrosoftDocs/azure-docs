@@ -14,7 +14,7 @@ ms.custom: devx-track-csharp
 
 # Use blob index tags (preview) to manage and find data on Azure Blob Storage
 
-Blob index tags categorize data in your storage account utilizing key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
+Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
 
 > [!NOTE]
 > Blob index is in public preview, and is available in the **Canada Central**, **Canada East**, **France Central** and **France South** regions. To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags (preview)](storage-manage-find-blobs.md).
@@ -52,10 +52,7 @@ As blob index is in preview, the .NET storage package is released in the preview
 
 ## Upload a new blob with index tags
 
-> [!IMPORTANT]
-> The [Set Blob Tags](/rest/api/storageservices/set-blob-tags) operation can be called by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission).
->
-> In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` permission can perform this operation.
+Setting blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
 
 # [Portal](#tab/azure-portal)
 
@@ -63,7 +60,7 @@ As blob index is in preview, the .NET storage package is released in the preview
 
 2. Navigate to the **Containers** option under **Blob service**, select your container
 
-3. Select the **Upload** button to open the upload blade and browse your local file system to find a file to upload as a block blob.
+3. Select the **Upload** button and browse your local file system to find a file to upload as a block blob.
 
 4. Expand the **Advanced** dropdown and go to the **Blob Index Tags** section
 
@@ -113,10 +110,7 @@ static async Task BlobIndexTagsOnCreate()
 
 ## Get, set, and update blob index tags
 
-> [!IMPORTANT]
-> The [Get Blob Tags](/rest/api/storageservices/get-blob-tags) operation can be called by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to access the blob's tags (the `t` SAS permission).
->
-> In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` permission can perform this operation.
+Getting blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
 
 # [Portal](#tab/azure-portal)
 
@@ -124,7 +118,7 @@ static async Task BlobIndexTagsOnCreate()
 
 2. Navigate to the **Containers** option under **Blob Service**, select your container
 
-3. Select your desired blob from the list of blobs within the selected container
+3. Select your blob from the list of blobs within the selected container
 
 4. The blob overview tab will display your blob's properties including any **Blob Index Tags**
 
@@ -193,14 +187,11 @@ static async Task BlobIndexTagsExample()
 
 ## Filter and find data with blob index tags
 
-> [!IMPORTANT]
-> The [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags) operation can be called by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) and by anyone with a Shared Access Signature that has permission to to find blobs by tags (the `f` SAS permission).
->
-> In addition, RBAC users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` permission can perform this operation.
+Searching and filtering by blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
 
 # [Portal](#tab/azure-portal)
 
-Within the Azure portal, the blob index tags filter automatically applies the `@container` parameter to scope your selected container. If you wish to filter and find tagged data across your entire storage account, please use our REST API, SDKs, or tools.
+Within the Azure portal, the blob index tags filter automatically applies the `@container` parameter to scope your selected container. If you wish to filter and find tagged data across your entire storage account, use our REST API, SDKs, or tools.
 
 1. In the [Azure portal](https://portal.azure.com/), select your storage account. 
 
@@ -306,7 +297,7 @@ static async Task FindBlobsByTagsExample()
 
 4. Select **Filter** set to add optional filter for prefix match and blob index match
 
-  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Screenshot of the Azure portal showing how to add blob index tag filters for lifecycle management":::
+  :::image type="content" source="media/storage-blob-index-concepts/blob-index-match-lifecycle-filter-set.png" alt-text="Screenshot of the Azure portal showing how to add index tags for lifecycle management.":::
 
 5. Select **Review + add** to review the rule settings
 
@@ -316,7 +307,7 @@ static async Task FindBlobsByTagsExample()
 
 # [.NET](#tab/net)
 
-[Lifecycle management](storage-lifecycle-management-concepts.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 or higher to take advantage of the blob index match filter within a lifecycle management rule.
+[Lifecycle management](storage-lifecycle-management-concepts.md) policies are applied for each storage account at the control plane level. For .NET, install the [Microsoft Azure Management Storage Library](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) version 16.0.0 or higher.
 
 ---
 
