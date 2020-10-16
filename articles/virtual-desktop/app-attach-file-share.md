@@ -1,131 +1,79 @@
 ---
-title: Windows Virtual Desktop MSIX app attach - Azure
-description: How to set up MSIX app attach for Windows Virtual Desktop.
+title: Windows Virtual Desktop set up file share MSIX app attach - Azure
+description: How to set up a file share for MSIX app attach for Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 11/09/2020
 ms.author: helohr
 manager: lizross
 ---
 # Set up a file share for MSIX app attach
 
-All MSIX images must be stored on a network share.
-
-All VMs in a Hostpool and all users accessing the VM must have read-only permissions to the share.
+All MSIX images must be stored on a network share that can be accessed by users in a host pool with read-only permissions.
 
 MSIX app attach does not take dependency on type of storage fabric powering the file share. The considerations for the MSIX app attach share are same as those for an FSLogix share. More information [here](store-fslogix-profile.md).
 
 ## Performance requirements
 
-In terms of overall MSIX image size, limitations or quotas for MSIX app attach depend on the storage type used for storing the VHD/VHDx files, as well as the size limitations of the VHD/VHDx format, and the file system.
+Limitations or quotas for MSIX app attach image size depend on the storage type used for storing the VHD or VHDx files, as well as the size limitations of the VHD or VHDx format and the file system.
 
-Additionally, the following table gives an example of how many resources an MSIX image requires for each VM. Requirements can vary widely depending on the number of MSIX packaged application stored in a MSIX image (VHD/VHDx). The table uses a singled MSIX image with single MSIX application as a reference point. Further it assumes an average MSIX image size of 1 GB. For larger MSIX images adequate bandwidth must be allocated.
+The following table gives an example of how many resources a single 1 GB MSIX image with one MSIX app inside of it requires for each VM:
 
 | Resource             | Requirements |
 |----------------------|--------------|
-| Steady state IOP     | 1 IOPs       |
+| Steady state IOPs    | 1 IOPs       |
 | Machine boot sign in | 10 IOPs      |
 
-## Storage options for MSIX app attach
+Requirements can vary widely depending how many MSIX-packaged applications are stored in the MSIX image. For larger MSIX images, you'll need to allocate more bandwidth.
+
+### Storage recommendations
 
 Azure offers multiple storage options that can be used for MISX app attach. We recommend using Azure Files or Azure NetApp Files as those options offer the best value between cost and management overhead. The article [Storage options for FSLogix profile containers in Windows Virtual Desktop](store-fslogix-profile.md) compares the different managed storage solutions Azure offers in the context of Windows Virtual Desktop.
 
-## Best practices
+### Optimize MSIX app attach performance
 
-Following are best practices for MSIX app attach file share:
+Here are some other things we recommend you do to optimize MSIX app attach performance:
 
-- For optimal performance, the storage solution for MSIX app attach must be in the same data-center location as the session hosts.
+- The storage solution you use for MSIX app attach should be in the same datacenter location as the session hosts.
+- To avoid performance bottlenecks, exclude the following VHD(X) files for profile containers from antivirus scans:
+   
+    - <MSIXAppAttachFileShare\>\*.VHD
+    - <MSIXAppAttachFileShare\>\*.VHDX
+    - <MSIXAppAttachFileShare\>TEMP\*.VHD
+    - <MSIXAppAttachFileShare\>TEMP\*.VHDX
+    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHD
+    - \\\\storageaccount.file.core.windows.net\\share\*\*.VHDX
 
-- Exclude the VHD(X) files for profile containers from antivirus scanning, to avoid performance bottlenecks.
+- Separate the storage fabric for MSIX app attach from FSLogix profile containers.
+- All VM system accounts and user accounts must have read-only permissions to access the file share.
+- Any disaster recovery plans for Windows Virtual Desktop must include replicating the MSIX app attach file share in your secondary failover location. To learn more about disaster recovery, see [Set up a business continuity and disaster recovery plan](disaster-recovery.md).
 
-- Separate the storage fabric for MSIX app attach and FSLogix profile containers.
+## How to set up the file share
 
-## Antivirus exclusions
+The setup process for MSIX app attach file share has only one difference when compared to [the setup process for FSLogix profile file shares](create-host-pools-user-profile.md). That difference is the type of permissions that must be granted on the files share. MSIX app attach requires read-only permissions on the files share.
 
-Exclude files:
+If Azure File is being used session host, you'll need to assign the VM the correct identity in order to access the share.
 
-\<MSIXAppAttachFileShare\>\*.VHD
+To assign the identity that will let the users access the file share:
 
-\<MSIXAppAttachFileShare\>\*.VHDX
+1. Open Azure Files and go to **VM** > **Identity**.
 
-\<MSIXAppAttachFileShare\>TEMP\*.VHD
+2. Add a system-assigned identity to the VM.
 
-\<MSIXAppAttachFileShare\>TEMP\*.VHDX
+3. Select **Access Control (IAM)**.
 
-\\\\storageaccount.file.core.windows.net\\share\*\*.VHD
+4. Go to **Role assignments** and add the **Storage File Data SMB Share Reader** role.
 
-\\\\storageaccount.file.core.windows.net\\share\*\*.VHDX
+5. Assign access to the virtual machine for the subscription that needs access to MSIX app attach.
 
-**Storage permission**
-======================
+Once you've assigned the identity to the profiles, follow the instructions in the articles in [Next steps](#next-steps) to grant other required permissions to the identity you've assigned to the VMs.
 
-MSIX app attach requires read-only permissions for both VM system accounts and
-all user accounts.
+## Next steps
 
-**Disaster recovery**
-=====================
+- Learn how to set up Azure Active Directory Domain Services (AD DS) at [Create a profile container with Azure Files and AD DS](create-file-share.md).
 
-Any disaster recovery plans for WVD must include MSIX app attach file share
-being replicated across DR zones.
+- Learn how to set up Azure Files and Azure AD DS at [Create a profile container with Azure Files and Azure AD DS](create-profile-container-adds.md).
 
-**Setup process**
-=================
+- Learn how to set up Azure NetApp Files for MSIX app attach at [Create a profile container with Azure NetApp Files and AD DS](create-fslogix-profile-container.md).
 
-The setup process for MSIX app attach file share has only one difference when
-compared to the FSLogix profiles share. That difference is the type of
-permissions that must be granted on the files share. MSIX app attach requires
-read-only permissions on the files share.
-
-Below are the steps for the different storage fabrics. Select article based on
-what storage is being used in the WVD environment.
-
-Assign identity to session host VMs 
-------------------------------------
-
-If Azure File is being used session host VM must be assigned an identity in
-order to access the share
-
->   Select the VM \> Identity
-
->   Add a system assigned identity to the VM
-
->   System assigned
-
->   Click on Access Control (IAM)
-
->   Add Role assignments
-
->   Role: Storage File Data SMB Share Reader
-
->   Assign access to: Virtual machine
-
->   Elect subscription
-
->   Grab VMs
-
-Once identities are assigned follow the specific steps in each article below to
-grant permission to the identity tied to the VMs.
-
-Setup Azure Files and AD DS for MSIX app attach 
-------------------------------------------------
-
-Detailed steps
-[here](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-file-share).
-
-Setup Azure Files and Azure AD DS for MSIX app attach 
-------------------------------------------------------
-
-More
-[here](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-profile-container-adds).
-
-Setup Azure NetApp Files for MSIX app attach 
----------------------------------------------
-
-More
-[here](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-fslogix-profile-container).
-
-Use VM-based file share 
-------------------------
-
-More
-[here](https://docs.microsoft.com/en-us/azure/virtual-desktop/create-host-pools-user-profile).
+- Learn how to use a virtual machine-based file share at [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
