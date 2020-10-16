@@ -1,6 +1,6 @@
 ---
-title: Upload usage data, metrics, and logs to Azure Monitor
-description: Upload resource inventory, usage data, metrics, and logs to Azure Monitor
+title: Upload metrics to Azure Monitor
+description: Upload Azure Arc enabled data services metrics to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,9 +12,9 @@ ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
-# Upload metrics, and logs to Azure Monitor
+# Upload metrics to Azure Monitor
 
-Periodically, you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure. The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+Periodically, you can export monitoring metrics and then upload them to Azure. The export and upload of data also creates and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
 > During the preview period, there is no cost for using Azure Arc enabled data services.
@@ -33,7 +33,7 @@ Periodically, you can export out usage information for billing purposes, monitor
 
 With Azure Arc data services, you can optionally upload your metrics to Azure Monitor so you can aggregate and analyze metrics, raise alerts, send notifications, or trigger automated actions. 
 
-Sending your data to Azure Monitor also allows you to store monitoring and logs data off-site and at huge scale enabling long-term storage of the data for advanced analytics.
+Sending your data to Azure Monitor also allows you to store metrics data off-site and at huge scale, enabling long-term storage of the data for advanced analytics.
 
 If you have multiple sites that have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
 
@@ -219,6 +219,10 @@ During preview, this process happens nightly. The general guidance is to upload 
 For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
 ## Next steps
+
+[Upload logs to Azure Monitor](upload-logs.md)
+
+[Upload usage data, metrics, and logs to Azure Monitor](upload-usage-data.md)
 
 [Upload billing data to Azure and view it in the Azure portal](view-billing-data-in-azure.md)
 

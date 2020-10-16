@@ -1,6 +1,6 @@
 ---
 title: Upload logs to Azure Monitor
-description: Upload logs to Azure Monitor
+description: Upload logs for Azure Arc enabled data services to Azure Monitor
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -287,15 +287,11 @@ watch -n 1200 ./myuploadscript.sh
 
 You could also use a job scheduler like cron or Windows Task Scheduler or an orchestrator like Ansible, Puppet, or Chef.
 
-## General guidance on exporting and uploading usage, metrics
-
-Create, read, update, and delete (CRUD) operations on Azure Arc enabled data services are logged for billing and monitoring purposes. There are background services that monitor for these CRUD operations and calculate the consumption appropriately. The actual calculation of usage or consumption happens on a scheduled basis and is done in the background. 
-
-During preview, this process happens nightly. The general guidance is to upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
-
-For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
-
 ## Next steps
+
+[Upload metrics, and logs to Azure Monitor](upload-metrics.md)
+
+[Upload usage data, metrics, and logs to Azure Monitor](upload-usage-data.md)
 
 [Upload billing data to Azure and view it in the Azure portal](view-billing-data-in-azure.md)
 
