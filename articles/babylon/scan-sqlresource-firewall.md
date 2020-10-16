@@ -54,7 +54,7 @@ The first step is to add the catalog's MSI to an Azure SQL DB via the [Scan Azur
 
    :::image type="content" source="./media/scan-resource-firewall/scan-sql-register.png" alt-text="Screenshot to finish the selection":::
 
-1. Select **Set Up Scan** for the storage that is behind the firewall and test connection. The connection indicates it is successful. 
+1. Select **Set Up Scan** for the storage that is behind the firewall and test connection. The connection indicates it's successful. 
 
    :::image type="content" source="./media/scan-resource-firewall/scan-sql-setscan.png" alt-text="Screenshot of the selection t0 set up scan.":::
 
@@ -62,10 +62,10 @@ The first step is to add the catalog's MSI to an Azure SQL DB via the [Scan Azur
 
    :::image type="content" source="./media/scan-resource-firewall/scan-sql-once.png" alt-text="Screenshot of the selection to launch the sql scan.":::
 
-1.  The scan is completed, and the status isupdated in the list of Data sources.
+1.  The scan completes, and the status is updated in the list of Data sources.
 
    :::image type="content" source="./media/scan-resource-firewall/scan-sql-success.png" alt-text="Screenshot of the message scan completed":::
    
 ## Next steps
 
-Next, you can set up a scan rule set [Create a scan rule set](create-a-scan-rule-set.md) to group scans.
+Next, you can set up a scan rule set [Create a scan rule set](create-a-scan-rule-set.md) to group scans together.
