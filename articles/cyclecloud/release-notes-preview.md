@@ -2,14 +2,14 @@
 title: Release Notes - Azure CycleCloud Public Preview 8.0.x
 description: Read the product release notes for the Azure CycleCloud public preview release. This article covers preview releases 8.0.x.
 author: adriankjohnson
-ms.date: 07/02/2020
+ms.date: 10/16/2020
 ms.author: adjohnso
 monikerRange: '>= cyclecloud-8'
 ---
 
 # Azure CycleCloud Public Preview 8.0
 
-The current release is 8.0.1.
+The current release is 8.0.2.
 
 ## Azure CycleCloud Public Preview 8.0 Release Highlights
 
@@ -22,6 +22,7 @@ The current release is 8.0.1.
 
 Comprehensive release notes for the individual 8.0.x releases are listed below
 
+* [**8.0.2 Release Notes**](release-notes/8-0-2.md) - released on 10/16/20
 * [**8.0.1 Release Notes**](release-notes/8-0-1.md) - released on 07/02/20
 * [**8.0.0 Release Notes**](release-notes/8-0-0.md) - released on 05/29/20
 
