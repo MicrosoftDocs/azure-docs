@@ -36,7 +36,7 @@ ms.custom: include file
 <sup>2</sup>Per unit cache size depends on the pricing tier. To see the pricing tiers and their scaling limits, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).<br/>
 <sup>3</sup>Connections are pooled and reused unless explicitly closed by the back end.<br/>
 <sup>4</sup>This limit is per unit of the Basic, Standard, and Premium tiers. The Developer tier is limited to 1,024. This limit doesn't apply to the Consumption tier.<br/>
-<sup>5</sup>This limit applies to the Basic, Standard, and Premium tiers. In the Consumption tier, policy document size is limited to 4 KiB.<br/>
+<sup>5</sup>This limit applies to the Basic, Standard, and Premium tiers. In the Consumption tier, policy document size is limited to 16 KiB.<br/>
 <sup>6</sup>Multiple custom domains are supported in the Developer and Premium tiers only.<br/>
 <sup>7</sup>CA certificates are not supported in the Consumption tier.<br/>
 <sup>8</sup>This limit applies to the Consumption tier only. There are no limits in these categories for other tiers.<br/>

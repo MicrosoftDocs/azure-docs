@@ -53,7 +53,7 @@ To list the PVCs, run this command:
 kubectl get pvc [-n <namespace name>]
 ```
 
-It returns the list of PVSs, in particular the PVCs for the server group you deleted. For example:
+It returns the list of PVCs, in particular the PVCs for the server group you deleted. For example:
 ```console
 kubectl get pvc
 NAME                STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
