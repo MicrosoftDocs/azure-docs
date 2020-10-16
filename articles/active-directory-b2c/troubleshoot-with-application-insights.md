@@ -99,9 +99,9 @@ The entries may be long. Export to CSV for a closer look.
 
 For more information about querying, see [Overview of log queries in Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
 
-## Configure Application Insgihts in Production
+## Configure Application Insights in Production
 
-To improve your production environment performance and better user experience, it's **critical** to configure your policy to ignore messages that are unimportant. Use the following configuration, so Azure AD B2C sends only critical error messages to Application Insights. 
+To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration, to send only critical error messages to your Application Insights. 
 
 1. Set the `DeploymentMode` attribute of the [TrustFrameworkPolicy](trustframeworkpolicy.md) set to `Production`. 
 
