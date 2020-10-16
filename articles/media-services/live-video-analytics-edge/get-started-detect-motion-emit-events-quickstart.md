@@ -16,7 +16,7 @@ After completing the setup steps, you'll be able to run a simulated live video s
 
 You can view the following video with detailed steps on how to get started with Live Video Analytics on IoT Edge:
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax]
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
 
 ## Prerequisites
 
