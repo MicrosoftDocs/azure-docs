@@ -94,6 +94,10 @@ The data in analytical store is partitioned based on the horizontal partitioning
 
 Currently you can’t transform the data items when they are automatically propagated from the transactional store to analytical store. If you have scenarios blocked by this limitation, email the [Azure Cosmos DB team](mailto:cosmosdbsynapselink@microsoft.com).
 
+### Is analytical store supported by Terraform?
+
+Currently Terraform doesn’t support analytical store containers. Please check [Terraform GitHub Issues](https://github.com/hashicorp/terraform/issues) for more information.
+
 ## Analytical Time to live (TTL)
 
 ### Is TTl for analytical data supported at both container and item level?
