@@ -47,7 +47,7 @@ Also, diagnostics settings offers five new categories for tracking. After you up
 * Jobs operations
 * Direct Methods
 
-For the specific schema structures, see [Resource logs](monitor-service-reference.md#resource-logs).
+For the specific schema structures, see [Resource logs](monitor-iot-hub-reference.md#resource-logs).
 
 ## Monitoring device connect and disconnect events with low latency
 

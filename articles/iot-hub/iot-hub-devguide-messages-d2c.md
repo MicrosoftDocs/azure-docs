@@ -141,7 +141,7 @@ In most cases, the average increase in latency is less than 500 ms. You can moni
 
 ## Monitoring and troubleshooting
 
-IoT Hub provides several metrics related to routing and endpoints to give you an overview of the health of your hub and messages sent. For a list of all of the IoT Hub metrics broken out by functional category, see [Metrics in the Monitoring data reference](monitor-service-reference.md#metrics). You can track errors that occur during evaluation of a routing query and endpoint health as perceived by IoT Hub with the [**routes** category in IoT Hub resource logs](monitor-service-reference.md#routes). To learn more about using metrics and resource logs with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md).
+IoT Hub provides several metrics related to routing and endpoints to give you an overview of the health of your hub and messages sent. For a list of all of the IoT Hub metrics broken out by functional category, see [Metrics in the Monitoring data reference](monitor-iot-hub-reference.md#metrics). You can track errors that occur during evaluation of a routing query and endpoint health as perceived by IoT Hub with the [**routes** category in IoT Hub resource logs](monitor-iot-hub-reference.md#routes). To learn more about using metrics and resource logs with IoT Hub, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 You can use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints.
 

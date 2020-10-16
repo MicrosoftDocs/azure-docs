@@ -26,7 +26,7 @@ To learn about metrics supported by other Azure services, see [Supported metrics
 
 The **Aggregation Type** column in each table corresponds to the default aggregation that is used when the metric is selected for a chart or alert.
 
-   ![Screenshot showing aggregation for metrics](./media/monitor-service-reference/aggregation-type.png)
+   ![Screenshot showing aggregation for metrics](./media/monitor-iot-hub-reference/aggregation-type.png)
 
 For most metrics, all aggregation types are valid; however, for count metrics, those with a **Unit** column value of **Count**, only some aggregations are valid. Count metrics can be one of two types:
 

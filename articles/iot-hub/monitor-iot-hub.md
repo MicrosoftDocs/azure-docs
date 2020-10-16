@@ -43,7 +43,7 @@ The following sections build on this article by describing the specific data gat
 
 Azure IoT Hub collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources).
 
-See [Monitoring Azure IoT Hub data reference](monitor-service-reference.md) for detailed information on the metrics and logs created by Azure IoT Hub.
+See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for detailed information on the metrics and logs created by Azure IoT Hub.
 
 > [!IMPORTANT]
 > The events emitted by the IoT Hub service using Azure Monitor resource logs are not guaranteed to be reliable or ordered. Some events might be lost or delivered out of order. Resource logs also aren't meant to be real-time, and it may take several minutes for events to be logged to your choice of destination.
@@ -56,7 +56,7 @@ When routing platform metrics to other locations, be aware that:
 
 - The following platform metrics are not exportable via diagnostic settings: *Connected devices (preview)* and *Total devices (preview)*.
 
-- Multi-dimensional metrics, for example some [routing metrics](monitor-service-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
 Resource Logs are not collected and stored until you create a diagnostic setting and route them to one or more locations.
 
@@ -70,7 +70,7 @@ The following screenshot shows a diagnostic setting for routing all platform met
 
 Metrics and logs routed to a Log Analytics workspace can be analyzed using Azure Monitor Logs. You can also send metrics and logs to Azure Storage for archiving or to an Event Hubs endpoint where they can be read by external applications, for example, third-party SIEM tools.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure IoT Hub are listed  under [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-service-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/platform/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure IoT Hub are listed  under [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs).
 
 <!-- OPTIONAL: Add specific examples of configuration for this service. For example, CLI and PowerShell commands for creating diagnostic setting. Ideally, customers should set up a policy to automatically turn on collection for services. Azure monitor has Resource Manager template examples you can point to. See https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings.  Contact azmondocs@microsoft.com if you have questions.   -->
 
@@ -80,7 +80,7 @@ The metrics and logs you can collect are discussed in the following sections.
 
 You can analyze metrics for Azure IoT Hub with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Getting started with Azure Metrics Explorer](/azure/azure-monitor/platform/metrics-getting-started) for details on using this tool.
 
-For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in the Monitoring Azure IoT Hub data reference](monitor-service-reference.md#metrics). For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
+For a list of the platform metrics collected for Azure IoT Hub, see [Metrics in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#metrics). For a list of the platform metrics collected for all Azure services, see [Supported metrics with Azure Monitor](/azure/azure-monitor/platform/metrics-supported).
 
 On your IoT hub in Azure portal, Azure Monitor provides a metrics explorer experience scoped, by default, to the platform metrics emitted by your IoT hub. You can access this experience by selecting **Metrics** under **Monitoring** on the left-pane of your IoT hub:
 
@@ -88,9 +88,9 @@ On your IoT hub in Azure portal, Azure Monitor provides a metrics explorer exper
 
 In metrics explorer, you can view the metrics for your IoT hub and create custom views of your metrics.
 
-For platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-service-reference.md#supported-aggregations).
+For platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
-Some IoT Hub metrics, like [routing metrics](monitor-service-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) and [splitting](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) to your charts based on a dimension.
+Some IoT Hub metrics, like [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are multi-dimensional. For these metrics, you can apply [filters](/azure-monitor/platform/metrics-charts#apply-filters-to-charts) and [splitting](/azure/azure-monitor/platform/metrics-charts#apply-splitting-to-a-chart) to your charts based on a dimension.
 
 ## Analyzing logs
 
@@ -107,7 +107,7 @@ On your IoT hub in Azure portal, Azure Monitor provides an Azure Monitor Logs ex
 
 For some common queries with IoT Hub, see [Sample Kusto queries](#sample-kusto-queries). For detailed information on using Log Analytics queries, see [Overview of log queries in Azure Monitor](/azure/azure-monitor/log-query/log-query-overview).
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#top-level-resource-logs-schema). You can find the schema and categories of resource logs collected for Azure IoT Hub in [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-service-reference.md#resource-logs).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-schema#top-level-resource-logs-schema). You can find the schema and categories of resource logs collected for Azure IoT Hub in [Resource logs in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#resource-logs).
 
 The [Activity log](/azure/azure-monitor/platform/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
@@ -115,13 +115,13 @@ When using IoT Hub platform metrics in Azure Monitor Logs, be aware that:
 
 - The following platform metrics are not exportable via diagnostic settings: *Connected devices (preview)* and *Total devices (preview)*.
 
-- Multi-dimensional metrics, for example some [routing metrics](monitor-service-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
+- Multi-dimensional metrics, for example some [routing metrics](monitor-iot-hub-reference.md#routing-metrics), are currently exported as flattened single dimensional metrics aggregated across dimension values. For more detail, see [Exporting platform metrics to other locations](/azure/azure-monitor/platform/metrics-supported.md#exporting-platform-metrics-to-other-locations).
 
-For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Azure Monitor Logs tables in the Monitoring Azure IoT Hub data reference](monitor-service-reference.md#azure-monitor-logs-tables)  
+For a list of the tables used by Azure Monitor Logs and queryable by Log Analytics, see [Azure Monitor Logs tables in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#azure-monitor-logs-tables)  
 
 ### SDK version in IoT Hub logs
 
-Some operations in IoT Hub resource logs return an `sdkVersion` property in their `properties` object. For these operations, when a device or backend app is using one of the Azure IoT SDKs, this property contains information about the SDK being used, the SDK version, and the platform on which the SDK is running. The following example shows the `sdkVersion` property emitted for a [`deviceConnect`](monitor-service-reference.md#connections) operation when using the Node.js device SDK: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"`. Here's an example of the value emitted for the .NET (C#) SDK: `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"`.
+Some operations in IoT Hub resource logs return an `sdkVersion` property in their `properties` object. For these operations, when a device or backend app is using one of the Azure IoT SDKs, this property contains information about the SDK being used, the SDK version, and the platform on which the SDK is running. The following example shows the `sdkVersion` property emitted for a [`deviceConnect`](monitor-iot-hub-reference.md#connections) operation when using the Node.js device SDK: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"`. Here's an example of the value emitted for the .NET (C#) SDK: `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"`.
 
 The following table shows the SDK name used for different Azure IoT SDKs:
 
@@ -306,7 +306,7 @@ This information is the BIGGEST request we get in Azure Monitor so do not avoid 
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/platform/alerts-metric-overview), [logs](/azure/azure-monitor/platform/alerts-unified-log), and the [activity log](/azure/azure-monitor/platform/activity-log-alerts). Different types of alerts have benefits and drawbacks.
 
-When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-service-reference.md#supported-aggregations).
+When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
 The following table lists common and recommended alert rules for Azure IoT Hub.
 
@@ -320,6 +320,6 @@ The following table lists common and recommended alert rules for Azure IoT Hub.
 
 <!-- Add additional links. You can change the wording of these and add more if useful.   -->
 
-- See [Azure IoT Hub monitoring data reference](monitor-service-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
+- See [Azure IoT Hub monitoring data reference](monitor-iot-hub-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
 
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/insights/monitor-azure-resource) for details on monitoring Azure resources.

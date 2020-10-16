@@ -28,7 +28,7 @@ Devices disconnect randomly, and you see **404104 DeviceConnectionClosedRemotely
 
 ### Symptom 3
 
-Many devices disconnect at once, you see a dip in the [Connected devices (connectedDeviceCount) metric](monitor-service-reference.md), and there are more **404104 DeviceConnectionClosedRemotely** and [500xxx Internal errors](iot-hub-troubleshoot-error-500xxx-internal-errors.md) in Azure Monitor Logs than usual.
+Many devices disconnect at once, you see a dip in the [Connected devices (connectedDeviceCount) metric](monitor-iot-hub-reference.md), and there are more **404104 DeviceConnectionClosedRemotely** and [500xxx Internal errors](iot-hub-troubleshoot-error-500xxx-internal-errors.md) in Azure Monitor Logs than usual.
 
 ## Causes
 

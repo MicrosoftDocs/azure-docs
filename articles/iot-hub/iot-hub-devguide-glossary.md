@@ -211,7 +211,7 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 
 ## IoT Hub metrics
 
-[IoT Hub metrics](monitor-service-reference.md#metrics) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
+[IoT Hub metrics](monitor-iot-hub-reference.md#metrics) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 ## IoT Hub query language
 

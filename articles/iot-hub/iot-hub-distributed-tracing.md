@@ -74,7 +74,7 @@ Once the logging is turned on, IoT Hub records a log when a message containing v
 - The message is processed by the IoT Hub.
 - The message is routed to custom endpoints. Routing must be enabled.
 
-To learn more about these logs and their schemas, see [Monitor IoT Hub](monitor-iot-hub.md) and [Distributed tracing in IoT Hub resource logs](monitor-service-reference.md#distributed-tracing-preview).
+To learn more about these logs and their schemas, see [Monitor IoT Hub](monitor-iot-hub.md) and [Distributed tracing in IoT Hub resource logs](monitor-iot-hub-reference.md#distributed-tracing-preview).
 
 ## Set up device
 
@@ -269,7 +269,7 @@ Example logs as shown by Log Analytics:
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
-To understand the different types of logs, see [Azure IoT Hub distributed tracing logs](monitor-service-reference.md#distributed-tracing-preview).
+To understand the different types of logs, see [Azure IoT Hub distributed tracing logs](monitor-iot-hub-reference.md#distributed-tracing-preview).
 
 ### Application Map
 

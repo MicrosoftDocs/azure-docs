@@ -15,7 +15,7 @@ This article provides monitoring and troubleshooting guidance for common issues 
 
 ## Monitoring message routing
 
-We recommend you monitor [IoT Hub metrics related to message routing and endpoints](monitor-service-reference.md#routing-metrics) to give you an overview of the messages sent. You can also create a diagnostic setting to send operations for [**routes** in IoT Hub resource logs](monitor-service-reference.md#routes) to Azure Monitor Logs, Event Hubs or Azure Storage for custom processing. To learn more about using metrics, resource logs, and diagnostic settings, see [Monitor IoT Hub](monitor-iot-hub.md). For a tutorial, see [Set up and use metrics and resource logs with an IoT hub](tutorial-use-metrics-and-diags.md).
+We recommend you monitor [IoT Hub metrics related to message routing and endpoints](monitor-iot-hub-reference.md#routing-metrics) to give you an overview of the messages sent. You can also create a diagnostic setting to send operations for [**routes** in IoT Hub resource logs](monitor-iot-hub-reference.md#routes) to Azure Monitor Logs, Event Hubs or Azure Storage for custom processing. To learn more about using metrics, resource logs, and diagnostic settings, see [Monitor IoT Hub](monitor-iot-hub.md). For a tutorial, see [Set up and use metrics and resource logs with an IoT hub](tutorial-use-metrics-and-diags.md).
 
 We also recommend enabling the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) if you want to maintain messages that don't match the query on any of the routes. These can be retained in the [built-in endpoint](iot-hub-devguide-messages-read-builtin.md) for the amount of retention days configured.
 
@@ -32,11 +32,11 @@ To troubleshoot this issue, analyze the following.
 
 #### The routing metrics for this endpoint
 
-All the [IoT Hub metrics related to routing](monitor-service-reference.md#routing-metrics) are prefixed with *Routing*. You can combine information from multiple metrics to identify root cause for issues. For example, use metric **Routing Delivery Attempts** to identify the number of messages that were delivered to an endpoint or dropped when they didn't match queries on any of the routes and fallback route was disabled. Check the **Routing Latency** metric to observe whether latency for message delivery is steady or increasing. A growing latency can indicate a problem with a specific endpoint and we recommend checking [the health of the endpoint](#the-health-of-the-endpoint). These routing metrics also have [dimensions](monitor-service-reference.md#metric-dimensions) that provide details on the metric like the endpoint type, specific endpoint name and a reason why the message was not delivered.
+All the [IoT Hub metrics related to routing](monitor-iot-hub-reference.md#routing-metrics) are prefixed with *Routing*. You can combine information from multiple metrics to identify root cause for issues. For example, use metric **Routing Delivery Attempts** to identify the number of messages that were delivered to an endpoint or dropped when they didn't match queries on any of the routes and fallback route was disabled. Check the **Routing Latency** metric to observe whether latency for message delivery is steady or increasing. A growing latency can indicate a problem with a specific endpoint and we recommend checking [the health of the endpoint](#the-health-of-the-endpoint). These routing metrics also have [dimensions](monitor-iot-hub-reference.md#metric-dimensions) that provide details on the metric like the endpoint type, specific endpoint name and a reason why the message was not delivered.
 
 #### The diagnostic logs for any operational issues
 
-Observe the [**Routes** resource logs](monitor-service-reference.md#routes) to get more information on the routing and endpoint [operations](#operation-names) or identify errors and relevant [error code](#common-error-codes) to understand the issue further. For example, the operation name **RouteEvaluationError** in the log indicates the route could not be evaluated because of an issue with the message format. Use the tips provided for the specific [operation names](#operation-names) to mitigate the issue. When an event is logged as an error, the log will also provide more information on why the evaluation failed. For example, if the operation name is **EndpointUnhealthy**, an [Error code](#common-error-codes) of 403004 indicates the endpoint ran out of space.
+Observe the [**Routes** resource logs](monitor-iot-hub-reference.md#routes) to get more information on the routing and endpoint [operations](#operation-names) or identify errors and relevant [error code](#common-error-codes) to understand the issue further. For example, the operation name **RouteEvaluationError** in the log indicates the route could not be evaluated because of an issue with the message format. Use the tips provided for the specific [operation names](#operation-names) to mitigate the issue. When an event is logged as an error, the log will also provide more information on why the evaluation failed. For example, if the operation name is **EndpointUnhealthy**, an [Error code](#common-error-codes) of 403004 indicates the endpoint ran out of space.
 
 #### The health of the endpoint
 
@@ -63,7 +63,7 @@ You can enable/disable the fallback route in the Azure portal->Message Routing b
 
 ## Routes diagnostic logs
 
-The following are the operation names and error codes logged in the [routes resource logs](monitor-service-reference.md#routes).
+The following are the operation names and error codes logged in the [routes resource logs](monitor-iot-hub-reference.md#routes).
 
 <a id="diagnostics-operation-names"></a>
 ### Operation Names
