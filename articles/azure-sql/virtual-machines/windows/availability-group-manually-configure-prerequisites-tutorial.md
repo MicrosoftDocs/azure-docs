@@ -124,7 +124,7 @@ The new virtual network has one subnet, named **Admin**. The domain controllers 
 6. On **Add subnet**, configure the subnet by typing **sqlsubnet** under **Name**. Azure automatically specifies a valid **Address range**. Verify that this address range has at least 10 addresses in it. In a production environment, you might require more addresses.
 7. Select **OK**.
 
-    ![Condfigure subnet](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
+    ![Configure subnet](./media/availability-group-manually-configure-prerequisites-tutorial-/08-configuresubnet.png)
 
 The following table summarizes the network configuration settings:
 
