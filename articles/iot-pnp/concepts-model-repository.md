@@ -85,12 +85,12 @@ string modelContent = await _httpClient.GetStringAsync(fullyQualifiedPath);
 1. Add the new interfaces to the `dtmi` folder using the folder/filename convention. See the [add-model](#add-model) tool.
 1. Validate the device models locally using the [scripts to validate changes](#validate-files) section.
 1. Commit the changes locally and push to your fork.
-1. From your fork, create a pull request ( t)hat targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
-1. Review the [pull request ( r)equirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
+1. From your fork, create a pull request that targets the `main` branch. See [Creating an issue or pull request](https://docs.github.com/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/creating-an-issue-or-pull-request) docs.
+1. Review the [pull request requirements](https://github.com/Azure/iot-plugandplay-models/blob/main/pr-reqs.md).
 
-The pull request ( t)riggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your pull request ( s)atisfies all the checks.
+The pull request triggers a series of GitHub actions that will validate the new submitted interfaces, and make sure your pull request satisfies all the checks.
 
-Microsoft will respond to a pull request ( w)ith all checks in three business days.
+Microsoft will respond to a pull request with all checks in three business days.
 
 ### add-model
 
