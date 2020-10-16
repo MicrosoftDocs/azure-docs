@@ -20,13 +20,13 @@ PAL enables Microsoft to identify and recognize partners who drive Azure custome
 
 Before you link your partner ID, your customer must give you access to their Azure resources by using one of the following options:
 
-- **Guest user**: Your customer can add you as a guest user and assign any Azure roles. For more information, see [Add guest users from another directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- **Guest user**: Your customer can add you as a guest user and assign any Azure roles. For more information, see [Add guest users from another directory](../../active-directory/external-identities/what-is-b2b.md).
 
 - **Directory account**: Your customer can create a user account for you in their own directory and assign any Azure role.
 
 - **Service principal**: Your customer can add an app or script from your organization in their directory and assign any Azure role. The identity of the app or script is known as a service principal.
 
-- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure delegated resource management](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
+- **Azure Lighthouse**: Your customer can delegate a subscription (or resource group) so that your users can work on it from within your tenant. For more information, see [Azure delegated resource management](../../lighthouse/concepts/azure-delegated-resource-management.md).
 
 ## Link to a partner ID
 
@@ -50,7 +50,7 @@ When you have access to the customer's resources, use the Azure portal, PowerShe
 
 1. Install the [Az.ManagementPartner](https://www.powershellgallery.com/packages/Az.ManagementPartner/) PowerShell module.
 
-2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps).
+2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with PowerShell](/powershell/azure/authenticate-azureps).
 
    ```azurepowershell-interactive
     C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -84,7 +84,7 @@ C:\> remove-AzManagementPartner -PartnerId 12345
     C:\ az extension add --name managementpartner
     ```
 
-2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with the Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+2. Sign in to the customer's tenant with either the user account or the service principal. For more information, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
     ```azurecli-interactive
     C:\ az login --tenant <tenant>
@@ -147,9 +147,9 @@ Cloud Product Performance reporting is available to partners in Partner Center a
 
 You can't see the customer in the reports due to following reasons
 
-1. The linked user account doesn't have [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) on any customer Azure subscription or resource.
+1. The linked user account doesn't have [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) on any customer Azure subscription or resource.
 
-2. The Azure subscription where the user has [Azure role-based access control (Azure RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) access doesn't have any usage.
+2. The Azure subscription where the user has [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) access doesn't have any usage.
 
 **Does link partner ID works with Azure Stack?**
 
