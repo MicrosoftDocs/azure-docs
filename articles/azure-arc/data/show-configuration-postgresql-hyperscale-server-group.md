@@ -278,7 +278,7 @@ azdata arc postgres server show -n postgres02
 
 Returns the below output in a format and content very similar to the one returned by kubectl.
 
-```output
+```console
 {
   "apiVersion": "arcdata.microsoft.com/v1alpha1",
   "kind": "postgresql-12",
