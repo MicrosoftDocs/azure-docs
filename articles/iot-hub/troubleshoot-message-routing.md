@@ -36,7 +36,7 @@ All the [IoT Hub metrics related to routing](monitor-service-reference.md#routin
 
 #### The diagnostic logs for any operational issues
 
-Observe the [**Routes** resource logs](monitor-service-reference.md#routes) to get more information on the routing and endpoint [operations](#operation-names) or identify errors and relevant [error code](#common-error-codes) to understand the issue further. For example, the operation name **RouteEvaluationError** in the log indicates the route could not be evaluated because of an issue with the message format. Use the tips provided for the specific [operation names](#operation-names) to mitigate the issue. When an event is logged as an error, the log will also provide more information on why the evaluation failed. For example, if the operation name is **EndpointUnhealthy**, an [Error codes](#common-error-codes) of 403004 indicates the endpoint ran out of space.
+Observe the [**Routes** resource logs](monitor-service-reference.md#routes) to get more information on the routing and endpoint [operations](#operation-names) or identify errors and relevant [error code](#common-error-codes) to understand the issue further. For example, the operation name **RouteEvaluationError** in the log indicates the route could not be evaluated because of an issue with the message format. Use the tips provided for the specific [operation names](#operation-names) to mitigate the issue. When an event is logged as an error, the log will also provide more information on why the evaluation failed. For example, if the operation name is **EndpointUnhealthy**, an [Error code](#common-error-codes) of 403004 indicates the endpoint ran out of space.
 
 #### The health of the endpoint
 
