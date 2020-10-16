@@ -147,7 +147,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 From **Microsoft.AppPlatform/skus**, select:
 * Read : List available skus
 
-   [ ![App platform permissions](media/spring-cloud-permissions/dev-ops-permissions.png) ](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
+   [ ![Dev/Op permissions](media/spring-cloud-permissions/dev-ops-permissions.png) ](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
 3. Click **Add**.
 
@@ -181,7 +181,7 @@ From **Microsoft.AppPlatform/locations/operationResults/Spring**, select:
 From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 * Read : Read operation status
 
-   [ ![App platform permissions](media/spring-cloud-permissions/ops-sre-permissions.png) ](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
+   [ ![Ops/SRE permissions](media/spring-cloud-permissions/ops-sre-permissions.png) ](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
 3. Click **Add**.
 
@@ -243,7 +243,7 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 From **Microsoft.AppPlatform/skus**, select:
 * Read : List available skus
 
-   [ ![App platform permissions](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
+   [ ![Pipelines permissions](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
 4. Click **Add**.
 
