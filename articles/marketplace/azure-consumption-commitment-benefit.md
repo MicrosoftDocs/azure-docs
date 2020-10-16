@@ -34,15 +34,15 @@ If you are unsure if your organization has a qualifying agreement, sign in to th
 1. Sign in to the Marketplace experience within the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home) under a tenant associated with your organization.
 2. Apply the **Azure benefit eligible** filter (image above) to discover offers that are eligible to contribute towards your organization’s Azure consumption commitment.
 
-> [!NOTE]
-> If you do not have this filter, your organization does not have a qualifying commitment. Please contact your Microsoft account executive if you believe this is incorrect.
+   > [!NOTE]
+   > If you do not have this filter, your organization does not have a qualifying commitment. Please contact your Microsoft account executive if you believe this is incorrect.
  
 3. Offers will be badged with **Azure benefit eligible** to further indicate that the software/IP costs associated with this offer will contribute towards your organization’s Azure consumption commitment on top of any Azure services billed to your organization.
 
     :::image type="content" source="media/azure-benefit/azure-benefit-eligible-badge.png" alt-text="Azure benefit eligible badge.":::
 
-> [!NOTE]
-> Microsoft Azure services billed to your organization through an Azure Marketplace deployment will inherently contribute towards your organization’s commitment. The added benefit to “Azure benefit eligible” offers is that software/IP costs passed through by the 3rd-party vendor will also contribute at 100% of your Azure Marketplace invoice.
+   > [!NOTE]
+   > Microsoft Azure services billed to your organization through an Azure Marketplace deployment will inherently contribute towards your organization’s commitment. The added benefit to “Azure benefit eligible” offers is that software/IP costs passed through by the 3rd-party vendor will also contribute at 100% of your Azure Marketplace invoice.
 
 4. Purchase/create the offer directly through the Azure Marketplace. Microsoft will contribute 100% of qualifying offer purchases towards your organization’s Azure consumption commitment at each invoice period, including software/IP costs.
 
