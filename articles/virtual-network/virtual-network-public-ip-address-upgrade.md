@@ -35,12 +35,6 @@ In order to upgrade a public IP, it must not be associated with any resource (se
 >Public IPs upgraded from Basic to Standard SKU continue to have no [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones).  This means they cannot be associated with an Azure resource that is either zone-redundant or tied to a pre-specified zone in regions where this is offered.
 
 ---
-# [**Basic to Standard - Portal**](#tab/option-upgrade-portal)
-
-The following example assumes previous creation of a Basic SKU public IP, using the example given on [this page](https://docs.microsoft.com/azure/virtual-network/create-public-ip-portal?tabs=option-create-public-ip-basic) with a Basic public IP **myBasicPublicIP** in **myResourceGroup**.
-
-*Fill this out once we have Portal instructions*
-
 # [**Basic to Standard - Powershell**](#tab/option-upgrade-powershell)
 
 The following example assumes previous creation of a Basic SKU public IP, using the example given on [this page](https://docs.microsoft.com/azure/virtual-network/create-public-ip-powershell?tabs=option-create-public-ip-basic) with a Basic public IP **myBasicPublicIP** in **myResourceGroup**.
