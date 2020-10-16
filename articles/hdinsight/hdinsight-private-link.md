@@ -81,7 +81,7 @@ The following image shows an example of the private DNS entries required to acce
 
 ## ARM template properties
 
-The following JSON code snippet includes the two network properies you need to configure in your ARM template to create a private HDInsight cluster.
+The following JSON code snippet includes the two network properties you need to configure in your ARM template to create a private HDInsight cluster.
 
 ```json
 networkProperties: {
