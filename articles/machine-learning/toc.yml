@@ -166,6 +166,8 @@
               href: how-to-setup-authentication.md
             - name: Manage users and roles
               href: how-to-assign-roles.md
+            - name: Use managed identities for access control
+              href: how-to-use-managed-identities.md
             - name: Use Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
         - name: Network security
