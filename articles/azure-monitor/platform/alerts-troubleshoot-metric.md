@@ -71,14 +71,14 @@ For more information about collecting data from the guest operating system of a 
 > If you configured guest metrics to be sent to a Log Analytics workspace, the metrics appear under the Log Analytics workspace resource and will start showing data **only** after creating an alert rule that monitors them. To do so, follow the steps to [configure a metric alert for logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
 
 > [!NOTE] 
-> Monitoring a guest metric for multiple virtual machines with a single alert rule isn't supported by metric alerts currently. You can achieve this with a [log alert rule](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log). To do so, make sure the guest metrics are collected to a Log Analytics workspace, and create a log alert rule on the workspace.
+> Monitoring a guest metric for multiple virtual machines with a single alert rule isn't supported by metric alerts currently. You can achieve this with a [log alert rule](./alerts-unified-log.md). To do so, make sure the guest metrics are collected to a Log Analytics workspace, and create a log alert rule on the workspace.
 
 ## Can’t find the metric to alert on
 
 If you’re looking to alert on a specific metric but can’t see it when creating an alert rule, check the following:
 - If you can't see any metrics for the resource, [check if the resource type is supported for metric alerts](./alerts-metric-near-real-time.md).
 - If you can see some metrics for the resource, but can’t find a specific metric, [check if that metric is available](./metrics-supported.md), and if so, see the metric description to check if it’s only available in specific versions or editions of the resource.
-- If the metric isn't available for the resource, it might be available in the resource logs, and can be monitored using log alerts. See here for more information on how to [collect and analyze resource logs from an Azure resource](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs).
+- If the metric isn't available for the resource, it might be available in the resource logs, and can be monitored using log alerts. See here for more information on how to [collect and analyze resource logs from an Azure resource](../learn/tutorial-resource-logs.md).
 
 ## Can’t find the metric dimension to alert on
 
