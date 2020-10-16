@@ -374,7 +374,7 @@ For more information on the policies specific to Azure Machine Learning, see [Au
 
 ## Resource locks
 
-[!INCLUDE [recource locks](../../includes/machine-learning-resource-lock.md)]
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## Next steps
 

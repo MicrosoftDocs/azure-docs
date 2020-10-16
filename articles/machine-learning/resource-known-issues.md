@@ -480,7 +480,7 @@ For more information, see [Manage users and roles](how-to-assign-roles.md).
 
 ## Resource locks
 
-[!INCLUDE [recource locks](../../includes/machine-learning-resource-lock.md)]
+[!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
 ## Next steps
 
