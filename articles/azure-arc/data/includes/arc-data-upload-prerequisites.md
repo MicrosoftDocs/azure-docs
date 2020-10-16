@@ -8,7 +8,7 @@ ms.date: 10/15/2018
 ms.author: mikeray
 ---
 
-You will need the Azure CLI (az) and the Azure Data CLI (azdata) installed. [Install tools](./install-client-tools.md).
+You will need the Azure CLI (az) and the Azure Data CLI (azdata) installed. [Install client tools](../install-client-tools.md).
 
 Prior to uploading data to Azure, you need to ensure that your Azure subscription has the `Microsoft.AzureData` resource provider registered.
 

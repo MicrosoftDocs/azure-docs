@@ -29,7 +29,7 @@ Periodically, you can export logs and then upload them to Azure. Exporting and u
 
 There are a few one-time setup steps required to enable the logs and metrics upload scenarios:
 
-1. [Create a service principal](#create-a-service-principal-and-assign-roles) (Azure Active Directory application) including creating a client access secret.
+1. [Create a service principal](#create-a-service-principal) (Azure Active Directory application) including creating a client access secret.
 1. [Assign the service principal to the `Monitoring Metrics Publisher` role](#assign-role-to-service-principal) on the subscription(s) where your database instance resources are located.
 1. [Create a log analytics workspace](#create-a-log-analytics-workspace) and get the keys and set the information in environment variables.
 

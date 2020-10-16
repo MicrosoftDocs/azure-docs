@@ -39,12 +39,9 @@ If you have multiple sites that have Azure Arc data services, you can use Azure 
 
 ### Before you begin
 
-There are a few one-time setup steps required to enable the logs and metrics upload scenarios:
+The first time you upload metrics, you need to [Create a service principal](#create-a-service-principal) (Azure Active Directory application) including creating a client access secret.
 
-1. [Create a service principal](#create-a-service-principal) (Azure Active Directory application) including creating a client access secret.
-1. [Assign the service principal to the `Monitoring Metrics Publisher` role](#assign-role-to-service-principal) on the subscription(s) where your database instance resources are located.
-
-The first item is required to upload metrics and the second one is required to upload logs.
+The service principal is required to upload metrics.
 
 Follow these commands to create your metrics upload service principal and assign it to the 'Monitoring Metrics Publisher' and 'Contributor' roles so that the service principal can upload metrics and perform create and upload operations.
 
