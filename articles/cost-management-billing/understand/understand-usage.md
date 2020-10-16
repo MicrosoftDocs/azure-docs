@@ -86,8 +86,8 @@ PublisherType | All | Type of publisher (Values: **Azure**, **AWS**, **Marketpla
 Quantity | All | The number of units purchased or consumed.
 ReservationId | EA, MCA | Unique identifier for the purchased reservation instance.
 ReservationName | EA, MCA | Name of the purchased reservation instance.
-ResourceGroup | All | Name of the [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) the resource is in. Not all charges come from resources deployed to resource groups. Charges that do not have a resource group will be shown as null/empty, **Others**, or **Not applicable**.
-ResourceId<sup>1</sup> | All | Unique identifier of the [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources) resource.
+ResourceGroup | All | Name of the [resource group](../../azure-resource-manager/management/overview.md) the resource is in. Not all charges come from resources deployed to resource groups. Charges that do not have a resource group will be shown as null/empty, **Others**, or **Not applicable**.
+ResourceId<sup>1</sup> | All | Unique identifier of the [Azure Resource Manager](/rest/api/resources/resources) resource.
 ResourceLocation | All | Datacenter location where the resource is running. See Location.
 ResourceName | EA, PAYG | Name of the resource. Not all charges come from deployed resources. Charges that do not have a resource type will be shown as null/empty, **Others**, or **Not applicable**.
 ResourceType | MCA | Type of resource instance. Not all charges come from deployed resources. Charges that do not have a resource type will be shown as null/empty, **Others**, or **Not applicable**.

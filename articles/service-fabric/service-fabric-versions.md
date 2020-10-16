@@ -34,11 +34,11 @@ The following table lists the versions of Service Fabric and their support end d
 | 6.3.* | 6.1.480.* |Less than or equal to version  3.2 |March 31, 2019  |
 | 6.4.* | 6.2.301.* |Less than or equal to version  3.3 |September 15, 2019 |
 | 6.5.* | 6.4.617.* |Less than or equal to version  3.4 |August 1, 2020 |
-| 7.0.466.* | 6.4.664.* |Less than or equal to version  4.0|November 1, 2020  |
-| 7.0.466.* | 6.5.* |Less than or equal to version  4.0|November 1, 2020 |
-| 7.0.470.* | 7.0.466.* |Less than or equal to version  4.0 |November 1, 2020  |
-| 7.0.472.* | 7.0.466.* |Less than or equal to version  4.0 |November 1, 2020  |
-| 7.0.478.* | 7.0.466.* |Less than or equal to version  4.0 |November 1, 2020  |
+| 7.0.466.* | 6.4.664.* |Less than or equal to version  4.0|January 31, 2021  |
+| 7.0.466.* | 6.5.* |Less than or equal to version  4.0|January 31, 2021 |
+| 7.0.470.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
+| 7.0.472.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
+| 7.0.478.* | 7.0.466.* |Less than or equal to version  4.0 |January 31, 2021  |
 | 7.1.409.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
 | 7.1.417.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
 | 7.1.428.* | 7.0.466.* |Less than or equal to version  4.1 |Current version, so no end date |
