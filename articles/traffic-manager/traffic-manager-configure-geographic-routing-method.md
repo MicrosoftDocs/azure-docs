@@ -41,9 +41,9 @@ In this tutorial, you learn how to:
     | Setting         | Value                                              |
     | ---             | ---                                                |
     | Name            | Provide a name for your profile. This name needs to be unique within the trafficmanager.net zone. To access your Traffic Manager profile, you use the DNS name `<profilename>.trafficmanager.net`. |    
-    | Routing method  | **Geographic** |
+    | Routing method  | Select **Geographic**. |
     | Subscription    | Select your subscription. |
-    | Resource group   | Use an existing resource group or create a new resource group to place this profile under. If you choose to create a new resource group, use the **Resource Group location** dropdown to specify the location of the resource group. This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that's deployed globally. |
+    | Resource group   | Use an existing resource group or create a new resource group to place this profile under. If you choose to create a new resource group, use the *Resource Group location* dropdown to specify the location of the resource group. This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that's deployed globally. |
 
 1. Select **Create** to deploy your Traffic Manager profile.
 
@@ -98,7 +98,7 @@ If you not longer need the Traffic Manager profile, locate the profile and selec
 
 ## Next steps
 
-To learn more, see:
+To learn more about geographic routing method, see:
 
 > [!div class="nextstepaction"]
 > [Geographic traffic routing method](traffic-manager-routing-methods.md#geographic)
