@@ -365,8 +365,8 @@ private async Task ReceiveMessages(string subscription)
                     lock (Console.Out)
                     {
                         Item item = message.As<Item>();
-                        IReadOnlyDictionary<string, object> myUserProperties = message.ApplicationProperties;
-                        Console.WriteLine($"StoreId={myUserProperties["StoreId"]}");
+                        IReadOnlyDictionary<string, object> myApplicationProperties = message.ApplicationProperties;
+                        Console.WriteLine($"StoreId={myApplicationProperties["StoreId"]}");
                         if (message.Subject != null)
                         {
                             Console.WriteLine($"Subject={message.Subject}");
