@@ -31,7 +31,7 @@ To begin provisioning numbers, go to your Communication Services resource on the
 
 ### Getting new phone numbers
 
-Navigate to the Phone Numbers blade in the resource menu.
+Navigate to the **Phone Numbers** blade in the resource menu.
 
 :::image type="content" source="../media/manage-phone-azure-portal-phone-page.png" alt-text="Screenshot showing a Communication Services resource's phone page.":::
 
