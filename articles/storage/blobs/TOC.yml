@@ -316,7 +316,7 @@
         href: storage-blob-properties-metadata.md
       - name: Copy a blob (SDK)
         href: storage-blob-copy.md
-      - name: Utilize blob index
+      - name: Use blob index tags
         href: storage-blob-index-how-to.md
     - name: Authorize access to blob data
       items:
