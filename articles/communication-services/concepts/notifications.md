@@ -70,6 +70,9 @@ In the portal, navigate to your Azure Communication Services resource. Inside th
 
 :::image type="content" source="./media/notifications/acs-anh-portal-int.png" alt-text="Screenshot showing the Push Notifications settings within the Azure Portal.":::
 
+> [!NOTE]
+> If the Azure Notification Hub connection string is updated the Communication Services resource has to be updated as well.
+
 #### Device registration 
 
 Refer to the [voice calling quickstart](../quickstarts/voice-video-calling/getting-started-with-calling.md) to learn how to register your device handle with Communication Services.
