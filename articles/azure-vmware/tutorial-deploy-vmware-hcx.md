@@ -79,7 +79,7 @@ Infrastructure components must be running the required minimum version.
    >
    >The vCenter password was defined when you set up the private cloud.
 
-1. Select the **Download** link to download the VMware HCX Connector OVA file.
+1. Select the **download** link to download the VMware HCX Connector OVA file.
 
 1. Go to your on-premises vCenter. Select an OVF template, which is the OVA file that you downloaded, to deploy the HCX Connector to your on-premises vCenter.  
 
