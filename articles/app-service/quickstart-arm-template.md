@@ -29,11 +29,7 @@ Use the following button to deploy on **Linux**:
 ## Review the template
 
 ::: zone pivot="platform-windows"
-<<<<<<< HEAD
-The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](app-service-web-get-started-java.md).
-=======
-The template used in this quickstart is from [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates/). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md). 
->>>>>>> f988c815acf... Links: Azure - app-service (2020-10)
+The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-app-service-docs-windows). It deploys an App Service plan and an App Service app on Windows. It's compatible with .NET Core, .NET Framework, PHP, Node.js, and Static HTML apps. For Java, see [Create Java app](./quickstart-java.md).
 
 :::code language="json" source="~/quickstart-templates/101-app-service-docs-windows/azuredeploy.json":::
 
