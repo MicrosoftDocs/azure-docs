@@ -394,6 +394,5 @@ An alert on a Resource Manager template is most often useful when creating an al
 
 ## Next Steps
 * [Read more about Alerts](alerts-overview.md)
-* [Add Diagnostic Settings](./diagnostic-settings-template.md) to your Resource Manager template
+* [Add Diagnostic Settings](../samples/resource-manager-diagnostic-settings.md) to your Resource Manager template
 * For the JSON syntax and properties, see [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules) template reference.
-

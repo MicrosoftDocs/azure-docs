@@ -13,6 +13,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
+ms.custom: subject-armqs
 # Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
