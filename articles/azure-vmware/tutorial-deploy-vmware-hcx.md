@@ -86,8 +86,7 @@ Infrastructure components must be running the required minimum version.
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Screenshot of browsing to an OVF template." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Select a name and location, and select a resource/cluster where you deploy the HCX Connector. 
-1. Review the details and required resources.  
+1. Select a name and location, and select a resource/cluster where you deploy the HCX Connector. Then review the details and required resources.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Screenshot of reviewing details for the template." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
@@ -267,7 +266,6 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: C
 
 
 
-
 ### Create a service mesh
 
 Now it's time to configure a service mesh between on-premises and Azure VMware Solution SDDC.
@@ -291,7 +289,9 @@ Now it's time to configure a service mesh between on-premises and Azure VMware S
 
 1. Review services that will be enabled, and then select **Continue**.  
 
-1. In **Advanced Configuration - Override Uplink Network profiles**, select **Continue**.  Uplink network profiles connect to the network through which the remote site's interconnect appliances can be reached.  
+1. In **Advanced Configuration - Override Uplink Network profiles**, select **Continue**.  
+   
+   Uplink network profiles connect to the network through which the remote site's interconnect appliances can be reached.  
   
 1. In **Advanced Configuration - Network Extension Appliance Scale Out**, review and select **Continue**. 
 
