@@ -221,7 +221,7 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
     ```
 
 > [!NOTE]
-> For package management within a notebook, use **%pip** or **%conda** magic functions to refer to packages **within selected kernel environment** rather than **!pip** or **!conda** which refers to all packages (including packages outside the selected kernel environment)
+> For package management within a notebook, use **%pip** or **%conda** magic functions automatically install packages into the **currently-running kernel** rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
