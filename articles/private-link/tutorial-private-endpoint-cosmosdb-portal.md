@@ -249,7 +249,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 11. In the **Connect to Azure Storage** screen, select **Cancel**.
 
-12. In Storage Explorer, right mouse click **Cosmos DB Accounts** and select **Connect to Cosmos DB**.
+12. In Storage Explorer, select the right mouse button on **Cosmos DB Accounts** and select **Connect to Cosmos DB**.
 
 13. Leave the default of **SQL** under **Select API**.
 
