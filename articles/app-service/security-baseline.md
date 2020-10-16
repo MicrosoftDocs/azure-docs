@@ -984,7 +984,6 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 In addition, use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
 - Not allowed resource types
-
 - Allowed resource types
 
 - [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
@@ -1066,7 +1065,6 @@ Use Azure Resource Graph to query or discover resources within their subscriptio
 **Guidance**: Use Azure Policy to put restrictions on the type of resources that can be created in customer subscriptions using the following built-in policy definitions:
 
 - Not allowed resource types
-
 - Allowed resource types
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
