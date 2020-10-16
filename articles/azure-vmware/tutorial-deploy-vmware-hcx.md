@@ -168,7 +168,7 @@ You can connect (pair) the VMware HCX Cloud Manager in Azure VMware Solution wit
 1. Enter the Remote HCX URL or IP address that you noted earlier, the Azure VMware Solution cloudadmin@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
-   > The remote HCX URL is your Azure VMware Solution private cloud's HCX Cloud Manager IP address. Typically, it's the ".9" address of the management network. For example, if your vCenter is 192.168.4.2, then your HCX URL will be 192.168.4.9.
+   > The remote HCX URL is your Azure VMware Solution private cloud's HCX Cloud Manager IP address, which is the ".9" address of the management network. For example, if your vCenter is 192.168.4.2, then your HCX URL will be 192.168.4.9.
    >
    > The password is the same password that you used to sign in to vCenter. You defined this password on the initial deployment screen.
 
