@@ -310,7 +310,8 @@ Now it's time to configure a service mesh between on-premises and Azure VMware S
 
    :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="Screenshot that shows green indicators on services." lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
 
-1. Verify the service mesh's health by checking the appliance status. Select **Interconnect** > **Appliances**.
+1. Verify the service mesh's health by checking the appliance status. 
+1. Select **Interconnect** > **Appliances**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot that shows selections for checking the status of the appliance." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
