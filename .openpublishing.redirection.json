@@ -14703,6 +14703,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-vmware/pre-deployment-checklist.md",
+      "redirect_url": "/azure/azure-vmware/production-ready-deployment-steps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-vmware/disaster-recovery.md",
       "redirect_url": "/azure/azure-vmware/disaster-recovery-for-virtual-machines",
       "redirect_document_id": false
@@ -34344,7 +34349,7 @@
     },
     {
       "source_path": "articles/stream-analytics/stream-analytics-data-lake-output.md",
-      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs#azure-data-lake-store",
+      "redirect_url": "/azure/stream-analytics/stream-analytics-define-outputs",
       "redirect_document_id": false
     },
     {
@@ -38598,18 +38603,28 @@
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-custom-dev.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-custom-dev",
-      "redirect_document_id": true
-    },
-    {
-      "source_path": "articles/active-directory/application-sign-in-problem-federated-sso-gallery.md",
       "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/manage-apps/application-sign-in-problem-custom-dev.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/application-sign-in-problem-federated-sso-gallery.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/application-sign-in-problem-federated-sso-non-gallery.md",
-      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/manage-apps/application-sign-in-problem-federated-sso-non-gallery.md",
+      "redirect_url": "/azure/active-directory/manage-apps/application-sign-in-problem-federated-sso-gallery",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/application-sign-in-problem-first-party-microsoft.md",
@@ -43624,17 +43639,17 @@
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-stream-event-hubs.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-azure-event-hubs",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#send-to-azure-event-hubs",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-collect-storage.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-azure-storage",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#send-to-azure-storage",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/azure-monitor/platform/resource-logs-collect-workspace.md",
-      "redirect_url": "/azure/azure-monitor/platform/resource-logs#collect-to-log-analytics-workspace",
+      "redirect_url": "/azure/azure-monitor/platform/resource-logs#send-to-log-analytics-workspace",
       "redirect_document_id": false
     },
     {
@@ -58184,9 +58199,51 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cosmos-db/optimize-cost-queries.md",
-      "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
+    "source_path": "articles/cosmos-db/optimize-cost-queries.md",
+    "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
+    "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Concepts/design-language-culture.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Concepts/integration-with-other-applications.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-to/collaborate-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-to/use-active-learning.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/How-to/language-knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Concepts/knowledge-base.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Concepts/content-types.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/batch-testing.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
     }
+
+    
   ]
 }

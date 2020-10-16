@@ -90,7 +90,7 @@ Follow these commands to create your metrics upload service principal and assign
 To create a service principal, run this command:
 
 > [!NOTE]
-> Creating a service principal requires [certain permissions in Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> Creating a service principal requires [certain permissions in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>
