@@ -136,11 +136,6 @@ In the "env" section add the following configuration:
   }
 ```    
 
->[!NOTE]
-> If you are not running in a ASE Kubernetes environment, replace the container create options for the logging module to the following:
->
->`"createOptions": "{\"HostConfig\": {\"Binds\": [\"/var/run/docker.sock:/var/run/docker.sock\",\"/usr/bin/docker:/usr/bin/docker\"],\"LogConfig\": {\"Config\": {\"max-size\": \"500m\"}}}}"`
-
 To optimize logs uploaded to a remote endpoint, such as Azure Blob Storage, we recommend maintaining a small file size. See the example below for the recommended Docker logs configuration.
 
 ```json
