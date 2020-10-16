@@ -11,7 +11,7 @@ ms.author: jlian
 
 # IoT Hub classic IP filter and how to upgrade 
 
-The upgraded IP filter for IoT Hub protects the built-in endpoint, blocks all IP ranges by default, and is easier to configure. With the new enhancement, we announce the retirement of classic IP Filter. To learn more about the new upgraded IP filter, see [IoT hub IP filters](iot-hub-ip-filtering.md).
+The upgraded IP filter for IoT Hub protects the built-in endpoint and is secure by default. While we strive to never make breaking changes, the enhanced security model of the upgraded IP filter is incompatible with classic IP filter, so we announce its retirement. To learn more about the new upgraded IP filter, see [What's new](#whats-new) and [IoT hub IP filters](iot-hub-ip-filtering.md).
 
 To avoid service disruption, you must perform the guided upgrade before the migration deadline, at which point the upgrade will be performed automatically. To learn more about the migration timeline, see [Azure update](https://aka.ms/ipfilterv2azupdate).
 
@@ -37,7 +37,7 @@ Classic IP filter implicitly allows all IP addresses to connect to the IoT Hub b
 
 In practice, this multi-step process causes confusion. Users didn't configure the "block all" rule or didn't order the rules correctly, resulting in unintended exposure. 
 
-The new IP filter blocks all IP addresses by default. Only the addresses that you explicitly add are allowed to connect to IoT Hub. In the above example, steps 2 and 3 aren't needed anymore. This new behavior simplifies configuration and abides by the [secure by default principle](https://wikipedia.org/wiki/Secure_by_default).
+The new IP filter blocks all IP addresses by default. Only the IP ranges that you explicitly add are allowed to connect to IoT Hub. In the above example, steps 2 and 3 aren't needed anymore. This new behavior simplifies configuration and abides by the [secure by default principle](https://wikipedia.org/wiki/Secure_by_default).
 
 ### Protect the built-in Event Hub compatible endpoint
 
@@ -49,6 +49,10 @@ The new IP filter provides an option to apply rules to the built-in endpoint, wh
 
 > [!NOTE]
 > This option isn't available to free (F1) IoT hubs. To apply IP filter rules to the built-in endpoint, use a paid IoT hub.
+
+### API impact
+
+The upgraded IP filter is available in IoT Hub resource API from `2020-08-31` (as well as `2020-08-31-preview`) and onwards. Classic IP filter is still available in all API versions, but will be removed in a future API version near the migration deadline. To learn more about the migration timeline, see [Azure update](https://aka.ms/ipfilterv2azupdate).
 
 ## Tip: try the changes before they apply
 
