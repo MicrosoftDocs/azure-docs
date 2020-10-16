@@ -61,7 +61,7 @@ SQL Server 2019 CU8 introduces support for the distributed network name (DNN) li
 
 The DNN listener is the recommended HADR connectivity solution in Azure as it simplifies deployment, reduces maintenance and cost, and reduces failover time in the event of a failure. 
 
-Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. This could be useful for customers who want to avoid the load balancer failover latency but still take advantage of SQL Server features that depend on the VNN listener, such as a distributed availability group, or filestream. 
+Use the DNN listener to replace an existing VNN listener, or alternatively, use it in conjunction with an existing VNN listener so that your availability group has two distinct connection points - one using the VNN listener name (and port if non-default), and one using the DNN listener name and port. This could be useful for customers who want to avoid the load balancer failover latency but still take advantage of SQL Server features that depend on the VNN listener, such as distributed availability groups, service broker or filestream. 
 
 To get started, see [configure a DNN listener](availability-group-distributed-network-name-dnn-listener-configure.md).
 
