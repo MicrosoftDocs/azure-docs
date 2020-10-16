@@ -101,3 +101,8 @@ After you've created the MSIX package, you'll need to upload the VHD/VHDx image 
 Ask our community questions about this feature at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
 You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app).
+
+Here are some other articles you might find helpful:
+
+- [MSIX app attach glossary](app-attach-glossary.md)
+- [MSIX app attach FAQ](app-attach-faq.md)
