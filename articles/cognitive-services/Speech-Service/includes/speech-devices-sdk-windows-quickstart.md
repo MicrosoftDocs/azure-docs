@@ -126,7 +126,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant's voice signatures they can be put into a file `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
 
-   ![Demo Conversation Transcription application](../media/speech-devices-sdk/cts-sample-app-windows.png)
+   ![Screenshot of a demo Conversation Transcription application.](../media/speech-devices-sdk/cts-sample-app-windows.png)
 
 ## Create and run a standalone application
 
@@ -134,11 +134,11 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
 
-   ![Screenshot of the Export window](../media/speech-devices-sdk/eclipse-export-windows.png)
+   ![Screenshot that shows the Export window.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
 
-   ![Screenshot of Runnable JAR File Export](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
+   ![Screenshot that shows the Runnable JAR File Export window.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. Please put `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` and `Microsoft.CognitiveServices.Speech.extension.pma.dll` in the destination folder chosen above as these files are needed by the application.
 
