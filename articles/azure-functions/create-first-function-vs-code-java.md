@@ -20,7 +20,7 @@ Before you get started, make sure you have the following requirements in place:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Java Developer Kit](https://aka.ms/azure-jdks), version 8.
++ The [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support), version 8.
 
 + [Apache Maven](https://maven.apache.org), version 3.0 or above.
 
