@@ -1,6 +1,6 @@
 ﻿---
 title: Create custom analytics rules to detect threats with Azure Sentinel| Microsoft Docs
-description: Use this tutorial to learn how to create custom analytics rules to detect security threats with Azure Sentinel.
+description: Use this tutorial to learn how to create custom analytics rules to detect security threats with Azure Sentinel. Take advantage of event grouping and alert grouping, and understand AUTO DISABLED.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -49,13 +49,15 @@ You can create custom analytics rules to help you search for the types of threat
 
       Here's a sample query that would alert you when an anomalous number of resources is created in Azure Activity.
 
-      `AzureActivity
-     \| where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
-     \| where ActivityStatus == "Succeeded"
-     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
+      ```kusto
+      AzureActivity
+      | where OperationName == "Create or Update Virtual Machine" or OperationName =="Create Deployment"
+      | where ActivityStatus == "Succeeded"
+      | make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
+      ```
 
-      > [!NOTE]
-      > The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
+        > [!NOTE]
+        > The query length should be between 1 and 10,000 characters and cannot contain “search \*” or “union \*”.
 
     1. Use the **Map entities** section to link parameters from your query results to Azure Sentinel-recognized entities. These entities form the basis for further analysis, including the grouping of alerts into incidents in the **Incident settings** tab.
   
@@ -65,8 +67,12 @@ You can create custom analytics rules to help you search for the types of threat
 
        1. Set **Lookup data from the last** to determine the time period of the data covered by the query - for example, it can query the past 10 minutes of data, or the past 6 hours of data.
 
-       > [!NOTE]
-       > These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
+          > [!NOTE]
+          > **Query intervals and lookback period**
+          > - These two settings are independent of each other, up to a point. You can run a query at a short interval covering a time period longer than the interval (in effect having overlapping queries), but you cannot run a query at an interval that exceeds the coverage period, otherwise you will have gaps in the overall query coverage.
+          >
+          > **Ingestion delay**
+          > - To account for **latency** that may occur between an event's generation at the source and its ingestion into Azure Sentinel, and to ensure complete coverage without data duplication, Azure Sentinel runs scheduled analytics rules on a **five-minute delay** from their scheduled time.
 
     1. Use the **Alert threshold** section to define a baseline. For example, set **Generate alert when number of query results** to **Is greater than** and enter the number 1000 if you want the rule to generate an alert only if the query returns more than 1000 results each time it runs. This is a required field, so if you don’t want to set a baseline – that is, if you want your alert to register every event – enter 0 in the number field.
     
@@ -130,6 +136,43 @@ You can create custom analytics rules to help you search for the types of threat
 
 > [!NOTE]
 > Alerts generated in Azure Sentinel are available through [Microsoft Graph Security](https://aka.ms/securitygraphdocs). For more information, see the [Microsoft Graph Security alerts documentation](https://aka.ms/graphsecurityreferencebetadocs).
+
+## Troubleshooting
+
+### A scheduled rule failed to execute, or appears with AUTO DISABLED added to the name
+
+It's a rare occurrence that a scheduled query rule fails to run, but it can happen. Azure Sentinel classifies failures up front as either transient or permanent, based on the specific type of the failure and the circumstances that led to it.
+
+#### Transient failure
+
+A transient failure occurs due to a circumstance which is temporary and will soon return to normal, at which point the rule execution will succeed. Some examples of failures that Azure Sentinel classifies as transient are:
+
+- A rule query takes too long to run and times out.
+- Connectivity issues between data sources and Log Analytics, or between Log Analytics and Azure Sentinel.
+- Any other new and unknown failure is considered transient.
+
+In the event of a transient failure, Azure Sentinel continues trying to execute the rule again after predetermined and ever-increasing intervals, up to a point. After that, the rule will run again only at its next scheduled time. A rule will never be auto-disabled due to a transient failure.
+
+#### Permanent failure - rule auto-disabled
+
+A permanent failure occurs due to a change in the conditions that allow the rule to run, which without human intervention will not return to their former status. The following are some examples of failures that are classified as permanent:
+
+- The target workspace (on which the rule query operated) has been deleted.
+- The target table (on which the rule query operated) has been deleted.
+- Azure Sentinel had been removed from the target workspace.
+- A function used by the rule query is no longer valid; it has been either modified or removed.
+- Permissions to one of the data sources of the rule query were changed.
+- One of the data sources of the rule query was deleted or disconnected.
+
+**In the event of a predetermined number of consecutive permanent failures, of the same type and on the same rule,** Azure Sentinel stops trying to execute the rule, and also takes the following steps:
+
+- Disables the rule.
+- Adds the words **"AUTO DISABLED"** to the beginning of the rule's name.
+- Adds the reason for the failure (and the disabling) to the rule's description.
+
+You can easily determine the presence of any auto-disabled rules, by sorting the rule list by name. The auto-disabled rules will be at or near the top of the list.
+
+SOC managers should be sure to check the rule list regularly for the presence of auto-disabled rules.
 
 ## Next steps
 

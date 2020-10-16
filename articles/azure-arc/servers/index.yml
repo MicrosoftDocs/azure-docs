@@ -8,7 +8,7 @@ metadata:
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
-  ms.date: 06/26/2020
+  ms.date: 10/07/2020
   ms.author: magoedte
 
 landingContent:
@@ -18,7 +18,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Arc enabled servers?
-            url: overview.md 
+            url: overview.md
       - linkListType: get-started
         links:
           - text: Connect machines to Azure Arc from the Azure portal
@@ -34,3 +34,10 @@ landingContent:
         links:
           - text: Deploy Arc enabled servers agent
             url: ./learn/quick-enable-hybrid-vm.md
+ # Card
+  - title: Reference architecture
+    linkLists:
+      - linkListType: architecture
+        links:
+          - text: Manage configurations for hybrid servers 
+            url: /azure/architecture/hybrid/azure-arc-hybrid-config 

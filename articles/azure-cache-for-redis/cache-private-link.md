@@ -17,9 +17,8 @@ Azure Private Endpoint is a network interface that connects you privately and se
 * Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
 > [!NOTE]
-> This feature is currently in public preview for limited regions. If you don't have the option to create a private endpoint, [contact us](mailto:azurecache@microsoft.com). To use private endpoints, your Azure Cache for Redis instance needs to have been created after July 28th, 2020.
+> To use private endpoints, your Azure Cache for Redis instance needs to have been created after July 28th, 2020.
 >
-> Regions with public preview access currently: West Central US, North Central US, West US, West US 2, East US, East US 2, Norway East, Norway West, Europe North, Europe West, Asia East, Japan East, Switzerland North, India Central, UAE Central, Korea Central, UK South, South Africa North, France South, France Central, Canada Central, Germany North, Australia Central, India West, Australia East, and Brazil South.
 >
 
 ## Create a private endpoint with a new Azure Cache for Redis instance 

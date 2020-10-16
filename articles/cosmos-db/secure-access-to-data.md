@@ -17,21 +17,21 @@ Azure Cosmos DB uses two types of keys to authenticate users and provide access 
 
 |Key type|Resources|
 |---|---|
-|[Master keys](#primary-keys) |Used for administrative resources: database accounts, databases, users, and permissions|
+|[Primary keys](#primary-keys) |Used for administrative resources: database accounts, databases, users, and permissions|
 |[Resource tokens](#resource-tokens)|Used for application resources: containers, documents, attachments, stored procedures, triggers, and UDFs|
 
 <a id="primary-keys"></a>
 
-## Master keys
+## Primary keys
 
-Master keys provide access to all the administrative resources for the database account. Master keys:
+Primary keys provide access to all the administrative resources for the database account. Primary keys:
 
 - Provide access to accounts, databases, users, and permissions. 
 - Cannot be used to provide granular access to containers and documents.
 - Are created during the creation of an account.
 - Can be regenerated at any time.
 
-Each account consists of two Master keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll keys, providing continuous access to your account and data.
+Each account consists of two primary keys: a primary key and secondary key. The purpose of dual keys is so that you can regenerate, or roll keys, providing continuous access to your account and data.
 
 In addition to the two primary keys for the Cosmos DB account, there are two read-only keys. These read-only keys only allow read operations on the account. Read-only keys do not provide access to read permissions resources.
 
@@ -49,7 +49,7 @@ The process of rotating your primary key is simple.
 4. Validate the new primary key works against all resource. Key rotation process can take any where from less than a minute to hours depending on the size of the Cosmos DB account.
 5. Replace the secondary key with the new primary key.
 
-:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Master key rotation in the Azure portal - demonstrating NoSQL database security" border="false":::
+:::image type="content" source="./media/secure-access-to-data/nosql-database-security-master-key-rotate-workflow.png" alt-text="Primary key rotation in the Azure portal - demonstrating NoSQL database security" border="false":::
 
 ### Code sample to use a primary key
 
@@ -99,7 +99,7 @@ Here is a typical design pattern whereby resource tokens may be requested, gener
 
     :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Azure Cosmos DB resource tokens workflow" border="false":::
 
-Resource token generation and management is handled by the native Cosmos DB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) or the source code for our [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/AuthorizationHelper.cs) or [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
+Resource token generation and management is handled by the native Cosmos DB client libraries; however, if you use REST you must construct the request/authentication headers. For more information on creating authentication headers for REST, see [Access Control on Cosmos DB Resources](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) or the source code for our [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) or [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
 For an example of a middle tier service used to generate or broker resource tokens, see the [ResourceTokenBroker app](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/xamarin/UserItems/ResourceTokenBroker/ResourceTokenBroker/Controllers).
 

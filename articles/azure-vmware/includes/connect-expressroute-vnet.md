@@ -11,7 +11,7 @@ ms.date: 09/28/2020
 
 1. Copy the authorization key. If there isn't an authorization key, you need to create one, select **+ Request an authorization key**.
 
-   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copy the authorization key. If there isn't an authorization key, you need to create one, select + Request an authorization key." border="true":::
+   :::image type="content" source="../media/expressroute-global-reach/start-request-auth-key.png" alt-text="Copy the authorization key. If there isn't an authorization key, you need to create one, select + Request an authorization key." border="true" lightbox="../media/expressroute-global-reach/start-request-auth-key.png":::
 
 1. Navigate to the Virtual Network Gateway you created
 in the previous step and under **Settings**, select **Connections**. On the **Connections** page, select **+ Add**.
@@ -27,6 +27,6 @@ in the previous step and under **Settings**, select **Connections**. On the **Co
    | **Authorization key**  | Copy and paste the authorization key from the ExpressRoute tab for your Resource Group. |
    | **Peer circuit URI**  | Copy and paste the ExpressRoute ID from the ExpressRoute tab for your Resource Group.  |
 
-   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="On the Add connection page, provide values for the fields, and select OK." border="true":::
+   :::image type="content" source="../media/expressroute-global-reach/open-cloud-shell.png" alt-text="On the Add connection page, provide values for the fields, and select OK." border="true" lightbox="../media/expressroute-global-reach/open-cloud-shell.png":::
 
 The connection between your ExpressRoute circuit and your Virtual Network is created.

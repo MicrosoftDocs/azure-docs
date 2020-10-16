@@ -1,5 +1,5 @@
 ---
-title: Create custom keywords - Speech service
+title: Create Keyword quickstart - Speech service
 titleSuffix: Azure Cognitive Services
 description: Your device is always listening for a keyword (or phrase). When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ---
 
-# Custom keyword basics
+# Get started with Custom Keyword
 
-In this article, you learn the basics of working with custom keywords, using Speech Studio and the Speech SDK. A keyword is a word or short phrase which allows your product to be voice activated. You create keyword models in Speech Studio, then you export a model file that you use with the Speech SDK in your applications.
+In this quickstart, you learn the basics of working with custom keywords, using Speech Studio and the Speech SDK. A keyword is a word or short phrase which allows your product to be voice activated. You create keyword models in Speech Studio, then you export a model file that you use with the Speech SDK in your applications.
 
 ## Prerequisites
 

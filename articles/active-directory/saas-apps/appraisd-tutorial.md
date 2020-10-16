@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. Appraisd application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**. Appraisd application expects **nameidentifier** to be mapped with **user.mail**, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows the User Attributes pane with the edit icon highlighted.](common/edit-attribute.png)
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -106,15 +106,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 4. On the top right of the page, click on **Settings** icon, then navigate to **Configuration**.
 
-	![image](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
+	![Screenshot shows the Configuration link called out.](./media/appraisd-tutorial/tutorial_appraisd_sett.png)
 
 5. From the Left side of menu, click on **SAML single sign-on**.
 
-	![image](./media/appraisd-tutorial/tutorial_appraisd_single.png)
+	![Screenshot shows the Configuration options with the SAML single sign-on option highlighted.](./media/appraisd-tutorial/tutorial_appraisd_single.png)
 
 6. On the **SAML 2.0 Single Sign-On configuration** page, perform the following steps:
 
-	![image](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
+	![Screenshot shows the SAML 2.0 Single Sign-On configuration page where you can edit the Default Relay State and Service-initiated login U R L.](./media/appraisd-tutorial/tutorial_appraisd_saml.png)
 
 	a. Copy the **Default Relay State** value and paste it in **Relay State** textbox in **Basic SAML Configuration** on Azure portal.
 
@@ -122,7 +122,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 7. Scroll down the same page under **Identifying users**, perform the following steps:
 
-	![image](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
+	![Screenshot shows Identifying users where you can enter values from this step.](./media/appraisd-tutorial/tutorial_appraisd_identifying.png)
 
 	a. In the **Identity Provider Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal and click **Save**.
 
@@ -170,15 +170,15 @@ To enable Azure AD users sign in to Appraisd, they must be provisioned into Appr
 
 2. On the top right of the page, click on **Settings** icon, then navigate to **Administration centre**.
 
-	![image](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
+	![Screenshot shows the Settings options where you can select Administration centre.](./media/appraisd-tutorial/tutorial_appraisd_admin.png)
 
 3. In the toolbar at the top of the page, click **People**, then navigate to **Add a new user**.
 
-	![image](./media/appraisd-tutorial/tutorial_appraisd_user.png)
+	![Screenshot shows the Appraisd page with People and Add a new user called out.](./media/appraisd-tutorial/tutorial_appraisd_user.png)
 
 4. On the **Add a new user** page, perform the following steps:
 
-	![image](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
+	![Screenshot shows the Add a new user page.](./media/appraisd-tutorial/tutorial_appraisd_newuser.png)
 
 	a. In **First name** text box, enter the first name of user like **Britta**.
 

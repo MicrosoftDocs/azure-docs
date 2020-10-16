@@ -240,6 +240,8 @@
               href: functions-create-scheduled-function.md
         - name: Add bindings
           items:
+            - name: How to add a binding
+              href: add-bindings-existing-function.md
             - name: Azure Cosmos DB - portal
               href: functions-integrate-store-unstructured-data-cosmosdb.md
             - name: Storage - Python
@@ -518,7 +520,16 @@
               href: functions-bindings-signalr-service-output.md
               displayName: SignalR Service
         - name: Table storage
-          href: functions-bindings-storage-table.md
+          items: 
+            - name: Overview
+              href: functions-bindings-storage-table.md
+              displayName: Table storage
+            - name: Input
+              href: functions-bindings-storage-table-input.md
+              displayName: Table storage
+            - name: Output
+              href: functions-bindings-storage-table-output.md
+              displayName: Table storage
         - name: Timer
           href: functions-bindings-timer.md
         - name: Twilio

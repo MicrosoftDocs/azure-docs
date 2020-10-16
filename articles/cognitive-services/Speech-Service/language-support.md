@@ -25,7 +25,7 @@ To improve accuracy, customization is offered for a subset of the languages thro
 
 <!--
 To get the AM and ML bits:
-https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetSupportedLocalesForModels
 
 To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
@@ -149,7 +149,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `en-CA` | English  (Canada) | Female | `en-CA-ClaraNeural` | General |
 | `en-GB` | English  (United Kingdom) | Female | `en-GB-LibbyNeural` | General |
 | `en-GB` | English  (United Kingdom) | Female | `en-GB-MiaNeural` | General |
-| `en-GB` <sup>New</sup> | English (United Kingdom) | Male | `En-GB-RyanNeural` | General |
+| `en-GB` <sup>New</sup> | English (United Kingdom) | Male | `en-GB-RyanNeural` | General |
 | `en-IE` <sup>New</sup> | Irish English (Ireland) | Female | `en-IE-EmilyNeural` | General |
 | `en-IN` | English  (India) | Female | `en-IN-NeerjaNeural` | General |
 | `en-US` | English  (United States) | Female | `en-US-AriaNeural` | General, multiple voice styles available |
