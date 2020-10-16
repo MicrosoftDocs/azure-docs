@@ -19,7 +19,7 @@ Linux-based Service Fabric clusters do not run natively on Windows. To run a loc
 
 * At least 4-GB RAM
 * Latest version of [Docker](https://store.docker.com/editions/community/docker-ce-desktop-windows)
-* Docker must be running on Linux mode
+* Docker must be running in Linux containers mode
 
 >[!TIP]
 > To install Docker on your Windows machine, follow the steps in the [Docker documentation](https://store.docker.com/editions/community/docker-ce-desktop-windows/plans/docker-ce-desktop-windows-tier?tab=instructions). After installing, [verify your installation](https://docs.docker.com/docker-for-windows/#check-versions-of-docker-engine-compose-and-machine).

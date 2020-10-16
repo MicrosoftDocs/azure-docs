@@ -50,7 +50,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 
 ## Script installation
 
-For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the **sfctl** CLI. Running the script assumes you agree to the licenses for all the software that is being installed. Alternatively you may run the Manual installation steps in the next section which will present associated licenses as well as the components being installed.
+For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the [**sfctl** CLI](service-fabric-cli.md). Running the script assumes you agree to the licenses for all the software that is being installed. Alternatively you may run the Manual installation steps in the next section which will present associated licenses as well as the components being installed.
 
 After the script runs successfully, you can skip to [Set up a local cluster](#set-up-a-local-cluster).
 
@@ -262,7 +262,7 @@ After you install the generators, create guest executable or container services 
 
 ## Set up .NET Core 3.1 development
 
-Install the [.NET Core 3.1 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). NuGet.org hosts packages for .NET Core Service Fabric applications.
+Install the [.NET Core 3.1 SDK for Ubuntu](https://www.microsoft.com/net/core#linuxubuntu) to start [creating C# Service Fabric applications](service-fabric-create-your-first-linux-application-with-csharp.md). Packages for .NET Core Service Fabric applications are hosted on NuGet.org.
 
 ## Set up Java development
 
