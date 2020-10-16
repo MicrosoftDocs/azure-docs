@@ -43,7 +43,7 @@ We have set up a GitHub repo for reporting Service Fabric issues.  We are also a
 
 ### GitHub repo 
 
-Report Azure Service Fabric Issues on [Service-Fabric-issues git repo](https://github.com/Azure/service-fabric-issues). This repo is intended for reporting and tracking issues with Azure Service Fabric and for making small feature requests. **Do not use this to report live-site issues**.
+Report Azure Service Fabric issues at the [Service Fabric GitHub](https://github.com/microsoft/service-fabric/issues). This repo is intended for reporting and tracking issues with Azure Service Fabric and for making small feature requests. **Do not use this to report live-site issues**.
 
 ### StackOverflow and MSDN forums
 

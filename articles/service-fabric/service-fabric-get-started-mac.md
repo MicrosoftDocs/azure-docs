@@ -3,16 +3,19 @@ title: Set up your dev environment on macOS
 description: Install the runtime, SDK, and tools and create a local development cluster. After completing this setup, you'll be ready to build applications on macOS.
 
 ms.topic: conceptual
-ms.date: 11/17/2017
+ms.date: 10/16/2020
 ms.custom: devx-track-js
+
+# Maintainer notes: Keep these documents in sync:
+# service-fabric-get-started-linux.md
+# service-fabric-get-started-mac.md
+# service-fabric-local-linux-cluster-windows.md
 ---
 # Set up your development environment on Mac OS X
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md)
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
->
->  
+> * [Mac OS X](service-fabric-get-started-mac.md)
 
 You can build Azure Service Fabric applications to run on Linux clusters by using Mac OS X. This document covers how to set up your Mac for development.
 
@@ -49,31 +52,41 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     >We recommend increasing the resources allocated to Docker when testing large applications. This can be done by selecting the **Docker Icon**, then selecting **Advanced** to adjust the number of cores and memory.
 
-2. In a new directory create a file called `Dockerfile` to build your Service Fabric Image:
-
-    ```Dockerfile
-    FROM mcr.microsoft.com/service-fabric/onebox:latest
-    WORKDIR /home/ClusterDeployer
-    RUN ./setup.sh
-    #Generate the local
-    RUN locale-gen en_US.UTF-8
-    #Set environment variables
-    ENV LANG=en_US.UTF-8
-    ENV LANGUAGE=en_US:en
-    ENV LC_ALL=en_US.UTF-8
-    EXPOSE 19080 19000 80 443
-    #Start SSH before running the cluster
-    CMD /etc/init.d/ssh start && ./run.sh
+2. Start the cluster.<br/>
+    <b>Ubuntu 18.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u18
     ```
 
+    <b>Ubuntu 16.04 LTS:</b>
+    ```bash
+    docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mcr.microsoft.com/service-fabric/onebox:u16
+    ```
+
+    >[!TIP]
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
+
+
+
+3. Optional: Build your extended Service Fabric image.
+
+    In a new directory create a file called `Dockerfile` to build your customized image:
+
     >[!NOTE]
-    >You can adapt this file to add additional programs or dependencies into your container.
+    >You can adapt the image above with a Dockerfile to add additional programs or dependencies into your container.
     >For example, adding `RUN apt-get install nodejs -y` will allow support for `nodejs` applications as guest executables.
+    ```Dockerfile
+    FROM mcr.microsoft.com/service-fabric/onebox:u18
+    RUN apt-get install nodejs -y
+    EXPOSE 19080 19000 80 443
+    WORKDIR /home/ClusterDeployer
+    CMD ["./ClusterDeployer.sh"]
+    ```
     
     >[!TIP]
-    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page
+    > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
 
-3. To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
+    To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
 
     ```bash 
     docker build -t mysfcluster .
@@ -82,7 +95,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!NOTE]
     >This operation will take some time but is only needed once.
 
-4. Now you can quickly start a local copy of Service Fabric, whenever you need it, by running:
+    Now you can quickly start a local copy of Service Fabric whenever you need it by running:
 
     ```bash 
     docker run --name sftestcluster -d -v /var/run/docker.sock:/var/run/docker.sock -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 mysfcluster
@@ -93,18 +106,17 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >
     >If your application is listening on certain ports, the ports must be specified by using additional `-p` tags. For example, if your application is listening on port 8080, add the following `-p` tag:
     >
-    >`docker run -itd -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:latest`
+    >`docker run -itd -p 19000:19000 -p 19080:19080 -p 8080:8080 --name sfonebox mcr.microsoft.com/service-fabric/onebox:u18`
     >
 
-5. The cluster will take a moment to start. When it is running, you can view logs using the following command or jump to the dashboard to view the clusters health `http://localhost:19080`:
+4. The cluster will take a moment to start. When it is running, you can view logs using the following command or jump to the dashboard to view the clusters health: `http://localhost:19080`
 
     ```bash 
     docker logs sftestcluster
     ```
 
 
-
-6. To stop and cleanup the container, use the following command. However, we will be using this container in the next step.
+5. To stop and clean up the container, use the following command. However, we will be using this container in the next step.
 
     ```bash 
     docker rm -f sftestcluster
@@ -115,6 +127,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  The following are known limitations of the local cluster running in a container for Mac's: 
  
  * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * Running container-based apps requires running SF on a Linux host. Nested container apps are not supported at this time.
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
