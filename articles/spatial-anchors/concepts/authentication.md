@@ -28,17 +28,17 @@ Account keys enable you to get started quickly with using the Azure Spatial Anch
 You can obtain Azure AD authentication tokens in two ways:
 
 - If you're building an enterprise application and your company is using Azure AD as its identity system, you can use user-based Azure AD authentication in your app. You then grant access to your Spatial Anchors accounts by using your existing Azure AD security groups. You can also grant access directly to users in your organization.
-- Otherwise, it is recommended that you obtain Azure AD tokens from a web service supporting your app. Using a supporting web service is the recommended method of authentication for production applications, as it avoids embedding the credentials for accessing Azure Spatial Anchors in your client application.
+- Otherwise, we recommend that you obtain Azure AD tokens from a web service that supports your app. We recommend this method for production applications because it allows you to avoid embedding the credentials for access to Azure Spatial Anchors in your client application.
 
 ## Account keys
 
-Using account keys for access to your Azure Spatial Anchors account is the simplest way to get started. You will find your account keys on the Azure portal. Navigate to your account, and select the "Keys" tab.
+The easiest way to get started is to use account keys for access to your Azure Spatial Anchors account. You can get your account keys on the Azure portal. Go to your account and select the **Keys** tab.
 
-![Screenshot that shows the "Keys" page with the "Copy" button for the  "Primary key" highlighted.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
+![Screenshot that shows the Keys tab with the Copy button for the Primary key highlighted.](../../../includes/media/spatial-anchors-get-started-create-resource/view-account-key.png)
 
-Two keys are made available, which are both simultaneously valid for access to the Spatial Anchors account. It is recommended that you regularly update the key you use to access the account; having two separate valid keys enable such updates without downtime; you only have to update  alternatively the primary key and the secondary key.
+Two keys are available. Both are simultaneously valid for access to the Spatial Anchors account. We recommend that you regularly update the key you use to access the account. Having two separate valid keys enables these updates without downtime. You only have to update the primary key and the secondary key alternatively.
 
-The SDK has built-in support for authenticating with account keys; you simply need to set the AccountKey property on your cloudSession object.
+The SDK has built-in support for authentication via account keys. You just need to set the `AccountKey` property on your `cloudSession` object:
 
 # [C#](#tab/csharp)
 
@@ -46,7 +46,7 @@ The SDK has built-in support for authenticating with account keys; you simply ne
 this.cloudSession.Configuration.AccountKey = @"MyAccountKey";
 ```
 
-# [ObjC](#tab/objc)
+# [Objective-C](#tab/objc)
 
 ```objc
 _cloudSession.configuration.accountKey = @"MyAccountKey";
@@ -71,7 +71,7 @@ auto configuration = cloudSession_->Configuration();
 configuration->AccountKey(R"(MyAccountKey)");
 ```
 
-# [C++ WinRT](#tab/cppwinrt)
+# [C++/WinRT](#tab/cppwinrt)
 
 ```cpp
 auto configuration = m_cloudSession.Configuration();
@@ -80,38 +80,40 @@ configuration.AccountKey(LR"(MyAccountKey)");
 
 ---
 
-Once that is done, the SDK will handle the exchange of the account key for an access token, and the necessary caching of tokens for your app.
+After you set that property, the SDK will handle the exchange of the account key for an access token and the necessary caching of tokens for your app.
 
 > [!WARNING]
-> Use of account keys is recommended for quick on-boarding, but during development/prototyping only. It is strongly recommended not to ship your application to production using an embedded account key in it, and to instead use the user-based or service-based Azure AD authentication approaches listed next.
+> We recommend that you use account keys for quick onboarding, but only during development/prototyping. We don't recommend that you ship your application to production with an embedded account key in it. Instead, use the user-based or service-based Azure AD authentication approaches listed next.
 
 ## Azure AD user authentication
 
-For applications targeting Azure Active Directory users, the recommended approach is to use an Azure AD token for the user, which you can obtain using the [MSAL library](../../active-directory/develop/msal-overview.md). You should follow the steps listed the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
+For applications that target Azure Active Directory users, we recommend that you use an Azure AD token for the user. You can obtain this token by using the [MSAL library](../../active-directory/develop/msal-overview.md). Follow the steps listed in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
 
-1. Configuration in Azure portal
-    1.    Register your application in Azure AD as **Native application**. As part of registering, you will need to determine whether your application should be multi-tenant or not, and provide the redirect URLs allowed for your application.
-        1.  Switch to the **API permissions** tab
-        2.  Select **Add a permission**
-            1.  Select **Mixed Reality Resource Provider** under **APIs my organization uses** tab
-            2.  Select **Delegated permissions**
-            3.  Check the box for **mixedreality.signin** under **mixedreality**
-            4.  Select **Add permissions**
-        3.  Select **Grant admin consent**
-    2.    Grant your application or users access to your resource:
-        1.    Navigate to your Spatial Anchors resource in Azure portal
-        2.    Switch to the **Access control (IAM)** tab
-        3.    Hit **Add role assignment**
-            1.    [Select a role](#role-based-access-control)
-            2.    In the **Select** field, enter the name of the user(s), group(s), and/or application(s) to which you want to assign access.
-            3.    Hit **Save**.
-2. In your code:
-    1.    Make sure to use the **application ID** and **redirect Uri** of your own Azure AD application as the **client ID** and **RedirectUri** parameters in MSAL
-    2.    Set the tenant information:
-        1.    If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name** (for example, contoso.microsoft.com)
-        2.    If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**
-        3.    If your application supports **All Microsoft account users**, replace this value with **Common**
-    3.    On your token request, set the **scope** to "https://sts.mixedreality.azure.com//.default". This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
+**In the Azure portal**
+1.    Register your application in Azure AD as a native application. As part of registering, you'll need to determine whether your application should be multitenant. You'll also need to provide the redirect URLs allowed for your application.
+1.  Go to the **API permissions** tab.
+2.  Select **Add a permission**.
+    1.  Select **Mixed Reality Resource Provider** on the **APIs my organization uses** tab.
+    2.  Select **Delegated permissions**.
+    3.  Select **mixedreality.signin** under **mixedreality**.
+    4.  Select **Add permissions**.
+3.  Select **Grant admin consent**.
+    
+2. Grant your application or users access to your resource:
+1.    Go to your Spatial Anchors resource in the Azure portal.
+2.    Go to the **Access control (IAM)** tab.
+3.    Select **Add role assignment**
+1.    [Select a role](#role-based-access-control).
+2.    In the **Select** box, enter the names of the users, groups, and/or applications to which you want to assign access.
+3.    Select **Save**.
+
+**In your code**
+1.    Use the application ID and redirect URI of your own Azure AD application for the **client ID** and **RedirectUri** parameters in MSAL.
+2.    Set the tenant information:
+        1.    If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com.
+        2.    If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**.
+        3.    If your application supports **All Microsoft account users**, replace this value with **Common**.
+3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
 
 With that, your application should be able to obtain from MSAL an Azure AD token; you can set that Azure AD token as the **authenticationToken** on your cloud session config object.
 
