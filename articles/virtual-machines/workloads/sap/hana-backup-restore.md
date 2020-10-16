@@ -500,6 +500,12 @@ The steps to integrate SnapCenter in SAP HANA are:
    curl --cert snapcenter.pem --key snapcenter.key -X POST -k "https://10.0.40.11/api/security/authentication/password" -d '{"name":"snapcenter","password":"test1234"}'
    ```
 
+   Ensure that there is no proxy variable active on the HANA DB system.
+
+   ```bash
+   sollabsjct31:/tmp # unset http_proxy
+   sollabsjct31:/tmp # unset https_proxy
+   ```
 
 ### Download and install SnapCenter
 Now that the user  is setup for SnapCenter access to the storage system, you'll use the *snapcenter* user to configure the SnapCenter once it's installed. 
@@ -576,20 +582,7 @@ Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](
 
    :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Create the SnapCenter user in HANA (system db)":::
 
-1. After you receive the SVM IP, set a password to access SVM, which you control.
 
-   The following is an example of the REST CALL (documentation) from HANA Large Instance or VM in virtual network, which has access to HANA Large Instance environment and will be used to set the password.
-
-   ```bash
-   curl --cert snapcenter.pem --key snapcenter.key -X POST -k "https://10.0.40.11/api/security/authentication/password" -d '{"name":"snapcenter","password":"test1234"}'
-   ```
-
-   Ensure that there is no proxy variable active on the HANA DB system.
-
-   ```bash
-   sollabsjct31:/tmp # unset http_proxy
-   sollabsjct31:/tmp # unset https_proxy
-   ```
 
 ### Auto discovery
 SnapCenter 4.3 enables the auto discovery function by default.  Auto discovery is not supported for HANA instances with HANA System Replication (HSR) configured. You must manually add the instance to the SnapCenter server.
