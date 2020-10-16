@@ -9,7 +9,7 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-zone_pivot_groups: client-operating-system
+zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
 # Upload usage data, metrics, and logs to Azure Monitor
