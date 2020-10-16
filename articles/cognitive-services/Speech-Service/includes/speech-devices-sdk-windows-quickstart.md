@@ -39,7 +39,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. In the **Eclipse IDE Launcher**, in the **Workspace** field, enter the name of a new workspace directory. Then select **Launch**.
 
-   ![Screenshot of Eclipse Launcher](../media/speech-devices-sdk/eclipse-launcher.png)
+   ![Screenshot that shows the Eclipse Launcher.](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. In a moment, the main window of the Eclipse IDE appears. Close the Welcome screen if one is present.
 
@@ -134,11 +134,11 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
 
-   ![Screenshot that shows the Export window.](../media/speech-devices-sdk/eclipse-export-windows.png)
+   ![Screenshot that shows the Export window where you select Runnable JAR file.](../media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
 
-   ![Screenshot that shows the Runnable JAR File Export window.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
+   ![Screenshot that shows the Runnable JAR File Export window where you choose the export destination.](../media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. Please put `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` and `Microsoft.CognitiveServices.Speech.extension.pma.dll` in the destination folder chosen above as these files are needed by the application.
 
