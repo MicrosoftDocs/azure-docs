@@ -49,7 +49,7 @@ To create a new service principal:
 1. From the [Azure portal](https://portal.azure.com), search for and select **Azure Active Directory**.
 1. From the **Azure Active Directory** page, select **App registrations** from the left pane.
 1. Select **New registration**.
-1. On the **Register an application** page, enter these values:
+1. On the **Register an application** page:
     1. Enter a **Name** for the application (the service principal name).
     1. Select **Accounts in this organizational directory only (_&lt;your tenant's name&gt;_ only - Single tenant)**.
     1. For **Redirect URI (optional)**, select **Web** and enter a value. This value doesn't need to be a valid URI.
@@ -61,13 +61,13 @@ To create a new service principal:
 To use the service principal (application), you need to get
 its password. Here's how:
 
-1. From the Azure portal, search for and select Azure Active Directory, and then select App registrations from the left pane.
+1. From the Azure portal, search for and select **Azure Active Directory**, and then select **App registrations** from the left pane.
 1. Select your service principal (application) from the list.
 1. Select **Certificates & secrets** from the left pane.
 1. Select **New client secret**.
 1. On the **Add a client secret** page, enter a **Description**, select an expiration time under **Expires**, and then select **Add**.
 
-   From the **Client secrets** page, the string in the **Value** column of your new secret is your password.
+   On the **Client secrets** page, the string in the **Value** column of your new secret is your password. Save this vaulue.
 
    :::image type="content" source="./media/tutorial-using-rest-apis/client-secret.png" alt-text="Screenshot showing a client secret.":::
 
@@ -81,16 +81,16 @@ To configure Azure Babylon to trust your new service principal:
 1. On your Azure Babylon catalog page, select **Management Center** from the left pane.
 1. Select **Assign roles** from the left pane.
 1. Select **Add user**, and then select **Catalog administrator**.
-1. Enter the name of your new service principal in the text box. This name is the same name as the application name you created in the previous section.
+1. Enter the name of your new service principal in the search box. This name is the same as the application name you used in the previous section.
 1. Select the service principal/application name that appears in the list (along with its application ID), and then select **Apply**.
 
    You've now configured the service principal as an application administrator, which enables it to send content to the catalog.
 
 ## View the REST APIs documentation
 
-To view the API Swagger documentation, extract the files from APIDocumentation.zip and open index.html.
+To view the API Swagger documentation, download APIDocumentation.zip, extract its files, and open index.html.
 
-If you want to learn more about the advanced search/suggest API that Azure Babylon provides, see the Rest API Search Filter documentation. The AutoRest generated client doesn't currently support customized search parameters; as a workaround, follow the search-filter document to define filter classes in code as API call parameters. The index.html document has examples of these APIs.
+If you want to learn more about the advanced search/suggest API that Azure Babylon provides, see the Rest API Search Filter documentation. The AutoRest generated client doesn't currently support customized search parameters. Ss a workaround, follow the search-filter document to define filter classes in code as API call parameters. The index.html document has examples of these APIs.
 
 ## Collect the necessary values to use the REST APIs
 
@@ -98,17 +98,17 @@ Find and save the following values:
 
 * Tenant ID:
   * In the [Azure portal](https://portal.azure.com), search for and select **Azure Active Directory**.
-  * In the **Manage** section in the left pane, select **Properties**, find **Tenant ID**, and then select the **Copy to clipboard** icon to save its value.
+  * In the **Manage** section in the left pane, select **Properties**, find the **Tenant ID**, and then select the **Copy to clipboard** icon to save its value.
 * Atlas endpoint:
   * From the [Azure Babylon accounts page](https://aka.ms/babylonportal) in the Azure portal, find and select your Azure Babylon account in the list.
-  * Select **Overview**, find **Atlas Endpoint**, and then select the **Copy to clipboard** icon to save its value. Remove the *https://* portion of the string when you use it in the next procedure.
+  * Select **Overview**, find **Atlas Endpoint**, and then select the **Copy to clipboard** icon to save its value. Remove the *https://* portion of the string when you use it later.
 * Account name:
-  * The name of your catalog in the Atlas endpoint string. For example, if your Atlas endpoint is `https://ThisIsMyCatalog.catalog.babylon.azure.com`, your account name is `ThisIsMyCatalog`.
+  * Extract the name of your catalog from the Atlas endpoint string. For example, if your Atlas endpoint is `https://ThisIsMyCatalog.catalog.babylon.azure.com`, your account name is `ThisIsMyCatalog`.
 
 ## Use the Postman client to call the REST APIs
 
 1. Install the [Postman client](https://www.getpostman.com/).
-1. From the client, select **Import** and add Test.postman\_collection.json.
+1. From the client, select **Import**, and use Test.postman\_collection.json.
 1. Select **Collections**, and then select **Test**.
 1. Select **Get Token**:
     1. In the URL next to POST, replace *&lt;your-tenant-id&gt;* with the tenant ID you copied in the previous section.
@@ -141,8 +141,8 @@ Find and save the following values:
 
 ### Download rest-api-specs.zip and create the client
 
-1. Download [rest-api-specs.zip](./Assets/rest-api-specs.zip) and extract its files.
-1. Run the following command in PowerShell from inside the **rest-api-specs** extracted folder:
+1. Download rest-api-specs.zip and extract its files.
+1. Run the following command in PowerShell from the rest-api-specs extracted folder:
 
    ```powershell
    autorest --input-file=.\data-plane\preview\datacataloggen2.json --csharp --output-folder=Csharp_DataCatalogGen2 --namespace=DataCatalogGen2 --add-credentials
@@ -163,7 +163,7 @@ Find and save the following values:
 1. Make sure the version is at least 2.3.21, and then select **Install**.
 1. Build and run the application.
 
-The sample code returns a count of how many typedefs are in the catalog and shows how to handle role assignments. For details, see `DoRoleAssignmentOperations()` in the sample code. For more information, see [Project Setup](https://github.com/Azure/autorest/blob/master/docs/client/proj-setup.md).
+The sample code returns a count of how many typedefs are in the catalog and shows how to handle role assignments. For details, see `DoRoleAssignmentOperations()` in the sample code. For more information about the project, see [Project Setup](https://github.com/Azure/autorest/blob/master/docs/client/proj-setup.md).
 
 ### Sample code for the console application
 
