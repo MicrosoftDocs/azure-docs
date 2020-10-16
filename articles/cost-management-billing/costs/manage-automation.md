@@ -46,7 +46,7 @@ The [Usage Details API](/rest/api/consumption/usageDetails) provides an easy way
 
 **Request schedule**
 
-We recommend that you make _no more than one request_ to the Usage Details API per day. For more information about how often cost data is refreshed and how rounding is handled, see [Understand cost management data](./understand-cost-mgt-data.md#rated-usage-data-refresh-schedule).
+We recommend that you make _no more than one request_ to the Usage Details API per day. For more information about how often cost data is refreshed and how rounding is handled, see [Understand cost management data](./understand-cost-mgt-data.md).
 
 **Target top-level scopes without filtering**
 
