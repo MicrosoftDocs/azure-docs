@@ -878,9 +878,5 @@ groups:
     title: C#
   - id: programming-language-javascript
     title: JavaScript
-  - id: programming-language-java
-    title: Java
   - id: programming-language-python
     title: Python
-  - id: programming-language-swift
-    title: Swift
