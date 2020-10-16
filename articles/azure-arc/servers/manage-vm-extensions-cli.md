@@ -60,7 +60,7 @@ The following example shows the JSON output from the `az connectedmachine machin
 
 ## Remove an installed extension
 
-To remove an installed VM extension on your Arc enabled server, use [az connectedmachine machine-extension delete](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_delete) with the `extension-name`, `machine-name` and `resource-group` parameters. 
+To remove an installed VM extension on your Arc enabled server, use [az connectedmachine machine-extension delete](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_delete) with the `extension-name`, `machine-name` and `resource-group` parameters.
 
 Example:
 
