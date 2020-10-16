@@ -292,7 +292,9 @@ Now it's time to configure a service mesh between on-premises and Azure VMware S
 
 1. Review services that will be enabled, and then select **Continue**.  
 
-1. In **Advanced Configuration - Override Uplink Network profiles**, select **Continue**.  Uplink network profiles connect to the network through which the remote site's interconnect appliances can be reached.  
+1. In **Advanced Configuration - Override Uplink Network profiles**, select **Continue**.  
+
+   Uplink network profiles connect to the network through which the remote site's interconnect appliances can be reached.  
   
 1. In **Advanced Configuration - Network Extension Appliance Scale Out**, review and select **Continue**. 
 
