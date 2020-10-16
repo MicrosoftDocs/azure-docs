@@ -40,7 +40,7 @@ As a first step, you need to set some variables and create the resource group, t
 
 ```azurepowershell
 # Variable definition
-$RG = "vwan"
+$RG = "vwan-rg"
 $Location = "westeurope"
 $VwanName = "vwan"
 $HubName =  "hub1"
