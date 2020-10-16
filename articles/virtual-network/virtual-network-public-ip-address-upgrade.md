@@ -1,12 +1,11 @@
 ---
-title: Upgrade public IP addresses | Microsoft Docs
+title: Upgrade public IP addresses
 titleSuffix: Azure Virtual Network
 description:  Upgrade public IP addresses from Basic to Standard.
 services: virtual-network
 documentationcenter: na
 author: blehr
 editor: ''
-tags: azure-resource-manager
 
 ms.assetid: bb71abaf-b2d9-4147-b607-38067a10caf6 
 ms.service: virtual-network
@@ -21,7 +20,7 @@ ms.author: blehr
 
 # Upgrade public IP addresses
 
-Azure public IP addresses are created with a SKU--either Basic or Standard--which determines aspects of their functionality (including allocation method, usage across availability zones, and which resources they can be associated with).  For more information on the differences between the SKU types, please see [Public IP Addresses - SKU](https://docs.microsoft.com/azure/virtual-network/public-ip-addresses#sku).
+Azure public IP addresses are created with a SKU--either Basic or Standard--which determines aspects of their functionality (including allocation method, usage across availability zones, and which resources they can be associated with). 
 
 The following scenarios are reviewed in this article:
 * How to upgrade a Basic SKU public IP to a Standard SKU public IP (using Portal, PowerShell, or CLI)
@@ -143,9 +142,8 @@ A new resource group in Azure Resource Manager is created using the name of the 
 * In order to upgrade a Basic Public IP, it cannot be associated with any Azure resource.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address#view-modify-settings-for-or-delete-a-public-ip-address) for more information on how to disassociate public IPs.  Similarly, in order to migrate a Reserved IP, it cannot be associated with any Cloud Service.  Please review [this page](https://docs.microsoft.com/azure/virtual-network/remove-public-ip-address-vm) for more information on how to disassociate reserved IPs.  
 * Public IPs upgraded from Basic to Standard SKU will continue to have no [availability zones](https://docs.microsoft.com/azure/availability-zones/az-overview?toc=/azure/virtual-network/toc.json#availability-zones) and therefore cannot be associated with an Azure resource that is either zone-redundant or zonal.  Note this only applies to regions that offer availability zones.
 
-## Additional Information
+## Next Steps
 
-- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure.
-- Learn more about all [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
+- Learn more about [public IP addresses](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses) in Azure, including the difference between the SKU types, as well as [public IP address settings](virtual-network-public-ip-address.md#create-a-public-ip-address).
 - Learn how to [Upgrade Azure Public Load Balancers from Basic to Standard](https://docs.microsoft.com/azure/load-balancer/upgrade-basic-standard).
-- Read about [Migration of Classic resources to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
+- Understand [Classic Azure Reserved IPs](https://docs.microsoft.com/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) and [Migration of Classic resources to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
