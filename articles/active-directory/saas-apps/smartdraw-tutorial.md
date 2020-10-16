@@ -148,11 +148,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Single Sign-On** under Manage your SmartDraw License.
 
-	![SmartDraw Configuration](./media/smartdraw-tutorial/configure01.png)
+	![Screenshot shows the Manage your SmartDraw License dialog box where you can select Single Sign-On.](./media/smartdraw-tutorial/configure01.png)
 
 1. On the Configuration page, perform the following steps:
 
-	![SmartDraw Configuration](./media/smartdraw-tutorial/configure02.png)
+	![Screenshot shows the Configuration page where you can enter the values described.](./media/smartdraw-tutorial/configure02.png)
 
 	a. In the **Your Domain (like acme.com)** textbox, type your domain.
 
