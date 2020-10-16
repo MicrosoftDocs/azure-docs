@@ -1,5 +1,5 @@
 ---
-title: Support single sign-on and app protection policies in mobile apps you develop
+title: Support single sign-on and app protection policies in mobile apps you develop | Azure
 titleSuffix: Microsoft identity platform
 description: Explanation and overview of building mobile applications that support single sign-on and app protection policies
 services: active-directory
