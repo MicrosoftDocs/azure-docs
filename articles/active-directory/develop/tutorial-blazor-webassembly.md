@@ -8,13 +8,13 @@ ms.author: nichola
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 #Customer intent: As a developer, I want to add authentication and authorization to a Blazor WebAssembly app and call Microsoft Graph.
 ---
 
 # Tutorial: Sign in users and call a protected API from a Blazor WebAssembly app
 
-[Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/?view=aspnetcore-3.1#blazor-webassembly) is a single-page app framework for building interactive client-side web apps with .NET. In this tutorial, you create an app that signs in users and retrieves data from a protected API from a Blazor WebAssembly (Blazor WASM) app with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
+[Blazor WebAssembly](aspnet/core/blazor#blazor-webassembly) is a single-page app framework for building interactive client-side web apps with .NET. In this tutorial, you create an app that signs in users and retrieves data from a protected API from a Blazor WebAssembly (Blazor WASM) app with the [Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/).
 
 In this tutorial, you will:
 
@@ -37,9 +37,9 @@ Every app that uses Azure Active Directory (Azure AD) for authentication must be
 
 Once registered, in **Authentication** > **Implicit grant**, select the check boxes for **Access tokens** and **ID tokens**, and then select the **Save** button.
 
-## Create the app using the .NET CLI
+## Create the app using the .NET Core CLI
 
-To create the app you will need the latest Blazor templates. You can install them for the .NET CLI with the following command:
+To create the app you need the latest Blazor templates. You can install them for the .NET Core CLI with the following command:
 
 ```dotnetcli
 dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
@@ -67,7 +67,7 @@ dotnet run --framework netstandard2.1
 
 In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running and logging users it with the Microsoft identity platform.
 
-The individual components of this template that enable logins with Azure AD using the Microsoft identity platform are explained in the [ASP.NET doc on this topic](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory?view=aspnetcore-3.1#authentication-package).
+The individual components of this template that enable logins with Azure AD using the Microsoft identity platform are explained in the [ASP.NET doc on this topic](aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
 ## Retrieving data from Microsoft Graph
 
@@ -91,7 +91,7 @@ Next, add the following to your project's *.csproj* file in the netstandard2.1 *
 <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.7" />
 ```
 
-Then modify the code as specified in the next few steps. These changes will add [access tokens](access-tokens.md) to the outgoing requests sent to the Microsoft Graph API. This pattern is discussed in more detail in [ASP.NET Core Blazor WebAssembly additional security scenarios](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/additional-scenarios?view=aspnetcore-3.1).
+Then modify the code as specified in the next few steps. These changes will add [access tokens](access-tokens.md) to the outgoing requests sent to the Microsoft Graph API. This pattern is discussed in more detail in [ASP.NET Core Blazor WebAssembly additional security scenarios](aspnet/core/blazor/security/webassembly/additional-scenarios).
 
 First, create a new file named *GraphAuthorizationMessageHandler.cs* with the following code. This handler will be user to add an access token for the `User.Read` and `Mail.Read` scopes to outgoing requests to the Microsoft Graph API.
 
@@ -232,9 +232,9 @@ Now launch the app again. You'll notice that you're prompted to give the app acc
 
 After granting consent, navigate to the "Fetch data" page to read some email.
 
-:::image type="content" source="./media/tutorial-blazor-webassebly/final-app.png" alt-text="Screenshot of the final app. It has a heading that says Hello Nicholas and it shows a list of emails belonging to Nicholas.":::
+:::image type="content" source="./media/tutorial-blazor-webassembly/final-app.png" alt-text="Screenshot of the final app. It has a heading that says Hello Nicholas and it shows a list of emails belonging to Nicholas.":::
 
 ## Next steps
 
 - [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
-- [Introduction to ASP.NET Core Blazor](https://docs.microsoft.com/aspnet/core/blazor)
+- [Introduction to ASP.NET Core Blazor](aspnet/core/blazor)
