@@ -79,7 +79,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 1. You can now run the user flow again and you should be able to sign in with the account that you created. The returned token includes the claims that you selected of country/region, name, and postal code.
 
 > [!NOTE]
-> The "Run user flow" experience is not currently compatible with the SPA reply URL type using authorization code flow. To use the "Run user flow" experience with these kinds of apps, enable the register a reply url of type "Web" and enable the implicit flow and as described [here](tutorial-register-spa.md).
+> The "Run user flow" experience is not currently compatible with the SPA reply URL type using authorization code flow. To use the "Run user flow" experience with these kinds of apps, register a reply URL of type "Web" and enable the implicit flow as described [here](tutorial-register-spa.md).
 
 ## Create a profile editing user flow
 
