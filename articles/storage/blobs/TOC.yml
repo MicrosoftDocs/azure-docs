@@ -688,9 +688,6 @@
         href: security-recommendations.md
       - name: Access control (directories and files)
         href: data-lake-storage-access-control.md
-      - name: Security controls by Azure Policy
-        displayName: regulatory, compliance, standards, domains
-        href: ./security-controls-policy.md
     - name: Compatibility
       items:
       - name: Multi-protocol access
