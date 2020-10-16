@@ -107,8 +107,8 @@ The following browsers have been tested to see if they correctly redirect to the
 | Nexus (API 28) |pass | pass | pass | pass | fail |pass |
 |MI | pass | pass | pass | pass | fail |pass |
 
-<sup>1</sup>Samsung's built-in browser is Samsung Internet.
-<sup>2</sup>Huawei's built-in browser is Huawei Browser.
+<sup>1</sup>Samsung's built-in browser is Samsung Internet.<br/>
+<sup>2</sup>Huawei's built-in browser is Huawei Browser.<br/>
 <sup>3</sup>The default browser can't be changed inside the Oppo device setting.
 
 ## SSO through brokered authentication
@@ -231,4 +231,3 @@ You can remove the account from settings if you want to repeat the test.
 ## Next steps
 
 [Shared device mode for Android devices](msal-android-shared-devices.md) allows you to configure an Android device so that it can be easily shared by multiple employees.
-
