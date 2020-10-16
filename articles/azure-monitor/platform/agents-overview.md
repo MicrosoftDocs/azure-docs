@@ -56,7 +56,7 @@ Use the Azure Monitor agent if you need to:
 - Send data to Azure Monitor Logs and Azure Monitor Metrics for analysis with Azure Monitor. 
 - Send data to Azure Storage for archiving.
 - Send data to third-party tools using [Azure Event Hubs](diagnostics-extension-stream-event-hubs.md).
-- Manage the security of your virtual machines using [Azure Security Center](../../security-center/security-center-intro.md)  or [Azure Sentinel](../../sentinel/overview.md). (Not available in preview.)
+- Manage the security of your virtual machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md). (Not available in preview.)
 
 Limitations of the Azure Monitor agent include:
 
@@ -208,4 +208,3 @@ Get more details on each of the agents at the following:
 - [Overview of the Log Analytics agent](log-analytics-agent.md)
 - [Azure Diagnostics extension overview](diagnostics-extension-overview.md)
 - [Collect custom metrics for a Linux VM with the InfluxData Telegraf agent](collect-custom-metrics-linux-telegraf.md)
-

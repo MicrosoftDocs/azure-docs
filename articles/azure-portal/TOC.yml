@@ -21,7 +21,7 @@
       href: quick-create-template.md
 - name: Concepts
   items:
-  - name: Share dashboards with role-based access control
+  - name: Share dashboards with Azure role-based access control
     href: azure-portal-dashboard-share-access.md
   - name: Programmatically create Azure dashboards
     href: azure-portal-dashboards-create-programmatically.md

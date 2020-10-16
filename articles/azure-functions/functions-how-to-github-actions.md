@@ -908,4 +908,4 @@ jobs:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure and GitHub integration](https://docs.microsoft.com/azure/developer/github/)
+> [Learn more about Azure and GitHub integration](/azure/developer/github/)

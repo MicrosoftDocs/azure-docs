@@ -93,11 +93,11 @@ To configure Azure AD single sign-on with Quantum Workplace, perform the followi
 
 4. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
-    ![Quantum Workplace Domain and URLs single sign-on information](common/preintegrated.png)
+    ![Screenshot shows the Basic SAML Configuration.](common/preintegrated.png)
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Quantum Workplace Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://auth.quantumworkplace.com/Account/Login`

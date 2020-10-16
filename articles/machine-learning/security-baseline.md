@@ -3,6 +3,7 @@ title: Azure security baseline for Azure Machine Learning
 description: The Azure Machine Learning security baseline provides procedural guidance and resources for implementing the security recommendations specified in the Azure Security Benchmark.
 author: msmbaldwin
 ms.service: machine-learning
+ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
