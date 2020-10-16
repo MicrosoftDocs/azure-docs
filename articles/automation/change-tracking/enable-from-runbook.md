@@ -74,7 +74,7 @@ With Change Tracking and Inventory enabled, you can add an Azure VM for manageme
 
 3. Choose your VM from the list and click **Enable**. This action enables Change Tracking and Inventory for the VM.
 
-   ![Enable Change Tracking and Inventory for VM](media/enable-from-runbook/enable-change-tracking.png)
+   ![Enable Change Tracking and Inventory for VM](media/enable-from-runbook/enable-azure-vm.png)
 
     > [!NOTE]
     > If you try to enable another feature before setup of Change Tracking and Inventory has completed, you receive this message: `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
