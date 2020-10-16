@@ -290,7 +290,7 @@
         - name: Accounts and tenant profiles
           href: accounts-overview.md
         - name: SSO with MSAL Android
-          href: msal-android-single-sign.md
+          href: msal-android-single-sign-on.md
         - name: Integrate with Azure AD B2C
           href: msal-android-b2c.md
         - name: Migrate to MSAL.Android
