@@ -39,7 +39,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. In the **Eclipse IDE Launcher**, in the **Workspace** field, enter the name of a new workspace directory. Then select **Launch**.
 
-   ![Screenshot that shows the Eclipse Launcher.](../media/speech-devices-sdk/eclipse-launcher.png)
+   ![Screenshot that shows the Eclipse Launcher where you enter the name of the workspace directory.](../media/speech-devices-sdk/eclipse-launcher.png)
 
 1. In a moment, the main window of the Eclipse IDE appears. Close the Welcome screen if one is present.
 
