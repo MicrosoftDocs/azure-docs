@@ -50,7 +50,7 @@ Other information available in Azure usage data has changed:
 - Term - 12 months or 36 months.
 - RINormalizationRatio - Available under AdditionalInfo. This is the ratio where the reservation is applied to the usage record. If instance size flexibility is enabled on for your reservation, then it can apply to other sizes. The value shows the ratio that the reservation was applied to for the usage record.
 
-[See field definition](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+[See field definition](/rest/api/consumption/usagedetails/list#definitions)
 
 ## Get Azure consumption and reservation usage data using API
 
@@ -66,7 +66,7 @@ Here's an example call to the Usage Details API:
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
-For more information about {enrollmentId} and {billingPeriodId}, see the [Usage Details – List](https://docs.microsoft.com/rest/api/consumption/usagedetails/list) API article.
+For more information about {enrollmentId} and {billingPeriodId}, see the [Usage Details – List](/rest/api/consumption/usagedetails/list) API article.
 
 Information in the following table about metric and filter can help solve for common reservation problems.
 

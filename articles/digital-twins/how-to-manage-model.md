@@ -175,10 +175,7 @@ Instead, if you want to make changes to a model—such as updating `displayName`
 
 #### Model versioning
 
-To create a new version of an existing model, start with the DTDL of the original model. Update the fields you would like to change.
-
->[!NOTE]
->During preview, advancing a model version will only allow you to add new fields, not remove existing ones. To remove fields, you should just [create a brand new model](#create-models).
+To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.
 
 Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
 
