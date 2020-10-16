@@ -54,7 +54,39 @@ Select *Microsoft Azure Spring Cloud*.
 
    ![Select Azure Spring Cloud](media/spring-cloud-permissions/spring-cloud-permissions.png)
 
-8. Select the permissions.
+8. Select the permissions for the developer role:
+
+From **Microsoft.AppPlatform/Spring**, select:
+* Write : Create or Update Azure Spring Cloud service instance
+* Read : Get Azure Spring Cloud service instance
+* Other : List Azure Spring Cloud service instance test keys
+
+From **Microsoft.AppPlatform/Spring/apps**, select:
+* Read : Read Microsoft Azure Spring Cloud application
+* Other : Get Microsoft Azure Spring Cloud application resource upload URL
+
+From **Microsoft.AppPlatform/Spring/apps/bindings**, select:
+* Read : Read Microsoft Azure Spring Cloud application binding
+
+From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
+* Write : Write Microsoft Azure Spring Cloud application deployment
+* Read : Read Microsoft Azure Spring Cloud application deployment
+* Other : Start Microsoft Azure Spring Cloud application deployment
+* Other : Stop Microsoft Azure Spring Cloud application deployment
+* Other : Restart Microsoft Azure Spring Cloud application deployment
+* Other : Get Microsoft Azure Spring Cloud application deployment log file URL
+
+From **Microsoft.AppPlatform/Spring/apps/domains**, select:
+* Read : Read Microsoft Azure Spring Cloud application custom domain
+
+From **Microsoft.AppPlatform/Spring/certificates**, select:
+* Read : Read Microsoft Azure Spring Cloud certificate
+
+From **Microsoft.AppPlatform/locations/operationResults/Spring**, select:
+* Read : Read operation result
+
+From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
+* Read : Read operation status
 
     [ ![Create Developler permissions](media/spring-cloud-permissions/developer-permissions-box.png) ](media/spring-cloud-permissions/developer-permissions-box.png#lightbox)
 
