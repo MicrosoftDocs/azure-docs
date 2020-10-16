@@ -3,7 +3,7 @@ title: Manage AWS costs and usage in Azure Cost Management
 description: This article helps you understand how to use cost analysis and budgets in Cost Management to manage your AWS costs and usage.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -170,7 +170,13 @@ This error means that Cost Management can't find the Cost and Usage report that 
 
 **Error code:** _ReportIsNotValid_
 
-This error relates to the definition of AWS Cost and Usage Report, we require specific settings for this report, see the requirements in [Create a Cost and Usage report in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws)
+This error relates to the definition of AWS Cost and Usage Report, we require specific settings for this report, see the requirements in [Create a Cost and Usage report in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+
+### Internal error when creating connector
+
+**Error code:** _Create connector - Failed to create connector <ConnectorName>. Reason: Internal error. Please verify that the correct AWS properties were provided._
+
+This error can occur when your AWS connector and subscription are in different management groups. The AWS connector and subscription need to be in the same management group.
 
 ## Next steps
 
