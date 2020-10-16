@@ -101,9 +101,9 @@ For more information about querying, see [Overview of log queries in Azure Monit
 
 ## Configure Application Insights in Production
 
-To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration, to send only critical error messages to your Application Insights. 
+To improve your production environment performance and better user experience, it's important to configure your policy to ignore messages that are unimportant. Use the following configuration to send only critical error messages to your Application Insights. 
 
-1. Set the `DeploymentMode` attribute of the [TrustFrameworkPolicy](trustframeworkpolicy.md) set to `Production`. 
+1. Set the `DeploymentMode` attribute of the [TrustFrameworkPolicy](trustframeworkpolicy.md) to `Production`. 
 
    ```xml
    <TrustFrameworkPolicy xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06" PolicySchemaVersion="0.3.0.0"
@@ -122,7 +122,7 @@ To improve your production environment performance and better user experience, i
    </UserJourneyBehaviors>
    ```
    
-1. Upload and test your policy
+1. Upload and test your policy.
 
 ## Next steps
 
