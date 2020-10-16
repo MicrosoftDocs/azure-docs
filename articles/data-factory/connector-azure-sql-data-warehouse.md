@@ -564,6 +564,9 @@ To use this feature, create an [Azure Blob Storage linked service](connector-azu
 >[!IMPORTANT]
 >If your staging Azure Storage is configured with VNet service endpoint, you must use managed identity authentication - refer to [Impact of using VNet Service Endpoints with Azure storage](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Learn the required configurations in Data Factory from [Azure Blob - managed identity authentication](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2 - managed identity authentication](connector-azure-data-lake-storage.md#managed-identity).
 
+>[!IMPORTANT]
+>If your staging Azure Storage is configured with Managed Private Endpoint and has the storage firewall enabled, you must use managed identity authentication and grant Storage Blob Data Reader permissions to the Synapse SQL Server to ensure it can access the staged files during the PolyBase load.
+
 ```json
 "activities":[
     {
@@ -659,6 +662,14 @@ All columns of the table must be specified in the INSERT BULK statement.
 ```
 
 The NULL value is a special form of the default value. If the column is nullable, the input data in the blob for that column might be empty. But it can't be missing from the input dataset. PolyBase inserts NULL for missing values in Azure Synapse Analytics.
+
+**External file access failed**
+
+If you receive the following error, ensure that you are using managed identity authentication and have granted Storage Blob Data Reader permissions to the Synapse SQL Server. 
+
+```
+Job failed due to reason: at Sink '[SinkName]': shaded.msdataflow.com.microsoft.sqlserver.jdbc.SQLServerException: External file access failed due to internal error: 'Error occurred while accessing HDFS: Java exception raised on call to HdfsBridge_IsDirExist. Java exception message:\r\nHdfsBridge::isDirExist 
+```
 
 ## <a name="use-copy-statement"></a> Use COPY statement to load data into Azure Synapse Analytics (preview)
 
