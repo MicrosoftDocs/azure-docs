@@ -23,7 +23,7 @@ This article explains why SSO and APP are important and provides the high-level 
 
 ## About single sign-on and app protection policies
 
-[Single sign-on (SSO)](../manage-apps/what-is-single-sign-on.md) allows a user to sign in once and get access to other applications without re-entering credentials. This makes accessing apps easier and eliminates the need for users to remember long lists of usernames and passwords. Implementing it in your app makes accessing and using your app easier.
+[Single sign-on (SSO)](../manage-apps/plan-sso-deployment.md) allows a user to sign in once and get access to other applications without re-entering credentials. This makes accessing apps easier and eliminates the need for users to remember long lists of usernames and passwords. Implementing it in your app makes accessing and using your app easier.
 
 In addition, enabling single sign-on in your app unlocks new authentication mechanisms that come with modern authentication, like [passwordless logins](../authentication/concept-authentication-passwordless.md). Usernames and passwords are one of the most popular attack vectors against applications, and enabling SSO allows you to mitigate this risk by enforcing conditional access or passwordless logins that add additional security or rely on more secure authentication mechanisms. Finally, enabling single sign-on also enables [single sign-out](v2-protocols-oidc.md#single-sign-out). This is useful in situations like work applications that will be used on shared devices.
 
