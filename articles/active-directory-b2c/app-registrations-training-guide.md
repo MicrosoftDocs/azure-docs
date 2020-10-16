@@ -49,13 +49,13 @@ The Azure AD B2C App registrations experience is based on the general [App Regis
 ## New supported account types
 
 In the new experience, you select a support account type from the following options:
-- Accounts in this organizational directory only.
-- Accounts in any organizational directory (Any Azure AD directory – Multitenant).
-- Accounts in any organizational directory or any identity provider. For authenticating users with Azure AD B2C.
+- Accounts in this organizational directory only
+- Accounts in any organizational directory (Any Azure AD directory – Multitenant)
+- Accounts in any identity provider or organizational directory (for authenticating users with user flows)
 
 To understand the different account types, select **Help me choose** in the creation experience.
 
-In the legacy experience, apps were always created as customer-facing applications. For those apps, the account type is set to **Accounts in any organizational directory or any identity provider. For authenticating users with Azure AD B2C**.
+In the legacy experience, apps were always created as customer-facing applications. For those apps, the account type is set to **Accounts in any identity provider or organizational directory (for authenticating users with user flows)**.
 > [!NOTE]
 > This option is required to be able to run Azure AD B2C user flows to authenticate users for this application. Learn [how to register an application for use with user flows.](tutorial-register-applications.md)
 
