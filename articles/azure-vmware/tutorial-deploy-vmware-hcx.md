@@ -7,9 +7,12 @@ ms.date: 10/02/2020
 
 # Deploy and configure VMware HCX
 
-In this article, we walk through the procedures to deploy and configure the VMware HCX on-premises "Connector" for your Azure VMware Solution private cloud. VMware HCX enables the migration of your VMware workloads to Azure VMware Solution and other connected sites through various migration types. Azure VMware Solution has already deployed and configured the "Cloud Manager", thus downloading, activating, and configuring the "Connector" is required by the customer in their on-premises VMware datacenter.
+In this article, we walk through the procedures to deploy and configure the VMware HCX on-premises "Connector" for your Azure VMware Solution private cloud. With VMware HCX, you can migrate your VMware workloads to Azure VMware Solution and other connected sites through various migration types.  Since Azure VMware Solution deploys and configures the "Cloud Manager," you must download, activate, and configure the "Connector" in your on-premises VMware datacenter.  
 
-VMware HCX Advanced Connector (pre-deployed in Azure VMware Solution) supports up to three site connections (on-premises to cloud, or cloud to cloud). If more than three site connections are required, then customers have the option to enable [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on (which is currently in *Preview*) by submitting a [support request](https://rc.portal.azure.com/#create/Microsoft.Support). VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in *Preview*, it is a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You'll also have the option to switch off/opt-out of the service.
+VMware HCX Advanced Connector, which is pre-deployed in Azure VMware Solution, supports up to three site connections (on-premises to cloud, or cloud to cloud). If you require more than three site connections, submit a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to enable the [VMware HCX Enterprise](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/) add-on (currently in *Preview*).  
+
+>[!NOTE]
+>VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in *Preview*, it is a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You can also switch off/opt-out of the service.
 
 Before beginning, thoroughly review [Before you begin](#before-you-begin), [Software version requirements](#software-version-requirements), and [Prerequisites](#prerequisites). 
 
@@ -47,7 +50,7 @@ Infrastructure components must be running the required minimum version.
 | --- | --- | --- |
 | vCenter Server   | 5.1<br/><br/>If using 5.5 U1 or earlier, use the standalone HCX user interface for HCX operations.  | 6.0 U2 and above   |
 | ESXi   | 5.0    | ESXi 6.0 and above   |
-| NSX    | For HCX Network Extension of logical switches at the source: NSXv 6.2+ or NSX-T 2.4+   | NSXv 6.2+ or NSX-T 2.4+<br/><br/>For HCX Proximity Routing: NSXv 6.4+ (Proximity Routing is not supported with NSX-T) |
+| NSX    | For HCX Network Extension of logical switches at the source: NSXv 6.2+ or NSX-T 2.4+   | NSXv 6.2+ or NSX-T 2.4+<br/><br/>For HCX Proximity Routing: NSXv 6.4+ (Proximity Routing isn't supported with NSX-T) |
 | vCloud Director   | Not required - no interoperability with vCloud Director at the source site | When integrating the destination environment with vCloud Director, the minimum is 9.1.0.2.  |
 
 ## Prerequisites
@@ -77,7 +80,7 @@ Infrastructure components must be running the required minimum version.
 
 1. Select the **download** link to download the VMware HCX Connector OVA file.
 
-1. Go to your on-premises vCenter and select an OVF template, which is the OVA file you downloaded, to deploy the HCX Connector to your on-premises vCenter.  
+1. From your on-premises vCenter, select an OVF template, which is the OVA file you downloaded, to deploy the HCX Connector to your on-premises vCenter.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
@@ -339,4 +342,7 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
 
 ## Next steps
 
-If you've reached this point and the appliance interconnect Tunnel Status is **UP** and green, you can migrate and protect Azure VMware Solution VMs using VMware HCX.  Azure VMware Solution supports workload migrations (with or with a network extension).  You can still do workload migrations in your vSphere environment on-premises creation of networks and deployment of VMs onto those networks.  For more information, see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) and [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) in the VMware technical documentation for details on using HCX.
+If you've reached this point and the appliance interconnect Tunnel Status is **UP** and green, you can migrate and protect Azure VMware Solution VMs using VMware HCX.  Azure VMware Solution supports workload migrations (with or with a network extension).  You can still migrate workloads in your vSphere environment on-premises creation of networks and deployment of VMs onto those networks.  For more information on using HCX, go to the VMware technical documentation:
+
+* [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html)
+* [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) 
