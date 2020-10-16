@@ -88,7 +88,7 @@ landingContent:
             url: confidential-nodes-out-of-proc-attestation.md
       - linkListType: quickstart
         links:
-          - text: A simple enclave container app on AKS
+          - text: CLI based provisioning with a simple enclave container app on AKS
             url: confidential-nodes-aks-get-started.md
       - linkListType: sample
         links:
