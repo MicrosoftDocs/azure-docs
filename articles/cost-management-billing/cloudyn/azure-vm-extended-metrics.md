@@ -69,7 +69,7 @@ For more information about enabling extended metrics for Azure virtual machines,
 
 ## Resource Manager credentials
 
-After you enable extended metrics, ensure that Cloudyn has access to your [Resource Manager credentials](../../cost-management/activate-subs-accounts.md). Your credentials are required for Cloudyn to collect and display performance data for your VMs. They're also used to create cost optimization recommendations. Cloudyn needs at least three days of performance data from an instance to determine if it is a candidate for a downsizing recommendation.
+After you enable extended metrics, ensure that Cloudyn has access to your [Resource Manager credentials](./activate-subs-accounts.md). Your credentials are required for Cloudyn to collect and display performance data for your VMs. They're also used to create cost optimization recommendations. Cloudyn needs at least three days of performance data from an instance to determine if it is a candidate for a downsizing recommendation.
 
 ## Enable VM metrics with a script
 
@@ -83,4 +83,4 @@ To view performance metrics on your Azure Instances in the Cloudyn portal, navig
 
 ## Next steps
 
-- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](../../cost-management/activate-subs-accounts.md).
+- If you haven't already enabled Azure Resource Manager API access for your accounts, proceed to [Activate Azure subscriptions and accounts](./activate-subs-accounts.md).
