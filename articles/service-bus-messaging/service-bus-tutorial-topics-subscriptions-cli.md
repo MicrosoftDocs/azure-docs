@@ -77,7 +77,7 @@ Each [subscription to a topic](service-bus-messaging-overview.md#topics) can rec
 9. Create a filter on the third subscription with a filter using customer properties (`StoreId` not in `Store1`, `Store2`, `Store3`, or `Store4`).
 
     ```azurecli-interactive
-    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId IN ('Store1','Store2','Store3', 'Store4')"     
+    az servicebus topic subscription rule create --resource-group MyResourceGroup --namespace-name $namespaceName --topic-name MyTopic --subscription-name S3 --name MyThirdFilter --filter-sql-expression "StoreId NOT IN ('Store1','Store2','Store3', 'Store4')"     
     ```
 10. Run the following command to get the primary connection string for the namespace. You use this connection string to connect to the queue and send and receive messages. 
 

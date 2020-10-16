@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 08/10/2020
+  ms.date: 09/30/2020
 
 landingContent:
   - title: About Azure Policy
@@ -24,8 +24,12 @@ landingContent:
             url: ./concepts/effects.md
           - text: Definition structure
             url: ./concepts/definition-structure.md
+          - text: Scope
+            url: ./concepts/scope.md
           - text: Assignment structure
             url: ./concepts/assignment-structure.md
+          - text: Exemption structure
+            url: ./concepts/exemption-structure.md
       - linkListType: video
         links:
           - text: Azure Policy at Build 2018
@@ -41,6 +45,10 @@ landingContent:
             url: ./assign-policy-azurecli.md
           - text: Assign a policy (Azure PowerShell)
             url: ./assign-policy-powershell.md
+          - text: Assign a policy (.NET)
+            url: ./assign-policy-dotnet.md
+          - text: Assign a policy (JavaScript)
+            url: ./assign-policy-javascript.md
           - text: Assign a policy (Python)
             url: ./assign-policy-python.md
           - text: Assign a policy (REST)
@@ -74,6 +82,8 @@ landingContent:
             url: ./how-to/programmatically-create.md
           - text: Author policies for arrays
             url: ./how-to/author-policies-for-arrays.md
+          - text: Export resources
+            url: ./how-to/export-resources.md
       - linkListType: concept
         links:
           - text: Regulatory Compliance
@@ -91,6 +101,8 @@ landingContent:
             url: ./how-to/get-compliance-data.md
           - text: Determine causes of non-compliance
             url: ./how-to/determine-non-compliance.md
+          - text: Exempt resources
+            url: ./concepts/exemption-structure.md
           - text: Remediate non-compliant resources
             url: ./how-to/remediate-resources.md
 
@@ -123,6 +135,8 @@ landingContent:
             url: /rest/api/resources/policyassignments
           - text: REST (Definitions)
             url: /rest/api/resources/policydefinitions
+          - text: REST (Exemptions)
+            url: /rest/api/resources/policyexemptions
           - text: REST (Initiatives)
             url: /rest/api/resources/policysetdefinitions
           - text: Resource Manager templates

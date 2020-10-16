@@ -12,11 +12,7 @@ ms.date: 04/29/2020
 
 # Safely manage Python environment on Azure HDInsight using Script Action
 
-> [!div class="op_single_selector"]
-> * [Using cell magic](apache-spark-jupyter-notebook-use-external-packages.md)
-> * [Using Script Action](apache-spark-python-package-installation.md)
-
-HDInsight has two built-in Python installations in the Spark cluster, Anaconda Python 2.7 and Python 3.5. Customers may need to customize the Python environment. Like installing external Python packages or another Python version. Here, we show the best practice of safely managing Python environments for Apache Spark clusters on HDInsight.
+HDInsight has two built-in Python installations in the Spark cluster, Anaconda Python 2.7 and Python 3.5. Customers may need to customize the Python environment like installing external Python packages. Here, we show the best practice of safely managing Python environments for Apache Spark clusters on HDInsight.
 
 ## Prerequisites
 
@@ -80,7 +76,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     - Or use PyPi repo, change `seaborn` and `py35new` correspondingly:
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install seaborn
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install seaborn
         ```
 
     Use below command if you would like to install a library with a specific version:
@@ -97,7 +93,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
     - Or use PyPi repo, change `numpy==1.16.1` and `py35new` correspondingly:
 
         ```bash
-        sudo /usr/bin/anaconda/env/py35new/bin/pip install numpy==1.16.1
+        sudo /usr/bin/anaconda/envs/py35new/bin/pip install numpy==1.16.1
         ```
 
     if you don't know the virtual environment name, you can SSH to the head node of the cluster and run `/usr/bin/anaconda/bin/conda info -e` to show all virtual environments.
@@ -127,7 +123,7 @@ HDInsight cluster depends on the built-in Python environment, both Python 2.7 an
 
     4. Save the changes and restart affected services. These changes need a restart of Spark2 service. Ambari UI will prompt a required restart reminder, click Restart to restart all affected services.
 
-        ![Change Spark config through Ambari](./media/apache-spark-python-package-installation/ambari-restart-services.png)
+        ![Restart services](./media/apache-spark-python-package-installation/ambari-restart-services.png)
 
 4. If you would like to use the new created virtual environment on Jupyter. Change Jupyter configs and restart Jupyter. Run script actions on all header nodes with below statement to point Jupyter to the new created virtual environment. Make sure to modify the path to the prefix you specified for your virtual environment. After running this script action, restart Jupyter service through Ambari UI to make this change available.
 

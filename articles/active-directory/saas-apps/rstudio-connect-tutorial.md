@@ -95,7 +95,7 @@ To configure Azure AD single sign-on with RStudio Connect, perform the following
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps, replacing `<example.com>` with your RStudio Connect Server Address and port:
 
-    ![RStudio Connect Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<example.com>/__login__/saml`
@@ -105,7 +105,7 @@ To configure Azure AD single sign-on with RStudio Connect, perform the following
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![RStudio Connect Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<example.com>/`
@@ -123,7 +123,7 @@ To configure Azure AD single sign-on with RStudio Connect, perform the following
 
 ### Configure RStudio Connect Single Sign-On
 
-To configure single sign-on on for **RStudio Connect**, you need to use the **App Federation Metadata Url** and **Server Address** used above. This is done in the RStudio Connect configuration file at `/etc/rstudio-connect.rstudio-connect.gcfg`.
+To configure single sign-on on for **RStudio Connect**, you need to use the **App Federation Metadata Url** and **Server Address** used above. This is done in the RStudio Connect configuration file at `/etc/rstudio-connect/rstudio-connect.gcfg`.
 
 This is an example configuration file:
 

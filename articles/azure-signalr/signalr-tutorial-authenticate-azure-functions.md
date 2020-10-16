@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Tutorial: Azure SignalR Service authentication with Azure Functions
 
@@ -350,13 +350,13 @@ An Azure Storage account is required by a function app running in Azure. You wil
 
 ### Configure function app for authentication
 
-So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
+So far, the chat app works anonymously. In Azure, you will use [App Service Authentication](../app-service/overview-authentication-authorization.md) to authenticate the user. The user ID or username of the authenticated user can be passed to the *SignalRConnectionInfo* binding to generate connection information that is authenticated as the user.
 
 When a sending message, the app can decide whether to send it to all connected clients, or only to the clients that have been authenticated to a given user.
 
 1. In VS Code, open **negotiate/function.json**.
 
-1. Insert a [binding expression](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
+1. Insert a [binding expression](../azure-functions/functions-triggers-bindings.md) into the *userId* property of the *SignalRConnectionInfo* binding: `{headers.x-ms-client-principal-name}`. This sets the value to the username of the authenticated user. The attribute should now look like this.
 
     ```json
     {
@@ -425,11 +425,11 @@ App Service Authentication supports authentication with Azure Active Directory, 
 
 1. Follow the documentation for the login provider of your choice to complete the configuration.
 
-    - [Azure Active Directory](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
-    - [Facebook](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-facebook)
-    - [Twitter](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-twitter)
-    - [Microsoft account](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-microsoft)
-    - [Google](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-google)
+    - [Azure Active Directory](../app-service/configure-authentication-provider-aad.md)
+    - [Facebook](../app-service/configure-authentication-provider-facebook.md)
+    - [Twitter](../app-service/configure-authentication-provider-twitter.md)
+    - [Microsoft account](../app-service/configure-authentication-provider-microsoft.md)
+    - [Google](../app-service/configure-authentication-provider-google.md)
 
 ### Update the web app
 
@@ -511,4 +511,3 @@ In this tutorial, you learned how to use Azure Functions with Azure SignalR Serv
 > [Build Real-time Apps with Azure Functions](signalr-concept-azure-functions.md)
 
 [Having issues? Let us know.](https://aka.ms/asrs/qsauth)
-

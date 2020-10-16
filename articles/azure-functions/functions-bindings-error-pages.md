@@ -36,4 +36,4 @@ When integrating with Azure services, errors may originate from the APIs of the 
 
 + [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
 
-+ [Table storage](functions-bindings-storage-table.md#exceptions-and-return-codes)
++ [Table storage](functions-bindings-storage-table-output.md#exceptions-and-return-codes)

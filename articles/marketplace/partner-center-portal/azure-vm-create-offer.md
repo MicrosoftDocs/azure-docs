@@ -22,7 +22,7 @@ Before you start, [Create a commercial marketplace account in Partner Center](cr
 When you publish your offers on Azure Marketplace, you can:
 
 - Promote your company with the help of the Microsoft brand.
-- Reach over 100 million Office 365 and Dynamics 365 users and more than 200,000 organizations.
+- Reach over 100 million Microsoft 365 and Dynamics 365 users and more than 200,000 organizations.
 - Get high-quality leads from these marketplaces.
 - Get your services promoted by the Microsoft field sales and telesales teams.
 
@@ -157,7 +157,7 @@ You must provide offer terms and conditions to your customers. You have two opti
 
        a. Enter your own amendment terms in the **Custom amendment terms** box. You can enter an unlimited number of characters. Only customers from the tenant IDs that you specify for these custom terms will see them in the offer's purchase flow in the Azure portal.
 
-       b. (Required) Provide **Tenant IDs**. Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID, which identifies your customer in Azure. Your customer can find this for you in Azure by selecting **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also find the organization's tenant ID of your customer by using their domain name web address at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/).
+       b. (Required) Provide **Tenant IDs**. Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID, which identifies your customer in Azure. Your customer can find this for you in Azure by selecting **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also find the organization's tenant ID of your customer by using their domain name web address at [What is my Microsoft Azure and Microsoft 365 tenant ID?](https://www.whatismytenantid.com/).
 
        c. (Optional) Provide a friendly **Description** for the tenant ID, one that helps you identify the customer that you're targeting with the amendment.
 
@@ -237,7 +237,7 @@ Provide contact information for Microsoft to use when there are issues with your
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will cause your submission to be rejected.
 
-[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!NOTE]
 >If you have an issue uploading files, ensure that your local network doesn't block the https://upload.xboxlive.com service that's used by Partner Center.
@@ -397,7 +397,7 @@ For a usage-based monthly billed plan, use one of the following three pricing en
 
 #### Free Trial
 
-You can offer a one-month or three-month *Free Trial* to your customers.
+You can offer a one-month or three-month or six-month *Free Trial* to your customers.
 
 #### Visibility
 

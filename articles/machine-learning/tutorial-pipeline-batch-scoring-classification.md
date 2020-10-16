@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: lobrien
 ms.author: laobri
 ms.reviewer: laobri
-ms.date: 03/11/2020
+ms.date: 10/13/2020
 ms.custom: contperfq4, devx-track-python
 ---
 
 # Tutorial: Build an Azure Machine Learning pipeline for batch scoring
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this advanced tutorial, you learn how to build an [Azure Machine Learning pipeline](concept-ml-pipelines.md) to run a batch scoring job. Machine learning pipelines optimize your workflow with speed, portability, and reuse, so you can focus on machine learning instead of infrastructure and automation. After you build and publish a pipeline, you configure a REST endpoint that you can use to trigger the pipeline from any HTTP library on any platform. 
 
@@ -96,7 +96,7 @@ output_dir = PipelineData(name="scores",
                           output_path_on_compute="batchscoring/results")
 ```
 
-Next, register the datasets to the workspace.
+Register the datasets to the workspace if you want to reuse it later. This step is optional.
 
 ```python
 
@@ -383,7 +383,7 @@ To run the pipeline from the REST endpoint, you need an OAuth2 Bearer-type authe
 
 Service principal authentication involves creating an *App Registration* in *Azure Active Directory*. First, you generate a client secret, and then you grant your service principal *role access* to your machine learning workspace. Use the [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) class to manage your authentication flow. 
 
-Both [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) and `ServicePrincipalAuthentication` inherit from `AbstractAuthentication`. In both cases, use the [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#&preserve-view=trueget-authentication-header--) function in the same way to fetch the header:
+Both [`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py&preserve-view=true) and `ServicePrincipalAuthentication` inherit from `AbstractAuthentication`. In both cases, use the [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-authentication-header--) function in the same way to fetch the header:
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication

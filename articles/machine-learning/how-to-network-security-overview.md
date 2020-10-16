@@ -1,16 +1,16 @@
 ---
-title: Virtual network isolation and privacy overview
+title: Virtual network isolation and security overview
 titleSuffix: Azure Machine Learning
 description: Use an isolated Azure Virtual Network with Azure Machine Learning to secure workspace resources and compute environments.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 07/07/2020
+ms.author: peterlu
+author: peterclu
+ms.date: 10/06/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python, references_regions
+ms.custom: how-to, devx-track-python, references_regions, contperfq1
 
 ---
 
@@ -60,29 +60,13 @@ The next five sections show you how to secure the network scenario described abo
 1. Optionally: [**enable studio functionality**](#optional-enable-studio-functionality).
 1. Configure [**firewall settings**](#configure-firewall-settings)
 
-> [!TIP]
->  Some combinations of virtual network and Azure services require an Enterprise edition workspace. Use the following table to understand what scenarios require Enterprise edition:
->
-> | Scenario | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | No virtual network or Private Link | ✔ | ✔ |
-> | Workspace without Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace without Private Link. Other resources with Private Link | ✔ | |
-> | Workspace with Private Link. Other resources (except Azure Container Registry) in a virtual network | ✔ | ✔ |
-> | Workspace and any other resource with Private Link | ✔ | |
-> | Workspace with Private Link. Other resources without Private Link or virtual network | ✔ | ✔ |
-> | Azure Container Registry in a virtual network | ✔ | |
-> | Customer Managed Keys for workspace | ✔ | |
->
-
-
 ## Secure the workspace and associated resources
 
 Use the following steps to secure your workspace and associated resources. These steps allow your services to communicate in the virtual network.
 
 1. Create a [Private Link-enabled workspace](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) to enable communication between your VNet and workspace.
 1. Add Azure Key Vault to the virtual network with a [service endpoint](../key-vault/general/overview-vnet-service-endpoints.md) or a [private endpoint](../key-vault/general/private-link-service.md). Set Key Vault to ["Allow trusted Microsoft services to bypass this firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
-1. Add you Azure storage account to the virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts) or a [private endpoint](../storage/common/storage-private-endpoints.md)
+1. Add you Azure storage account to the virtual network with a [service endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) or a [private endpoint](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
 1. [Configure Azure Container Registry to use a private endpoint](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) and [enable subnet delegation in Azure Container Instances](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
 
 ![Architecture diagram showing how the workspace and associated resources communicate to each other over service endpoints or private endpoints inside of a VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
@@ -92,10 +76,8 @@ For detailed instructions on how to complete these steps, see [Secure an Azure M
 ### Limitations
 
 Securing your workspace and associated resources within a virtual network have the following limitations:
-- Workspace Private Link is only available in the following regions: eastus, westus2, southcentralus
-    - This limitation does not apply to the associated resources. For example, you can enable VNet for storage in any Azure Machine Learning region.
+- Using an Azure Machine Learning workspace with private link is not available in the Azure Government or Azure China 21Vianet regions.
 - All resources must be behind the same VNet. However, subnets within the same VNet are allowed.
-- Some studio features like the designer, AutoML, labeling, and data profiling cannot be used with storage accounts configured to use a private endpoint. If you need to use these studio features, use service endpoints instead.
 
 ## Secure the training environment
 
@@ -155,23 +137,29 @@ The following network diagram shows a secured Azure Machine Learning workspace w
 
 [Secure the workspace](#secure-the-workspace-and-associated-resources) > [Secure the training environment](#secure-the-training-environment) > [Secure the inferencing environment](#secure-the-inferencing-environment) > **Enable studio functionality** > [Configure firewall settings](#configure-firewall-settings)
 
-Although the studio can access data in a storage account configured with a service endpoint, some features are disabled by default:
+If your storage is in a VNet, you first must perform additional configuration steps to enable full functionality in [the studio](overview-what-is-machine-learning-studio.md). By default, the following feature are disabled:
 
 * Preview data in the studio.
 * Visualize data in the designer.
 * Submit an AutoML experiment.
 * Start a labeling project.
 
-To enable full functionality while using a storage service endpoint, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). Currently, the studio does not support storage private endpoints.
+To enable full studio functionality while inside of a VNet, see [Use Azure Machine Learning studio in a virtual network](how-to-enable-studio-virtual-network.md#access-data-using-the-studio). The studio supports storage accounts using either service endpoints or private endpoints.
 
 ### Limitations
-- The studio cannot access data in storage accounts configured to use private endpoints. For full functionality, you must use service endpoints for storage and use managed identity.
+- [ML assisted data labeling](how-to-create-labeling-projects.md#use-ml-assisted-labeling) does not support default storage accounts secured behind a virtual network. You must use a non-default storage account for ML assisted data labeling. Note, the non-default storage account can be secured behind the virtual network. 
 
 ## Configure firewall settings
 
 Configure your firewall to control access to your Azure Machine Learning workspace resources and the public internet. While we recommend Azure Firewall, you should be able to use  other firewall products to secure your network. If you have questions about how to allow communication through your firewall, please consult the documentation for the firewall you are using.
 
 For more information on firewall settings, see [Use workspace behind a Firewall](how-to-access-azureml-behind-firewall.md).
+
+## Custom DNS
+
+If you need to use a custom DNS solution for your virtual network, you must add host records for your workspace.
+
+For more information on the required domain names and IP addresses, see [how to use a workspace with a custom DNS server](how-to-custom-dns.md).
 
 ## Next steps
 

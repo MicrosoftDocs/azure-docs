@@ -129,6 +129,7 @@ For example, if your general-purpose storage account is named *mystorageaccount*
 - Table storage: `https://*mystorageaccount*.table.core.windows.net`
 - Queue storage: `https://*mystorageaccount*.queue.core.windows.net`
 - Azure Files: `https://*mystorageaccount*.file.core.windows.net`
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (Uses the [ABFS driver optimized specifically for big data](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2).)
 
 > [!NOTE]
 > Block blob and blob storage accounts expose only the Blob service endpoint.

@@ -1,5 +1,6 @@
 ---
 title: Move VMs to an Azure region with availability zones using Azure Site Recovery 
+description: Learn how to move VMs to an availability zone in a different region with Site Recovery
 services: site-recovery
 author: sideeksh
 ms.service: site-recovery
@@ -10,6 +11,10 @@ ms.custom: MVC
 ---
 
 # Move Azure VMs into Availability Zones
+
+This articles describes how to move Azure VMs to an availability zone in a different region. If you want to move to a different zone in the same region, [review this article](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+
+
 Availability Zones in Azure help protect your applications and data from datacenter failures. Each Availability Zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all enabled regions. The physical separation of Availability Zones within a region helps protect applications and data from datacenter failures. With Availability Zones, Azure offers a service-level agreement (SLA) of 99.99% for uptime of virtual machines (VMs). Availability Zones are supported in select regions, as mentioned in [Regions that support Availability Zones](../availability-zones/az-region.md).
 
 In a scenario where your VMs are deployed as *single instance* into a specific region, and you want to improve your availability by moving these VMs into an Availability Zone, you can do so by using Azure Site Recovery. This action can further be categorized into:
@@ -18,7 +23,15 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 - Move VMs in an availability set into Availability Zones in a target region
 
 > [!IMPORTANT]
-> Currently, Azure Site Recovery supports moving VMs from one region to another. It only supports moving across zones within a region in a few regions. [Learn more](./azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md).
+> To move Azure VMs to an availability zone in a different region, we now recommend using [Azure Resource Mover](../resource-mover/move-region-availability-zone.md). Resource Mover is in public preview and provides:
+> - A single hub for moving resources across regions.
+> - Reduced move time and complexity. Everything you need is in a single location.
+> - A simple and consistent experience for moving different types of Azure resources.
+> - An easy way to identify dependencies across resources you want to move. This helps you to move related resources together, so that everything works as expected in the target region, after the move.
+> - Automatic cleanup of resources in the source region, if you want to delete them after the move.
+> - Testing. You can try out a move, and then discard it if you don't want to do a full move.
+
+
 
 ## Check prerequisites
 

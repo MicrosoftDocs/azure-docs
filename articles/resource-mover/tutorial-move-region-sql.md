@@ -73,7 +73,6 @@ Select resources you want to move.
 
 3. In **Move resources** > **Source + destination**, select the source subscription and region.
 4. In **Destination**, select the region to which you want to move the resources. Then click **Next**.
-5. In **Metadata region**, select where you want to store metadata about resources you're moving. A resource group is created specifically for this purpose. Then click **Next**.
 
     ![Page to select source and destination region](./media/tutorial-move-region-sql/source-target.png)
 

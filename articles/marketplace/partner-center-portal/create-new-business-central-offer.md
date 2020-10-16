@@ -31,7 +31,8 @@ Before starting, [Create a Commercial Marketplace account in Partner Center](cre
 Enter an **Offer ID**. This is a unique identifier for each offer in your account.
 
 - This ID is visible to customers in the web address for the marketplace offer and Azure Resource Manager templates, if applicable.
-- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces, and is limited to 50 characters. For example, if you enter **test-offer-1**, the offer web address will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- The Offer ID combined with the Publisher ID must be under 40 characters in length.
+- Use only lowercase letters and numbers. It can include hyphens and underscores, but no spaces. For example, if your Publisher ID is testpublisherid and you enter **test-offer-1** here, the offer web address will be `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1`.
 - The Offer ID can't be changed after you select **Create**.
 
 Enter an **Offer alias**. This is the name used for the offer in Partner Center.
@@ -51,11 +52,11 @@ Select the option you'd like to use for this offer.
 
 #### Get it now (free)
 
-List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example, `https://contoso.com/my-app`.
+List your offer to customers for free.
 
 #### Free trial (listing)
 
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with `http` or `https`) where they can get a trial.  For example, `https://contoso.com/trial/my-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+List your offer to customers with a link to a free trial. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
 > The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
@@ -66,9 +67,7 @@ Collect customer contact information by connecting your Customer Relationship Ma
 
 ### Test drive
 
-A test drive is a great way to showcase your offer to potential customers by giving them the option to "try before you buy", resulting in increased conversion and the generation of highly qualified leads. To learn more, start with [What is test drive](../what-is-test-drive.md).
-
-To enable a test drive for a fixed period of time, select the **Enable a test drive** check box. To remove test drive from your offer, clear this check box.
+At this point Dynamics 365 Business Central offers do not support test drive. To remove test drive from your offer, clear the **Enable a test drive** check box.
 
 ### Customer leads
 
@@ -253,9 +252,8 @@ Upload the extension package file (.app) file for your offer.
 
 Required if your offer must be installed along with another extension that will not be published to the marketplace. If so upload its .app file here.
 
-#### Dependency package file
-
-Required if your offer must be installed along with another extension that has already been published to the marketplace. If so, upload its `.app` or `.zip` file here.
+>[!NOTE]
+>The dependency package file is no longer used. Upload a library package file instead.
 
 ### URL to app installation
 

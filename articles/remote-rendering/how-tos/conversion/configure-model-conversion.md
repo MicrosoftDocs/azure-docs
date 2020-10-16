@@ -28,7 +28,6 @@ The contents of the file should satisfy the following json schema:
         "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
         "recenterToOrigin" : { "type" : "boolean", "default" : false },
         "opaqueMaterialDefaultSidedness" : { "type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
-        "material-override" : { "type" : "string", "default" : "" },
         "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
         "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
         "sceneGraphMode": { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
@@ -81,13 +80,15 @@ Centering the model can help in this situation.
 * `opaqueMaterialDefaultSidedness` - The rendering engine assumes that opaque materials are double-sided.
 if that assumption isn't true of a particular model, this parameter should be set to "SingleSided". For more information, see [:::no-loc text="single sided"::: rendering](../../overview/features/single-sided-rendering.md).
 
-### Material overrides
-
-* `material-override` - This parameter allows the processing of materials to be [customized during conversion](override-materials.md).
-
 ### Material de-duplication
 
 * `deduplicateMaterials` - This parameter enables or disables automatic de-duplication of materials that share the same properties and textures. De-duplication happens after material overrides have been processed. It's enabled by default.
+
+* If even after de-duplication a model has more than 65,535 materials, the service will attempt to merge materials with similar properties. As a last resort any materials exceeding the limit will be replaced by a red error material.
+
+![Image shows two cubes of 68,921 colored triangles.](media/mat-dedup.png?raw=true)
+
+Two cubes of 68,921 colored triangles. Left: Before de-duplication with 68,921 color materials. Right: After de-duplication with 64,000 color materials. The limit is 65,535 materials. (See [limits](../../reference/limits.md).)
 
 ### Color space parameters
 
@@ -294,6 +295,9 @@ In these use cases, the models often have very high detail within a small volume
 
 Providing settings using the non-model-specific filename `conversionSettings.json` is still supported but deprecated.
 Please use the model-specific filename `<modelName>.ConversionSettings.json` instead.
+
+The use of a `material-override` setting to identify a [Material Override file](override-materials.md) in the conversion settings file is still supported but deprecated. 
+Please use the model-specific filename `<modelName>.MaterialOverrides.json` instead.
 
 ## Next steps
 

@@ -5,7 +5,7 @@ description: Azure Cognitive Services are cloud services with REST APIs, and cli
 services: cognitive-services
 author: nitinme
 manager: nitinme
-keywords: cognitive services, cognitive intelligence, cognitives services, ai as a service, cognitive solutions, cognitive artificial intelligence, cognitive software, ai services, cognitive ai, cognitive understanding
+keywords: cognitive services, cognitive intelligence, cognitive solutions, ai services, cognitive understanding, cognitive features
 ms.service: cognitive-services
 ms.subservice:
 ms.topic: overview
@@ -16,7 +16,15 @@ ms.custom: cog-serv-seo-aug-2020
 
 # What are Azure Cognitive Services?
 
-Azure Cognitive Services are cloud services with REST APIs, and client library SDKs available to help developers build cognitive intelligent applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enable developers to easily add cognitive features into their applications. The goal of Azure Cognitive Services is to help developers create applications that can see, hear, speak, understand, and even begin to reason. The catalog of services within Azure Cognitive Services can be categorized into five main pillars - Vision, Speech, Language, Web Search, and Decision.
+Azure Cognitive Services are cloud-based services with REST APIs, and client library SDKs available to help developers build cognitive intelligence into applications without having direct artificial intelligence (AI) or data science skills or knowledge. Azure Cognitive Services enables developers to easily add cognitive features into their applications with cognitive solutions that can see, hear, speak, understand, and even begin to reason.
+
+The catalog of AI services, which provide cognitive understanding are categorized into five main pillars:
+
+* Vision
+* Speech
+* Language
+* Web Search
+* Decision
 
 The current list of new documentation is available at [What's new in Cognitive Services docs](whats-new-docs.md).
 
@@ -75,7 +83,17 @@ The current list of new documentation is available at [What's new in Cognitive S
 |:-----------|:------------------|
 |[Anomaly Detector](https://docs.microsoft.com/azure/cognitive-services/anomaly-detector/ "Anomaly Detector") (Preview)|Anomaly Detector allows you to monitor and detect abnormalities in your time series data.|
 |[Content Moderator](https://docs.microsoft.com/azure/cognitive-services/content-moderator/overview "Content Moderator")|Content Moderator provides monitoring for possible offensive, undesirable, and risky content.|
+|[Metrics Advisor](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor) (Preview) | Metrics Advisor provides customizable anomaly detection on multi-variate time series data, and a fully featured web portal to help you use the service.
 |[Personalizer](https://docs.microsoft.com/azure/cognitive-services/personalizer/ "Personalizer")|Personalizer allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+
+## Learn with the Quickstarts
+
+Learn about creating a Cognitive Services resource with hands-on quickstarts, using the:
+
+* [Azure portal](cognitive-services-apis-create-account.md?tabs=multiservice%2Cwindows "Azure portal")
+* [Azure CLI](cognitive-services-apis-create-account-cli.md?tabs=windows "Azure CLI")
+* [Azure SDK client libraries](cognitive-services-apis-create-account-cli.md?tabs=windows "cognitive-services-apis-create-account-client-library?pivots=programming-language-csharp")
+* [Azure Resource Manager (ARM) templates](resource-manager-template.md?tabs=portal "Azure Resource Manager (ARM) templates")
 
 ## Subscription management
 
@@ -113,7 +131,10 @@ To understand privacy and data management, go to the [Trust Center](https://serv
 
 ## Support
 
-Cognitive Services provide several [support options](cognitive-services-support-options.md "support options").
+Cognitive Services provides several [support options](cognitive-services-support-options.md "support options").
+
+
+
 
 ## Next steps
 

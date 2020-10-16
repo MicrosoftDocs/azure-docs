@@ -1,219 +1,222 @@
 ---
-title: Connect privately to a Web App using Azure Private Endpoint
-description: This article explains how to connect privately to a Web App using Azure Private Endpoint
+title: Connect privately to a web app by using Azure Private Endpoint
+description: This article explains how to connect privately to a web app by using Azure Private Endpoint.
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/07/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
 
 ---
 
-# Connect privately to a Web App using Azure Private Endpoint (Preview)
+# Connect privately to a web app by using Azure Private Endpoint
 
-Azure Private Endpoint is the fundamental building block for Private Link in Azure. It allows you to connect privately to your Web App.
-In this Quickstart, you will learn how to deploy a Web App with Private Endpoint and connect to this Web App from a Virtual Machine.
+Azure Private Endpoint is the fundamental building block for Azure Private Link. By using Private Endpoint, you can connect privately to your web app. In this article, you'll learn how to deploy a web app by using Private Endpoint and then connect to the web app from a virtual machine (VM).
 
-For more information, see [Using Private Endpoints for Azure Web App][privatenedpointwebapp].
+For more information, see [Use private endpoints for an Azure web app][privateendpointwebapp].
 
 > [!Note]
->The preview is available in public regions for PremiumV2 Windows and Linux Web Apps and Elastic Premium functions. 
+> Private Endpoint is available in public regions for PremiumV2-tier, PremiumV3-tier Windows web apps, Linux web apps, and the Azure Functions Premium plan (sometimes referred to as the Elastic Premium plan). 
 
-## Sign in to Azure
+## Sign in to the Azure portal
 
-Sign in to the Azure portal at https://portal.azure.com.
+Before you begin, sign in to [the Azure portal](https://portal.azure.com).
 
-## Virtual network and Virtual Machine
+## Create a virtual network and virtual machine
 
-In this section, you will create the virtual network and the subnet to host the VM that is used to access your Web App through the Private Endpoint.
+In this section, you create a virtual network and subnet to host a VM that you'll use to access a web app through a private endpoint.
 
 ### Create the virtual network
 
-In this section, you'll create a virtual network and subnet.
+To create the virtual network and subnet, do the following:
 
-1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network** or search for **Virtual network** in the search box.
+1. On the left pane, select **Create a resource** > **Networking** > **Virtual network**.
 
-1. In **Create virtual network**, enter or select this information in the Basics tab:
-
-   > [!div class="mx-imgBorder"]
-   > ![Create Virtual Network][1]
-
-1. Click **"Next: IP Addresses >"** and enter or select this information:
+1. On the **Create virtual network** pane, select the **Basics** tab, and then enter the information that's shown here:
 
    > [!div class="mx-imgBorder"]
-   >![Configure IP Addresses][2]
+   > ![Screenshot of the "Create Virtual Network" pane in the Azure portal.][1]
 
-1. In the subnet section, click **"+ Add Subnet"** and enter the following information and click **"Add"**
-
-   > [!div class="mx-imgBorder"]
-   >![Add Subnet][3]
-
-1. Click **"Review + create"**
-
-1. After the validation passed, click **"Create"**
-
-### Create virtual machine
-
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Compute** > **Virtual machine**
-
-1. In Create a virtual machine - Basics, enter or select this information:
+1. Select the **IP Addresses** tab, and then enter the information that's shown here:
 
    > [!div class="mx-imgBorder"]
-   >![Virtual Machine basic ][4]
+   > ![Screenshot of the "IP Addresses" tab on the Create virtual network pane.][2]
 
-1. Select **"Next: Disks"**
-
-   Keep default settings.
-
-1. Select **"Next: Networking"**, select this information:
+1. In the **subnet** section, select **Add Subnet**, enter the information that's shown here, and then select **Add**.
 
    > [!div class="mx-imgBorder"]
-   >![Networking ][5]
+   > ![Screenshot of the "Add subnet" pane.][3]
 
-1. Click **"Review + Create"**
+1. Select **Review + create**.
 
-1. When the validation passed message, click **"Create"**
+1. After successful validation, select **Create**.
 
-## Create your Web App and Private Endpoint
+### Create the virtual machine
 
-In this section, you will create a private Web App using a Private Endpoint to it.
+To create the virtual machine, do the following:
+
+1. In the Azure portal, on the left pane, select **Create a resource** > **Compute** > **Virtual machine**.
+
+1. On the **Create a virtual machine - Basics** pane, enter the information that's shown here:
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the "Create a virtual machine" pane.][4]
+
+1. Select **Next: Disks**.
+
+1. On the **Disks** pane, keep the default settings, and then select **Next: Networking**.
+
+1. On the **Networking** pane, enter the information that's shown here:
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the "Networking" tab on the "Create a virtual machine" pane.][5]
+
+1. Select **Review + create**.
+
+1. After successful validation, select **Create**.
+
+## Create a web app and a private endpoint
+
+In this section, you create a private web app that uses a private endpoint.
 
 > [!Note]
->The Private Endpoint feature is only available for the Premium V2 SKU.
+> The Private Endpoint feature is available only for the PremiumV2 and PremiumV3 tier.
 
-### Web App
+### Create the web app
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Web** > **Web App**
+1. In the Azure portal, on the left pane, select **Create a resource** > **Web** > **Web App**.
 
-1. In Create Web App - Basics, enter or select this information:
-
-   > [!div class="mx-imgBorder"]
-   >![Web App basic ][6]
-
-1. Select **"Review + create"**
-
-1. When the validation passed message, click **"Create"**
-
-### Create the Private endpoint
-
-1. In the Web App properties, select **Settings** > **Networking** and click on **"Configure your private endpoint connections"**
+1. On the **Web App** pane, select the **Basics** tab, and then enter the information that's shown here:
 
    > [!div class="mx-imgBorder"]
-   >![Web App networking][7]
+   > ![Screenshot of the "Basics" tab on the "Web App" pane.][6]
 
-1. In the wizard, click **"+ add"**
+1. Select **Review + create**.
 
-   > [!div class="mx-imgBorder"]
-   >![Web App Private Endpoint][8]
+1. After successful validation, select **Create**.
 
-1. Fill the subscription, VNet, and Subnet information and click **"OK"**
+### Create the private endpoint
 
-   > [!div class="mx-imgBorder"]
-   >![Web App Networking][9]
-
-1. Review the creation of the private endpoint
+1. In web app properties, under **Settings**, select **Networking**, and then, under **Private Endpoint connections **, select **Configure your private endpoint connections**.
 
    > [!div class="mx-imgBorder"]
-   >![Review][10]
-   >![Final view of the Private endpoint][11]
+   > ![Screenshot of the "Configure your private endpoint connections" link on the web app Networking pane.][7]
 
-## Connect to a VM from the internet
-
-1. In the portal's search bar, enter **myVm**
-1. Select the **Connect button**. After selecting the Connect button, Connect to virtual machine opens, select **RDP**
+1. In the **Private Endpoint connections** wizard, select **Add**.
 
    > [!div class="mx-imgBorder"]
-   >![RDP button][12]
+   > ![Screenshot of the Add button in the "Private Endpoint connections" wizard.][8]
 
-1. Azure creates a Remote Desktop Protocol (.rdp) file and downloads it to your computer after you click on **Download RDP file**
+1. Select the correct information in the **Subscription**, **Virtual network**, and **Subnet** drop-down lists, and then select **OK**.
 
    > [!div class="mx-imgBorder"]
-   >![Download RDP file][13]
+   > ![Screenshot of the "Add Private Endpoint" pane.][9]
 
-1. Open the downloaded.rdp file.
+1. Monitor the progress of the private endpoint creation.
 
-   - If prompted, select Connect.
-   - Enter the username and password you specified when creating the VM.
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the progress of adding the private endpoint.][10]
+   > ![Screenshot of the newly created private endpoint.][11]
+
+## Connect to the VM from the internet
+
+1. In the Azure portal **Search** box, enter **myVm**.
+1. Select **Connect**, and then select **RDP**.
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the "RDP" button on the "myVM" pane.][12]
+
+1. On the **Connect with RDP** pane, select **Download RDP file**.  
+
+   > [!div class="mx-imgBorder"]
+   > ![Screenshot of the "Download RDP File" button on the "Connect with RDP" pane.][13]
+
+   Azure creates a Remote Desktop Protocol (RDP) file and downloads it to your computer.   
+
+1. Open the downloaded RDP file.
+
+   a. At the prompt, select **Connect**.  
+   b. Enter the username and password you specified when you created the VM.
+
+     > [!Note]
+     > To use these credentials, you might need to select **More choices** > **Use a different account**.
+
+1. Select **OK**.
 
    > [!Note]
-   > You may need to select More choices > Use a different account, to specify the credentials you entered when you created the VM.
+   > If you receive a certificate warning during the sign-in process, select **Yes** or **Continue**.
 
-   - Select OK.
+1. When the VM desktop window appears, minimize it to go back to your local desktop.
 
-1. You may receive a certificate warning during the sign-in process. If you receive a certificate warning, select Yes or Continue.
+## Access the web app privately from the VM
 
-1. Once the VM desktop appears, minimize it to go back to your local desktop.
+In this section, you connect privately to the web app by using the private endpoint.
 
-## Access Web App privately from the VM
-
-In this section, you will connect privately to the Web App using the Private Endpoint.
-
-1. Get the private IP of your Private Endpoint, in the search bar type **Private Link**, and select Private Link
+1. To get the private IP of your private endpoint, in the **Search** box, type **private link** and then, in the results list, select **Private Link**.
 
    > [!div class="mx-imgBorder"]
-   >![Private Link][14]
+   > ![Screenshot of the "Private Link" link in the search results list.][14]
 
-1. In the Private Link Center, select **Private Endpoints** to list all your Private Endpoints
-
-   > [!div class="mx-imgBorder"]
-   >![Private Link center][15]
-
-1. Select the Private Endpoint link to your Web App and your subnet
+1. In Private Link Center, on the left pane, select **Private endpoints** to display your private endpoints.
 
    > [!div class="mx-imgBorder"]
-   >![Private endpoint properties][16]
+   > ![Screenshot of the private endpoints list in Private Link Center.][15]
 
-1. Copy the Private IP of your Private Endpoint and the FQDN of your Web App, in our case webappdemope.azurewebsites.net 10.10.2.4
-
-1. In the myVM, verify that the Web App is not accessible through the public IP. Open a browser and paste the Web App name, you must have a 403 forbidden error page
+1. Select the private endpoint that links to your web app and your subnet.
 
    > [!div class="mx-imgBorder"]
-   >![error Forbidden when trying to use the IP address][17]
+   > ![Screenshot of the properties pane for a private endpoint.][16]
 
-   > [!Important]
-   > As this feature is in preview, you need to manually manage the DNS entry.
+1. Copy the private IP of your private endpoint and the fully qualified domain name (FQDN) of your web app. In the preceding example, the private ID is *`webappdemope.azurewebsites.net 10.10.2.4`*.
 
-   For the DNS, you have two choices:
-   - use the host file of the VM 
-   - or use Azure DNS private zone service.
-
-1. First solution: you can create a DNS private zone named privatelink.azurewebsites.net and link it to the VNet
-1. Then you need to create the two A records (app name and SCM name) with the IP address of your Private Endpoint
-   > [!div class="mx-imgBorder"]
-   >![DNS private zone records][21]
-
-1. Second solution: create the host entry, open file explorer and locate the hosts file
+1. On the **myVM** pane, verify that the web app is inaccessible through the public IP. To do so, open a browser and paste the web app name. The page should display an "Error 403 - Forbidden" message.
 
    > [!div class="mx-imgBorder"]
-   >![Hosts file][18]
+   > ![Screenshot of an "Error 403 - Forbidden" error page.][17]
 
-1. Add an entry with the private IP address and the public name of your Web App by editing the hosts file with notepad
+   For the DNS, do either of the following:
+ 
+   - Use the Azure DNS private zone service.  
+
+     a. Create a DNS private zone named *`privatelink.azurewebsites.net`*, and then link it to the virtual network.  
+     b. Create the two A records (that is, the app name and the Service Control Manager [SCM] name) with the IP address of your private endpoint.  
+     > [!div class="mx-imgBorder"]
+     > ![Screenshot of DNS private zone records.][21]  
+
+   - Use the *hosts* file of the VM.  
+
+     a. Create the hosts entry, open File Explorer, and look for the *hosts* file.  
+     > [!div class="mx-imgBorder"]
+     > ![Screenshot showing the hosts file in File Explorer.][18]  
+     b. Add an entry that contains the private IP address and public name of your web app by editing the *hosts* file in a text editor.  
+     > [!div class="mx-imgBorder"]
+     > ![Screenshot of the text of the hosts file.][19]  
+     c. Save the file.
+
+1. In a browser, type the URL of your web app.
 
    > [!div class="mx-imgBorder"]
-   >![Hosts content][19]
+   > ![Screenshot of a browser displaying a web app.][20]
 
-1. Save the file
-
-1. Open a browser and type the url of your web app
-
-   > [!div class="mx-imgBorder"]
-   >![Web site with PE][20]
-
-1. You are accessing to your Web App through the Private Endpoint
+You are now accessing your web app through the private endpoint.
 
 ## Clean up resources
 
-When you're done using the Private Endpoint, Web App and the VM, delete the resource group and all of the resources it contains:
+When you're done using the private endpoint, the web app, and the VM, delete the resource group and all of the resources it contains.
 
-1. Enter ready-rg in the Search box at the top of the portal and select ready-rg from the search results.
-1. Select Delete resource group.
-1. Enter ready-rg for TYPE THE RESOURCE GROUP NAME and select Delete.
+1. In the Azure portal, in the **Search** box, enter **ready-rg**, and then select **ready-rg** in the results list.
+
+1. Select **Delete resource group**.
+
+1. Under **Type the resource group name**, enter **ready-rg**, and then select **Delete**.
 
 ## Next steps
 
-In this Quickstart, you created a VM on a virtual network, a Web App, and a Private Endpoint. You connected to a VM from the Internet and securely communicated to the Web App using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint][privateendpoint].
+In this article, you created a VM on a virtual network, a web app, and a private endpoint. You connected to a VM from the internet and securely communicated to the web app by using Private Link. 
+
+To learn more about Private Endpoint, see [What is Azure Private Endpoint?][privateendpoint].
 
 <!--Image references-->
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
@@ -240,5 +243,5 @@ In this Quickstart, you created a VM on a virtual network, a Web App, and a Priv
 
 
 <!--Links-->
-[privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
+[privateendpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint
 [privateendpoint]: https://docs.microsoft.com/azure/private-link/private-endpoint-overview

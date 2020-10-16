@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 10/16/2020
 ms.author: abnarain
 ---
 
@@ -614,6 +614,37 @@ Below example shows what a good scenario would look like.
 
     ![TCP 4 handshake workflow](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### Receiving email to update the network configuration to allow communication with new IP addresses
+
+#### Symptoms
+
+You may receive below email notification, which recommends you to update the network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
+
+   ![Email notification](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### Resolution
+
+This notification is for **outbound communications** from your **Integration Runtime** running **on-premise** or inside an **Azure virtual private network** to ADF service. For example, if you have Self-hosted IR or Azure-SQL Server Integration Services (SSIS) IR in Azure VNET, which needs to access ADF service, then you need to review if you need to add this new IP range in your **Network Security Group (NSG)** rules. If your outbound NSG rule uses service tag, there will be no impact.
+
+#### More details
+
+These new IP ranges **only have impact on outbound communications** rules from your **on-premise firewall** or **Azure virtual private network** to ADF service (see [firewall configuration and allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) for reference), for scenarios where you have a Self-hosted IR or SSIS IR in on-premise network or Azure virtual network, which needs to communicate to ADF service.
+
+For existing users using **Azure VPN**:
+
+1. Check any outbound NSG rules in your private network where SSIS or Azure SSIS is configured. If there are no outbound restrictions, then no impact on them.
+1. If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag. 
+  
+    ![Destination check](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+
+1. If you use IP addresses directly in your rule setting, then check if you add all IP ranges in [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). We have already put the new IP ranges in this file. For new users: You just need to follow up relevant Self-hosted IR or SSIS IR configuration in our document to configure NSG rules.
+
+For existing users having SSIS IR or Self-hosted IR **on-premise**:
+
+- Validate with your network infrastructure team and see whether they need to include the new IP range addresses on the communication for outbound rules.
+- For firewall rules based on FQDN names, no updates are required when you use the settings documented on [firewall configuration and the allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
+- Some on-premise firewalls support service tags, if you use the updated Azure service tags configuration file, no other changes are needed.
 
 ## Self-hosted IR sharing
 

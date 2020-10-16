@@ -90,7 +90,7 @@ Related links:
 
 ### Confirm credentials are authorized to access registry
 
-Confirm the registry permissions that are associated with the credentials, such as the `AcrPull` RBAC role to pull images from the registry, or the `AcrPush` role to push images. 
+Confirm the registry permissions that are associated with the credentials, such as the `AcrPull` Azure role to pull images from the registry, or the `AcrPush` role to push images. 
 
 Access to a registry in the portal or registry management using the Azure CLI requires at least the `Reader` role to perform Azure Resource Manager operations.
 
@@ -98,11 +98,11 @@ You or a registry owner must have sufficient privileges in the subscription to a
 
 Related links:
 
-* [RBAC roles and permissions - Azure Container Registry](container-registry-roles.md)
+* [Azure roles and permissions - Azure Container Registry](container-registry-roles.md)
 * [Login with repository-scoped token](container-registry-repository-scoped-permissions.md)
 * [Add or remove Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-portal.md)
 * [Use the portal to create an Azure AD application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md)
-* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#create-a-new-application-secret)
+* [Create a new application secret](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)
 * [Azure AD authentication and authorization codes](../active-directory/develop/reference-aadsts-error-codes.md)
 
 ### Check that credentials aren't expired
@@ -137,7 +137,5 @@ If you don't resolve your problem here, see the following options.
   * [Troubleshoot network issues with registry](container-registry-troubleshoot-access.md)
   * [Troubleshoot registry performance](container-registry-troubleshoot-performance.md)
 * [Community support](https://azure.microsoft.com/support/community/) options
-* [Microsoft Q&A](https://docs.microsoft.com/answers/products/)
+* [Microsoft Q&A](/answers/products/)
 * [Open a support ticket](https://azure.microsoft.com/support/create-ticket/) - based on information you provide, a quick diagnostic might be run for authentication failures in your registry
-
-

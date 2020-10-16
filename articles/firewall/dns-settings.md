@@ -53,6 +53,7 @@ To configure DNS proxy, you must configure your virtual network DNS servers sett
 3. Select **Custom** under **DNS servers**.
 4. Enter the firewall’s private IP address.
 5. Select **Save**.
+6. Restart the VMs that are connected to the virtual network, so they are assigned the new DNS server settings. VMs continue to use their current DNS settings until they are restarted.
 
 #### Enable DNS proxy (preview)
 

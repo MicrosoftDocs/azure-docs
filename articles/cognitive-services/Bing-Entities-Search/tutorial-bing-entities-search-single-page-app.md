@@ -11,7 +11,7 @@ ms.subservice: bing-entity-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 # Tutorial: Single-page web app
 

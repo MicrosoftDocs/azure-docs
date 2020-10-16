@@ -1,6 +1,6 @@
 ---
-title: Create a continuous patient monitoring app with Azure IoT Central | Microsoft Docs
-description: Learn to build a continuous patient monitoring application using Azure IoT Central application templates.
+title: Tutorial - Create a continuous patient monitoring app with Azure IoT Central | Microsoft Docs
+description: In this tutorial, you learn to build a continuous patient monitoring application using Azure IoT Central application templates.
 author: philmea
 ms.author: philmea
 ms.date: 09/24/2019
@@ -12,9 +12,7 @@ manager: eliotgra
 
 # Tutorial: Deploy and walkthrough a continuous patient monitoring app template
 
-
-
-This tutorial shows you, as a solution builder, how to get started by deploying an IoT Central continuous patient monitoring application template. You will learn how to deploy the template, what's included out of the box, and what you can do next.
+This tutorial shows you, as a solution builder, how to get started by deploying an IoT Central continuous patient monitoring application template. You learn how to deploy and use the template.
 
 In this tutorial, you learn how to:
 
@@ -24,12 +22,11 @@ In this tutorial, you learn how to:
 
 ## Create an application template
 
-Navigate to the [Azure IoT Central application manager website](https://apps.azureiotcentral.com/). Select **Build** from the left-hand navigation bar and then click the **Healthcare** tab. 
+Navigate to the [Azure IoT Central application manager website](https://apps.azureiotcentral.com/). Select **Build** from the left-hand navigation bar and then select the **Healthcare** tab.
 
->[!div class="mx-imgBorder"] 
->![App manager Healthcare](media/app-manager-health.png)
+:::image type="content" source="media/app-manager-health.png" alt-text="Healthcre app template":::
 
-Click the **Create app** button to begin creating your application and then sign in with a Microsoft personal, work, or school account. It will take you to the **New application** page.
+Select the **Create app** button to begin creating your application and then sign in with a Microsoft personal, work, or school account. It will take you to the **New application** page.
 
 ![Create application Healthcare](media/app-manager-health-create.png)
 
@@ -47,7 +44,7 @@ To create your application:
 
 ### Dashboards
 
-After deploying the app template, you'll first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On this operator dashboard for Woodgrove Hospital, you'll see information and telemetry about the devices in this template along with a set of commands, jobs, and actions that you can take. From the dashboard you can:
+After deploying the app template, you'll first land on the **Lamna in-patient monitoring dashboard**. Lamna Healthcare is a fictitious hospital system that contains two hospitals: Woodgrove Hospital and Burkville Hospital. On the Woodgrove Hospital operator dashboard, you can:
 
 * See device telemetry and properties such as the **battery level** of your device or its **connectivity** status.
 
@@ -59,75 +56,69 @@ After deploying the app template, you'll first land on the **Lamna in-patient mo
 
 * Change the **patient status** of your device to indicate if the device is being used for an in-patient or remote scenario.
 
->[!div class="mx-imgBorder"] 
->![Lamna in-patient](media/lamna-in-patient.png)
+:::image type="content" source="media/lamna-in-patient.png" alt-text="In-patient status":::
 
-You can also click on **Go to remote patient dashboard** to see the second operator dashboard used for Burkville Hospital. This dashboard contains a similar set of actions, telemetry, and information. In addition, you can see multiple devices being used and have the ability to **update the firmware** on each.
+You can also select **Go to remote patient dashboard** to see the Burkville Hospital operator dashboard. This dashboard contains a similar set of actions, telemetry, and information. You can also see multiple devices in use and choose to **update the firmware** on each.
 
->[!div class="mx-imgBorder"] 
->![Lamna remote](media/lamna-remote.png)
-
-On both dashboards, you can always link back to this documentation.
+:::image type="content" source="media/lamna-remote.png" alt-text="Remote operator dashboard":::
 
 ### Device templates
 
-If you click on the **Device templates** tab, you will see that there are two different device types that are part of the template:
+If you select **Device templates**, you see the two device types in the template:
 
-* **Smart Vitals Patch**: This device represents a patch that measures different types of vitals signs. It can be used for monitoring patients in and outside of the hospital. If you click on the template, you'll see that in addition to sending device data such as battery level and device temperature, the patch is also sending patient health data such as respiratory rate and blood pressure.
+* **Smart Vitals Patch**: This device represents a patch that measures various vital signs. It's used for monitoring patients in and outside the hospital. If you select the template, you see that the patch sends both device data such as battery level and device temperature, and patient health data such as respiratory rate and blood pressure.
 
-* **Smart Knee Brace**: This device represents a knee brace that patients might use when recovering from a knee replacement surgery. If you click on this template, you'll see capabilities such as range of motion and acceleration, in addition to device data.
+* **Smart Knee Brace**: This device represents a knee brace that patients use when recovering from a knee replacement surgery. If you select this template, you see capabilities such as device data, range of motion, and acceleration.
 
->[!div class="mx-imgBorder"] 
->![Smart Vitals Patch Device Template](media/smart-vitals-device-template.png)
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Smart patch template":::
 
-### Device groups 
-Device groups allow you to logically group a set of devices to then perform bulk queries or operations over them. 
+### Device groups
 
-If you click on the device groups tab, you will see that we've created some default device groups for each of the device templates in the application. You'll notice we have also created two additional sample device groups called 'Provision devices' and 'Devices with outdated firmware.' We'll use these sample device groups as inputs to run some [Jobs](#jobs).
+Use device groups to logically group a set of devices and then run bulk queries or operations on them.
+
+If you select the device groups tab, you see a default device group for each device template in the application. There are also created two additional sample device groups called **Provision devices** and **Devices with outdated firmware**. You can use these sample device groups as inputs to run some of the [Jobs](#jobs) in the application.
 
 ### Rules
 
-When jumping to the rules tab, you will see three rules that exist in the application template:
+If you select **Rules**, you see the three rules in the template:
 
-* **Brace temperature high**: This rule is triggered when the device temperature of the Smart Knee Brace is greater than 95&deg;F over a 5-minute window. You could use this rule to alert the patient and care team, and cool the device down remotely.
+* **Brace temperature high**: This rule triggers when the device temperature of the smart knee brace is greater than 95&deg;F over a 5-minute window. Use this rule to alert the patient and care team, and cool the device down remotely.
 
-* **Fall detected**: This rule is triggered if a patient fall is detected. You could use this rule to configure an action to deploy an operational team to assist the patient who has fallen.
+* **Fall detected**: This rule is triggers if a patient fall is detected. Use this rule to configure an action to deploy an operational team to assist the patient who has fallen.
 
-* **Patch battery low**: This rule is triggered when the battery level on the device goes below 10%. You could use this rule to trigger a notification to the patient to charge their device.
+* **Patch battery low**: This rule is triggers when the battery level on the device goes below 10%. Use this rule to trigger a notification to the patient to charge their device.
 
->[!div class="mx-imgBorder"] 
->![Brace temperature high rule](media/brace-temp-rule.png)
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Rules":::
 
 ### Jobs
 
-Jobs allow you to run bulk operations on a set of devices, using [device groups](#device-groups) as the input. We've seeded the application template with two sample jobs that a solution operator might need to run at some point of the devices' lifecycle:
-* **Update knee brace firmware**: This job will find devices in the device group 'devices with outdated firmware' and run a command to update those devices to the latest firmware version of the knee brace. This sample job assumes that the devices has capabilities to receive an 'update' command and fetch the firmware files from the cloud directly.  
+Jobs let you run bulk operations on a set of devices, using [device groups](#device-groups) as the input. The application template has two sample jobs that an operator can run:
 
-* **Re-provision devices**: If you have a set of devices that have recently been returned to the hospital and need to be re-provisioned for the next set of patients, you can run this job to bulk update your provision devices. In this case we're taking all devices from a device group called 'provision devices', and we're executing a command to 're-provision' them. 
+* **Update knee brace firmware**: This job finds devices in the device group **Devices with outdated firmware** and runs a command to update those devices to the latest firmware version. This sample job assumes that the devices can handle an **update** command and then fetch the firmware files from the cloud.  
+
+* **Re-provision devices**: You have a set of devices that have recently been returned to the hospital. This job finds devices in the device group **Provision devices** and runs a command to re-provision them for the next set of patients.
 
 ### Devices
 
-Click on the **Devices** tab and then select an instance of the **Smart Knee Brace**. You will see that there are three views to explore information about the particular device that you've selected. These views are created and published when building the device template for your device, which means they'll be consistent across all devices that you connect or simulate.
+Select the **Devices** tab and then select an instance of the **Smart Knee Brace**. There are three views to explore information about the particular device that you've selected. These views are created and published when you build the device template for your device. therefore, these views are consistent across all the devices that you connect or simulate.
 
-The **Dashboard** view gives an overview of telemetry and properties that are coming from the device that are operator-oriented.
+The **Dashboard** view gives an overview of operator-oriented telemetry and properties from the device.
 
-The **Properties** tab will allow you to edit cloud properties and read/write device properties.
+The **Properties** tab lets you edit cloud properties and read/write device properties.
 
-The **Commands** tab will allow you to run commands that have been modeled as part of your device template.
+The **Commands** tab lets you run commands on the device.
 
->[!div class="mx-imgBorder"] 
->![Knee brace views](media/knee-brace-dashboard.png)
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Knee brace dashboard":::
 
 ### Data export
 
-Data export allows you to export your IoT Central device data continuously to other Azure services, including the [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
+Data export lets you export your device data continuously to other Azure services, including the [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir).
 
 ## Clean up resources
 
 If you're not going to continue to use this application, delete the application by visiting **Administration > Application settings** and click **Delete**.
 
->[!div class="mx-imgBorder"] 
->![Delete app](media/admin-delete.png)
+:::image type="content" source="media/admin-delete.png" alt-text="Tidy resources":::
 
 ## Next steps
 

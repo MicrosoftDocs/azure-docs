@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ---
@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
+- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Download and extract *sample_data.zip*. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
 > [!NOTE]
 > This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation for v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) and [reference documentation for v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/TrainCustomModelAsync).
@@ -509,7 +509,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               }
             ]
           },
-		  ...
+          ...
             ]
           }
         ] 
@@ -542,7 +542,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
                   "#/readResults/0/lines/14/words/1"
                 ]
               },
-			  ...
+              ...
             ]
           },
         ]
@@ -576,7 +576,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "#/readResults/0/lines/3/words/3"
             ]
           },
-		  ...
+          ...
         }
       }
     ],
@@ -643,7 +643,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               }
             ]
           },
-		  ...
+          ...
         ], 
         "selectionMarks": [
           {
@@ -657,7 +657,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               3.9737,
               3.9428
             ],
-			...
+            ...
         ] 
       }
     ],
@@ -688,7 +688,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
                   "#/readResults/0/lines/12/words/1"
                 ]
               },
-			  ...
+              ...
             ]
           }
         ] 
@@ -723,7 +723,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "#/readResults/0/lines/8/words/1"
             ]
           },
-		  ...
+          ...
         },
         "docTypeConfidence": 1
       }

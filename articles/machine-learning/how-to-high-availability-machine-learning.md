@@ -14,7 +14,7 @@ ms.date: 09/16/2020
 
 # Increase Azure Machine Learning resiliency
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you'll learn how to make your Microsoft Azure Machine Learning resources more resilient by using high-availability configurations. You can configure the Azure services that Azure Machine Learning depends on for high availability. This article identifies the services you can configure for high availability, and links to additional information on configuring these resources.
 

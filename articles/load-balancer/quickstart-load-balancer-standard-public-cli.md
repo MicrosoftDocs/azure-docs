@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/23/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-javascript, devx-track-azurecli
+ms.custom: mvc, devx-track-js, devx-track-azurecli
 ---
 # Quickstart: Create a public load balancer to load balance VMs using Azure CLI
 
@@ -1075,6 +1075,6 @@ In this quickstart
 * Configured the load balancer traffic rule and health probe.
 * Tested the load balancer.
 
-To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
-
-Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
+To learn more about Azure Load Balancer, continue to..
+> [!div class="nextstepaction"]
+> [What is Azure Load Balancer?](load-balancer-overview.md)

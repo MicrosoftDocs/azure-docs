@@ -9,7 +9,7 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
+ms.date: 09/14/2020
 ---
 
 # Understanding Data Factory pricing through examples
@@ -33,7 +33,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 3. A schedule trigger to execute the pipeline every hour.
 
-   ![Scenario1](media/pricing-concepts/scenario1.png)
+   ![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, which flows to an A W S S3 linked service and copy activity also flows to an output dataset, which flows to an Azure Storage linked service.](media/pricing-concepts/scenario1.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -64,7 +64,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 2. One Azure Databricks activity for the data transformation.
 3. One schedule trigger to execute the pipeline every hour.
 
-![Scenario2](media/pricing-concepts/scenario2.png)
+![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.](media/pricing-concepts/scenario2.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -98,7 +98,7 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 3. One Azure Databricks activity for the data transformation.
 4. One schedule trigger to execute the pipeline every hour.
 
-![Scenario3](media/pricing-concepts/scenario3.png)
+![Diagram shows a pipeline with a schedule trigger. In the pipeline, copy activity flows to an input dataset, an output dataset, and lookup activity that flows to a DataBricks activity, which runs on Azure Databricks. The input dataset flows to an A W S S3 linked service. The output dataset flows to an Azure Storage linked service.](media/pricing-concepts/scenario3.png)
 
 | **Operations** | **Types and Units** |
 | --- | --- |
@@ -125,9 +125,13 @@ To accomplish the scenario, you need to create a pipeline with the following ite
 
 ## Using mapping data flow debug for a normal workday
 
-As a Data Engineer, you are responsible for designing, building, and testing mapping data flows every day. You log into the ADF UI in the morning and enable the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. You work throughout the day for 8 hours, so your Debug session never expires. Therefore, your charge for the day will be:
+As a Data Engineer, Sam is responsible for designing, building, and testing mapping data flows every day. Sam logs into the ADF UI in the morning and enables the Debug mode for Data Flows. The default TTL for Debug sessions is 60 minutes. Sam works throughout the day for 8 hours, so the Debug session never expires. Therefore, Sam's charges for the day will be:
 
 **8 (hours) x 8 (compute-optimized cores) x $0.193 = $12.35**
+
+At the same time, Chris, another Data Engineer, also logs into the ADF browser UI for data profiling and ETL design work. Chris does not work in ADF all day like Sam. Chris only needs to use the data flow debugger for 1 hour during the same period and same day as Sam above. These are the charges Chris incurs for debug usage:
+
+**1 (hour) x 8 (general purpose cores) x $0.274 = $2.19**
 
 ## Transform data in blob store with mapping data flows
 

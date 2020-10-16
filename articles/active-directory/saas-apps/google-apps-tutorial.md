@@ -67,9 +67,9 @@ To test the steps in this tutorial, you should follow these recommendations:
 
 	The email attribute is autopopulated for any user with a valid Exchange license. If user is not email-enabled, this error will be received as the application needs to get this attribute to give access.
 
-	You can go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Office 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
+	You can go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Microsoft 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
 
-	Once the O365 license is assigned, it may take some minutes to be applied. After that, the user.mail attribute will be autopopulated and the issue should be resolved.
+	Once the Microsoft 365 license is assigned, it may take some minutes to be applied. After that, the user.mail attribute will be autopopulated and the issue should be resolved.
 
 ## Scenario description
 
@@ -235,7 +235,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Google Cloud (G Suite) Connector test user
 
-The objective of this section is to [create a user in Google Cloud (G Suite) Connector](https://support.google.com/a/answer/33310?hl=en) called B.Simon. After the user has manually been created in Google Cloud (G Suite) Connector, the user will now be able to sign in using their Office 365 login credentials.
+The objective of this section is to [create a user in Google Cloud (G Suite) Connector](https://support.google.com/a/answer/33310?hl=en) called B.Simon. After the user has manually been created in Google Cloud (G Suite) Connector, the user will now be able to sign in using their Microsoft 365 login credentials.
 
 Google Cloud (G Suite) Connector also supports automatic user provisioning. To configure automatic user provisioning, you must first [configure Google Cloud (G Suite) Connector for automatic user provisioning](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial).
 

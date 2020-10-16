@@ -1,11 +1,11 @@
 ---
 title: Use Azure Policy to implement governance and controls for Azure Cosmos DB resources
 description: Learn how to use Azure Policy to implement governance and controls for Azure Cosmos DB resources.
-author: plzm
-ms.author: paelaz
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2020
+ms.date: 09/23/2020
 
 ---
 
@@ -14,6 +14,9 @@ ms.date: 05/20/2020
 [Azure Policy](../governance/policy/overview.md) helps to enforce organizational governance standards, assess resource compliance, and implement automatic remediation. Common use cases include security, cost management, and configuration consistency.
 
 Azure Policy provides built-in policy definitions. You can create custom policy definitions for scenarios that are not addressed by the built-in policy definitions. See the [Azure Policy documentation](../governance/policy/overview.md) for more details.
+
+> [!IMPORTANT]
+> Azure Policy is enforced at the resource provider level for Azure services. Cosmos DB SDKs can perform most management operations on database, container and throughput resources that bypass Cosmos DB's resource provider, thus ignoring any policies created using Azure Policy. To ensure enforcement of policies see, [Preventing changes from the Azure Cosmos DB SDKs](role-based-access-control.md#prevent-sdk-changes)
 
 ## Assign a built-in policy definition
 

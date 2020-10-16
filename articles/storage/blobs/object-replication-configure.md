@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/08/2020
+ms.date: 10/14/2020
 ms.author: tamram
 ms.subservice: blobs 
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
@@ -33,7 +33,7 @@ A storage account can serve as the source account for up to two destination acco
 
 When you configure object replication, you create a replication policy on the destination account via the Azure Storage resource provider. After the replication policy is created, Azure Storage assigns it a policy ID. You must then associate that replication policy with the source account by using the policy ID. The policy ID on the source and destination accounts must be the same in order for replication to take place.
 
-To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure Role-Based Access Control (RBAC) documentation.
+To configure an object replication policy for a storage account, you must be assigned the Azure Resource Manager **Contributor** role, scoped to the level of the storage account or higher. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
 ### Configure object replication when you have access to both storage accounts
 
@@ -146,20 +146,22 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 To create a replication policy with Azure CLI, first install Azure CLI version 2.11.1 or later. For more information, see [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
 
-Next, enable blob versioning on the source and destination storage accounts, and enable change feed on the source account. Remember to replace values in angle brackets with your own values:
+Next, enable blob versioning on the source and destination storage accounts, and enable change feed on the source account, by calling the [az storage account blob-service-properties update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) command. Remember to replace values in angle brackets with your own values:
 
 ```azurecli
-az storage blob service-properties update \
+az login
+
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
@@ -170,24 +172,24 @@ Create the source and destination containers in their respective storage account
 ```azurecli
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container3 \
+    --name source-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container4 \
+    --name source-container-2 \
     --auth-mode login
 
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container3 \
+    --name dest-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container4 \
+    --name dest-container-1 \
     --auth-mode login
 ```
 
-Create a new replication policy and associated rules on the destination account.
+Create a new replication policy and an associated rule on the destination account by calling the [az storage account or-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create).
 
 ```azurecli
 az storage account or-policy create \
@@ -195,21 +197,26 @@ az storage account or-policy create \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
-    --source-container source-container3 \
-    --destination-container dest-container3 \
-    --min-creation-time '2020-05-10T00:00:00Z' \
+    --source-container source-container-1 \
+    --destination-container dest-container-1 \
+    --min-creation-time '2020-09-10T00:00:00Z' \
     --prefix-match a
 
+```
+
+Azure Storage sets the policy ID for the new policy when it is created. To add additional rules to the policy, call the [az storage account or-policy rule add](/cli/azure/storage/account/or-policy/rule#az_storage_account_or_policy_rule_add) and provide the policy ID.
+
+```azurecli
 az storage account or-policy rule add \
     --account-name <dest-storage-account> \
-    --destination-container dest-container4 \
-    --policy-id <policy-id> \
     --resource-group <resource-group> \
-    --source-container source-container4 \
+    --source-container source-container-2 \
+    --destination-container dest-container-2 \
+    --policy-id <policy-id> \
     --prefix-match b
 ```
 
-Create the policy on the source account using the policy ID.
+Next, create the policy on the source account using the policy ID.
 
 ```azurecli
 az storage account or-policy show \
@@ -225,16 +232,16 @@ az storage account or-policy show \
 
 ### Configure object replication when you have access only to the destination account
 
-If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then use this approach to configure object replication. 
+If you do not have permissions to the source storage account, then you can configure object replication on the destination account and provide a JSON file that contains the policy definition to another user to create the same policy on the source account. For example, if the source account is in a different Azure AD tenant from the destination account, then you can use this approach to configure object replication.
 
-Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure Role-Based Access Control (RBAC) documentation.
+Keep in mind that you must be assigned the Azure Resource Manager **Contributor** role scoped to the level of the destination storage account or higher in order to create the policy. For more information, see [Azure built-in roles](../../role-based-access-control/built-in-roles.md) in the Azure role-based access control (Azure RBAC) documentation.
 
-The following table summarizes which values to use for the policy ID in the JSON file in each scenario.
+The following table summarizes which values to use for the policy ID and rule IDs in the JSON file in each scenario.
 
-| When you are creating the JSON file for this account... | Set the policy ID to this value... |
+| When you are creating the JSON file for this account... | Set the policy ID and rule IDs to this value... |
 |-|-|
-| Destination account | The string value *default*. Azure Storage will create the policy ID for you. |
-| Source account | The policy ID returned when you download a JSON file containing the rules defined on the destination account. |
+| Destination account | The string value *default*. Azure Storage will create the policy ID and rule IDs for you. |
+| Source account | The values of the policy ID and rule IDs returned when you download the policy defined on the destination account as a JSON file. |
 
 The following example defines a replication policy on the destination account with a single rule that matches the prefix *b* and sets the minimum creation time for blobs that are to be replicated. Remember to replace values in angle brackets with your own values:
 
@@ -303,7 +310,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-To use the JSON file to define the replication policy on the source account with PowerShell, retrieve the local file and convert from JSON to an object. Then call the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) command to configure the policy on the source account, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
+To use the JSON file to configure the replication policy on the source account with PowerShell, retrieve the local file and convert from JSON to an object. Then call the [Set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) command to configure the policy on the source account, as shown in the following example. Remember to replace values in angle brackets and the file path with your own values:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -317,7 +324,67 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # [Azure CLI](#tab/azure-cli)
 
-N/A
+To write the replication policy definition for the destination account to a JSON file from Azure CLI, call the [az storage account or-policy show](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) command and output to a file.
+
+The following example writes the policy definition to a JSON file named *policy.json*. Remember to replace values in angle brackets and the file path with your own values:
+
+```azurecli
+az storage account or-policy show \
+    --account-name <dest-account-name> \
+    --policy-id  <policy-id> > policy.json
+```
+
+To use the JSON file to configure the replication policy on the source account with Azure CLI, call the [az storage account or-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) command and reference the *policy.json* file. Remember to replace values in angle brackets and the file path with your own values:
+
+```azurecli
+az storage account or-policy create \
+    -resource-group <resource-group> \
+    --source-account <source-account-name> \
+    --policy @policy.json
+```
+
+---
+
+## Check the replication status of a blob
+
+You can check the replication status for a blob in the source account using the Azure portal, PowerShell, or Azure CLI. Object replication properties are not populated until replication has either completed or failed.
+
+# [Azure portal](#tab/portal)
+
+To check the replication status for a blob in the source account in the Azure portal, follow these steps:
+
+1. Navigate to the source account in the Azure portal.
+1. Locate the container that includes the source blob.
+1. Select the blob to display its properties. If the blob has been replicated successfully, you'll see in the **Object replication** section that the status is set to *Complete*. The replication policy ID and the ID for the rule governing object replication for this container are also listed.
+
+:::image type="content" source="media/object-replication-configure/check-replication-status-source.png" alt-text="Screenshot showing replication status for a blob in the source account":::
+
+# [PowerShell](#tab/powershell)
+
+To check the replication status for a blob in the source account with PowerShell, get the value of the object replication **ReplicationStatus** property, as shown in the following example. Remember to replace values in angle brackets with your own values:
+
+```powershell
+$ctxSrc = (Get-AzStorageAccount -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName).Context
+$blobSrc = Get-AzStorageBlob -Container $srcContainerName1 `
+    -Context $ctxSrc `
+    -Blob <blob-name>
+$blobSrc.BlobProperties.ObjectReplicationSourceProperties[0].Rules[0].ReplicationStatus
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To check the replication status for a blob in the source account with Azure CLI, get the value of the object replication **status** property, as shown in the following example:
+
+```azurecli
+az storage blob show \
+    --account-name <source-account-name> \
+    --container-name <source-container-name> \
+    --name <source-blob-name> \
+    --query 'objectReplicationSourceProperties[].rules[].status' \
+    --output tsv \
+    --auth-mode login
+```
 
 ---
 
@@ -356,12 +423,12 @@ To remove a replication policy, delete the policy from both the source account a
 
 ```azurecli
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <source-storage-account> \
     --resource-group <resource-group>
 
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <dest-storage-account> \
     --resource-group <resource-group>
 ```

@@ -1,7 +1,7 @@
 ---
-title: Import data into the designer (preview)
+title: Import data into the designer
 titleSuffix: Azure Machine Learning
-description: Learn how to import data into Azure Machine Learning designer (preview) from various data sources.
+description: Learn how to import data into Azure Machine Learning designer from various data sources.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.custom: how-to, designer
 ---
 
-# Import data into Azure Machine Learning designer (preview)
+# Import data into Azure Machine Learning designer
 
 In this article, you learn how to import your own data in the designer to create custom solutions. There are two ways you can import data into the designer: 
 
@@ -27,7 +27,7 @@ We recommend that you use [datasets](concept-data.md#datasets) to import data in
 
 ### Register a dataset
 
-You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-create-register-datasets.md#datasets-ui).
+You can register existing datasets [programatically with the SDK](how-to-create-register-datasets.md#datasets-sdk) or [visually in Azure Machine Learning studio](how-to-connect-data-ui.md#create-datasets).
 
 You can also register the output for any designer module as a dataset.
 
@@ -37,15 +37,24 @@ You can also register the output for any designer module as a dataset.
 
     ![Screenshot showing how to navigate to the Register Dataset option](media/how-to-designer-import-data/register-dataset-designer.png)
 
+If the module output data is in a tabular format, you must choose to register the output as a **file dataset** or **tabular dataset**.
+
+ - **File dataset** registers the module's output folder as a file dataset. The output folder contains a data file and meta files that the designer uses internally. Select this option if you want to continue to use the registered dataset in the designer. 
+
+ - **Tabular dataset** registers only the module's the output data file as a tabular dataset. This format is easily consumed by other tools, for example in Automated Machine Learning or the Python SDK. Select this option if you plan to use the registered dataset outside of the designer.  
+
+
+
 ### Use a dataset
 
-Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the palette.
+Your registered datasets can be found in the module palette, under **Datasets**. To use a dataset, drag and drop it onto the pipeline canvas. Then, connect the output port of the dataset to other modules in the canvas. 
 
 ![Screenshot showing location of saved datasets in the designer palette](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> The designer currently only supports processing [tabular datasets](how-to-create-register-datasets.md#dataset-types). If you want to use [file datasets](how-to-create-register-datasets.md#dataset-types), use the Azure Machine Learning SDK available for Python and R.
+> The designer supports [dataset versioning](how-to-version-track-datasets.md). Specify the dataset version in the property panel of the dataset module.
+
 
 ## Import data using the Import Data module
 
@@ -54,7 +63,7 @@ While we recommend that you use datasets to import data, you can also use the [I
 For detailed information on how to use the Import Data module, see the [Import Data reference page](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-create-register-datasets.md#datasets-ui).
+> If your dataset has too many columns, you may encounter the following error: "Validation failed due to size limitation". To avoid this, [register the dataset in the Datasets interface](how-to-connect-data-ui.md#create-datasets).
 
 ## Supported sources
 
@@ -93,4 +102,4 @@ If your workspace is in a virtual network, you must perform additional configura
 
 ## Next steps
 
-Learn the basics of the designer with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).
+Learn the designer fundamentals with this [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md).

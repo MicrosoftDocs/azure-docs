@@ -53,5 +53,5 @@ Batch transcription is a set of REST API operations that enable you to transcrib
 
 ## Next steps
 
-- [Get a Speech service subscription key for free](get-started.md)
+- [Get a Speech service subscription key for free](overview.md#try-the-speech-service-for-free)
 - [Get the Speech SDK](speech-sdk.md)

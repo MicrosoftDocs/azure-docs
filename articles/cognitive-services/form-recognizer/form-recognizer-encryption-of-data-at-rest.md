@@ -14,7 +14,7 @@ ms.author: egeaney
 
 # Form Recognizer encryption of data at rest
 
-Azure Form Recognizer automatically encrypts your data when persisted it to the cloud. Form Recognizer encryption protects your data and to help you to meet your organizational security and compliance commitments.
+Azure Form Recognizer automatically encrypts your data when persisting it to the cloud. Form Recognizer encryption protects your data to help you to meet your organizational security and compliance commitments.
 
 [!INCLUDE [cognitive-services-about-encryption](../includes/cognitive-services-about-encryption.md)]
 

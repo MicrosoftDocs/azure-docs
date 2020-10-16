@@ -1,7 +1,7 @@
 ---
-title: Set up a connection to a data source using a managed identity (preview)
+title: Set up a connection to a data source using a managed identity
 titleSuffix: Azure Cognitive Search
-description: Learn how to set up an indexer connection to a data source using a managed identity (preview)
+description: Learn how to set up an indexer connection to a data source using a managed identity
 
 manager: luisca
 author: markheff
@@ -9,13 +9,13 @@ ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 09/22/2020
 ---
 
-# Set up an indexer connection to a data source using a managed identity (preview)
+# Set up an indexer connection to a data source using a managed identity
 
 > [!IMPORTANT] 
-> Support for setting up a connection to a data source using a managed identity is currently in public preview. Preview functionality is provided without a service level agreement, and is not recommended for production workloads.
+> Setting up a connection to a data source using a managed identity is not supported with the Free Azure Cognitive Search tier.
 
 An [indexer](search-indexer-overview.md) in Azure Cognitive Search is a crawler that provides a way to pull data from your data source into Azure Cognitive Search. An indexer obtains a data source connection from the data source object that you create. The data source object usually includes credentials for the target data source. For example, the data source object could include an Azure Storage account key if you want to index data from a blob storage container.
 

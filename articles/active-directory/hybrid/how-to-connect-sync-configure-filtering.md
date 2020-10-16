@@ -108,7 +108,7 @@ To set the domain filter, do the following steps:
    ![Connector properties](./media/how-to-connect-sync-configure-filtering/connectorproperties.png)  
 4. Click **Configure Directory Partitions**.
 5. In the **Select directory partitions** list, select and unselect domains as needed. Verify that only the partitions that you want to synchronize are selected.  
-   ![Partitions](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
+   ![Screenshot that shows the directory partitions in the "Properties" window.](./media/how-to-connect-sync-configure-filtering/connectorpartitions.png)  
    If you've changed your on-premises Active Directory infrastructure and added or removed domains from the forest, then click the **Refresh** button to get an updated list. When you refresh, you're asked for credentials. Provide any credentials with read access to Windows Server Active Directory. It doesn't have to be the user that is prepopulated in the dialog box.  
    ![Refresh needed](./media/how-to-connect-sync-configure-filtering/refreshneeded.png)  
 6. When you're done, close the **Properties** dialog by clicking **OK**. If you removed domains from the forest, a message pop-up says that a domain was removed and that configuration will be cleaned up.
@@ -212,7 +212,7 @@ Inbound filtering uses the default configuration, where objects going to Azure A
 In inbound filtering, you use the power of **scope** to determine which objects to synchronize or not synchronize. This is where you make adjustments to fit your own organization's requirements. The scope module has a **group** and a **clause** to determine when a sync rule is in scope. A group contains one or many clauses. There is a logical "AND" between multiple clauses, and a logical "OR" between multiple groups.
 
 Let us look at an example:  
-![A screenshot showing an example of adding scoping filters](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![A screenshot showing an example of adding scoping filters.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 This should be read as **(department = IT) OR (department = Sales AND c = US)**.
 
 In the following samples and steps, you use the user object as an example, but you can use this for all object types.
@@ -270,7 +270,7 @@ In this example, you change the filtering so that only users that have both thei
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Rules Editor** from the **Start** menu.
 3. Under **Rules Type**, click **Outbound**.
-4. Depending on the version of Connect you use, either find the rule named **Out to AAD – User Join** or **Out to AAD - User Join SOAInAD**, and click **Edit**.
+4. Depending on the version of Connect you use, either find the rule named **Out to Azure AD – User Join** or **Out to Azure AD - User Join SOAInAD**, and click **Edit**.
 5. In the pop-up, answer **Yes** to create a copy of the rule.
 6. On the **Description** page, change **Precedence** to an unused value, such as 50.
 7. Click **Scoping filter** on the left-hand navigation, and then click **Add clause**. In **Attribute**, select **mail**. In **Operator**, select **ENDSWITH**. In **Value**, type **\@contoso.com**, and then click **Add clause**. In **Attribute**, select **userPrincipalName**. In **Operator**, select **ENDSWITH**. In **Value**, type **\@contoso.com**.
@@ -295,7 +295,7 @@ After the synchronization, all changes are staged to be exported. Before you act
 
 1. Start a command prompt, and go to `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Run `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   The name of the Connector is in Synchronization Service. It has a name similar to "contoso.com – AAD" for Azure AD.
+   The name of the Connector is in Synchronization Service. It has a name similar to "contoso.com – Azure AD" for Azure AD.
 3. Run `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. You now have a file in %temp% named export.csv that can be examined in Microsoft Excel. This file contains all the changes that are about to be exported.
 5. Make the necessary changes to the data or configuration, and run these steps again (Import, Synchronize, and Verify) until the changes that are about to be exported are what you expect.

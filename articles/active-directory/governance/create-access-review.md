@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/06/2020
+ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -106,6 +106,8 @@ For more information, see [License requirements](access-reviews-overview.md#lice
     - **Approve access** - Approve user's access
     - **Take recommendations** - Take the system's recommendation on denying or approving the user's continued access
 
+    ![Create an access review - Advanced settings](./media/create-access-review/advanced-settings-preview-new.png)
+
 4. (Preview) Use the Action to apply on denied users to specify what happens to guest users if they are denied.
     - **Option 1** will remove denied user’s access to the group or application being reviewed, they will still be able to sign-in to the tenant. 
     - **Option 2** will block the denied users from signing in to the tenant, regardless if they have access to other resources. If there was a mistake or if an admin decides to re-enable one’s access, they can do so within 30 days after the user has been disabled. If there is no action taken on the disabled users, they will be deleted from the tenant.
@@ -118,8 +120,6 @@ To learn more about best practices for removing guest users who no longer have a
 ### Advanced settings
 
 1. To specify additional settings, expand the **Advanced settings** section.
-
-    ![Create an access review - Advanced settings](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Set **Show recommendations** to **Enable** to show the reviewers the system recommendations based the user's access information.
 

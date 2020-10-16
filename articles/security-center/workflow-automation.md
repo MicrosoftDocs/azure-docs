@@ -5,13 +5,13 @@ services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.topic: conceptual
-ms.date: 08/13/2020
+ms.topic: how-to
+ms.date: 09/22/2020
 ms.author: memildin
 ---
 
 
-# Workflow automation
+# Create automatic responses to alerts and recommendations with workflow automation
 
 Every security program includes multiple workflows for incident response. These processes might include notifying relevant stakeholders, launching a change management process, and applying specific remediation steps. Security experts recommend that you automate as many steps of those procedures as you can. Automation reduces overhead. It can also improve your security by ensuring the process steps are done quickly, consistently, and according to your predefined requirements.
 
@@ -26,19 +26,19 @@ This article describes the workflow automation feature of Azure Security Center.
 
 |Aspect|Details|
 |----|:----|
-|Release state:|Generally Available|
-|Pricing:|Free tier|
+|Release state:|Generally available (GA)|
+|Pricing:|Free|
 |Required roles and permissions:|**Security admin role** or **Owner** on the resource group<br>Must also have write permissions for the target resource<br><br>To work with Azure Logic Apps workflows, you must also have the following Logic Apps roles/permissions:<br> - [Logic App Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) permissions are required or Logic App read/trigger access (this role can't create or edit logic apps; only *run* existing ones)<br> - [Logic App Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) permissions are required for Logic App creation and modification<br>If you want to use Logic App connectors, you may need additional credentials to sign in to their respective services (for example, your Outlook/Teams/Slack instances)|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![Yes](./media/icons/yes-icon.png) China Gov, Other Gov|
+|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds<br>![Yes](./media/icons/yes-icon.png) National/Sovereign (US Gov, China Gov, Other Gov)|
 |||
 
 
 
-## Create a Logic App and define when it should automatically run 
+## Create a logic app and define when it should automatically run 
 
 1. From Security Center's sidebar, select **Workflow automation**.
 
-    [![List of workflow automations](media/workflow-automation/list-of-workflow-automations.png)](media/workflow-automation/list-of-workflow-automations.png#lightbox)
+    :::image type="content" source="./media/workflow-automation/list-of-workflow-automations.png" alt-text="List of workflow automations":::
 
     From this page you can create new automation rules, as well as enable, disable, or delete existing ones.
 
@@ -49,7 +49,7 @@ This article describes the workflow automation feature of Azure Security Center.
     1. The triggers that will initiate this automatic workflow. For example, you might want your Logic App to run when a security alert that contains "SQL" is generated.
     1. The Logic App that will run when your trigger conditions are met. 
 
-        [![List of workflow automations](media/workflow-automation/add-workflow.png)](media/workflow-automation/add-workflow.png#lightbox)
+        :::image type="content" source="./media/workflow-automation/add-workflow.png" alt-text="Add workflow automations pane":::
 
 1. From the Actions section, click **Create a new one** to begin the Logic App creation process.
 
@@ -59,26 +59,24 @@ This article describes the workflow automation feature of Azure Security Center.
 
 1. Enter a name, resource group, and location, and click **Create**.
 
-1. In your new Logic App, you can choose from built-in, predefined templates from the security category. Or you can define a custom flow of events to occur when this process is triggered.
+1. In your new logic app, you can choose from built-in, predefined templates from the security category. Or you can define a custom flow of events to occur when this process is triggered.
 
-    In the Logic App designer the following triggers from the Security Center connectors are supported:
+    In the logic app designer the following triggers from the Security Center connectors are supported:
 
-    * **When an Azure Security Center Recommendation is created or triggered**
-    * **When an Azure Security Center Alert is created or triggered** 
-    
-    > [!TIP]
-    > You can customize the trigger so that it relates only to alerts with the severity levels that interest you.
+    * **When an Azure Security Center Recommendation is created or triggered** - If your logic app relies on a recommendation that gets deprecated or replaced, your automation will stop working and you'll need to update the trigger. To track changes to recommendations, see [Azure Security Center release notes](release-notes.md).
+
+    * **When an Azure Security Center Alert is created or triggered** - You can customize the trigger so that it relates only to alerts with the severity levels that interest you.
     
     > [!NOTE]
-    > If you are using the legacy trigger "When a response to an Azure Security Center alert is triggered", your Logic Apps will not be launched by the Workflow Automation feature. Instead, use either of the triggers mentioned above. 
+    > If you are using the legacy trigger "When a response to an Azure Security Center alert is triggered", your logic apps will not be launched by the Workflow Automation feature. Instead, use either of the triggers mentioned above. 
 
-    [![Sample Logic App](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
+    [![Sample logic app](media/workflow-automation/sample-logic-app.png)](media/workflow-automation/sample-logic-app.png#lightbox)
 
-1. After you've defined your Logic App, return to the workflow automation definition pane ("Add workflow automation"). Click **Refresh** to ensure your new Logic App is available for selection.
+1. After you've defined your logic app, return to the workflow automation definition pane ("Add workflow automation"). Click **Refresh** to ensure your new Logic App is available for selection.
 
     ![Refresh](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. Select your Logic App and save the automation. Note that the Logic App dropdown only shows Logic Apps with supporting Security Center connectors mentioned above.
+1. Select your logic app and save the automation. Note that the Logic App dropdown only shows Logic Apps with supporting Security Center connectors mentioned above.
 
 
 ## Manually trigger a Logic App
@@ -97,7 +95,7 @@ To view the raw event schemas of the security alerts or recommendations events p
 
 In this article, you learned about creating Logic Apps, automating their execution in Security Center, and running them manually. 
 
-For other related material, see: 
+For related material, see: 
 
 - [The Microsoft Learn module on how to use workflow automation to automate a security response](https://docs.microsoft.com/learn/modules/resolve-threats-with-azure-security-center/)
 - [Security recommendations in Azure Security Center](security-center-recommendations.md)

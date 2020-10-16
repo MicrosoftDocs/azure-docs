@@ -91,8 +91,12 @@
       href: ipv6-public-ip-address-prefix.md
     - name: Routing preference
       href: routing-preference-overview.md 
+    - name: Public IP security baseline
+      href: public-ip-security-baseline.md
   - name: Security
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Network security groups
       items:
       - name: Overview
@@ -359,7 +363,7 @@
         - name: Setup DPDK
           href: setup-dpdk.md
     - name: TCP/IP Performance Tuning for Azure VMs
-      href: virtual-network-tcpip-performance-tuning.md    
+      href: virtual-network-tcpip-performance-tuning.md
     - name: Virtual machine network throughput
       href: virtual-machine-network-throughput.md
   - name: Move across regions
