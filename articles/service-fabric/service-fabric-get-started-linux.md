@@ -38,7 +38,7 @@ These operating system versions are supported for development.
 * Red Hat Enterprise Linux 7.4 (Service Fabric preview support)
 
 
-## Install the SDK
+## Installation methods
 
 <!-- markdownlint-disable MD025 -->
 <!-- markdownlint-disable MD024 -->
@@ -50,7 +50,7 @@ To install the SDK and associated runtime package via the apt-get command-line t
 
 ## Script installation
 
-For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the [**sfctl** CLI](service-fabric-cli.md). Running the script assumes you agree to the licenses for all the software that is being installed. Alternatively you may run the Manual installation steps in the next section which will present associated licenses as well as the components being installed.
+For convenience, a script is provided to install the Service Fabric runtime and the Service Fabric common SDK along with the [**sfctl** CLI](service-fabric-cli.md). Running the script assumes you agree to the licenses for all the software that is being installed. Alternatively you may run the [Manual installation](#manual-installation) steps in the next section which will present associated licenses as well as the components being installed.
 
 After the script runs successfully, you can skip to [Set up a local cluster](#set-up-a-local-cluster).
 
@@ -123,7 +123,7 @@ sudo apt-get install servicefabricsdkcommon
 ## Update your Yum repositories
 To install the SDK and associated runtime package via the yum command-line tool, you must first update your package sources.
 
-## Manual installation
+## Manual installation (RHEL)
 For manual installation of the Service Fabric runtime and common SDK, follow the rest of this guide.
 
 1. Open a terminal.
@@ -152,7 +152,7 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
     sudo cp ./microsoft-prod.repo /etc/yum.repos.d/
     ```
 
-## Install and set up the Service Fabric SDK for a local cluster
+## Install and set up the Service Fabric SDK for a local cluster (RHEL)
 
 After you update your sources, you can install the SDK. Install the Service Fabric SDK package, confirm the installation, and accept the license agreement.
 
@@ -170,10 +170,10 @@ The Service Fabric runtime that comes with the SDK installation includes the pac
 **Ubuntu** | 2.0.7 | AzulJDK 1.8 | Implicit from npm | latest |
 **RHEL** | - | OpenJDK 1.8 | Implicit from npm | latest |
 
-## Set up a development cluster
+## Set up a local cluster
 1. Start a local Service Fabric cluster for development.
 
-# [Container-based cluster](#tab/localclusteroneboxcontainer)
+# [Container-based local cluster](#tab/localclusteroneboxcontainer)
 
 Start a container-based [one box Service Fabric cluster](https://hub.docker.com/r/microsoft/service-fabric-onebox/).
 

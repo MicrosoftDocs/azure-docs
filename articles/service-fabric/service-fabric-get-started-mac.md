@@ -70,7 +70,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
 
 3. Optional: Build your extended Service Fabric image.
 
-    In a new directory create a file called `Dockerfile` to build your customized image:
+    In a new directory, create a file called `Dockerfile` to build your customized image:
 
     >[!NOTE]
     >You can adapt the image above with a Dockerfile to add additional programs or dependencies into your container.
@@ -126,8 +126,8 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  
  The following are known limitations of the local cluster running in a container for Mac's: 
  
- * DNS service does not run and is not supported [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
- * Running container-based apps requires running SF on a Linux host. Nested container apps are not supported at this time.
+ * DNS service does not run and is currently not supported within the container. [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
+ * Running container-based apps requires running SF on a Linux host. Nested container apps are currently not supported.
 
 ## Set up the Service Fabric CLI (sfctl) on your Mac
 
