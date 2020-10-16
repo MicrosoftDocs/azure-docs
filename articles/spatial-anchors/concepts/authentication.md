@@ -180,13 +180,15 @@ The Azure AD access token is retrieved via the [MSAL library](../../active-direc
         1.    [Select a role](#role-based-access-control).
         2.    In the **Select** box, enter the name or names of the applications to which you want to assign access. If you want your app's users to have different roles against the Spatial Anchors account, register multiple applications in Azure AD and assign a separate role to each one. Then implement your authorization logic to use the right role for your users.
         
-              > [!NOTE] In the **Add role assignment** pane, in **Assign access to**, select **Azure AD user, group, or service principal**.
+              > [!NOTE] 
+              > In the **Add role assignment** pane, in **Assign access to**, select **Azure AD user, group, or service principal**.
     
       3.    Select **Save**.
     
 **In your code** 
 
->[!NOTE] You can use the service sample that's available on GitHub.
+>[!NOTE] 
+> You can use the service sample that's available on GitHub.
 
 1.    Be sure to use the application ID, application secret, and redirect URI of your own Azure AD application as the **client ID**, **secret**, and **RedirectUri** parameters in MSAL.
 2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.
