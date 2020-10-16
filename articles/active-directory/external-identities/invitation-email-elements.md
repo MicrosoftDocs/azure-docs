@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. While it’s [not required that you send an email to invite someone using B2B collaboration](add-user-without-invite.md), doing so gives the user all the information they need to make a decision about whether to accept your invite. It also gives them a link they can always refer to in the future when they need to return to your resources.
 
-![Screenshot showing the B2B invitation email](media/invitation-email-elements/invitation-email.png)
+![Screenshot showing the B2B invitation email](media/invitation-email-elements/invitation-email.png)(Invitations do not include the sender line, I have screenshots but couldn't upload for some reason, can provide by email repro done on customer eniranmont via SR: 120100924002018 and on lab environment)
 
 > [!NOTE]
 > This new email template is still being rolled out to all tenants, so some tenants are still using an older design. By the end of May 2020, invitations from all tenants will be using this template.
