@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/14/2020
+ms.date: 10/16/2020
 ---
 
 # Read replicas in Azure Database for MySQL
@@ -137,9 +137,11 @@ The following server parameters are available for configuring GTID:
 |`enforce_gtid_consistency`|Enforces GTID consistency by allowing execution of only those statements that can be logged in a transactionally safe manner. This value must be set to `ON` before enabling GTID replication. |`OFF`|`OFF`: All transactions are allowed to violate GTID consistency.  <br> `ON`: No transaction is allowed to violate GTID consistency. <br> `WARN`: All transactions are allowed to violate GTID consistency, but a warning is generated. | 
 
 > [!NOTE]
-> Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support.
+> Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
 
-To enable GTID and configure the  consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
+To enable GTID and configure the consistency behavior, update the `gtid_mode` and `enforce_gtid_consistency` server parameters using the [Azure portal](howto-server-parameters.md), [Azure CLI](howto-configure-server-parameters-using-cli.md), or [PowerShell](howto-configure-server-parameters-using-powershell.md).
+
+If GTID is enabled on a source server (`gtid_mode` = ON), newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you cannot update `gtid_mode` on the source or replica server(s).
 
 ## Considerations and limitations
 
@@ -198,6 +200,8 @@ GTID is supported on:
 - Servers that support storage up to 16 TB. Refer to the [pricing tier](concepts-pricing-tiers.md#storage) article for the full list of regions that support 16 TB storage. 
 
 GTID is OFF by default. Once GTID is enabled, you cannot turn it back off. If you need to turn GTID OFF, please contact support. 
+
+If GTID is enabled on a source server, newly created replicas will also have GTID enabled and use GTID replication. To keep replication consistent, you cannot update `gtid_mode` on the source or replica server(s).
 
 ### Other
 
