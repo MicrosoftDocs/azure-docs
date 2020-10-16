@@ -36,7 +36,7 @@
     href: catalog-client-overview.md
   - name: Catalog lineage user guide
     href: catalog-lineage-user-guide.md
-  - name: Scan to detect deleted assets
+  - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Resource Sets
     href: concept-resource-sets.md
