@@ -35,12 +35,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
   + **azureml-interpret**
     + fixed explanation client is_raw flag behavior in azureml-interpret
-  + **azureml-pipeline-core**
-    + `azureml-pipeline-core` officially support Python 3.8.
   + **azureml-sdk**
     + `azureml-sdk` officially support Python 3.8.
   + **azureml-train-core**
-    + `azureml-train-core` officially support Python 3.8.
     + Adding TensorFlow 2.3 curated environment
     + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
   + **azureml-widgets**
