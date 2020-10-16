@@ -5,13 +5,12 @@ ms.date: 10/16/2020
 ms.topic: sample
 author: normesta
 ms.author: normesta
-ms.service: storage
-ms.subservice: data-lake-storage-gen1
+ms.service: data-lake-store
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Data Lake Storage Gen1
 
-[Regulatory Compliance in Azure Policy](../../governance/policy/concepts/regulatory-compliance.md)
+[Regulatory Compliance in Azure Policy](../governance/policy/concepts/regulatory-compliance.md)
 provides Microsoft created and managed initiative definitions, known as _built-ins_, for the
 **compliance domains** and **security controls** related to different compliance standards. This
 page lists the **compliance domains** and **security controls** for Azure Data Lake Storage Gen1.
