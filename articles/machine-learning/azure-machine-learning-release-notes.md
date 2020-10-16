@@ -22,38 +22,35 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.16.0
 + **Bug fixes and improvements**
   + **azure-cli-ml**
-    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via 1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls 3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files More information on Kubernetes Resources and Limits can be found at https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via following:
+    1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 
+    2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls 
+    3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files. More information on [Kubernetes Resources and Limits] (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
   + **azureml-contrib-interpret**
     + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
   + **azureml-contrib-k8s**
-    + Added Support for attaching ArcKubernetes compute
-  + **azureml-contrib-mir**
-    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via 1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls 3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files More information on Kubernetes Resources and Limits can be found at https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + Added support for attaching ArcKubernetes compute
   + **azureml-contrib-server**
-    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via 1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls 3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files More information on Kubernetes Resources and Limits can be found at https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits] (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
   + **azureml-core**
     + Pin major versions of direct dependencies of azureml-core
-    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on Kubernetes Resources and Limits can be found at https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits] (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
     + Updated run.log_table to allow individual rows to be logged.
     + Added static method `Run.get(workspace, run_id)` to retrieve a run only using a workspace - added instance method `Workspace.get_run(run_id)` to retrieve a run within the workspace
     + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
-  + **azureml-dataprep-native**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
   + **azureml-explain-model**
-    + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+    + fix package descriptions causing upload error to pypi for azureml-explain-model
   + **azureml-interpret**
     + fixed explanation client is_raw flag behavior in azureml-interpret
-    + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+    + fix package descriptions causing upload error to pypi for azureml-interpret
   + **azureml-pipeline-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+    + `azureml-pipeline-core` officially support Python 3.8.
   + **azureml-sdk**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+    + `azureml-sdk` officially support Python 3.8.
   + **azureml-tensorboard**
-    + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
-  + **azureml-train**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+    + fix package descriptions causing upload error to pypi for azureml-tensorboard
   + **azureml-train-core**
-    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+    + `azureml-train-core` officially support Python 3.8.
     + Adding TensorFlow 2.3 curated environment
     + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
   + **azureml-widgets**
