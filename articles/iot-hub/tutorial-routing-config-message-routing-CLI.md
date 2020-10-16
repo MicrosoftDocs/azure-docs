@@ -1,6 +1,6 @@
 ---
-title: Configure message routing for Azure IoT Hub using the Azure CLI
-description: Configure message routing for Azure IoT Hub using the Azure CLI. Depending on properties in the message, route to either a storage account or a Service Bus queue.
+title: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI
+description: Tutorial - Configure message routing for Azure IoT Hub using the Azure CLI. Depending on properties in the message, route to either a storage account or a Service Bus queue.
 author: robinsh
 manager: philmea
 ms.service: iot-hub

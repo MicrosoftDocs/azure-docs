@@ -1,5 +1,5 @@
 ---
-title: Communicate to device app in C with Azure IoT Hub device streams
+title: Quickstart - Communicate to device app in C with Azure IoT Hub device streams
 description: In this quickstart, you run a C device-side application that communicates with an IoT device via a device stream.
 author: robinsh
 ms.service: iot-hub

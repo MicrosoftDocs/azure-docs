@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub (CLI) quickstart
+title: Quickstart - Send telemetry to Azure IoT Hub (CLI) quickstart
 description: This quickstart shows developers new to IoT Hub how to get started by using the Azure CLI to create an IoT hub,  send telemetry, and view messages between a device and the hub.
 ms.service: iot-hub
 ms.topic: quickstart

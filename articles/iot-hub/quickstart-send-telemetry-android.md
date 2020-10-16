@@ -1,5 +1,5 @@
 ---
-title: Send telemetry to Azure IoT Hub quickstart (Android) | Microsoft Docs
+title: Quickstart - Send telemetry to Azure IoT Hub quickstart (Android) | Microsoft Docs
 description: In this quickstart, you run a sample Android application to send simulated telemetry to an IoT hub and to read telemetry from the IoT hub for processing in the cloud.
 author: wesmc7777
 manager: philmea

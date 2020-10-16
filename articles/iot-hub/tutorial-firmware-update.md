@@ -1,6 +1,6 @@
 ---
-title: Update device firmware through Azure IoT Hub | Microsoft Docs
-description: Learn how to implement a device firmware update process that can be triggered from a back-end application connected to your IoT hub.
+title: Tutorial - Update device firmware through Azure IoT Hub | Microsoft Docs
+description: Tutorial - Learn how to implement a device firmware update process that can be triggered from a back-end application connected to your IoT hub.
 services: iot-hub
 author: wesmc7777
 ms.author: wesmc

@@ -1,6 +1,6 @@
 ---
-title: Set up and use metrics and diagnostic logs with an Azure IoT hub
-description: Learn how to set up and use metrics and diagnostic logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
+title: Tutorial - Set up and use metrics and diagnostic logs with an Azure IoT hub
+description: Tutorial - Learn how to set up and use metrics and diagnostic logs with an Azure IoT hub. This will provide data to analyze to help diagnose problems your hub may be having.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub

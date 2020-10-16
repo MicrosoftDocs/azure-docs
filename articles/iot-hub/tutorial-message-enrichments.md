@@ -4,7 +4,7 @@ description: Tutorial showing how to use message enrichments for Azure IoT Hub m
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 12/20/2019
 ms.author: robinsh
 ms.custom: "mqtt, devx-track-azurecli, devx-track-csharp"
@@ -392,6 +392,7 @@ az group delete --name $resourceGroup
 In this tutorial, you configured and tested adding message enrichments to IoT Hub messages by using the following steps:
 
 **Use IoT Hub message enrichments**
+
 > [!div class="checklist"]
 > * First method: Create resources and configure message routing by using the Azure CLI. Configure the message enrichments manually by using the [Azure portal](https://portal.azure.com).
 > * Second method: Create resources and configure message routing and message enrichments by using an Azure Resource Manager template.
@@ -402,5 +403,8 @@ For more information about message enrichments, see [Overview of message enrichm
 
 For more information about message routing, see these articles:
 
-* [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
-* [Tutorial: IoT Hub routing](tutorial-routing.md)
+> [!div class="nextstepaction"]
+> [Use IoT Hub message routing to send device-to-cloud messages to different endpoints](iot-hub-devguide-messages-d2c.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: IoT Hub routing](tutorial-routing.md)
