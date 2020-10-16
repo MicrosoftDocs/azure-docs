@@ -114,7 +114,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
 
 1. In the Azure VMware Solution portal, go to **Manage** > **Connectivity**, select the **HCX** tab, and then select **Add**.
 
-1. Sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443` by using the **admin** user credentials. 
+1. Use the **admin** credentials to sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443`. 
 
    > [!IMPORTANT]
    > Make sure to include the `9443` port number with the VMware HCX Manager IP address.
