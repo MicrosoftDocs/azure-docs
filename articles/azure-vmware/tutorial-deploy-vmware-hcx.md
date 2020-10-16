@@ -51,7 +51,7 @@ Infrastructure components must be running the required minimum version.
 | --- | --- | --- |
 | vCenter Server   | 5.1<br/><br/>If you're using 5.5 U1 or earlier, use the standalone HCX user interface for HCX operations.  | 6.0 U2 and later   |
 | ESXi   | 5.0    | ESXi 6.0 and later   |
-| NSX    | For HCX network extension of logical switches at the source: NSXv 6.2+ or NSX-T 2.4+.   | NSXv 6.2+ or NSX-T 2.4+<br/><br/>For HCX Proximity Routing: NSXv 6.4+. (Proximity Routing is not supported with NSX-T.) |
+| NSX    | For HCX network extension of logical switches at the source: NSXv 6.2+ or NSX-T 2.4+.   | NSXv 6.2+ or NSX-T 2.4+<br/><br/>For HCX Proximity Routing: NSXv 6.4+. (Proximity Routing isn't supported with NSX-T.) |
 | vCloud Director   | Not required. There's no interoperability with vCloud Director at the source site. | When you're integrating the destination environment with vCloud Director, the minimum is 9.1.0.2.  |
 
 ## Prerequisites
