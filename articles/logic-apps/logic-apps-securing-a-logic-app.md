@@ -317,7 +317,7 @@ Along with Shared Access Signature (SAS), you might want to specifically limit t
 
 To make your logic app callable only as a nested logic app through the built-in [Azure Logic Apps action](../logic-apps/logic-apps-http-endpoint.md), open the **Allowed inbound IP addresses** list, and select **Only other Logic Apps**. This option writes an empty array to your logic app resource and requires that only calls from other "parent" logic apps can trigger the nested logic app through the built-in **Azure Logic Apps** action.
 
-If you want your logic app to trigger as a nested logic app through the HTTP connector, do not use the **Only other Logic Apps** option. Instead use the **Allowed inbound IP addresses** option to whitelist the parent logic app's Runtime outgoing IP addresses.
+To make your logic app callable only as a nested logic app through the HTTP action, don't use the **Only other Logic Apps** option. Instead, select **Allowed inbound IP addresses**, and enter the parent logic app's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound).
 
 
 > [!NOTE]
