@@ -20,7 +20,7 @@ Follow instructions in this tutorial: [Quickstart: Use the Azure portal to creat
 - Create a **premium** Service Bus namespace. 
 - Get the connection string. 
 - Create a Service Bus topic.
-- Create a subscription to the topic. You will only one subscription in this tutorial, so no need to create subscriptions S2 and S3. 
+- Create a subscription to the topic. You need only one subscription in this tutorial, so no need to create subscriptions S2 and S3. 
 
 ## Send messages to the Service Bus topic
 In this step, you use a sample application to send messages to the Service Bus topic you created in the previous step. 

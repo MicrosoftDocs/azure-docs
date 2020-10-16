@@ -80,9 +80,9 @@
     href: service-bus-tutorial-topics-subscriptions-portal.md
   - name: Handle Service Bus events via Event Grid
     items:
-    - name: Use an Azure logic app as a handler
+    - name: Azure Logic Apps
       href: service-bus-to-event-grid-integration-example.md      
-    - name: Use an Azure function as a handler
+    - name: Azure Functions
       href: service-bus-to-event-grid-integration-function.md
 - name: Samples
   items:

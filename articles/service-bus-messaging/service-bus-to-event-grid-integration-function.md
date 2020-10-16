@@ -48,7 +48,7 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
     1. Select an existing **Azure Storage** or select **New** to create a new Storage account to be used by the Functions app. 
     1. Select **Create** to create the Functions app. 
 1. Back on the **Functions instance** page of the **Publish** wizard, select **Finish**. 
-1. On the **Publish** page in Visual Studio, select **Publish** to build and publish the Functions app to Azure. 
+1. On the **Publish** page in Visual Studio, select **Publish** to publish the Functions app to Azure. 
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/publish-function-app.png" alt-text="Publish Functions app":::    
 1. In the **Output** window, see the messages from build and publish, and confirm that they both succeeded. 
@@ -68,7 +68,7 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/monitor-before.png" alt-text="Monitor page for the function before function invocations":::
     
-    Keep this page open in a tab your web browser. You will refresh this page to see invocations for this function later.
+    Keep this page open in a tab your web browser. You'll refresh this page to see invocations for this function later.
 
 ## Connect the function and namespace via Event Grid
 In this section, you tie together the function and the Service Bus namespace by using the Azure portal. 
@@ -122,7 +122,7 @@ If you don't see any function invocations after waiting and refreshing for somet
     If you don't see any events on this page, verify that the **Service Bus Subscription** page doesn't show any **Active message count**. If the number for this counter is greater than zero, the messages at the subscription aren't forwarded to the handler function (event subscription handler) for some reason. Verify that you've set up the event subscription properly. 
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/subscription-active-message-count.png" alt-text="Active message count at the Service Bus subscription":::    
-1. You will also see **delivered events** on the **Events** page of the Service Bus namespace. 
+1. You also see **delivered events** on the **Events** page of the Service Bus namespace. 
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/event-subscription-page.png" alt-text="Events page - delivered events" lightbox="./media/service-bus-to-event-grid-integration-example/invocation-details.png":::
 1. You can also see that the events are delivered on the **Event Subscription** page. You can get to this page by selecting the event subscription on the **Events** page. 
