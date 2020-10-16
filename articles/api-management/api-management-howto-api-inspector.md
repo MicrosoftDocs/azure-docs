@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Debug APIs n Azure API Management using request tracing
+title: Tutorial - Debug APIs in Azure API Management using request tracing
 description: Follow the steps of this tutorial to enable tracing and inspect request processing steps in Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -21,7 +21,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Trace an example call
-> * Review the trace
+> * Review request processing steps
 
 :::image type="content" source="media/api-management-howto-api-inspector/api-inspector001.png" alt-text="API inspector":::
 
@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configure API tracing":::
 
 > [!TIP]
-> If **Ocp-Apim-Subscription-Key** isn't automatically populated in the HTTP request, you can retrieve it by going to the Developer Portal and expose the keys on the profile page. Then, add it to the header.
+> If **Ocp-Apim-Subscription-Key** isn't automatically populated in the HTTP request, you can retrieve it by going to the Developer Portal and expose the keys on the Profile page. Then, add it to the header.
 
 ## Review trace information
 
@@ -74,7 +74,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Trace an example call
-> * Review the trace
+> * Review request processing steps
 
 Advance to the next tutorial:
 
