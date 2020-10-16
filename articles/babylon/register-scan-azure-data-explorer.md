@@ -2,7 +2,7 @@
 title: 'How to scan Azure Data Explorer'
 titleSuffix: Babylon
 description: This how to guide describes details of how to scan Azure Data Explorer. 
-author: Naga Yenamandra
+author: nayenama
 ms.author: nayenama
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
