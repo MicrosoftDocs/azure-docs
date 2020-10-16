@@ -79,7 +79,7 @@ It doesn't always take a catastrophic event to impact business functionality. Se
 
 ### HDInsight metastore
 
-HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with asynchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy will automatically become read-write capable. For more information, see [Azure SQL Database business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
+HDInsight uses [Azure SQL Database](https://azure.microsoft.com/support/legal/sla/sql-database/v1_4/) as a metastore, which provides an SLA of 99.99%. Three replicas of data persist within a data center with synchronous replication. If there is a replica loss, an alternate replica is served seamlessly. [Active geo-replication](../azure-sql/database/active-geo-replication-overview.md) is supported out of the box with a maximum of four data centers. When there is a failover, either manual or data center, the first replica in the hierarchy will automatically become read-write capable. For more information, see [Azure SQL Database business continuity](../azure-sql/database/business-continuity-high-availability-disaster-recover-hadr-overview.md).
 
 ### HDInsight Storage
 
@@ -107,7 +107,7 @@ Improving business continuity using cross region high availability disaster reco
 |----|------------------------|-----------------------|
 |Data Storage|Duplicating primary data/tables in a secondary region|Replicate only curated data|
 |Data Egress|Outbound cross region data transfers come at a price. Review Bandwidth pricing guidelines|Replicate only curated data to reduce the region egress footprint|
-|Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure.<\br><\br>Use Autoscaling to keep secondary cluster size to a minimum.<\br><\br>Use cheaper VM SKUs.<\br><\br> Create secondaries in regions where VM SKUs may be discounted.|
+|Cluster Compute|Additional HDInsight cluster/s in secondary region|Use automated scripts to deploy secondary compute after primary failure. Use Autoscaling to keep secondary cluster size to a minimum. Use cheaper VM SKUs. Create secondaries in regions where VM SKUs may be discounted.|
 |Authentication |Multiuser scenarios in secondary region will incur additional Azure AD DS setups|Avoid multiuser setups in secondary region.|
 
 ### Complexity optimizations

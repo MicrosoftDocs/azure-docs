@@ -3,7 +3,7 @@ title: Customize RDP properties with PowerShell - Azure
 description: How to customize RDP Properties for Windows Virtual Desktop with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 10/09/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -39,8 +39,9 @@ To configure RDP properties in the Azure portal:
 3. Under Services, select **Windows Virtual Desktop**.
 4. At the Windows Virtual Desktop page, select **host pools** in the menu on the left side of the screen.
 5. Select **the name of the host pool** you want to update.
-6. Select **Properties** in the menu on the left side of the screen.
-7. On the **Properties** tab, go to **RDP settings** to start editing the RDP properties. Properties should be in a semicolon-separated format like the PowerShell examples.
+6. Select **RDP Properties** in the menu on the left side of the screen.
+7. Set the property you want.
+   - Alternatively, you can open the **Advanced** tab and add your RDP properties in a semicolon-separated format like the PowerShell examples in the following sections.
 8. When you're done, select **Save** to save your changes.
 
 The next sections will tell you how to edit custom RDP properties manually in PowerShell.

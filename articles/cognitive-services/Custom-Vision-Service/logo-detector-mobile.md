@@ -99,7 +99,7 @@ Next, open the *Source\VisualProvision\AppSettings.cs* file and populate the `Co
 
 ## Create a service principal
 
-The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using role-based access control. To learn more, see the [service principals guide](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
+The app requires an Azure service principal account to deploy services to your Azure subscription. A service principal lets you delegate specific permissions to an app using Azure role-based access control. To learn more, see the [service principals guide](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
 
 You can create a service principal by using either Azure Cloud Shell or the Azure CLI, as shown here. To begin, sign in and select the subscription you want to use.
 

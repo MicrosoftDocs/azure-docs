@@ -1,14 +1,12 @@
 ---
 title: Azure Monitor Workbooks Overview
 description: Learn how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal.
-author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
 
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.author: mbullwin
 ---
 
 # Azure Monitor Workbooks

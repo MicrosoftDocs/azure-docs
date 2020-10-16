@@ -83,7 +83,7 @@ The original solution accelerators were written using .NET using a model-view-co
 | Connected Factory      | MVC           | [.NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Device Simulation      | Microservices | [.NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/).
+To learn more about the microservices architecture, see [Introduction to the Azure IoT reference architecture](/azure/architecture/reference-architectures/iot/).
 
 ## Deployment options
 

@@ -240,6 +240,8 @@
       href: /rest/api/resources/policyassignments
     - name: Policy Definitions
       href: /rest/api/resources/policydefinitions
+    - name: Policy Exemptions
+      href: /rest/api/resources/policyexemptions
     - name: Initiatives Definitions
       href: /rest/api/resources/policysetdefinitions
     - name: Policy Tracked Resources

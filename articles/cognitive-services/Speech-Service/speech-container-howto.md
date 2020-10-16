@@ -171,7 +171,7 @@ All tags, except for `latest` are in the following format and are case-sensitive
 The following tag is an example of the format:
 
 ```
-2.4.0-amd64-en-us-preview
+2.5.0-amd64-en-us-preview
 ```
 
 For all of the supported locales of the **speech-to-text** container, please see [Speech-to-text image tags](../containers/container-image-tags.md#speech-to-text).

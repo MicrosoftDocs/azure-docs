@@ -55,7 +55,7 @@ This template is created for learning purposes. In practice, you usually have so
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-It is because the deployment is trying to create the dataset before the RBAC assignment gets finalized. Despite the error message, the deployment could be successful.  You would still be able to walk through [Review deployed resources](#review-deployed-resources).
+It is because the deployment is trying to create the dataset before the Azure role assignment gets finalized. Despite the error message, the deployment could be successful.  You would still be able to walk through [Review deployed resources](#review-deployed-resources).
 
 ## Deploy the template
 

@@ -132,7 +132,7 @@ foreach($summary in $finalStatus)
 
 ## Interact with machines
 
-Pre-scripts and post-tasks run as runbooks in your Automation account and not directly on the machines in your deployment. Pre-tasks and post-tasks also run in the Azure context and don't have access to non-Azure machines. The following sections show how you can interact with the machines directly, whether they're Azure VMs or non-Azure machines.
+Pre-scripts and post-scripts run as runbooks in your Automation account and not directly on the machines in your deployment. Pre-tasks and post-tasks also run in the Azure context and don't have access to non-Azure machines. The following sections show how you can interact with the machines directly, whether they're Azure VMs or non-Azure machines.
 
 ### Interact with Azure machines
 
