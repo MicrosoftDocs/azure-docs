@@ -342,7 +342,7 @@ You can [use Azure AD access reviews to manage users excluded from Conditional A
 
 ### Review external user’s group memberships
 
-To minimize manual work and associated potential errors, consider using [Dynamic Groups](../users-groups-roles/groups-create-rule.md) to assign group membership based on a user’s attributes. You may want to create one or more Dynamic Groups for external users. The internal sponsor can act as a reviewer for membership in the group. 
+To minimize manual work and associated potential errors, consider using [Dynamic Groups](../enterprise-users/groups-create-rule.md) to assign group membership based on a user’s attributes. You may want to create one or more Dynamic Groups for external users. The internal sponsor can act as a reviewer for membership in the group. 
 
 Note: External users who are removed from a group as the result of an Access Review aren't deleted from the tenant. 
 

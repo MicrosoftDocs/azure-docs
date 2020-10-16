@@ -75,8 +75,7 @@ The decision about how to resolve conflicting product licenses always belongs to
 
 ## Other products depend on this license
 
-**Problem:** One of the products that's specified in the group contains a service plan that must be enabled for another service plan, in another product, to
-function. This error occurs when Azure AD attempts to remove the underlying service plan. For example, this can happen when you remove the user from the group.
+**Problem:** One of the products that's specified in the group contains a service plan that must be enabled for another service plan, in another product, to function. This error occurs when Azure AD attempts to remove the underlying service plan. For example, this can happen when you remove the user from the group.
 
 To solve this problem, you need to make sure that the required plan is still assigned to users through some other method or that the dependent services are disabled for those users. After doing that, you can properly remove the group license from those users.
 

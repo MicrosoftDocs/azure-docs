@@ -179,7 +179,7 @@ Starting now, customers who have free tenants can access the [Azure AD sign-in l
 **Service category:** Group Management  
 **Product capability:** Collaboration
 
-To provide a more flexible way for customers to create directory-wide groups that best meet their needs, we've replaced the **Directory-wide Groups** option from the **Groups** > **General** settings in the Azure portal with a link to [dynamic group documentation](../users-groups-roles/groups-dynamic-membership.md). We've improved our documentation to include more instructions so administrators can create all-user groups that include or exclude guest users.
+To provide a more flexible way for customers to create directory-wide groups that best meet their needs, we've replaced the **Directory-wide Groups** option from the **Groups** > **General** settings in the Azure portal with a link to [dynamic group documentation](../enterprise-users/groups-dynamic-membership.md). We've improved our documentation to include more instructions so administrators can create all-user groups that include or exclude guest users.
 
 ---
 
@@ -826,7 +826,7 @@ The Office 365 groups expiration policy has been enhanced to automatically renew
 
 This enhancement helps to reduce your group expiration notifications and helps to make sure that active groups continue to be available. If you already have an active expiration policy for your Office 365 groups, you don't need to do anything to turn on this new functionality.
 
-For more information, see [Configure the expiration policy for Office 365 groups](../users-groups-roles/groups-lifecycle.md).
+For more information, see [Configure the expiration policy for Office 365 groups](../enterprise-users/groups-lifecycle.md).
 
 ---
 
@@ -882,7 +882,7 @@ We're pleased to announce public preview availability of the bulk group manageme
 
 - Downloading the list of group members for a specific group.
 
-For more information, see [Bulk add members](../users-groups-roles/groups-bulk-import-members.md), [Bulk remove members](../users-groups-roles/groups-bulk-remove-members.md), [Bulk download members list](../users-groups-roles/groups-bulk-download-members.md), and [Bulk download groups list](../users-groups-roles/groups-bulk-download.md).
+For more information, see [Bulk add members](../enterprise-users/groups-bulk-import-members.md), [Bulk remove members](../enterprise-users/groups-bulk-remove-members.md), [Bulk download members list](../enterprise-users/groups-bulk-download-members.md), and [Bulk download groups list](../enterprise-users/groups-bulk-download.md).
 
 ---
 
@@ -1138,7 +1138,7 @@ New updates to the AzureAD and AzureAD Preview PowerShell modules are available:
 
 We've made some UI improvements to the dynamic group rule builder, available in the Azure portal, to help you more easily set up a new rule, or change existing rules. This design improvement allows you to create rules with up to five expressions, instead of just one. We've also updated the device property list to remove deprecated device properties.
 
-For more information, see [Manage dynamic membership rules](../users-groups-roles/groups-dynamic-membership.md).
+For more information, see [Manage dynamic membership rules](../enterprise-users/groups-dynamic-membership.md).
 
 ---
 
@@ -1698,7 +1698,7 @@ You can configure naming policy for Office 365 groups in two different ways:
 
 - Upload a customized set of blocked words for your organization, which are not allowed in group names (for example, "CEO, Payroll, HR").
 
-For more information, see [Enforce a Naming Policy for Office 365 groups](../users-groups-roles/groups-naming-policy.md).
+For more information, see [Enforce a Naming Policy for Office 365 groups](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1772,7 +1772,7 @@ You can configure naming policy for Office 365 groups in two different ways:
 
 - Upload a customized set of blocked words for your organization, which are not allowed in group names (for example, "CEO, Payroll, HR").
 
-For more information, see [Enforce a Naming Policy for Office 365 groups](../users-groups-roles/groups-naming-policy.md).
+For more information, see [Enforce a Naming Policy for Office 365 groups](../enterprise-users/groups-naming-policy.md).
 
 ---
 
@@ -1940,7 +1940,7 @@ For more information about how to better secure your organization through automa
 
 You can now view and manage your deleted Office 365 groups from the Azure AD portal. This change helps you to see which groups are available to restore, along with letting you permanently delete any groups that aren't needed by your organization.
 
-For more information, see [Restore expired or deleted groups](../users-groups-roles/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
+For more information, see [Restore expired or deleted groups](../enterprise-users/groups-restore-deleted.md#view-and-manage-the-deleted-microsoft-365-groups-that-are-available-to-restore).
 
 ---
 
@@ -2501,7 +2501,7 @@ We're pleased to announce that you can now use the ForceDelete domain API to del
 
 This change helps you to more quickly delete your custom domain names if your organization no longer uses the name, or if you need to use the domain name with another Azure AD.
 
-For more information, see [Delete a custom domain name](../users-groups-roles/domains-manage.md#delete-a-custom-domain-name).
+For more information, see [Delete a custom domain name](../enterprise-users/domains-manage.md#delete-a-custom-domain-name).
 
 ---
 
@@ -2523,7 +2523,7 @@ The roles are:
 
 - User administrator
 
-For more information, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md)
+For more information, see [Create a dynamic group and check status](../enterprise-users/groups-create-rule.md)
 
 ---
 
@@ -2590,7 +2590,7 @@ The new **Troubleshooting and Support** tab on the **Sign-ins** page of the Azur
 
 With this update, you can now click the **Get custom extension properties** link from the dynamic user group rule builder, enter your unique app ID, and receive the full list of custom extension properties to use when creating a dynamic membership rule for users. This list can also be refreshed to get any new custom extension properties for that app.
 
-For more information about using custom extension properties for dynamic membership rules, see [Extension properties and custom extension properties](../users-groups-roles/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
+For more information about using custom extension properties for dynamic membership rules, see [Extension properties and custom extension properties](../enterprise-users/groups-dynamic-membership.md#extension-properties-and-custom-extension-properties)
 
 ---
 
@@ -3693,7 +3693,7 @@ For more information, see: [Customizing the list of Workday user attributes](../
 It is possible to change how membership is managed in a group. This is useful when you want to keep the same group name and ID in the system, so any existing references to the group are still valid; creating a new group would require updating those references.
 We've updated the Azure AD Admin center to support this functionality. Now, customers can convert existing groups from dynamic membership to assigned membership and vice-versa. The existing PowerShell cmdlets are also still available.
 
-For more information, see [Dynamic membership rules for groups in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+For more information, see [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ---
 

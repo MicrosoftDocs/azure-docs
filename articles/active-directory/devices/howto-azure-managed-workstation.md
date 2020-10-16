@@ -50,7 +50,7 @@ Select a profile before deploying the solution. You can use multiple profiles si
 
 The concepts covered in this guide assume you have Microsoft 365 Enterprise E5 or an equivalent SKU. Some of the recommendations in this guide can be implemented with lower SKUs. For more information, see [Microsoft 365 Enterprise licensing](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise).
 
-To automate license provisioning, consider [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for your users.
+To automate license provisioning, consider [group-based licensing](../enterprise-users/licensing-groups-assign.md) for your users.
 
 ## Azure Active Directory configuration
 
@@ -76,7 +76,7 @@ Next, you create two groups: workstation users and workstation devices.
 
 From the Azure portal, browse to **Azure Active Directory** > **Groups** > **New group**.
 
-1. For the workstation users group, you might want to configure [group-based licensing](../users-groups-roles/licensing-groups-assign.md) to automate provisioning of licenses to users.
+1. For the workstation users group, you might want to configure [group-based licensing](../enterprise-users/licensing-groups-assign.md) to automate provisioning of licenses to users.
 1. For the workstation users group, enter:
 
    * **Group type** - Security

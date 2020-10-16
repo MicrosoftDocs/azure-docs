@@ -38,7 +38,7 @@ The most important thing to keep in mind is that you should avoid a situation wh
 
    - You can spot check individual users by looking at their license details. You will see that they have the same licenses assigned “directly” and “inherited” from groups.
 
-   - You can run a PowerShell script to [verify how licenses are assigned to users](../users-groups-roles/licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+   - You can run a PowerShell script to [verify how licenses are assigned to users](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
    - When the same product license is assigned to the user both directly and through a group, only one license is consumed by the user. Hence no additional licenses are required to perform migration.
 
@@ -79,8 +79,8 @@ Here is what the migration process could look like:
 Learn more about other scenarios for group license management:
 
 - [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-- [Assigning licenses to a group in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+- [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 - [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 - [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
-- [Azure Active Directory group-based licensing additional scenarios](../users-groups-roles/licensing-group-advanced.md)
+- [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
 - [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)

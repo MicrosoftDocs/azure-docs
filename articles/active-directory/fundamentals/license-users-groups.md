@@ -144,6 +144,6 @@ After you've assigned your licenses, you can perform the following processes:
 
 - [Add licensed users to a group for licensing](../enterprise-users/licensing-groups-migrate-users.md)
 
-- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+- [Scenarios, limitations, and known issues using groups to manage licensing in Azure Active Directory](../enterprise-users/licensing-group-advanced.md)
 
 - [Add or change profile information](active-directory-users-profile-azure-portal.md)

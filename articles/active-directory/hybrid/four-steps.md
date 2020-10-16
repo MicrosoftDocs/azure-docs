@@ -151,7 +151,7 @@ Assigning users to applications is best mapped when using groups, because they a
 * Attribute-based using dynamic group membership
 * Delegation to app owners
 
-Azure AD provides the ability to manage access to resources using security groups and Microsoft 365 groups. These groups can be managed by a group owner who can approve or deny membership requests and delegate control of group membership. Known as [self-service group management](../users-groups-roles/groups-self-service-management.md), this feature saves time by allowing group owners who aren't assigned an administrative role to create and manage groups without having to rely on administrators to handle their requests.
+Azure AD provides the ability to manage access to resources using security groups and Microsoft 365 groups. These groups can be managed by a group owner who can approve or deny membership requests and delegate control of group membership. Known as [self-service group management](../enterprise-users/groups-self-service-management.md), this feature saves time by allowing group owners who aren't assigned an administrative role to create and manage groups without having to rely on administrators to handle their requests.
 
 ## Step 4 - Operationalize your insights
 

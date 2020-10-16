@@ -53,7 +53,7 @@ Azure AD features that enable account sharing include:
 
 * [Password single sign-on](../manage-apps/sso-options.md#password-based-sso)
 * Password single sign-on agent
-* [Group assignment](../users-groups-roles/groups-self-service-management.md)
+* [Group assignment](groups-self-service-management.md)
 * Custom Password apps
 * [App usage dashboard/reports](../authentication/howto-sspr-reporting.md)
 * End-user access portals
@@ -66,12 +66,12 @@ To use Azure AD to share an account, you need to:
 
 * Add an application [app gallery](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory) or [custom application](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
 * Configure the application for password Single Sign-On (SSO)
-* Use [group-based assignment](../users-groups-roles/groups-saasapps.md) and select the option to enter a shared credential
+* Use [group-based assignment](groups-saasapps.md) and select the option to enter a shared credential
 
-You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../authentication/concept-mfa-howitworks.md)) and you can delegate the ability to manage who has access to the application using [Azure AD self-service](../users-groups-roles/groups-self-service-management.md) group management.
+You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../authentication/concept-mfa-howitworks.md)) and you can delegate the ability to manage who has access to the application using [Azure AD self-service](groups-self-service-management.md) group management.
 
 ## Next steps
 
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Protecting apps with Conditional Access](../../active-directory-b2c/overview.md)
-* [Self-service group management/SSAA](../users-groups-roles/groups-self-service-management.md)
+* [Self-service group management/SSAA](groups-self-service-management.md)

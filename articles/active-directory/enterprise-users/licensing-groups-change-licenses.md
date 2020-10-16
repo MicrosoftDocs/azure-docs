@@ -72,8 +72,8 @@ To provide service continuity, Azure AD applies the new licenses and removes the
 
 Learn about other scenarios for license management through groups in the following articles:
 
-- [Assigning licenses to a group in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+- [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 - [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 - [How to migrate individual licensed users to group licensing in Azure Active Directory](licensing-groups-migrate-users.md)
-- [Azure Active Directory group licensing additional scenarios](../users-groups-roles/licensing-group-advanced.md)
+- [Azure Active Directory group licensing additional scenarios](licensing-group-advanced.md)
 - [PowerShell examples for group licensing in Azure Active Directory](licensing-ps-examples.md)

@@ -32,7 +32,7 @@ There are several group and membership types. The following information explains
 - **Dynamic device.** Lets you use dynamic group rules to automatically add and remove devices. If a device's attributes change, the system looks at your dynamic group rules for the directory to see if the device meets the rule requirements (is added) or no longer meets the rules requirements (is removed).
 
     > [!IMPORTANT]
-    > You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../users-groups-roles/groups-create-rule.md)
+    > You can create a dynamic group for either devices or users, but not for both. You also can't create a device group based on the device owners' attributes. Device membership rules can only reference device attributions. For more info about creating a dynamic group for users and devices, see [Create a dynamic group and check status](../enterprise-users/groups-create-rule.md)
 
 ## Create a basic group and add members
 You can create a basic group and add your members at the same time. To create a basic group and add members use the following procedure:
@@ -77,5 +77,5 @@ When any new Microsoft 365 group is created, whether with dynamic or static memb
 
 ## Next steps
 
-- [Manage access to SaaS apps using groups](../users-groups-roles/groups-saasapps.md)
-- [Manage groups using PowerShell commands](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [Manage access to SaaS apps using groups](../enterprise-users/groups-saasapps.md)
+- [Manage groups using PowerShell commands](../enterprise-users/groups-settings-v2-cmdlets.md)

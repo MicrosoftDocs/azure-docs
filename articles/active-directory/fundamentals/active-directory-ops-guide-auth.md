@@ -172,7 +172,7 @@ Finally, if you have an Azure AD app gallery and use applications that support S
 
 ### Assign users to applications
 
-[Assigning users to applications](../manage-apps/assign-user-or-group-access-portal.md) is best mapped by using groups because they allow greater flexibility and ability to manage at scale. The benefits of using groups include [attribute-based dynamic group membership](../users-groups-roles/groups-dynamic-membership.md) and [delegation to app owners](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Therefore, if you are already using and managing groups, we recommend you take the following actions to improve management at scale:
+[Assigning users to applications](../manage-apps/assign-user-or-group-access-portal.md) is best mapped by using groups because they allow greater flexibility and ability to manage at scale. The benefits of using groups include [attribute-based dynamic group membership](../enterprise-users/groups-dynamic-membership.md) and [delegation to app owners](../fundamentals/active-directory-accessmanagement-managing-group-owners.md). Therefore, if you are already using and managing groups, we recommend you take the following actions to improve management at scale:
 
 - Delegate group management and governance to application owners.
 - Allow self-service access to the application.
@@ -185,7 +185,7 @@ On the other hand, if you find applications that have assignment to individual u
 
 - [Assign users and groups to an application in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
 - [Delegate app registration permissions in Azure Active Directory](../roles/delegate-app-roles.md)
-- [Dynamic membership rules for groups in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
+- [Dynamic membership rules for groups in Azure Active Directory](../enterprise-users/groups-dynamic-membership.md)
 
 ## Access policies
 
@@ -342,7 +342,7 @@ Below are the user and group settings that can be locked down if there isn't an 
 - [Integrating Applications with Azure Active Directory](../develop/quickstart-register-app.md)
 - [Apps, permissions, and consent in Azure Active Directory.](../develop/quickstart-register-app.md)
 - [Use groups to manage access to resources in Azure Active Directory](./active-directory-manage-groups.md)
-- [Setting up self-service application access management in Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
+- [Setting up self-service application access management in Azure Active Directory](../enterprise-users/groups-self-service-management.md)
 
 ### Traffic from unexpected locations
 

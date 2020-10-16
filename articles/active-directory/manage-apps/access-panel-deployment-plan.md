@@ -220,7 +220,7 @@ Approval workflows are available for explicit approval to access applications. U
 
 You can enable users to create and manage their own security groups or Microsoft 365 groups in Azure AD. The owner of the group can approve or deny membership requests and delegate control of group membership. Self-service group management features aren't available for mail-enabled security groups or distribution lists.
 
-To plan for self-service group membership, determine if you'll allow all users in your organization to create and manage groups or only a subset of users. If you're allowing a subset of users, you'll need to set up a group to which those people are added. See [Set up self-service group management in Azure Active Directory](../users-groups-roles/groups-self-service-management.md) for details on enabling these scenarios.
+To plan for self-service group membership, determine if you'll allow all users in your organization to create and manage groups or only a subset of users. If you're allowing a subset of users, you'll need to set up a group to which those people are added. See [Set up self-service group management in Azure Active Directory](../enterprise-users/groups-self-service-management.md) for details on enabling these scenarios.
 
 ## Plan reporting and auditing
 
