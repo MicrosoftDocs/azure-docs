@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/30/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 ---
 
@@ -224,6 +224,13 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 5.	Create Virtual Machine 1 (**hanadb1**). 
 6.	Create Virtual Machine 2 (**hanadb2**).  
 7.	While creating virtual machine, we will not be adding any disk as all our mount points will be on NFS shares from Azure NetApp Files. 
+
+> [!IMPORTANT]
+> Floating IP is not supported for a secondary IP configuration on a NIC in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). If you need additional IP address for the VM, deploy a second NIC.    
+
+> [!NOTE] 
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
+
 8.	If using standard load balancer, follow these configuration steps:
 	1.	First, create a front-end IP pool:
 		1.	Open the load balancer, select **frontend IP pool**, and select **Add**.
@@ -252,8 +259,6 @@ First you need to create the Azure NetApp Files volumes. Then do the following s
 		1.	Make sure to **enable Floating IP**.
 		1.	Select **OK**.
 
-> [!NOTE] 
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).
 
 9. Alternatively, if your scenario dictates using basic load balancer, follow these configuration steps:
 	1.	Configure the load balancer. First, create a front-end IP pool:
