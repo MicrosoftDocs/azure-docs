@@ -1,8 +1,9 @@
 ---
 title: Create a container in Azure Cosmos DB Gremlin API
-description: Learn how to create a container in Azure Cosmos DB API for MongoDB by using Azure portal, .NET, Java, Python, Node.js, and other SDKs. 
+description: Learn how to create a container in Azure Cosmos DB Gremlin API by using Azure portal, .NET and other SDKs. 
 author: markjbrown
-ms.service: cosmosdb-graph
+ms.service: cosmos-db
+ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown 

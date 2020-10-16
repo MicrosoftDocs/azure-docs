@@ -3,6 +3,7 @@ title: Create a container in Azure Cosmos DB SQL API
 description: Learn how to create a container in Azure Cosmos DB SQL API by using Azure portal, .NET, Java, Python, Node.js, and other SDKs. 
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown 
