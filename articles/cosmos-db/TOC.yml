@@ -656,7 +656,9 @@
             href: cassandra-migrate-cosmos-db-blitzz.md
         - name: Change feed
           href: cassandra-change-feed.md
-        - name: Provision throughput- Cassandra
+        - name: Create a container - Cassandra API
+          href: how-to-create-container-cassandra.md
+        - name: Provision throughput- Cassandra API
           displayName: request units, RUs, RU, collection level
           href: how-to-provision-throughput-cassandra.md
         - name: Find request unit charge
@@ -782,7 +784,9 @@
           href: mongodb-change-streams.md
         - name: Manage data indexing
           href: mongodb-indexing.md
-        - name: Provision throughput- MongoDB
+        - name: Create a container - MongoDB API
+          href: how-to-create-container-mongodb.md
+        - name: Provision throughput- MongoDB API
           displayName: request units, RUs, RU, collection level
           href: how-to-provision-throughput-mongodb.md
         - name: Find request unit charge
@@ -849,7 +853,9 @@
           href: bulk-executor-graph-dotnet.md
         - name: Optimize Gremlin queries
           href: graph-execution-profile.md
-        - name: Provision throughput- Gremlin
+        - name: Create a container - Gremlin API
+          href: how-to-create-container-gremlin.md
+        - name: Provision throughput- Gremlin API
           displayName: request units, RUs, RU, collection level
           href: how-to-provision-throughput-gremlin.md
         - name: Find request unit charge
@@ -934,6 +940,8 @@
         items:
         - name: Build apps with Table API
           href: table-support.md
+        - name: Create a container - Table API
+          href: how-to-create-container-table.md
         - name: Find request unit charge
           displayName: request units, RUs, RU, charge, consumption
           href: find-request-unit-charge-table.md
@@ -1028,7 +1036,7 @@
           href: storage-explorer.md
         - name: Work with data using Azure Cosmos explorer
           href: data-explorer.md
-      - name: Create a container
+      - name: Create a container - SQL API
         href: how-to-create-container.md
       - name: Create a container with large partition key
         href: large-partition-keys.md
