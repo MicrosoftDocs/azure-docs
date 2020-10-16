@@ -15,7 +15,7 @@ ms.date: 10/16/2020
 This document covers how to set up a local Linux Service Fabric cluster on a Windows development machine. Setting up a local Linux cluster is useful to quickly test applications targeted for Linux clusters but are developed on a Windows machine.
 
 ## Prerequisites
-Linux-based Service Fabric clusters do not run on Windows, but to enable cross-platform prototyping we have provided a Linux Service Fabric onebox cluster docker container which may be deployed via Docker for Windows.
+Linux-based Service Fabric clusters do not run on Windows, but to enable cross-platform prototyping we have provided a Linux Service Fabric one box cluster docker container, which may be deployed via Docker for Windows.
 
 Before you get started, you need:
 
@@ -79,7 +79,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
     >[!TIP]
     > By default, this will pull the image with the latest version of Service Fabric. For particular revisions, please visit the [Docker Hub](https://hub.docker.com/r/microsoft/service-fabric-onebox/) page.
 
-    To build your reusable image from the `Dockerfile` open a terminal and `cd` to the directly holding your `Dockerfile` then run:
+    To build your reusable image from the `Dockerfile`, open a terminal and `cd` to the directly holding your `Dockerfile` then run:
 
     ```powershell 
     docker build -t mysfcluster .
