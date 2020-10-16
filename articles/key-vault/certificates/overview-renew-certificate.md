@@ -21,12 +21,20 @@ By using short-lived certificates or by increasing the frequency of certificate 
 
 This article discusses how to renew your Azure Key Vault certificates.
 
-## Get notified about certificate expirations
-To be notified when your certificates are about to expire, do the following:
+## Get notified about certificate expiration
+To get notified about certificate life events, you would need to add certificate contact. Certificate contacts contain contact information to send notifications triggered by certificate lifetime events. The contacts information is shared by all the certificates in the key vault. A notification is sent to all the specified contacts for an event for any certificate in the key vault.
 
-First, add a certificate contact to your key vault by using the PowerShell cmdlet [Add-AzureKeyVaultCertificateContact](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
+### Steps to set certificate notifications:
+First, add a certificate contact to your key vault. You can add using Azure portal or PowerShell cmdlet [`Add-AzureKeyVaultCertificateContact`](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultcertificatecontact?view=azurermps-6.13.0).
 
 Second, configure when you want to be notified about the certificate expiration. To configure the lifecycle attributes of the certificate, see [Configure certificate autorotation in Key Vault](https://docs.microsoft.com/azure/key-vault/certificates/tutorial-rotate-certificates#update-lifecycle-attributes-of-a-stored-certificate).
+
+If a certificate's policy is set to auto renewal, then a notification is sent on the following events.
+
+- Before certificate renewal
+- After certificate renewal, stating if the certificate was successfully renewed, or if there was an error, requiring manual renewal of the certificate.  
+
+  When a certificate policy that is set to be manually renewed (email only), a notification is sent when it's time to renew the certificate.  
 
 In Key Vault, there are three categories of certificates:
 -	Certificates that are created with an integrated certificate authority (CA), such as DigiCert or GlobalSign
