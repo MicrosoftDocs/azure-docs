@@ -535,7 +535,7 @@ Learn more about these two new recommendations in the [Compute and app recommend
 
 Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
-Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
+Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage-vm-extensions.md).
 
 
 ### New policies to create continuous export and workflow automation configurations at scale
