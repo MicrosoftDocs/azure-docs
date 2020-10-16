@@ -14,13 +14,11 @@ VM extensions can be added to an Azure Resource Manager template and executed wi
 >[!NOTE]
 >While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
 
-## Azure Resource Manager templates
-
-### Deploy the Log Analytics VM extension
+## Deploy the Log Analytics VM extension
 
 To easily deploy the Log Analytics agent, the following sample is provided to install the agent on either Windows or Linux.
 
-#### Template file for Linux
+### Template file for Linux
 
 ```json
 {
@@ -61,7 +59,7 @@ To easily deploy the Log Analytics agent, the following sample is provided to in
 }
 ```
 
-#### Template file for Windows
+### Template file for Windows
 
 ```json
 {
@@ -103,7 +101,7 @@ To easily deploy the Log Analytics agent, the following sample is provided to in
 }
 ```
 
-#### Parameter file
+### Parameter file
 
 ```json
 {
@@ -132,7 +130,7 @@ Save the template and parameter files to disk, and edit the parameter file with 
 New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateFile "D:\Azure\Templates\LogAnalyticsAgentWin.json" -TemplateParameterFile "D:\Azure\Templates\LogAnalyticsAgentWinParms.json"
 ```
 
-### Deploy the Custom Script Extension
+## Deploy the Custom Script Extension
 
 To use the Custom Script Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script Extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
@@ -144,7 +142,7 @@ To use the Custom Script Extension, the following sample is provided to run on W
 
 The Custom Script Extension configuration specifies things like script location and the command to be run. This configuration is specified in an Azure Resource Manager template, provided below for both Linux and Windows hybrid machines.
 
-#### Template file for Linux
+### Template file for Linux
 
 ```json
 {
@@ -185,7 +183,7 @@ The Custom Script Extension configuration specifies things like script location 
 }
 ```
 
-#### Template file for Windows
+### Template file for Windows
 
 ```json
 {
@@ -234,7 +232,7 @@ The Custom Script Extension configuration specifies things like script location 
 }
 ```
 
-#### Parameter file
+### Parameter file
 
 ```json
 {
@@ -288,7 +286,7 @@ The Custom Script Extension configuration specifies things like script location 
 }
 ```
 
-### Deploy the PowerShell DSC Extension
+## Deploy the PowerShell DSC Extension
 
 To use the PowerShell DSC Extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the PowerShell DSC extension, see [DSC extension handler overview](../../virtual-machines/extensions/dsc-overview.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
@@ -296,7 +294,7 @@ To use the PowerShell DSC Extension, the following sample is provided to run on 
 
 * If your machines need to download a script externally and can only communicate through a proxy server, you need to [configure the Connected Machine agent](manage-agent.md#update-or-remove-proxy-settings) to set the proxy server environmental variable.
 
-#### Template file for Linux
+### Template file for Linux
 
 ```json
 {
@@ -373,7 +371,7 @@ To use the PowerShell DSC Extension, the following sample is provided to run on 
 }
 ```
 
-#### Template file for Windows
+### Template file for Windows
 
 ```json
 {
@@ -447,7 +445,7 @@ To use the PowerShell DSC Extension, the following sample is provided to run on 
 }
 ```
 
-#### Parameter file
+### Parameter file
 
 ```json
 {
@@ -540,11 +538,11 @@ To use the PowerShell DSC Extension, the following sample is provided to run on 
 }
 ```
 
-### Dependency agent
+## Dependency agent
 
 To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/platform/agents-overview.md#dependency-agent).
 
-#### Template file for Linux
+### Template file for Linux
 
 ```json
 {
@@ -582,7 +580,7 @@ To use the Azure Monitor Dependency agent extension, the following sample is pro
 }
 ```
 
-#### Template file for Windows
+### Template file for Windows
 
 ```json
 {
