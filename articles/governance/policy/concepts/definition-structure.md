@@ -733,8 +733,8 @@ The following functions are only available in policy rules:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
   - **dateTime**: [Required] string - String in the Universal ISO 8601 DateTime format
-    `yyyy-MM-ddTHH:mm:ss.fffffffZ`.
-  - **numberOfDaysToAdd**: [Required] integer - Number of days to add.
+    'yyyy-MM-ddTHH:mm:ss.FFFFFFFZ'
+  - **numberOfDaysToAdd**: [Required] integer - Number of days to add
 - `field(fieldName)`
   - **fieldName**: [Required] string - Name of the [field](#fields) to retrieve
   - Returns the value of that field from the resource that is being evaluated by the If condition.

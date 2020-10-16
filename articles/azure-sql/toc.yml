@@ -904,6 +904,24 @@
               href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: Tips for using R packages
               href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+        - name: Administration
+          items:
+          - name: Monitor
+            items:
+            - name: Monitor using SSMS reports
+              href: https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-custom-reports-management-studio?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Monitor using DMVs
+              href: https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-dynamic-management-views?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Extended events
+              items:
+              - name: Monitor using extended events
+                href: https://docs.microsoft.com/sql/machine-learning/administration/extended-events?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              - name: Monitor PREDICT T-SQL
+                href: https://docs.microsoft.com/sql/machine-learning/administration/extended-events-predict-tsql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+        - name: Security
+          items:
+          - name: Give users permission
+            href: https://docs.microsoft.com/sql/machine-learning/security/user-permission?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
 
     - name: Features
       items:
