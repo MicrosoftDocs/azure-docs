@@ -47,7 +47,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. The **New Java Project** wizard starts. **Browse** for the location of the sample project. Select **Finish**.
 
-   ![Screenshot of New Java Project wizard](../media/speech-devices-sdk/eclipse-new-java-project.png)
+   ![Screenshot that shows the New Java Project wizard.](../media/speech-devices-sdk/eclipse-new-java-project.png)
 
 1. In the **Package explorer**, right-click your project. Choose **Configure** > **Convert to Maven Project** from the context menu. Select **Finish**.
 
@@ -122,7 +122,7 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 
 1. The Speech Devices SDK example application starts and displays the following options:
 
-   ![Sample Speech Devices SDK example application and options](../media/speech-devices-sdk/java-sample-app-windows.png)
+   ![Screenshot of a sample Speech Devices SDK application and options.](../media/speech-devices-sdk/java-sample-app-windows.png)
 
 1. Try the new **Conversation Transcription** demo. Start transcribing with **Session** > **Start**. By default everyone is a guest. However, if you have participant's voice signatures they can be put into a file `participants.properties` in the project folder **target/classes**. To generate the voice signature, look at [Transcribe conversations (SDK)](../how-to-use-conversation-transcription-service.md).
 

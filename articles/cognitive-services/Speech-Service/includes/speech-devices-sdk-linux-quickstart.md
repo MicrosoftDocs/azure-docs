@@ -167,11 +167,11 @@ If you plan to use the intents you'll need a [Language Understanding Service (LU
 1. In the **Package explorer**, right-click your project. Choose **Export**. 
 1. The **Export** window appears. Expand **Java** and select **Runnable JAR file** and then select **Next**.
 
-   ![Screenshot of the Export window](../media/speech-devices-sdk/eclipse-export-linux.png) 
+   ![Screenshot that shows the Export window.](../media/speech-devices-sdk/eclipse-export-linux.png) 
 
 1. The **Runnable JAR File Export** window appears. Choose an **Export destination** for the application, and then select **Finish**.
  
-   ![Screenshot of Runnable JAR File Export](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
+   ![Screenshot that shows the Runnable JAR File Export window.](../media/speech-devices-sdk/eclipse-export-jar-linux.png)
 
 1. Please put `kws.table` and `participants.properties` in the destination folder chosen above as these files are needed by the application.
 
