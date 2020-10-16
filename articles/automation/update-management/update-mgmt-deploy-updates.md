@@ -3,13 +3,19 @@ title: How to create update deployments for Azure Automation Update Management
 description: This article describes how to schedule update deployments and review their status.
 services: automation
 ms.subservice: update-management
-ms.date: 08/20/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ---
 
 # How to deploy updates and review results
 
-This article describes how to schedule an update deployment and review the process after the deployment is complete.
+This article describes how to schedule an update deployment and review the process after the deployment is complete. You can configure an update deployment from a selected Azure virtual machine, from the selected Arc enabled server, or from the Automation account across all configured machines and servers.
+
+Under each scenario, the deployment you create targets that selected machine or server, or in the case of creating a deployment from your Automation account, you can target one or more machines. When you schedule an update deployment from an Azure VM or Arc enabled server, the steps are the same as deploying from your Automation account, with the following exceptions:
+
+* The operating system is automatically pre-selected based on the OS of the machine
+* The target machine to update is set to target itself automatically
+* When configuring the schedule, you can specify **Update now**, occurs once, or uses a recurring schedule.
 
 ## Sign in to the Azure portal
 
@@ -17,28 +23,47 @@ Sign in to the [Azure portal](https://portal.azure.com)
 
 ## Schedule an update deployment
 
-Scheduling an update deployment creates a [schedule](../shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machines. You must schedule a deployment that follows your release schedule and service window to install updates. You can choose the update types to include in the deployment. For example, you can include critical or security updates and exclude update rollups.
+Scheduling an update deployment creates a [schedule](../shared-resources/schedules.md) resource linked to the **Patch-MicrosoftOMSComputers** runbook that handles the update deployment on the target machine or machines. You must schedule a deployment that follows your release schedule and service window to install updates. You can choose the update types to include in the deployment. For example, you can include critical or security updates, and exclude update rollups.
 
 >[!NOTE]
 >If you delete the schedule resource from the Azure portal or using PowerShell after creating the deployment, the deletion breaks the scheduled update deployment and presents an error when you attempt to reconfigure the schedule resource from the portal. You can only delete the schedule resource by deleting the corresponding deployment schedule.  
 
-To schedule a new update deployment:
+To schedule a new update deployment, perform the following steps. Depending on the resource selected (that is, Automation account, Arc enabled server, Azure VM), the steps below apply to all with minor differences while configuring the deployment schedule.
 
-1. In your Automation account, go to **Update management** under **Update management**, and then select **Schedule update deployment**.
+1. In the portal, to schedule a deployment for:
 
-2. Under **New update deployment**, in the **Name** field enter a unique name for your deployment.
+   * One or more machines, navigate to **Automation accounts** and select your Automation account with Update Management enabled from the list.
+   * For an Azure VM, navigate to **Virtual machines** and select your VM from the list.
+   * For an Arc enabled server, navigate to **Servers - Azure Arc** and select your server from the list.
 
-3. Select the operating system to target for the update deployment.
+2. Depending on the resource you selected, to navigate to Update Management:
 
-4. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](update-mgmt-groups.md).
+   * If you selected your Automation account, go to **Update management** under **Update management**, and then select **Schedule update deployment**.
+   * If you selected an Azure VM, go to **Guest + host updates**, and then select **Go to Update Management**.
+   * If you selected an Arc enabled server, go to **Update Management**, and then select **Schedule update deployment**.
 
-5. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md).
+3. Under **New update deployment**, in the **Name** field enter a unique name for your deployment.
 
-6. Use the **Update classifications** region to specify [update classifications](update-mgmt-view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
+4. Select the operating system to target for the update deployment.
+
+    > [!NOTE]
+    > This option is not available if you selected an Azure VM or Arc enabled server. The operating system is automatically identified.
+
+5. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](update-mgmt-groups.md).
+
+    > [!NOTE]
+    > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
+
+6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/platform/computer-groups.md). You can include up to a maximum of 500 machines in a scheduled update deployment.
+
+    > [!NOTE]
+    > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
+
+7. Use the **Update classifications** region to specify [update classifications](update-mgmt-view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
 
     If your deployment is meant to apply only a select set of updates, it is necessary to deselect all the pre-selected update classifications when configuring the **Include/exclude updates** option as described in the next step. This ensures only the updates you have specified to *include* in this deployment are installed on the target machines.
 
-7. Use the **Include/exclude updates** region to add or exclude selected updates from the deployment. On the **Include/Exclude** page, you enter KB article ID numbers to include or exclude.
+8. Use the **Include/exclude updates** region to add or exclude selected updates from the deployment. On the **Include/Exclude** page, you enter KB article ID numbers to include or exclude.
 
    > [!IMPORTANT]
    > Remember that exclusions override inclusions. For instance, if you define an exclusion rule of `*`, Update Management excludes all patches or packages from the installation. Excluded patches still show as missing from the machines. For Linux machines, if you include a package that has a dependent package that has been excluded, Update Management doesn't install the main package.
@@ -46,23 +71,26 @@ To schedule a new update deployment:
    > [!NOTE]
    > You can't specify updates that have been superseded to include in the update deployment.
 
-8. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
+9. Select **Schedule settings**. The default start time is 30 minutes after the current time. You can set the start time to any time from 10 minutes in the future.
 
-9. Use the **Recurrence** field to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
+    > [!NOTE]
+    > This option is different if you selected an Arc enabled server. You can select **Update now** or a start time 20 minutes into the future.
 
-10. In the **Pre-scripts + Post-scripts (Preview)** region, select the scripts to run before and after your deployment. To learn more, see [Manage pre-scripts and post-scripts](update-mgmt-pre-post-scripts.md).
-    
-11. Use the **Maintenance window (minutes)** field to specify the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window:
+10. Use the **Recurrence** to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
+
+11. In the **Pre-scripts + Post-scripts (Preview)** region, select the scripts to run before and after your deployment. To learn more, see [Manage pre-scripts and post-scripts](update-mgmt-pre-post-scripts.md).
+
+12. Use the **Maintenance window (minutes)** field to specify the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window:
 
     * Maintenance windows control how many updates are installed.
     * Update Management doesn't stop installing new updates if the end of a maintenance window is approaching.
-    * Update Management doesn't terminate in-progress updates if the maintenance window is exceeded.
+    * Update Management doesn't terminate in-progress updates if the maintenance window is exceeded. Any remaining updates to be installed are not attempted. If this is consistently happening, you should reevaluate the duration of your maintenance window.
     * If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
 
     > [!NOTE]
     > To avoid updates being applied outside of a maintenance window on Ubuntu, reconfigure the `Unattended-Upgrade` package to disable automatic updates. For information about how to configure the package, see the [Automatic updates topic in the Ubuntu Server Guide](https://help.ubuntu.com/lts/serverguide/automatic-updates.html).
 
-12. Use the **Reboot options** field to specify the way to handle reboots during deployment. The following options are available: 
+13. Use the **Reboot options** field to specify the way to handle reboots during deployment. The following options are available: 
     * Reboot if necessary (default)
     * Always reboot
     * Never reboot
@@ -71,11 +99,14 @@ To schedule a new update deployment:
     > [!NOTE]
     > The registry keys listed under [Registry keys used to manage restart](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) can cause a reboot event if **Reboot options** is set to **Never reboot**.
 
-13. When you're finished configuring the deployment schedule, select **Create**.
+14. When you're finished configuring the deployment schedule, select **Create**.
 
     ![Update Schedule Settings pane](./media/update-mgmt-deploy-updates/manageupdates-schedule-win.png)
 
-14. You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule that you've created.
+    > [!NOTE]
+    > When you're finished configuring the deployment schedule for a selected Arc enabled server, select **Review + create**.
+
+15. You're returned to the status dashboard. Select **Deployment schedules** to show the deployment schedule that you've created.
 
 ## Schedule an update deployment programmatically
 
@@ -85,7 +116,7 @@ You can use a sample runbook to create a weekly update deployment. To learn more
 
 ## Check deployment status
 
-After your scheduled deployment starts, you can see its status on the **Update deployments** tab under **Update management**. The status is **In progress** when the deployment is currently running. When the deployment ends successfully, the status changes to **Succeeded**. If there are failures with one or more updates in the deployment, the status is **Partially failed**.
+After your scheduled deployment starts, you can see its status on the **History** tab under **Update management**. The status is **In progress** when the deployment is currently running. When the deployment ends successfully, the status changes to **Succeeded**. If there are failures with one or more updates in the deployment, the status is **Failed**.
 
 ## View results of a completed update deployment
 

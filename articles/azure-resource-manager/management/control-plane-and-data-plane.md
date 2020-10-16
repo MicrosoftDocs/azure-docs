@@ -35,7 +35,7 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 Azure Resource Manager handles all control plane requests. It automatically applies the Azure features you've implemented to manage your resources, such as:
 
-* [Azure Role-based Access Control (RBAC)](../../role-based-access-control/overview.md)
+* [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md)
 * [Azure Policy](../../governance/policy/overview.md)
 * [Management Locks](lock-resources.md)
 * [Activity Logs](view-activity-logs.md)

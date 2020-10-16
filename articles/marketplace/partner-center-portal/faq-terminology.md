@@ -40,6 +40,7 @@ If you're receiving this message, it means  you have analytics data but there is
 | Azure License Type: Enterprise | Customer, Order | The end customer procures Azure and your Marketplace offer through an Enterprise Agreement, signed directly with Microsoft.|
 | Azure License Type: Enterprise through Reseller  | Customer, Order | The end customer procures Azure and your Marketplace offer through a reseller who facilitates their Enterprise Agreement with Microsoft.|
 | Azure License Type: Pay as You Go| Customer, Order | The end customer procures Azure and your Marketplace offer through a "Pay as You Go" agreement, signed directly with Microsoft.|
+| Billing Account ID| Customer, Order, Usage| The identifier of the account on which billing is generated. Map **Billing Account ID** to **customerID** to connect your Payout Transaction Report with the Customer, Order, and Usage Reports.|
 | Cloud Instance Name| Order| The Microsoft Cloud in which a VM deployment occurred.|
 | Cloud Instance Name: Azure Global| Order| The public global Microsoft cloud.|
 | Cloud Instance Name: Azure Government | Order| Government-specific Microsoft clouds for one of the following governments: China, Germany, or The United States of America.| |

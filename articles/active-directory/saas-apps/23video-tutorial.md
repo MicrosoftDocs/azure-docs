@@ -135,11 +135,11 @@ The objective of this section is to create a user called B.Simon in 23 Video.
 
 3. In **Users** section, click **Configure**.
 
-    ![Assign User](./media/23video-tutorial/tutorial-23video-10.png)
+    ![Screenshot that highlights the Users section.](./media/23video-tutorial/tutorial-23video-10.png)
 
 4. Click **Add a new user**.
 
-    ![Assign User](./media/23video-tutorial/tutorial-23video-11.png)
+    ![Screenshot that highlights the Add a new user button.](./media/23video-tutorial/tutorial-23video-11.png)
 
 5. In the **Invite someone to join this site** section, perform the following steps:
 

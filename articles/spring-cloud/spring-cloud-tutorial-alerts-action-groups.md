@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Tutorial: How to monitor Spring Cloud resources using alerts and action groups
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 Azure Spring Cloud alerts support monitoring resources based on conditions such as available storage, rate of requests, or data usage. An alert sends notification when rates or conditions meet the defined specifications.
 
 There are two steps to set up an alert pipeline: 
@@ -53,11 +55,11 @@ On the **Add action group** page:
 
 ## Set up Alert 
 
-The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, Azure functions, etc.  
+The previous steps created an **Action Group** that uses email. You could also use phone notification, webhooks, Azure functions, and so forth. The following steps configure an **Alert**.
 
-To configure an **Alert**, navigate back to the **Alerts** page, and click **Manage Alert Rules**.
+1. navigate back to the **Alerts** page, and click **Manage Alert Rules**.
 
-  ![Screenshot Portal define alert](media/alerts-action-groups/alerts-2.png)
+   ![Screenshot Portal define alert](media/alerts-action-groups/alerts-2.png)
 
 1. Select the **Resource** for the alert.
 
@@ -79,9 +81,9 @@ To configure an **Alert**, navigate back to the **Alerts** page, and click **Man
 
 1. Click **Done**.
 
-For details of the conditions available to monitor, see [User portal metrics options](spring-cloud-concept-metrics.md#user-metrics-options).
+   For details of the conditions available to monitor, see [User portal metrics options](spring-cloud-concept-metrics.md#user-metrics-options).
 
- Under **ACTIONS**, click **Select action group**. From **ACTIONS** pane select the previously defined **Action Group**.
+1. Under **ACTIONS**, click **Select action group**. From the **ACTIONS** pane select the previously defined **Action Group**.
 
    ![Screenshot Portal new alert rule 4](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -93,20 +95,20 @@ For details of the conditions available to monitor, see [User portal metrics opt
 
    ![Screenshot Portal new alert rule 5](media/alerts-action-groups/alerts-3-4.png)
 
-Verify that the new alert rule is enabled.
+1. Verify that the new alert rule is enabled.
 
    ![Screenshot Portal new alert rule 6](media/alerts-action-groups/alerts-4.png)
 
 A rule can also be created using the **Metrics** page:
 
-   ![Screenshot Portal new alert rule 7](media/alerts-action-groups/alerts-5.png)
+![Screenshot Portal new alert rule 7](media/alerts-action-groups/alerts-5.png)
 
 ## Next steps
 
 In this tutorial you learned how to set up alerts and action groups for an Azure Spring Cloud application. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
-> [Create and manage action groups in the Azure portal](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
+> [Create and manage action groups in the Azure portal](../azure-monitor/platform/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [SMS Alert Behavior in Action Groups](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
+> [SMS Alert Behavior in Action Groups](../azure-monitor/platform/alerts-sms-behavior.md)

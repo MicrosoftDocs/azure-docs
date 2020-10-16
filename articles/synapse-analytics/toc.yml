@@ -26,6 +26,8 @@
       href: get-started-visualize-power-bi.md
     - name: 8 Monitor
       href: get-started-monitor.md
+    - name: 9 Explore the Knowledge Center
+      href: get-started-knowledge-center.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -68,6 +70,8 @@
     href: quickstart-sql-on-demand.md
   - name: Connect to Synapse Link for Cosmos DB
     href: quickstart-connect-synapse-link-cosmos-db.md
+  - name: Connect to Azure Data Explorer
+    href: quickstart-connect-azure-data-explorer.md
 - name: Tutorials
   items:
   - name: Run Apache Spark applications
@@ -78,8 +82,6 @@
     href: ./sql/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
-    - name: Run a regression experiment using Azure AutoML
-      href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: Create a classification model using Apache Spark MLlib
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md 
   - name: Data Analyst
@@ -212,6 +214,8 @@
         href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Expression language
         href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Differences from Azure Data Factory
+      href: ./data-integration/concepts-data-factory-differences.md
   - name: Spark
     items:
     - name: Overview
@@ -386,6 +390,24 @@
       href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link use cases
       href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+  - name: Machine Learning
+    items:
+    - name: Overview
+      items:
+      - name: What is machine learning in Synapse Analytics?
+        href: machine-learning/what-is-machine-learning.md
+    - name: Quickstarts
+      items:
+      - name: Create a new Azure Machine Learning linked service
+        href: machine-learning/quickstart-integrate-azure-machine-learning.md
+    - name: Tutorials
+      items:
+      - name: Model scoring wizard for SQL pools
+        href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+      - name: Run a regression experiment using Azure AutoML (Scoring in DW)
+        href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+
+
   - name: Tools integration (AI, ETL, BI)
     items:
     - name: Troubleshoot Synapse Studio
@@ -480,7 +502,11 @@
         href: ../cosmos-db/configure-synapse-link.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Connect to Azure Synapse Link for Cosmos DB
         href: ./synapse-link/how-to-connect-synapse-link-cosmos-db.md
-      - name: Query Azure Cosmos DB analytical store with Apache Spark for Azure Synapse Analytics
+      - name: Use Power BI and serverless SQL pool to analyze Azure Cosmos DB
+        href: ../cosmos-db/synapse-link-power-bi.mdtoc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Query Azure Cosmos DB data with serverless SQL pool
+        href: ./sql/query-cosmos-db-analytical-store.md
+      - name: Query Azure Cosmos DB analytical store with Apache Spark
         href: ./synapse-link/how-to-query-analytical-store-spark.md
       - name: Copy data from Synapse Link into a SQL pool using Apache Spark
         href: ./synapse-link/how-to-copy-to-sql-pool.md
@@ -534,6 +560,8 @@
         href: ../data-factory/data-flow-new-branch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Pivot
         href: ../data-factory/data-flow-pivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Rank
+        href: ../data-factory/data-flow-rank.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Select
         href: ../data-factory/data-flow-select.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Sink
@@ -671,6 +699,8 @@
         items:
         - name: MongoDB (legacy)
           href: ../data-factory/connector-mongodb-legacy.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: MongoDB Atlas
+        href: ../data-factory/connector-mongodb-atlas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: MySQL
         href: ../data-factory/connector-mysql.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Netezza

@@ -1,5 +1,5 @@
 ---
-title: Build ML models with the designer (preview)
+title: Build ML models with the designer
 titleSuffix: Azure Machine Learning
 description: Learn about the terms, concepts, and workflow that makes up the designer for Azure Machine Learning.
 services: machine-learning
@@ -12,8 +12,8 @@ ms.date: 06/28/2020
 ms.custom: designer
 ---
 
-# What is Azure Machine Learning designer (preview)? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# What is Azure Machine Learning designer? 
+
 
 Azure Machine Learning designer lets you visually connect [datasets](#datasets) and [modules](#module) on an interactive canvas to create machine learning models. To learn how to get started with the designer, see [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 
@@ -113,5 +113,5 @@ The designer creates the same [PublishedPipeline](https://docs.microsoft.com/pyt
 
 ## Next steps
 
-* Learn the basics of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
+* Learn the fundamentals of predictive analytics and machine learning with [Tutorial: Predict automobile price with the designer](tutorial-designer-automobile-price-train-score.md)
 * Learn how to modify existing [designer samples](samples-designer.md) to adapt them to your needs.

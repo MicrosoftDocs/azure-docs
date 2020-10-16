@@ -6,11 +6,11 @@ ms.service: sql-database
 ms.subservice: elastic-pools
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: reference
 author: oslake
 ms.author: moslake
-ms.reviewer: carlrab, sstein
-ms.date: 07/21/2020
+ms.reviewer: sstein
+ms.date: 10/15/2020
 ---
 # Resource limits for elastic pools using the vCore purchasing model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -48,7 +48,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup> |400|800|1200|1600|2000|2400|
-|Max log rate per pool (MBps)|4.7|9.4|14.1|18.8|23.4|28.1|
+|Max log rate per pool (MBps)|6|12|18|24|30|36|
 |Max concurrent workers per pool (requests) <sup>3</sup> |210|420|630|840|1050|1260|
 |Max concurrent logins per pool <sup>3</sup> |210|420|630|840|1050|1260|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -80,7 +80,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|2800|3200|3600|4000|6400|9600|
-|Max log rate per pool (MBps)|32.8|37.5|37.5|37.5|37.5|37.5|
+|Max log rate per pool (MBps)|42|48|48|48|48|48|
 |Max concurrent workers per pool (requests) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Max concurrent logins pool (requests) <sup>3</sup>|1470|1680|1890|2100|3360|5040|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -114,7 +114,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|800|1600|2400|3200|4000|4800|5600|
-|Max log rate per pool (MBps)|9.4|18.8|28.1|37.5|37.5|37.5|37.5|
+|Max log rate per pool (MBps)|12|24|36|48|48|48|48|
 |Max concurrent workers per pool (requests) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Max concurrent logins per pool (requests) <sup>3</sup>|210|420|630|840|1050|1260|1470|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -146,7 +146,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup> |6,400|7,200|8,000|9,600|12,800|16,000|16,000|
-|Max log rate per pool (MBps)|37.5|37.5|37.5|37.5|37.5|37.5|37.5|
+|Max log rate per pool (MBps)|48|48|48|48|48|48|48|
 |Max concurrent workers per pool (requests) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent logins per pool (requests) <sup>3</sup>|1680|1890|2100|2520|3360|4200|8400|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|30,000|
@@ -180,7 +180,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|2560|3200|3840|4480|5120|
-|Max log rate per pool (MBps)|30|30|30|30|30|
+|Max log rate per pool (MBps)|48|48|48|48|48|
 |Max concurrent workers per pool (requests) <sup>3</sup>|400|500|600|700|800|
 |Max concurrent logins per pool (requests) <sup>3</sup>|800|1000|1200|1400|1600|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|
@@ -213,7 +213,7 @@ You can set the service tier, compute size (service objective), and storage amou
 |Storage type|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|Remote SSD|
 |IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
 |Max data IOPS per pool <sup>2</sup>|5760|6400|7680|10240|11520|23040|
-|Max log rate per pool (MBps)|30|30|30|30|30|30|
+|Max log rate per pool (MBps)|48|48|48|48|48|48|
 |Max concurrent workers per pool (requests) <sup>3</sup>|900|1000|1200|1600|1800|3600|
 |Max concurrent logins per pool (requests) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
 |Max concurrent sessions|30,000|30,000|30,000|30,000|30,000|30,000|

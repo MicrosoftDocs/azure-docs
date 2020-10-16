@@ -23,7 +23,7 @@ In a scenario where your VMs are deployed as *single instance* into a specific r
 - Move VMs in an availability set into Availability Zones in a target region
 
 > [!IMPORTANT]
-> To move Azure VMs to an availability zone in a different region region, we now recommend using [Azure Resource Mover](../resource-mover/move-region-availability-zone.md). Resource Mover is in public preview and provides:
+> To move Azure VMs to an availability zone in a different region, we now recommend using [Azure Resource Mover](../resource-mover/move-region-availability-zone.md). Resource Mover is in public preview and provides:
 > - A single hub for moving resources across regions.
 > - Reduced move time and complexity. Everything you need is in a single location.
 > - A simple and consistent experience for moving different types of Azure resources.

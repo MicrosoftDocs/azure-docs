@@ -1,7 +1,7 @@
 ---
 title: Built-in policy definitions for Azure API Management
 description: Lists Azure Policy built-in policy definitions for Azure API Management. These built-in policy definitions provide approaches to managing your Azure resources.
-ms.date: 09/10/2020
+ms.date: 10/07/2020
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management

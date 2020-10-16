@@ -11,7 +11,7 @@ manager: cpendle
 ms.custom: 
 ---
 
-# Migrate from Bing Maps to Azure Maps
+# Tutorial - Migrate from Bing Maps to Azure Maps
 
 This guide provides insights on how to migrate web, mobile and server-based applications from Bing Maps to the Azure Maps platform. This guide includes comparative code samples, migration suggestions, and best practices for migrating to Azure Maps.
 
@@ -77,6 +77,15 @@ The following is a high-level migration plan.
 4.  Migrate your application code.
 5.  Test your migrated application.
 6.  Deploy your migrated application to production.
+
+## Create an Azure Maps account
+
+To create an Azure Maps account and get access to the Azure Maps platform, follow these steps:
+
+1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+2. Sign in to the [Azure portal](https://portal.azure.com/).
+3. Create an [Azure Maps account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
+4. [Get your Azure Maps subscription key](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) or setup Azure Active Directory authentication for enhanced security.
 
 ## Azure Maps technical resources
 

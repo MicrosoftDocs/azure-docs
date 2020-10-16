@@ -13,7 +13,7 @@
     - name: Build and run Microservices
       expanded: true 
       items:
-      - name: Introduction to sample apps
+      - name: Introduction to the sample app
         href: spring-cloud-quickstart-sample-app-introduction.md
       - name: Provision Azure Spring Cloud service
         href: spring-cloud-quickstart-provision-service-instance.md
@@ -37,12 +37,10 @@
       href: spring-cloud-tutorial-circuit-breaker.md
     - name: Custom DNS name
       href: spring-cloud-tutorial-custom-domain.md
-    - name: Use IntelliJ to deploy Azure Spring Cloud applications
-      href: spring-cloud-tutorial-intellij-deploy-apps.md
     - name: Provision an Azure Spring Cloud instance with terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
     - name: CI/CD with Jenkins
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
+      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: Use managed identity to connect Key Vault to Azure Spring Cloud app
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Deploy Azure Spring Cloud in virtual network
@@ -94,6 +92,8 @@
     - name: Self diagnose and solve problems
       href: spring-cloud-howto-self-diagnose-solve.md
     - name: Monitor
+    - name: Create roles and permissions
+      href: spring-cloud-howto-permissions.md
       items:
         - name: Distributed tracing and App Insights
           href: spring-cloud-tutorial-distributed-tracing.md
@@ -116,15 +116,15 @@
 - name: Reference
   items: 
     - name: Azure CLI Plugin
-      href: https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud
+      href: /cli/azure/ext/spring-cloud/spring-cloud
     - name: Azure PowerShell
-      href: https://docs.microsoft.com/powershell/module/az.springcloud
+      href: /powershell/module/az.springcloud
     - name: Resources
       href: spring-cloud-resources.md
     - name: Frequently Asked Questions
       href: spring-cloud-faq.md
     - name: REST API reference
-      href: https://docs.microsoft.com/rest/api/azurespringclould/
+      href: /rest/api/azurespringclould/
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

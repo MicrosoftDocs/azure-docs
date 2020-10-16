@@ -12,8 +12,8 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer: carlrab
-  ms.date: 05/27/2020
+  ms.reviewer: sstein
+  ms.date: 10/13/2020
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -52,6 +52,8 @@ landingContent:
             url: migrate-to-database-from-sql-server.md
           - text: T-SQL differences with SQL Server
             url: transact-sql-tsql-differences-sql-server.md
+          - text: Reserved capacity
+            url: reserved-capacity-overview.md
 
   # Card 
   - title: Business continuity  

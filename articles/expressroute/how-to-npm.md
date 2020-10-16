@@ -225,7 +225,7 @@ Once you see the monitoring tiles, your ExpressRoute circuits and connection res
 
 The NPM page contains a page for ExpressRoute that shows an overview of the health of ExpressRoute circuits and peerings.
 
-![Dashboard](./media/how-to-npm/dashboard.png)
+![Screenshot shows a dashboard with an overview of the health of the ExpressRoute circuits and peerings.](./media/how-to-npm/dashboard.png)
 
 ### <a name="circuits"></a>List of circuits
 

@@ -6,7 +6,7 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.custom: "devx-track-python, devx-track-javascript, devx-track-csharp"
+ms.custom: "devx-track-python, devx-track-js, devx-track-csharp"
 ---
 
 # How to connect applications to Azure Database for MariaDB

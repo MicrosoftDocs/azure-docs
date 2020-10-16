@@ -86,6 +86,9 @@ Resource Mover managed identity doesn't have the required role. | Add the 'Contr
 Resource Mover managed identity was reset to *None*. | Reenable a system-assigned identity in the move collection > **Identity**. Alternatively, add the resource again in **Add resources**, which does the same thing.  
 Subscription was moved to a different tenant. | Disable and then enable managed identity for the move collection.
 
+### How can I do multiple moves together?
+
+Change the source/target combinations as needed using the change option in the portal.
 
 ## Next steps
 

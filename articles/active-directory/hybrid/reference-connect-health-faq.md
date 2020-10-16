@@ -123,6 +123,10 @@ You might reimage a server or create a new server with the same details (such as
 
 In this case, manually delete the entry that belongs to the older server. The data for this server should be out of date.
 
+**Q: Can I install the Azure AD Connect health agent on Windows Server Core?**
+
+No.  Installation on Server Core is not supported.
+
 ## Health Agent registration and data freshness
 
 **Q: What are common reasons for the Health Agent registration failures and how do I troubleshoot issues?**
@@ -192,6 +196,7 @@ Please use PowerShell cmdlet <i>Get-AdfsProperties -AuditLevel</i> to ensure aud
 
 **Q: When will the agent certificate be automatic renewed before expiration?**
 The agent certification will be automatic renewed **6 months** before its expiration date. If it is not renewed, please ensure the network connection of the agent is stable. Restart the agent services or update to the latest version may also solve the issue.
+
 
 
 ## Related links

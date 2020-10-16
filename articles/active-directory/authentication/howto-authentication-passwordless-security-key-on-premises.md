@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 03/09/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 
@@ -54,7 +54,7 @@ Organizations must also meet the following software requirements.
 
 The scenario supports single sign-on (SSO) in both of the following scenarios:
 
-- For cloud resources like Office 365 and other SAML enabled applications.
+- For cloud resources like Microsoft 365 and other SAML enabled applications.
 - For on-premises resources, and Windows-Integrated authentication to web sites. The resources can include web sites and SharePoint sites that require IIS Authentication, and / or resources that use NTLM authentication.
 
 ### Unsupported scenarios

@@ -4,7 +4,7 @@
   expanded: true
   items:
   - name: What is Custom Vision?
-    href: home.md
+    href: overview.md
   - name: What's new
     href: whats-new.md
 - name: Quickstarts
@@ -39,7 +39,7 @@
     href: use-prediction-api.md
   - name: Use Smart Labeler
     href: suggested-tags.md
-  - name: Role-based access control
+  - name: Azure role-based access control
     href: role-based-access-control.md
   - name: Export models
     items:

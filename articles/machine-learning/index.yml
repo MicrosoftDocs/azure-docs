@@ -14,7 +14,7 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/17/2020
+  ms.date: 09/21/2020
   ms.custom: contperfq1
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -28,11 +28,13 @@ landingContent:
     linkLists:
       - linkListType: tutorial
         links:
-          - text: Get started (Python)
+          - text: Get started tutorial (Python)
+            url: tutorial-1st-experiment-sdk-setup-local.md
+          - text: Use Jupyter Notebooks tutorial
             url: tutorial-1st-experiment-sdk-setup.md
           - text: Batch inference with ML pipelines (Python)
             url: tutorial-pipeline-batch-scoring-classification.md            
-          - text: Get started (R)
+          - text: Get started with R
             url: tutorial-1st-r-experiment.md
 
 # GET STARTED
@@ -84,3 +86,14 @@ landingContent:
             url: https://docs.microsoft.com/rest/api/azureml/
           - text: Machine learning CLI
             url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
+
+  # Studio (classic) catchall
+  - title: 'Looking for Studio (classic)'
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Studio (classic) landing
+            url: classic/index.yml
+          - text: Studio (classic) vs studio
+            url: overview-what-is-machine-learning-studio.md
+

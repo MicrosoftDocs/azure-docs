@@ -21,7 +21,7 @@ In this tutorial, you create a Data Factory pipeline that showcases some control
 
 This graphic provides an overview of the scenario:
 
-![Overview](media/tutorial-control-flow/overview.png)
+![Diagram shows Azure Blob Storage, which is the target of a copy, which, on success, sends an email with details or, on failure, sends an email with error details.](media/tutorial-control-flow/overview.png)
 
 This tutorial shows you how to do the following tasks:
 

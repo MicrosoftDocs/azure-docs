@@ -1,19 +1,19 @@
 ---
-title: Monitor Key Vault with Azure Monitor for Key Vault (preview)| Microsoft Docs
+title: Monitor Key Vault with Azure Monitor for Key Vault | Microsoft Docs
 description: This article describes the Azure Monitor for Key Vaults. 
 services: azure-monitor 
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/13/2019
+ms.date: 09/10/2020
 
 ---
 
-# Monitoring your key vault service with Azure Monitor for Key Vault (preview)
-Azure Monitor for Key Vault (preview) provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency.
-This article will help you understand how to onboard and customize the experience of Azure Monitor for Key Vault (preview).
+# Monitoring your key vault service with Azure Monitor for Key Vault
+Azure Monitor for Key Vault provides comprehensive monitoring of your key vaults by delivering a unified view of your Key Vault requests, performance, failures, and latency.
+This article will help you understand how to onboard and customize the experience of Azure Monitor for Key Vault.
 
-## Introduction to Azure Monitor for Key Vault (preview)
+## Introduction to Azure Monitor for Key Vault
 
 Before jumping into the experience, you should understand how it presents and visualizes information.
 -    **At scale perspective** showing a snapshot view of performance based on the requests, breakdown of failures, and an overview of the operations and latency.
@@ -21,21 +21,6 @@ Before jumping into the experience, you should understand how it presents and vi
 -    **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save your own workbook. Charts in the workbook can be pinned to Azure dashboards.
 
 Azure Monitor for Key Vault combines both logs and metrics to provide a global monitoring solution. All users can access the metrics-based monitoring data, however the inclusion of logs-based visualizations may require users to [enable logging of their Azure Key Vault](../../key-vault/general/logging.md).
-
-## Configuring your key vaults for monitoring
-
-> [!NOTE]
-> Enabling logs is a paid-service that provides additional monitoring capabilities.
-
-1. The Operations & Latency tab helps you determine how many and which key vaults are enabled. To begin collecting, select the **Enable** button, which will bring you to a separate workbook that lists out the key vaults that require enabling diagnostic logs.
-
-    ![Screenshot of operations and latency tab with blue enable button displayed](./media/key-vaults-insights-overview/enable-logging.png)
-
-2. To enable diagnostic logs, click on the **Enable** link underneath the actions column, and create a new diagnostics setting that sends logs to a Log Analytics workspace. It is recommended to send all the logs to the same workspace.
-
-3. Once the diagnostic settings are saved, you will be able to view all the log-based charts and visualizations underneath the Key Vault Insights. Please note that it may take several minutes to hours to begin populating the logs.
-
-4. For additional assistance on how to enable diagnostic logs for your Key Vault service, read the [full guide](../../key-vault/general/logging.md).
 
 ## View from Azure Monitor
 
@@ -45,7 +30,7 @@ To view the utilization and operations of your key vaults across all your subscr
 
 1. Sign into the [Azure portal](https://portal.azure.com/)
 
-2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights section, select **Key Vaults (preview)**.
+2. Select **Monitor** from the left-hand pane in the Azure portal, and under the Insights section, select **Key Vaults**.
 
 ![Screenshot of overview experience with multiple graphs](./media/key-vaults-insights-overview/overview.png)
 
@@ -79,7 +64,7 @@ To access Azure Monitor for Key Vault directly from a key Vault:
 
 1. In the Azure portal, select Key Vaults.
 
-2. From the list, choose a key vault. In the monitoring section, choose Insights (preview).
+2. From the list, choose a key vault. In the monitoring section, choose Insights.
 
 These views are also accessible by selecting the resource name of a key vault from the Azure Monitor level workbook.
 
@@ -136,7 +121,7 @@ Customizations are saved to a custom workbook to prevent overwriting the default
 
 You can configure the multi-subscription and key vault Overview or Failures workbooks to scope to a particular subscription(s) or key vault(s) on every run, by performing the following steps:
 
-1. Select **Monitor** from the portal and then select **Key Vaults (preview)** from the left-hand pane.
+1. Select **Monitor** from the portal and then select **Key Vaults** from the left-hand pane.
 2. On the **Overview** workbook, from the command bar select **Edit**.
 3. Select from the **Subscriptions** drop-down list one or more subscriptions you want yo use as the default. Remember, the workbook supports selecting up to a total of 10 subscriptions.
 4. Select from the **Key Vaults** drop-down list one or more accounts you want it to use as the default. Remember, the workbook supports selecting up to a total of 200 storage accounts.
@@ -146,11 +131,11 @@ You can configure the multi-subscription and key vault Overview or Failures work
 
 For general troubleshooting guidance, refer to the dedicated workbook-based insights [troubleshooting article](troubleshoot-workbooks.md).
 
-This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Key Vault (preview). Use the list below to locate the information relevant to your specific issue.
+This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Key Vault. Use the list below to locate the information relevant to your specific issue.
 
 ### Resolving performance issues or failures
 
-To help troubleshoot any key vault related issues you identify with Azure Monitor for Key Vault (preview), see the [Azure Key Vault documentation](../../key-vault/index.yml).
+To help troubleshoot any key vault related issues you identify with Azure Monitor for Key Vault, see the [Azure Key Vault documentation](../../key-vault/index.yml).
 
 ### Why can I only see 200 key vaults
 
@@ -161,10 +146,6 @@ There is a limit of 200 key vaults that can be selected and viewed. Regardless o
 We only show subscriptions that contain key vaults, chosen from the selected subscription filter, which are selected in the "Directory + Subscription" in the Azure portal header.
 
 ![Screenshot of subscription filter](./media/key-vaults-insights-overview/Subscriptions.png)
-
-### I am getting an error message that the "query exceeds the maximum number of workspaces/regions allowed", what to do now
-
-Currently, there is a limit to 25 regions and 200 workspaces, to view your data, you will need to reduce the number of subscriptions and/or resource groups.
 
 ### I want to make changes or add additional visualizations to Key Vault Insights, how do I do so
 

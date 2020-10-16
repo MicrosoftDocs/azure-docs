@@ -3,7 +3,7 @@ title: Commercial marketplace policies and terms, Azure Marketplace
 description: Microsoft commercial marketplace policies and terms apply to all publishers and offerings in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: reference
+ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
 ms.date: 09/09/2020
@@ -19,12 +19,11 @@ Offers on the commercial marketplace must comply with our policies and terms. We
 
 ## Policies and terms
 
-* [Commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies)
+- [Commercial marketplace certification policies](/legal/marketplace/certification-policies?context=/azure/marketplace/context/context)
+- [Microsoft AppSource and Azure Marketplace review policies](/legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context)
+- [Azure Marketplace participation policies](/legal/marketplace/participation-policy?context=/azure/marketplace/context/context)
+- [Azure Marketplace terms](/legal/marketplace/terms?context=/azure/marketplace/context/context)
 
-* [Rating and review policies](https://docs.microsoft.com/legal/marketplace/rating-review-policies)
+## Next steps
 
-* [Azure Marketplace terms](https://docs.microsoft.com/legal/marketplace/terms)
-
-## Next step
-
-Visit the [Commercial marketplace publishing guide](./marketplace-publishers-guide.md) page.
+- [What is the Microsoft commercial marketplace?](overview.md)

@@ -15,21 +15,27 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: Python SDK
+    - name: "Python get started (Day 1)"
       expanded: true
-      items: 
-        - name: Create first ML experiment
-          items: 
-            - name: 1. Set up workspace & dev environment
-              href: tutorial-1st-experiment-sdk-setup.md
-            - name: 2. Train your first model
-              href: tutorial-1st-experiment-sdk-train.md
+      items:
+        - name: 1. Set up local computer
+          href: tutorial-1st-experiment-sdk-setup-local.md
+        - name: '2. "Hello world"'
+          href: tutorial-1st-experiment-hello-world.md
+        - name: 3. Train your model
+          href: tutorial-1st-experiment-sdk-train.md
+        - name: 4. Bring your own data
+          href: tutorial-1st-experiment-bring-data.md
+    - name: Jupyter Notebooks
+      items:
         - name: Image classification (MNIST data)
           items: 
-            - name: 1. Train a model
+            - name: 1. Set up compute instance
+              href: tutorial-1st-experiment-sdk-setup.md
+            - name: 2. Train a model
               displayName: build modeling
               href: tutorial-train-models-with-aml.md
-            - name: 2. Deploy a model
+            - name: 3. Deploy a model
               href: tutorial-deploy-models-with-aml.md
         - name: Regression with Automated ML (NYC Taxi data)
           items: 
@@ -92,8 +98,6 @@
       href: /azure/open-datasets/samples?context=azure/machine-learning/context/ml-context
 - name: Concepts
   items: 
-    - name: Enterprise vs. Basic editions
-      href: concept-editions.md
     - name: Plan and manage costs
       displayName: low priority VM
       href: concept-plan-manage-cost.md
@@ -133,7 +137,7 @@
         - name: Data processing
           href: concept-optimize-data-processing.md
     - name: Model training
-      displayName: run config, estimator, machine learning pipeline, ml pipeline, train model
+      displayName: run config, machine learning pipeline, ml pipeline, train model
       href: concept-train-machine-learning-model.md
     - name: Distributed training
       displayName: parallellization, deep learning, deep neural network, dnn
@@ -148,13 +152,31 @@
       href: concept-onnx.md
     - name: ML pipelines
       href: concept-ml-pipelines.md
-    - name: Enterprise readiness & security
+    - name: Security
       items: 
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+    - name: Responsible ML
+      items: 
+        - name: Responsible ML overview
+          displayName: responsible,ml
+          href: concept-responsible-ml.md
+        - name: Model interpretability
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Fairness in Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Differential Privacy
+          displayName: differential,privacy
+          href: concept-differential-privacy.md
+- name: How-to guides
+  items:
+    - name: Security
+      items:
         - name: Identity & access management
           items:
             - name: Set up authentication
@@ -162,6 +184,8 @@
               href: how-to-setup-authentication.md
             - name: Manage users and roles
               href: how-to-assign-roles.md
+            - name: Use managed identities for access control
+              href: how-to-use-managed-identities.md
             - name: Use Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
         - name: Network security
@@ -184,6 +208,8 @@
             - name: Use Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Use custom DNS
+              href: how-to-custom-dns.md
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
@@ -201,24 +227,9 @@
         - name: Secure coding
           href: concept-secure-code-best-practice.md
           displayName: security threat
-        
-        
-    - name: Responsible ML
-      items: 
-        - name: Responsible ML overview
-          displayName: responsible,ml
-          href: concept-responsible-ml.md
-        - name: Model interpretability
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Fairness in Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Differential Privacy
-          displayName: differential,privacy
-          href: concept-differential-privacy.md
-- name: How-to guides
-  items:
+        - name: Audit and manage compliance
+          href: how-to-integrate-azure-policy.md
+          displayName: policy
     - name: Create & manage workspaces
       items: 
         - name: Use Azure portal
@@ -230,17 +241,23 @@
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Create compute resources
+    - name: Create & manage compute resources
       items: 
-        - name: Use studio
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
-          href: how-to-create-attach-compute-studio.md
-        - name: Use Python SDK
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
-          href: how-to-create-attach-compute-sdk.md
+        - name: Compute instance
+          displayName: compute target
+          href: how-to-create-manage-compute-instance.md
+        - name: Compute cluster
+          displayName: compute target, low priority, managed identity
+          href: how-to-create-attach-compute-cluster.md
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
+        - name: Attach your own
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+          href: how-to-attach-compute-targets.md
+        - name: Use studio
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
+          href: how-to-create-attach-compute-studio.md
     - name: Set up your environment
       items: 
         - name: Set up dev environments
@@ -289,12 +306,15 @@
               href: how-to-designer-import-data.md
         - name: Access data
           items: 
-            - name: Connect to Azure Storage
+            - name: Connect to Azure storage (Python)
               displayName: blob, get, fileshare, access, mount, download, data lake, datastore
               href: how-to-access-data.md
-            - name: Get data from a datastore
+            - name: Get data from a datastore (Python)
               displayName: data, data set, register, access data
               href: how-to-create-register-datasets.md
+            - name: Connect to data (UI)
+              displayName: blob, get, fileshare, access, mount, download, data lake, datastore, dataset, data set
+              href: how-to-connect-data-ui.md
         - name: Manage & consume data
           items: 
             - name: Train with datasets
@@ -311,19 +331,20 @@
               href: how-to-differential-privacy.md
     - name: Train models
       items: 
-        - name: Submit training run 
-          displayName: run config, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+        - name: Configure & submit training run 
+          displayName: run config, script run config, scriptrunconfig, compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
           href: how-to-set-up-training-targets.md
-        - name: Use estimators for ML
-          items: 
-            - name: Create estimators in training
-              href: how-to-train-ml-models.md
-            - name: Tune hyperparameters
-              displayName: parameter
-              href: how-to-tune-hyperparameters.md
+        - name: Tune hyperparameters
+          displayName: parameter, hyperparameter, hyperdrive
+          href: how-to-tune-hyperparameters.md
         - name: Work with MLflow
-          displayName: log, monitor, deploy, metrics, Databricks, model registry, register
-          href: how-to-use-mlflow.md
+          items: 
+            - name: Track experiments with MLflow
+              displayName: log, monitor, deploy, metrics,  model registry, register
+              href: how-to-use-mlflow.md
+            - name: Track Azure Databricks runs with MLflow
+              displayName: log, monitor, deploy, metrics, databricks
+              href: how-to-use-mlflow-azure-databricks.md              
         - name: Scikit-learn
           href: how-to-train-scikit-learn.md
         - name: TensorFlow
@@ -441,6 +462,8 @@
           href: how-to-enable-data-collection.md
         - name: Monitor with Application Insights
           href: how-to-enable-app-insights.md
+      - name: High-performance serving with Triton
+        href: how-to-deploy-with-triton.md
       - name: Continuously deploy models
         displayName: ci cd azure devops models
         href: how-to-deploy-continuously-deploy.md
@@ -450,6 +473,9 @@
       - name: Profile models
         displayName: profile resource requirement
         href: how-to-deploy-profile-model.md
+      - name: Deploy designer models
+        displayName: designer, studio
+        href: how-to-deploy-model-designer.md
       - name: (Preview) No code deployment
         displayName: no code
         href: how-to-deploy-no-code-deployment.md
@@ -540,6 +566,9 @@
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md
+    - name: Curated environments
+      displayName: environments, curated environments
+      href: resource-curated-environments.md         
 - name: Resources
   items: 
     - name: Release notes
@@ -565,7 +594,4 @@
       href: overview-what-happened-to-workbench.md
     - name: Designer accessibility features
       displayName: accessibility, designer, visual interface, screen reader, keyboard shortcuts
-      href: designer-accessibility.md
-    - name: Curated Environments
-      displayName: environments, curated environments
-      href: resource-curated-environments.md      
+      href: designer-accessibility.md   

@@ -136,7 +136,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     Public endpoint host name comes in the format <mi_name>.public.<dns_zone>.database.windows.net and that the port used for the connection is 3342.  
 
-    ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    ![Screenshot shows Integration runtime setup with Create S S I S catalog selected and Catalog database server endpoint entered.](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. Select Azure AD authentication when applies.
 
@@ -152,7 +152,7 @@ You can now move your SQL Server Integration Services (SSIS) projects, packages,
 
     For more information about how to join Azure-SSIS IR into a virtual network, see [Join an Azure-SSIS integration runtime to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md).
 
-    ![join-virtual-network](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    ![Screenshot shows the Integration runtime setup Advanced settings, where you can select a virtual network for your runtime to join.](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
 
 For more info about how to create an Azure-SSIS IR, see [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime).
 

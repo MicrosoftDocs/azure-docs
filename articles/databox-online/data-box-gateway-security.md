@@ -34,7 +34,7 @@ The Data Box Gateway service is a management service that's hosted in Azure. The
 
 The Data Box Gateway device is a virtual device that's provisioned in the hypervisor of an on-premises system that you provide. The device helps send data to Azure. Your device:
 
-- Needs an activation key to access the Azure Stack Edge/Data Box Gateway service.
+- Needs an activation key to access the Azure Stack Edge Pro/Data Box Gateway service.
 - Is protected at all times by a device password.
 <!---  secure boot enabled.
 - Runs Windows Defender Device Guard. Device Guard allows you to run only trusted applications that you define in your code integrity policies.-->

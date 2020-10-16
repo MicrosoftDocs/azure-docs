@@ -1,20 +1,20 @@
 ---
-title: Use the Azure portal to troubleshoot Azure Stack Edge with GPU| Microsoft Docs 
-description: Describes how to troubleshoot Azure Stack Edge GPU issues.
+title: Use the Azure portal to troubleshoot Azure Stack Edge Pro with GPU| Microsoft Docs 
+description: Describes how to troubleshoot Azure Stack Edge Pro GPU issues.
 services: databox
 author: alkohli
 
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 08/19/2020
+ms.date: 10/07/2020
 ms.author: alkohli
 ---
-# Troubleshoot issues on your Azure Stack Edge GPU device 
+# Troubleshoot issues on your Azure Stack Edge Pro GPU device 
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-This article describes how to troubleshoot issues on your Azure Stack Edge GPU device. 
+This article describes how to troubleshoot issues on your Azure Stack Edge Pro GPU device. 
 
 
 ## Run diagnostics
@@ -46,11 +46,11 @@ Do the following steps to collect a Support package.
  
 2. After the Support package is created, select **Download Support package**. A zipped package is downloaded on the path you chose. You can unzip the package and the view the system log files.
 
-    ![Select add user](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
+    ![Select add user 2](media/azure-stack-edge-gpu-troubleshoot/collect-logs-2.png)
 
 ## Gather advanced security logs
 
-The advanced security logs can be software or hardware intrusion logs for your Azure Stack Edge device.
+The advanced security logs can be software or hardware intrusion logs for your Azure Stack Edge Pro device.
 
 ### Software intrusion logs
 
@@ -62,7 +62,7 @@ The software intrusion or the default firewall logs are collected for inbound an
 
 - If no specific include option is provided, firewall log is included as a default in the support package.
 
-- In the support package, firewall log  is the `pfirewall.log` and sits in the root folder. Here is an example of the software intrusion log for the Azure Stack Edge device. 
+- In the support package, firewall log  is the `pfirewall.log` and sits in the root folder. Here is an example of the software intrusion log for the Azure Stack Edge Pro device. 
 
     ```
     #Version: 1.5
@@ -96,7 +96,7 @@ To detect any hardware intrusion into the device, currently all the chassis even
 
 - If no specific include option is provided, the hardware intrusion log is included as a default in the support package.
 
-- In the support package, the hardware intrusion log is the `HWIntrusion.txt` and sits in the root folder. Here is an example of the hardware intrusion log for the Azure Stack Edge device. 
+- In the support package, the hardware intrusion log is the `HWIntrusion.txt` and sits in the root folder. Here is an example of the hardware intrusion log for the Azure Stack Edge Pro device. 
 
     ```
     09/04/2019 15:51:23 system Critical The chassis is open while the power is off.
@@ -138,7 +138,7 @@ Here are the errors that may show up during the configuration of Azure Resource 
 | **Issue / Errors** |  **Resolution** | 
 |------------|-----------------|
 |General issues|<li>[Verify that the Edge device is configured properly](#verify-the-device-is-configured-properly).<li> [Verify that the client is configured properly](#verify-the-client-is-configured-properly)|
-|Add-AzureRmEnvironment : An error occurred while sending the request.<br>At line:1 char:1<br>+ Add-AzureRmEnvironment -Name Az3 -ARMEndpoint "https://management.dbe ...|This error means that your Azure Stack Edge device is not reachable or configured properly. Verify that the Edge device and the client are configured correctly. For guidance, see the **General issues** row in this table.|
+|Add-AzureRmEnvironment : An error occurred while sending the request.<br>At line:1 char:1<br>+ Add-AzureRmEnvironment -Name Az3 -ARMEndpoint "https://management.dbe ...|This error means that your Azure Stack Edge Pro device is not reachable or configured properly. Verify that the Edge device and the client are configured correctly. For guidance, see the **General issues** row in this table.|
 |Service returned error. Check InnerException for more details: The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel. |   This error is likely due to one or more bring your own certificate steps incorrectly performed. You can find guidance [here](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-connect-resource-manager#step-2-create-and-install-certificates). |
 |Operation returned an invalid status code 'ServiceUnavailable' <br> Response status code does not indicate success: 503 (Service Unavailable). | This error could be the result of any of these conditions.<li>ArmStsPool is in stopped state.</li><li>Either of the Azure Resource Manager/Security token services websites are down.</li><li>The Azure Resource Manager cluster resource is down.</li><br><strong>Note:</strong> Restarting the appliance might fix the issue, but you should collect the support package so that you can debug it further.|
 |AADSTS50126: Invalid username or password.<br>Trace ID: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>Correlation ID: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>Timestamp: 2019-11-15 09:21:57Z: The remote server returned an error: (400) Bad Request.<br>At line:1 char:1 |This error could be the result of any of these conditions.<li>For an invalid username and password, validate that the customer has changed the password from Azure portal by following the steps [here](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-j-series-set-azure-resource-manager-password) and then by using the correct password.<li>For an invalid tenant ID, the tenant ID is a fixed GUID and should be set to `c0257de7-538f-415c-993a-1b87a031879d`</li>|
@@ -177,7 +177,7 @@ Here are the errors that may show up during the configuration of Azure Resource 
 
 ## Blob Storage on device 
 
-Here are the errors related to blob storage on Azure Stack Edge/ Data Box Gateway device.
+Here are the errors related to blob storage on Azure Stack Edge Pro/ Data Box Gateway device.
 
 | **Issue / Errors** |  **Resolution** | 
 |--------------------|-----------------|
@@ -192,9 +192,10 @@ Here are the errors related to blob storage on Azure Stack Edge/ Data Box Gatewa
 |AzCopy command appears to stop responding for 20 minutes before displaying this error: `Error parsing source location… The SSL connection could not be established`.|Import the SSL certificate for your device into the system's certificate store. For more information, see [Download the certificate](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate).|
 |The value for one of the HTTP headers is not in the correct format.|The installed version of the Microsoft Azure Storage Library for Python is not supported by Data Box. See Azure Data Box Blob storage requirements for supported versions.|
 |… [SSL: CERTIFICATE_VERIFY_FAILED] …| Before running Python, set the REQUESTS_CA_BUNDLE environment variable to the path of the Base64-encoded SSL certificate file (see how to [Download the certificate](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#download-certificate). For example:<br>`export REQUESTS_CA_BUNDLE=/tmp/mycert.cer`<br>`python`<br>Alternately, add the certificate to the system's certificate store, and then set this environment variable to the path of that store. For example, on Ubuntu:<br>`export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt`<br>`python`.|
-|The connection times out.|Sign into the Azure Stack Edge and then check that it's unlocked. Any time the device restarts, it stays locked until someone signs in.|
+|The connection times out.|Sign into the Azure Stack Edge Pro and then check that it's unlocked. Any time the device restarts, it stays locked until someone signs in.|
+
 
 
 ## Next steps
 
-- Learn more about the [known issues in this release](azure-stack-edge-gpu-2008-release-notes.md).
+- Learn more on how to [Troubleshoot device activation issues](azure-stack-edge-gpu-troubleshoot-activation.md).

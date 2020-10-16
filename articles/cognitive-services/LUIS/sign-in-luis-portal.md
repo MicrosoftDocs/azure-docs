@@ -4,6 +4,7 @@ description: If you are a new user signing in to the LUIS portal, the sign-in ex
 services: cognitive-services
 ms.custom:
 ms.service: cognitive-services
+ms.subservice: language-understanding
 ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: a-sakand
@@ -29,7 +30,7 @@ An account, which is not associated with an Azure subscription has the Azure ico
 
 An account associated with an Azure subscription allows you to select your subscription and resource to use.
 
-:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Partial screen-shot of LUIS portal with resource selection drop-down selection boxes.":::
+:::image type="content" source="media/sign-in/resource-selection.png" alt-text="Partial screen-shot of LUIS portal with Subscription and Authoring resource selection drop-down boxes.":::
 
 ## Sign in with account associated with an Azure subscription
 

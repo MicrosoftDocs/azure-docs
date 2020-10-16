@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 09/07/2020
+ms.date: 10/11/2020
 ms.author: raynew
 
 ---
@@ -111,6 +111,10 @@ Extensions | Not supported | Extensions aren't copied over to the  VM in target 
 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk. It's important to observe the VM disk limits and targets for [Linux](../virtual-machines/linux/disk-scalability-targets.md) and [Windows](../virtual-machines/windows/disk-scalability-targets.md) VMs to avoid any performance issues.
 
+> [!NOTE]
+> The target VM size should be equal to or larger than the source VM. The parameters used for validation are: Data Disks Count, NICs count, Available CPUs, Memory in GB. If it isn't a error is issued.
+
+
 **Component** | **Support** | **Details**
 --- | --- | ---
 OS disk maximum size | 2048 GB | [Learn more](../virtual-machines/windows/managed-disks-overview.md) about VM disks.
@@ -147,7 +151,7 @@ Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |20 MB/s | 1684 GB per 
 NIC | Supported | Specify an existing resource in the target region, or  create a new resource during the Prepare process. 
 Internal load balancer | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
 Public load balancer | Not currently supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
-Public IP address | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
+Public IP address | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.<br/><br/> The public IP address is region-specific, and won't be retained in the target region after the move. Keep this in mind when you modify networking settings (including load balancing rules) in the target location.
 Network security group | Supported | Specify an existing resource in the target region, or create a new resource during the Prepare process.  
 Reserved (static) IP address | Supported | You can't currently configure this. The value defaults to the source value. <br/><br/> If the NIC on the source VM has a static IP address, and the target subnet has the same IP address available, it's assigned to the target VM.<br/><br/> If the target subnet doesn't have the same IP address available, the initiate move for the VM will fail.
 Dynamic IP address | Supported | You can't currently configure this. The value defaults to the source value.<br/><br/> If the NIC on the source has dynamic IP addressing, the NIC on the target VM is also dynamic by default.

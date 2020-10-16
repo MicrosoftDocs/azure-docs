@@ -1,30 +1,34 @@
 ---
-title: Discover on-premises servers using an imported CSV file with Azure Migrate Server Assessment
+title: Assess on-premises servers using an imported CSV file with Azure Migrate Server Assessment
 description: Describes how to discover on-premises servers for migration to Azure using an imported CSV file in Azure Migrate Server Assessment
 ms.topic: tutorial
 ms.date: 09/14/2020
 #Customer intent: As a server admin, I want to discover servers using an imported CSV file. 
 ---
 
-# Tutorial: Discover servers using an imported CSV file
+# Tutorial: Assess servers using an imported CSV file
 
 As part of your migration journey to Azure, you discover your on-premises inventory and workloads. 
 
-This tutorial shows you how to discover on-premises VMware virtual machines (VMs) with the Azure Migrate: Server Assessment tool, using an imported  comma-separate values (CSV) file. 
+This tutorial shows you how to assess on-premises machines with the Azure Migrate: Server Assessment tool, using an imported  comma-separate values (CSV) file. 
 
-If you use a CSV file, you don't need to set up the Azure Migrate appliance to discover servers. You can control the data you share in the file, and much of the data is optional. This method is useful if:
+If you use a CSV file, you don't need to set up the Azure Migrate appliance to discover and assess servers. You can control the data you share in the file, and much of the data is optional. This method is useful if:
 
 - You want to create a quick, initial assessment before you deploy the appliance.
 - You can't deploy the Azure Migrate appliance in your organization.
 - You can't share credentials that allow access to on-premises servers.
 - Security constraints prevent you from gathering and sending data collected by the appliance to Azure.
 
+> [!NOTE]
+> You can't migrate servers imported using a CSV file.
+
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up an Azure account
-> * Set up an Azure Migrate project.
+> * Set up an Azure Migrate project
 > * Prepare a CSV file
-> * Import the file.
+> * Import the file
+> * Assess servers
 
 > [!NOTE]
 > Tutorials show the quickest path for trying out a scenario, and use default options where possible. 
@@ -39,7 +43,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prepare an Azure user account
 
-To create an Azure Migrate project and register the Azure Migrate appliance, you need an account with:
+To create an Azure Migrate project, you need an account with:
 - Contributor or Owner permissions on an Azure subscription.
 - Permissions to register Azure Active Directory apps.
 
@@ -69,7 +73,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
 ## Set up a project
 
-Set up a new Azure Migrate project.
+Set up a new Azure Migrate project if you don't have one.
 
 1. In the Azure portal > **All services**, search for **Azure Migrate**.
 2. Under **Services**, select **Azure Migrate**.
@@ -153,7 +157,7 @@ For example, to specify all fields for a second disk, add these columns:
 
 ## Import the server information
 
-After adding information to the CSV template, import the servers into Server Assessment.
+After adding information to the CSV template, import the CSV file into Server Assessment.
 
 1. In Azure Migrate, in **Discover machines**, go to the completed template.
 2. Select **Import**.
@@ -165,7 +169,7 @@ After adding information to the CSV template, import the servers into Server Ass
         1. Download the CSV, which now includes error details.
         1. Review and address the errors as necessary. 
         1. Upload the modified file again.
-4. When the import status is **Completed**, the server information has been imported.
+4. When the import status is **Completed**, the server information has been imported. Refresh if the import process doesn't seem to be complete.
 
 ## Update server information
 
