@@ -40,6 +40,9 @@ The following table lists common capabilities required for header-based authenti
 |Step-up authentication |Policies can be defined to force added authentication, for example, to gain access to sensitive resources. |
 |Fine grained authorization |Provides access control at the URL level. Added policies can be enforced based on the URL being accessed. The internal URL configured for the app, defines the scope of app that the policy is applied to. The policy configured for the most granular path is enforced.  |
 
+> [!NOTE] 
+> This article features connecting header-based authentication applications to Azure AD using Application Proxy and is the recommended pattern. As an alternative, there is also an integration pattern that uses PingAccess with Azure AD to enable header-based authentication. For more details, see [Header-based authentication for single sign-on with Application Proxy and PingAccess](application-proxy-ping-access-publishing-guide.md).
+
 ## How it works
 
 :::image type="content" source="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png" alt-text="How header-based single sign-on works with Application Proxy." lightbox="./media/application-proxy-configure-single-sign-on-with-headers/how-it-works.png":::
