@@ -508,7 +508,7 @@ The steps to integrate SnapCenter in SAP HANA are:
    ```
 
 ### Download and install SnapCenter
-Now that the user  is set up for SnapCenter access to the storage system, you'll use the *snapcenter* username to configure the SnapCenter once it's installed. 
+Now that the username is set up for SnapCenter access to the storage system, you'll use the *snapcenter* username to configure the SnapCenter once it's installed. 
 
 Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf) to define your backup strategy. 
 
