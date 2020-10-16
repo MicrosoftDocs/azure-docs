@@ -65,4 +65,4 @@ Depending on the configuration method you use, you should update the new version
 
 ## Next steps
 
-- See the [reference for the OperationalInsights workspace API](https://docs.microsoft.com/rest/api/loganalytics/workspaces).
+- See the [reference for the OperationalInsights workspace API](/rest/api/loganalytics/workspaces).

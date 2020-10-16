@@ -1,5 +1,5 @@
 ---
-title: Configure distributed network name (DNN)
+title: Configure DNN for failover cluster instance 
 description: Learn how to configure a distributed network name (DNN) to route traffic to your SQL Server on Azure VM failover cluster instance (FCI). 
 services: virtual-machines-windows
 documentationcenter: na
@@ -11,22 +11,33 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/02/2020
+ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure a distributed network name for an FCI 
+# Configure a DNN for failover cluster instance
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-On Azure Virtual Machines, the distributed network name (DNN) is used to route traffic to the appropriate clustered resource. It provides an easier way to connect to the SQL Server failover cluster instance (FCI) than the virtual network name (VNN), without the need for Azure Load Balancer. This feature is currently in preview and is available only for SQL Server 2019 CU2 and later and Windows Server 2016 and later. 
+On Azure Virtual Machines, the distributed network name (DNN) routes traffic to the appropriate clustered resource. It provides an easier way to connect to the SQL Server failover cluster instance (FCI) than the virtual network name (VNN), without the need for an Azure Load Balancer. 
 
-This article teaches you to configure a DNN to route traffic to your FCIs with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
+This article teaches you to configure a DNN resource to route traffic to your failover cluster instance with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
-## Prerequisites
+The DNN feature is currently only available on SQL Server 2019 CU2 and later on Windows Server 2016 and later. 
+
+For an alternative connectivity option, consider a [virtual network name and Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) instead. 
+
+## Overview
+
+The distributed network name (DNN) replaces the virtual network name (VNN) as the connection point when used with an [Always On failover cluster instance on SQL Server VMs](failover-cluster-instance-overview.md). This negates the need for an Azure Load Balancer routing traffic to the VNN, simplifying deployment, maintenance, and improving failover. 
+
+With an FCI deployment, the VNN still exists, but the client connects to the DNN DNS name instead of the VNN name. 
+
+## Prerequisites 
 
 Before you complete the steps in this article, you should already have:
 
+- SQL Server 2019 on CU2 or later, on Windows Server 2016 and later
 - Decided that the distributed network name is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [failover cluster instances](failover-cluster-instance-overview.md). 
 - Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
@@ -56,9 +67,8 @@ Add-ClusterResource -Name dnn-demo `
 ## Set cluster DNN DNS name
 
 Set the DNS name for the DNN resource in the cluster. The cluster then uses this value to route traffic to the node that's currently hosting the SQL Server FCI. 
- 
-Clients use the DNS name to connect to the SQL Server FCI. You can choose a unique value. Or, if you already have an existing FCI and don't want to update client connection strings, you can configure the DNN to use the current VNN that clients are already using. To do so, you need to [rename the VNN](#rename-the-vnn) before setting the DNN in DNS.
 
+Clients use the DNS name to connect to the SQL Server FCI. You can choose a unique value. Or, if you already have an existing FCI and don't want to update client connection strings, you can configure the DNN to use the current VNN that clients are already using. To do so, you need to [rename the VNN](#rename-the-vnn) before setting the DNN in DNS.
 
 Use this command to set the DNS name for your DNN: 
 
@@ -111,7 +121,9 @@ To update possible owners, follow these steps:
 
 1. Go to your DNN resource in Failover Cluster Manager. 
 1. Right-click the DNN resource and select **Properties**. 
+
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/fci-dnn-properties.png" alt-text="Shortcut menu for the DNN resource, with the Properties command highlighted.":::
+
 1. Clear the check box for any nodes that don't participate in the failover cluster instance. The list of possible owners for the DNN resource should match the list of possible owners for the SQL Server instance resource. For example, assuming that Data3 does not participate in the FCI, the following image is an example of removing Data3 from the list of possible owners for the DNN resource: 
 
    :::image type="content" source="media/hadr-distributed-network-name-dnn-configure/clear-check-for-nodes-not-in-fci.png" alt-text="Clear the check box next to the nodes that do not participate in the FCI for possible owners of the DNN resource":::
@@ -135,7 +147,9 @@ Additionally, if the DNN is not using the original VNN, SQL clients that connect
 
 ## Test failover
 
+
 Test failover of the clustered resource to validate cluster functionality. 
+
 
 To test failover, follow these steps: 
 
@@ -151,6 +165,7 @@ To test failover, follow these steps:
 To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI by using the DNN DNS name.
 
 If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+
 
 ## Avoid IP conflict
 
@@ -177,13 +192,11 @@ Alternatively, configure a network adapter in Azure to reserve the IP address us
 
 ## Limitations
 
-- Currently, a DNN is supported only for SQL Server 2019 CU2 and later on Windows Server 2016. 
-- Currently, a DNN is supported only for failover cluster instances with SQL Server on Azure VMs. Use the virtual network name with Azure Load Balancer for availability group listeners.
+- Currently, a DNN with FCI is supported only for SQL Server 2019 CU2 and later on Windows Server 2016 and later. 
 - There might be more considerations when you're working with other SQL Server features and an FCI with a DNN. For more information, see [FCI with DNN interoperability](failover-cluster-instance-dnn-interoperability.md). 
 
 ## Next steps
 
 To learn more about SQL Server HADR features in Azure, see [Availability groups](availability-group-overview.md) and [Failover cluster instance](failover-cluster-instance-overview.md). You can also learn [best practices](hadr-cluster-best-practices.md) for configuring your environment for high availability and disaster recovery. 
 
-There may be additional configuration requirements for some specific SQL Server features when used with the DNN and FCI. See [FCI with DNN interoperability](failover-cluster-instance-dnn-interoperability.md) to learn more. 
 

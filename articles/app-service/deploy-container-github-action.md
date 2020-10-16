@@ -29,7 +29,7 @@ For an Azure App Service container workflow, the file has three sections:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
 - A working container registry and Azure App Service app for containers. This example uses Azure Container Registry. 
-    - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](https://docs.microsoft.com/azure/developer/javascript/tutorial-vscode-docker-node-01)
+    - [Learn how to create a containerized Node.js application using Docker, push the container image to a registry, and then deploy the image to Azure App Service](/azure/developer/javascript/tutorial-vscode-docker-node-01)
 
 ## Generate deployment credentials
 

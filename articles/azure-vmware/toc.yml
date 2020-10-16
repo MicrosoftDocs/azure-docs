@@ -20,7 +20,7 @@
     href: tutorial-network-checklist.md
   - name: 2 - Create a private cloud
     href: tutorial-create-private-cloud.md
-  - name: 3 - Access a private cloud 
+  - name: 3 - Access a private cloud
     href: tutorial-access-private-cloud.md
   - name: 4 - Configure networking
     href: tutorial-configure-networking.md
@@ -60,7 +60,7 @@
     href: disaster-recovery-for-virtual-machines.md
   - name: Deploy VM via content library
     href: ./deploy-vm-content-library.md
-  - name: Set up GitHub Enterprise Server 
+  - name: Set up GitHub Enterprise Server
     href: github-enterprise-server.md
   - name: Public IP usage
     href: public-ip-usage.md
@@ -88,7 +88,7 @@
     items:
     - name: Set up vRealize Operations
       href: vrealize-operations-for-azure-vmware-solution.md
-    - name: Deploy VMware Horizon 
+    - name: Deploy VMware Horizon
       href: azure-vmware-solution-horizon.md
   - name: VMware ecosystem
     items:
@@ -99,6 +99,10 @@
   - name: Troubleshooting
     items:
     - name: Get help with deployment or provisioning failures
-      href: fix-deployment-provisioning-failures.md  
+      href: fix-deployment-provisioning-failures.md
   - name: FAQ
     href: faq.md
+- name: Reference
+  items:
+  - name: Azure PowerShell
+    href: /powershell/module/az.vmware
