@@ -134,15 +134,15 @@ To configure Azure AD single sign-on with Recognize, perform the following steps
 
 2. On the upper right corner, click **Menu**. Go to **Company Admin**.
    
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_000.png)
+    ![Screenshot shows Company Admin selected from the Settings menu.](./media/recognize-tutorial/tutorial_recognize_000.png)
 
 3. On the left navigation pane, click **Settings**.
    
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_001.png)
+    ![Screenshot shows Settings selected from the navigation page.](./media/recognize-tutorial/tutorial_recognize_001.png)
 
 4. Perform the following steps on **SSO Settings** section.
    
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_002.png)
+    ![Screenshot shows S S O Settings where you can enter the values described.](./media/recognize-tutorial/tutorial_recognize_002.png)
 	
 	a. As **Enable SSO**, select **ON**.
 
@@ -158,11 +158,11 @@ To configure Azure AD single sign-on with Recognize, perform the following steps
 
 5. Beside the **SSO Settings** section, copy the URL under **Service Provider Metadata url**.
    
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_003.png)
+    ![Screenshot shows Notes, where you can copy the Service Provider Metadata.](./media/recognize-tutorial/tutorial_recognize_003.png)
 
 6. Open the **Metadata URL link** under a blank browser to download the metadata document. Then copy the EntityDescriptor value(entityID) from the file and paste it in **Identifier** textbox in **Basic SAML Configuration** on Azure portal.
     
-    ![Configure Single Sign-On On App side](./media/recognize-tutorial/tutorial_recognize_004.png)
+    ![Screenshot shows a text box with plain text X M L where you can get the entity I D.](./media/recognize-tutorial/tutorial_recognize_004.png)
 
 ### Create an Azure AD test user 
 
