@@ -6,10 +6,8 @@
     href: introduction.md
 - name: Quick start
   items:
-    - name: Pre-deployment process
+    - name: 0- Plan the deployment
       href: production-ready-deployment-steps.md
-    - name: Pre-deployment checklist
-      href: pre-deployment-checklist.md
     - name: 1 - Deploy Azure VMware Solution
       href: deploy-azure-vmware-solution.md
     - name: 2 - Connect to on-premises
