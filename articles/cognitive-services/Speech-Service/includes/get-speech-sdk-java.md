@@ -20,7 +20,7 @@ ms.author: trbye
 
 To consume the package from your Android Studio project, make the following changes:
 
-1. In the project-level *build.gradle* file, add the following to the `repository` section:
+1. In the project-level *build.gradle* file, add the following to the `repositories` section:
   ```gradle
   maven { url 'https://csspeechstorage.blob.core.windows.net/maven/' }
   ```
