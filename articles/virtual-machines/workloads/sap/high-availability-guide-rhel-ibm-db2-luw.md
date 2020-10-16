@@ -410,8 +410,7 @@ To configure Azure Load Balancer, we recommend that you use the [Azure Standard 
 > The Standard Load Balancer SKU has restrictions accessing public IP addresses from the nodes underneath the Load Balancer. The article [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md) is describing ways on how to enable those nodes to access public IP addresses
 
 > [!IMPORTANT]
-> Floating IP is not supported on a secondary IP configuration for a NIC in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations).
-> If you need additional IP address for the VM, [deploy a second NIC](https://docs.microsoft.com/azure/virtual-machines/windows/multiple-nics).
+> Floating IP is not supported on a secondary IP configuration for a NIC in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). If you need additional IP address for the VM, [deploy a second NIC](https://docs.microsoft.com/azure/virtual-machines/windows/multiple-nics).
 
 
 1. Create a front-end IP pool:
