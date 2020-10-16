@@ -20,7 +20,7 @@ Spatial analysis includes a set of features to monitor the health of the system 
 
 To enable a visualization of AI Insights events in a video frame, you need to use the `.debug` version of a [spatial analysis operation](spatial-analysis-operations.md). There are four debug operations available.
 
-Edit the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
+Edit the deployment manifest ([Azure Stack Edge specific](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-Azure Stack Edge specific](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)) to use the correct value for the `DISPLAY` environment variable. It needs to match the `$DISPLAY` variable on the host computer. After updating the deployment manifest, redeploy the container.
 
 After the deployment has completed, you might have to copy the `.Xauthority` file from the host computer to the container, and restart it. In the sample below, `peopleanalytics` is the name of the container on the host computer.
 
@@ -34,7 +34,7 @@ xhost +
 
 ## Collect system health telemetry
 
-Telegraf is an open source image that works with spatial analysis, and is available in the Microsoft Container Registry. It takes the following inputs and sends them to Azure Monitor. The telegraf module can be built with desired custom inputs and outputs. The telegraf module configuration in spatial analysis is part of the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179). This module is optional and can be removed from the manifest if you don't need it. 
+Telegraf is an open source image that works with spatial analysis, and is available in the Microsoft Container Registry. It takes the following inputs and sends them to Azure Monitor. The telegraf module can be built with desired custom inputs and outputs. The telegraf module configuration in spatial analysis is part of the deployment manifest (linked above). This module is optional and can be removed from the manifest if you don't need it. 
 
 Inputs: 
 1. Spatial analysis Metrics
@@ -63,7 +63,7 @@ az iot hub list
 az ad sp create-for-rbac --role="Monitoring Metrics Publisher" --name "<principal name>" --scopes="<resource ID of IoT Hub>"
 ```
 
-In the [deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
+In the [ASE-specific deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-ASE specific deployment manifest](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json), look for the *telegraf* module, and replace the following values with the Service Principal information from the previous step and redeploy.
 
 ```json
 
@@ -124,7 +124,7 @@ You can use `iotedge` command line tool to check the status and logs of the runn
 
 ## Collect log files with the diagnostics container
 
-Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the [sample deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179), look for the *diagnostics* module.
+Spatial analysis generates Docker debugging logs that you can use to diagnose runtime issues, or include in support tickets. The spatial analysis diagnostics module is available in the Microsoft Container Registry for you to download. In the sample deployment manifest, ([ASE](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-ASE](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)), look for the *diagnostics* module.
 
 In the "env" section add the following configuration:
 
@@ -188,13 +188,13 @@ It can also be set through the IoT Edge Module Twin document either globally, fo
 > The `diagnostics` module does not affect the logging content, it is only assists in collecting, filtering, and uploading existing logs.
 > You must have Docker API version 1.40 or higher to use this module.
 
-The [sample deployment manifest](https://go.microsoft.com/fwlink/?linkid=2142179) file includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
+The sample deployment manifest file ([ASE](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-ASE](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)) includes a module named `diagnostics` that collects and uploads logs. This module is disabled by default and should be enabled through the IoT Edge module configuration when you need to access logs. 
 
 The `diagnostics` collection is on-demand and controlled via an IoT Edge direct method, and can send logs to an Azure Blob Storage.
 
 ### Configure diagnostics upload targets
 
-From the IoT Edge portal, select your device and then the **diagnostics** module. In the sample file [*DeploymentManifest.json*](https://go.microsoft.com/fwlink/?linkid=2142179), look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
+From the IoT Edge portal, select your device and then the **diagnostics** module. In the sample *DeploymentManifest.json* file, ([ASE](https://go.microsoft.com/fwlink/?linkid=2142179) or [non-ASE](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/ComputerVision/spatial-analysis/DeploymentManifest_for_non_ASE_devices.json)), look for the **Environment Variables** section for diagnostics, named 'env', and add the following information:
 
 **Configure Upload to Azure Blob Storage**
 
