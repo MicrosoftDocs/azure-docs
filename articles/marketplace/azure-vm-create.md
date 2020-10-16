@@ -98,4 +98,4 @@ Select **Create** to generate the offer and continue.
 
 ## Next steps
 
-- [Create VM technical assets](azure-vm-create-technical-assets.md)
+- [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md)

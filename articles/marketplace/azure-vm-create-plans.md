@@ -195,4 +195,4 @@ Select **Save draft** before you continue and return to **Plan overview**.
 
 ## Next steps
 
-- [Add technical assets for your VM offer](azure-vm-create-technical-assets.md)
+- [Add ta preview audience](azure-vm-create-preview.md)
