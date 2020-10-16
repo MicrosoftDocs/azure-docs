@@ -480,7 +480,7 @@ For more information, see [Manage users and roles](how-to-assign-roles.md).
 
 ## Compute cluster won't resize
 
-If your Azure Machine learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
+If your Azure Machine Learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
 
 [!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
