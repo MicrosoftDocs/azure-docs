@@ -142,9 +142,9 @@ In case there are less samples in lookback interval than minSamples, monitor wil
 
 ```json
 "monitorConfiguration": {
+        "evaluationType" : "<type-of-evaluation>",
         "lookbackSecs": <lookback-number-of-seconds>,
         "evaluationFrequencySecs": <evaluation-frequency-number-of-seconds>,
-        
         "minSamples": <minimum-samples>,
         "maxSamples": <maximum-samples>,
         "warningCondition": {  },
