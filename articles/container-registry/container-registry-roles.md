@@ -33,9 +33,6 @@ Any time permissions are applied, a best practice is to provide the most limited
 
 When automating `docker build` commands from CI/CD solutions, you need `docker push` capabilities. For these headless service scenarios, we recommend assigning the **AcrPush** role. This role, unlike the broader **Contributor** role, prevents the account from performing other registry operations or accessing Azure Resource Manager.
 
-> [!NOTE]
-> When using a [service connection](/devops/pipelines/library/service-endpoints) from Azure Pipelines  to push to an Azure container registry, in some scenarios you need to assign at least the **Contributor** role. 
-
 ### Container host nodes
 
 Likewise, nodes running your containers need the **AcrPull** role, but shouldn't require **Reader** capabilities.
