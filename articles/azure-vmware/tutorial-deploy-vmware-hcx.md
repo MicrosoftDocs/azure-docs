@@ -60,7 +60,7 @@ Infrastructure components must be running the required minimum version.
 
 * Configure [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) between on-premises and Azure VMware Solution SDDC ExpressRoute circuits.
 
-* All required ports should be open for communication between on-premises components and Azure VMware Solution SDDC. See [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
+* All required ports should be open for communication between on-premises components and Azure VMware Solution SDDC. For more information, see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
 
 ### IP addresses
