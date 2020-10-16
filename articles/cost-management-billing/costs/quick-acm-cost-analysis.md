@@ -26,7 +26,7 @@ In this quickstart, you learn how to:
 
 Cost analysis supports different kinds of Azure account types. To view the full list of supported account types, see [Understand Cost Management data](understand-cost-mgt-data.md). To view cost data, you need at least read access for your Azure account.
 
-For information about assigning access to Azure Cost Management data, see [Assign access to data](../../cost-management/assign-access-acm-data.md).
+For information about assigning access to Azure Cost Management data, see [Assign access to data](./assign-access-acm-data.md).
 
 If you have a new subscription, you can't immediately use Cost Management features. It might take up to 48 hours before you can use all Cost Management features.
 
@@ -102,7 +102,7 @@ When turn off the spending forecast, you don't see projected spending for future
 
 Generally, you can expect to see data or notifications for consumed resources within 8 to 12 hours.
 
-**Group by** common properties to break down costs and identify top contributors. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.  For more information about grouping and filtering options, see [Group and filter options](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter).
+**Group by** common properties to break down costs and identify top contributors. To group by resource tags, for example, select the tag key you want to group by. Costs are broken down by each tag value, with an extra segment for resources that don't have that tag applied.  For more information about grouping and filtering options, see [Group and filter options](./group-filter.md).
 
 Most [Azure resources support tagging](../../azure-resource-manager/management/tag-support.md). However, some tags aren't available in Cost Management and billing. Additionally, resource group tags aren't supported. Support for tags applies to usage reported *after* the tag was applied to the resource. Tags aren't applied retroactively for cost rollups.
 
