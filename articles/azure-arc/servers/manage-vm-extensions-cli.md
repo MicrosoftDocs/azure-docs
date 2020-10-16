@@ -15,7 +15,11 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Before using the Azure CLI to manage VM extensions on your machine, you need to install the `ConnectedMachine` CLI extension. Run the following command on your Arc enabled server `az extension add connectedmachine`. When the installation completes, the following message is returned:
+Before using the Azure CLI to manage VM extensions on your machine, you need to install the `ConnectedMachine` CLI extension. Run the following command on your Arc enabled server:
+
+`az extension add connectedmachine`.
+
+When the installation completes, the following message is returned:
 
 `The installed extension ``connectedmachine`` is experimental and not covered by customer support. Please use with discretion.`
 
@@ -45,7 +49,7 @@ Example:
 
 By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format.
 
-The following example shows the JSON output from the `az connectedmachine machine-extension -list` command:
+The following example shows the partial JSON output from the `az connectedmachine machine-extension -list` command:
 
 ```json
 [
@@ -62,5 +66,10 @@ The following example shows the JSON output from the `az connectedmachine machin
 
 To remove an installed VM extension on your Arc enabled server, use [az connectedmachine machine-extension delete](/cli/azure/ext/connectedmachine/connectedmachine/machine-extension#ext_connectedmachine_az_connectedmachine_machine_extension_delete) with the `extension-name`, `machine-name` and `resource-group` parameters.
 
-Example:
+For example, to remove the Log Analytics VM extension for Linux, run the following command:
+
+```azurecli
+az connectedmachine machine-extension delete --machine-name "myMachine" --name "OmsAgentforLinux" --resource-group "myResourceGroup"
+```
+
 
