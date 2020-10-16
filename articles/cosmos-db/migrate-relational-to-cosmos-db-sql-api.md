@@ -106,7 +106,7 @@ Optionally, we also add a "Delete" activity to the pipeline so that it deletes a
 
 After we trigger the pipeline above, we see a file created in our intermediary Azure Blob Storage location containing one JSON-object per row:
 
-:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="Screenshot that the created file that contains the JSON objects.":::
+:::image type="content" source="./media/migrate-relational-to-cosmos-sql-api/adf5.png" alt-text="Screenshot that shows the created file that contains the JSON objects.":::
 
 We also see Orders documents with properly embedded OrderDetails inserted into our Cosmos DB collection:
 
