@@ -98,6 +98,8 @@
         href: ../../azure-sql/virtual-machines/windows/create-sql-vm-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: DevOps
       items:
+      - name: App Configuration
+        href: ../../azure-app-configuration/quickstart-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: DevTest Labs
         href: ../../devtest-labs/create-lab-windows-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Pipelines
@@ -164,6 +166,8 @@
         href: ../../web-application-firewall/ag/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Security
       items:
+      - name: Attestation
+        href: ../../attestation/quickstart-template.md?toc=/azure/azure-resource-manager/templates/toc.json
       - name: Key Vault
         href: ../../key-vault/secrets/quick-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Storage
