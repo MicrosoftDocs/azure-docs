@@ -30,10 +30,10 @@ Relationships describe how different digital twins are connected to each other, 
 Relationships are created using the `CreateRelationship` call. 
 
 To create a relationship, you need to specify:
-* The source twin ID (`srcId` in the code sample below) -- the ID of the twin where the relationship originates
-* The target twin ID (`targetId` in the code sample below) -- the ID of the twin where the relationship arrives
-* A relationship name (`relName` in the code sample below) -- the generic type of relationship, something like contains
-* A relationship ID (`relId` in the code sample below) -- the specific name for this relationship, something like Relationship1
+* The source twin ID (`srcId` in the code sample below)--the ID of the twin where the relationship originates.
+* The target twin ID (`targetId` in the code sample below)--the ID of the twin where the relationship arrives.
+* A relationship name (`relName` in the code sample below)--the generic type of relationship, something like _contains_.
+* A relationship ID (`relId` in the code sample below)--the specific name for this relationship, something like _Relationship1_.
 
 The relationship ID must be unique within the given source twin. It doesn't need to be globally unique.
 For example, for the twin *foo*, each specific relationship ID must be unique. However, another twin *bar* can have an outgoing relationship that matches the same ID of a *foo* relationship.
@@ -75,8 +75,8 @@ For more information on the helper class `BasicRelationship`, see [*How-to: Use 
 
 Relationships can be classified as either: 
 
-* Outgoing relationships -- Relationships belonging to this twin that point outward to connect it to other twins. The `GetRelationshipsAsync()` method is used to get outgoing relationships of a twin.
-* Incoming relationships -- Relationships belonging to other twins that point towards this twin to create an "incoming" link. The `GetIncomingRelationshipsAsync()` method is used to get incoming relationships of a twin.
+* Outgoing relationships--Relationships belonging to this twin that point outward to connect it to other twins. The `GetRelationshipsAsync()` method is used to get outgoing relationships of a twin.
+* Incoming relationships--Relationships belonging to other twins that point towards the source twin to create an "incoming" link. The `GetIncomingRelationshipsAsync()` method is used to get incoming relationships of a twin.
 
 There is no restriction on the number of relationships that you can have between two twins—you can have as many relationships between twins as you like. 
 
@@ -126,7 +126,7 @@ public static async Task<List<BasicRelationship>> FindOutgoingRelationshipsAsync
 You can now call this method to see the outgoing relationships of the twins like this:
 
 ```csharp
-await FindOutgoingRelationshipsAsync(client, twin_id);
+await FindOutgoingRelationshipsAsync(client, twin_Id);
 ```
 You can use the retrieved relationships to navigate to other twins in your graph. To do this, read the `target` field from the relationship that is returned, and use it as the ID for your next call to `GetDigitalTwin`.
 
@@ -167,21 +167,21 @@ public static async Task<List<IncomingRelationship>> FindIncomingRelationshipsAs
 You can now call this method to see the incoming relationships of the twins like this:
 
 ```csharp
-await FindIncomingRelationshipsAsync(client, twin_id);
+await FindIncomingRelationshipsAsync(client, twin_Id);
 ```
 ### List all twin properties and relationships
 
 Using the above methods for listing outgoing and incoming relationships to a twin, you can create a method that prints full twin information, including the twin's properties and both types of its relationships. Here is an example method, called `FetchAndPrintTwinAsync()`, showing how to do this.
 
 ```csharp  
-private static async Task FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_id)
+private static async Task FetchAndPrintTwinAsync(DigitalTwinsClient client, string twin_Id)
         {
             BasicDigitalTwin twin;
-            Response<string> res = client.GetDigitalTwin(twin_id);
+            Response<string> res = client.GetDigitalTwin(twin_Id);
             twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
             
-            await FindOutgoingRelationshipsAsync(client, twin_id);
-            await FindIncomingRelationshipsAsync(client, twin_id);
+            await FindOutgoingRelationshipsAsync(client, twin_Id);
+            await FindIncomingRelationshipsAsync(client, twin_Id);
 
             return;
         }
@@ -283,11 +283,11 @@ namespace minimal
             await CreateRelationship(client, srcId, targetId, "contains");
             await CreateRelationship(client, srcId, targetId, "has");
             Console.WriteLine();
-            Console.WriteLine("Printing srcID - Outgoing relationships");
+            Console.WriteLine("Printing srcId - Outgoing relationships");
             Console.WriteLine();
             await FetchAndPrintTwinAsync(srcId, client);
             Console.WriteLine();
-            Console.WriteLine("Printing targetID - Incoming relationships");
+            Console.WriteLine("Printing targetId - Incoming relationships");
             Console.WriteLine();
             await FetchAndPrintTwinAsync(targetId, client);
 
@@ -333,13 +333,13 @@ namespace minimal
 
         }
 
-        private static async Task FetchAndPrintTwinAsync(string twin_id, DigitalTwinsClient client)
+        private static async Task FetchAndPrintTwinAsync(string twin_Id, DigitalTwinsClient client)
         {
             BasicDigitalTwin twin;
-            Response<string> res = client.GetDigitalTwin(twin_id);
+            Response<string> res = client.GetDigitalTwin(twin_Id);
             twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
-            await FindOutgoingRelationshipsAsync(client, twin_id);
-            await FindIncomingRelationshipsAsync(client, twin_id);
+            await FindOutgoingRelationshipsAsync(client, twin_Id);
+            await FindIncomingRelationshipsAsync(client, twin_Id);
 
             return;
         }
@@ -403,7 +403,7 @@ Here is the console output of the above program:
 :::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
-> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, you can see the _Visualization_ section of this article. 
+> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the _Visualization_ section of this article. 
 
 ### Create a twin graph from a spreadsheet
 

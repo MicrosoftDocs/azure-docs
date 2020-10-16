@@ -26,10 +26,10 @@ This article focuses on managing digital twins; to work with relationships and t
 
 ## Create a digital twin
 
-To create a twin, you use the `CreateDigitalTwin` method on the service client like this:
+To create a twin, you use the `CreateDigitalTwin()` method on the service client like this:
 
 ```csharp
-await client.CreateDigitalTwinAsync("myTwinID", initData);
+await client.CreateDigitalTwinAsync("myTwinId", initData);
 ```
 
 To create a digital twin, you need to provide:
@@ -71,7 +71,7 @@ Dictionary<string, object> twin = new Dictionary<string, object>()
     { "Temperature", temperature},
     { "Humidity", humidity},
 };
-client.CreateDigitalTwin("myRoomID", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
+client.CreateDigitalTwin("myRoomId", JsonSerializer.Serialize<Dictionary<string, object>>(twin));
 ```
 
 #### Create twins with the helper class
@@ -88,7 +88,7 @@ props.Add("Temperature", 25.0);
 props.Add("Humidity", 50.0);
 twin.CustomProperties = props;
 
-client.CreateDigitalTwinAsync("myRoomID", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
+client.CreateDigitalTwinAsync("myRoomId", JsonSerializer.Serialize<BasicDigitalTwin>(twin));
 Console.WriteLine("The twin is created successfully");
 ```
 
@@ -96,7 +96,7 @@ Console.WriteLine("The twin is created successfully");
 > `BasicDigitalTwin` objects come with an `Id` field. You can leave this field empty, but if you do add an ID value, it needs to match the ID parameter passed to the `CreateDigitalTwin` call. For example:
 >
 >```csharp
->twin.Id = "myRoomID";
+>twin.Id = "myRoomId";
 >```
 
 ## Get data for a digital twin
@@ -109,7 +109,7 @@ object result = await client.GetDigitalTwin(id);
 This call returns twin data as a JSON string. Here's an example of how to use this to view twin details:
 
 ```csharp
-Response<string> res = client.GetDigitalTwin("myRoomID");
+Response<string> res = client.GetDigitalTwin("myRoomId");
 twin = JsonSerializer.Deserialize<BasicDigitalTwin>(res.Value);
 Console.WriteLine($"Model id: {twin.Metadata.ModelId}");
 foreach (string prop in twin.CustomProperties.Keys)
@@ -426,7 +426,7 @@ namespace minimal
             Console.WriteLine($"Upload a model");
             BasicDigitalTwin twin = new BasicDigitalTwin();
             var typeList = new List<string>();
-            string twin_Id = "myNewRoomID";
+            string twin_Id = "myRoomId";
             string dtdl = File.ReadAllText("room.json");
             typeList.Add(dtdl);
             // Upload the model to the service
