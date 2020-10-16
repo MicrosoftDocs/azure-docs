@@ -39,6 +39,9 @@ Communication Services uses Azure Notification Hub as a pass-through service to 
 
 To deliver push notifications to client devices using Notification Hubs, [create a Notification Hub](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) within the same subscription as your Communication Services resource. Azure Notification Hubs must be configured for the Platform Notifications Service you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/ios-sdk-get-started) and select your target client platform from the drop-down list near the top of the page.
 
+> [!NOTE]
+> Currently the APNs and FCM platforms are supported.
+
 Once your Notification hub is configured, you can associated it to your Communication Services resource by supplying a connections string for the hub using the Azure Resource Manager Client or through the Azure portal. The connection string should contain "Send" permissions. We recommend creating another access policy with "Send" only permissions specifically for your hub. Learn more about [Notification Hubs security and access policies](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
 
 > [!IMPORTANT]
