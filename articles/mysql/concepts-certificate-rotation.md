@@ -77,34 +77,6 @@ To avoid your application’s availability being interrupted due to certificat
 *   Replace the original root CA pem file with the combined root CA file and restart your application/client.
 *	In future, after the new certificate deployed on the server side, you can change your CA pem file to DigiCertGlobalRootG2.crt.pem.
 
-## How can you test the changes made for the certificate rotation?
-Once you have made the changes to the `*.pem` file, described [here](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), you can validate the changes and see it in action. We have pre-created servers in **Japan East** region, which uses the new DigiCertGlobalRootG2.crt.pem certificate. This will give error on using the BaltimoreCyberTrustRoot.crt.pem certificate.
-
-1. Server Name - `mysqlsslverify.mysql.database.azure.com`
-2. User Name - `mysqluser@mysqlsslverify`
-3. Location - `Japan East`
-
-*   Failure
-
-    ```azurecli-interactive
-    C:>mysql.exe -hmysqlsslverify.mysql.database.azure.com -u mysqluser@mysqlsslverify --ssl-mode=VERIFY_CA --ssl-ca "<location to BaltimoreCyberTrustRoot.crt.pem>"
-    ```
-    **Error** - ERROR 2026 (HY000): SSL connection error: error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed
-
-    >[!NOTE]
-    > This error means that the SSL handshake itself failed due to the mismatch of the cert file being passed. The server only accepts **DigiCertGlobalRootG2.crt.pem** file and the passed cert is the **BaltimoreCyberTrustRoot.crt.pem** file. 
-
-*   Success
-
-    ```azurecli-interactive
-    C:>mysql.exe -hmysqlsslverify.mysql.database.azure.com -u mysqluser@mysqlsslverify --ssl-mode=VERIFY_CA --ssl-ca "<location to DigiCertGlobalRootG2.crt.pem>"
-    ```
-
-    **Error** - ERROR 9000 (HY000): Client with IP address '73.83.15.158' is not allowed to connect to this MySQL server.
-    
-    >[!NOTE]
-    > This error is expected since the server is not open for connection from the customers application but the SSL handshake was successfully done.
-
 ## What can be the impact of not updating the certificate?
 If you are using the Azure Database for MySQL issued certificate as documented here,  your application’s availability might be interrupted since the database will not be reachable. Depending on your application, you may receive a variety of error messages including but not limited to:
 *	Invalid certificate/revoked certificate
