@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Manage and find Azure Blob data with blob index tags (preview)
 
-As datasets get larger, finding a specific object in a sea of data can be difficult. Blob index tags provide data management and discovery capabilities using key-value index tag attributes, enabling you to categorize and find objects within a single container or across all containers in your storage account. As data requirements change, objects can be dynamically categorized by updating their index tags while remaining in-place with their current container organization.
+As datasets get larger, finding a specific object in a sea of data can be difficult. Blob index tags provide data management and discovery capabilities by using key-value index tag attributes, enabling you to categorize and find objects within a single container or across all containers in your storage account. As data requirements change, objects can be dynamically categorized by updating their index tags while remaining in-place with their current container organization.
 
 Blob index tags let you:
 
@@ -279,7 +279,9 @@ Blob index pricing is currently in public preview and subject to change for gene
 
 ## Regional availability and storage account support
 
-Blob index tags are currently only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts are not supported but you can upgrade any GPv1 account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
+Blob index tags are currently only available on General Purpose v2 (GPv2) accounts with hierarchical namespace (HNS) disabled. General Purpose (GPV1) accounts are not supported but you can upgrade any GPv1 account to a GPv2 account.
+
+Tags are not supported on Premium storage accounts. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).
 
 In public preview, blob index tags are currently only available in the following regions:
 
