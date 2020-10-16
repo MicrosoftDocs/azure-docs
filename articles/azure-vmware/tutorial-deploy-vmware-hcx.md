@@ -263,12 +263,6 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="Screenshot that shows compute profile information." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Compute Profile](https://www.youtube.com/embed/qASXi5xrFzM) video.
-<<<<<<< HEAD
-
-=======
->>>>>>> 77333e5737d71e75ae51195448518df37c74c210
-
-
 
 ### Create a service mesh
 
@@ -294,11 +288,7 @@ Now it's time to configure a service mesh between on-premises and Azure VMware S
 1. Review services that will be enabled, and then select **Continue**.  
 
 1. In **Advanced Configuration - Override Uplink Network profiles**, select **Continue**.  
-<<<<<<< HEAD
 
-=======
-   
->>>>>>> 77333e5737d71e75ae51195448518df37c74c210
    Uplink network profiles connect to the network through which the remote site's interconnect appliances can be reached.  
   
 1. In **Advanced Configuration - Network Extension Appliance Scale Out**, review and select **Continue**. 
