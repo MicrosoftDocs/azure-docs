@@ -724,6 +724,8 @@
       items:
       - name: Migrate from Data Lake Storage Gen1
         href: data-lake-storage-migrate-gen1-to-gen2.md
+      - name: Managed migration tool (Gen1 to Gen2)
+        href: managed-migration-tool.md
       - name: Migrate an on-premises HDFS store
         href: data-lake-storage-migrate-on-premises-HDFS-cluster.md
     - name: Manage
