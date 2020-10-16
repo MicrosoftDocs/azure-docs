@@ -201,18 +201,6 @@ Metadata:
   Self Link:           /apis/arcdata.microsoft.com/v1alpha1/namespaces/arc/postgresql-12s/postgres02
   UID:                 8a9cd118-361b-4a2e-8a9d-5f9257bf6abb
 Spec:
-  Backups:
-    Delta Minutes:  3
-    Full Minutes:   10
-    Tiers:
-      Retention:
-        Maximums:
-          6
-          512MB
-        Minimums:
-          3
-      Storage:
-        Volume Size:  1Gi
   Engine:
     Extensions:
       Name:  citus
