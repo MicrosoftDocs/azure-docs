@@ -214,7 +214,7 @@ If you have content expressed in a less frequently used language, you can try La
 |Yiddish|`yi`|✓|    |iso639-1|
 |Yucatec Maya|`yua`|✓|    |BCP-47|
 
-
+---
 
 ## See also
 
