@@ -55,18 +55,18 @@ Install [Visual Studio 2019](https://www.visualstudio.com/vs) and include the **
 1. Now, on the **Publish** page, select **Manage in Azure portal**. 
 1. In the Azure portal, on the **Function App** page, select **Functions** in the left menu, and confirm that you see two functions: 
 
-    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/functions.png" alt-text="Functions":::
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/functions.png" alt-text="Two functions to handler Event Grid trigger and HTTP trigger":::
 
     > [!NOTE]
     > The `EventGridTriggerFunction` uses an [Event Grid trigger](../azure-functions/functions-bindings-event-grid-trigger.md) and the `HTTPTriggerFunction` uses a [HTTP trigger](../azure-functions/functions-bindings-http-webhook-trigger.md).
-1. Select **EventGridTriggerFunction** from the list. We recommend that you use the Event Grid trigger with Azure Functions as it has a few benefits over using the HTTP trigger. For details, see [Azure function as an event handler for Event Grid events](handler-functions.md).
+1. Select **EventGridTriggerFunction** from the list. We recommend that you use the Event Grid trigger with Azure Functions as it has a few benefits over using the HTTP trigger. For details, see [Azure function as an event handler for Event Grid events](../event-grid/handler-functions.md).
 1. On the **Function** page for the **EventGridTriggerFunction**, select **Monitor** on the left menu. 
 1. Select **Configure** to configure Application Insights to capture invocation log. You use this page to monitor function executions upon receiving Service Bus events from Event Grid. 
 1. On the **Application Insights** page, enter a name for the resource, select a **location** for the resource, and then select **OK**. 
 1. Select the function **EventGridTriggerFunction** at the top (breadcrumb menu) to navigate back to the **Function** page. 
 1. Confirm that you on the **Monitor** page. 
 
-    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/monitor-before.png" alt-text="Monitor page for the function":::
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/monitor-before.png" alt-text="Monitor page for the function before function invocations":::
     
     Keep this page open in a tab your web browser. You will refresh this page to see invocations for this function later.
 
@@ -103,7 +103,7 @@ The messages you sent to the Service Bus topic earlier are forwarded to the subs
 
 1. On the page for your Azure function app, switch to the **Monitor** tab if it isn't already active. You should see an entry for each message posted to the Service Bus topic. If you don't see them, refresh the page after waiting for a few minutes. 
 
-    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/function-monitor.png" alt-text="Monitor page for the function":::
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/function-monitor.png" alt-text="Monitor page for the function after invocations":::
 2. Select the invocation from the list to see the details. 
 
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/invocation-details.png" alt-text="Function invocation details" lightbox="./media/service-bus-to-event-grid-integration-example/invocation-details.png":::

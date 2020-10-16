@@ -40,4 +40,5 @@ You can use any method to send a message to your Service Bus topic. The sample c
 ## Send messages to the Service Bus topic
 1. Run the .NET C# application, which sends messages to the Service Bus topic. 
 
-    ![Console app output](./media/service-bus-to-event-grid-integration-example/console-app-output.png)
+    :::image type="content" source="./media/service-bus-event-grid-prerequisites/console-app-output.png" alt-text="Console app output":::
+    
