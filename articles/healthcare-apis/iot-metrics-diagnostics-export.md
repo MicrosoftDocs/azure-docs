@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/16/2020
 ms.author: jasteppe
 ---
 
@@ -18,7 +18,7 @@ In this article, you'll learn how to export Azure IoT Connector for FHIR* metric
 > Follow the guidance in [Enable Diagnostic Logging in Azure API for FHIR and Azure IoT Connector for FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) to set up audit logging.
 
 ## Enable metric logging for the Azure IoT Connector for FHIR (preview)
-1. To enable metric logging for the IoT Connector, select your Azure API for FHIR service in the Azure portal 
+1. To enable metric logging for the Azure IoT Connector for FHIR, select your Azure API for FHIR service in the Azure portal 
 
 2. Navigate to **Diagnostic settings** 
 
@@ -34,7 +34,7 @@ In this article, you'll learn how to export Azure IoT Connector for FHIR* metric
     2. **Stream to event hub** for ingestion by a third-party service or custom analytic solution. You will need to create an event hub namespace and event hub policy before you can configure this step.
     3. **Stream to the Log Analytics** workspace in Azure Monitor. You will need to create your Logs Analytics Workspace before you can select this option.
 
-6. Select **Errors, Traffic, and Latency** for the IoT Connector and any additional metric categories you want to capture for the Azure API for FHIR.
+6. Select **Errors, Traffic, and Latency** for the Azure IoT Connector for FHIR and any additional metric categories you want to capture for the Azure API for FHIR.
 
 7. Select **Save**
 
