@@ -30,7 +30,7 @@ Learn more about:
 
 ## Report production issues or request paid support for standalone Service Fabric clusters
 
-To report issues related to Service Fabric clusters running on-premises or on other clouds you may open a ticket for professional support on the [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+To report issues related to Service Fabric clusters running on-premises or on other clouds, you may open a ticket for professional support on the [Microsoft support portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 Learn more about:
 
@@ -51,11 +51,11 @@ The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric
 
 ### Azure Feedback forum
 
-The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting significant product feature ideas. We review the most popular requests and this plays a part for our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
+The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting significant product feature ideas. We review the most popular requests and factor them for our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
 
 ## Service Fabric Preview Versions - unsupported for production use
 
-Occasionally we make special preview releases containing significant feature changes for which we would like to survey early feedback. These preview versions should only be used in isolated test environments that do not serve production workloads. Your production cluster should always be running a supported, stable, Service Fabric version. We don't offer a paid support option for these preview releases.
+Occasionally we make special preview releases containing significant feature changes for which we would like to survey early feedback. You should only use preview versions in isolated test environments that do not serve production workloads. Your production cluster should always be running a supported, stable, Service Fabric version. We don't offer a paid support option for these preview releases.
 
 A preview version always begins with a major and minor version number of 255. For example, if you see a Service Fabric version 255.255.5703.949, this version is in preview and is only intended to be used in test clusters. These preview releases are also announced on the [Service Fabric team blog](https://techcommunity.microsoft.com/t5/azure-service-fabric/bg-p/Service-Fabric) and will have details on the features included. Use one of the options listed under [Report Azure Service Fabric issues](#report-azure-service-fabric-issues) to ask questions or provide feedback.
 
