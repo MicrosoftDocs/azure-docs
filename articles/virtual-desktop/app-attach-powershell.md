@@ -7,9 +7,14 @@ ms.date: 11/09/2020
 ms.author: helohr
 manager: lizross
 ---
-# Set up MSIX app attach using PowerShell
+# Set up MSIX app attach (preview) using PowerShell
 
-In addition to the Azure portal, you can also set up MSIX app attach manually with PowerShell. This article will show you how.
+> [!IMPORTANT]
+> MSIX app attach is currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+In addition to the Azure portal, you can also set up MSIX app attach (preview) manually with PowerShell. This article will walk you through how to use PowerShell to set up MSIX app attach.
 
 ## Prerequisites
 
