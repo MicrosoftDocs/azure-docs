@@ -13,7 +13,6 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 ## Prerequisites
 
-- Download the latest [version of AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 Before using the Azure CLI to manage VM extensions on your machine, you need to install the `ConnectedMachine` CLI extension. Run the following command on your Arc enabled server `az extension add connectedmachine`.
