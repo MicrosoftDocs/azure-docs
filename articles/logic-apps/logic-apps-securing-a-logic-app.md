@@ -315,7 +315,7 @@ Along with Shared Access Signature (SAS), you might want to specifically limit t
 
    A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
-If you want your logic app to trigger only as a nested logic app through the built-in [Azure Logic Apps](/logic-apps-http-endpoint.md) connector, from the **Allowed inbound IP addresses** list, select **Only other Logic Apps**. This option writes an empty array to your logic app resource. That way, only calls from the Logic Apps service (parent logic apps) can trigger the nested logic app through the built-in Azure Logic Apps action.
+To make your logic app callable only as a nested logic app through the built-in [Azure Logic Apps action](../logic-apps/logic-apps-http-endpoint.md), open the **Allowed inbound IP addresses** list, and select **Only other Logic Apps**. This option writes an empty array to your logic app resource and requires that only calls from other "parent" logic apps can trigger the nested logic app through the built-in **Azure Logic Apps** action.
 
 If you want your logic app to trigger as a nested logic app through the HTTP connector, do not use the **Only other Logic Apps** option. Instead use the **Allowed inbound IP addresses** option to whitelist the parent logic app's Runtime outgoing IP addresses.
 
