@@ -113,108 +113,108 @@ ms.author: aahi
 
 #### [Language Detection](#tab/language-detection)
 
-The Text Analytics API can detect a wide range of languages, variants, dialects, and some regional/cultural languages.  Language Detection returns the "script" of a language. For instance, for the phrase "I have a dog" it will return  `en` instead of  `en-US`. The only special case is Chinese, where the language detection capability will return `zh_CHS` or `zh_CHT` if it can determine the script given the text provided. In situations where a specific script cannot be identified for a Chinese document, it will return simply `zh`.
-
-Text Analytics Language Detection API returns detected languages with their name and code. Text Analytics language code parameteres conform to [BCP-47](https://tools.ietf.org/html/bcp47) standard with most of them conforming to [ISO-639-1](https://en.wikipedia.org/wiki/ISO_639-1) identifiers. 
+The Text Analytics API can detect a wide range of languages, variants, dialects, and some regional/cultural languages, and return detected languages with their name and code. Text Analytics Language Detection language code parameteres conform to [BCP-47](https://tools.ietf.org/html/bcp47) standard with most of them conforming to [ISO-639-1](https://www.iso.org/iso-639-language-codes.html) identifiers. 
 
 If you have content expressed in a less frequently used language, you can try Language Detection to see if it returns a code. The response for languages that cannot be detected is `unknown`.
 
-| Language | Language Code |  v3 support | Available starting with v3 model version: | Code Standard    |
-|:---------|:-------------:|:----------:|:-----------------------------------------:|:--------:|
-|Afrikaans|`af`|✓|    |iso639-1|
-|Albanian|`sq`|✓|    |iso639-1|
-|Arabic|`ar`|✓|    |iso639-1|
-|Armenian|`hy`|✓|    |iso639-1|
-|Basque|`eu`|✓|    |iso639-1|
-|Belarusian|`be`|✓|    |iso639-1|
-|Bengali|`bn`|✓|    |iso639-1|
-|Bosnian|`bs`|✓|2020-09-01|iso639-1|
-|Bulgarian|`bg`|✓|    |iso639-1|
-|Burmese|`my`|✓|    |iso639-1|
-|Catalan,Valencian|`ca`|✓|    |iso639-1|
-|Central Khmer|`km`|✓|    |iso639-1|
-|Chinese|`zh`|✓|    |iso639-1|
-|Chinese Simplified|`zh_chs`|✓|    |BCP-47|
-|Chinese Traditional|`zh_cht`|✓|    |BCP-47|
-|Croatian|`hr`|✓|    |iso639-1|
-|Czech|`cs`|✓|    |iso639-1|
-|Danish|`da`|✓|    |iso639-1|
-|Dari|`prs`|✓|2020-09-01|BCP-47|
-|Divehi, Dhivehi, Maldivian|`dv`|✓|    |iso639-1|
-|Dutch, Flemish|`nl`|✓|    |iso639-1|
-|English|`en`|✓|    |iso639-1|
-|Esperanto|`eo`|✓|    |iso639-1|
-|Estonian|`et`|✓|    |iso639-1|
-|Fijian|`fj`|✓|2020-09-01|iso639-1|
-|Finnish|`fi`|✓|    |iso639-1|
-|French|`fr`|✓|    |iso639-1|
-|Galician|`gl`|✓|    |iso639-1|
-|Georgian|`ka`|✓|    |iso639-1|
-|German|`de`|✓|    |iso639-1|
-|Greek|`el`|✓|    |iso639-1|
-|Gujarati|`gu`|✓|    |iso639-1|
-|Haitian, Haitian Creole|`ht`|✓|    |iso639-1|
-|Hebrew|`he`|✓|    |iso639-1|
-|Hindi|`hi`|✓|    |iso639-1|
-|Hmong Daw|`mww`|✓|2020-09-01|BCP-47|
-|Hungarian|`hu`|✓|    |iso639-1|
-|Icelandic|`is`|✓|    |iso639-1|
-|Indonesian|`id`|✓|    |iso639-1|
-|Inuktitut|`iu`|✓|    |iso639-1|
-|Irish|`ga`|✓|    |iso639-1|
-|Italian|`it`|✓|    |iso639-1|
-|Japanese|`ja`|✓|    |iso639-1|
-|Kannada|`kn`|✓|    |iso639-1|
-|Kazakh|`kk`|✓|2020-09-01|iso639-1|
-|Korean|`ko`|✓|    |iso639-1|
-|Kurdish|`ku`|✓|    |iso639-1|
-|Lao|`lo`|✓|    |iso639-1|
-|Latin|`la`|✓|    |iso639-1|
-|Latvian|`lv`|✓|    |iso639-1|
-|Lithuanian|`lt`|✓|    |iso639-1|
-|Macedonian|`mk`|✓|    |iso639-1|
-|Malagasy|`mg`|✓|2020-09-01|iso639-1|
-|Malay|`ms`|✓|    |iso639-1|
-|Malayalam|`ml`|✓|    |iso639-1|
-|Maltese|`mt`|✓|    |iso639-1|
-|Maori|`mi`|✓|2020-09-01|iso639-1|
-|Marathi|`mr`|✓|2020-09-01|iso639-1|
-|Norwegian|`no`|✓|    |iso639-1|
-|Norwegian Nynorsk|`nn`|✓|    |iso639-1|
-|Oriya|`or`|✓|    |iso639-1|
-|Pashto, Pushto|`ps`|✓|    |iso639-1|
-|Persian|`fa`|✓|    |iso639-1|
-|Polish|`pl`|✓|    |iso639-1|
-|Portuguese|`pt`|✓|    |iso639-1|
-|Punjabi, Panjabi|`pa`|✓|    |iso639-1|
-|Queretaro Otomi|`otq`|✓|2020-09-01|BCP-47|
-|Romanian, Moldavian, Moldovan|`ro`|✓|    |iso639-1|
-|Russian|`ru`|✓|    |iso639-1|
-|Samoan|`sm`|✓|2020-09-01|iso639-1|
-|Serbian|`sr`|✓|    |iso639-1|
-|Sinhala, Sinhalese|`si`|✓|    |iso639-1|
-|Slovak|`sk`|✓|    |iso639-1|
-|Slovenian|`sl`|✓|    |iso639-1|
-|Somali|`so`|✓|    |iso639-1|
-|Spanish, Castilian|`es`|✓|    |iso639-1|
-|Swahili|`sw`|✓|    |iso639-1|
-|Swedish|`sv`|✓|    |iso639-1|
-|Tagalog|`tl`|✓|    |iso639-1|
-|Tahitian|`ty`|✓|2020-09-01|iso639-1|
-|Tamil|`ta`|✓|    |iso639-1|
-|Telugu|`te`|✓|    |iso639-1|
-|Thai|`th`|✓|    |iso639-1|
-|Tongan|`to`|✓|2020-09-01|iso639-1|
-|Turkish|`tr`|✓|    |iso639-1|
-|Ukrainian|`uk`|✓|    |iso639-1|
-|Urdu|`ur`|✓|    |iso639-1|
-|Uzbek|`uz`|✓|    |iso639-1|
-|Vietnamese|`vi`|✓|    |iso639-1|
-|Welsh|`cy`|✓|    |iso639-1|
-|Yiddish|`yi`|✓|    |iso639-1|
-|Yucatec Maya|`yua`|✓|    |BCP-47|
+| Language | Language Code |  v3 support | Available starting with v3 model version: |
+|:---------|:-------------:|:----------:|:-----------------------------------------:|
+|Afrikaans|`af`|✓|    |
+|Albanian|`sq`|✓|    |
+|Arabic|`ar`|✓|    |
+|Armenian|`hy`|✓|    |
+|Basque|`eu`|✓|    |
+|Belarusian|`be`|✓|    |
+|Bengali|`bn`|✓|    |
+|Bosnian|`bs`|✓|2020-09-01|
+|Bulgarian|`bg`|✓|    |
+|Burmese|`my`|✓|    |
+|Catalan, Valencian|`ca`|✓|    |
+|Central Khmer|`km`|✓|    |
+|Chinese|`zh`|✓|    |
+|Chinese Simplified|`zh_chs`|✓|    |
+|Chinese Traditional|`zh_cht`|✓|    |
+|Croatian|`hr`|✓|    |
+|Czech|`cs`|✓|    |
+|Danish|`da`|✓|    |
+|Dari|`prs`|✓|2020-09-01|
+|Divehi, Dhivehi, Maldivian|`dv`|✓|    |
+|Dutch, Flemish|`nl`|✓|    |
+|English|`en`|✓|    |
+|Esperanto|`eo`|✓|    |
+|Estonian|`et`|✓|    |
+|Fijian|`fj`|✓|2020-09-01|
+|Finnish|`fi`|✓|    |
+|French|`fr`|✓|    |
+|Galician|`gl`|✓|    |
+|Georgian|`ka`|✓|    |
+|German|`de`|✓|    |
+|Greek|`el`|✓|    |
+|Gujarati|`gu`|✓|    |
+|Haitian, Haitian Creole|`ht`|✓|    |
+|Hebrew|`he`|✓|    |
+|Hindi|`hi`|✓|    |
+|Hmong Daw|`mww`|✓|2020-09-01|
+|Hungarian|`hu`|✓|    |
+|Icelandic|`is`|✓|    |
+|Indonesian|`id`|✓|    |
+|Inuktitut|`iu`|✓|    |
+|Irish|`ga`|✓|    |
+|Italian|`it`|✓|    |
+|Japanese|`ja`|✓|    |
+|Kannada|`kn`|✓|    |
+|Kazakh|`kk`|✓|2020-09-01|
+|Korean|`ko`|✓|    |
+|Kurdish|`ku`|✓|    |
+|Lao|`lo`|✓|    |
+|Latin|`la`|✓|    |
+|Latvian|`lv`|✓|    |
+|Lithuanian|`lt`|✓|    |
+|Macedonian|`mk`|✓|    |
+|Malagasy|`mg`|✓|2020-09-01|
+|Malay|`ms`|✓|    |
+|Malayalam|`ml`|✓|    |
+|Maltese|`mt`|✓|    |
+|Maori|`mi`|✓|2020-09-01|
+|Marathi|`mr`|✓|2020-09-01|
+|Norwegian|`no`|✓|    |
+|Norwegian Nynorsk|`nn`|✓|    |
+|Oriya|`or`|✓|    |
+|Pashto, Pushto|`ps`|✓|    |
+|Persian|`fa`|✓|    |
+|Polish|`pl`|✓|    |
+|Portuguese|`pt`|✓|    |
+|Punjabi, Panjabi|`pa`|✓|    |
+|Queretaro Otomi|`otq`|✓|2020-09-01|
+|Romanian, Moldavian, Moldovan|`ro`|✓|    |
+|Russian|`ru`|✓|    |
+|Samoan|`sm`|✓|2020-09-01|
+|Serbian|`sr`|✓|    |
+|Sinhala, Sinhalese|`si`|✓|    |
+|Slovak|`sk`|✓|    |
+|Slovenian|`sl`|✓|    |
+|Somali|`so`|✓|    |
+|Spanish, Castilian|`es`|✓|    |
+|Swahili|`sw`|✓|    |
+|Swedish|`sv`|✓|    |
+|Tagalog|`tl`|✓|    |
+|Tahitian|`ty`|✓|2020-09-01|
+|Tamil|`ta`|✓|    |
+|Telugu|`te`|✓|    |
+|Thai|`th`|✓|    |
+|Tongan|`to`|✓|2020-09-01|
+|Turkish|`tr`|✓|    |
+|Ukrainian|`uk`|✓|    |
+|Urdu|`ur`|✓|    |
+|Uzbek|`uz`|✓|    |
+|Vietnamese|`vi`|✓|    |
+|Welsh|`cy`|✓|    |
+|Yiddish|`yi`|✓|    |
+|Yucatec Maya|`yua`|✓|    |
+
 
 ---
+
 
 ## See also
 
