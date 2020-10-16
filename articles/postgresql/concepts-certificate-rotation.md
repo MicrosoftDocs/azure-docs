@@ -130,5 +130,8 @@ To verify if you are using SSL connection to connect to the server refer [SSL ve
 ### 13. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
 No. There is no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
-###	14. What if I have further questions?
+### 14. What is you are using docker image of PgBouncer sidecar provided by Microsoft?
+A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting February 15, 2021. 
+
+###	15. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help,  [contact us](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)
