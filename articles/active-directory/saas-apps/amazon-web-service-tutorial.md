@@ -353,6 +353,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 > [!NOTE]
 > After you save the provisioning credentials, you must wait for the initial sync cycle to run. Sync usually takes around 40 minutes to finish. You can see the status at the bottom of the **Provisioning** page, under **Current Status**.
 
+> [!NOTE]
+> The combined length of the role ARN and the saml-provider ARN for a role being imported from AWS to Azure AD must be 119 characters or less.
+
 ### Create Amazon Web Services (AWS) test user
 
 The objective of this section is to create a user called B.Simon in Amazon Web Services (AWS). Amazon Web Services (AWS) doesn't need a user to be created in their system for SSO, so you don't need to perform any action here.
