@@ -53,7 +53,7 @@ In an *active primary with standby secondary*, applications write to the active 
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary.png" alt-text="active primary with standby secondary":::
 
-For more information on Hive replication and code samples refer [Apache Hive replication in Azure HDInsight clusters](https://docs.microsoft.com/en-us/azure/hdinsight/interactive-query/apache-hive-replication)
+For more information on Hive replication and code samples refer [Apache Hive replication in Azure HDInsight clusters](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-replication)
 
 ## Apache Spark
 
