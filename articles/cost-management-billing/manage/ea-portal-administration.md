@@ -66,13 +66,13 @@ The Azure EA portal helps you to administer your Azure EA costs and usage. There
 
 Each role has a different level of access and authority.
 
-For more information about user roles, see [Enterprise user roles](https://docs.microsoft.com/azure/billing/billing-ea-portal-get-started#enterprise-user-roles).
+For more information about user roles, see [Enterprise user roles](./ea-portal-get-started.md#enterprise-user-roles).
 
 ## Add an Azure EA account
 
 The Azure EA account is an organizational unit in the Azure EA portal. It's used to administer subscriptions and it's also used for reporting. To access and use Azure services, you need to create an account or have one created for you.
 
-For more information about Azure accounts, see [Add an account](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#add-an-account).
+For more information about Azure accounts, see [Add an account](./ea-portal-get-started.md#add-an-account).
 
 ## Enterprise Dev/Test Offer
 
