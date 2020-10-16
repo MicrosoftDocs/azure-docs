@@ -193,7 +193,7 @@
     items: 
       - name: Device simulator service
         href: https://github.com/Azure/device-simulation-dotnet/tree/master
-      - name: Azure Digital Twins samples
+      - name: Azure Digital Twins end-to-end samples
         href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: Azure Digital Twins explorer (sample)
         href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
