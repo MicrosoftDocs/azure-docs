@@ -75,7 +75,7 @@
 - name: Resources
   items:
     - name: Support & help options
-      href: ../cognitive-services/cognitive-services-support-options?context=/azure/cognitive-services/anomaly-detector/context/context
+      href: ../cognitive-services-support-options?context=/azure/cognitive-services/anomaly-detector/context/context
     - name: Pricing
       href: https://aka.ms/adpricing
     - name: Regional availability 
