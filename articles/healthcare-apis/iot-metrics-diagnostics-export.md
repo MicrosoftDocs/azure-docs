@@ -24,7 +24,7 @@ In this article, you'll learn how to export Azure IoT Connector FHIR* metrics lo
 
 3. Select **+ Add diagnostic setting**
 
-![Main Blade Diagnostic settings](media/iot-metrics-export/diagnostic-settings-main.png) 
+   :::image type="content" source="media/iot-metrics-export/diagnostic-settings-main.png" alt-text="IoT Connector1" lightbox="media/iot-metrics-export/diagnostic-settings-main.png"::: 
 
 4. Enter a name in the **Diagnostic setting name** dialog box.
 
@@ -38,7 +38,7 @@ In this article, you'll learn how to export Azure IoT Connector FHIR* metrics lo
 
 7. Select **Save**
 
-![Sub Blade Diagnostic settings](media/iot-metrics-export/diagnostic-setting-add.png) 
+   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="IoT Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
 
 > [!Note] 
 > It might take up to 15 minutes for the first metric logs to display in the repository of your choice.  
