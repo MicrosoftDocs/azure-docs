@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/15/2020
+ms.date: 10/16/2020
 ms.author: abnarain
 ---
 
@@ -625,21 +625,26 @@ You may receive below email notification, which recommends you to update the net
 
 #### Resolution
 
-This notification is for outbound communications from your private network to ADF service. For example, if you have Self-hosted IR or Azure-SQL Server Integration Services (SSIS) IR in VNET, which needs to access ADF service, then you need to add the new IP ranges in your network rule. But if you use service tag, there is no impact and no action is required.
+This notification is for **outbound communications** from your **Integration Runtime** running **on-premise** or inside an **Azure virtual private network** to ADF service. For example, if you have Self-hosted IR or Azure-SQL Server Integration Services (SSIS) IR in Azure VNET, which needs to access ADF service, then you need to review if you need to add this new IP range in your **Network Security Group (NSG)** rules. If your outbound NSG rule uses service tag, there will be no impact.
 
 #### More details
 
-These new IP ranges only have impact on outbound communications from customer private network to ADF service, such as SHIR or SSIS IR in on-premise network or your virtual network, which needs to interact with ADF service. 
+These new IP ranges **only have impact on outbound communications** rules from your **on-premise firewall** or **Azure virtual private network** to ADF service (see [firewall configuration and allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) for reference), for scenarios where you have a Self-hosted IR or SSIS IR in on-premise network or Azure virtual network, which needs to communicate to ADF service.
 
-For existing users:
+For existing users using **Azure VPN**:
 
-1. Check if you set up any NSG rules in the private network. If no, then there is no impact on your side.
-2. If yes, check if you use service tag or not. If you use service tag, then there is no need to change or add anything as the new IP ranges are under existing service tag.
-3. If you use IP addresses directly in your rule setting, then check if you add all IP ranges in service tags IP range download link. We have already put the new IP ranges in this file. 
+1. Check any outbound NSG rules in your private network where SSIS or Azure SSIS is configured. If there are no outbound restrictions, then no impact on them.
+1. If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag. 
+  
+    ![Destination check](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
 
-For new users: 
+1. If you use IP addresses directly in your rule setting, then check if you add all IP ranges in [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). We have already put the new IP ranges in this file. For new users: You just need to follow up relevant Self-hosted IR or SSIS IR configuration in our document to configure NSG rules.
 
-You just need to follow up relevant SHIR or SSIS IR configuration in our document to configure NSG rules.
+For existing users having SSIS IR or Self-hosted IR **on-premise**:
+
+- Validate with your network infrastructure team and see whether they need to include the new IP range addresses on the communication for outbound rules.
+- For firewall rules based on FQDN names, no updates are required when you use the settings documented on [firewall configuration and the allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
+- Some on-premise firewalls support service tags, if you use the updated Azure service tags configuration file, no other changes are needed.
 
 ## Self-hosted IR sharing
 
