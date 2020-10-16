@@ -113,7 +113,7 @@ The messages you sent to the Service Bus topic earlier are forwarded to the subs
     :::image type="content" source="./media/service-bus-to-event-grid-integration-example/function-logs.png" alt-text="Function logs" lightbox="./media/service-bus-to-event-grid-integration-example/function-logs.png":::
 
 ## Troubleshoot
-If you don't see any function invocation after waiting and refreshing for sometime, follow these steps: 
+If you don't see any function invocations after waiting and refreshing for sometime, follow these steps: 
 
 1. Confirm that the messages reached the Service Bus topic. See the **incoming messages** counter on the **Service Bus Topic** page. In this case, I ran the **MessageSender** application twice, so I see 10 messages (5 messages for each run).
 

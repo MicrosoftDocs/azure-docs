@@ -22,23 +22,19 @@ Follow instructions in this tutorial: [Quickstart: Use the Azure portal to creat
 - Create a Service Bus topic.
 - Create a subscription to the topic. You will only one subscription in this tutorial, so no need to create subscriptions S2 and S3. 
 
-## Prepare a sample application to send messages
-You can use any method to send a message to your Service Bus topic. The sample code at the end of this procedure assumes that you're using Visual Studio 2017.
+## Send messages to the Service Bus topic
+In this step, you use a sample application to send messages to the Service Bus topic you created in the previous step. 
 
-1. Clone [the GitHub azure-service-bus repository](https://github.com/Azure/azure-service-bus/).
-2. In Visual Studio, go to the *\samples\DotNet\Microsoft.ServiceBus.Messaging\ServiceBusEventGridIntegration* folder, and then open the *SBEventGridIntegration.sln* file.
-3. Go to the **MessageSender** project, and then select **Program.cs**.
-4. Fill in your Service Bus topic name and the connection string you got from the previous step:
+1. Clone the [GitHub azure-service-bus repository](https://github.com/Azure/azure-service-bus/).
+2. In Visual Studio, go to the *\samples\DotNet\Azure.Messaging.ServiceBus\ServiceBusEventGridIntegration* folder, and then open the *SBEventGridIntegration.sln* file.
+3. In the Solution Explorer window, expand the **MessageSender** project, and select **Program.cs**.
+4. Replace `<SERVICE BUS NAMESPACE - CONNECTION STRING>` with the connection string to your Service Bus namespace and `<TOPIC NAME>` with the name of the topic. 
 
     ```csharp
     const string ServiceBusConnectionString = "<SERVICE BUS NAMESPACE - CONNECTION STRING>";
     const string TopicName = "<TOPIC NAME>";
     ```
-5. Update the `numberOfMessages` value to **5**. 
-5. Build and run the program to send test messages to the Service Bus topic. 
-
-## Send messages to the Service Bus topic
-1. Run the .NET C# application, which sends messages to the Service Bus topic. 
+5. Build and run the program to send 5 test messages (`const int numberOfMessages = 5;`) to the Service Bus topic. 
 
     :::image type="content" source="./media/service-bus-event-grid-prerequisites/console-app-output.png" alt-text="Console app output":::
     

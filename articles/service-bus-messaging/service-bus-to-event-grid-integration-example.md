@@ -4,28 +4,18 @@ description: This article provides steps for handling Service Bus events via Eve
 documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
-ms.date: 06/23/2020
+ms.date: 10/16/2020
 ms.author: spelluru
 ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Respond to Azure Service Bus events received via Azure Event Grid by using Azure Logic Apps
-In this tutorial, you learn how to respond to Azure Service Bus events that are received via Azure Event Grid by using Azure Functions and Azure Logic Apps. 
-
-In this tutorial, you learn how to:
-> [!div class="checklist"]
-> * Create a Service Bus namespace
-> * Prepare a sample application to send messages
-> * Send messages to the Service Bus topic
-> * Receive messages by using Logic Apps
-> * Set up a test function on Azure
-> * Connect the function and namespace via Event Grid
-> * Receive messages by using Azure Functions
+In this tutorial, you learn how to respond to Azure Service Bus events that are received via Azure Event Grid by using Azure Logic Apps. 
 
 [!INCLUDE [service-bus-event-grid-prerequisites](../../includes/service-bus-event-grid-prerequisites.md)]
 
 ## Receive messages by using Logic Apps
-Connect a logic app with Azure Service Bus and Azure Event Grid by following these steps:
+In this step, you create a Azure logic app that receives Service Bus events via Azure Event Grid. 
 
 1. Create a logic app in the Azure portal.
     1. Select **+ Create a resource**, select **Integration**, and then select **Logic App**. 
@@ -73,11 +63,27 @@ Connect a logic app with Azure Service Bus and Azure Event Grid by following the
 
         ![Logic Apps Designer - complete the message](./media/service-bus-to-event-grid-integration-example/logic-app-complete-message.png)
 8. Select **Save** on the toolbar on the Logic Apps Designer to save the logic app. 
-9. Follow instruction in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic. 
+9. If you haven't already sent test messages to the topic, follow instructions in the [Send messages to the Service Bus topic](#send-messages-to-the-service-bus-topic) section to send messages to the topic. 
 10. Switch to the **Overview** page of your logic app. You see the logic app runs in the **Runs history** for the messages sent.
 
     ![Logic Apps Designer - logic app runs](./media/service-bus-to-event-grid-integration-example/logic-app-runs.png)
 
+## Troubleshoot
+If you don't see any invocations after waiting and refreshing for sometime, follow these steps: 
+
+1. Confirm that the messages reached the Service Bus topic. See the **incoming messages** counter on the **Service Bus Topic** page. In this case, I ran the **MessageSender** application twice, so I see 10 messages (5 messages for each run).
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/topic-incoming-messages.png" alt-text="Service Bus Topic page - incoming messages":::    
+1. Confirm that there are **no active messages** at the Service Bus subscription. 
+    If you don't see any events on this page, verify that the **Service Bus Subscription** page doesn't show any **Active message count**. If the number for this counter is greater than zero, the messages at the subscription aren't forwarded to the handler function (event subscription handler) for some reason. Verify that you've set up the event subscription properly. 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/subscription-active-message-count.png" alt-text="Active message count at the Service Bus subscription":::    
+1. You will also see **delivered events** on the **Events** page of the Service Bus namespace. 
+
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/event-subscription-page.png" alt-text="Events page - delivered events" lightbox="./media/service-bus-to-event-grid-integration-example/invocation-details.png":::
+1. You can also see that the events are delivered on the **Event Subscription** page. You can get to this page by selecting the event subscription on the **Events** page. 
+    
+    :::image type="content" source="./media/service-bus-to-event-grid-integration-example/event-subscription-delivered-events.png" alt-text="Event subscription page - delivered events":::
 ## Next steps
 
 * Learn more about [Azure Event Grid](../event-grid/index.yml).
