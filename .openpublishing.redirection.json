@@ -14658,6 +14658,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-vmware/pre-deployment-checklist.md",
+      "redirect_url": "/azure/azure-vmware/production-ready-deployment-steps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-vmware/disaster-recovery.md",
       "redirect_url": "/azure/azure-vmware/disaster-recovery-for-virtual-machines",
       "redirect_document_id": false
@@ -24605,6 +24610,11 @@
     {
       "source_path": "articles/active-directory/authentication/howto-registration-mfa-sspr-converged-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/howto-registration-mfa-sspr-combined-troubleshoot",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/best-practices.md",
+      "redirect_url": "/azure/active-directory/conditional-access/overview",
       "redirect_document_id": true
     },
     {
@@ -39730,7 +39740,7 @@
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal.md",
       "redirect_url": "/azure/active-directory/conditional-access/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",

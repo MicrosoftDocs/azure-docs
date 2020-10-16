@@ -690,9 +690,6 @@
         href: data-lake-storage-access-control-model.md
       - name: Access control lists
         href: data-lake-storage-access-control.md
-      - name: Security controls by Azure Policy
-        displayName: regulatory, compliance, standards, domains
-        href: ./security-controls-policy.md
     - name: Compatibility
       items:
       - name: Multi-protocol access
