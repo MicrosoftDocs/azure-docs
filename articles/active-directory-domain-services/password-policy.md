@@ -70,7 +70,7 @@ If you have an Azure AD password policy that specifies a maximum password age gr
 
 For user accounts created manually in a managed domain, the following additional password settings are also applied from the default policy. These settings don't apply to user accounts synchronized in from Azure AD, as a user can't update their password directly in Azure AD DS.
 
-* **Minimum password length (characters):** 7
+* **Minimum password length (characters):** 8
 * **Passwords must meet complexity requirements**
 
 You can't modify the account lockout or password settings in the default password policy. Instead, members of the *AAD DC Administrators* group can create custom password policies and configure it to override (take precedence over) the default built-in policy, as shown in the next section.
