@@ -33,7 +33,7 @@ Before you start, make sure that you understand the information in the following
 >[!NOTE]
 >The following information described in this section is also applicable to the [Service Map solution](service-map.md).  
 
-### Log Analytics
+### Log Analytics workspace
 
 Azure Monitor for VMs supports a Log Analytics workspace in the following regions:
 
