@@ -26,12 +26,7 @@ In this tutorial, you will:
 ## Prerequisites
 
 * [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
-* An Azure AD tenant where you can register an app. If you don’t have access to an Azure AD tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
-* The latest Blazor templates. You can install the latest Blazor templates for the .NET CLI with the following command:
-
-```dotnetcli
-dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
-```
+* An Azure AD tenant where you can register an app. If you don't have access to an Azure AD tenant, you can get one by registering with the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program) or by creating an [Azure free account](https://azure.microsoft.com/free).
 
 ## Register the app in the Azure portal
 
@@ -44,7 +39,13 @@ Once registered, in **Authentication** > **Implicit grant**, select the check bo
 
 ## Create the app using the .NET CLI
 
-Run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
+To create the app you will need the latest Blazor templates. You can install them for the .NET CLI with the following command:
+
+```dotnetcli
+dotnet new --install Microsoft.AspNetCore.Components.WebAssembly.Templates::3.2.1
+```
+
+Then run the following command to create the application. Replace the placeholders in the command with the proper information from your app's overview page and execute the command in a command shell. The output location specified with the `-o|--output` option creates a project folder if it doesn't exist and becomes part of the app's name.
 
 ```dotnetcli
 dotnet new blazorwasm2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id "{CLIENT ID}" --tenant-id "{TENANT ID}"
@@ -52,13 +53,13 @@ dotnet new blazorwasm2 --auth SingleOrg --calls-graph -o {APP NAME} --client-id 
 
 | Placeholder   | Azure portal name       | Example                                |
 | ------------- | ----------------------- | -------------------------------------- |
-| `{APP NAME}`  | &mdash;                 | `BlazorSample`                         |
+| `{APP NAME}`  | &mdash;                 | `BlazorWASMSample`                         |
 | `{CLIENT ID}` | Application (client) ID | `41451fa7-0000-0000-0000-69eff5a761fd` |
 | `{TENANT ID}` | Directory (tenant) ID   | `e86c78e2-0000-0000-0000-918e0565a45e` |
 
 ## Test the app
 
-You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Standard 2.1, but the template may support other frameworks as well.
+You can now build and run the app. When you run this template app, you must specify the framework to run using --framework. This tutorial uses the .NET Standard 2.1, but the template supports other frameworks as well.
 
 ```dotnetcli
 dotnet run --framework netstandard2.1
@@ -90,9 +91,9 @@ Next, add the following to your project's *.csproj* file in the netstandard2.1 *
 <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.7" />
 ```
 
-Then modify the code as specified in the next few steps. These changes will add [access tokens](access-tokens.md) to the outgoing requests sent to the Graph API. This pattern is discussed in more detail in [ASP.NET Core Blazor WebAssembly additional security scenarios](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/additional-scenarios?view=aspnetcore-3.1).
+Then modify the code as specified in the next few steps. These changes will add [access tokens](access-tokens.md) to the outgoing requests sent to the Microsoft Graph API. This pattern is discussed in more detail in [ASP.NET Core Blazor WebAssembly additional security scenarios](https://docs.microsoft.com/aspnet/core/blazor/security/webassembly/additional-scenarios?view=aspnetcore-3.1).
 
-First, create a new file named *GraphAuthorizationMessageHandler.cs* with the following code. This handler will be user to add an access token for the User.Read and Mail.Read scopes to outgoing requests to the Graph API.
+First, create a new file named *GraphAuthorizationMessageHandler.cs* with the following code. This handler will be user to add an access token for the `User.Read` and `Mail.Read` scopes to outgoing requests to the Microsoft Graph API.
 
 ```csharp
 using Microsoft.AspNetCore.Components;
@@ -111,7 +112,7 @@ public class GraphAPIAuthorizationMessageHandler : AuthorizationMessageHandler
 }
 ```
 
-Then, replace the Main method in Program.cs with the following code. This code makes use of the new GraphAPIAuthorizationMessageHandler and adds "User.Read" and "Mail.Read" as default scopes the app will request when the user first signs in.
+Then, replace the `Main` method in *Program.cs* with the following code. This code makes use of the new `GraphAPIAuthorizationMessageHandler` and adds `User.Read` and `Mail.Read` as default scopes the app will request when the user first signs in.
 
 ```csharp
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
@@ -133,7 +134,7 @@ builder.Services.AddMsalAuthentication(options =>
 await builder.Build().RunAsync();
 ```
 
-Finally, replace the FetchData.razor page with the following code. This code fetches user email data from the Graph API and displays them as a list. In **OnInitializedAsync**, the new HttpClient that uses the proper access token is created and used to make the request to the Graph API.
+Finally, replace the *FetchData.razor* page with the following code. This code fetches user email data from the Microsoft Graph API and displays them as a list. In `OnInitializedAsync`, the new `HttpClient` that uses the proper access token is created and used to make the request to the Microsoft Graph API.
 
 ```c#
 @page "/fetchdata"
@@ -185,16 +186,7 @@ else
     protected override async Task OnInitializedAsync()
     {
         _httpClient = HttpClientFactory.CreateClient("GraphAPI");
-
-        //var tokenResult = await TokenProvider.RequestAccessToken(
-        //    new AccessTokenRequestOptions
-        //    {
-        //        Scopes = new[] { "https://graph.microsoft.com/Mail.Read" }
-        //    });
-        //
-        //if (tokenResult.TryGetToken(out var token))
-        //{
-        //    _httpClient.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token.Value);
+        try {
             var dataRequest = await _httpClient.GetAsync("https://graph.microsoft.com/beta/me");
 
             if (dataRequest.IsSuccessStatusCode)
@@ -219,7 +211,12 @@ else
                     messages.Add(message);
                 }
             }
-       // }
+        }
+        catch (AccessTokenNotAvailableException ex)
+        {
+            // Tokens are not valid - redirect the user to log in again
+            ex.Redirect();
+        }
     }
 
     public class MailMessage
@@ -231,12 +228,13 @@ else
 }
 ```
 
-Now launch the app again. You’ll notice that you're prompted to give the app access to read your mail. This is expected when an app requests the Mail.Read scope.
+Now launch the app again. You'll notice that you're prompted to give the app access to read your mail. This is expected when an app requests the Mail.Read scope.
 
 After granting consent, navigate to the "Fetch data" page to read some email.
+
+:::image type="content" source="./media/tutorial-blazor-webassebly/final-app.png" alt-text="Screenshot of the final app. It has a heading that says Hello Nicholas and it shows a list of emails belonging to Nicholas.":::
 
 ## Next steps
 
 - [Microsoft identity platform best practices and recommendations](./identity-platform-integration-checklist.md)
-- [Microsoft Identity Web basics](https://github.com/AzureAD/microsoft-identity-web/wiki/Microsoft-Identity-Web-basics)
-- [Blazor WebAssembly](https://docs.microsoft.com/aspnet/core/blazor/?view=aspnetcore-3.1#blazor-webassembly)
+- [Introduction to ASP.NET Core Blazor](https://docs.microsoft.com/aspnet/core/blazor)
