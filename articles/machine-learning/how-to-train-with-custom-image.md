@@ -22,8 +22,7 @@ Azure Machine Learning provides a default Docker base image. You can also use Az
 Run the code on either of these environments:
 * Azure Machine Learning compute instance (no downloads or installation necessary):
   * Complete the [Set up environment and workspace](tutorial-1st-experiment-sdk-setup.md) tutorial to create a dedicated notebook server preloaded with the SDK and the sample repository.
-  * In the Azure Machine Learning [examples repository](https://github.com/Azure/azureml-examples), find a completed notebook by going to the **how-to-use-azureml > ml-frameworks > fastai > train-with-custom-docker** directory. 
-
+  * In the Azure Machine Learning [examples repository](https://github.com/Azure/azureml-examples), find a completed notebook by going to the **notebooks** > **fastai** > **train-pets-resnet34.ipynb** directory. 
 * Your own Jupyter Notebook server:
   * Create a [workspace configuration file](how-to-configure-environment.md#workspace).
   * Install the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). 

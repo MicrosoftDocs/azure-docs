@@ -1,17 +1,10 @@
 ---
-title: Compare Azure Content Delivery Network (CDN) product features | Microsoft Docs
+title: Compare Azure Content Delivery Network (CDN) product features
 description: Learn about the features that each Azure Content Delivery Network (CDN) product supports.
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: mdgattuso
-
-ms.assetid: 
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 11/15/2019
 ms.author: allensu
@@ -19,10 +12,14 @@ ms.custom: mvc
 
 ---
 
-# Compare Azure CDN product features
+# What are the comparisons between Azure CDN product features?
 
-Azure Content Delivery Network (CDN) includes four products: **Azure CDN Standard from Microsoft**, **Azure CDN Standard from Akamai**, **Azure CDN Standard from Verizon**, and **Azure CDN Premium from Verizon**. 
-For information about migrating an **Azure CDN Standard from Verizon** profile to **Azure CDN Premium from Verizon**, see [Migrate an Azure CDN profile from Standard Verizon to Premium Verizon](cdn-migrate.md). Note that while there is an upgrade path from Standard Verizon to Premium Verizon, there is no conversion mechanism between other products at this time.
+Azure Content Delivery Network (CDN) includes four products: 
+
+* **Azure CDN Standard from Microsoft**
+* **Azure CDN Standard from Akamai**
+* **Azure CDN Standard from Verizon**
+* **Azure CDN Premium from Verizon**. 
 
 The following table compares the features available with each product.
 
@@ -73,8 +70,16 @@ The following table compares the features available with each product.
 | [Compression MIME types](https://docs.microsoft.com/azure/cdn/cdn-improve-performance)  |Default only |Configurable |Configurable  |Configurable  |
 | Compression encodings  |gzip, brotli |gzip |gzip, deflate, bzip2, brotili  |gzip, deflate, bzip2, brotili  |
 
+## Migration
 
+For information about migrating an **Azure CDN Standard from Verizon** profile to **Azure CDN Premium from Verizon**, see [Migrate an Azure CDN profile from Standard Verizon to Premium Verizon](cdn-migrate.md). 
 
+> [!NOTE]
+> There is an upgrade path from Standard Verizon to Premium Verizon, there is no conversion mechanism between other products at this time.
+
+## Next steps
+
+* Learn more about [Azure CDN](cdn-overview.md).
 
 
 

@@ -24,8 +24,6 @@ You can use [Azure Web App Plugin for Maven](/java/api/overview/azure/maven/azur
 
 Otherwise, your deployment method will depend on your archive type:
 
-::: zone pivot="platform-windows"  
-
 ### Java SE
 
 To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu site. For more information on this API, please see [this documentation](./deploy-zip.md#rest).
@@ -34,7 +32,6 @@ To deploy .jar files to Java SE, use the `/api/zipdeploy/` endpoint of the Kudu 
 
 To deploy .war files to Tomcat, use the `/api/wardeploy/` endpoint to POST your archive file. For more information on this API, please see [this documentation](./deploy-zip.md#deploy-war-file).
 
-::: zone-end
 ::: zone pivot="platform-linux"
 
 ### JBoss EAP
@@ -694,7 +691,7 @@ If you choose to pin the minor version, you will need to periodically update the
 
 ### JDK versions and maintenance
 
-Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) provided through [Azul Systems](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications. You can install the JDK from [Java JDK Installation](https://aka.ms/azure-jdks).
+Azure's supported Java Development Kit (JDK) is [Zulu](https://www.azul.com/downloads/azure-only/zulu/) provided through [Azul Systems](https://www.azul.com/). Azul Zulu Enterprise builds of OpenJDK are a no-cost, multi-platform, production-ready distribution of the OpenJDK for Azure and Azure Stack backed by Microsoft and Azul Systems. They contain all the components for building and running Java SE applications. You can install the JDK from [Java JDK Installation](/azure/developer/java/fundamentals/java-jdk-long-term-support).
 
 Major version updates will be provided through new runtime options in Azure App Service. Customers update to these newer versions of Java by configuring their App Service deployment and are responsible for testing and ensuring the major update meets their needs.
 

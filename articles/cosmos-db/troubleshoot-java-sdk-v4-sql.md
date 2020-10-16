@@ -175,7 +175,7 @@ Also add a log4j config.
 # Set root logger level to DEBUG and its only appender to A1.
 log4j.rootLogger=INFO, A1
 
-log4j.category.com.microsoft.azure.cosmosdb=DEBUG
+log4j.category.com.azure.cosmos=DEBUG
 #log4j.category.io.netty=INFO
 #log4j.category.io.reactivex=INFO
 # A1 is set to be a ConsoleAppender.
