@@ -214,6 +214,18 @@ If you selected the Hide Snapshot Path checkbox when you created the volume, the
 
     ![Properties Previous Versions](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
 
+## Delete snapshots  
+
+You can delete snapshots that you no longer need to keep. 
+
+1. Go to the **Snapshots** menu of a volume. Right-click the snapshot you want to delete. Select **Delete**.
+
+    ![Screenshot that describes the right-click menu of a snapshot](../media/azure-netapp-files/snapshot-right-click-menu.png) 
+
+2. In the Delete Snapshot window, confirm that you want to delete the snapshot by clicking **Yes**. 
+
+    ![Screenshot that confirms snapshot deletion](../media/azure-netapp-files/snapshot-confirm-delete.png)  
+
 ## Next steps
 
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
