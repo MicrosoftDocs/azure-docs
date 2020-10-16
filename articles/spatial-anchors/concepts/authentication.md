@@ -113,7 +113,7 @@ For applications that target Azure Active Directory users, we recommend that you
         1.    If your application supports **My organization only**, replace this value with your **Tenant ID** or **Tenant name**. For example, contoso.microsoft.com.
         2.    If your application supports **Accounts in any organizational directory**, replace this value with **Organizations**.
         3.    If your application supports **All Microsoft account users**, replace this value with **Common**.
-3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
+3.    On your token request, set the **scope** to **https:\//sts.mixedreality.azure.com//.default**. This scope will indicate to Azure AD that your application is requesting a token for the Mixed Reality Security Token Service (STS).
 
 With that, your application should be able to obtain from MSAL an Azure AD token; you can set that Azure AD token as the **authenticationToken** on your cloud session config object.
 
