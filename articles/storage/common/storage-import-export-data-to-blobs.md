@@ -191,11 +191,18 @@ Use the following steps to create an import job in the Azure CLI.
             manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
         --type Import \
         --log-level Verbose \
-        --return-address city=Sunnyvale country-or-region=USA email=gus@contoso.com \
-            phone=4085555555 postal-code=94089 recipient-name="Gus Poland" state-or-province=CA \
-            street-address1="1020 Enterprise way" \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
+        --return-shipping carrier-name=FedEx carrier-account-number=123456789 \
         --storage-account myssdocsstorage
     ```
+
+   > [!TIP]
+   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
 1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the myierg resource group:
 

@@ -116,7 +116,7 @@ Use the following steps to create an export job in the Azure portal.
     az import-export location list
     ```
 
-1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an export job:
+1. Run the following [az import-export create](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_create) command to create an export job that uses your existing storage account:
 
     ```azurecli
     az import-export create \
@@ -125,17 +125,39 @@ Use the following steps to create an export job in the Azure portal.
         --location "West US" \
         --backup-drive-manifest true \
         --diagnostics-path waimportexport \
-        --drive-list bit-locker-key=439675-460165-128202-905124-487224-524332-851649-442187 \
-            drive-header-hash= drive-id=AZ31BGB1 manifest-file=\\DriveManifest.xml \
-            manifest-hash=69512026C1E8D4401816A2E5B8D7420D \
+        --export blob-path=/ \
         --type Export \
         --log-level Verbose \
-        --return-address city=Sunnyvale country-or-region=USA email=gus@contoso.com phone=4085555555 \
-            postal-code=94089 recipient-name="Gus Poland" state-or-province=CA street-address1="1020 Enterprise way" \
+        --shipping-information recipient-name="Microsoft Azure Import/Export Service" \
+            street-address1="3020 Coronado" city="Santa Clara" state-or-province=CA postal-code=98054 \
+            country-or-region=USA phone=4083527600 \
+        --return-address recipient-name="Gus Poland" street-address1="1020 Enterprise way" \
+            city=Sunnyvale country-or-region=USA state-or-province=CA postal-code=94089 \
+            email=gus@contoso.com phone=4085555555" \
         --storage-account myssdocsstorage
     ```
 
-   This command uses your existing storage account.
+    > [!TIP]
+    > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+
+   This job exports all the blobs in your storage account. You can specify a blob for export by substituting this value for **--export**:
+
+    ```azurecli
+    --export blob-path=$root/logo.bmp
+    ```
+
+   This parameter value exports the blob named *logo.bmp* in the root container.
+
+   You also have the option of selecting all the blobs in a container by using a prefix. Substitute this value for **--export**:
+
+    ```azurecli
+    blob-path-prefix=/myiecontainer
+    ```
+
+   For more information, see [Examples of valid blob paths](#examples-of-valid-blob-paths).
+
+   > [!NOTE]
+   > If the blob to be exported is in use during data copy, Azure Import/Export service takes a snapshot of the blob and copies the snapshot.
 
 1. Use the [az import-export list](/cli/azure/ext/import-export/import-export#ext_import_export_az_import_export_list) command to see all the jobs for the resource group myierg:
 
