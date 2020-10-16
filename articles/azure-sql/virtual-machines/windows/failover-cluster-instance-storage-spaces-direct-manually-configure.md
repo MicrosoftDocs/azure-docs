@@ -160,7 +160,7 @@ The disks for Storage Spaces Direct need to be empty. They can't contain partiti
 
 1. [Create a volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   Storage Spaces Direct automatically creates a storage pool when you enable it. You're now ready to create a volume. The PowerShell cmdlet `New-Volume` automates the volume creation process. This process includes formatting, adding the volume to the cluster, and creating a CSV. This example creates an 800-gigabyte (GB) CSV:
+   Storage Spaces Direct automatically creates a storage pool when you enable it. You're now ready to create a volume. The PowerShell cmdlet `New-Volume` automates the volume creation process. This process includes formatting, adding the volume to the cluster, and creating a CSV. This example creates an 800 gigabyte (GB) CSV:
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -245,6 +245,6 @@ If Storage Spaces Direct isn't the appropriate FCI storage solution for you, con
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster configuration best practices](hadr-cluster-best-practices.md). 
 
-For additional information, see: 
+For more information, see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

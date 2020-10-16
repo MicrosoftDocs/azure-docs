@@ -22,7 +22,7 @@ ms.custom: "seo-lt-2019"
 # Tutorial: Manually configure an availability group (SQL Server on Azure VMs)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This tutorial shows how to create a Always On availability group for SQL Server on Azure Azure Virtual Machines (VMs). The complete tutorial creates an availability group with a database replica on two SQL Servers.
+This tutorial shows how to create an Always On availability group for SQL Server on Azure Virtual Machines (VMs). The complete tutorial creates an availability group with a database replica on two SQL Servers.
 
 While this article manually configures the availability group environment, it is also possible to do so using the [Azure portal](availability-group-azure-portal-configure.md), [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), or [Azure Quickstart templates](availability-group-quickstart-template-configure.md) as well. 
 
@@ -125,7 +125,7 @@ Add the other SQL Server to the cluster.
 
 ### Add a cluster quorum file share
 
-In this example the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](https://technet.microsoft.com/library/cc731739.aspx).
+In this example, the Windows cluster uses a file share to create a cluster quorum. This tutorial uses a Node and File Share Majority quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Connect to the file share witness member server with a remote desktop session.
 
@@ -281,7 +281,7 @@ You are now ready to configure an availability group using the following steps:
 
     ![Launch New availability group Wizard](./media/availability-group-manually-configure-tutorial/56-newagwiz.png)
 
-2. In the **Introduction** page, select **Next**. In the **Specify availability group Name** page, type a name for the availability group in **Availability group name**. For example **AG1**. Select **Next**.
+2. In the **Introduction** page, select **Next**. In the **Specify availability group Name** page, type a name for the availability group in **Availability group name**. For example, **AG1**. Select **Next**.
 
     ![New availability group Wizard, Specify availability group Name](./media/availability-group-manually-configure-tutorial/58-newagname.png)
 

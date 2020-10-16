@@ -21,7 +21,7 @@ Azure allows you to deploy a virtual machine (VM) with an image of SQL Server bu
 
 | Changes | Details |
 | --- | --- |
-| **DNN for AG** | You can now configure a [distributed network name (DNN) listener)](availability-group-distributed-network-name-dnn-listener-configure.md) fon SQL Server 2019 CU8 and later to replace the traditional [VNN listener](availability-group-overview.md#connectivity), negating the need for an Azure Load Balancer.   | 
+| **DNN for AG** | You can now configure a [distributed network name (DNN) listener)](availability-group-distributed-network-name-dnn-listener-configure.md) for SQL Server 2019 CU8 and later to replace the traditional [VNN listener](availability-group-overview.md#connectivity), negating the need for an Azure Load Balancer.   | 
 
 ## September 2020
 

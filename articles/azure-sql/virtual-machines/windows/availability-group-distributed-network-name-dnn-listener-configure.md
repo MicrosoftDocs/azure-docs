@@ -94,7 +94,7 @@ To do so, follow these steps:
    Start-ClusterResource -Name $Ag
    ```
 
-1. Save the script as a .ps1 file, such as `add_dnn_listener.ps1`. 
+1. Save the script as a `.ps1` file, such as `add_dnn_listener.ps1`. 
 
 
 ## Execute script
@@ -103,7 +103,7 @@ To create the DNN listener, execute the script passing in parameters for the nam
 
 For example, assuming an availability group name of `ag1`, listener name of `dnnlsnr`, and listener port as `6789`, follow these steps: 
 
-1. Open a command-line interface tool, such as command prompt or Powershell. 
+1. Open a command-line interface tool, such as command prompt or PowerShell. 
 1. Navigate to where you saved the `.ps1` script, such as c:\Documents. 
 1. Execute the script: ```add_dnn_listener.ps1 <ag name> <listener-name> <listener port>```. For example: 
 

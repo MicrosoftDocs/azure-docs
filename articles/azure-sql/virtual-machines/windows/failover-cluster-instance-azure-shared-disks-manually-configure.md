@@ -225,6 +225,6 @@ If Azure shared disks are not the appropriate FCI storage solution for you, cons
 
 To learn more, see an overview of [FCI with SQL Server on Azure VMs](failover-cluster-instance-overview.md) and [cluster configuration best practices](hadr-cluster-best-practices.md).
 
-For more information see: 
+For more information, see: 
 - [Windows cluster technologies](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server failover cluster instances](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

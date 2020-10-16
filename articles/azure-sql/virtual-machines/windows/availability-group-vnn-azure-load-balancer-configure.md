@@ -100,7 +100,7 @@ Use the [Azure portal](https://portal.azure.com) to create the load balancer:
 1. Set the load-balancing rule parameters:
 
    - **Name**: A name for the load-balancing rules.
-   - **Frontend IP address**: The IP address for the SQL Server FCI's or the AG listener's clustered network resource.
+   - **Frontend IP address**: The IP address for the SQL Server FCIs or the AG listener's clustered network resource.
    - **Port**: The SQL Server TCP port. The default instance port is 1433.
    - **Backend port**: The same port as the **Port** value when you enable **Floating IP (direct server return)**.
    - **Backend pool**: The backend pool name that you configured earlier.

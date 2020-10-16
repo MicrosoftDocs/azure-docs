@@ -1,5 +1,5 @@
 ---
-title: Configure VNN with Azure Load Balancer a failover cluster instance
+title: Configure Azure Load Balancer a failover cluster instance VNN
 description: Learn to configure an Azure Load Balancer to route traffic to the virtual network name (VNN) for your failover cluster instance (FCI) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure VNN with Azure Load Balancer for failover cluster instance 
+# Configure Azure Load Balancer for failover cluster instance VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by the clustered resource in Azure. 
