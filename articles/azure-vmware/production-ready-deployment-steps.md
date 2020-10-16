@@ -15,7 +15,7 @@ The processes of this quick start results in a production-ready environment for 
 >Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md). 
 
 >[!NOTE]
->As you plan your deployment, make sure to document the information required and your settings.
+>As you plan your deployment, make sure you document the information required for the deployment.
 
 ## Subscription
 
