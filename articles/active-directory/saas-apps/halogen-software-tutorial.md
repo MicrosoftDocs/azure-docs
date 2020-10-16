@@ -129,15 +129,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click the **Options** tab.
   
-    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-12.png)
+    ![Screenshot that shows the "saba TalentSpace" home page with the "Options" tab selected.](./media/halogen-software-tutorial/tutorial-halogen-12.png)
 
 3. In the left navigation pane, click **SAML Configuration**.
   
-    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-13.png)
+    ![Screenshot that shows the "User Interface" left navigation pane with "S A M L Configuration" selected.](./media/halogen-software-tutorial/tutorial-halogen-13.png)
 
 4. On the **SAML Configuration** page, perform the following steps:
 
-    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-14.png)
+    ![Screenshot that shows the "S A M L Configuration" page with the "Settings" options highlighted.](./media/halogen-software-tutorial/tutorial-halogen-14.png)
 
     a. As **Unique Identifier**, select **NameID**.
 
@@ -164,7 +164,7 @@ The objective of this section is to create a user called Britta Simon in Saba Ta
 
 2. Click the **User Center** tab, and then click **Create User**.
 
-    ![What is Azure AD Connect](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
+    ![Screenshot that shows the "User Center" tab and "Create User" selected.](./media/halogen-software-tutorial/tutorial-halogen-300.png)  
 
 3. On the **New User** dialog page, perform the following steps:
 

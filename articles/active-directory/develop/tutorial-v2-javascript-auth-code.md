@@ -546,7 +546,9 @@ When a user selects the **Sign In** button for the first time, the `signIn` meth
 
 At this point, a PKCE-protected authorization code is sent to the CORS-protected token endpoint and is exchanged for tokens. An ID token, access token, and refresh token are received by your application and processed by *msal.js*, and the information contained in the tokens is cached.
 
-The ID token contains basic information about the user, like their display name. If you plan to use any data provided by the ID token, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application. The refresh token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens.
+The ID token contains basic information about the user, like their display name. If you plan to use any data provided by the ID token, your back-end server *must* validate it to guarantee the token was issued to a valid user for your application.
+
+The access token has a limited lifetime and expires after 24 hours. The refresh token can be used to silently acquire new access tokens.
 
 The SPA you've created in this tutorial calls `acquireTokenSilent` and/or `acquireTokenPopup` to acquire an *access token* used to query the Microsoft Graph API for user profile info. If you need a sample that validates the ID token, see the [active-directory-javascript-singlepageapp-dotnet-webapi-v2](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2) sample application on GitHub. The sample uses an ASP.NET web API for token validation.
 

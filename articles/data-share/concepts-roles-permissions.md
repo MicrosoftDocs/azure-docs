@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/30/2020
+ms.date: 10/02/2020
 ---
 
 # Roles and requirements for Azure Data Share 
@@ -30,11 +30,10 @@ Below is a summary of the roles assigned to Data Share resource's managed identi
 |Azure Blob Storage| Storage Blob Data Reader | Storage Blob Data Contributor
 |Azure Data Lake Gen1 | Owner | Not Supported
 |Azure Data Lake Gen2 | Storage Blob Data Reader | Storage Blob Data Contributor
-|Azure SQL Server | SQL DB Contributor | SQL DB Contributor
 |Azure Data Explorer Cluster | Contributor | Contributor
 |
 
-For SQL-based sharing, a SQL user needs to be created from an external provider in Azure SQL Database with the same name as the Azure Data Share resource. Below is a summary of the permission required by the SQL user.
+For SQL-based sharing, a SQL user needs to be created from an external provider in Azure SQL Database with the same name as the Azure Data Share resource. Azure Active Directory admin permission is required to create this user. Below is a summary of the permission required by the SQL user.
 
 |**SQL Database Type**|**Data Provider SQL User Permission**|**Data Consumer SQL User Permission**|
 |---|---|---|

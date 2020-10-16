@@ -125,7 +125,7 @@ Consider your organizational needs to determine the strategy for deploying user 
 
 ### Engage the right stakeholders
 
-When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](https://aka.ms/deploymentplans) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
+When technology projects fail, it's typically because of mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, [ensure you're engaging the right stakeholders](../fundamentals/active-directory-deployment-plans.md) and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountabilities.
 
 ### Plan communications
 
@@ -260,7 +260,7 @@ The provisioning service stores the state of both systems after the initial cycl
 
 Use the [Azure portal](https://portal.azure.com/) to manage automatic user account provisioning and de-provisioning for applications that support it. Follow the steps in [How do I set up automatic provisioning to an application?](../app-provisioning/user-provisioning.md)
 
-The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview).
+The Azure AD user provisioning service can also be configured and managed using the [Microsoft Graph API](/graph/api/resources/synchronization-overview).
 
 ## Manage automatic user provisioning
 
@@ -270,7 +270,7 @@ Now that you've deployed, you need to manage the solution.
 
 After a successful [initial cycle](../app-provisioning/user-provisioning.md), the Azure AD provisioning service will run incremental updates indefinitely, at intervals specific to each application, until one of the following events occurs:
 
-* The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) command.
+* The service is manually stopped, and a new initial cycle is triggered using the [Azure portal](https://portal.azure.com/), or using the appropriate [Microsoft Graph API](/graph/api/resources/synchronization-overview) command.
 
 * A new initial cycle is triggered by a change in attribute mappings or scoping filters.
 
@@ -306,7 +306,7 @@ Refer to the following links to troubleshoot any issues that may turn up during 
 
 * [Writing expressions for attribute mappings](../app-provisioning/functions-for-customizing-application-data.md)
 
-* [Azure AD synchronization API overview](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+* [Azure AD synchronization API overview](/graph/api/resources/synchronization-overview)
 
 * [Skip deletion of user accounts that go out of scope](skip-out-of-scope-deletions.md)
 

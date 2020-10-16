@@ -82,7 +82,7 @@ This individual is appointed by the authorizing official. The BCAP, VDSS, and VD
 The SACA reference architecture is designed to deploy the VDSS and VDMS components in Azure and to enable the TCCM. This architecture is modular. All of the pieces of VDSS and VDMS can live in a centralized hub. Some of the controls can be met in the mission-owner space or even on-premises. Microsoft recommends that you co-locate the VDSS and VDMS components into a central virtual network that all mission owners can connect through. The following diagram shows this architecture: 
 
 
-![SACA reference architecture diagram](media/sacav2generic.png)
+![Architecture diagram that shows the VDSS and VDMS components co-located into a central virtual network.](media/sacav2generic.png)
 
 When you plan your SCCA compliancy strategy and technical architecture, consider the following topics from the beginning because they affect every customer. The following issues have come up with DoD customers and tend to slow down planning and execution. 
 

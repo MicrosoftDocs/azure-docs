@@ -20,16 +20,22 @@
     items:
       - name: Get a telephone number
         href: quickstarts/telephony-sms/get-phone-number.md
+      - name: Add telephone calling to your app
+        href: quickstarts/voice-video-calling/pstn-call.md
       - name: Send an SMS message
         href: quickstarts/telephony-sms/send.md
       - name: Handle SMS events
         href: quickstarts/telephony-sms/handle-sms-events.md
+      - name: Send an SMS in Azure Logic Apps
+        href: quickstarts/telephony-sms/logic-app.md
   - name: Voice and video calling
     items:
     - name: Add voice calling to your app
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Use the calling client library
       href: quickstarts/voice-video-calling/calling-client-samples.md
+    - name: Join your calling app to a Teams meeting
+      href: quickstarts/voice-video-calling/get-started-teams-interop.md
 - name: Tutorials
   expanded: false
   items:
@@ -58,6 +64,8 @@
         href: concepts/voice-video-calling/calling-sdk-features.md
       - name: Voice and video concepts
         href: concepts/voice-video-calling/about-call-types.md
+      - name: Teams interoperability
+        href: concepts/voice-video-calling/teams-interop.md
   - name: Client and server architecture
     href: concepts/client-and-server-architecture.md
   - name: Call flows
@@ -72,6 +80,10 @@
     href: concepts/event-handling.md
   - name: Notifications
     href: concepts/notifications.md
+  - name: Logging and diagnostics
+    href: concepts/logging-and-diagnostics.md
+  - name: Metrics
+    href: concepts/metrics.md
 - name: Samples
   items:
   - name: Group calling hero sample

@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -21,13 +21,15 @@ ms.collection: M365-identity-device-management
 
 # User management enhancements (preview) in Azure Active Directory
 
-This article describes how to use the enhanced user management preview in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This article describes how to use the user management enhancements preview in the Azure Active Directory (Azure AD) portal. The **All users** and **Deleted users** pages have been updated to provide more information and make it easier to find users. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Changes in the preview include:
 
 - More visible user properties including object ID, directory sync status, creation type, and identity issuer
 - Search now allows combined search of names, emails, and object IDs
-- Enhanced filtering by user type (member and guest), directory sync status, and creation type
+- Enhanced filtering by user type (member, guest, none), directory sync status, creation type, company name, and domain name
+- New sorting capabilities on properties like name and user principal name
+- A new total users count that updates with searches or filters
 
 > [!NOTE]
 > This preview is currently not available for Azure AD B2C tenants.
@@ -63,7 +65,7 @@ The following are the displayed user properties on the **All users** page:
 - Invitation state: The status of the invitation for a guest user.
 - Mail: The email of the user.
 
-   ![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
+![new user properties displayed on All users and Deleted users pages](./media/users-search-enhanced/user-properties.png)
 
 ### Deleted users page
 
@@ -93,22 +95,36 @@ Filtering capabilities have been enhanced to provide more filtering options for 
 
 The following are the filterable properties on the **All users** page:
 
-- User type - Member or guest
-- Directory synced status - Yes
-- Creation type - Invitation, Email verified, Local account
+- User type: Member, guest, none
+- Directory synced status: Yes, no
+- Creation type: Invitation, Email verified, Local account
 - Invitation state – Pending acceptance, Accepted
-- Administrative unit - Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](directory-administrative-units.md).
+- Domain name: Enter a domain name
+- Company name: Enter a company name
+- Administrative unit: Select this option to restrict the scope of the users you view to a single administrative unit. For more information, see [Administrative units management preview](directory-administrative-units.md).
 
-## Filtering Deleted users list
+### Filtering Deleted users list
 
 The **Deleted users** page has additional filters not in the **All users** page. The following are the filterable properties on the **Deleted users** page:
 
-- User type - Member or guest
-- Directory synced status - Yes
-- Creation type - Invitation, Email verified, Local account
-- Invitation state – Pending acceptance, Accepted
-- Deletion date - Last 7, 14, or 30 days
-- Permanent deletion date - Last 7, 14, or 30 days
+- User type: Member, guest, none
+- Directory synced status: Yes, no
+- Creation type: Invitation, Email verified, Local account
+- Invitation state: Pending acceptance, Accepted
+- Deletion date: Last 7, 14, or 30 days
+- Domain name: Enter a domain name
+- Company name: Enter a company name
+- Permanent deletion date: Last 7, 14, or 30 days
+
+## User list sorting
+
+You can now sort by name and user principal name in the **All users** and **Deleted users** pages. You can also sort by deletion date in the **Deleted Users** list.
+
+## User list counts
+
+You can view the total number of users in the **All users** and **Deleted users** pages. As you search or filter the lists, the count is updated to reflect the total number of users found.
+
+![Illustration of user list counts on the All users page](./media/users-search-enhanced/user-list-sorting.png)
 
 ## Frequently Asked Questions (FAQ)
 
@@ -118,8 +134,6 @@ What happen to the bulk capabilities for users and guests? | The bulk operations
 What happened to the Source column? | The **Source** column has been replaced with other columns that provide similar information, while allowing you to filter on those values independently. Examples include **Creation type**, **Directory synced** and **Identity issuer**.
 What happened to the User Name column? | The **User Name** column is still there, but it’s been renamed to **User Principal Name**. This  better reflects the information contained in that column. You’ll also notice that the full User Principal Name is now displayed for B2B guests. This matches what you’d get in MS Graph.  
 Why can I only perform a "starts with" search and not a "contains" search? | There are some limitations that prevent us from allowing you to perform a "contains" search. We’ve heard the feedback, so stay tuned.
-Why can’t I sort the columns? | There are some limitations that prevent us from allowing you to sort the columns. We’ve heard the feedback, so stay tuned.
-Why can I only filter the **Directory synced** column by Yes? | There are some limitations that prevent us from allowing you to filter this property by the No value. We’ve heard the feedback, so stay tuned.
 
 ## Next steps
 

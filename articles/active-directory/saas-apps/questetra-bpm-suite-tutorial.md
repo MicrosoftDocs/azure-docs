@@ -124,11 +124,11 @@ To configure Azure AD single sign-on with Questetra BPM Suite, perform the follo
 
 2. In the menu on the top, click **System Settings**. 
    
-    ![Azure AD Single Sign-On][10]
+    ![Screenshot shows System Settings selected from your Questetra BPM Suite company site.][10]
 
 3. To open the **SingleSignOnSAML** page, click **SSO (SAML)**. 
    
-    ![Azure AD Single Sign-On][11]
+    ![Screenshot shows S S O (SAML) selected.][11]
 
 4. On your **Questetra BPM Suite** company site, in the **SP Information** section, perform the following steps:
 

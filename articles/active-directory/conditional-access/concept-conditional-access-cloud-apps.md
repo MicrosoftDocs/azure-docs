@@ -99,6 +99,7 @@ The Microsoft Azure Management application includes multiple underlying services
    - Azure Resource Manager provider
    - Classic deployment model APIs
    - Azure PowerShell
+   - Azure CLI
    - Visual Studio subscriptions administrator portal
    - Azure DevOps
    - Azure Data Factory portal
