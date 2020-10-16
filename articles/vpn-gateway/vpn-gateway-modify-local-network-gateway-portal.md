@@ -26,7 +26,7 @@ The screenshot below shows the **Configuration** page of a local network gateway
 
 :::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/settings.png" alt-text="IP address settings" lightbox="./media/vpn-gateway-modify-local-network-gateway-portal/settings-expand.png":::
 
-This is the same configuration page with an FQDN endpoint:
+This is the configuration page with an FQDN endpoint:
 
 :::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/name.png" alt-text="FQDN settings":::
 
