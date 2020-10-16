@@ -32,19 +32,19 @@ The total used capacity in a capacity pool against its provisioned amount is the
 
    ![Expression showing total used capacity calculation.](../media/azure-netapp-files/azure-netapp-files-total-used-capacity.png)
 
+The following diagram illustrates these concepts. 
+
+* Assume a capacity pool with 40 TiB of provisioned capacity. The pool contains three volumes:    
+    * Volume 1 is assigned a quota of 20 TiB and has 13 TiB (12TiB active, 1TiB snapshots) of consumption.
+    * Volume 2 is assigned a quota of 1 TiB and has 450 GiB of consumption.
+    * Volume 3 is assigned a quota of 14TiB but has 8,8TiB (8TiB active, 800GiB) of consumption.   
+* The capacity pool is metered for 4 TiB of capacity (the provisioned amount). 3.8 TiB of capacity is consumed (2 TiB and 1 TiB of quota from Volumes 1 and 2, and 800 GiB of actual consumption for Volume 3). And 200 GiB of capacity is remaining.
+
+![Diagram showing capacity pool with three volumes.](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
+
 ## Capacity consumption of snapshots 
 
 The capacity consumption of snapshots in Azure NetApp Files is charged against the quota of the parent volume.  As a result, it shares the same billing rate as the capacity pool to which the volume belongs.  However, unlike the active volume, snapshot consumption is measured based on the incremental capacity consumed.  Azure NetApp Files snapshots are differential in nature. Depending on the change rate of the data, the snapshots often consume much less capacity than the logical capacity of the active volume. For example, assume that you have a snapshot of a 500-GiB volume that only contains 10 GiB of differential data. The capacity that is charged against the volume quota for that snapshot would be 10 GiB, not 500 GiB. As a general rule, a recommended 20% of capacity can be assumed to retain a week's worth of snapshot data (depending on snapshot frequency and application daily block level change rates). 
-
-The following diagram illustrates these concepts. Assume a capacity pool with 40 TiB of provisioned capacity. The pool contains three volumes: 
-
-* Volume 1 is assigned a quota of 20 TiB and has 13 TiB (12TiB active, 1TiB snapshots) of consumption.
-* Volume 2 is assigned a quota of 1 TiB and has 450 GiB of consumption.
-* Volume 3 is assigned a quota of 14TiB but has 8,8TiB (8TiB active, 800GiB) of consumption.   
-
-The capacity pool is metered for 4 TiB of capacity (the provisioned amount). 3.8 TiB of capacity is consumed (2 TiB and 1 TiB of quota from Volumes 1 and 2, and 800 GiB of actual consumption for Volume 3). And 200 GiB of capacity is remaining.
-
-![Diagram showing capacity pool with three volumes.](../media/azure-netapp-files/azure-netapp-files-capacity-pool-with-three-vols.png)
 
 ## Next steps
 
