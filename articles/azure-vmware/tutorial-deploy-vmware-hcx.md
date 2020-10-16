@@ -2,7 +2,7 @@
 title: Tutorial - Deploy and configure VMware HCX
 description: Learn how to deploy and configure VMware HCX solution for your Azure VMware Solution private cloud.
 ms.topic: tutorial
-ms.date: 10/02/2020
+ms.date: 10/16/2020
 ---
 
 # Deploy and configure VMware HCX
@@ -22,25 +22,25 @@ Then, we'll walk through all the necessary procedures to:
 > * Deploy the on-premises VMware HCX OVA (HCX Connector)
 > * Activate VMware HCX Connector
 > * Pair your on-premises HCX Connector with your Azure VMware Solution HCX Cloud Manager
-> * Configure the interconnect (network profile, compute profile and service mesh)
+> * Configure the interconnect (network profile, compute profile, and service mesh)
 > * Complete setup by checking the appliance status and validating migration is possible
 
 Once finished, you can follow the recommended next steps at the end of this article.  
 
 ## Before you begin
    
-* Review the basic Azure VMware Solution Software Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md).
+* Review the basic Azure VMware Solution Software-Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md).
 * Review and reference the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html), including the HCX user guide.
 * Review VMware docs [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g).
 * Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html) on HCX. 
 * Optionally request an Azure VMware Solution HCX Enterprise activation through Azure VMware Solution support channels.
 * Optionally [review network ports required for HCX](https://ports.vmware.com/home/VMware-HCX).
-* While the Azure VMware Solution HCX Cloud Manager comes preconfigured from the /22 that is provided for the Azure VMware Solution private cloud, the HCX on-premises Connector requires network ranges to be allocated by the customer from their on-premises network. These  networks and ranges are described further down in the document.
+* While the Azure VMware Solution HCX Cloud Manager comes preconfigured from the /22 provided for the Azure VMware Solution private cloud, the HCX on-premises Connector requires network ranges to be allocated by the customer from their on-premises network. These  networks and ranges are described further down in the document.
 
 Sizing workloads against compute and storage resources is an essential planning step. Address the sizing step as part of the initial private cloud environment planning. 
 
-You also can size workloads by completing an [Azure VMware Solution Assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
+You can also size workloads by completing an [Azure VMware Solution Assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) the Azure Migrate portal.
 
 ## Software version requirements
 
@@ -71,7 +71,7 @@ Infrastructure components must be running the required minimum version.
 >[!NOTE]
 >Before you deploy the virtual appliance to your on-premises vCenter, you'll need to download the VMware HCX Connector OVA. 
 
-1. Open a browser window, sign into the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
+1. Open a browser window, sign in to the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin** user credentials, and then go to **Support**.
 
    >[!TIP]
    >Note down the IP of the HCX Cloud Manager in Azure VMware Solution. To identify the IP address of HCX Cloud Manager, in the Azure VMware Solution blade, go to the **Manage** > **Connectivity** and then select the **HCX** tab. 
@@ -85,7 +85,7 @@ Infrastructure components must be running the required minimum version.
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Select a name and location, a resource/cluster where you are deploying HCX Connector to, and then review the details and required resources.  
+1. Select a name and location, a resource/cluster where you are deploying the HCX Connector, and then review the details and required resources.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
@@ -109,7 +109,7 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
 
 ## Activate VMware HCX
 
-After deploying the VMware HCX Connector OVA on-premises and starting the appliance, you're ready to activate but first need to retrieve a license key from the Azure VMware Solution portal in Azure.
+After deploying the VMware HCX Connector OVA on-premises and starting the appliance, you're ready to activate it. First, you need to retrieve a license key from the Azure VMware Solution portal in Azure.
 
 1. In the Azure VMware Solution portal, go to the **Manage** > **Connectivity**, select the **HCX** tab, and then select **Add**.
 
@@ -121,9 +121,9 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
 1. In **Licensing**, enter your **HCX Advanced Key**.  
    
     > [!NOTE]
-    > VMware HCX Manager must have open internet access or a proxy configured.
+    > VMware HCX Manager must have open internet access, or a proxy configured.
 
-1. In **Datacenter Location**, provide the nearest location where you install the VMware HCX Manager on-premises.
+1. In **Datacenter Location**, provide the nearest location for installing the VMware HCX Manager on-premises.
 
 1. Modify the **System Name** or accept the default.
    
@@ -134,7 +134,7 @@ After deploying the VMware HCX Connector OVA on-premises and starting the applia
 1. In **Configure SSO/PSC**, provide the FQDN or IP address of your PSC and then select **Continue**.
    
    >[!NOTE]
-   >Typically the same as your vCenter FQDN/IP.
+   >Typically, the same as your vCenter FQDN/IP.
 
 1. Verify that all the inputs are correct and select **Restart**.
     
@@ -181,7 +181,7 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
 
 ### Create network profiles
 
-VMware HCX deploys a subset of virtual appliances (automated) which require multiple IP segments.  When you create your network profiles, you define the IP segments, which you identified during the [VMware HCX Network Segments pre-deployment preparation and planning stage](production-ready-deployment-steps.md#vmware-hcx-network-segments).
+VMware HCX deploys a subset of virtual appliances (automated) that require multiple IP segments.  When you create your network profiles, you define the IP segments you identified during the [VMware HCX Network Segments pre-deployment preparation and planning stage](production-ready-deployment-steps.md#vmware-hcx-network-segments).
 
 You will create four network profiles:
 
@@ -201,7 +201,7 @@ You will create four network profiles:
 For an end-to-end overview of this step, view the [Azure VMware Solution - VMware HCX create network profile](https://www.youtube.com/embed/NhyEcLco4JY) video.
 
 
-### Create compute profile
+### Create a compute profile
 
 1. Select **Compute Profiles** > **Create Compute Profile**.
 
@@ -214,15 +214,15 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
 1. Select the services to enable, such as migration, Network Extension, or Disaster Recovery, and then select **Continue**.
   
    > [!NOTE]
-   > Generally nothing will be changed here.
+   > Generally, nothing changes here.
 
-1. In **Select Service Resources**, select one or more service resources (clusters) to enable for the selected VMware HCX services.  
+1. In **Select Service Resources**, select one or more service resources (clusters) to enable the selected VMware HCX services.  
 
 1. When you see the clusters in your on-premises datacenter, select **Continue**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-service-resource.png" alt-text="In Select Service Resources, select one or more service resources for which the selected VMware HCX services should be enabled. Select Continue." lightbox="media/tutorial-vmware-hcx/select-service-resource.png":::
 
-1. From **Select Datastore**, select the datastore storage resource for deploying the VMware HCX Interconnect appliances, and then select **Continue**.
+1. From **Select Datastore**, select the datastore storage resource for deploying the VMware HCX Interconnect appliances and then select **Continue**.
 
    When multiple resources are selected, VMware HCX uses the first resource selected until its capacity is exhausted.   
 
