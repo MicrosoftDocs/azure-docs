@@ -413,3 +413,10 @@ Your existing circuit will continue advertising the prefixes for Microsoft 365. 
 ## <a name="globalreach"></a>Global Reach
 
 [!INCLUDE [Global Reach](../../includes/expressroute-global-reach-faq-include.md)]
+
+## Privacy
+
+### Does the ExpressRoute service store customer data?
+
+No. 
+
