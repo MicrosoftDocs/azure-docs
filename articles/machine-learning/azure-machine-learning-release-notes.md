@@ -28,8 +28,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files. More information on [Kubernetes Resources and Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
   + **azureml-contrib-interpret**
     + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
-  + **azureml-contrib-k8s**
-    + Added support for attaching ArcKubernetes compute
   + **azureml-contrib-server**
     + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
   + **azureml-core**
