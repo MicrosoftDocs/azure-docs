@@ -27,7 +27,7 @@ In this article, you learn how to:
 
 If you're using a native app instead (e.g. iOS, Android, mobile & desktop), learn [how to register a native client application](add-native-application.md).
 
-If you're using a single-page application ("SPA") instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](add-native-application.md).
+If you're using a single-page application ("SPA") instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](tutorial-register-spa.md).
 
 ## Prerequisites
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.

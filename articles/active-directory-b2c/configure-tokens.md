@@ -37,6 +37,9 @@ You can configure the token lifetime on any user flow.
 
 8. Click **Save**.
 
+> [!NOTE]
+> Single-page applications using the authorization code flow with PKCE always have a refresh token lifetime of 24 hours. [Learn more about the security implications of refresh tokens in the browser](../active-directory/develop/reference-third-party-cookies-spas.md##security-implications-of-refresh-tokens-in-the-browser).
+
 ## Configure JWT token compatibility
 
 1. Select **User flows (policies)**.
