@@ -16,7 +16,7 @@ Azure Reservations provide flexibility to help meet your evolving needs. You can
 Self-service exchange and cancel capability isn't available for US Government Enterprise Agreement customers. Other US Government subscription types including Pay-As-You-Go and Cloud Solution Provider (CSP) are supported.
 
 > [!NOTE]
-> - **You must have owner access on the Reservation Order to exchange or refund an existing reservation**. You can [Add or change users who can manage a reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - **You must have owner access on the Reservation Order to exchange or refund an existing reservation**. You can [Add or change users who can manage a reservation](./manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 > - Microsoft is not currently charging early termination fees for reservation refunds. We might charge the fees for refunds made in the future. We currently don't have a date for enabling the fee.
 
 ## How to exchange or refund an existing reservation

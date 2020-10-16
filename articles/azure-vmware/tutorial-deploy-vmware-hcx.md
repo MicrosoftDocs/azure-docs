@@ -37,7 +37,7 @@ After you're finished, you can follow the recommended next steps at the end of t
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html). 
 * Optionally request an Azure VMware Solution HCX Enterprise activation through Azure VMware Solution support channels.
 * Optionally [review network ports required for HCX](https://ports.vmware.com/home/VMware-HCX).
-* Although the Azure VMware Solution HCX Cloud Manager comes preconfigured from the /22 network that's provided for the Azure VMware Solution private cloud, the on-premises HCX Connector requires network ranges to be allocated by the customer from their on-premises network. These  networks and ranges are described later in this article.
+* Although the Azure VMware Solution HCX Cloud Manager comes preconfigured from the /22 network that's provided for the Azure VMware Solution private cloud, the on-premises HCX Connector requires network ranges to be allocated by the customer from their on-premises network. These networks and ranges are described later in this article.
 
 Sizing workloads against compute and storage resources is an essential planning step. Address the sizing step as part of the initial planning for a private cloud environment. 
 
