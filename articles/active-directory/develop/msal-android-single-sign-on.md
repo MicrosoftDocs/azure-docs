@@ -1,7 +1,7 @@
 ---
 title: How to enable cross-app SSO on Android using MSAL | Azure
 titleSuffix: Microsoft identity platform
-description: How to use the features of the MSAL SDK to enable single sign-on across your applications.
+description: How to use the Microsoft Authentication Library (MSAL) for Android to enable single sign-on across your applications.
 services: active-directory
 author: hamiltonha
 manager: CelesteDG
@@ -15,48 +15,51 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-
 ---
 
-# How to: Enable cross-app SSO on Android using MSAL 
-
+# How to: Enable cross-app SSO on Android using MSAL
 
 Single sign-on (SSO) allows users to only enter their credentials once and have those credentials automatically work across applications.
 
-[The Microsoft identity platform](https://docs.microsoft.com/azure/active-directory/develop/), along with the developer SDKs, makes it easy to enable SSO within your own suite of apps. With the broker capability and Authenticator applications, you can extend SSO across the entire device.
+The [Microsoft identity platform](/azure/active-directory/develop/) and the Microsoft Authentication Library (MSAL) help you enable SSO across your own suite of apps. With the broker capability and Authenticator applications, you can extend SSO across the entire device.
 
-In this how-to, you'll learn how to configure the SDK within your application to provide SSO to your customers. 
+In this how-to, you'll learn how to configure the SDKs used by your application to provide SSO to your customers.
 
-### Prerequisites
+## Prerequisites
 
-This how-to assumes that you know how to:
+This how-to assumes you know how to:
 
 - Provision your app using the Azure portal. For more information on this topic, see the instructions for creating an app in [the Android tutorial](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#create-a-project)
 - Integrate your application with the [Microsoft Authentication Library for Android](https://github.com/AzureAD/microsoft-authentication-library-for-android).
 
-### Single sign-on concepts
+## Methods for single sign-on
 
-There are two ways for third party applications using MSAL for Android to accheive SSO, through the system browser and through a broker application. Using a broker application allows for additional benefits such as device wide SSO, account management, and conditional access, however, it does require your users download additional applications.
+There are two ways for applications using MSAL for Android to achieve SSO:
 
-## SSO through System Browser 
+* Through the [system browser](#sso-through-system-browser)
+* Through a [broker application](#sso-through-brokered-authentication)
 
-Android applications have the option to use the webview, system browser, or Chrome Custom Tabs for authentication user experience. If the application is not using brokered authentication, it will need to use the system browser rather than the native webview in order to achieve SSO. [Read more about authorization agents and SSO implications](https://docs.microsoft.com/azure/active-directory/develop/authorization-agents). 
+    Using a broker application has benefits like device-wide SSO, account management, and conditional access. However, it requires your users to download additional applications.
 
-### Authorization agents (Android)
+## SSO through system browser
 
-Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults (see [Understand  the Android MSAL configuration file](msal-configuration.md) to see the various defaults).
+Android applications have the option to use the WebView, system browser, or Chrome Custom Tabs for authentication user experience. If the application is not using brokered authentication, it will need to use the system browser rather than the native webview in order to achieve SSO. [Read more about authorization agents and SSO implications](authorization-agents.md).
+
+### Authorization agents
+
+Choosing a specific strategy for authorization agents is optional and represents additional functionality apps can customize. Most apps will use the MSAL defaults (see [Understand the Android MSAL configuration file](msal-configuration.md) to see the various defaults).
 
 MSAL supports authorization using a `WebView`, or the system browser.  The image below shows how it looks using the `WebView`, or the system browser with CustomTabs or without CustomTabs:
 
 ![MSAL login examples](./media/authorization-agents/sign-in-ui.jpg)
 
-### Single sign-in implications
+### Single sign-on implications
 
 By default, applications integrated with MSAL use the system browser's Custom Tabs to authorize. Unlike WebViews, Custom Tabs share a cookie jar with the default system browser enabling fewer sign-ins with web or other native apps that have integrated with Custom Tabs.
 
-If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users won't have a Single Sign On (SSO) experience across the device or between native apps and web apps.
+If the application uses a `WebView` strategy without integrating Microsoft Authenticator or Company Portal support into their app, users won't have a single sign-on experience across the device or between native apps and web apps.
 
-If the application uses MSAL with Microsoft Authenticator or Company Portal support, then users can have a SSO experience across applications if the user has an active sign-in with one of the apps.
+If the application uses MSAL with a broker like Microsoft Authenticator or Intune Company Portal, then users can have a SSO experience across applications if the they have an active sign-in with one of the apps.
 
 ### WebView
 
@@ -104,13 +107,13 @@ The following browsers have been tested to see if they correctly redirect to the
 | Nexus (API 28) |pass | pass | pass | pass | fail |pass |
 |MI | pass | pass | pass | pass | fail |pass |
 
-<sup>1</sup>Samsung's built-in browser is Samsung Internet.  
-<sup>2</sup>Huawei's built-in browser is Huawei Browser.  
+<sup>1</sup>Samsung's built-in browser is Samsung Internet.
+<sup>2</sup>Huawei's built-in browser is Huawei Browser.
 <sup>3</sup>The default browser can't be changed inside the Oppo device setting.
 
-## SSO through Brokered authentication 
+## SSO through brokered authentication
 
-It is recommended one of Microsoft's authentication brokers to participate in device-wide single sign-on (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
+We recommend that you use one of Microsoft's authentication brokers to participate in device-wide single sign-on (SSO) and to meet organizational Conditional Access policies. Integrating with a broker provides the following benefits:
 
 - Device single sign-on
 - Conditional access for:
@@ -121,7 +124,7 @@ It is recommended one of Microsoft's authentication brokers to participate in de
   -  via Android AccountManager & Account Settings
   - "Work Account" - custom account type
 
-On Android, the Microsoft Authentication Broker is a component that's included with [Microsoft Authenticator App](https://play.google.com/store/apps/details?id=com.azure.authenticator) and [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal).
+On Android, the Microsoft Authentication Broker is a component that's included in the [Microsoft Authenticator](https://play.google.com/store/apps/details?id=com.azure.authenticator) and [Intune Company Portal](https://play.google.com/store/apps/details?id=com.microsoft.windowsintune.companyportal) apps.
 
 The following diagram illustrates the relationship between your app, the Microsoft Authentication Library (MSAL), and Microsoft's authentication brokers.
 
@@ -149,9 +152,7 @@ Installing a broker doesn't require the user to sign in again. Only when the use
 - The user's account no longer meets a Conditional Access policy.
 - The user revoked their consent for the app to be associated with their account.
 
-##### Multiple brokers
-
-If multiple brokers are installed on a device, the broker that was installed first is always the active broker. Only a single broker can be active on a device.
+**Multiple brokers** - If multiple brokers are installed on a device, the broker that was installed first is always the active broker. Only a single broker can be active on a device.
 
 #### When a broker is uninstalled
 
@@ -161,7 +162,7 @@ If Intune Company Portal is installed and is operating as the active broker, and
 
 ### Integrating with a broker
 
-#### Generating a redirect URI for a broker
+#### Generate a redirect URI for a broker
 
 You must register a redirect URI that is compatible with the broker. The redirect URI for the broker should include your app's package name and the Base64-encoded representation of your app's signature.
 
@@ -218,7 +219,7 @@ If you get an `MsalClientException` with error code `"BROKER_BIND_FAILURE"`, the
 - Ask the user to disable power optimization for the Microsoft Authenticator app and the Intune Company Portal.
 - Ask the user to grant the `"READ_CONTACTS"` permission
 
-### Verifying broker integration
+### Verify broker integration
 
 It might not be immediately clear that broker integration is working, but you can use the following steps to check:
 
