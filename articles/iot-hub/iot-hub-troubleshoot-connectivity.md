@@ -26,19 +26,19 @@ To log device connection events and errors, turn on diagnostics for IoT Hub. We 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Browse to your IoT hub.
+1. Browse to your IoT hub.
 
-3. Select **Diagnostics settings**.
+1. Select **Diagnostics settings**.
 
-4. Select **Turn on diagnostics**.
+1. Select **Add diagnostic setting**.
 
-5. Enable **Connections** logs to be collected.
+1. Select **Connections** logs.
 
-6. For easier analysis, turn on **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). See the example under [Resolve connectivity errors](#resolve-connectivity-errors).
+1. For easier analysis, select **Send to Log Analytics** ([see pricing](https://azure.microsoft.com/pricing/details/log-analytics/)). See the example under [Resolve connectivity errors](#resolve-connectivity-errors).
 
    ![Recommended settings](./media/iot-hub-troubleshoot-connectivity/diagnostic-settings-recommendation.png)
 
-To learn more, see [Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md).
+To learn more, see [Monitor IoT Hub](monitor-iot-hub.md).
 
 ### Set up alerts for device disconnect at scale
 

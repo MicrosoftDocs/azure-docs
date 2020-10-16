@@ -25,7 +25,7 @@ IoT Hub [throttling limits](./iot-hub-devguide-quotas-throttling.md) have been e
 
 ## Solution
 
-Check if you're hitting the throttling limit by comparing your *Telemetry message send attempts* metric against the limits specified above. You can also check the *Number of throttling errors* metric. For more information about these and other metrics available for IoT Hub, see [IoT Hub metrics and how to use them](./iot-hub-metrics.md#iot-hub-metrics-and-how-to-use-them).
+Check if you're hitting the throttling limit by comparing your *Telemetry message send attempts* metric against the limits specified above. You can also check the *Number of throttling errors* metric. For information about these metrics, see [Device telemetry metrics](monitor-service-reference.md#device-telemetry-metrics). For information about how use metrics to help you monitor your IoT hub, see [Monitor IoT Hub](monitor-iot-hub.mc).
 
 IoT Hub returns 429 ThrottlingException only after the limit has been violated for too long a period. This is done so that your messages aren't dropped if your IoT hub gets burst traffic. In the meantime, IoT Hub processes the messages at the operation throttle rate, which might be slow if there's too much traffic in the backlog. To learn more, see [IoT Hub traffic shaping](./iot-hub-devguide-quotas-throttling.md#traffic-shaping).
 

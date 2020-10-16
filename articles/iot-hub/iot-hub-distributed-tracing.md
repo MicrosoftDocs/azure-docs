@@ -20,7 +20,7 @@ IoT Hub is one of the first Azure services to support distributed tracing. As mo
 Enabling distributed tracing for IoT Hub gives you the ability to:
 
 - Precisely monitor the flow of each message through IoT Hub using [trace context](https://github.com/w3c/trace-context). This trace context includes correlation IDs that allow you to correlate events from one component with events from another component. It can be applied for a subset or all IoT device messages using [device twin](iot-hub-devguide-device-twins.md).
-- Automatically log the trace context to [Azure Monitor diagnostic logs](iot-hub-monitor-resource-health.md).
+- Automatically log the trace context to [Azure Monitor Logs](monitor-iot-hub.md).
 - Measure and understand message flow and latency from devices to IoT Hub and routing endpoints.
 - Start considering how you want to implement distributed tracing for the non-Azure services in your IoT solution.
 
@@ -48,7 +48,7 @@ In this section, you configure an IoT Hub to log distributed tracing attributes 
 
 1. In the left pane for your IoT hub, scroll down to the **Monitoring** section and click **Diagnostics settings**.
 
-1. If diagnostic settings aren't already turned on, click **Turn on diagnostics**. If you have already enabled diagnostic settings, click **Add diagnostic setting**.
+1. Click **Add diagnostic setting**.
 
 1. In the **Name** field, enter a name for a new diagnostic setting. For example, **DistributedTracingSettings**.
 
@@ -74,7 +74,7 @@ Once the logging is turned on, IoT Hub records a log when a message containing v
 - The message is processed by the IoT Hub.
 - The message is routed to custom endpoints. Routing must be enabled.
 
-To learn more about these logs and their schemas, see [Distributed tracing in IoT Hub diagnostic logs](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+To learn more about these logs and their schemas, see [Monitor IoT Hub](monitor-iot-hub.md) and [Distributed tracing in IoT Hub resource logs](monitor-service-reference.md#distributed-tracing-preview).
 
 ## Set up device
 
@@ -251,7 +251,7 @@ To see all the traces logged by an IoT Hub, query the log store that you selecte
 
 ### Query using Log Analytics
 
-If you've set up [Log Analytics with diagnostic logs](../azure-monitor/platform/resource-logs-collect-storage.md), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the traces logged:
+If you've set up [Log Analytics with resource logs](../azure-monitor/platform/resource-logs-collect-storage.md), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the traces logged:
 
 ```Kusto
 // All distributed traces 
@@ -269,7 +269,7 @@ Example logs as shown by Log Analytics:
 | 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
 | 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | Informational | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
-To understand the different types of logs, see [Azure IoT Hub diagnostic logs](iot-hub-monitor-resource-health.md#distributed-tracing-preview).
+To understand the different types of logs, see [Azure IoT Hub diagnostic logs](monitor-service-reference.md#distributed-tracing-preview).
 
 ### Application Map
 

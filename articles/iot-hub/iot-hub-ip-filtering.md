@@ -162,4 +162,4 @@ To save your new IP filter rule order, click **Save**.
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub metrics](iot-hub-metrics.md)
+* [Monitor IoT Hub](monitor-iot-hub.md)

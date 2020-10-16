@@ -47,7 +47,7 @@ Also, diagnostics settings offers five new categories for tracking. After you up
 * Jobs operations
 * Direct Methods
 
-For the specific schema structures, see [Understand the schema for diagnostics settings](iot-hub-monitor-resource-health.md#understand-the-logs).
+For the specific schema structures, see [Resource logs](monitor-service-reference.md#resource-logs).
 
 ## Monitoring device connect and disconnect events with low latency
 
@@ -55,4 +55,4 @@ To monitor device connect and disconnect events in production, we recommend subs
 
 ## Next steps
 
-[Monitor the health of Azure IoT Hub and diagnose problems quickly](iot-hub-monitor-resource-health.md)
+[Monitor IoT Hub](monitor-iot-hub.md)
