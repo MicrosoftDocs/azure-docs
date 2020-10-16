@@ -35,9 +35,9 @@ The following headers are required:
 |Request header|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Required. Set to `application/json`.|  
-|*Authorization:*|Required. Set to a valid `Bearer` [API key](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Authorization:*|Required. Set to a valid `Bearer` [API key](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
+This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
 
 
 ## Response  
@@ -88,9 +88,9 @@ The following headers are required:
 |Request header|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Required. Set to `application/json`.|  
-|*Authorization:*|Required. Set to a valid `Bearer` [API key](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Authorization:*|Required. Set to a valid `Bearer` [API key](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
+This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
 
 ### Response  
 
@@ -144,9 +144,9 @@ The following headers are required:
 |Request header|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|Required. Set to `application/json`.|  
-|*Authorization:*|Required. Set to a valid `Bearer` [API key](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
+|*Authorization:*|Required. Set to a valid `Bearer` [API key](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based). |  
 
-This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
+This example shows a synchronous call that returns details for the current billing cycle. For performance reasons, synchronous calls return information for the last month.  You can also call the [API asynchronously](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#asynchronous-call-polling-based) to return data for 36 months.
 
 ### Response  
 
@@ -181,6 +181,6 @@ The following example shows the output of the REST API for enterprise enrollment
 This example is abbreviated; see [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist-legacy) for a complete description of each response field and error handling.
 
 ## Next steps
-- Review [Enterprise reporting overview](https://docs.microsoft.com/azure/billing/billing-enterprise-api)
-- Investigate [Enterprise Billing REST API](https://docs.microsoft.com/rest/api/billing/)   
-- [Get started with Azure REST API](https://docs.microsoft.com/rest/api/azure/)   
+- Review [Enterprise reporting overview](./enterprise-api.md)
+- Investigate [Enterprise Billing REST API](/rest/api/billing/)   
+- [Get started with Azure REST API](/rest/api/azure/)
