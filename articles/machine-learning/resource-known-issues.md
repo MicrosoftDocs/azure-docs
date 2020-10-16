@@ -478,7 +478,9 @@ Azure role-based access control can be used to restrict actions that you can per
 
 For more information, see [Manage users and roles](how-to-assign-roles.md).
 
-## Resource locks
+## Compute cluster won't resize
+
+If your Azure Machine learning compute cluster appears stuck at resizing (0 -> 0) for the node state, this may be caused by Azure resource locks.
 
 [!INCLUDE [resource locks](../../includes/machine-learning-resource-lock.md)]
 
