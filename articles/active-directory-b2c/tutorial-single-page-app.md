@@ -35,7 +35,7 @@ The [next tutorial](tutorial-single-page-app-webapi.md) in the series enables th
 You need the following Azure AD B2C resources in place before continuing with the steps in this tutorial:
 
 * [Azure AD B2C tenant](tutorial-create-tenant.md)
-* [Application registered](tutorial-register-spa) in your tenant (use implicit flow options)
+* [Application registered](tutorial-register-spa.md) in your tenant (use implicit flow options)
 * [User flows created](tutorial-create-user-flows.md) in your tenant
 
 Additionally, you need the following in your local development environment:
