@@ -53,7 +53,7 @@ This article contains security recommendations for Azure App Service. Implementi
 
 | Recommendation | Comments |
 |-|-|
-|Use Azure Security Center standard tier | [Azure Security Center](https://docs.microsoft.com/azure/security-center/defender-for-app-service-introduction) is natively integrated with Azure App Service. It can run assessments and provide security recommendations. |
+|Use Azure Security Center standard tier | [Azure Security Center](../security-center/defender-for-app-service-introduction.md) is natively integrated with Azure App Service. It can run assessments and provide security recommendations. |
 
 ## Next steps
 
