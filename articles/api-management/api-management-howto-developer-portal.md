@@ -28,15 +28,14 @@ This article describes the differences between self-hosted and managed versions 
 
 ## <a name="migrate-from-legacy"></a> Migrate from the legacy portal
 
-The new developer portal addresses many limitations of the legacy portal. It features a visual drag-and-drop editor for editing content and a dedicated page for designers to style and brand the website. Pages, customizations, and configuration are saved as Azure Resource Manager resources in your API Management service, which lets you [automate portal deployments](#automate). Lastly, if you need to extend the portal with custom functionality, [you can do it on top of our open-source codebase](#managed-vs-self-hosted). The new developer portal doesn't support the following features:
-
-- *Issues* 
-- Direct integration with Facebook, Microsoft, Twitter, and Google as identity providers (you can use Azure AD B2C instead)
+The new developer portal addresses many limitations of the legacy portal. It features a visual drag-and-drop editor for editing content and a dedicated panel for designers to style the website. Pages, customizations, and configuration are saved as Azure Resource Manager resources in your API Management service, which lets you [automate portal deployments](#automate). Lastly, the portal's codebase is open-source, so [you can extend it with custom functionality](#managed-vs-self-hosted).
 
 > [!IMPORTANT]
 > The legacy developer portal is now deprecated and it will receive security updates only. It will be retired and removed from API Management services in September 2023.
 
-The new developer portal is incompatible with the legacy portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Precise steps will vary depending on the customizations and complexity of your portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance.
+The new developer portal is incompatible with the legacy portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Precise steps will vary depending on the customizations and complexity of your portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance. Remaining configuration, like the list of APIs, Products, users, identity providers, is automatically shared across both portals.
+
+The new developer portal doesn't support the *Issues* functionality.
 
 ## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
 
