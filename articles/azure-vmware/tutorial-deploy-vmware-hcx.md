@@ -261,7 +261,6 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
 1. Select **Finish** to create the compute profile.
 
-   You see a screen similar to the following one.
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="Screenshot that shows compute profile information." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
