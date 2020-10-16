@@ -11,7 +11,7 @@ When a lab is created within Teams, users can view and access all the VMs provis
 
 ## View labs
 
-If the lab is yet to be published or a sync is yet to be triggered after they are added to the team, similar messaging will be shown to the students.’ To ‘If the lab is yet to be published or a sync is yet to be triggered after they are added to the team, similar messaging will be shown to the team members.
+If the lab is yet to be published or a sync is yet to be triggered after they are added to the team, similar messaging will be shown to the team members.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/lab.png" alt-text="Azure Lab Services lab":::
