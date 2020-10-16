@@ -1,6 +1,5 @@
 ---
-title: Cognitive Services support and help options
-titleSuffix: Azure Cognitive Services
+title: Azure Cognitive Services support and help options
 description: How to obtain help and support for questions and problems when you create applications that integrate with Azure Cognitive Services.
 services: cognitive-services
 author: erhopf
@@ -11,7 +10,7 @@ ms.date: 10/11/2020
 ms.author: erhopf
 ---
 
-# Azure Cognitive Services support and feedback options
+# Azure Cognitive Services support and help options
 
 Are you just starting to explore the functionality of Azure Cognitive Services? Perhaps you are implementing a new feature in your application. Or after using the service, do you have suggestions on how to improve it? Here are options for where you can get support, stay up-to-date, give feedback, and report bugs for Cognitive Services.
 
