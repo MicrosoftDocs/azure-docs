@@ -375,6 +375,9 @@
             - name: LTRIM
               displayName: LTRIM, left trim, built-in functions
               href: sql-query-ltrim.md
+            - name: REGEXMATCH
+              displayName: REGEXMATCH, built-in functions
+              href: sql-query-regexmatch.md
             - name: REPLACE
               displayName: REPLACE, built-in functions
               href: sql-query-replace.md
