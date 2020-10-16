@@ -6,7 +6,7 @@
     href: introduction.md
 - name: Quick start
   items:
-    - name: Plan the deployment
+    - name: 0- Plan the deployment
       href: production-ready-deployment-steps.md
     - name: 1 - Deploy Azure VMware Solution
       href: deploy-azure-vmware-solution.md
