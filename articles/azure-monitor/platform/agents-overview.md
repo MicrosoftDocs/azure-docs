@@ -144,9 +144,9 @@ The following tables list the operating systems that are supported by the Azure 
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(including multi-session) and Pro  | X | X | X | X |
-| Windows 8 Enterprise and Pro                             |   | X | X |   |
-| Windows 7 SP1                                            |   | X | X |   |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | X | X | X | X |
+| Windows 8 Enterprise and Pro<br>(Server scenarios only)  |   | X | X |   |
+| Windows 7 SP1<br>(Server scenarios only)                 |   | X | X |   |
 
 
 ### Linux
