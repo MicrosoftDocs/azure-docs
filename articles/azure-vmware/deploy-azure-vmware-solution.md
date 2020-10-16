@@ -77,7 +77,7 @@ Follow the [Create an NSX-T network segment in Azure VMware Solution](tutorial-n
 
 Go back to the [Verify network routes advertised](#verify-network-routes-advertised) step. You'll see an additional route(s) in the list representing the network segment(s) you created in the previous step.  
 
-For virtual machines, you'll assign the segment(s) you created in the [Verify advertised NSX-T segment](#verify-advertised-nsx-t-segment) step.  
+For virtual machines, you'll assign the segment(s) you created in the [Create a network segment on Azure VMware Solution](#create-a-network-segment-on-azure-vmware-solution) step.  
 
 Because DNS is required, identify what DNS server you want to use.  
 
