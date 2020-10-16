@@ -10,7 +10,10 @@ ms.date: 09/02/2020
 
 # Understanding the changes in the Root CA change for Azure Database for MySQL
 
-Azure Database for MySQL will be changing the root certificate for the client application/driver enabled with SSL, used to [connect to the database server](concepts-connectivity-architecture.md). The root certificate currently available is set to expire October 26, 2020 (10/26/2020) as part of standard maintenance and security best practices. This article gives you more details about the upcoming changes, the resources that will be affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+Azure Database for MySQL will be changing the root certificate for the client application/driver enabled with SSL, used to [connect to the database server](concepts-connectivity-architecture.md). The root certificate currently available is set to expire February 15, 2021 (02/15/2021) as part of standard maintenance and security best practices. This article gives you more details about the upcoming changes, the resources that will be affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+
+>[!NOTE]
+> Based on the feedback from customers we have extended the root certificate deprecation for our existing Baltimore Root CA till February 15, 2021 (02/15/2021).
 
 ## What update is going to happen?
 
@@ -18,7 +21,7 @@ In some cases, applications use a local certificate file generated from a truste
 
 As per the industry’s compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for MySQL currently uses one of these non-compliant certificates, which client applications use to validate their SSL connections, we need to ensure that appropriate actions are taken (described below) to minimize the potential impact to your MySQL servers.
 
-The new certificate will be used starting October 26, 2020 (10/26/2020).If you use either CA validation or full validation of the server certificate when connecting from a MySQL client (sslmode=verify-ca or sslmode=verify-full), you need to update your application configuration before October 26, 2020 (10/26/2020).
+The new certificate will be used starting February 15, 2021 (02/15/2021).If you use either CA validation or full validation of the server certificate when connecting from a MySQL client (sslmode=verify-ca or sslmode=verify-full), you need to update your application configuration before February 15, 2021 (03/15/2021).
 
 ## How do I know if my database is going to be affected?
 
@@ -118,8 +121,8 @@ No actions required if you are not using SSL/TLS.
 ### 2. If I am using SSL/TLS, do I need to restart my database server to update the root CA?
 No, you do not need to restart the database server to start using the new certificate. This root certificate is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
 
-### 3. What will happen if I do not update the root certificate before October 26, 2020 (10/26/2020)?
-If you do not update the root certificate before October 26, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the MySQL database server and application will experience connectivity issues to your MySQL database server.
+### 3. What will happen if I do not update the root certificate before February 15, 2021 (02/15/2021)?
+If you do not update the root certificate before February 15, 2021 (02/15/2021), your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the MySQL database server and application will experience connectivity issues to your MySQL database server.
 
 ### 4. What is the impact if using App Service with Azure Database for MySQL?
 For Azure app services, connecting to Azure Database for MySQL, we can have two possible scenarios and it depends on how on you are using SSL with your application.
@@ -137,11 +140,11 @@ For connector using Self-hosted Integration Runtime where you explicitly include
 ### 7. Do I need to plan a database server maintenance downtime for this change?
 No. Since the change here is only on the client side to connect to the database server, there is no maintenance downtime needed for the database server for this change.
 
-### 8.  What if I cannot get a scheduled downtime for this change before October 26, 2020 (10/26/2020)?
+### 8.  What if I cannot get a scheduled downtime for this change before February 15, 2021 (02/15/2021)?
 Since the clients used for connecting to the server needs to be updating the certificate information as described in the fix section [here](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), we do not need to a downtime for the server in this case.
 
-### 9. If I create a new server after October 26, 2020, will I be impacted?
-For servers created after October 26, 2020 (10/26/2020), you can use the newly issued certificate for your applications to connect using SSL.
+### 9. If I create a new server after February 15, 2021 (02/15/2021), will I be impacted?
+For servers created after February 15, 2021 (02/15/2021), you can use the newly issued certificate for your applications to connect using SSL.
 
 ###	10. How often does Microsoft update their certificates or what is the expiry policy?
 These certificates used by Azure Database for MySQL are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for MySQL is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates, which need to be fixed at the earliest.

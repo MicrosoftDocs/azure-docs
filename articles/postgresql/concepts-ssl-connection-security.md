@@ -13,6 +13,13 @@ Azure Database for PostgreSQL prefers connecting your client applications to the
 
 By default, the PostgreSQL database service is configured to require TLS connection. You can choose to disable requiring TLS if your client application does not support TLS connectivity.
 
+>[!NOTE]
+> Based on the feedback from customers we have extended the root certificate deprecation for our existing Baltimore Root CA till February 15, 2021 (02/15/2021).
+
+> [!IMPORTANT] 
+> SSL root certificate is set to expire starting February 15, 2021 (02/15/2021). Please update your application to use the [new certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). To learn more , see [planned certificate updates](concepts-certificate-rotation.md)
+
+
 ## Enforcing TLS connections
 
 For all Azure Database for PostgreSQL servers provisioned through the Azure portal and CLI, enforcement of TLS connections is enabled by default. 
