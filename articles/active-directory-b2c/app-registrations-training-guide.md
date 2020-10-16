@@ -92,13 +92,12 @@ In the new experience, instead of **Keys**, you use the **Certificates & secrets
 
 ## Features not applicable in Azure AD B2C tenants
 The following Azure AD app registrations capabilities are not applicable to or available in Azure AD B2C tenants:
-- **Roles and administrators** - This requires an Azure AD Premium P1 or P2 license that is not currently available for Azure AD B2C.
+- **Roles and administrators** - Not currently available for Azure AD B2C.
 - **Branding** - UI/UX customization is configured in the **Company branding** experience or as part of a user flow. Learn to [customize the user interface in Azure Active Directory B2C](customize-ui-overview.md).
 - **Publisher domain verification** - Your app is registered on *.onmicrosoft.com*, which isn't a verified domain. Additionally, the publisher domain is primarily used for granting user consent, which doesn't apply to Azure AD B2C apps for user authentication. [Learn more about publisher domain](https://docs.microsoft.com/azure/active-directory/develop/howto-configure-publisher-domain).
 - **Token configuration** - The token is configured as part of a user flow rather than an app.
 - The **Quickstarts** experience is currently not available for Azure AD B2C tenants.
-- The **Integration assistant** blade is currently not available for Azure AD B2C tenants.
-
+<!-- - The **Integration assistant** blade is currently not available for Azure AD B2C tenants. -->
 
 ## Limitations
 The new experience has the following limitations:

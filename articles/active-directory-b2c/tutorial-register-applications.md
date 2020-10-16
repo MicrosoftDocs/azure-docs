@@ -27,15 +27,16 @@ In this article, you learn how to:
 
 If you're using a native app instead (e.g. iOS, Android, mobile & desktop), learn [how to register a native client application](add-native-application.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you're using a single-page application ("SPA") instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](add-native-application.md).
 
 ## Prerequisites
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-tenant.md), create one now. You can use an existing Azure AD B2C tenant.
 
 ## Register a web application
 
-To register an application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
+To register a web application in your Azure AD B2C tenant, you can use our new unified **App registrations** experience or our legacy  **Applications (Legacy)** experience. [Learn more about the new experience](https://aka.ms/b2cappregtraining).
 
 #### [App registrations](#tab/app-reg-ga/)
 
@@ -57,12 +58,6 @@ To register an application in your Azure AD B2C tenant, you can use our new unif
 1. Under **Permissions**, select the *Grant admin consent to openid and offline_access permissions* check box.
 1. Select **Register**.
 
-Once the application registration is complete, enable the implicit grant flow:
-
-1. In the left menu, under **Manage**, select **Authentication**.
-1. Under **Implicit grant**, select both the **Access tokens** and **ID tokens** check boxes.
-1. Select **Save**.
-
 #### [Applications (Legacy)](#tab/applications-legacy/)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -70,7 +65,7 @@ Once the application registration is complete, enable the implicit grant flow:
 1. In the Azure portal, search for and select **Azure AD B2C**.
 1. Select **Applications (Legacy)**, and then select **Add**.
 1. Enter a name for the application. For example, *webapp1*.
-1. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
+1. For **Include web app/ web API**, select **Yes**.
 1. For **Reply URL**, enter an endpoint where Azure AD B2C should return any tokens that your application requests. For example, you could set it to listen locally at `https://localhost:44316`. If you don't yet know the port number, you can enter a placeholder value and change it later.
 
     For testing purposes like this tutorial you can set it to `https://jwt.ms` which displays the contents of a token for inspection. For this tutorial, set the **Reply URL** to `https://jwt.ms`.
@@ -87,7 +82,6 @@ Once the application registration is complete, enable the implicit grant flow:
 ## Create a client secret
 
 If your application exchanges an authorization code for an access token, you need to create an application secret.
-
 
 #### [App registrations](#tab/app-reg-ga/)
 
