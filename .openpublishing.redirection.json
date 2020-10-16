@@ -4237,6 +4237,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/develop/authorization-agents.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/brokered-auth.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-dotnet-web.md",
       "redirect_url": "/azure/active-directory/develop/guidedsetups/active-directory-aspnetwebapp",
       "redirect_document_id": false
