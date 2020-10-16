@@ -30,7 +30,7 @@ Azure AD B2C provides **two** options to enable single-page applications to sign
 
 This is the **recommended** approach. Having limited-lifetime refresh tokens helps your application adapt to [modern browser cookie privacy limitations](../active-directory/develop/reference-third-party-cookies-spas.md), like Safari ITP.
 
-To take advantage of this flow, your application must use an authentication library that supports it, like [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
+To take advantage of this flow, your application can use an authentication library that supports it, like [MSAL.js 2.x](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser).
 
 ![Single-page applications-auth](./media/tutorial-single-page-app/spa-app-auth.svg)
 
