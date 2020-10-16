@@ -25,13 +25,13 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via following:
     1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 
     2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls 
-    3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files. More information on [Kubernetes Resources and Limits] (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
+    3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files. More information on [Kubernetes Resources and Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
   + **azureml-contrib-interpret**
     + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
   + **azureml-contrib-k8s**
     + Added support for attaching ArcKubernetes compute
   + **azureml-contrib-server**
-    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits] (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
   + **azureml-core**
     + Pin major versions of direct dependencies of azureml-core
     + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits] (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
