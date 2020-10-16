@@ -20,7 +20,7 @@
       href: get-started-analyze-sql-on-demand.md
     - name: 5 Analyze data in a storage account
       href: get-started-analyze-storage.md
-    - name: 6 Orchestrate with pipelines
+    - name: 6 Integrate with pipelines
       href: get-started-pipelines.md
     - name: 7 Visualize with Power BI
       href: get-started-visualize-power-bi.md
