@@ -244,7 +244,7 @@ Select _Create_ button to create event subscription.
 
 ## Send simulated IoT data
 
-To test your new ingress function, use the device simulator from [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
+To test your new ingress function, use the device simulator from [*Tutorial: Connect an end-to-end solution*](./tutorial-end-to-end.md). That tutorial is driven by a sample project written in C#. The sample code is located here: [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples). You'll be using the **DeviceSimulator** project in that repository.
 
 In the end-to-end tutorial, complete the following steps:
 1. [*Register the simulated device with IoT Hub*](./tutorial-end-to-end.md#register-the-simulated-device-with-iot-hub)

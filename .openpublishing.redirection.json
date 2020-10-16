@@ -14658,6 +14658,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-vmware/pre-deployment-checklist.md",
+      "redirect_url": "/azure/azure-vmware/production-ready-deployment-steps",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-vmware/disaster-recovery.md",
       "redirect_url": "/azure/azure-vmware/disaster-recovery-for-virtual-machines",
       "redirect_document_id": false
