@@ -128,7 +128,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
 
 1. In **System Name**, modify the name or accept the default.
    
-1. You can either finish later or continue. To continue, select the option **Yes, Continue**.
+1. Select **Yes, Continue**.
     
 1. In **Connect your vCenter**, provide the FQDN or IP address of your vCenter server and the appropriate credentials, and then select **Continue**.
    
