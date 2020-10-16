@@ -42,7 +42,7 @@ RBAC permissions apply to portal operations and service management (create, dele
 | Scale a service | RBAC permissions: Owner or Contributor|
 | Delete a service | RBAC permissions: Owner or Contributor |
 | Manage admin or query keys | RBAC permissions: Owner or Contributor|
-| View service information in the portal or a management API | RBAC permissions: Ownerm Contributor, or Reader  |
+| View service information in the portal or a management API | RBAC permissions: Owner, Contributor, or Reader  |
 | View object information and metrics in the portal or a management API | RBAC permissions: Owner or Contributor |
 | Create, modify, delete objects on the service: <br>Indexes and component parts (including analyzer definitions, scoring profiles, CORS options), indexers, data sources, synonyms, suggesters | Admin key if using an API, RBAC Owner or Contributor if using the portal |
 | Query an index | Admin or query key if using an API, RBAC Owner or Contributor if using the portal |
