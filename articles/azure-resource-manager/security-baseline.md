@@ -229,13 +229,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32002.).
 
-**Guidance**: Analyze and monitor logs for anomalous behavior and regularly review results. Use Azure Monitor's Log Analytics to review logs and perform queries on log data. Alternatively, you may enable and on-board data to Azure Sentinel or a third party SIEM. 
-
-- [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md) 
-
-- [Understand Log Analytics Workspace](../azure-monitor/log-query/get-started-portal.md) 
-
-- [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+**Guidance**: Not applicable; ARM does not offer separate logging for customers.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -252,7 +246,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 
 - [How to manage alerts in Azure Security Center](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
+- [How to alert on Log Analytics log data](../azure-monitor/learn/tutorial-response.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -315,7 +309,7 @@ file](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Of
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32008.).
 
-**Guidance**: Azure AD does not have the concept of default passwords. Other Azure resources that do require a password force it to be created with complexity requirements and a minimum password length. The requirements differ depending on the service. You are responsible for third-party applications and marketplace services that may use default passwords.
+**Guidance**: Not applicable - Azure Resource Manager does not have the concept of default passwords. 
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -349,7 +343,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32010.).
 
-**Guidance**: Use an Azure app registration (service principal) to retrieve a token that can be used to interact with your Azure Resource Manager-related resources  via API calls.
+**Guidance**: Use an Azure app registration (service principal) to retrieve a token that can be used to interact with your Azure Resource Manager-related resources via API calls.
 
 - [How to call Azure REST APIs](/rest/api/azure/#how-to-call-azure-rest-apis-with-postman)
 
@@ -679,7 +673,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 Although classic Azure resources may be discovered via Azure Resource Graph Explorer, it is highly recommended to create and use Azure Resource Manager resources. 
 
-- [How to create queries with Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [How to create queries with Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
 - [How to view your Azure subscriptions](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
@@ -1022,9 +1016,47 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32059.).
 
-**Guidance**: Implement Credential Scanner to identify credentials within code. Credential Scanner will also encourage moving discovered credentials to more secure locations such as Azure Key Vault.
+**Guidance**: Implement Template security best
+practices on this page: Best
+practices for templates - Azure Resource Manager | Microsoft Docs
 
-- [How to setup Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- Always use parameters for user names and passwords (or secrets).
+
+- Use securestring for all passwords and secrets. If
+you pass sensitive data in a JSON object, use the secureObject type.
+Template parameters with secure string or secure object types can't be read
+after resource deployment.
+
+JSONCopy
+
+"parameters": {
+
+    
+"secretValue": {
+
+  
+      "type": "securestring",
+
+        
+"metadata": {
+
+            
+"description": "The value of the secret
+to store in the vault."
+
+        
+}
+
+    
+}
+
+}
+
+- Don't provide default values for user names, passwords, or any
+value that requires a secureString type.
+
+- Don't provide default values for properties that increase the
+attack surface area of the application.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1050,7 +1082,7 @@ Additionally, as an administrator, you may need to lock a subscription, resource
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32061.).
 
-**Guidance**: Microsoft Anti-malware is enabled on the underlying host that supports Azure services (for example, Azure Resource Manager), however it does not run on customer content.
+**Guidance**: Not applicable - Azure Resource Manager is the platform for all resources, but only supports several base resources itself, including resource containers and deployment resources. None of which support file uploads.
 
 It is your responsibility to pre-scan any content being uploaded to non-compute Azure resources. Microsoft cannot access customer data, and therefore cannot conduct anti-malware scans of customer content on your behalf.
 
@@ -1078,15 +1110,10 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32063.).
 
-**Guidance**: Azure Resource Manager provides the ability to export templates, which allows you to redeploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.  Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.
-
-- [Overview of Azure Resource Manager](management/overview.md)
-
-- [Single and multi-resource export to a template in Azure portal](templates/export-template-portal.md) 
-
-- [Resource Groups - Export Template](/rest/api/resources/resourcegroups/exporttemplate) 
-
-- [Introduction to Azure Automation](../automation/automation-intro.md)
+**Guidance**: Not applicable - Azure Resource Manager template export cannot be used to capture data at REST. For resource configurations, the recommendation would be that infrastructure is created from
+source/templates and that users redeploy from that source of truth.  Template Export can help
+bootstrap that process but isn’t robust enough to count for disaster
+recover.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1097,15 +1124,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32064.).
 
-**Guidance**: Azure Resource Manager provides the ability to export templates, which allows you to redeploy your solution throughout the development lifecycle and have confidence your resources are deployed in a consistent state.  Use Azure Automation to call the Azure Resource Manager template export API on a regular basis.
-
-- [Overview of Azure Resource Manager](management/overview.md)
-
-- [Single and multi-resource export to a template in Azure portal](templates/export-template-portal.md) 
-
-- [Resource Groups - Export Template](/rest/api/resources/resourcegroups/exporttemplate) 
-
-- [Introduction to Azure Automation](../automation/automation-intro.md)
+**Guidance**: Not applicable - Azure Resource Manager template export cannot be used to capture data at REST. For resource configurations, the recommendation would be that infrastructure is created from source/templates and that users redeploy from that source of truth.  Template Export can help bootstrap that process but isn’t robust enough to count for disaster recover.
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -1129,9 +1148,10 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32066.).
 
-**Guidance**: Use Azure DevOps to securely store and manage your Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.  
+**Guidance**: 
+Use Azure DevOps to securely store and manage your code like custom Azure Policy definitions, Azure Resource Manager templates and desired state configuration scripts. To access the resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS. 
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops) 
 
 - [About permissions and groups in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
