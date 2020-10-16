@@ -41,7 +41,7 @@ After you're finished, you can follow the recommended next steps at the end of t
 
 Sizing workloads against compute and storage resources is an essential planning step. Address the sizing step as part of the initial planning for a private cloud environment. 
 
-You also can size workloads by completing an [Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
+You can size workloads by completing an [Azure VMware Solution assessment](../migrate/how-to-create-azure-vmware-solution-assessment.md) in the Azure Migrate portal.
 
 ## Software version requirements
 
@@ -51,7 +51,7 @@ Infrastructure components must be running the required minimum version.
 | --- | --- | --- |
 | vCenter Server   | 5.1<br/><br/>If you're using 5.5 U1 or earlier, use the standalone HCX user interface for HCX operations.  | 6.0 U2 and later   |
 | ESXi   | 5.0    | ESXi 6.0 and later   |
-| NSX    | For HCX network extension of logical switches at the source: NSXv 6.2+ or NSX-T 2.4+.   | NSXv 6.2+ or NSX-T 2.4+<br/><br/>For HCX Proximity Routing: NSXv 6.4+. (Proximity Routing is not supported with NSX-T.) |
+| NSX    | For HCX network extension of logical switches at the source: NSXv 6.2+ or NSX-T 2.4+.   | NSXv 6.2+ or NSX-T 2.4+<br/><br/>For HCX Proximity Routing: NSXv 6.4+. (Proximity Routing isn't supported with NSX-T.) |
 | vCloud Director   | Not required. There's no interoperability with vCloud Director at the source site. | When you're integrating the destination environment with vCloud Director, the minimum is 9.1.0.2.  |
 
 ## Prerequisites
@@ -60,7 +60,7 @@ Infrastructure components must be running the required minimum version.
 
 * Configure [Azure ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) between on-premises and Azure VMware Solution SDDC ExpressRoute circuits.
 
-* All required ports should be open for communication between on-premises components and Azure VMware Solution SDDC. See [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
+* All required ports should be open for communication between on-premises components and Azure VMware Solution SDDC. For more information, see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html).
 
 
 ### IP addresses
@@ -79,7 +79,7 @@ Infrastructure components must be running the required minimum version.
    >
    >The vCenter password was defined when you set up the private cloud.
 
-1. Select the **Download** link to download the VMware HCX Connector OVA file.
+1. Select the **download** link to download the VMware HCX Connector OVA file.
 
 1. Go to your on-premises vCenter. Select an OVF template, which is the OVA file that you downloaded, to deploy the HCX Connector to your on-premises vCenter.  
 
@@ -102,8 +102,7 @@ Infrastructure components must be running the required minimum version.
    >Generally, the VMware HCX Connector that you're deploying now is deployed onto the cluster's management network.  
    
    > [!IMPORTANT]
-   > After the deployment finishes, you might need to turn on the virtual appliance manually.
-   > Wait 10-15 minutes after turning on the HCX appliance to move to the next step.
+   > You might need to turn on the virtual appliance manually.  If that's the case, wait 10-15 minutes before proceeding to the next step.
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Appliance Deployment](https://www.youtube.com/embed/BwSnQeefnso) video. 
 
@@ -114,7 +113,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
 
 1. In the Azure VMware Solution portal, go to **Manage** > **Connectivity**, select the **HCX** tab, and then select **Add**.
 
-1. Sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443` by using the **admin** user credentials. 
+1. Use the **admin** credentials to sign in to the on-premises VMware HCX Manager at `https://HCXManagerIP:9443`. 
 
    > [!IMPORTANT]
    > Make sure to include the `9443` port number with the VMware HCX Manager IP address.
@@ -128,7 +127,7 @@ After you deploy the VMware HCX Connector OVA on-premises and start the applianc
 
 1. In **System Name**, modify the name or accept the default.
    
-1. You can either finish later or continue. To continue, select the option **Yes, Continue**.
+1. Select **Yes, Continue**.
     
 1. In **Connect your vCenter**, provide the FQDN or IP address of your vCenter server and the appropriate credentials, and then select **Continue**.
    
@@ -168,7 +167,7 @@ You can connect (pair) the VMware HCX Cloud Manager in Azure VMware Solution wit
 1. Enter the Remote HCX URL or IP address that you noted earlier, the Azure VMware Solution cloudadmin@vsphere.local username, and the password. Then select **Connect**.
 
    > [!NOTE]
-   > The remote HCX URL is your Azure VMware Solution private cloud's HCX Cloud Manager IP address. Typically, it's the ".9" address of the management network. For example, if your vCenter is 192.168.4.2, then your HCX URL will be 192.168.4.9.
+   > The remote HCX URL is your Azure VMware Solution private cloud's HCX Cloud Manager IP address, which is the ".9" address of the management network. For example, if your vCenter is 192.168.4.2, then your HCX URL will be 192.168.4.9.
    >
    > The password is the same password that you used to sign in to vCenter. You defined this password on the initial deployment screen.
 
@@ -260,12 +259,14 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
 1. Select **Finish** to create the compute profile.
 
-   You see a screen similar to the following one.
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="Screenshot that shows compute profile information." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: Compute Profile](https://www.youtube.com/embed/qASXi5xrFzM) video.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 77333e5737d71e75ae51195448518df37c74c210
 
 
 
@@ -293,7 +294,11 @@ Now it's time to configure a service mesh between on-premises and Azure VMware S
 1. Review services that will be enabled, and then select **Continue**.  
 
 1. In **Advanced Configuration - Override Uplink Network profiles**, select **Continue**.  
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> 77333e5737d71e75ae51195448518df37c74c210
    Uplink network profiles connect to the network through which the remote site's interconnect appliances can be reached.  
   
 1. In **Advanced Configuration - Network Extension Appliance Scale Out**, review and select **Continue**. 
@@ -312,7 +317,8 @@ Now it's time to configure a service mesh between on-premises and Azure VMware S
 
    :::image type="content" source="media/tutorial-vmware-hcx/service-mesh-green.png" alt-text="Screenshot that shows green indicators on services." lightbox="media/tutorial-vmware-hcx/service-mesh-green.png":::
 
-1. Verify the service mesh's health by checking the appliance status. Select **Interconnect** > **Appliances**.
+1. Verify the service mesh's health by checking the appliance status. 
+1. Select **Interconnect** > **Appliances**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/interconnect-appliance-state.png" alt-text="Screenshot that shows selections for checking the status of the appliance." lightbox="media/tutorial-vmware-hcx/interconnect-appliance-state.png":::
 
