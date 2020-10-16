@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Salesforce for automatic user provisioning with Azure Active Directory| Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Salesforce.
+description: Learn the steps required to perform in Salesforce and Azure AD to automatically provision and de-provision user accounts from Azure AD to Salesforce.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -71,15 +71,15 @@ The objective of this section is to outline how to enable user provisioning of A
 
 6. To get your Salesforce security token, open a new tab and sign into the same Salesforce admin account. On the top right corner of the page, click your name, and then click **Settings**.
 
-    ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
+    ![Screenshot shows the Settings link selected.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Enable automatic user provisioning")
 
 7. On the left navigation pane, click **My Personal Information** to expand the related section, and then click **Reset My Security Token**.
   
-    ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
+    ![Screenshot shows Reset My Security Token selected from My Personal Information.](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "Enable automatic user provisioning")
 
 8. On the **Reset Security Token** page, click **Reset Security Token** button.
 
-    ![Enable automatic user provisioning](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
+    ![Screenshot shows the Rest Security Token page, with explanatory text and the option to Reset Security Token](./media/salesforce-provisioning-tutorial/sf-reset-token.png "Enable automatic user provisioning")
 
 9. Check the email inbox associated with this admin account. Look for an email from Salesforce.com that contains the new security token.
 

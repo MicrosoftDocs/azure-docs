@@ -35,7 +35,7 @@ Conditional Access policies are powerful tools, we recommend excluding the follo
 
 ## Create a Conditional Access policy
 
-The following steps will help create Conditional Access policies to block access to all apps except for [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) if users are not on a trusted network. These policies are put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policies apply as they intend, they can switch them to **On**.
+The following steps will help create Conditional Access policies to block access to all apps except for [Office 365](concept-conditional-access-cloud-apps.md#office-365) if users are not on a trusted network. These policies are put in to [Report-only mode](howto-conditional-access-insights-reporting.md) to start so administrators can determine the impact they will have on existing users. When administrators are comfortable that the policies apply as they intend, they can switch them to **On**.
 
 The first policy blocks access to all apps except for Microsoft 365 applications if not on a trusted location.
 
@@ -49,7 +49,7 @@ The first policy blocks access to all apps except for Microsoft 365 applications
    1. Select **Done**.
 1. Under **Cloud apps or actions**, select the following options:
    1. Under **Include**, select **All cloud apps**.
-   1. Under **Exclude**, select **Office 365 (preview)**, select **Select**, then select **Done**.
+   1. Under **Exclude**, select **Office 365**, select **Select**, then select **Done**.
 1. Under **Conditions**:
    1. Under **Conditions** > **Location**.
       1. Set **Configure** to **Yes**
@@ -69,7 +69,7 @@ A second policy is created below to require multi-factor authentication or a com
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Office 365 (preview)**, and select **Select**, then **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Office 365**, and select **Select**, then **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**.
    1. Select **Require multi-factor authentication** and **Require device to be marked as compliant** select **Select**.
    1. Ensure **Require all the selected controls** is selected.

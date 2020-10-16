@@ -1,10 +1,8 @@
 ---
 title: Migrate an Azure Monitor Application Insights classic resource to a workspace-based resource | Microsoft Docs
 description: Learn about the steps required to upgrade your Azure Monitor Application Insights classic resource to the new workspace-based model. 
-author: mrbullwinkle
-ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 09/23/2020
 
 ---
 
@@ -12,7 +10,7 @@ ms.date: 09/09/2020
 
 This guide will walk you through the process of migrating a classic Application Insights resource to a workspace-based resource. Workspace-based resources support full integration between Application Insights and Log Analytics. Workspace-based resources send Application Insights telemetry to a common Log Analytics workspace, which allows you to access [the latest features of Azure Monitor](#new-capabilities) while keeping application, infrastructure, and platform logs in a single consolidated location.
 
-Workspace-based resources allows for common Role-Based Access Control (RBAC) across your resources, and eliminates the need for cross-app/workspace queries.
+Workspace-based resources enables common Role-Based Access Control (RBAC) across your resources, and eliminates the need for cross-app/workspace queries.
 
 **Workspace-based resources are currently available in all commercial regions and Azure US Government**
 
@@ -30,12 +28,11 @@ Workspace-based Application Insights allows you to take advantage of all the lat
 
 When you migrate to a workspace-based resource, no data is transferred from your classic resource's storage to the new workspace-based storage. Choosing to migrate will instead change the location where new data is written to a Log Analytics workspace while preserving access to your classic resource data. 
 
-Your classic resource data will persist and be subject to the retention settings at the time it was ingested. All new data ingested post migration will be subject to the retention settings of the associated Log Analytics workspace. 
-
+Your classic resource data will persist and be subject to the retention settings on your classic Application Insights resource. All new data ingested post migration will be subject to the [retention settings](../platform/manage-cost-storage.md#change-the-data-retention-period) of the associated Log Analytics workspace, which also supports [different retention settings by data type](../platform/manage-cost-storage.md#retention-by-data-type).
 The migration process is **permanent, and cannot be reversed**. Once you migrate a resource to workspace-based Application Insights, it will always be a workspace-based resource. However, once you migrate you are able to change the target workspace as often as needed. 
 
 > [!NOTE]
-> Data ingestion and retention for workspace-based Application Insights resources are billed through the Log Analytics workspace where the data is located. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources. (Classic Application Insights resource data ingested prior to the migration will continue to fall under Application Insights retention/pricing for the duration that the data is kept.) 
+> Data ingestion and retention for workspace-based Application Insights resources are [billed through the Log Analytics workspace](../platform/manage-cost-storage.md) where the data is located. If you’ve selected data retention greater than 90 days on data ingested into the Classic Application Insights resource prior to migration, data retention will continue to be billed to through that Application Insights resource. [Learn more]( ./pricing.md#workspace-based-application-insights) about billing for workspace-based Application Insights resources.
 
 If you don't need to migrate an existing resource, and instead want to create a new workspace-based Application Insights resource use the [workspace-based resource creation guide](create-workspace-resource.md).
 

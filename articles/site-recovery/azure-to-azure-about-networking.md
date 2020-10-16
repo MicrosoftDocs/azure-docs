@@ -35,13 +35,13 @@ Typically, networks are protected using firewalls and network security groups (N
 >[!IMPORTANT]
 > Using an authenticated proxy to control network connectivity isn't supported by Site Recovery, and replication can't be enabled.
 
+>[!NOTE]
+> IP address based filtering should not be performed to control outbound connectivity.
+> Azure Site Recovery IP addresses should not be added in Azure Routing table to control outbound connectivity.
 
 ## Outbound connectivity for URLs
 
 If you are using a URL-based firewall proxy to control outbound connectivity, allow these Site Recovery URLs:
-
->[!NOTE]
-> IP address based whitelisting should not be performed to control outbound connectivity.
 
 **URL** | **Details**
 --- | ---
@@ -54,7 +54,7 @@ login.microsoftonline.com | Required for authorization and authentication to the
 
 ## Outbound connectivity using Service Tags
 
-If you are using an NSG to control outbound connectivity, these service tags need to be allowed.
+While using NSG to control outbound connectivity, these service tags need to be allowed.
 
 - For the storage accounts in source region:
     - Create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
@@ -77,11 +77,11 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 1. Create an outbound HTTPS (443) security rule for "Storage.EastUS" on the NSG as shown in the screenshot below.
 
-      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+      ![Screenshot shows Add outbound security rule for a network security group for Storage dot East U S.](./media/azure-to-azure-about-networking/storage-tag.png)
 
 2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG as shown in the screenshot below.
 
-      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+      ![Screenshot shows Add outbound security rule for a network security group for Azure A D.](./media/azure-to-azure-about-networking/aad-tag.png)
 
 3. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that corresponds to the target location. This allows access to Site Recovery monitoring.
 

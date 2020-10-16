@@ -42,7 +42,7 @@ Many modern apps have a single-page app front end written primarily in JavaScrip
 
 The flow diagram below demonstrates the OAuth 2.0 authorization code grant (with details around PKCE omitted), where the app receives a code from the Microsoft identity platform `authorize` endpoint, and redeems it for tokens and refresh tokens using cross-site web requests. The refresh token expires every 24 hours, and the app must request another code. In addition to the access token, an `id_token` that represents the signed-in user to the client application is typically also requested through the same flow and/or a separate OpenID Connect request (not shown here).
 
-![Code flow for SPA apps](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
+:::image type="content" source="media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.svg" alt-text="Diagram showing the OAuth 2 authorization code flow between a single-page app and the security token service endpoint." border="false":::
 
 To see this scenario in action, check out the [Tutorial: Sign in users and call the Microsoft Graph API from a JavaScript SPA using auth code flow](tutorial-v2-javascript-auth-code.md).
 
@@ -113,6 +113,9 @@ Device-installed apps, such as mobile and desktop apps, often need to access bac
 In this flow, the app receives an authorization code from the Microsoft identity platform endpoint when the user signs in. The authorization code represents the app's permission to call back-end services on behalf of the user who is signed in. The app can exchange the authorization code in the background for an OAuth 2.0 access token and a refresh token. The app can use the access token to authenticate to web APIs in HTTP requests, and use the refresh token to get new access tokens when older access tokens expire.
 
 ![Shows the native app authentication flow](./media/v2-app-types/convergence-scenarios-native.svg)
+
+> [!NOTE]
+> If the application uses the default system webview, check the information about "Confirm My Sign-In" functionality and error code AADSTS50199 in [Azure AD authentication and authorization error codes](reference-aadsts-error-codes.md).
 
 ## Daemons and server-side apps
 

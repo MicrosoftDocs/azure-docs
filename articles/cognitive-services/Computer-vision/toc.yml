@@ -111,20 +111,24 @@
     href: concept-detecting-adult-content.md
 - name: Responsible AI
   items:
-  - name: Transparency Note
+  - name: Spatial Analysis
     items:
-    - name: Introduction to Spatial Analysis
-      href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview
-    - name: Characteristics and limitations
-      href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations
-  - name: Compliance, privacy, and security
-    href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2
-  - name: Responsible use in AI deployment 
-    href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment
-  - name: Disclosure design guidelines
-    href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design
-  - name: Research insights
-    href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights
+    - name: Transparency Note
+      items:
+      - name: Introduction to Spatial Analysis
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/intro-to-spatial-analysis-public-preview?context=/azure/cognitive-services/Computer-vision/context/context
+      - name: Characteristics and limitations
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/accuracy-and-limitations?context=/azure/cognitive-services/Computer-vision/context/context
+    - name: Deployment Guidelines
+      items:
+      - name: Responsible use in AI deployment 
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/responsible-use-deployment?context=/azure/cognitive-services/Computer-vision/context/context
+      - name: Disclosure design guidelines
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/disclosure-design?context=/azure/cognitive-services/Computer-vision/context/context
+      - name: Research insights
+        href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/research-insights?context=/azure/cognitive-services/Computer-vision/context/context
+    - name: Compliance, privacy, and security
+      href: https://docs.microsoft.com/legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=/azure/cognitive-services/Computer-vision/context/context
 - name: Containers
   items:
   - name: Read API container
@@ -170,8 +174,8 @@
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
   - name: Azure PowerShell
     href: https://aka.ms/azure-powershell-cognitiveservices
-  - name: Computer Vision API v3.1 preview
-    href: https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005
+  - name: Computer Vision API v3.1
+    href: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
   - name: Computer Vision API v3.0
     href: https://aka.ms/computer-vision-v3-ref
   - name: Computer Vision API v2.1

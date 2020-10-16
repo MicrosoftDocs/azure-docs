@@ -104,7 +104,7 @@ Specify alternate source: *WIM:D:\Sources\Install.wim:4*
 
 ## Transfer initial backup data to Azure Data Box devices
 
-1. On your DPM/MABS Server, follow the steps to [create a new protection group](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019). If you're adding an online protection to the existing protection group, right-click the existing protection group, and select **Add Online Protection** and start from **Step 8**.
+1. On your DPM/MABS Server, follow the steps to [create a new protection group](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). If you're adding an online protection to the existing protection group, right-click the existing protection group, and select **Add Online Protection** and start from **Step 8**.
 2. On the **Select Group Members** page, specify the computers and sources you want to back up.
 3. On the **Select data protection method** page, specify how you want to handle short and long-term backup. Make sure you select **I want online protection.**
 

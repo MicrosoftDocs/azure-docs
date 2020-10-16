@@ -7,6 +7,7 @@
   - name: Differences from previous release
     href: overview-differences.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Explore a sample scenario
     href: quickstart-adt-explorer.md
@@ -22,6 +23,8 @@
   items:
   - name: Custom models
     href: concepts-models.md
+  - name: Converting industry-standard models
+    href: concepts-convert-models.md    
   - name: Digital twins and the twin graph
     href: concepts-twins-graph.md
   - name: Query language
@@ -34,6 +37,8 @@
     href: concepts-route-events.md
   - name: Security for Azure Digital Twins solutions
     href: concepts-security.md
+  - name: High availability and disaster recovery
+    href: concepts-high-availability-disaster-recovery.md   
 - name: How-to guides
   items:
   - name: Deploy
@@ -121,7 +126,7 @@
   - name: APIs and SDKs
     items:
       - name: REST API reference
-        href: https://docs.microsoft.com/rest/api/azure-digitaltwins/
+        href: /rest/api/azure-digitaltwins/
       - name: Control plane
         items:
         - name: Swagger
@@ -129,13 +134,13 @@
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/1.0.0-preview.1
         - name: .NET (C#) SDK - reference
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview  
+          href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet-preview
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins
         - name: Java SDK
           href: https://search.maven.org/artifact/com.microsoft.azure.digitaltwins.v2020_03_01_preview/azure-mgmt-digitaltwins
         - name: Java SDK - reference
-          href: https://docs.microsoft.com/java/api/overview/azure/digitaltwins/management?view=azure-java-preview
+          href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
         - name: Java SDK - source
           href: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins
         - name: JavaScript SDK
@@ -155,13 +160,17 @@
         - name: .NET (C#) SDK - NuGet
           href: https://www.nuget.org/packages/Azure.DigitalTwins.Core
         - name: .NET (C#) SDK - reference
-          href: https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
+          href: /dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview
         - name: .NET (C#) SDK - source
           href: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core
         - name: JavaScript SDK - npm
           href: https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1  
         - name: JavaScript SDK - reference
-          href: https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true       
+          href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+        - name: Java SDK - Maven
+          href: https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0-beta.1/jar  
+        - name: Java SDK - reference
+          href: /java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview
   - name: Digital Twins CLI 
     items: 
     - name: Digital Twins CLI reference
@@ -177,7 +186,7 @@
     - name: DTDL parser library - NuGet
       href: https://www.nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/
     - name: DTDL validator (sample)
-      href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
+      href: /samples/azure-samples/dtdl-validator/dtdl-validator/
     - name: DTMI spec
       href: https://github.com/Azure/digital-twin-model-identifier
   - name: Tools and sample projects 
@@ -185,17 +194,17 @@
       - name: Device simulator service
         href: https://github.com/Azure/device-simulation-dotnet/tree/master
       - name: Azure Digital Twins samples
-        href: https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/
+        href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
       - name: Azure Digital Twins explorer (sample)
-        href: https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
+        href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
       - name: DTDL validator (sample)
-        href: https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/
+        href: /samples/azure-samples/dtdl-validator/dtdl-validator/
       - name: DPS and IoT Hub integration sample
-        href: https://docs.microsoft.com/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/ 
-      - name: Azure Digital Twins Custom Swaggers
-        href: https://docs.microsoft.com/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/ 
+        href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
+      - name: Azure Digital Twins custom Swaggers for Logic Apps connector
+        href: /samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/
       - name: SignalR integration sample
-        href: https://docs.microsoft.com/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/ 
+        href: /samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/
   - name: Azure tools
     items: 
     - name: Azure Cloud Shell
@@ -205,11 +214,11 @@
     - name: Azure portal
       href: https://portal.azure.com
   - name: Azure RBAC documentation
-    href: /azure/role-based-access-control/overview
+    href: ../role-based-access-control/overview.md
 - name: Resources
   items:
   - name: Support and help options
-    href: /azure/iot-fundamentals/iot-support-help
+    href: ../iot-fundamentals/iot-support-help.md
   - name: Customer stories
     href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc
   - name: Channel 9 videos

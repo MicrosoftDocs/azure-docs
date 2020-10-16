@@ -1,14 +1,14 @@
 ---
-title: 'How to migrate a web app from Google Maps to Microsoft Azure Maps'
-description: Learn how to migrate a web app from Google Maps to Microsoft Azure Maps.
+title: 'Tutorial - Migrate a web app from Google Maps | Microsoft Azure Maps'
+description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
 author: rbrundritt
 ms.author: richbrun
 ms.date: 08/18/2020
-ms.topic: how-to
+ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Migrate a web app from Google Maps
@@ -28,6 +28,7 @@ If developing using a JavaScript framework, one of the following open-source pro
 - [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) - An Azure Maps Blazor component.
 - [Azure Maps React Component](https://github.com/WiredSolutions/react-azure-maps) - A react wrapper for the Azure Maps control.
 - [Vue Azure Maps](https://github.com/rickyruiz/vue-azure-maps) - An Azure Maps component for Vue application.
+
 
 ## Key features support
 
@@ -1725,21 +1726,9 @@ place of these Google Maps libraries
 | Geometry library      | [atlas.math](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.math)   |
 | Visualization library | [Heat map layer](map-add-heat-map-layer.md) |
 
-## Next steps
+To learn more about migrating Google Maps:
 
-Learn more about the Azure Maps Web SDK.
-
-> [!div class="nextstepaction"]
-> [How to use the map control](how-to-use-map-control.md)
-
-> [!div class="nextstepaction"]
-> [How to use the services module](how-to-use-services-module.md)
-
-> [!div class="nextstepaction"]
-> [How to use the drawing tools module](set-drawing-options.md)
-
-> [!div class="nextstepaction"]
-> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
-
-> [!div class="nextstepaction"]
-> [Azure Maps Web SDK Service API reference documentation](https://docs.microsoft.com/javascript/api/azure-maps-control/)
+* [how to use the services module](how-to-use-services-module.md) 
+* [how to use the drawing tools module](set-drawing-options.md)
+* [how to use the services module](how-to-use-services-module.md)
+* [how to use the map control](how-to-use-map-control.md)

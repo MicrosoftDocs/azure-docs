@@ -128,7 +128,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. To configure single sign-on on **123FormBuilder SSO** side, go to [https://www.123formbuilder.com/form-2709121/](https://www.123formbuilder.com/form-2709121/) and perform the following steps:
 
-	![Configure Single Sign-On](./media/123formbuilder-tutorial/submit.png) 
+	![Screenshot that shows the SSO SAML - Identity Provider configuration screen.](./media/123formbuilder-tutorial/submit.png) 
 
 	a. In the **Email** textbox, type the email of the user like `B.Simon@Contoso.com`.
 

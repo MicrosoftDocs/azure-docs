@@ -171,10 +171,10 @@ If you want to create node pools with the Moby (docker) runtime, you can do so b
 
 ## Generation 2 virtual machines (Preview)
 
-Azure supports [Generation 2 (Gen2) virtual machines (VMs)](../virtual-machines/windows/generation-2.md). Generation 2 VMs support key features that aren't supported in generation 1 VMs (Gen1). These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM).
+Azure supports [Generation 2 (Gen2) virtual machines (VMs)](../virtual-machines/generation-2.md). Generation 2 VMs support key features that aren't supported in generation 1 VMs (Gen1). These features include increased memory, Intel Software Guard Extensions (Intel SGX), and virtualized persistent memory (vPMEM).
 
 Generation 2 VMs use the new UEFI-based boot architecture rather than the BIOS-based architecture used by generation 1 VMs.
-Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported sizes](../virtual-machines/windows/generation-2.md#generation-2-vm-sizes), to see if your SKU supports or requires Gen2.
+Only specific SKUs and sizes support Gen2 VMs. Check the [list of supported sizes](../virtual-machines/generation-2.md#generation-2-vm-sizes), to see if your SKU supports or requires Gen2.
 
 Additionally not all VM images support Gen2, on AKS Gen2 VMs will use the new [AKS Ubuntu 18.04 image](#os-configuration). This image supports all Gen2 SKUs and sizes.
 
@@ -257,6 +257,8 @@ When the status shows as registered, refresh the registration of the `Microsoft.
 az provider register --namespace Microsoft.ContainerService
 ```
 
+Ephemeral OS requires at least version 0.4.63 of the aks-preview CLI extension.
+
 To install the aks-preview CLI extension, use the following Azure CLI commands:
 
 ```azurecli
@@ -271,25 +273,25 @@ az extension update --name aks-preview
 
 ### Use Ephemeral OS on new clusters (Preview)
 
-Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--aks-custom-headers` flag to set Ephemeral OS as the OS disk type for the new cluster.
+Configure the cluster to use Ephemeral OS disks when the cluster is created. Use the `--node-osdisk-type` flag to set Ephemeral OS as the OS disk type for the new cluster.
 
 ```azurecli
-az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
-If you want to create a regular cluster using network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag. You can also choose to add more ephemeral OS node pools as per below.
+If you want to create a regular cluster using network-attached OS disks, you can do so by omitting the custom `--node-osdisk-type` tag, or specifying `--node-osdisk-type=Managed`. You can also choose to add more ephemeral OS node pools as per below.
 
 ### Use Ephemeral OS on existing clusters (Preview)
-Configure a new node pool to use Ephemeral OS disks. Use the `--aks-custom-headers` flag to set as the OS disk type as the OS disk type for that node pool.
+Configure a new node pool to use Ephemeral OS disks. Use the `--node-osdisk-type` flag to set as the OS disk type as the OS disk type for that node pool.
 
 ```azurecli
-az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
+az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --node-osdisk-type Ephemeral
 ```
 
 > [!IMPORTANT]
 > With ephemeral OS you can deploy VM and instance images up to the size of the VM cache. In the AKS case, the default node OS disk configuration uses 100GiB, which means that you need a VM size that has a cache larger than 100 GiB. The default Standard_DS2_v2 has a cache size of 86 GiB, which is not large enough. The Standard_DS3_v2 has a cache size of 172 GiB, which is large enough. You can also reduce the default size of the OS disk by using `--node-osdisk-size`. The minimum size for AKS images is 30GiB. 
 
-If you want to create node pools with network-attached OS disks, you can do so by omitting the custom `--aks-custom-headers` tag.
+If you want to create node pools with network-attached OS disks, you can do so by omitting the custom `--node-osdisk-type` tag.
 
 ## Custom resource group name
 

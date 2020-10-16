@@ -39,6 +39,10 @@ When you're running FHIR Server for Azure, you have direct access to the underly
 
 From a development standpoint, every feature is deployed to the open-source Microsoft FHIR Server for Azure first. Once it has been validated in open-source, it will be released to the PaaS Azure API for FHIR solution. The time between the release in open-source and PaaS depends on the complexity of the feature and other roadmap priorities. 
 
+### Where can I see what is releasing into the Azure API for FHIR?
+
+To see some of what is releasing into the Azure API for FHIR, please refer to the [release](https://github.com/microsoft/fhir-server/releases) of the open-source FHIR Server. We have worked to tag items with Azure-API-for-FHIR if they will release to the managed service and are usually available two weeks after they are on the release page in open-source. We have also included instructions on how to test the build [here](https://github.com/microsoft/fhir-server/blob/master/docs/Testing-Releases.md) if you would like to test in your own environment. We are evaluating how to best share additional managed service updates.
+
 ### What is SMART on FHIR?
 
 SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and leveraged by a plethora of different systems.
@@ -60,6 +64,23 @@ The current limit on count is 100.
 
 For Group Export we only export the included references from the group, not all the characteristics of the [group resource](https://www.hl7.org/fhir/group.html).
 
+### Can I post a bundle to the Azure API for FHIR?
+
+We currently support posting [batch bundles](https://www.hl7.org/fhir/valueset-bundle-type.html) but do not support posting transaction bundles in the Azure API for FHIR. You can use the open-source FHIR Server backed by SQL to post transaction bundles.
+
+### How can I get all resources for a single patient in the Azure API for FHIR?
+
+We support [compartment search](https://www.hl7.org/fhir/compartmentdefinition.html) in the Azure API for FHIR. This allows you to get all the resources related to a specific patient. Note that right now compartment includes all the resources related to the patient but not the patient itself so you will need to also search to get the patient if you need the patient resource in your results.
+
+Some examples of this are below:
+
+* GET Patient/<id>/*
+* GET Patient/<id>/Observation
+* GET Patient/<id>/Observation?code=8302-2
+
+### Where can I see some examples of using the Azure API for FHIR within a workflow?
+
+We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
 
 ## Azure IoT Connector for FHIR (preview)
 

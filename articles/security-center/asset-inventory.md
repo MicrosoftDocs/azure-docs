@@ -28,7 +28,7 @@ Use this view and its filters to address such questions as:
 The asset management possibilities for this tool are substantial and continue to grow. 
 
 > [!TIP]
-> The security recommendations are the same as those on the **Recommendations** page, but here they're filtered to the specific resource type you've selected. For more information about how to resolve recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
+> The security recommendations on the asset inventory page are the same as those on the **Recommendations** page, but here they're shown according to the affected resource. For information about how to resolve recommendations, see [Implementing security recommendations in Azure Security Center](security-center-recommendations.md).
 
 
 ## Availability
@@ -49,7 +49,7 @@ The inventory page provides the following tools:
 - **Summaries** - Before you define any filters, a prominent strip of values at the top of the inventory view shows:
 
     - **Total resources**: The total number of resources connected to Security Center.
-    - **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+    - **Unhealthy resources**: Resources with active security recommendations. [Learn more about security recommendations](security-center-recommendations.md).
     - **Unmonitored resources**: Resources with agent monitoring issues - they have the Log Analytics agent deployed, but the agent isn't sending data or has other health issues.
 
 - **Filters** - The multiple filters at the top of the page provide a way to quickly refine the list of resources according to the question you're trying to answer. For example, if you wanted to answer the question *Which of my machines with the tag 'Production' are missing the Log Analytics agent?* you could combine the **Agent monitoring** filter with the **Tags** filter as shown in the following clip:

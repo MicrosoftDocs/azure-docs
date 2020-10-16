@@ -41,7 +41,7 @@ dotnet build
 Install the Azure Communication Chat client library for .NET
 
 ```PowerShell
-dotnet add package Azure.Communication.Chat
+dotnet add package Azure.Communication.Chat --version 1.0.0-beta.2
 ``` 
 
 ## Object model
@@ -92,7 +92,7 @@ The `GetChatThreadClient` method returns a thread client for a thread that alrea
 
 ```csharp
 string threadId = "<THREAD_ID>";
-ChatThreadClient chatThreadClient = await chatClient.GetChatThreadClient(threadId);
+ChatThreadClient chatThreadClient = chatClient.GetChatThreadClient(threadId);
 ```
 
 ## Send a message to a chat thread

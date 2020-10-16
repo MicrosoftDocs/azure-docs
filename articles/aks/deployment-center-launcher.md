@@ -49,7 +49,7 @@ In this tutorial, you will:
 
 1. Select the AKS cluster, and then select **Deployment Center (preview)** on the left blade. Select **Get started**.
 
-   ![settings](media/deployment-center-launcher/settings.png)
+   ![Screenshot shows the Azure portal with an arrow pointing to the Deployment center.](media/deployment-center-launcher/settings.png)
 
 1. Choose the location of the code and select **Next**. Then, select one of the currently supported repositories: **[Azure Repos](/azure/devops/repos/index?view=azure-devops)** or **GitHub**.
 
@@ -61,7 +61,7 @@ In this tutorial, you will:
 
     - **GitHub**: Authorize and select the repository for your GitHub account.
 
-        ![GitHub](media/deployment-center-launcher/github.gif)
+        ![Animation shows a process in GitHub of selecting GitHub as the source and then selecting your repository.](media/deployment-center-launcher/github.gif)
 
 
 1. Deployment Center analyzes the repository and detects your Dockerfile. If you want to update the Dockerfile, you can edit the identified port number.
@@ -70,7 +70,7 @@ In this tutorial, you will:
 
     If the repository doesn't contain the Dockerfile, the system displays a message to commit one.
 
-    ![Dockerfile](media/deployment-center-launcher/dockerfile.png)
+    ![Screenshot shows the Deployment center with a message Could not find Dockerfile in the repository.](media/deployment-center-launcher/dockerfile.png)
 
 1. Select an existing container registry or create one, and then select **Finish**. The pipeline is created automatically and queues a build in [Azure Pipelines](/azure/devops/pipelines/index?view=azure-devops).
 
@@ -82,7 +82,7 @@ In this tutorial, you will:
 
 1. You'll see the successful logs after deployment is complete.
 
-    ![Logs](media/deployment-center-launcher/logs.png)
+    ![Screenshot shows Deployment center with Release-1 marked with a green check mark icon.](media/deployment-center-launcher/logs.png)
 
 ## Examine the CI pipeline
 

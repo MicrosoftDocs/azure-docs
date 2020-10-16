@@ -2,7 +2,7 @@
 title: Group Chat Hero Sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of chat hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample and learn how to modify it.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 
@@ -27,7 +27,7 @@ The Azure Communication Services **Group Chat Hero Sample** demonstrates how the
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
 > [!IMPORTANT]
-> [Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples)
+> [Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## Overview
 
@@ -58,7 +58,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Node.js (8.11.2 and above)](https://nodejs.org/en/download/)
 - [Visual Studio (2017 and above)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploying the service & client app
@@ -70,29 +70,23 @@ from the browser, it will redirect traffic towards the locally deployed chat fro
 
 You can test the sample locally by opening multiple browser sessions with the URL of your chat to simulate a multi-user chat.
 
-### Before running the sample for the first time
+## Before running the sample for the first time
 
 1. Open an instance of PowerShell, Windows Terminal, Command Prompt or equivalent and navigate to the directory that you'd like to clone the sample to.
-2. `git clone`
-3. Go to **Chat/ClientApp** folder and run `npm run setup`
-   1. If you see an error 1, look above in the output for a URL where you'll need to go to to authorize your client. (URL will look like this: `app.vssps.visualstudio.com/oauth2/authorize?clientid=...`)Once you visit the URL in a browser, copy the command from the browser window and run it.
-   2. Run command `npm run setup` again once you complete the previous step.
-4. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
-5. Once you get the `Connection String`, Add the connection string to the **Chat/appsettings.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
+2. `git clone https://github.com/Azure/Communication.git`
+3. Get the `Connection String` from the Azure portal. For more information on connection strings, see [Create an Azure Communication Resources](../quickstarts/create-communication-resource.md)
+4. Once you get the `Connection String`, Add the connection string to the **Chat/appsettings.json** file found under the Chat folder. Input your connection string in the variable: `ResourceConnectionString`.
 
 ### Local run
 
-1. Go to the Chat folder
-2. Open the `Chat.csproj` solution in Visual Studio
-3. Run the `Chat` project.*
-
-*The browser will open at localhost:5000 (where the node is deploying the client app). App is not supported on Internet Explorer.
+1. Go to the Chat folder and open the `Chat.csproj` solution in Visual Studio
+2. Run the project. The browser will open at localhost:5000.
 
 #### Troubleshooting
 
 - Solution doesn't build, it throws errors during NPM installation/build
 
-Clean/rebuild the C# solution
+   Clean/rebuild the C# solution
 
 ## Publish the sample to Azure
 
@@ -106,6 +100,9 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Next steps
 
+>[!div class="nextstepaction"] 
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
 For more information, see the following articles:
 
 - Learn about [chat concepts](../concepts/chat/concepts.md)
@@ -113,8 +110,8 @@ For more information, see the following articles:
 
 ## Additional reading
 
-- [Azure Communication Preview](https://github.com/Azure/communication-preview) - To learn more about the chat web sdk
+- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Redux](https://redux.js.org/) - Client-side state management
-- [FluentUI](https://developer.microsoft.com/fluentui#/) - Microsoft powered UI library
+- [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework for building web applications

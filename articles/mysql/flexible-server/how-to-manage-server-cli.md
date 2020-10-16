@@ -35,7 +35,7 @@ az account set --subscription <subscription id>
 
 ## Scale compute and storage
 
-You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server server overview](/cli/azure/mysql/server)
+You can scale up your compute tier, vCores, and storage easily using the following command. You can see all the server operation you can perform [az mysql flexible-server update](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_update)
 
 ```azurecli-interactive
 az mysql flexible-server update --resource-group myresourcegroup --name mydemoserver --sku-name Standard_D4ds_v4 --storage-size 6144
@@ -59,10 +59,10 @@ You can use any of these commands to create, delete , list and view database pro
 
 | Cmdlet | Usage| Description |
 | --- | ---| --- |
-|[az mysql flexible-server db create](/cli/azure/sql/db#az-mysql-flexible-server-db-create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Creates a database|
-|[az mysql flexible-server db delete](/cli/azure/sql/db#az-mysql-flexible-server-db-delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Delete your database from your server. This command does not delete your server. |
-|[az mysql flexible-server db list](/cli/azure/sql/db#az-mysql-flexible-server-db-list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|lists all the databases on the server|
-|[az mysql flexible-server db show](/cli/azure/sql/db#az-mysql-flexible-server-db-show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Shows more details of the database|
+|[az mysql flexible-server db create](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_create)|```az mysql flexible-server db create -g myresourcegroup -s mydemoserver -n mydatabasename``` |Creates a database|
+|[az mysql flexible-server db delete](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_delete)|```az mysql flexible-server db delete -g myresourcegroup -s mydemoserver -n mydatabasename```|Delete your database from your server. This command does not delete your server. |
+|[az mysql flexible-server db list](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_list)|```az mysql flexible-server db list -g myresourcegroup -s mydemoserver```|lists all the databases on the server|
+|[az mysql flexible-server db show](/cli/azure/mysql/flexible-server/db#az_mysql_flexible_server_db_show)|```az mysql flexible-server db show -g myresourcegroup -s mydemoserver -n mydatabasename```|Shows more details of the database|
 
 ## Update admin password
 You can change the administrator role's password with this command
@@ -75,7 +75,7 @@ az mysql flexible-server update --resource-group myresourcegroup --name mydemose
 > Password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and non-alphanumeric characters.
 
 ## Delete a server
-If you would just like to delete the MySQL Flexible server, you can run [az mysql flexible-server server delete](/cli/azure/mysql/server#az-mysql-flexible-server-delete) command.
+If you would just like to delete the MySQL Flexible server, you can run [az mysql flexible-server server delete](/cli/azure/mysql/flexible-server#az_mysql_flexible_server_delete) command.
 
 ```azurecli-interactive
 az mysql flexible-server delete --resource-group myresourcegroup --name mydemoserver

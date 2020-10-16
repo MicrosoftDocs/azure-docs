@@ -53,11 +53,11 @@ Before configuring Snowflake for automatic user provisioning with Azure AD, you 
 
 2.  A SCIM Access Token will be generated for your Snowflake tenant. To retrieve it, click on the link highlighted below.
 
-	![Snowflake Add SCIM](media/Snowflake-provisioning-tutorial/image01.png)
+	![Screenshot of a worksheet in the Snowflake U I with the S C I M Access token called out.](media/Snowflake-provisioning-tutorial/image01.png)
 
 3. Copy the generated token value and click **Done**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Snowflake application in the Azure portal.
 
-	![Snowflake Add SCIM](media/Snowflake-provisioning-tutorial/image02.png)
+	![Screenshot of the Details section showing the token copied into the text field and the Done option called out.](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## Step 3. Add Snowflake from the Azure AD application gallery
 
@@ -88,11 +88,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the Admin Credentials section, input the **SCIM 2.0 base URL and Authentication Token** values retrieved earlier in **Tenant URL** and **Secret Token** fields respectively. Click **Test Connection** to ensure Azure AD can connect to Snowflake. If the connection fails, ensure your Snowflake account has Admin permissions and try again.
 

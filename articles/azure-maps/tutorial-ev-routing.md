@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) | Microsoft Azure Maps'
-description: Route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks.
+description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 11/12/2019
@@ -392,8 +392,7 @@ To explore the Azure Maps APIs that are used in this tutorial, see:
 * [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
 * [Post Route Matrix](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
-
-For a complete list of Azure Maps REST APIs, see [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+* [Azure Maps REST APIs](https://docs.microsoft.com/azure/azure-maps/consumption-model)
 
 ## Next steps
 

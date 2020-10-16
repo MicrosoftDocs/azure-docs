@@ -10,7 +10,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/09/2020
+ms.date: 10/14/2020
 ---
 
 # Lookup activity in Azure Data Factory
@@ -26,7 +26,7 @@ Lookup activity reads and returns the content of a configuration file or table. 
 
 The following data sources are supported for Lookup activity. 
 
-The Lookup activity can return up to 5000 rows; if the result set contains more records, the first 5000 rows will be returned. The Lookup activity output supports up to 2 MB in size, activity will fail if the size exceeds the limit. Currently, the longest duration for Lookup activity before timeout is one hour.
+The Lookup activity can return up to 5000 rows; if the result set contains more records, the first 5000 rows will be returned. The Lookup activity output supports up to around 4 MB in size, activity will fail if the size exceeds the limit. Currently, the longest duration for Lookup activity before timeout is 24 hours.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 

@@ -6,12 +6,13 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
+ms.subservice: text-analytics
 ms.topic: include 
 ms.date: 07/07/2020
 ms.author: aahi
 ---
 
-Fill out and submit the [Cognitive Services containers request form](https://aka.ms/cognitivegate) to request access to the container.
+Fill out and submit the [Cognitive Services containers request form](https://aka.ms/csgate) to request access to the container.
 The form requests information about you, your company, and the user scenario for which you'll use the container. After you've submitted the form, the Azure Cognitive Services team reviews it to ensure that you meet the criteria for access to the private container registry.
 
 > [!IMPORTANT]

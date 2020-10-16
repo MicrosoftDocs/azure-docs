@@ -4,6 +4,8 @@
   items:
   - name: What is Microsoft identity platform?
     href: v2-overview.md
+  - name: What's new in docs?
+    href: whats-new-docs.md
 - name: Quickstarts
   expanded: true
   items:
@@ -81,6 +83,8 @@
     items:
     - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
+    - name: Blazor Server
+      href: tutorial-blazor-server.md
   - name: Mobile and desktop apps
     items:
     - name: Android
@@ -382,6 +386,9 @@
       - name: Migrate apps from ADAL to MSAL
         href: msal-migration.md
         displayName: migration
+  - name: Microsoft Identity Web library
+    href: microsoft-identity-web.md
+    displayName: auth, library, .NET Core
   - name: Authentication protocols
     displayName: Auth protocol
     items:
@@ -416,6 +423,8 @@
         href: id-tokens.md
       - name: Access tokens
         href: access-tokens.md
+      - name: Configure token lifetimes
+        href: active-directory-configurable-token-lifetimes.md
       - name: UserInfo endpoint
         href: userinfo.md
       - name: Certificate credentials
@@ -520,7 +529,7 @@
     - name: Use directory schema extension attributes in claims
       href: active-directory-schema-extensions.md
     - name: Configure token lifetimes
-      href: active-directory-configurable-token-lifetimes.md
+      href: configure-token-lifetimes.md
     - name: Handle SameSite cookie changes in Chrome browser
       href: howto-handle-samesite-cookie-changes-chrome-browser.md
     - name: Handle ITP in Safari
@@ -528,10 +537,6 @@
   - name: Application configuration
     displayName: App configuration
     items:
-    - name: Azure portal app registration training guide
-      href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-    - name: Azure portal app registration experience
-      href: app-registration-portal-training-guide.md
     - name: Convert a single-tenant app to a multi-tenant app
       href: howto-convert-app-to-be-multi-tenant.md
     - name: Create a service principal

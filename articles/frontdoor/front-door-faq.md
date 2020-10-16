@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/13/2020
+ms.date: 09/18/2020
 ms.author: duau
 ---
 
@@ -153,6 +153,10 @@ Azure Front Door (AFD) requires a public IP or publicly resolvable DNS name to r
 
 Learn about all the documented [timeouts and limits for Azure Front Door](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-front-door-service-limits).
 
+### How long does it take for a rule to take effect after being added to the Front Door Rules Engine?
+
+The Rules Engine configuration takes about 10 to 15 minutes to complete an update. You can expect the rule to take effect as soon as the update is completed. 
+
 ## Performance
 
 ### How does Azure Front Door support high availability and scalability?
@@ -239,6 +243,10 @@ For having successful HTTPS connections to your backend whether for health probe
 1. **Certificate subject name mismatch**: For HTTPS connections, Front Door expects that your backend presents certificate from a valid CA with subject name(s) matching the backend hostname. As an example, if your backend hostname is set to `myapp-centralus.contosonews.net` and the certificate that your backend presents during the TLS handshake neither has `myapp-centralus.contosonews.net` nor `*myapp-centralus*.contosonews.net` in the subject name, the Front Door will refuse the connection and result in an error. 
     1. **Solution**: While it is not recommended from a compliance standpoint, you can workaround this error by disabling certificate subject name check for your Front Door. This is present under Settings in Azure portal and under BackendPoolsSettings in the API.
 2. **Backend hosting certificate from invalid CA**: Only certificates from [valid CAs](/azure/frontdoor/front-door-troubleshoot-allowed-ca) can be used at the backend with Front Door. Certificates from internal CAs or self-signed certificates are not allowed.
+
+### Can I use client/mutual authentication with Azure Front Door?
+
+No. Although Azure Front Door supports TLS 1.2, which introduced client/mutual authentication in [RFC 5246](https://tools.ietf.org/html/rfc5246), currently, Azure Front Door doesn't support client/mutual authentication.
 
 ## Diagnostics and logging
 

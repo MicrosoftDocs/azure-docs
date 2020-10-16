@@ -8,18 +8,16 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ---
 
-In this quickstart, you'll learn how start a call using the Azure Communication Services Calling client library for Android.
+In this quickstart, you'll learn how to start a call using the Azure Communication Services Calling client library for Android.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - [Android Studio](https://developer.android.com/studio), for creating your Android application.
-- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-
+- A [User Access Token](../../access-tokens.md) for your Azure Communication Service.
 
 ## Setting up
-
 
 ### Create an Android app with an empty activity
 
@@ -59,7 +57,7 @@ allprojects {
     }
 }
 ```
-Then, in your module level build.gradle add the the following lines to the dependencies and android sections
+Then, in your module level build.gradle add the following lines to the dependencies and android sections
 
 ```groovy
 android {
@@ -75,7 +73,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.1'
+    implementation 'com.azure.android:azure-communication-calling:1.0.0-beta.2'
     ...
 }
 ```
@@ -121,9 +119,9 @@ See https://developer.android.com/about/versions/pie/android-9.0-changes-28#apac
     
 ```
 
-### Setup the layout for the app
+### Set up the layout for the app
 
-Two inputs are needed: a text input for the callee id, and a button for placing the call. These can be added through the designer or by editing the layout xml. Create a button with an id of `call_button` and a text input of `callee_id`. Navigate to (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following:
+Two inputs are needed: a text input for the callee ID, and a button for placing the call. These can be added through the designer or by editing the layout xml. Create a button with an ID of `call_button` and a text input of `callee_id`. Navigate to (`app/src/main/res/layout/activity_main.xml`) and replace the content of file with the following:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -264,7 +262,7 @@ The following classes and interfaces handle some of the major features of the Az
 
 ## Create an agent from the user access token
 
-With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user acces tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
+With the user token an authenticated call agent can be instantiated. Generally this token will be generated from a service with authentication specific to the application. For more information on user access tokens check the [User Access Tokens](../../access-tokens.md) guide. For the quickstart, replace `<User_Access_Token>` with a user access token generated for your Azure Communication Service resource.
 
 ```java
 
@@ -286,7 +284,7 @@ private void createAgent() {
 
 ## Start a call using the call agent
 
-Placing the call can be done via the call agent, and just requires providing a list of callee ids and the call options. For the quickstart, the default call options without video and a single callee id from the text input will used.
+Placing the call can be done via the call agent, and just requires providing a list of callee IDs and the call options. For the quickstart, the default call options without video and a single callee ID from the text input will be used.
 
 ```java
 /**
@@ -311,3 +309,7 @@ private void startCall() {
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). Verify you are able to place calls by calling `8:echo123`. A pre-recorded message will play then repeat your message back to you.
 
 :::image type="content" source="../media/android/quickstart-android-call-echobot.png" alt-text="Screenshot showing the completed application.":::
+
+## Sample Code
+
+You can download the sample app from [GitHub](https://github.com/Azure/Communication/tree/master/samples/Add%20Voice%20Calling/Android/Java)

@@ -47,7 +47,7 @@ The following table lists the types of data you can configure a Log Analytics wo
 The Log Analytics agent sends data to a Log Analytics workspace in Azure Monitor. The Windows agent can be multihomed to send data to multiple workspaces and System Center Operations Manager management groups. The Linux agent can send to only a single destination, either a workspace or management group.
 
 ## Other services
-The agent for Linux and Windows isn't only for connecting to Azure Monitor. Other services such as Azure Security Center and Azure Sentinel rely on the agent and its connected Log Analytics workspace. The agent also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/update-management/update-mgmt-overview.md), and [Azure Security Center](../../security-center/security-center-intro.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
+The agent for Linux and Windows isn't only for connecting to Azure Monitor. Other services such as Azure Security Center and Azure Sentinel rely on the agent and its connected Log Analytics workspace. The agent also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/update-management/update-mgmt-overview.md), and [Azure Security Center](../../security-center/security-center-introduction.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## Workspace and management group limitations
 
@@ -55,7 +55,7 @@ See [Configure agent to report to an Operations Manager management group](agent-
 
 * Windows agents can connect to up to four workspaces, even if they are connected to a System Center Operations Manager management group.
 * The Linux agent does not support multi-homing and can only connect to a single workspace or management group.
-  
+
 
 ## Security limitations
 
@@ -65,6 +65,8 @@ See [Configure agent to report to an Operations Manager management group](agent-
 ## Installation options
 
 There are multiple methods to install the Log Analytics agent and connect your machine to Azure Monitor depending on your requirements. The following sections list the possible methods for different types of virtual machine.
+> [!NOTE]
+> It is not supported to clone a machine with the Log Analytics Agent already configured. If the agent has already been associated with a workspace this will not work for 'golden images'.
 
 ### Azure virtual machine
 
@@ -143,4 +145,3 @@ For example:
 * Review [data sources](agent-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 * Learn about [log queries](../log-query/log-query-overview.md) to analyze the data collected from data sources and solutions. 
 * Learn about [monitoring solutions](../insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
-

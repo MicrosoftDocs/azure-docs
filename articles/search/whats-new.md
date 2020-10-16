@@ -14,28 +14,26 @@ ms.custom: references_regions
 
 Learn what's new in the service. Bookmark this page to keep up to date with the service.
 
-## Feature announcements in 2020
-
-### September 2020
+## September 2020
 
 Create an identity for a search service in Azure Active Directory, then use RBAC permissions to grant the identity read-only permissions to Azure data sources. Optionally, choose the [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) capability if IP rules are not an option.
 
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |------------------------------|----------|-------------|---------------|
-| [Managed service identity](search-howto-managed-identities-data-sources.md) | Indexers, security | Create an identity for a search service in Azure Active Directory, then use RBAC permissions to grant access to Azure data sources. This approach eliminates the need for credentials on the connection string. <br><br>An additional way to use a managed service identity is through a [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) if IP rules are not an option. | Generally available. Access this capability when using the portal or [Create Data Source (REST)](https://docs.microsoft.com/rest/api/searchservice/create-data-source) with api-version=2020-06-30. |
-| [Outbound requests using a private link](search-indexer-howto-access-private.md) | Indexers, security | Create a shared private link resource that indexers can use when accessing Azure resources secured by Azure Private Link. For more information about all of the ways you can secure indexer connections, see [Secure indexer resources using Azure network security features](search-indexer-securing-resources.md). | Generally available. Access this capability when using the portal or [Shared Private Link Resource](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) with api-version=2020-08-01. |
-| [Management REST API (2020-08-01)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | New stable REST API adds support for creating shared private link resources. | Generally available. |
-| [Management REST API (2020-08-01-Preview)](https://docs.microsoft.com/rest/api/searchmanagement/management-api-versions) | REST | Adds shared private link resource for Azure Functions and Azure SQL for MySQL Databases. | Public preview. |
-| [Management .NET SDK 4.0](https://docs.microsoft.com/dotnet/api/overview/azure/search/management) | .NET SDK | Azure SDK update for the management SDK, targeted REST API version 2020-08-01. | Generally available. |
+| [Managed service identity](search-howto-managed-identities-data-sources.md) | Indexers, security | Create an identity for a search service in Azure Active Directory, then use RBAC permissions to grant access to Azure data sources. This approach eliminates the need for credentials on the connection string. <br><br>An additional way to use a managed service identity is through a [trusted service exception](search-indexer-howto-access-trusted-service-exception.md) if IP rules are not an option. | Generally available. Access this capability when using the portal or [Create Data Source (REST)](/rest/api/searchservice/create-data-source) with api-version=2020-06-30. |
+| [Outbound requests using a private link](search-indexer-howto-access-private.md) | Indexers, security | Create a shared private link resource that indexers can use when accessing Azure resources secured by Azure Private Link. For more information about all of the ways you can secure indexer connections, see [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md). | Generally available. Access this capability when using the portal or [Shared Private Link Resource](/rest/api/searchmanagement/sharedprivatelinkresources) with api-version=2020-08-01. |
+| [Management REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | REST | New stable REST API adds support for creating shared private link resources. | Generally available. |
+| [Management REST API (2020-08-01-Preview)](/rest/api/searchmanagement/management-api-versions) | REST | Adds shared private link resource for Azure Functions and Azure SQL for MySQL Databases. | Public preview. |
+| [Management .NET SDK 4.0](/dotnet/api/overview/azure/search/management) | .NET SDK | Azure SDK update for the management SDK, targeted REST API version 2020-08-01. | Generally available. |
 
-### August 2020
+## August 2020
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
 | [double encryption](search-security-overview.md#encryption) | Security | Enable double encryption at the storage layer by configuring customer-managed key (CMK) encryption on new search services. Create a new service, [configure and apply customer-managed keys](search-security-manage-encryption-keys.md) to indexes or synonym maps, and benefit from double encryption over that content. | Generally available on all search services created after August 1, 2020 in these regions: West US 2, East US, South Central US, US Gov Virginia, US Gov Arizona. Use the portal, management REST APIs, or SDKs to create the service. |
 
-### July 2020
+## July 2020
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
@@ -43,7 +41,7 @@ Create an identity for a search service in Azure Active Directory, then use RBAC
 | [azure.search.documents client library](/python/api/overview/azure/search-documents-readme)  | Azure SDK for Python| Python client library released by the Azure SDK team, designed for consistency with other Python client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30. | Generally available. </br> Install the [azure-search-documents package](https://pypi.org/project/azure-search-documents/) from PyPI. |
 | [@azure/search-documents client library](/javascript/api/overview/azure/search-documents-readme)  | Azure SDK for JavaScript | JavaScript client library released by the Azure SDK team, designed for consistency with other JavaScript client libraries. <br/><br/>Version 11 targets the Search REST api-version=2020-06-30. | Generally available. </br> Install the [@azure/search-documents package](https://www.npmjs.com/package/@azure/search-documents) from npm. |
 
-### June 2020
+## June 2020
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
@@ -52,7 +50,7 @@ Create an identity for a search service in Azure Active Directory, then use RBAC
 | [**Okapi BM25 relevance algorithm**](https://en.wikipedia.org/wiki/Okapi_BM25) | Query | New relevance ranking algorithm automatically used for all new search services created after July 15. For services created earlier, you can opt in by setting the `similarity` property on index fields. | Generally available. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) or later, or REST API 2019-05-06. |
 | **executionEnvironment** | Security (indexers) | Explicitly set this indexer configuration property to `private` to force all connections to external data sources over a private endpoint. Applicable only to search services that leverage Azure Private Link. | Generally available. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) to set this general configuration parameter. |
 
-### May 2020 (Microsoft Build)
+## May 2020 (Microsoft Build)
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
@@ -63,21 +61,21 @@ Create an identity for a search service in Azure Active Directory, then use RBAC
 | [**sessionId query parameter**](index-similarity-and-scoring.md), [scoringStatistics=global parameter](index-similarity-and-scoring.md#scoring-statistics) | Query (relevance) | Add sessionID to a query to establish a session for computing search scores, with scoringStatistics=global to collect scores from all shards, for more consistent search score calculations. | Generally available. </br> Use [Search REST API 2020-06-30](/rest/api/searchservice/) or later, or REST API 2019-05-06. |
 | [**featuresMode (preview)**](index-similarity-and-scoring.md#featuresMode-param) | Query | Add this query parameter to expand a relevance score to show more detail: per field similarity score, per field term frequency, and per field number of unique tokens matched. You can consume these data points in custom scoring algorithms. For a sample that demonstrates this capability, see [Add machine learning (LearnToRank) to search relevance](https://github.com/Azure-Samples/search-ranking-tutorial). | Public preview. </br> Use [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 
-### March 2020
+## March 2020
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [**Native blob soft delete (preview)**](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection) | Indexers | An Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing. | Public preview. </br> Use the [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) and REST API 2019-05-06-Preview, with Run Indexer against an Azure Blob data source that has native "soft delete" enabled. |
+| [**Native blob soft delete (preview)**](search-howto-index-changed-deleted-blobs.md) | Indexers | An Azure Blob Storage indexer in Azure Cognitive Search will recognize blobs that are in a soft deleted state, and remove the corresponding search document during indexing. | Public preview. </br> Use the [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) and REST API 2019-05-06-Preview, with Run Indexer against an Azure Blob data source that has native "soft delete" enabled. |
 | [**Management REST API (2020-03-13)**](/rest/api/searchmanagement/management-api-versions) | REST | New stable REST API for creating and managing a search service. Adds IP firewall and Private Link support | Generally available. |
 
-### February 2020
+## February 2020
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
-| [**PII Detection (preview)**](cognitive-search-skill-pii-detection.md) | AI enrichment | A new cognitive skill used during indexing that extracts personally identifiable information from an input text and gives you the option to mask it from that text in various ways. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
+| [**PII Detection (preview)**](cognitive-search-skill-pii-detection.md) | AI enrichment | A new cognitive skill used during indexing that extracts personal information from an input text and gives you the option to mask it from that text in various ways. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 | [**Custom Entity Lookup (preview)**](cognitive-search-skill-custom-entity-lookup.md )| AI enrichment | A new cognitive skill that looks for text from a custom, user-defined list of words and phrases. Using this list, it labels all documents with any matching entities. The skill also supports a degree of fuzzy matching that can be applied to find matches that are similar but not exact. | Public preview. </br> Use the portal or [Search REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) or REST API 2019-05-06-Preview. |
 
-### January 2020
+## January 2020
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Category | Description | Availability  |
 |---------|------------------|-------------|---------------|
@@ -85,7 +83,7 @@ Create an identity for a search service in Azure Active Directory, then use RBAC
 | [**IP rules for in-bound firewall support (preview)**](service-configure-firewall.md) | Security | Limit access to a search service endpoint to specific IP addresses. The preview API has new **IpRule** and **NetworkRuleSet** properties in [CreateOrUpdate API](/rest/api/searchmanagement/2019-10-01-preview/createorupdate-service). This preview feature is available in selected regions. |  Public preview using api-version=2019-10-01-Preview.  |
 | [**Azure Private Link for a private search endpoint (preview)**](service-create-private-endpoint.md) | Security| Shield a search service from the public internet by running it as a private link resource, accessible only to client apps and other Azure services on the same virtual network. | Public preview using api-version=2019-10-01-Preview.  |
 
-## Feature announcements in 2019
+## Features in 2019
 
 ### December 2019
 

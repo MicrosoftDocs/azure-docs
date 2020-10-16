@@ -25,6 +25,17 @@ You must have the following resource installed:
 * Existing AKS clusters can't be migrated to managed identities.
 * During cluster **upgrade** operations, the managed identity is temporarily unavailable.
 * Tenants move / migrate of managed identity enabled clusters isn't supported.
+* If the cluster has `aad-pod-identity` enabled, Node Managed Identity (NMI) pods modify the nodes'
+  iptables to intercept calls to the Azure Instance Metadata endpoint. This configuration means any
+  request made to the Metadata endpoint is intercepted by NMI even if the pod doesn't use
+  `aad-pod-identity`. AzurePodIdentityException CRD can be configured to inform `aad-pod-identity`
+  that any requests to the Metadata endpoint originating from a pod that matches labels defined in
+  CRD should be proxied without any processing in NMI. The system pods with
+  `kubernetes.azure.com/managedby: aks` label in _kube-system_ namespace should be excluded in
+  `aad-pod-identity` by configuring the AzurePodIdentityException CRD. For more information, see
+  [Disable aad-pod-identity for a specific pod or application](https://github.com/Azure/aad-pod-identity/blob/master/docs/readmes/README.app-exception.md).
+  To configure an exception, install the
+  [mic-exception YAML](https://github.com/Azure/aad-pod-identity/blob/master/deploy/infra/mic-exception.yaml).
 
 ## Summary of managed identities
 
@@ -44,7 +55,7 @@ AKS uses several managed identities for built-in services and add-ons.
 | Add-on | Ingress application gateway | Manages required network resources| Contributor role for node resource group | No
 | Add-on | omsagent | Used to send AKS metrics to Azure Monitor | Monitoring Metrics Publisher role | No
 | Add-on | Virtual-Node (ACIConnector) | Manages required network resources for Azure Container Instances (ACI) | Contributor role for node resource group | No
-
+| OSS project | aad-pod-identity | Enables applications to access cloud resources securely with Azure Active Directory (AAD) | NA | Steps to grant permission at https://github.com/Azure/aad-pod-identity#role-assignment.
 
 ## Create an AKS cluster with managed identities
 

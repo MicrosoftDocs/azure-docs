@@ -1,22 +1,24 @@
 ---
 title: What is the Anomaly Detector API?
 titleSuffix: Azure Cognitive Services
-description: Use the Anomaly Detector API's advanced algorithms to identify anomalies in your time series data.
+description: Use the Anomaly Detector API's algorithms to apply anomaly detection on your time series data.
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 09/10/2020
-ms.author: aahi
+ms.date: 09/22/2020
+ms.author: mbullwin
+keywords: anomaly detection, machine learning, algorithms
+ms.custom: cog-serv-seo-aug-2020
 ---
 
 # What is the Anomaly Detector API?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data with machine learning. The Anomaly Detector API adapts by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
+The Anomaly Detector API enables you to monitor and detect abnormalities in your time series data without having to know machine learning. The Anomaly Detector API's algorithms adapt by automatically identifying and applying the best-fitting models to your data, regardless of industry, scenario, or data volume. Using your time series data, the API determines boundaries for anomaly detection, expected values, and which data points are anomalies.
 
 ![Detect pattern changes in service requests](./media/anomaly_detection2.png)
 
@@ -28,7 +30,7 @@ With the Anomaly Detector, you can automatically detect anomalies throughout you
 
 |Feature  |Description  |
 |---------|---------|
-|Detect anomalies as they occur in real-time. | Detect anomalies in your streaming data by using previously seen data points to determine if your latest one is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data as it's created. |
+|Anomaly detection in real-time. | Detect anomalies in your streaming data by using previously seen data points to determine if your latest one is an anomaly. This operation generates a model using the data points you send, and determines if the target point is an anomaly. By calling the API with each new data point you generate, you can monitor your data as it's created. |
 |Detect anomalies throughout your data set as a batch. | Use your time series to detect any anomalies that might exist throughout your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.         |
 |Detect change points throughout your data set as a batch. | Use your time series to detect any trend change points that exist in your data. This operation generates a model using your entire time series data, with each point analyzed with the same model.    |
 | Get additional information about your data. | Get useful details about your data and any observed anomalies, including expected values, anomaly boundaries and positions. |

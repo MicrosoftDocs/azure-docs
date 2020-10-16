@@ -7,10 +7,10 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/18/2020
+ms.date: 09/22/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell
 ---
 
 # Point-in-time restore for block blobs
@@ -32,13 +32,6 @@ Azure Storage analyzes all changes that have been made to the specified blobs be
 Only one restore operation can be run on a storage account at a time. A restore operation cannot be canceled once it is in progress, but a second restore operation can be performed to undo the first operation.
 
 The **Restore Blob Ranges** operation returns a restore ID that uniquely identifies the operation. To check the status of a point-in-time restore, call the **Get Restore Status** operation with the restore ID returned from the **Restore Blob Ranges** operation.
-
-Keep in mind the following limitations on restore operations:
-
-- A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored as part of a restore operation.
-- A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically.
-- Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
-- If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. However, a blob that has moved to the archive tier will not be restored.
 
 > [!IMPORTANT]
 > When you perform a restore operation, Azure Storage blocks data operations on the blobs in the ranges being restored for the duration of the operation. Read, write, and delete operations are blocked in the primary location. For this reason, operations such as listing containers in the Azure portal may not perform as expected while the restore operation is underway.
@@ -72,9 +65,12 @@ To initiate a restore operation, a client must have write permissions to all con
 
 Point-in-time restore for block blobs has the following limitations and known issues:
 
-- Only block blobs in a standard general-purpose v2 storage account can be restored as part of a point-in-time restore operation. Append blobs, page blobs, and premium block blobs are not restored. If you have deleted a container during the retention period, that container will not be restored with the point-in-time restore operation. To learn about protecting containers from deletion, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
-- Only block blobs in the hot or cool tiers can be restored in a point-in-time restore operation. Restoring block blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier. To restore an archived blob, first move it out of the archive tier.
-- If a block blob in the range to be restored has an active lease, the point-in-time restore operation will fail. Break any active leases prior to initiating the restore operation.
+- Only block blobs in a standard general-purpose v2 storage account can be restored as part of a point-in-time restore operation. Append blobs, page blobs, and premium block blobs are not restored. 
+- If you have deleted a container during the retention period, that container will not be restored with the point-in-time restore operation. If you attempt to restore a range of blobs that includes blobs in a deleted container, the point-in-time restore operation will fail. To learn about protecting containers from deletion, see [Soft delete for containers (preview)](soft-delete-container-overview.md).
+- If a blob has moved between the hot and cool tiers in the period between the present moment and the restore point, the blob is restored to its previous tier. Restoring block blobs in the archive tier is not supported. For example, if a blob in the hot tier was moved to the archive tier two days ago, and a restore operation restores to a point three days ago, the blob is not restored to the hot tier. To restore an archived blob, first move it out of the archive tier. For more information, see [Rehydrate blob data from the archive tier](storage-blob-rehydration.md).
+- A block that has been uploaded via [Put Block](/rest/api/storageservices/put-block) or [Put Block from URL](/rest/api/storageservices/put-block-from-url), but not committed via [Put Block List](/rest/api/storageservices/put-block-list), is not part of a blob and so is not restored as part of a restore operation.
+- A blob with an active lease cannot be restored. If a blob with an active lease is included in the range of blobs to restore, the restore operation will fail atomically. Break any active leases prior to initiating the restore operation.
+- Snapshots are not created or deleted as part of a restore operation. Only the base blob is restored to its previous state.
 - Restoring Azure Data Lake Storage Gen2 flat and hierarchical namespaces is not supported.
 
 > [!IMPORTANT]

@@ -89,7 +89,7 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 1. Set up a [blob storage container in your storage account](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container)
 
-2. Store the UI files from the UI folder to your blob container.
+2. Store the UI files from the [UI folder](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/UI) to your blob container.
 
 3. Allow CORS access to storage container you created by following these instructions:
 
@@ -119,7 +119,7 @@ Application settings can be configured in the [App service in Azure](https://doc
 
 #### Replace the configuration values
 
-In the provided custom policies, find the following placeholders and replace with the corresponding values from your instance.
+In the provided [custom policies](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/OnFido-Combined/Policies), find the following placeholders and replace with the corresponding values from your instance.
 
 | Placeholder | Replace with value | Example  |
 |:---------------|:----------------|:-------------------|

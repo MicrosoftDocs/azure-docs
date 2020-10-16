@@ -3,8 +3,8 @@ title: Azure Defender for IoT
 description: Learn about Azure Defender for IoT 
 author: memildin
 ms.author: memildin
-ms.date: 9/12/2020
-ms.topic: conceptual
+ms.date: 9/22/2020
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 

@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc enabled servers
 description: Azure Arc enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 09/02/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ---
 
@@ -29,7 +29,7 @@ VM extension functionality is available only in the list of [supported regions](
 
 ## Extensions
 
-In this preview, we are supporting the following VM extensions on Windows and Linux machines.
+In this release, we support the following VM extensions on Windows and Linux machines.
 
 |Extension |OS |Publisher |Additional information |
 |----------|---|----------|-----------------------|
@@ -61,10 +61,7 @@ The Log Analytics agent VM extension for Linux requires Python 2.x is installed 
 
 Verify your machine matches the [supported versions](agent-overview.md#supported-operating-systems) of Windows and Linux operating system for the Azure Connected Machine agent.
 
-The minimum version of the Connected Machine agent that is supported with this feature is:
-
-* Windows - 0.7.x
-* Linux - 0.8.x
+The minimum version of the Connected Machine agent that is supported with this feature on Windows and Linux is the 1.0 release.
 
 To upgrade your machine to the version of the agent required, see [Upgrade agent](manage-agent.md#upgrading-agent).
 
@@ -72,7 +69,7 @@ To upgrade your machine to the version of the agent required, see [Upgrade agent
 
 VM extensions can be applied your Arc for server managed machine through the Azure portal.
 
-1. From your browser, go to the [Azure portal](https://aka.ms/arcserver-preview).
+1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
 2. In the portal, browse to **Servers - Azure Arc** and select your hybrid machine from the list.
 
@@ -714,22 +711,10 @@ Removing one or more extensions from an Arc enabled server can only be carried o
 
 4. Select **Uninstall** and when prompted to verify, select **Yes** to proceed.
 
-## Troubleshooting
-
-Data about the state of extension deployments can be retrieved from the Azure portal.
-
-The following troubleshooting steps apply to all VM extensions.
-
-1. To check the Guest agent log, look at the activity when your extension was being provisioned in `%SystemDrive%\ProgramData\GuestConfig\ext_mgr_logs` for Windows, and for Linux under `/var/lib/GuestConfig/ext_mgr_logs`.
-
-2. Check the extension logs for the specific extension for more details in `%SystemDrive%\ProgramData\GuestConfig\extension_logs\<Extension>` for Windows. Extension output is logged to a file for each extension installed on Linux under `/var/lib/GuestConfig/extension_logs`.
-
-3. Check extension specific documentation troubleshooting sections for error codes, known issues etc. Additional troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. This includes the description of error codes written to the log. The extension articles are linked in the [extensions table](#extensions) found earlier in this article.
-
-4. Look at the system logs. Check for other operations that may have interfered with the extension, such as a long running installation of another application that required exclusive package manager access.
-
 ## Next steps
 
-- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
+* Troubleshooting information can be found in the [Troubleshoot VM extensions guide](troubleshoot-vm-extensions.md).
 
-- Learn more about [the [Log Analytics agent]](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-intro.md).
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/policy/concepts/guest-configuration.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [Azure Monitor with VMs](../../azure-monitor/insights/vminsights-enable-policy.md), and much more.
+
+* Learn more about the [Log Analytics agent](../../azure-monitor/platform/log-analytics-agent.md). The Log Analytics agent for Windows and Linux is required when you want to collect operating system and workload monitoring data, manage it using Automation runbooks or features like Update Management, or use other Azure services like [Azure Security Center](../../security-center/security-center-introduction.md).

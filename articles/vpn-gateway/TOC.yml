@@ -1,10 +1,11 @@
-- name: VPN Gateway Documentation
+- name: VPN Gateway documentation
   href: index.yml
 - name: Overview
   items:
   - name: What is VPN Gateway?
     href: vpn-gateway-about-vpngateways.md
 - name: Tutorials
+  expanded: true
   items:
   - name: Create and manage a VPN gateway
     href: vpn-gateway-tutorial-create-gateway-powershell.md
@@ -42,8 +43,10 @@
     href: vpn-gateway-about-point-to-site-routing.md
   - name: About zone-redundant gateways for Availability Zones
     href: about-zone-redundant-vnet-gateways.md
-  - name: Built-in security controls
-    href: vpn-gateway-security-controls.md
+  - name: Security
+    items:
+      - name: Security baseline
+        href: security-baseline.md
   - name: Backend Connectivity Interoperability
     items:
     - name: Preface and Test Setup
@@ -138,8 +141,6 @@
         href: point-to-site-how-to-vpn-client-install-azure-cert.md
       - name: Create and install VPN client configuration files
         href: point-to-site-vpn-client-configuration-azure-cert.md
-      - name: Session management
-        href: p2s-session-management.md
     - name: RADIUS authentication
       items:
       - name: Configure a P2S VPN
@@ -169,7 +170,9 @@
       - name: Configure OpenVPN clients
         href: vpn-gateway-howto-openvpn-clients.md
       - name: Move to OpenVPN protocol or IKEv2 from SSTP
-        href: ikev2-openvpn-from-sstp.md      
+        href: ikev2-openvpn-from-sstp.md
+    - name: P2S session management
+      href: p2s-session-management.md      
     - name: Transition to a public CA gateway certificate for P2S
       href: vpn-gateway-point-to-site-gateway-public-ca.md
     - name: Configure an Always On VPN device tunnel

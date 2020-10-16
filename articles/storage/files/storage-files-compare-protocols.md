@@ -1,6 +1,6 @@
 ---
-title: Available Azure Files protocols
-description: Learn about the available protocols before creating an Azure file share.
+title: Available Azure Files protocols - NFS and SMB
+description: Learn about the available protocols before creating an Azure file share, including Server Message Block (SMB) and Network File System (NFS).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -19,8 +19,8 @@ With both SMB and NFS file shares, Azure Files offers enterprise-grade file shar
 | Feature | SMB | NFS (preview) |
 |---------|-----|---------------|
 | Supported protocol versions | SMB 2.1, SMB 3.0 | NFS 4.1 |
-| Available tiers | Premium, transaction optimized, hot, and cool | Premium |
-| Redundancy | LRS, zone redundant storage (ZRS), geo-redundant storage (GRS), geo-zone redundant storage (GZRS) | Locally redundant storage (LRS) |
+| [Available tiers](storage-files-planning.md#storage-tiers)  | Premium, transaction optimized, hot, and cool | Premium |
+| [Redundancy](storage-files-planning.md#redundancy) | LRS, zone redundant storage (ZRS), geo-redundant storage (GRS), geo-zone redundant storage (GZRS) | Locally redundant storage (LRS) |
 | File system semantics | Win32 | POSIX |
 | Authentication | Identity-based authentication (Kerberos), shared key authentication (NTLMv2) | Host-based authentication |
 | Authorization | Win32-style access control lists (ACLs) | UNIX-style permissions |

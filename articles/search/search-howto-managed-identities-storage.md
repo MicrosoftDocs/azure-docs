@@ -140,6 +140,10 @@ For more details on the Create Indexer API, check out [Create Indexer](/rest/api
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
+## Accessing secure data in storage accounts
+
+Azure storage accounts can be further secured using firewalls and virtual networks. If you want to index content from a blob storage account or Data Lake Gen2 storage account that is secured using a firewall or virtual network, follow the instructions for [Accessing data in storage accounts securely via trusted service exception](search-indexer-howto-access-trusted-service-exception.md).
+
 ## See also
 
 Learn more about Azure Storage indexers:

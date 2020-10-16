@@ -52,7 +52,7 @@ Generally, cameras should be mounted 12-14 feet from the ground. When planning y
 
 ## Camera-to-focal-point distance
 
-_Camera-to-focal-point distance_ is the linear distance from the focal point (or center focal point of the point of interest) to the camera.
+_Camera-to-focal-point distance_ is the linear distance from the focal point (or center of the camera image) to the camera measured on the ground.
 
 ![Camera-to-focal-point-distance](./media/spatial-analysis/camera-focal-point.png)
 

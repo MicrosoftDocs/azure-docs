@@ -7,7 +7,7 @@ author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
 
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma

@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
@@ -37,12 +37,12 @@ The two tabs below show the features of Azure Security Center that are available
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Yes|
-|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
 |Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
-|Disk encryption assessment|✔|✔|-|Free|
-|Third-party vulnerability assessment|✔|-|-|Free|
-|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Third-party vulnerability assessment|✔|-|-|No|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
 ### [**Linux machines**](#tab/features-linux)
@@ -61,12 +61,12 @@ The two tabs below show the features of Azure Security Center that are available
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Yes|
-|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
-|Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Yes|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
-|Disk encryption assessment|✔|✔|-|Free|
-|Third-party vulnerability assessment|✔|-|-|Free|
-|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
+|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Third-party vulnerability assessment|✔|-|-|No|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 
 
@@ -102,6 +102,6 @@ For information about when recommendations are generated for each of these prote
 
 ## Next steps
 
-- Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md).
+- Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
 - Review the [platforms that support security center](security-center-os-coverage.md).

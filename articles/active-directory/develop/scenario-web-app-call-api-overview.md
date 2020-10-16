@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write a web app that calls web APIs by using the Microsoft identity platform for developers.
 ---
 
@@ -21,12 +21,7 @@ Learn how to build a web app that signs users in to the Microsoft identity platf
 
 ## Prerequisites
 
-[!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
-
-This scenario assumes that you've already gone through the following scenario:
-
-> [!div class="nextstepaction"]
-> [Web app that signs in users](scenario-web-app-sign-user-overview.md)
+This scenario assumes you've already completed [Scenario: Web app that signs in users](scenario-web-app-sign-user-overview.md).
 
 ## Overview
 
@@ -48,6 +43,10 @@ Development for this scenario involves these specific tasks:
 
 - During [application registration](scenario-web-app-call-api-app-registration.md), you must provide a reply URI, secret, or certificate to be shared with Azure AD. If you deploy your app to several locations, you'll provide a reply URI for each location.
 - The [application configuration](scenario-web-app-call-api-app-configuration.md) must provide the client credentials that were shared with Azure AD during application registration.
+
+## Recommended reading
+
+[!INCLUDE [recommended-topics](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
 ## Next steps
 

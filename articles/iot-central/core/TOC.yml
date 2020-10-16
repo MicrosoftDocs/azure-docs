@@ -10,6 +10,8 @@
     href: overview-iot-central-developer.md
   - name: Recent updates
     items:
+    - name: September 2020 new and updated features
+      href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-september-2020/
     - name: August 2020 new and updated features
       href: https://azure.microsoft.com/updates/azure-iot-central-feature-updates-august-2020/
     - name: July 2020 new and updated features
@@ -81,12 +83,16 @@
       items:
         - name: Set up a device template
           href: howto-set-up-template.md
+        - name: How to use properties
+          href: howto-use-properties.md
         - name: Prepare and connect an Azure Sphere DevKit
           href: howto-connect-sphere.md
         - name: Prepare and connect a RuuviTag device
           href: howto-connect-ruuvi.md
         - name: Prepare and connect a Rigado Cascade 500
           href: howto-connect-rigado-cascade-500.md
+        - name: Connect devices using X.509
+          href: how-to-connect-devices-x509.md
         - name: Connect other IoT clouds
           href: howto-build-iotc-device-bridge.md
     - name: Stay connected
@@ -167,8 +173,10 @@
               href: howto-show-hide-chat.md
     - name: Troubleshoot
       items:
-      -name: Device connections
-      href: troubleshoot-connection.md
+      - name: Device connections
+        href: troubleshoot-connection.md
+    - name: FAQ
+      href: howto-faq.md
 - name: Reference
   items:
   - name: Azure CLI

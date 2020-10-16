@@ -13,7 +13,28 @@ ms.topic: how-to
 
 # Upload usage data, metrics, and logs to Azure Monitor
 
-Monitoring is one of the many built-in capabilities that Azure Arc enabled data services brings with it. 
+Periodically you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure.  The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
+
+> [!NOTE] 
+> During the preview period, there is no cost for using Azure Arc enabled data services.
+
+## Prerequisites
+
+You will need the Azure CLI (az) and the Azure Data CLI (azdata) installed.  [Install tools](./install-client-tools.md).
+
+Prior to uploading data to Azure, you need to ensure that your Azure subscription has the Microsoft.AzureData resource provider registered.
+
+You can verify this by running the following command:
+
+```console
+az provider show -n Microsoft.AzureData -o table
+```
+
+If the resource provider is not currently registered in your subscription, you can register it by running the following command.  This command make take a minute or two to complete.
+
+```console
+az provider register -n Microsoft.AzureData --wait
+```
 
 ## Upload usage data
 
@@ -69,7 +90,7 @@ Follow these commands to create your metrics upload service principal and assign
 To create a service principal, run this command:
 
 > [!NOTE]
-> Creating a service principal requires [certain permissions in Azure](/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+> Creating a service principal requires [certain permissions in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>
@@ -119,11 +140,11 @@ Run this command to assign the service principal to the 'Monitoring Metrics Publ
 
 
 ```console
-az role assignment create --assignee <appId value from output above> --role 'Monitoring Metrics Publisher' --scope subscriptions/<sub ID>
+az role assignment create --assignee <appId value from output above> --role "Monitoring Metrics Publisher" --scope subscriptions/<sub ID>
 az role assignment create --assignee <appId value from output above> --role 'Contributor' --scope subscriptions/<sub ID>
 
 #Example:
-#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Monitoring Metrics Publisher' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
+#az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role "Monitoring Metrics Publisher" --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 #az role assignment create --assignee 2e72adbf-de57-4c25-b90d-2f73f126ede5 --role 'Contributor' --scope subscriptions/182c901a-129a-4f5d-56e4-cc6b29459123
 
 #On Windows environment

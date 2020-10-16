@@ -27,7 +27,7 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **HANA database size**     | HANA databases of size <= 2 TB  (this isn't the memory size of the HANA system)               |                                                              |
 | **Backup types**           | Full, Differential, and Log backups                          | Incremental, Snapshots                                       |
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
-| **Backup limits**          | Up to 2 TB of full backup size per SAP HANA instance         |                                                              |
+| **Backup limits**          | Up to 2 TB of full backup size per SAP HANA instance (soft limit)         |                                                              |
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |
 
 ------

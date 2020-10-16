@@ -94,7 +94,7 @@ There are various approaches and platforms to put models into production. Here a
 Further examples are available in walkthroughs that demonstrate all the steps in the process for **specific scenarios**. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application.
 
 > [!NOTE]
-> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../studio/deploy-a-machine-learning-web-service.md).
+> For deployment using Azure Machine Learning Studio, see [Deploy an Azure Machine Learning web service](../classic/deploy-a-machine-learning-web-service.md).
 >
 >
 
@@ -107,5 +107,3 @@ When multiple models are in production, it can be useful to perform [A/B testing
 [Track progress of data science projects](track-progress.md) shows how a data scientist can track the progress of a data science project.
 
 [Model operation and CI/CD](ci-cd-flask.md) shows how CI/CD can be performed with developed models.
-
-

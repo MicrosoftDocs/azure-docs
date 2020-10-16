@@ -43,7 +43,8 @@ Logged in successfully to `https://10.0.0.4:30080` in namespace `arc`. Setting a
 - Launch Azure Data Studio
 - On the Connections tab, Click on the three dots on the top left and choose "New Deployment"
 - From the deployment options, select **Azure SQL managed instance - Azure Arc** 
-  > **Note:** You may be prompted to install the azdata CLI here if it is not currently installed.
+  > [!NOTE]
+  > You may be prompted to install the azdata CLI here if it is not currently installed.
 - Accept the Privacy and license terms and click **Select** at the bottom
 
 

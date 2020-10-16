@@ -17,6 +17,7 @@ ms.date: 09/22/2020
 This page describes how to set up an indexer connection to an Azure Cosmos DB database using a managed identity instead of providing credentials in the data source object connection string.
 
 Before learning more about this feature, it is recommended that you have an understanding of what an indexer is and how to set up an indexer for your data source. More information can be found at the following links:
+
 * [Indexer overview](search-indexer-overview.md)
 * [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)
 
@@ -133,7 +134,14 @@ For more details on the Create Indexer API, check out [Create Indexer](/rest/api
 
 For more information about defining indexer schedules see [How to schedule indexers for Azure Cognitive Search](search-howto-schedule-indexers.md).
 
-## See also
+## Troubleshooting
 
-Learn more about Cosmos DB indexers:
+If you find that you are not able to index data from Cosmos DB consider the following:
+
+1. If you recently rotated your Cosmos DB account keys you will need to wait up to 15 minutes for the managed identity connection string to work.
+
+1. Check to see if the Cosmos DB account has its access restricted to select networks. If it does, refer to [Indexer access to content protected by Azure network security features](search-indexer-securing-resources.md).
+
+## Next steps
+
 * [Azure Cosmos DB indexer](search-howto-index-cosmosdb.md)

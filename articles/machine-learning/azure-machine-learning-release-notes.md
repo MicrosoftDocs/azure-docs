@@ -13,9 +13,89 @@ ms.date: 09/10/2020
 
 # Azure Machine Learning release notes
 
-In this article, learn about Azure Machine Learning releases.  For the full SDK reference content,  visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) reference page.
+In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) reference page.
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
+
+## 2020-10-12
+
+### Azure Machine Learning SDK for Python v1.16.0
++ **Bug fixes and improvements**
+  + **azure-cli-ml**
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via 1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls 3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files More information on Kubernetes Resources and Limits can be found at https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-interpret**
+    + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-contrib-k8s**
+    + Added Support for attaching ArcKubernetes compute
+  + **azureml-contrib-mir**
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via 1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls 3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files More information on Kubernetes Resources and Limits can be found at https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-contrib-server**
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. These optional limits can be defined via 1. Setting `cpu_cores_limit` and `memory_gb_limit` parameters in the `AKSEndpoint.deploy_configuration()` and `AKSWebservice.deploy_configuration()` method 2. Setting `--cpu-cores-limit` and `--memory-gb-limit` flags in applicable CLI calls 3. Setting `cpuLimit` and `memoryInGBLimit` in the `containerResourceRequirements` of deployment configuration .json/.yml files More information on Kubernetes Resources and Limits can be found at https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+  + **azureml-core**
+    + Pin major versions of direct dependencies of azureml-core
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on Kubernetes Resources and Limits can be found at https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
+    + Updated run.log_table to allow individual rows to be logged.
+    + Added static method `Run.get(workspace, run_id)` to retrieve a run only using a workspace - added instance method `Workspace.get_run(run_id)` to retrieve a run within the workspace
+    + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
+  + **azureml-dataprep-native**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+  + **azureml-explain-model**
+    + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-interpret**
+    + fixed explanation client is_raw flag behavior in azureml-interpret
+    + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-pipeline-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+  + **azureml-sdk**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+  + **azureml-tensorboard**
+    + fix package descriptions causing upload error to pypi for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-train**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+  + **azureml-train-core**
+    + `azureml-train, azureml-train-core, azureml-sdk, azureml-pipeline-core, azureml-dataprep-native` officially support Python 3.8.
+    + Adding TensorFlow 2.3 curated environment
+    + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
+  + **azureml-widgets**
+    + Redesigned interface for script run widget.
+
+
+## 2020-09-28
+
+### Azure Machine Learning SDK for Python v1.15.0
++ **Bug fixes and improvements**
+  + **azureml-contrib-interpret**
+    + LIME explainer moved from azureml-contrib-interpret to interpret-community package and image explainer removed from azureml-contrib-interpret package
+    + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
+    + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-contrib-notebook**
+    + Pin nbcovert dependency to < 6 so that papermill 1.x continues to work.
+  + **azureml-core**
+    + Added parameters to the TensorflowConfiguration and MpiConfiguration constructor to enable a more streamlined initialization of the class attributes without requiring the user to set each individual attribute. Added a PyTorchConfiguration class for configuring distributed PyTorch jobs in ScriptRunConfig.
+    + Pin the version of azure-mgmt-resource to fix the authentication error.
+    + Support Triton No Code Deploy
+    + outputs directories specified in Run.start_logging() will now be tracked when using run in interactive scenarios. The tracked files will be visible on ML Studio upon calling Run.complete()
+    + File encoding can be now specified during dataset creation with `Dataset.Tabular.from_delimited_files` and `Dataset.Tabular.from_json_lines_files` by passing the `encoding` argument. The supported encodings are 'utf8', 'iso88591', 'latin1', 'ascii', utf16', 'utf32', 'utf8bom' and 'windows1252'.
+    + Bug fix when environment object is not passed to ScriptRunConfig constructor.
+    + Updated Run.cancel() to allow cancel of a local run from another machine.
+  + **azureml-dataprep**
+    +  Fixed dataset mount timeout issues.
+  + **azureml-explain-model**
+    + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-interpret**
+    + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
+    + azureml-interpret package updated to depend on interpret-community 0.15.0
+    + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-pipeline-core**
+    +  Fixed pipeline issue with `OutputFileDatasetConfig` where the system may stop responding when`register_on_complete` is called with the `name` parameter set to a pre-existing dataset name.
+  + **azureml-pipeline-steps**
+    + Removed stale databricks notebooks.
+  + **azureml-tensorboard**
+    + fix pypi package descriptions for azureml-interpret, azureml-explain-model, azureml-contrib-interpret and azureml-tensorboard
+  + **azureml-train-automl-runtime**
+    + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
+  + **azureml-widgets**
+    + visualization dashboard removed from azureml-contrib-interpret package, explanation client moved to azureml-interpret package and deprecated in azureml-contrib-interpret package and notebooks updated to reflect improved API
 
 ## 2020-09-21
 
@@ -1257,7 +1337,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
   + [**azureml-datadrift**](https://docs.microsoft.com/python/api/azureml-datadrift)
     + Moved from `azureml-contrib-datadrift` into `azureml-datadrift`
     + Added support for monitoring time series datasets for drift and other statistical measures
-    + New methods `create_from_model()` and `create_from_dataset()` to the [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) class. The `create()` method will be deprecated.
+    + New methods `create_from_model()` and `create_from_dataset()` to the [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector%28class%29) class. The `create()` method will be deprecated.
     + Adjustments to the visualizations in Python and UI in the Azure Machine Learning studio.
     + Support weekly and monthly monitor scheduling, in addition to daily for dataset monitors.
     + Support backfill of data monitor metrics to analyze historical data for dataset monitors.
@@ -1362,7 +1442,7 @@ Azure Machine Learning is now a resource provider for Event Grid, you can config
     + Support using environment for model deployment, and service update.
   + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
     + The show attribute of [DataDriftDetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) class won't support optional argument 'with_details' anymore. The show attribute will only present data drift coefficient and data drift contribution of feature columns.
-    + DataDriftDetector function [get_output]https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) behavior changes:
+    + DataDriftDetector function [get_output]python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) behavior changes:
       + Input parameter start_time, end_time are optional instead of mandatory;
       + Input specific start_time and/or end_time with a specific run_id in the same invoking will result in value error exception because they are mutually exclusive;
       + By input specific start_time and/or end_time, only results of scheduled runs will be returned;
@@ -1456,7 +1536,7 @@ The Experiment tab in the [new workspace portal](https://ml.azure.com) has been 
     + Supported training_data, validation_data, label_column_name, weight_column_name as data input format
     + Added deprecation message for explain_model() and retrieve_model_explanations()
   + **[azureml-pipeline-core](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
-    + Added a [notebook](https://aka.ms/pl-modulestep) to describe [Module](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion, and [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
+    + Added a [notebook](https://aka.ms/pl-modulestep) to describe [Module](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module%28class%29), [ModuleVersion, and [ModuleStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep).
   + **[azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
     + Added [RScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) to support R script run via AML pipeline.
     + Fixed metadata parameters parsing in [AzureBatchStep that was causing the error message "assignment for parameter SubscriptionId is not specified".
@@ -1746,7 +1826,7 @@ At the time, of this release, the following browsers are supported: Chrome, Fire
 + **New features**
   + Automated Machine Learning now supports training ONNX models on the remote compute target
   + Azure Machine Learning now provides ability to resume training from a previous run, checkpoint, or model files.
-    + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/training/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
+    + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/tensorflow/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
 + **Bug fixes and improvements**
   + **azure-cli-ml**
@@ -2010,7 +2090,7 @@ The [`PipelineEndpoint`](https://docs.microsoft.com/python/api/azureml-pipeline-
 
 + **New features**
   + Azure Machine Learning now provides first class support for popular DNN framework Chainer. Using [`Chainer`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py&preserve-view=true) class users can easily train and deploy Chainer models.
-    + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/training/distributed-chainer/distributed-chainer.ipynb)
+    + Learn how to [run distributed training with ChainerMN](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/distributed-chainer/distributed-chainer.ipynb)
     + Learn how to [run hyperparameter tuning with Chainer using HyperDrive](https://github.com/Azure/MachineLearningNotebooks/blob/b881f78e4658b4e102a72b78dbd2129c24506980/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb)
   + Azure Machine Learning Pipelines added ability to trigger a Pipeline run based on datastore modifications. The pipeline [schedule notebook](https://aka.ms/pl-schedule) is updated to showcase this feature.
 

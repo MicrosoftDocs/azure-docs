@@ -31,6 +31,7 @@ A storage class is used to define how an Azure file share is created. A storage 
 * *Standard_ZRS* - standard zone redundant storage (ZRS)
 * *Standard_RAGRS* - standard read-access geo-redundant storage (RA-GRS)
 * *Premium_LRS* - premium locally redundant storage (LRS)
+* *Premium_ZRS* - premium zone redundant storage (ZRS)
 
 > [!NOTE]
 > Azure Files support premium storage in AKS clusters that run Kubernetes 1.13 or higher, minimum premium file share is 100GB

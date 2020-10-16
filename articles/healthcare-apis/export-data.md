@@ -1,6 +1,6 @@
 ---
 title: Executing the export by invoking $export command on Azure API for FHIR
-description: This article describes how to set up and use de-identified export
+description: This article describes how to export FHIR data using $export
 author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -10,36 +10,31 @@ ms.author: matjazl
 ---
 # How to export FHIR data
 
-For configuring export settings and creating Azure storage account, please refer to [here](configure-export-data.md).
 
-## Exporting FHIR resources using $export command
+The Bulk Export feature allows data to be exported from the FHIR Server per the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). 
 
-After we have configured Azure API for FHIR for export, we can now go and use the $export command to export the data out of the service into the storage account we specified while configuring export. To learn how to invoke $export command in FHIR server, please read documentation on $export specification at [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
+Before using $export, you will want to make sure that the Azure API for FHIR is configured to use it. For configuring export settings and creating Azure storage account, refer to [the configure export data page](configure-export-data.md).
 
-The $export command in Azure API for FHIR takes an optional _\_conatiner_ parameter that can be used to specify the container within the configured storage account to which the data should be exported.
+## Using $export command
+
+After configuring the Azure API for FHIR for export, you can use the $export command to export the data out of the service. The data will be stored into the storage account you specified while configuring export. To learn how to invoke $export command in FHIR server, read documentation on the [$export specification](https://hl7.org/Fhir/uv/bulkdata/export/index.html). 
+
+The $export command in Azure API for FHIR takes an optional _\_container_ parameter that specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported to that container in a new folder with the name. If the container is not specified, it will be exported to a new container with a randomly generated name. 
 
 `https://<<FHIR service base URL>>/$export?_container=<<container_name>>`
 
-> [!IMPORTANT]
-> Note that currently Azure API for FHIR only supports system level export as defined in $export specification at [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html). Also, only _\_since_ query parameter is currently supported.
+## Supported scenarios
 
-## Exporting de-identified data (preview)
+Azure API for FHIR supports $export at the system, patient, and group level. For group export, we export all related resources but do not export the characteristics of the group.
 
-The $export command can also be used to export de-identified data from the FHIR server. It uses the anonymization engine from [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization), and takes anonymization config details in query parameters. You can create your own anonymization config file or use the [sample config file](https://github.com/microsoft/FHIR-Tools-for-Anonymization#sample-configuration-file-for-hipaa-safe-harbor-method) for HIPAA Safe Harbor method as a starting point. 
+> [!Note] 
+> $export will export duplicate resources if the resource is in a compartment of more than one resource, or is in multiple groups.
 
- `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
-
-|Query parameter            | Example |Optionality| Description|
-|---------------------------|---------|-----------|------------|
-| _\_anonymizationConfig_   |DemoConfig.json|Required for de-identified export |Name of the configuration file. See the configuration file format [here](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). This file should be kept inside a container named **anonymization** within the same Azure storage account that is configured as the export location. |
-| _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Optional for de-identified export|This is the Etag of the configuration file. You can get the Etag using Azure Storage Explorer from the blob property|
-
-> [!IMPORTANT]
-> Note that both raw export as well as de-identified export writes to the same Azure storage account specified as part of export configuration. It is recommended that you use different containers corresponding to different de-identified config and manage user access at the container level.
+In addition, checking the export status through the URL returned by the location header during the queuing is supported along with canceling the actual export job is supported.
 
 ## Next steps
 
-In this article, you learned how to exporting FHIR resources using $export command, including de-identified data. Next, you can configure your export data:
+In this article, you learned how to export FHIR resources using $export command. Next, you can review our supported features:
  
 >[!div class="nextstepaction"]
->[configure export data](configure-export-data.md)
+>[Supported features](fhir-features-supported.md)

@@ -7,6 +7,7 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: overview
 ms.topic: tutorial
 ms.date: 09/15/2020 
 ---
@@ -41,7 +42,6 @@ The **Knowledge Center** allows you to do three things:
 1. Click Run. It will run the text you selected.
 
 ## Loading more NYC Taxi Data
-
 1. The **Knowledge Center**, click **Browse available samples** 
 1. Select the **SQL scripts** tab at the top
 1. Select **Load the New York Taxicab dataset**
@@ -53,5 +53,6 @@ The **Knowledge Center** allows you to do three things:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Analyze using a SQL pool](get-started-analyze-sql-pool.md)
+* [Get started with Azure Synapse Analytics](get-started.md)
+* [Create a workspace](quickstart-create-workspace.md)
+* [Use SQL on-demand](quickstart-sql-on-demand.md)
