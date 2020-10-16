@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: jasteppe
 ---
