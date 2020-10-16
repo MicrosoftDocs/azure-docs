@@ -3,7 +3,7 @@ title: Azure EA VM reserved instances
 description: This article summaries how Azure reservations for VM reserved instances can help you save you money with your enterprise enrollment.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/03/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
@@ -17,6 +17,12 @@ This article summaries how Azure reservations for VM reserved instances can help
 ## Reservation exchanges and refunds
 
 You can exchange a reservation for another reservation of the same type. It's also possible to refund a reservation, up to $50,000 USD per year, if you no longer need it. The Azure portal can be used to exchange or refund a reservation. For more information, see [Self-service exchanges and refunds for Azure Reservations](../reservations/exchange-and-refund-azure-reservations.md).
+
+### Partial refunds
+
+We’ll issue a partial refund when EA customers return reservations that were purchased using overage and not monetary commitment.
+
+The refund will be displayed in the EA portal as a negative adjustment in the previous month and a positive adjustment in the current month. It will show up similarly to a reservations exchange. The credit memo will reference the original invoice number; therefore, to reconcile the initial purchase with the credit memo, please refer to the original invoice number.
 
 ## Reservation costs and usage
 
