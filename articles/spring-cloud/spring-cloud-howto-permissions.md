@@ -100,7 +100,52 @@ From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
 This procedure defines a role with permissions to deploy, test, and restart Azure Spring Cloud apps.
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
-2. Select the permissions:
+2. Select the permissions for the DevOps engineer role:
+
+From **Microsoft.AppPlatform/Spring**, select:
+* Write : Create or Update Azure Spring Cloud service instance
+* Delete : Delete Azure Spring Cloud service instance
+* Read : Get Azure Spring Cloud service instance
+* Other : Enable Azure Spring Cloud service instance test endpoint
+* Other : Disable Azure Spring Cloud service instance test endpoint
+* Other : List Azure Spring Cloud service instance test keys
+* Other : Regenerate Azure Spring Cloud service instance test key
+
+From **Microsoft.AppPlatform/Spring/apps**, select:
+* Write : Write Microsoft Azure Spring Cloud application
+* Delete : Delete Microsoft Azure Spring Cloud application
+* Read : Read Microsoft Azure Spring Cloud application
+* Other : Get Microsoft Azure Spring Cloud application resource upload URL
+* Other : Validate Microsoft Azure Spring Cloud application custom domain
+
+From **Microsoft.AppPlatform/Spring/apps/bindings**, select:
+* Write : Write Microsoft Azure Spring Cloud application binding
+* Delete : Delete Microsoft Azure Spring Cloud application binding
+* Read : Read Microsoft Azure Spring Cloud application binding
+
+From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
+* Write : Write Microsoft Azure Spring Cloud application deployment
+* Delete : Delete Azure Spring Cloud application deployment
+* Read : Read Microsoft Azure Spring Cloud application deployment
+* Other : Start Microsoft Azure Spring Cloud application deployment
+* Other : Stop Microsoft Azure Spring Cloud application deployment
+* Other : Restart Microsoft Azure Spring Cloud application deployment
+* Other : Get Microsoft Azure Spring Cloud application deployment log file URL
+
+From **Microsoft.AppPlatform/Spring/apps/deployments/skus**, select:
+* Read : List application deployment available skus
+
+From **Microsoft.AppPlatform/locations**, select:
+* Other : Check name availability
+
+From Microsoft.AppPlatform/locations/operationResults/Spring select:
+Read : Read operation result
+
+From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
+* Read : Read operation status
+
+From **Microsoft.AppPlatform/skus**, select:
+* Read : List available skus
 
    [ ![App platform permissions](media/spring-cloud-permissions/dev-ops-permissions.png) ](media/spring-cloud-permissions/dev-ops-permissions.png#lightbox)
 
@@ -115,7 +160,26 @@ This procedure defines a role with permissions to deploy, test, and restart Azur
 
 1. Repeat the procedure to navigate subscription, resource group,and access Access control (IAM).
 
-2. Select the permissions:
+2. Select the permissions for the Ops - Site Reliability Engineering role:
+
+From **Microsoft.AppPlatform/Spring**, select:
+* Read : Get Azure Spring Cloud service instance
+* Other : List Azure Spring Cloud service instance test keys
+
+From **Microsoft.AppPlatform/Spring/apps**, select:
+* Read : Read Microsoft Azure Spring Cloud application
+
+From **Microsoft.AppPlatform/apps/deployments**, select:
+* Read : Read Microsoft Azure Spring Cloud application deployment
+* Other : Start Microsoft Azure Spring Cloud application deployment
+* Other : Stop Microsoft Azure Spring Cloud application deployment
+* Other : Restart Microsoft Azure Spring Cloud application deployment
+
+From **Microsoft.AppPlatform/locations/operationResults/Spring**, select:
+* Read : Read operation result
+
+From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
+* Read : Read operation status
 
    [ ![App platform permissions](media/spring-cloud-permissions/ops-sre-permissions.png) ](media/spring-cloud-permissions/ops-sre-permissions.png#lightbox)
 
@@ -132,8 +196,53 @@ This Jenkins/Github Actions role can create and configure everything in Azure Sp
 
 2. Open the **Permissions** options.
 
-3. Select the permissions:
+3. Select the permissions for the Azure Pipelines/Provisioning role:
   
+From **Microsoft.AppPlatform/Spring**, select:
+* Write : Create or Update Azure Spring Cloud service instance
+* Delete : Delete Azure Spring Cloud service instance
+* Read : Get Azure Spring Cloud service instance
+* Other : Enable Azure Spring Cloud service instance test endpoint
+* Other : Disable Azure Spring Cloud service instance test endpoint
+* Other : List Azure Spring Cloud service instance test keys
+* Other : Regenerate Azure Spring Cloud service instance test key
+
+From **Microsoft.AppPlatform/Spring/apps**, select:
+* Write : Write Microsoft Azure Spring Cloud application
+* Delete : Delete Microsoft Azure Spring Cloud application
+* Read : Read Microsoft Azure Spring Cloud application
+* Other : Get Microsoft Azure Spring Cloud application resource upload URL
+* Other : Validate Microsoft Azure Spring Cloud application custom domain
+
+From **Microsoft.AppPlatform/Spring/apps/bindings**, select:
+* Write : Write Microsoft Azure Spring Cloud application binding
+* Delete : Delete Microsoft Azure Spring Cloud application binding
+* Read : Read Microsoft Azure Spring Cloud application binding
+
+From **Microsoft.AppPlatform/Spring/apps/deployments**, select:
+* Write : Write Microsoft Azure Spring Cloud application deployment
+* Delete : Delete Azure Spring Cloud application deployment
+* Read : Read Microsoft Azure Spring Cloud application deployment
+* Other : Start Microsoft Azure Spring Cloud application deployment
+* Other : Stop Microsoft Azure Spring Cloud application deployment
+* Other : Restart Microsoft Azure Spring Cloud application deployment
+* Other : Get Microsoft Azure Spring Cloud application deployment log file URL
+
+From **Microsoft.AppPlatform/skus**, select:
+* Read : List available skus
+
+From **Microsoft.AppPlatform/locations**, select:
+* Other : Check name availability
+
+From **Microsoft.AppPlatform/locations/operationResults/Spring**, select:
+* Read : Read operation result
+
+From **Microsoft.AppPlatform/locations/operationStatus/operationId**, select:
+* Read : Read operation status
+
+From **Microsoft.AppPlatform/skus**, select:
+* Read : List available skus
+
    [ ![App platform permissions](media/spring-cloud-permissions/pipelines-permissions-box.png) ](media/spring-cloud-permissions/pipelines-permissions-box.png#lightbox)  
 
 4. Click **Add**.
