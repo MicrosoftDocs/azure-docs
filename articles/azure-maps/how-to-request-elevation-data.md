@@ -48,7 +48,9 @@ To request elevation data in raster tile format, use the [Render V2 - Get Map Ti
 Use the Elevation service APIs to request elevation data in GeoJSON format. This section will show you each one of the three APIs:
 
 * [Get Data For Points](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates)
+* [Post Data For Points](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates)
 * [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline)
+* [Post Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline)
 * [Get Data for Bounding Box](https://docs.microsoft.com/rest/api/maps/elevation/getdataforboundingbox)
 
 >[!IMPORTANT]
@@ -56,7 +58,10 @@ Use the Elevation service APIs to request elevation data in GeoJSON format. This
 
 ### Request elevation data for points
 
-In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
+In this example, we'll use the [Get Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/getdataforlatlongcoordinates) to request elevation data at Mt. Everest and Chamlang mountains. Then, we'll use the [Post Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) in order to request elevation data using the same two points. Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
+
+ >[!IMPORTANT]
+ >Due to the URL character length limit of 2048, it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the POST Data For Points.
 
 1. Open the Postman app. Near the top of the Postman app, select **New**. In the **Create New** window, select **Collection**.  Name the collection and select the **Create** button.
 
@@ -91,11 +96,39 @@ In this example, we'll use the [Get Data For Points API](https://docs.microsoft.
     }
     ```
 
+5. Now, we'll call the [Post Data For Points API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforlatlongcoordinates) to get elevation data for the same two points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+
+    ```http
+    https://atlas.microsoft.com/elevation/point/json?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0
+    ```
+
+6. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the coordinate point information below. When you're done, click **Send**.
+
+     ```json
+    [
+        {
+            "lon": -73.998672,
+            "lat": 40.714728
+        },
+        {
+            "lon": 150.644,
+            "lat": -34.397
+        }
+    ]
+    ```
+
 ### Request elevation data samples along a Polyline
 
 In the first part of this example, we'll use the [Get Data for Polyline](https://docs.microsoft.com/rest/api/maps/elevation/getdataforpolyline) to request five equally spaced samples of elevation data along a straight line between coordinates at Mt. Everest and Chamlang mountains. Both coordinates must be defined in Long/Lat format.
 
 Then, we'll use the Get Data for Polyline to request three equally spaced samples of elevation data along a path. We'll define the precise location for the samples by passing in three Long/Lat coordinate pairs.
+
+Finally, we'll use the [Post Data For Polyline API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) in order to request elevation data at the same three equally spaced samples. 
+
+Latitudes and longitudes in the URL are expected to be in WGS84 (World Geodetic System) decimal degree.
+
+ >[!IMPORTANT]
+ >Due to the URL character length limit of 2048, it's not possible to pass more than 100 coordinates as a pipeline delimited string in a URL GET request. If you intend to pass more than 100 coordinates as a pipeline delimited string, use the POST Data For Points.
 
 >[!NOTE]
 >If you do not specify a value for the `samples` parameter, the number of samples defaults to 10. The maximum number of samples is 2,000.
@@ -191,6 +224,32 @@ Then, we'll use the Get Data for Polyline to request three equally spaced sample
         ]
     }
     ```
+
+7. Now, we'll call the [Post Data For Polyline API](https://docs.microsoft.com/rest/api/maps/elevation/postdataforpolyline) to get elevation data for the same three points. Select the **POST** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
+
+    ```http
+    https://atlas.microsoft.com/elevation/line/json?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}&samples=5
+    ```
+
+8. In the **Headers** of the **POST** request, set `Content-Type` to `application/json`. In the **Body**, provide the coordinate point information below. When you're done, click **Send**.
+
+     ```json
+    [
+        {
+            "lon": 86.9797222,
+            "lat": 27.775
+        },
+        {
+            "lon": 86.9252778,
+            "lat": 27.9880556
+        },
+        {
+            "lon": 88.0444444,
+            "lat": 27.6822222
+        }
+    ]
+    ```
+
 
 ### Request elevation data by Bounding Box
 
