@@ -145,19 +145,19 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 1. On the top, click on **Tools**.
 
-	![image](./media/ringcentral-tutorial/ringcentral1.png)
+	![Screenshot shows Tools selected from the RingCentral company site.](./media/ringcentral-tutorial/ringcentral1.png)
 
 1. Navigate to **Single Sign-on**.
 
-	![image](./media/ringcentral-tutorial/ringcentral2.png)
+	![Screenshot shows Single Sign-On selected from the Tools menu.](./media/ringcentral-tutorial/ringcentral2.png)
 
 1. On the **Single Sign-on** page, under **SSO Configuration** section, from **Step 1** click **Edit** and perform the following steps:
 
-	![image](./media/ringcentral-tutorial/ringcentral3.png)
+	![Screenshot shows the S S O Configuration page where you can select Edit.](./media/ringcentral-tutorial/ringcentral3.png)
 
 1. On the **Set up Single Sign-on** page, perform the following steps:
 
-	![image](./media/ringcentral-tutorial/ringcentral4.png)
+	![Screenshot shows the Set up Single Sign-On page where you can upload I D P metadata.](./media/ringcentral-tutorial/ringcentral4.png)
 
 	a. Click **Browse** to upload the metadata file which you have downloaded from Azure portal.
 
@@ -169,11 +169,11 @@ In this section, you'll enable Britta Simon to use Azure single sign-on by grant
 
 	e. From **Step 2** click **Download** to download the **Service Provider metadata file** and upload it in **Basic SAML Configuration** section to auto-populate the **Identifier** and **Reply URL** values in Azure portal.
 
-	![image](./media/ringcentral-tutorial/ringcentral6.png) 
+	![Screenshot shows the S S O Configuration page where you can select Download.](./media/ringcentral-tutorial/ringcentral6.png) 
 
 	f. On the same page, navigate to **Enable SSO** section and perform the following steps:
 
-	![image](./media/ringcentral-tutorial/ringcentral5.png)
+	![Screenshot shows the Enable S S O section where you can finish the configuration.](./media/ringcentral-tutorial/ringcentral5.png)
 
 	* Select **Enable SSO Service**.
 
