@@ -67,7 +67,7 @@ its password. Here's how:
 1. Select **New client secret**.
 1. On the **Add a client secret** page, enter a **Description**, select an expiration time under **Expires**, and then select **Add**.
 
-   On the **Client secrets** page, the string in the **Value** column of your new secret is your password. Save this vaulue.
+   On the **Client secrets** page, the string in the **Value** column of your new secret is your password. Save this value.
 
    :::image type="content" source="./media/tutorial-using-rest-apis/client-secret.png" alt-text="Screenshot showing a client secret.":::
 
