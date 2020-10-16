@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Babylon?
     href: overview.md
+  - name: Deployment best practices
+    href: deployment-best-practices.md
   - name: Product limitations
     href: product-limitations.md
 - name: Quickstarts
