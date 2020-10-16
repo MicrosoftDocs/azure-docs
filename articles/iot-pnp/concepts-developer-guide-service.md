@@ -25,14 +25,14 @@ The service SDKs let you access device information from a solution, such as a de
 
 - Iot Hub service client. This service exposes the model ID as a device twin property.
 
-- Digital Twins service client. The new Digital Twins API operates on [Digital Twins Definition Language (DTDL)](concepts-digital-twin.md) model constructs such as components, properties, and commands. The Digital Twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
+- Digital Twins client. The new Digital Twins API operates on [Digital Twins Definition Language (DTDL)](concepts-digital-twin.md) model constructs such as components, properties, and commands. The Digital Twin APIs make it easier for solution builders to create IoT Plug and Play solutions.
 
-| Platform | IoT Hub service client | Digital Twins service client |
-| -------- | ---------------------- | ---------------------------- |
-| .NET     | [Documentation](/dotnet/api/microsoft.azure.devices) <br/> [Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples)| [Samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
-| Java     | [Documentation](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> [Samples](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample)| [Samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
-| Node.js  | [Documentation](/javascript/api/azure-iothub/twin?preserve-view=true&view=azure-node-latest) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js)| [Documentation](/javascript/api/azure-iot-digitaltwins-service/?preserve-view=true&view=azure-node-latest) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
-| Python   | [Documentation](/python/api/azure-iot-hub/azure.iot.hub.iothubregistrymanager?preserve-view=true&view=azure-python) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py)| [Documentation](/python/api/azure-iot-hub/azure.iot.hub.iothubdigitaltwinmanager?preserve-view=true&view=azure-python) <br/> [Sample](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
+| Platform | Documentation | Samples |
+| -------- | ------------- | ------- |
+| .NET     | [Reference](/dotnet/api/microsoft.azure.devices) | [Service client](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples) </br> [Digital Twins](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/DigitalTwinClientSamples) |
+| Java     | [Reference](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice?preserve-view=true&view=azure-java-stable) <br/> | [Service client](https://github.com/Azure/azure-iot-sdk-java/blob/master/service/iot-service-samples/pnp-service-sample) </br>[Digital Twins](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/digitaltwin-service-samples) |
+| Node.js  | [Reference](/javascript/api/azure-iothub?preserve-view=true&view=azure-node-latest) | [Service client](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/twin.js) </br> [Digital Twins](https://github.com/Azure/azure-iot-sdk-node/blob/master/service/samples/javascript/get_digital_twin.js) |
+| Python   | [Reference](/python/api/azure-iot-hub/azure.iot.hub?preserve-view=true&view=azure-python) <br/> | [Service client](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/iothub_registry_manager_method_sample.py) </br> [Digital Twins](https://github.com/Azure/azure-iot-sdk-python/blob/master/azure-iot-hub/samples/get_digital_twin_sample.py) |
 
 ## IoT Hub service client examples
 
@@ -156,7 +156,7 @@ catch (DeviceNotFoundException)
 }
 ```
 
-## Digital twin examples
+## IoT Hub digital twin examples
 
 You use the **DigitalTwinClient** class to interact with the device state using digital twins. The [DTDL](concepts-digital-twin.md) model for the device defines the properties and commands the device implements.
 
@@ -364,43 +364,6 @@ catch (HttpOperationException e)
         Console.WriteLine("Unable to execute command getMaxMinReport on component thermostat1.");
     }
 }
-```
-
-## REST API
-
-The following examples use the IoT Hub REST API to interact with a connected IoT Plug and Play device. The current version of the API is `2020-09-30`. Append `?api-version=2020-09-30` to your REST PI calls.
-
-> [!NOTE]
-> Module twins are not currently supported by the `digitalTwins` API.
-
-If your thermostat device is called `t-123`, you get the all the properties on all the interfaces implemented by your device with a REST API GET call:
-
-```REST
-GET /digitalTwins/t-123
-```
-
-This call will include the Json property `$metadata.$model` with the model ID announced by the device.
-
-All properties on all interfaces are accessed with the `GET /DigitalTwin/{device-id}` REST API template where `{device-id}` is the identifier for the device:
-
-```REST
-GET /digitalTwins/{device-id}
-```
-
-You can call IoT Plug and Play device commands directly. If the `Thermostat` component in the `t-123` device has a `restart` command, you can call it with a REST API POST call:
-
-```REST
-POST /digitalTwins/t-123/components/Thermostat/commands/restart
-```
-
-More generally, commands can be called through this REST API template:
-
-- `device-id`: the identifier for the device.
-- `component-name`: the name of the interface from the implements section in the device capability model.
-- `command-name`: the name of the command.
-
-```REST
-/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
 ```
 
 ## Read device telemetry
