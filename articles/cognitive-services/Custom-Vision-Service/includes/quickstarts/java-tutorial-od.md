@@ -20,10 +20,10 @@ Use the Custom Vision client library for Java to:
 * Publish the current iteration
 * Test the prediction endpoint
 
-[Reference documentation](https://docs.microsoft.com/en-us/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | 
+[Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable) | 
 Library source code [(training)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-training) [(prediction)](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cognitiveservices/ms-azure-cs-customvision-prediction)| 
 Artifact (Maven) [(training)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-training/1.1.0-preview.2/jar) [(prediction)](https://search.maven.org/artifact/com.azure/azure-cognitiveservices-customvision-prediction/1.1.0-preview.2/jar) | 
-[Samples](https://docs.microsoft.com/en-us/samples/browse/?products=azure&terms=custom%20vision)
+[Samples](https://docs.microsoft.com/samples/browse/?products=azure&terms=custom%20vision)
 
 
 ## Prerequisites
@@ -111,9 +111,9 @@ The following classes and interfaces handle some of the major features of the Cu
 
 |Name|Description|
 |---|---|
-|[CustomVisionTrainingClient](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | This class handles the creation, training, and publishing of your models. |
-|[CustomVisionPredictionClient](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| This class handles the querying of your models for object detection predictions.|
-|[ImagePrediction](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| This class defines a single object prediction on a single image. It includes properties for the object ID and name, the bounding box location of the object, and a confidence score.|
+|[CustomVisionTrainingClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-java-stable) | This class handles the creation, training, and publishing of your models. |
+|[CustomVisionPredictionClient](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-java-stable)| This class handles the querying of your models for object detection predictions.|
+|[ImagePrediction](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-java-stable)| This class defines a single object prediction on a single image. It includes properties for the object ID and name, the bounding box location of the object, and a confidence score.|
 
 ## Code examples
 
