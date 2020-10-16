@@ -32,7 +32,7 @@ After you're finished, you can follow the recommended next steps at the end of t
    
 * Review the basic Azure VMware Solution Software Defined Datacenter (SDDC) [tutorial series](tutorial-network-checklist.md).
 * Review and reference the [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html), including the HCX user guide.
-* Review [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) on VMWare Docs.
+* Review [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) on VMware Docs.
 * Optionally review [VMware HCX Deployment Considerations](https://docs.vmware.com/en/VMware-HCX/services/install-checklist/GUID-C0A0E820-D5D0-4A3D-AD8E-EEAA3229F325.html).
 * Optionally review related VMware materials on HCX, such as the VMware vSphere [blog series](https://blogs.vmware.com/vsphere/2019/10/cloud-migration-series-part-2.html). 
 * Optionally request an Azure VMware Solution HCX Enterprise activation through Azure VMware Solution support channels.
@@ -102,8 +102,8 @@ Infrastructure components must be running the required minimum version.
    >Generally, the VMware HCX Connector that you're deploying now is deployed onto the cluster's management network.  
    
    > [!IMPORTANT]
-   > After the deployment finishes, you might need to power on the virtual appliance manually.
-   > Wait 10-15 minutes after powering on the HCX appliance to move to the next step.
+   > After the deployment finishes, you might need to turn on the virtual appliance manually.
+   > Wait 10-15 minutes after turning on the HCX appliance to move to the next step.
 
 For an end-to-end overview of this procedure, view the [Azure VMware Solution: HCX Appliance Deployment](https://www.youtube.com/embed/BwSnQeefnso) video. 
 
@@ -145,7 +145,7 @@ After the services restart, it's critical that you see vCenter showing as green 
 
 :::image type="content" source="media/tutorial-vmware-hcx/activation-done.png" alt-text="Screenshot of the dashboard with green vCenter status." lightbox="media/tutorial-vmware-hcx/activation-done.png":::  
 
-For an end-to-end overview of this procedure, view the [Azure VMware Solution - Activate HCX](https://www.youtube.com/embed/BkAV_TNYxdE) video.
+For an end-to-end overview of this procedure, view the [Azure VMware Solution: Activate HCX](https://www.youtube.com/embed/BkAV_TNYxdE) video.
 
 
 ## Configure the VMware HCX Connector
@@ -228,28 +228,28 @@ For an end-to-end overview of this procedure, view the [Azure VMware Solution: H
 
    :::image type="content" source="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png" alt-text="Screenshot that shows a selected data storage resource and the Continue button." lightbox="media/tutorial-vmware-hcx/deployment-resources-and-reservations.png":::  
 
-1. For **Select Management Network Profile**, select the management network profile that you created in previous steps. Then select **Continue**.  
+1. From **Select Management Network Profile**, select the management network profile that you created in previous steps. Then select **Continue**.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="Screenshot that shows the selection of a management network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
 
    > [!NOTE]
    > The management network profile allows the VMware HCX appliances to communicate with vCenter. The ESXi hosts can be reached through this profile.
 
-1. For **Select Uplink Network Profile**, select the uplink network profile that you created in previous steps. Then select **Continue**.
+1. From **Select Uplink Network Profile**, select the uplink network profile that you created in previous steps. Then select **Continue**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-uplink-network-profile.png" alt-text="Screenshot that shows the selection of an uplink network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-uplink-network-profile.png":::
 
-1. For **Select vMotion Network Profile**, select the vMotion network profile that you created in prior steps. Then select **Continue**.
+1. From **Select vMotion Network Profile**, select the vMotion network profile that you created in prior steps. Then select **Continue**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-vmotion-network-profile.png" alt-text="Screenshot that shows the selection of a vMotion network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-vmotion-network-profile.png":::
 
-1. For **Select vSphere Replication Network Profile**, select the replication network profile that you created in prior steps. Then select **Continue**.
+1. From **Select vSphere Replication Network Profile**, select the replication network profile that you created in prior steps. Then select **Continue**.
 
    In most cases, the replication network profile is the same as the management network profile.  
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-replication-network-profile.png" alt-text="Screenshot that shows the selection of a replication network profile and the Continue button." lightbox="media/tutorial-vmware-hcx/select-replication-network-profile.png":::
 
-1. For **Select Distributed Switches for Network Extensions**, select the distributed virtual switches that contain the virtual machines to be migrated to Azure VMware Solution on a layer-2 extended network. Then select **Continue**.
+1. From **Select Distributed Switches for Network Extensions**, select the distributed virtual switches that contain the virtual machines to be migrated to Azure VMware Solution on a layer-2 extended network. Then select **Continue**.
 
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Screenshot that shows the selection of distributed virtual switches and the Continue button." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -289,7 +289,7 @@ Now it's time to configure a service mesh between on-premises and Azure VMware S
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-compute-profile-remote.png" alt-text="Screenshot that shows selecting the remote compute profile." lightbox="media/tutorial-vmware-hcx/select-compute-profile-remote.png":::
 
-1. Review services that will be enabled and then select **Continue**.  
+1. Review services that will be enabled, and then select **Continue**.  
 
 1. In **Advanced Configuration - Override Uplink Network profiles**, select **Continue**.  Uplink network profiles connect to the network through which the remote site's interconnect appliances can be reached.  
   
@@ -325,7 +325,7 @@ If you want to extend any networks from your on-premises environment to Azure VM
 
    :::image type="content" source="media/tutorial-vmware-hcx/create-network-extension.png" alt-text="Screenshot that shows selections for starting to create a network extension." lightbox="media/tutorial-vmware-hcx/create-network-extension.png":::
 
-1. Select each of the networks you want to extend to Azure VMware Solution and then select **Next**.
+1. Select each of the networks you want to extend to Azure VMware Solution, and then select **Next**.
 
    :::image type="content" source="media/tutorial-vmware-hcx/select-extend-networks.png" alt-text="Screenshot that shows the selection of a network.":::
 
@@ -344,4 +344,4 @@ For an end-to-end overview of this step, view the [Azure VMware Solution: Networ
 
 If you've reached this point and the appliance interconnect tunnel status is **UP** and green, you can migrate and protect Azure VMware Solution VMs by using VMware HCX. Azure VMware Solution supports workload migrations (with or without a network extension). You can still do workload migrations in your vSphere environment, along with on-premises creation of networks and deployment of VMs onto those networks.  
 
-For more information about HCX, see [VMware HCX documentation](https://docs.vmware.com/en/VMware-HCX/index.html) and [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) in the VMware technical documentation.
+For more information about HCX, see [VMware HCX Documentation](https://docs.vmware.com/en/VMware-HCX/index.html) and [Migrating Virtual Machines with VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g) in the VMware technical documentation.
