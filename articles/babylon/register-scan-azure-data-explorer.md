@@ -60,7 +60,7 @@ To do this in the Azure portal:
 
 11. Once service principal is created, add the same to the AllDatabasesViewer role in Permissions tab on Azure portal as shown in below screenshot
 
-![Screenshot showing service principal authorization](./media/register-scan-azure-data-explorer/permissions-auth.png)
+![Screenshot to add service principal in permissions](./media/register-scan-azure-data-explorer/permissions-auth.png)
 
 12. Once your Service Principal is set, connect your Babylon to your Azure Blob store using client ID and secret key and check your connect as shown in the screenshot below.
 
