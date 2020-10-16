@@ -133,7 +133,7 @@
   - name: FAQs
     href: signalr-resource-faq.md
   - name: SignalR Service subscription level limits
-    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#signalr-service-limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md#azure-signalr-service-limits
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos
