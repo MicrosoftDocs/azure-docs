@@ -7,12 +7,13 @@ ms.date: 10/02/2020
 
 # Planning the Azure VMware Solution deployment
 
-In this article, we provide you the planning process to identify and collect data used during the deployment. [Use the pre-deployment checklist](pre-deployment-checklist.md) to document the information and for easy reference during the deployment.  
+In this article, we provide you the planning process to identify and collect data used during the deployment. As you plan your deployment, make sure to document the information and for easy reference during the deployment.
 
 The processes of this quick start results in a production-ready environment for creating virtual machines (VMs) and migration. 
 
 >[!IMPORTANT]
 >Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process. For more information, see [How to enable Azure VMware Solution resource](enable-azure-vmware-solution.md). 
+
 
 ## Subscription
 
