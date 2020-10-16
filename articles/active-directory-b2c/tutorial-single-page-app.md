@@ -16,7 +16,7 @@ ms.subservice: B2C
 
 # Tutorial: Enable authentication in a single-page application with Azure AD B2C
 
-This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA).
+This tutorial shows you how to use Azure Active Directory B2C (Azure AD B2C) to sign up and sign in users in a single-page application (SPA) using the OAuth 2.0 implicit grant flow.
 
 In this tutorial, the first in a two-part series:
 
