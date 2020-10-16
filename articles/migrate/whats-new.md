@@ -12,7 +12,7 @@ ms.custom: mvc
 
 ## Update (September 2020)
 - Migration of servers to Availability Zones is now supported.
-- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported
+- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported. With this release, Azure Migrate: Server Migration tool will not perform the conversion from Gen 2 VM to Gen 1 VM during migration.
 - A new Azure Migrate Power BI assessment dashboard is available to help you compare costs across different assessment settings. The dashboard comes with a PowerShell utility that automatically creates the assessments that plug into the Power BI dashboard. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
 - Dependency analysis (agentless) can now be run concurrently on a 1000 VMs.
 - Dependency analysis (agentless) can now be enabled or disabled at scale using PowerShell scripts. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)

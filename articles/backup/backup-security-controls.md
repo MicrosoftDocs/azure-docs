@@ -33,7 +33,7 @@ This article documents the security controls built into Azure Backup.
 | Security control | Yes/No | Notes| Documentation
 |---|---|--|--|
 | Authentication| Yes | Authentication is through Azure Active Directory. |  |
-| Authorization| Yes | Customer created and Azure built-in roles are used. For more information, see [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md). |  |
+| Authorization| Yes | Customer created and Azure built-in roles are used. For more information, see [Use Azure role-based access control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md). |  |
 
 ## Data protection
 
