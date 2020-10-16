@@ -470,7 +470,7 @@ The steps to integrate SnapCenter in SAP HANA are:
 
 1. Select **Review + create** to review your support ticket. 
 
-1. Generate a certificate for the *snapcenter* user on the HANA Large Instance or any Linux server.
+1. Generate a certificate for the *snapcenter* username on the HANA Large Instance or any Linux server.
 
    SnapCenter requires a username and password to access the storage virtual machine (SVM) and to create snapshots of the HANA database. Microsoft uses the public key to allow you (the customer) to set the password for accessing the storage system.
 
@@ -490,7 +490,7 @@ The steps to integrate SnapCenter in SAP HANA are:
 
 1. Attach the snapcenter.pem file to the support ticket and then select **Create**
 
-   Once the public key certificate is submitted, Microsoft sets up the *snapcenter* user  for your tenant along with SVM IP address.   
+   Once the public key certificate is submitted, Microsoft sets up the *snapcenter* username  for your tenant along with SVM IP address.   
 
 1. After you receive the SVM IP, set a password to access SVM, which you control.
 
@@ -508,7 +508,7 @@ The steps to integrate SnapCenter in SAP HANA are:
    ```
 
 ### Download and install SnapCenter
-Now that the user  is set up for SnapCenter access to the storage system, you'll use the *snapcenter* user to configure the SnapCenter once it's installed. 
+Now that the user  is set up for SnapCenter access to the storage system, you'll use the *snapcenter* username to configure the SnapCenter once it's installed. 
 
 Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf) to define your backup strategy. 
 
