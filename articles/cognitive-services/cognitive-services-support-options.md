@@ -28,6 +28,10 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 ## Post a question on Microsoft Q&A
 
+<div class='icon is-large'>
+    <img alt='Azure support' src='./media/logo_ms.png'>
+</div>
+
 For quick and reliable answers on your technical product questions from Microsoft Engineers, Azure Most Valuable Professionals (MVPs), or our expert community, engage with us on [Microsoft Q&A](https://docs.microsoft.com/answers/products/azure?product=all), Azure's preferred destination for community support.
 
 If you can't find an answer to your problem using search, submit a new question to Microsoft Q&A. Use one of the following tags when you ask your question:
@@ -63,6 +67,10 @@ If you can't find an answer to your problem using search, submit a new question 
 * [Personalizer](https://docs.microsoft.com/answers/topics/azure-personalizer.html)
 
 ## Post a question to Stack Overflow
+
+<div class='icon is-large'>
+    <img alt='Azure support' src='https://docs.microsoft.com/media/logos/logo_stackoverflow.svg'>
+</div>
 
 For answers on your developer questions from the largest community developer ecosystem, ask your question on Stack Overflow.
 
