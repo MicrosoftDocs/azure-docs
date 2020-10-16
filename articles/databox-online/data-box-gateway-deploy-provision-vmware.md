@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/25/2020
+ms.date: 10/16/2020
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand how to provision a virtual device for Data Box Gateway in VMware so I can use it to transfer data to Azure.  
 ---
@@ -141,15 +141,15 @@ Perform the following steps to provision a virtual device in your hypervisor.
 
     On the same page, click **Add hard disk** and then select **Existing hard disk**. Select the VMDK file in the datastore. This will add an OS disk. 
 
-     ![Customize settings page 2](./media/data-box-gateway-deploy-provision-vmware/image14.png)
+     ![Customize settings - Add a hard disk](./media/data-box-gateway-deploy-provision-vmware/customize-settings-add-hard-disk.png)
 
     Scroll down until you see the **New hard disk** and expand it to view the settings. Set the **Virtual Device Node** to **IDE controller 0**.
 
-     ![Customize settings page 3](./media/data-box-gateway-deploy-provision-vmware/image15.png)
+     ![Customize settings - Configure a new hard disk](./media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk.png)
 
 17. (Optional) *Perform this step only if you are running VMware ESXi Server 6.7*. On the **Customize settings** page, click **VM options**. Go to **Boot options > Firmware** and change it to **BIOS**. By default, the value is set to EFI. Click **Next**.
 
-    ![Customize settings page if running VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/image15a.png)
+    ![Customize settings page if running VMware ESXi Server 6.7](./media/data-box-gateway-deploy-provision-vmware/customize-settings-new-disk-esxi.png)
 
 18. On the **Ready to Complete** page, review all the settings associated with the new virtual machine. Verify that CPU is 4, memory is 8192 MB, network interface is 1 and Hard disk 2 has IDE controller 0. Click **Finish**.
    
