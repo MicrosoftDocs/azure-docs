@@ -102,20 +102,6 @@ Run the following command to upload the usage.json file to Azure:
 azdata arc dc upload -p usage.json
 ```
 
-## View billing data in Azure portal
-
-Follow these steps to view billing data in the Azure portal:
-
-1. Open the Azure portal using the special URL:  [https://aka.ms/arcdata](https://aka.ms/arcdata).
-1. In the search box at the top of the screen type in **Cost Management** and click on the Cost Management service.
-1. Click on the **Cost analysis** tab on the left.
-1. Click the **Cost by resource** button on the top of the view.
-1. Make sure that your Scope is set to the subscription in which your data service resources were created.
-1. Select **Cost by resource** in the View drop down next to the Scope selector near the top of the view.
-1. Make sure the date filter is set to **This month** or some other time range that makes sense given the timing of when your created your data service resources.
-1. Click **Add filter** to add a filter by **Resource type** = `microsoft.azuredata/<data service type>` if you want to filter down to just one type of Azure Arc enabled data service.
-1. You will now see a list of all the resources that were created and uploaded to Azure. Since the billing meter is $0, you will see that the cost is always $0.
-
 ## Download billing data
 
 You can download billing summary data directly from the Azure portal.
