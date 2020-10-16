@@ -89,6 +89,8 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### Create an endpoint with dead-lettering
 
+When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
+
 In order to create an endpoint with dead-lettering enabled, you must use the ARM APIs to create your endpoint. 
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
@@ -114,7 +116,7 @@ When creating an endpoint, add a `deadLetterSecret` to the `properties` object i
 }
 ```
 
-For more information, see our REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
+For more information, see the Azure Digital Twins REST API documentation: [Endpoints - DigitalTwinsEndpoint CreateOrUpdate](https://docs.microsoft.com/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate).
 
 ### Message storage schema
 
