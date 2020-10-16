@@ -26,11 +26,6 @@ This version of this article completes these steps by running an [**automated de
 * To view the manual steps according to the Azure portal, see the portal version of this article: [*How-to: Set up an instance and authentication (portal)*](how-to-set-up-instance-portal.md).
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
-
-The script also includes an optional third step, which is not required but can be used in certain [client app authentication](how-to-authenticate-client.md) methods later:
-
-3. **(Optional) Setting up an app registration**: When working with an Azure Digital Twins instance, it is common to interact with that instance through client applications, which need to authenticate with the instance. Some of the authentication options that apps can use require an [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) app registration. For more on using app registrations with Azure Digital Twins, see [*How-to: Create an app registration*](how-to-create-app-registration.md).
-
 [!INCLUDE [digital-twins-setup-permissions.md](../../includes/digital-twins-setup-permissions.md)]
 
 ## Prerequisites: Download the script
@@ -71,17 +66,13 @@ Here are the steps to run the deployment script in Cloud Shell.
     ```
 
 
-    The script will create an Azure Digital Twins instance, and assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance. If you opt to continue through the app registration steps, the script will also create an app registration.
+    The script will create an Azure Digital Twins instance, and assign your Azure user the *Azure Digital Twins Owner (Preview)* role on the instance.
 
     As the script runs through the automated setup steps, you will be asked to pass in the following values:
     * For the instance: the *subscription ID* of your Azure subscription to use
     * For the instance: a *location* where you'd like to deploy the instance. To see what regions support Azure Digital Twins, visit [*Azure products available by region*](https://azure.microsoft.com/global-infrastructure/services/?products=digital-twins).
     * For the instance: a *resource group* name. You can use an existing resource group, or enter a new name of one to create.
     * For the instance: a *name* for your Azure Digital Twins instance. The name of the new instance must be unique within the region for your subscription (meaning that if your subscription has another Azure Digital Twins instance in the region that's already using the name you choose, you'll be asked to pick a different name).
-
-    To bypass creating an app registration, end script execution here (you can exit the script by entering *CTRL+C* in the Cloud Shell terminal). Otherwise, continue through the following two prompts to finish setting up an app registration:
-    * For the app registration (OPTIONAL): an *Azure AD application display name* to associate with the registration. 
-    * For the app registration (OPTIONAL): an *Azure AD application reply URL* for the Azure AD application. Use `http://localhost`. The script will set up a *Public client/native (mobile & desktop)* URI for it.
 
 Here is an excerpt of the output log from the script:
 
@@ -127,21 +118,6 @@ Select the name of your instance from the [Azure Digital Twins page](https://ms.
 > Recall that the script currently assigns this required role to the same user that runs the script from Cloud Shell. If you need to assign this role to someone else who will be managing the instance, you can do this now via the Azure portal ([instructions](how-to-set-up-instance-portal.md#set-up-user-access-permissions)) or CLI ([instructions](how-to-set-up-instance-cli.md#set-up-user-access-permissions)).
 
 If verification was unsuccessful, you can also redo your own role assignment using the [portal](how-to-set-up-instance-portal.md#set-up-user-access-permissions) or [CLI](how-to-set-up-instance-cli.md#set-up-user-access-permissions).
-
-### Optional: Verify app registration and collect its values
-
-If you used the script to set up an app registration, you can verify that it was created by navigating to the [Azure AD app registration overview page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal. You can get to this page yourself by searching for *App registrations* in the portal search bar.
-
-Switch to the *All applications* tab to see all the app registrations that have been created in your subscription.
-
-You should see the app registration you named while running the script in the list. Select it to open up its details.
-
-:::image type="content" source="media/how-to-set-up-instance/portal/app-registrations.png" alt-text="App registrations page in the Azure portal":::
-
-For instructions on how to verify that the app registration has the correct permissions, see the [*Verify success*](how-to-create-app-registration.md#verify-success) section of *How-to: Create an app registration*.
-
-
-For instructions on collecting the **client ID** and **tenant ID** from the app registration, see the [*Collect client ID and tenant ID*](how-to-create-app-registration.md#collect-client-id-and-tenant-id) section of *How-to: Create an app registration*.
 
 ## Next steps
 
