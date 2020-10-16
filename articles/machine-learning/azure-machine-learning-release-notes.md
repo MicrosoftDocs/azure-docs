@@ -34,9 +34,10 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
   + **azureml-core**
     + Pin major versions of direct dependencies of azureml-core
-    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits] (https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
+    + AKSWebservice and AKSEndpoints now support pod-level CPU and Memory resource limits. More information on [Kubernetes Resources and Limits](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits)
     + Updated run.log_table to allow individual rows to be logged.
-    + Added static method `Run.get(workspace, run_id)` to retrieve a run only using a workspace - added instance method `Workspace.get_run(run_id)` to retrieve a run within the workspace
+    + Added static method `Run.get(workspace, run_id)` to retrieve a run only using a workspace 
+    + Added instance method `Workspace.get_run(run_id)` to retrieve a run within the workspace
     + Introducing command property in run configuration which will enables users to submit command instead of script & arguments.
   + **azureml-explain-model**
     + fix package descriptions causing upload error to pypi for azureml-explain-model
