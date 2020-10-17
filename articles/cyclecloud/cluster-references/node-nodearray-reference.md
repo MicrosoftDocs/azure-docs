@@ -64,6 +64,9 @@ MachineType | String | The Azure VM Size
 SubnetId | String | Subnet definition in the form `${rg}/${vnet}/${subnet}`
 Credentials | String | Name of the Cloud Provider account.
 
+The fourth required attribute is related to an image. An image attribute is required
+but there are several forms it can take - see Image Attributes.
+
 ## Additional Attributes
 
 ::: moniker range="=cyclecloud-7"
@@ -73,6 +76,7 @@ ComputerName | String | Computer name for VM. If specified, overrides the system
 ComputerNamePrefix | String | Prefix pre-pended to system-generated computer names
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
+KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
 ::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
@@ -83,6 +87,7 @@ ComputerNamePrefix | String | Prefix pre-pended to system-generated computer nam
 EphemeralOSDisk | boolean | Use ephemeral boot disk for VM, if supported
 Zone | String (list) | Availability Zone for VM or VMSS. Can be a list for VMSS. E.g. `Zone = 1,3`
 KeyPairLocation | Integer | Where CycleCloud will find a SSH keypair on the local filesystem
+KeepAlive | Boolean | If true, CycleCloud will prevent the termination of this node
 ::: moniker-end
 
 ### Image Attributes
@@ -107,6 +112,16 @@ Azure.Publisher | String | Publisher of VM Marketplace image
 Azure.Offer | String | Offer for VM Marketplace image
 Azure.Sku | String | Sku of VM Marketplace image
 Azure.ImageVersion | String | Image Version of Marketplace image.
+
+> [!NOTE]
+> A Marketplace image can also be specified in the `ImageName` attribute, encoded as a URN in the form `Publisher:Offer:Sku:ImageVersion`.
+
+#### Images With Custom Pricing Plan
+
+Shared Image Gallery images that have a pricing plan attached require information about the plan to be used, unless that information is stored in the Shared Image Gallery image. That is specified with the `ImagePlan` attribute using the Publisher, Product, and Plan nested attributes.
+
+> [!NOTE]
+> Using custom images with a pricing plan requires CycleCloud 8.0.2 or later.
 
 #### ImageId
 
@@ -155,6 +170,12 @@ Here is a sample template using the three alternate image constructs for the nod
     Azure.Offer = UbuntuServer
     Azure.Sku = 16.04-LTS
     Azure.ImageVersion = latest
+
+  [[node custom-marketplace-vm-image]]
+    ImageName = /subscriptions/9B16BFF1-879F-4DB3-A55E-8F8AC1E6D461/resourceGroups/my-rg/providers/Microsoft.Compute/images/jetpack-rhel8-1b1e3e93
+    ImagePlan.Name = rhel-lvm8
+    ImagePlan.Publisher = redhat
+    ImagePlan.Product = rhel-byos
 
     # Install jetpack at launch time
     InstallJetpack = true

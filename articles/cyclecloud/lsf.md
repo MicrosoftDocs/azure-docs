@@ -36,23 +36,25 @@ Use the placementGroup resource to run a job with InfiniBand connected network.
 -R "span[ptile=2] select[nodearray=='ondemandmpi' && cyclecloudmpi] same[placementgroup]"
 ```
 
-Use the placementGroup along with `-ngpus` to run a tightly coupled job with GPU 
+For GPUs we recommend using LSF support for extended GPU syntax. Typically requires adding two
+attributes to _lsf.conf_: `LSB_GPU_NEW_SYNTAX=extend` and `LSF_GPU_AUTOCONFIG=Y`. With support
+for extended syntax enabled, use the placementGroup along with `-gpu` to run a tightly coupled job with GPU 
 acceleration.
 
 ```
--R "span[ptile=1] select[nodearray=='gpumpi' && cyclecloudmpi] same[placementgroup] -ngpus 2
+-R "span[ptile=1] select[nodearray=='gpumpi' && cyclecloudmpi] same[placementgroup]" -gpu "num=2:mode=shared:j_exclusive=yes"
 ```
 
 Run GPU enabled jobs in a parallel manner.
 
 ```
--R select[nodearray=='gpu' && !cyclecloudmpi && !cyclecloudlowprio] -ngpus 1
+-R "select[nodearray=='gpu' && !cyclecloudmpi && !cyclecloudlowprio]" -gpu "num=1:mode=shared:j_exclusive=yes"
 ```
 
 Run a large burst job on lowpriority VMs.
 
 ```
--J myArr[1000] -R select[nodearray=='lowprio' && cyclecloudlowprio]
+-J myArr[1000] -R "select[nodearray=='lowprio' && cyclecloudlowprio]"
 ```
 
 ## Configuring LSF for the CycleCloud LSF Cluster type

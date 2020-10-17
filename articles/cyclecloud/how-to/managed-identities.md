@@ -89,6 +89,9 @@ A sufficient policy for most CycleCloud features is posted below.
 }
 ```
 
+> [!IMPORTANT]
+> The use of a custom role requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions.](https://azure.microsoft.com/pricing/details/active-directory/)
+
 #### Optional Permissions
 
 To enable CycleCloud to assign Managed Identities to VMs it creates within clusters, add the following ``"actions"``:
@@ -98,7 +101,6 @@ To enable CycleCloud to assign Managed Identities to VMs it creates within clust
           "Microsoft.Authorization/roleAssignments/*",
           "Microsoft.Authorization/roleDefinitions/*",
 ```
-
 
 #### Creating the Role
 
