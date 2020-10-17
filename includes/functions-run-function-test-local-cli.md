@@ -10,25 +10,9 @@ ms.author: glenga
 
 Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
 
-::: zone pivot="programming-language-csharp,programming-language-powershell,programming-language-javascript,programming-language-python"
 ```
 func start
 ```
-::: zone-end
-
-::: zone pivot="programming-language-typescript"
-```
-npm install
-npm start
-```
-::: zone-end
-
-::: zone pivot="programming-language-java"
-```
-mvn clean package 
-mvn azure-functions:run
-```
-::: zone-end
 
 Toward the end of the output, the following lines should appear: 
 

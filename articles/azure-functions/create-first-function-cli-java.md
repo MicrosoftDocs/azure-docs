@@ -21,7 +21,7 @@ Before you begin, you must have the following:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-+ The [Azure Functions Core Tools](functions-run-local.md#v2) version 2.7.1846 or a later 2.x version.
++ The [Azure Functions Core Tools](functions-run-local.md#v2) version 3.x..
 
 + The [Azure CLI](/cli/azure/install-azure-cli) version 2.4 or later.
 
@@ -32,9 +32,9 @@ Before you begin, you must have the following:
 
 ### Prerequisite check
 
-+ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 2.7.1846 or later.
++ In a terminal or command window, run `func --version` to check that the Azure Functions Core Tools are version 3.x.
 
-+ Run `az --version` to check that the Azure CLI version is 2.0.76 or later.
++ Run `az --version` to check that the Azure CLI version is 2.4 or later.
 
 + Run `az login` to sign in to Azure and verify an active subscription.
 
@@ -203,7 +203,7 @@ Run [`curl`](https://curl.haxx.se/) with the **Invoke URL**, appending the param
 
 ## Clean up resources
 
-If you continue to the next step, [Add an Azure Storage queue output binding](functions-add-output-binding-storage-queue-cli.md), keep all your resources in place as you'll build on what you've already done.
+If you continue to the next step, [Add an Azure Storage queue output binding][Connect to an Azure Storage queue], keep all your resources in place as you'll build on what you've already done.
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
@@ -215,3 +215,5 @@ az group delete --name java-functions-group
 
 > [!div class="nextstepaction"]
 > [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md)
+
+[Connect to an Azure Storage queue]: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java
