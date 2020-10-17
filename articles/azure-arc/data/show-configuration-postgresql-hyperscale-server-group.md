@@ -107,18 +107,18 @@ By default, the prefix of the name of a PVC indicates its usage:
 For example:
 
 ```output
-NAME                   STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
-backups-postgres01-0   Bound    local-pv-485e37db   1938Gi     RWO            local-storage   6d6h
-backups-postgres01-1   Bound    local-pv-9d3d4a15   1938Gi     RWO            local-storage   6d6h
-backups-postgres01-2   Bound    local-pv-7b8dd819   1938Gi     RWO            local-storage   6d6h
+NAME                                            STATUS   VOLUME              CAPACITY   ACCESS MODES   STORAGECLASS    AGE
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-0   Bound    local-pv-485e37db   1938Gi     RWO            local-storage   6d6h
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-1   Bound    local-pv-9d3d4a15   1938Gi     RWO            local-storage   6d6h
+backups-few7hh0k4npx9phsiobdc3hq-postgres01-2   Bound    local-pv-7b8dd819   1938Gi     RWO            local-storage   6d6h
 ...
-data-postgres01-0      Bound    local-pv-3c1a8cc5   1938Gi     RWO            local-storage   6d6h
-data-postgres01-1      Bound    local-pv-8303ab19   1938Gi     RWO            local-storage   6d6h
-data-postgres01-2      Bound    local-pv-55572fe6   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-0      Bound    local-pv-3c1a8cc5   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-1      Bound    local-pv-8303ab19   1938Gi     RWO            local-storage   6d6h
+data-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-55572fe6   1938Gi     RWO            local-storage   6d6h
 ...
-logs-postgres01-0      Bound    local-pv-5e852b76   1938Gi     RWO            local-storage   6d6h
-logs-postgres01-1      Bound    local-pv-55d309a7   1938Gi     RWO            local-storage   6d6h
-logs-postgres01-2      Bound    local-pv-5ccd02e6   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-0      Bound    local-pv-5e852b76   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-1      Bound    local-pv-55d309a7   1938Gi     RWO            local-storage   6d6h
+logs-few7hh0k4npx9phsiobdc3hq-postgres01-2      Bound    local-pv-5ccd02e6   1938Gi     RWO            local-storage   6d6h
 ...
 ```
 
@@ -201,18 +201,6 @@ Metadata:
   Self Link:           /apis/arcdata.microsoft.com/v1alpha1/namespaces/arc/postgresql-12s/postgres02
   UID:                 8a9cd118-361b-4a2e-8a9d-5f9257bf6abb
 Spec:
-  Backups:
-    Delta Minutes:  3
-    Full Minutes:   10
-    Tiers:
-      Retention:
-        Maximums:
-          6
-          512MB
-        Minimums:
-          3
-      Storage:
-        Volume Size:  1Gi
   Engine:
     Extensions:
       Name:  citus
@@ -290,7 +278,7 @@ azdata arc postgres server show -n postgres02
 
 Returns the below output in a format and content very similar to the one returned by kubectl.
 
-```output
+```console
 {
   "apiVersion": "arcdata.microsoft.com/v1alpha1",
   "kind": "postgresql-12",
@@ -304,26 +292,6 @@ Returns the below output in a format and content very similar to the one returne
     "uid": "8a9cd118-361b-4a2e-8a9d-5f9257bf6abb"
   },
   "spec": {
-    "backups": {
-      "deltaMinutes": 3,
-      "fullMinutes": 10,
-      "tiers": [
-        {
-          "retention": {
-            "maximums": [
-              "6",
-              "512MB"
-            ],
-            "minimums": [
-              "3"
-            ]
-          },
-          "storage": {
-            "volumeSize": "1Gi"
-          }
-        }
-      ]
-    },
     "engine": {
       "extensions": [
         {
