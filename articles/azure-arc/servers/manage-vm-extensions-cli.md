@@ -15,7 +15,7 @@ This article shows you how to deploy and uninstall Azure VM extensions, supporte
 
 - [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-Before using the Azure CLI to manage VM extensions on your machine, you need to install the `ConnectedMachine` CLI extension. Run the following command on your Arc enabled server:
+Before using the Azure CLI to manage VM extensions on your hybrid server managed by Arc enabled servers, you need to install the `ConnectedMachine` CLI extension. Run the following command on your Arc enabled server:
 
 `az extension add connectedmachine`.
 
@@ -71,5 +71,7 @@ For example, to remove the Log Analytics VM extension for Linux, run the followi
 ```azurecli
 az connectedmachine machine-extension delete --machine-name "myMachine" --name "OmsAgentforLinux" --resource-group "myResourceGroup"
 ```
+
+## Next steps
 
 
