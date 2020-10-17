@@ -123,7 +123,7 @@ if ($stmt = mysqli_prepare($conn, "INSERT INTO Products (ProductName, Color, Pri
 
 ## Step 4: Read data
 Use the following code to read the data by using a **SELECT** SQL statement.  The code uses the method:
-- [mysqli_query](https://secure.php.net/manual/mysqli.query.php) perform the sql query
+- [mysqli_query](https://secure.php.net/manual/mysqli.query.php) execute the **SELECT** query
 - [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) to fetch the resulting rows.
 
 ```php
