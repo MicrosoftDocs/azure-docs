@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 > - Use the Traffic Manager profile.
 > - Delete Traffic Manager profile.
 
-# Prerequisites
+## Prerequisites
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -50,7 +50,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     :::image type="content" source="./media/traffic-manager-priority-routing-method/create-traffic-manager-profile-priority.png" alt-text="Create a Traffic Manager profile priority":::
 
-# Add endpoints
+## Add endpoints
 
 1. Select the Traffic Manager profile from the list.
 
