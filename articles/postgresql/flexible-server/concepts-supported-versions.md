@@ -31,7 +31,7 @@ We do not support PostgreSQL version 10 and older for Azure Database for Postgre
 
 The PostgreSQL project regularly issues minor releases to fix reported bugs. Azure Database for PostgreSQL automatically patches servers with minor releases during the service's monthly deployments.
 
-Automatic major version upgrade is not yet supported. For example, there is currently no automatic upgrade from PostgreSQL 11 to PostgreSQL 12.<!-- To upgrade to the next major version, create a [database dump and restore](howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.-->
+Automation for major version upgrade is not yet supported. For example, there is currently no automatic upgrade from PostgreSQL 11 to PostgreSQL 12.<!-- To upgrade to the next major version, create a [database dump and restore](howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.-->
 
 <!--
 ## Next steps
