@@ -12,7 +12,7 @@ Azure Event Grid is an eventing service for the cloud. Azure Relay Hybrid Connec
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-- This tutorial requires version <version-number> or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+- This tutorial requires version 2.0.56 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
 - This article assumes you already have a hybrid connection and a listener application. To get started with hybrid connections, see [Get started with Relay Hybrid Connections - .NET](../azure-relay/relay-hybrid-connections-dotnet-get-started.md) or [Get started with Relay Hybrid Connections - Node](../azure-relay/relay-hybrid-connections-node-get-started.md).
 
