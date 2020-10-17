@@ -10,30 +10,33 @@ ms.date: 10/01/2020
 ---
 
 # Quickstart: Use PHP to connect and query data in Azure Database for MySQL
-This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database. This topic assumes that you are familiar with development using PHP and that you are new to working with Azure Database for MySQL.
+This quickstart demonstrates how to connect to an Azure Database for MySQL using a [PHP](https://secure.php.net/manual/intro-whatis.php) application. It shows how to use SQL statements to query, insert, update, and delete data in the database.
 
 ## Prerequisites
-For this quickstart you will need:
+For this quickstart you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free).
-- Azure Database for MySQL single server.You can use one of these quickstarts to create the server using portal or CLI.
+- Create a Azure Database for MySQL single server using [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
+- Based on you choice of connectivity method, make sure you have completed the ONE of the task below
 
 
-     |Task| How to guide|Connectivity Method|
-     |:--- |:---|:---|
-     | **Create a server**| [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md)|Not applicable|
-     | **Configure firewall rules** | [Azure Portal](./howto-manage-firewall-using-portal.md) <br> [Azure CLI](./howto-manage-firewall-using-cli.md)|Public access secured by firewall rules|
-     | **Configure Service Endpoint** | [Azure Portal](./howto-manage-vnet-using-portal.md) <br> [Azure CLI](./howto-manage-vnet-using-cli.md) | Public access secured by service endpoints|
-     | **Configure private link** | [Azure Portal](./howto-configure-privatelink-portal.md) <br> [Azure CLI](./howto-configure-privatelink-cli.md) | Private access| private access
+|Task| How to guide|Connectivity Method|
+|:--- |:---|:---|
+| **Configure firewall rules** | [Azure Portal](./howto-manage-firewall-using-portal.md) <br> [Azure CLI](./howto-manage-firewall-using-cli.md)|Public access secured by firewall rules|
+| **Configure Service Endpoint** | [Azure Portal](./howto-manage-vnet-using-portal.md) <br> [Azure CLI](./howto-manage-vnet-using-cli.md) | Public access secured by service endpoints. You can ONLY connect to the server with App Service Web App or Azure Virtual machine or any other resource as long as it is in the **same virtual network**.|
+| **Configure private link** | [Azure Portal](./howto-configure-privatelink-portal.md) <br> [Azure CLI](./howto-configure-privatelink-cli.md) | Private access| private access|
 <br/>
 
-- Install latest PHP version  for your operating system. For this quickstart we will use [MySQLi](https://www.php.net/manual/en/book.mysqli.php)
+- Install latest PHP version  for your operating system
     - [PHP on MacOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP on Linux](https://secure.php.net/manual/install.unix.php)
     - [PHP on Windows](https://secure.php.net/manual/install.windows.php)
 
+> [!NOTE]
+> We are using [MySQLi](https://www.php.net/manual/en/book.mysqli.php) library to manage connect and query the server in this quickstart.
+
 ## Get connection information
-Get the connection information needed to connect to the Azure Database for MySQL. You need the fully qualified server name and login credentials.
+You can get the database server connection information from the Azure portal by following these steps:
 
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. Navigate to the Azure Databases for MySQL page. You can search for and select **Azure Database for MySQL**.
@@ -135,7 +138,7 @@ while ($row = mysqli_fetch_assoc($res))
 ```
 
 ## Step 5: Delete data
-Use the following code delete rows by using a **DELETE** SQL statement.The code uses the methods:
+Use the following code delete rows by using a **DELETE** SQL statement. The code uses the methods:
 - [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) to create a prepared delete statement
 - [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php) binds the parameters
 - [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) executes the prepared delete statement
@@ -157,6 +160,6 @@ mysqli_stmt_close($stmt);
 > [Manage Azure Database for MySQL server using Portal](./howto-create-manage-server-portal.md)<br/>
 
 > [!div class="nextstepaction"]
-> [Manage Azure Database for MySQL server using CLI](./howto-create-manage-server-cli.md)
+> [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
 
 [Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
