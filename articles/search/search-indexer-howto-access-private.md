@@ -19,7 +19,7 @@ To use this indexer connection method, there are two requirements:
 
 + The Azure resource providing content or code must be previously registered with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
 
-+ Azure Cognitive Search service must be Basic or higher (not available on the Free tier). Additionally, for indexers that have a skillset, the search service must be S2 or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
++ Azure Cognitive Search service must be Basic or higher (not available on the Free tier). Additionally, if your indexer has a skillset, the tier must be Standard 2 (S2) or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## Shared Private Link Resources Management APIs
 
@@ -29,7 +29,7 @@ Through its Management REST API, Azure Cognitive Search provides a [CreateOrUpda
 
 Private endpoint connections to some resources can only be created with the preview version of the search management API (`2020-08-01-Preview` or later), indicated with the "preview" tag in the table below. Resources without "preview" tag can be created using either the preview or generally available API version (`2020-08-01` or later).
 
-The following are the list of Azure resources to which outbound private endpoints can be created from Azure Cognitive Search. `groupId` listed in the table below needs to be used exactly (case-sensitive) in the API to create a shared private link resource.
+The following are the list of Azure resources to which outbound private endpoints can be created from Azure Cognitive Search. The `groupId` values listed in the table below need to be used exactly as written (case-sensitive) in the API to create a shared private link resource.
 
 | Azure Resource | Group ID |
 | --- | --- |
@@ -43,7 +43,7 @@ The following are the list of Azure resources to which outbound private endpoint
 
 The list of Azure resources for which outbound private endpoint connections are supported can also be queried using the [List Supported API](/rest/api/searchmanagement/privatelinkresources/listsupported).
 
-In this article, a mix of [ARMClient](https://github.com/projectkudu/ARMClient) and [Postman](https://www.postman.com/) are used to demonstrate the REST API calls.
+In the remainder of this article, a mix of [ARMClient](https://github.com/projectkudu/ARMClient) and [Postman](https://www.postman.com/) are used to demonstrate the REST API calls.
 
 > [!NOTE]
 > Throughout this article, assume that the name of the search service is __contoso-search__ which exists in the resource group __contoso__ of a subscription with subscription ID __00000000-0000-0000-0000-000000000000__. The resource ID of this search service will be `/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.Search/searchServices/contoso-search`
