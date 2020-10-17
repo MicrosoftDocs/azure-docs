@@ -19,16 +19,15 @@ In this tutorial, you learn how to:
 > * Configure a Stream Analytics job to process those transactions
 > * Configure a Power BI visualization to show the results
 
-To complete this tutorial, you need an Azure subscription. If you don't have one, [create a free account][] before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Prerequisites
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 - Install [Visual Studio](https://www.visualstudio.com/). 
+
 - You need a Power BI account to analyze output from a Stream Analytics job. You can [try Power BI for free](https://app.powerbi.com/signupredirect?pbi_source=web).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Set up resources
 

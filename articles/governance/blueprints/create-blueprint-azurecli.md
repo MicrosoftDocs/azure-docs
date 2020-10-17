@@ -12,12 +12,9 @@ templates), policy, security, and more. In this tutorial, you learn to use Azure
 some of the common tasks related to creating, publishing, and assigning a blueprint within your
 organization, such as:
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
-before you begin.
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## Add the Blueprint extension
 
