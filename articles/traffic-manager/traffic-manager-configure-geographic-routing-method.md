@@ -78,7 +78,7 @@ In this tutorial, you learn how to:
 
 1. Repeat the last step for all endpoints you want to add under this profile and then select **Save**.
 
-    :::image type="content" source="./media/traffic-manager-geographic-routing-method/add-traffic-manager-endpoint.png" alt-text="Add a Traffic Manager endpoint":::
+    :::image type="content" source="./media/traffic-manager-geographic-routing-method/traffic-manager-add-endpoint.png" alt-text="Add a Traffic Manager endpoint":::
 
 ## Use the Traffic Manager profile
 
