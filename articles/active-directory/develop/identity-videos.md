@@ -62,8 +62,10 @@ ___
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
     :::column:::
+        6 - <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (12:28)
     :::column-end:::
     :::column:::
+        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-06.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
@@ -74,6 +76,7 @@ ___
 [id-plat-03-img]: ./media/identity-videos/id-for-devs-03.jpg
 [id-plat-04-img]: ./media/identity-videos/id-for-devs-04.jpg
 [id-plat-05-img]: ./media/identity-videos/id-for-devs-05.jpg
+[id-plat-06-img]: ./media/identity-videos/id-for-devs-06.jpg
 
 <!-- VIDEOS -->
 [id-plat-01-vid]: https://www.youtube.com/watch?v=zjezqZPPOfc&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=1
@@ -81,6 +84,7 @@ ___
 [id-plat-03-vid]: https://www.youtube.com/watch?v=toAWRNqqDL4&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=3
 [id-plat-04-vid]: https://www.youtube.com/watch?v=IIQ7QW4bYqA&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=4
 [id-plat-05-vid]: https://www.youtube.com/watch?v=-BK2iBDrmNo&list=PLLasX02E8BPBxGouWlJV-u-XZWOc2RkiX&index=5
+[id-plat-06-vid]: https://www.youtube.com/watch?v=tkQJSHFsduY
 
 ## Authentication fundamentals
 
