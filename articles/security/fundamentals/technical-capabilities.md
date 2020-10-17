@@ -364,7 +364,7 @@ Security Center automatically collects, analyzes, and integrates log data from y
 
 Cloud applications are complex with many moving parts. Monitoring provides data to ensure that your application stays up and running in a healthy state. It also helps you to stave off potential problems or troubleshoot past ones.
 
-![Azure Monitor](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
+![Diagram that shows you can use monitoring data to gain deep insights about your application.](./media/technical-capabilities/azure-security-technical-capabilities-fig10.png)
 In addition, you can use monitoring data to gain deep insights about your application. That knowledge can help you to improve application performance or maintainability, or automate actions that would otherwise require manual intervention.
 
 Auditing your network security is vital for detecting network vulnerabilities and ensuring compliance with your IT security and regulatory governance model. With Security Group view, you can retrieve the configured Network Security Group and security rules, as well as the effective security rules. With the list of rules applied, you can determine the ports that are open and ss network vulnerability.

@@ -1,6 +1,6 @@
 ---
-title: Configure VNN with Azure Load Balancer for HADR
-description: Learn to configure an Azure load balancer to route traffic to the virtual network name (VNN) for your availability group or failover cluster instance (FCI) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
+title: Configure Azure Load Balancer a failover cluster instance VNN
+description: Learn to configure an Azure Load Balancer to route traffic to the virtual network name (VNN) for your failover cluster instance (FCI) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -16,13 +16,14 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Configure VNN with Azure Load Balancer (SQL Server on Azure VMs)
+# Configure Azure Load Balancer for failover cluster instance VNN
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 On Azure Virtual Machines, clusters use a load balancer to hold an IP address that needs to be on one cluster node at a time. In this solution, the load balancer holds the IP address for the virtual network name (VNN) used by the clustered resource in Azure. 
 
-This article teaches you to configure a load balancer by using the Azure Load Balancer service. The load balancer will route traffic to your [availability group (AG) listener](availability-group-overview.md) or [failover cluster instances (FCIs)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
+This article teaches you to configure a load balancer by using the Azure Load Balancer service. The load balancer will route traffic to your [failover cluster instance (FCI)](failover-cluster-instance-overview.md) with SQL Server on Azure VMs for high availability and disaster recovery (HADR). 
 
+For an alternative connectivity option for SQL Server 2019 CU2 and later, consider a [distributed network name](failover-cluster-instance-distributed-network-name-dnn-configure.md) instead for simplified configuration and improved failover. 
 
 
 ## Prerequisites
@@ -31,7 +32,7 @@ Before you complete the steps in this article, you should already have:
 
 - Decided that Azure Load Balancer is the appropriate [connectivity option for your HADR solution](hadr-cluster-best-practices.md#connectivity).
 - Configured your [availability group listener](availability-group-overview.md) or [failover cluster instances](failover-cluster-instance-overview.md). 
-- Installed the latest version of [PowerShell](/powershell/azure/install-az-ps?view=azps-4.2.0). 
+- Installed the latest version of [PowerShell](/powershell/azure/install-az-ps). 
 
 
 ## Create load balancer
@@ -150,8 +151,6 @@ Get-ClusterResource $IPResourceName | Get-ClusterParameter
 
 Test failover of the clustered resource to validate cluster functionality. 
 
-# [Failover cluster instance](#tab/fci)
-
 Take the following steps:
 
 1. Connect to one of the SQL Server cluster nodes by using RDP.
@@ -162,24 +161,9 @@ Take the following steps:
 **Failover Cluster Manager** shows the role, and its resources go offline. The resources then move and come back online in the other node.
 
 
-
-# [AG Listener](#tab/ag)
-
-Take the following steps:
-
-1. Open [SQL Server Management Studio)](/sql/ssms/download-sql-server-management-studio-ssms) and connect to your availability group listener. 
-
-1. Expand **Always On Availability Group** in **Object Explorer**. 
-1. Right-click the availability group and select **Failover**. 
-1. Follow the wizard prompts to fail over the availability group to a secondary replica. 
-
-Failover succeeds when the replicas switch roles and are both synchronized. 
-
----
-
 ## Test connectivity
 
-To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name or to the availability group listener.
+To test connectivity, sign in to another virtual machine in the same virtual network. Open **SQL Server Management Studio** and connect to the SQL Server FCI name. 
 
 >[!NOTE]
 >If you need to, you can [download SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
