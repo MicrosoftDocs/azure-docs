@@ -16,7 +16,7 @@ ms.date: 08/14/2020
 ms.author: apimpm
 ---
 
-# Azure API Management developer portal overview
+# Overview of the developer portal
 
 Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
@@ -35,13 +35,13 @@ Migration to the new developer portal is described in the [dedicated documentati
 
 ## Customization and styling
 
-The developer portal can be customized and styled through the built-in, drag-and-drop visual editor. Refer to the ["Access and customize developer portal" tutorial](api-management-howto-developer-portal-customize.md) for more details.
+The developer portal can be customized and styled through the built-in, drag-and-drop visual editor. See [this tutorial](api-management-howto-developer-portal-customize.md) for more details.
 
 ## <a name="managed-vs-self-hosted"></a> Extensibility
 
-Your API Management service includes a built-in, **managed** developer portal. Refer to [this documentation article](api-management-howto-developer-portal-customize.md) to learn how to access and customize it.
+Your API Management service includes a built-in, **managed** developer portal.
 
-If you need to extend the developer portal with custom logic, which isn't supported in the **managed** version, you can extend its codebase and **self-host** the resulting portal outside of your API Management service. Custom extensions can include new widgets, which integrate with third party systems. In this scenario, you become the portal's maintainer and you are responsible for upgrading the portal to the latest version. For details and instructions, refer to the [GitHub repository with the source code of the portal][1] and [the tutorial on implementing a widget][3]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is common for **managed** and **self-hosted** versions.
+If you need to extend it with custom logic, which isn't supported out-of-the-box, you can extend its codebase and **self-host** the resulting portal outside of your API Management service. For example, you could implement a new widget, which integrates with a third-party support system. If you self-host the portal, you become the its maintainer and you are responsible for upgrading the portal to the latest version. For details and instructions, refer to the [GitHub repository with the source code of the portal][1] and [the tutorial on implementing a widget][3]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is common for **managed** and **self-hosted** versions.
 
 ## <a name="faq"></a> Frequently asked questions
 
@@ -53,7 +53,7 @@ When you first launched the preview version of developer portal, you provisioned
 
 If you heavily customized your portal based on the preview version of content, you may continue to use it as is and place new widgets manually on portal's pages. Otherwise, we recommend replacing your portal's content with the new default content.
 
-To reset the content in a managed portal, click **Reset content** in the **Operations** menu section. This operation will remove all the content of the portal and provision new default content. You will lose all developer portal customizations and changes. **You can't undo this action**.
+To reset the content in a managed portal, select **Reset content** in the **Operations** menu section. This operation will remove all the content of the portal and provision new default content. You will lose all developer portal customizations and changes. **You can't undo this action**.
 
 ![Reset portal content](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -77,7 +77,7 @@ The API is documented in [the GitHub repository's wiki section][2]. It can be us
 
 ### How do I move from the managed to the self-hosted version?
 
-Refer to the detailed article in [the Wiki section of the developer portal repository on GitHub][2].
+See the detailed article in [the Wiki section of the developer portal repository on GitHub][2].
 
 ### Can I have multiple developer portals in one API Management service?
 
@@ -97,7 +97,7 @@ In most cases - no.
 
 If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you will see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
-If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the Internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management. You may need to disable Web Application Firewall rules. Refer to [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
+If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the Internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management. You may need to disable Web Application Firewall rules. See [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
 
 ### I have assigned a custom API Management domain and the published portal doesn't work
 
@@ -127,9 +127,9 @@ Automatically apply the CORS policy by clicking on the **Enable CORS** button.
 
 You can also enable CORS manually.
 
-1. Click on the **Manually apply it on the global level** link to see the generated policy code.
+1. Select the **Manually apply it on the global level** link to see the generated policy code.
 2. Navigate to **All APIs** in the **APIs** section of your API Management service in the Azure portal.
-3. Click on the **</>** icon in the **Inbound processing** section.
+3. Select the **</>** icon in the **Inbound processing** section.
 4. Insert the policy in the **<inbound>** section of the XML file. Make sure the **<origin>** value matches your developer portal's domain.
 
 > [!NOTE]

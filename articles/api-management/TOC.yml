@@ -159,6 +159,8 @@
         items:
             - name: Understand the developer portal
               href: api-management-howto-developer-portal.md
+            - name: Migrate from legacy to new developer portal
+              href: developer-portal-legacy-migration.md
             - name: Authenticate with Azure AD
               href: api-management-howto-aad.md
             - name: Authenticate with Azure AD B2C
@@ -169,13 +171,13 @@
               href: api-management-howto-configure-notifications.md
             - name: Enable console OAuth support
               href: api-management-howto-oauth2.md
-            - name: Legacy portal - customize the portal
+            - name: Deprecated portal - customize the portal
               href: api-management-customize-styles.md
-            - name: Legacy portal - modify pages and layouts
+            - name: Deprecated portal - modify pages and layouts
               href: api-management-modify-content-layout.md
-            - name: Legacy portal - customize with templates
+            - name: Deprecated portal - customize with templates
               href: api-management-developer-portal-templates.md
-      - name: Legacy portal templates
+      - name: Deprecated portal templates
         items:
             - name: Data model reference
               href: api-management-template-data-model-reference.md
