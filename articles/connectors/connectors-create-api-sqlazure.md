@@ -62,7 +62,7 @@ Now, continue with these steps:
 
 ### Connect to Azure SQL Database or Managed Instance
 
-If you are not using on-premises data gateway or integration service environment, the SQL Managed Instance must have its public endpoint enabled. Please see [Configure public endpoint in Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md) for instructions. Additionally the public endpoint runs on port 3342 and be sure to specify this port number when creating the API connection.
+To access a Azure SQL Managed Instance without using the on-premises data gateway or integration service environment, you have to [set up the public endpoint on the Azure SQL Managed Instance](../azure-sql/managed-instance/public-endpoint-configure.md). The public endpoint uses port 3342, so make sure that you specify this port number when you create the connection from your logic app.
 
 
 The first time that you add either a [SQL trigger](#add-sql-trigger) or [SQL action](#add-sql-action), and you haven't previously created a connection to your database, you're prompted to complete these steps:
@@ -268,4 +268,3 @@ For technical information about this connector's triggers, actions, and limits, 
 ## Next steps
 
 * Learn about other [connectors for Azure Logic Apps](../connectors/apis-list.md)
-
