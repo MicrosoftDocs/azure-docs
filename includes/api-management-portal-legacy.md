@@ -2,13 +2,13 @@
 author: mikebudzynski
 ms.service: api-management
 ms.topic: include
-ms.date: 08/15/2020
+ms.date: 10/15/2020
 ms.author: apimpm
 ---
 
 > [!NOTE]
-> This documentation content is about the deprecated developer portal, which will be retired in September 2023. Refer to the following articles for content about the new developer portal:
+> This documentation content is about the deprecated developer portal. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services. The deprecated portal will only receive critical security updates. Refer to the following articles for more details:
 > 
-> - [Azure API Management developer portal overview](..\articles\api-management\api-management-howto-developer-portal.md)
-> - [Learn how to migrate to the new developer portal]([Azure API Management developer portal overview](../articles/api-management/api-management-howto-developer-portal.md#migrate-from-legacy))
-> - [Access and customize the managed developer portal (tutorial)](..\articles\api-management\api-management-howto-developer-portal-customize.md)
+> - [Learn how to migrate to the new developer portal](../articles/api-management/developer-portal-legacy-migration.md)
+> - [Azure API Management new developer portal overview](../articles/api-management/api-management-howto-developer-portal.md)
+> - [Access and customize the new developer portal](../articles/api-management/api-management-howto-developer-portal-customize.md)

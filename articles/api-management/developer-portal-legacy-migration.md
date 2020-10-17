@@ -16,7 +16,7 @@ ms.date: 10/15/2020
 ms.author: apimpm
 ---
 
-# Migrate to the new developer portal from the legacy portal
+# Migrate to the new developer portal
 
 This article describes the steps you need to take to migrate from the deprecated legacy portal to the new developer portal in API Management.
 
@@ -41,6 +41,7 @@ The new developer portal is incompatible with the legacy portal and automated mi
 - If you expose your developer portal via a custom domain, [assign a domain](configure-custom-domain.md) to the new developer portal. Use the **Developer portal** option from the dropdown in the Azure portal.
 - [Apply a CORS policy](api-management-howto-developer-portal.md#cors) on your APIs to enable the interactive test console.
 - If you inject custom CSS to style the portal, you need to [replicate the style using the built-in design panel](api-management-howto-developer-portal-customize.md). CSS injection isn't allowed in the new portal.
+- You can inject custom JavaScript only in the [self-hosted version of the new developer portal](api-management-howto-developer-portal.md#managed-vs-self-hosted).
 - If your API Management is in a virtual network and is exposed to the Internet via Application Gateway, [refer to this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for configuration steps. You need to:
 
     - Enable connectivity to the API Management's management endpoint
@@ -76,4 +77,5 @@ The new developer portal is incompatible with the legacy portal and automated mi
 Learn more about the developer portal:
 
 - [Azure API Management developer portal overview](api-management-howto-developer-portal.md)
-- [Access and customize the managed developer portal](api-management-howto-developer-portal-customize.md)
+- [Access and customize the developer portal](api-management-howto-developer-portal-customize.md)
+- [Report bugs and request developer portal features](https://aka.ms/apimdevportal)

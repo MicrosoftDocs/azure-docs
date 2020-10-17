@@ -1,7 +1,7 @@
 ---
-title: Overview of Azure API Management developer portal
+title: Overview of the developer portal in Azure API Management
 titleSuffix: Azure API Management
-description: Learn about the developer portal in API Management. The developer portal is where consumers can find your APIs.
+description: Learn about the developer portal in API Management - a customizable website, where API consumers can explore your APIs.
 services: api-management
 documentationcenter: API Management
 author: mikebudzynski
@@ -26,53 +26,22 @@ This article describes the differences between self-hosted and managed versions 
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="migrate-from-legacy"></a> Migration from the legacy portal
-
-The new developer portal addresses many limitations of the legacy portal. It features a visual drag-and-drop editor for editing content and a dedicated panel for designers to style the website. Pages, customizations, and configuration are saved as Azure Resource Manager resources in your API Management service, which lets you [automate portal deployments](#automate). Lastly, the portal's codebase is open-source, so [you can extend it with custom functionality](#managed-vs-self-hosted).
+## Migration from the legacy portal
 
 > [!IMPORTANT]
-> The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in September 2023 - at which point it will be removed from all API Management services.
+> The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
 
-The new developer portal is incompatible with the legacy portal and automated migration isn't possible. You need to manually recreate the content (pages, text, media files) and customize the look of the new portal. Precise steps will vary depending on the customizations and complexity of your portal. Refer to [the developer portal tutorial](api-management-howto-developer-portal-customize.md) for guidance. Remaining configuration, like the list of APIs, Products, users, identity providers, is automatically shared across both portals.
+Migration to the new developer portal is described in the [dedicated documentation article](developer-portal-legacy-migration.md).
 
-The new developer portal doesn't support the following features:
+## Customization and styling
 
-- *Issues* 
-- Direct integration with Facebook, Microsoft, Twitter, and Google as identity providers (you can use Azure AD B2C instead)
+The developer portal can be customized and styled through the built-in, drag-and-drop visual editor. Refer to the ["Access and customize developer portal" tutorial](api-management-howto-developer-portal-customize.md) for more details.
 
-## <a name="managed-vs-self-hosted"></a> Managed and self-hosted versions
+## <a name="managed-vs-self-hosted"></a> Extensibility
 
-You can build your developer portal in two ways:
+Your API Management service includes a built-in, **managed** developer portal. Refer to [this documentation article](api-management-howto-developer-portal-customize.md) to learn how to access and customize it.
 
-- **Managed version** - by editing and customizing the portal, which is built into your API Management instance and is accessible through the URL `<your-api-management-instance-name>.developer.azure-api.net`. Refer to [this documentation article](api-management-howto-developer-portal-customize.md) to learn how to access and customize the managed portal.
-- **Self-hosted version** - by deploying and self-hosting your portal outside of an API Management instance. This approach allows you to edit the portal's codebase and extend the provided core functionality - for example, implement custom widgets for integrations with third party systems. In this scenario, you are the portal's maintainer and you are responsible for upgrading the portal to the latest version. For details and instructions, refer to the [GitHub repository with the source code of the portal][1] and [the tutorial on implementing a widget][3]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is common for the managed and the self-hosted versions.
-
-## Portal architectural concepts
-
-The portal components can be logically divided into two categories: *code* and *content*.
-
-*Code* is maintained in [the GitHub repository][1] and includes:
-
-- Widgets - which represent visual elements and combine HTML, JavaScript, styling ability, settings, and content mapping. Examples are an image, a text paragraph, a form, a list of APIs etc.
-- Styling definitions - which specify how widgets can be styled
-- Engine - which generates static webpages from portal content and is written in JavaScript
-- Visual editor - which allows for in-browser customization and authoring experience
-
-*Content* is divided into two subcategories: *portal content* and *API Management content*.
-
-*Portal content* is specific to the portal and includes:
-
-- Pages - for example, landing page, API tutorials, blog posts
-- Media - images, animations, and other file-based content
-- Layouts - templates, which are matched against a URL and define how pages are displayed
-- Styles - values for styling definitions, e.g. fonts, colors, borders
-- Settings - configuration, e.g. favicon, website metadata
-
-*Portal content*, except for media, is expressed as JSON documents.
-
-*API Management content* includes entities such as APIs, Operations, Products, Subscriptions.
-
-The portal is based on an adapted fork of the [Paperbits framework](https://paperbits.io/). The original Paperbits functionality has been extended to provide API Management-specific widgets (for example, a list of APIs, a list of Products) and a connector to API Management service for saving and retrieving content.
+If you need to extend the developer portal with custom logic, which isn't supported in the **managed** version, you can extend its codebase and **self-host** the resulting portal outside of your API Management service. Custom extensions can include new widgets, which integrate with third party systems. In this scenario, you become the portal's maintainer and you are responsible for upgrading the portal to the latest version. For details and instructions, refer to the [GitHub repository with the source code of the portal][1] and [the tutorial on implementing a widget][3]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is common for **managed** and **self-hosted** versions.
 
 ## <a name="faq"></a> Frequently asked questions
 
@@ -94,7 +63,11 @@ If you first accessed the portal after the general availability announcement in 
 
 ### Functionality I need isn't supported in the portal
 
-You can open a [feature request](https://aka.ms/apimwish) or [implement the missing functionality yourself][3]. If you implement the functionality yourself, you can either self-host the developer portal or open a pull request on GitHub to include the changes in the managed version.
+You can open a feature request in the [GitHub repository][1] or [implement the missing functionality yourself][3]. If you implement the functionality yourself, you can either self-host the developer portal or open a pull request on GitHub to include the changes in the managed version.
+
+### I found a bug
+
+If you're able to reproduce the bug, file a bug report in the [GitHub repository][1]. Otherwise, request assistance from Azure Support.
 
 ### <a id="automate"></a> How can I automate portal deployments?
 
@@ -124,7 +97,7 @@ In most cases - no.
 
 If your API Management service is in an internal VNet, your developer portal is only accessible from within the network. The management endpoint's host name must resolve to the internal VIP of the service from the machine you use to access the portal's administrative interface. Make sure the management endpoint is registered in the DNS. In case of misconfiguration, you will see an error: `Unable to start the portal. See if settings are specified correctly in the configuration (...)`.
 
-If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the Internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management.
+If your API Management service is in an internal VNet and you're accessing it through Application Gateway from the Internet, make sure to enable connectivity to the developer portal and the management endpoints of API Management. You may need to disable Web Application Firewall rules. Refer to [this documentation article](api-management-howto-integrate-internal-vnet-appgateway.md) for more details.
 
 ### I have assigned a custom API Management domain and the published portal doesn't work
 
@@ -132,7 +105,7 @@ After you update the domain, you need to [republish the portal](api-management-h
 
 ### I have added an identity provider and I can't see it in the portal
 
-After you configure an identity provider (for example, AAD, AAD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect.
+After you configure an identity provider (for example, Azure AD, Azure AD B2C), you need to [republish the portal](api-management-howto-developer-portal-customize.md#publish) for the changes to take effect. Make sure your developer portal pages include the OAuth buttons widget.
 
 ### I have set up delegation and the portal doesn't use it
 
@@ -140,7 +113,7 @@ After you set up delegation, you need to [republish the portal](api-management-h
 
 ### My other API Management configuration changes haven't been propagated in the developer portal
 
-Most configuration changes (for example, VNet, sign-in and product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
+Most configuration changes (for example, VNet, sign-in, product terms) require [republishing the portal](api-management-howto-developer-portal-customize.md#publish).
 
 ### <a name="cors"></a> I'm getting a CORS error when using the interactive console
 
@@ -166,6 +139,10 @@ You can also enable CORS manually.
 > The browser automatically issues an OPTIONS HTTP request, which doesn't contain a header with the subscription key. Because of the missing subscription key, API Management can't associate the OPTIONS call with a Product, so it can't apply the CORS policy.
 >
 > As a workaround you can pass the subscription key in a query parameter.
+
+> [!NOTE]
+> 
+> Only one CORS policy is executed. If you specified multiple CORS policies (for example, on the API level and on the all-APIs level), your interactive console may not work as expected.
 
 ### What permissions do I need to edit the developer portal?
 
