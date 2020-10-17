@@ -18,7 +18,7 @@ In this project, you learn how to use the motion sensor to trigger an event usin
 
 ## What you need
 
-Finish the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) to:
+Finish the [Getting Started Guide](./iot-hub-arduino-iot-devkit-az3166-get-started.md) to:
 
 * Have your DevKit connected to Wi-Fi.
 * Prepare the development environment.
@@ -203,4 +203,4 @@ If you experience other problems, refer to the [IoT DevKit FAQ](https://microsof
 
 Now that you have learned how to connect a DevKit device to your Azure IoT Remote Monitoring solution accelerator and retrieve a tweet, here are the suggested next steps:
 
-* [Azure IoT Remote Monitoring solution accelerator overview](https://docs.microsoft.com/azure/iot-suite/)
+* [Azure IoT Remote Monitoring solution accelerator overview](/azure/iot-suite/)
