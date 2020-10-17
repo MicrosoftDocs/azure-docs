@@ -365,7 +365,7 @@ Optionally, you may enable and on-board data to Azure Sentinel or a third-party 
 
 **Guidance**: Control plane access to Azure Functions is controlled through Azure Active Directory (AD). Azure AD does not have the concept of default passwords.
 
-Data plane access can be controlled through several means, including authorization keys, network restrictions, and validating an AAD identity. Authorization keys are used by the clients connecting to your Azure Functions HTTP endpoints and can be regenerated at any time. These keys are generated for new HTTP endpoints by default.
+Data plane access can be controlled through several means, including authorization keys, network restrictions, and validating an Azure AD identity. Authorization keys are used by the clients connecting to your Azure Functions HTTP endpoints and can be regenerated at any time. These keys are generated for new HTTP endpoints by default.
 
 Multiple deployment methods are available to function apps, some of which may leverage a set of generated credentials. Review the deployment methods that will be used for your application.
 
@@ -462,7 +462,7 @@ In addition, use Azure AD risk detections to view alerts and reports on risky us
 
 - [How to configure your Azure Functions app to use Azure AD login](../app-service/configure-authentication-provider-aad.md)
 
-- [How to create and configure an AAD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
+- [How to create and configure an Azure AD instance](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Azure Security Center monitoring**: Yes
 
