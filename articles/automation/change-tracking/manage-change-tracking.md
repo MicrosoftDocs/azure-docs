@@ -151,28 +151,6 @@ You can do various searches against the Azure Monitor logs for change records. W
 |`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Shows the most recent inventory records for Microsoft services that were set to Auto but were reported as being Stopped. Results are limited to the most recent record for the specified software name and computer.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Shows change records for removed software.|
 
-## Create alerts on changes
-
-The following example shows that the file **c:\windows\system32\drivers\etc\hosts** has been modified on a machine. This file is important because Windows uses it to resolve host names to IP addresses. This operation takes precedence over DNS, and might result in connectivity issues. It can also lead to redirection of traffic to malicious or otherwise dangerous websites.
-
-![Chart showing the hosts file change](./media/manage-change-tracking/changes.png)
-
-Let's use this example to discuss the steps for creating alerts on a change.
-
-1. On the **Change tracking** page from your Automation account, select **Log Analytics**.
-
-2. In the Logs search, look for content changes to the **hosts** file with the query `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. This query looks for content changes for files with fully qualified path names containing the word `hosts`. You can also ask for a specific file by changing the path portion to its fully qualified form, for example, using `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`.
-
-3. After the query returns its results, select **New alert rule** in the log search to open the **Alert creation** page. You can also navigate to this page through **Azure Monitor** in the Azure portal.
-
-4. Check your query again and modify the alert logic. In this case, you want the alert to be triggered if there's even one change detected across all the machines in the environment.
-
-    ![Change to query for tracking changes to hosts file](./media/manage-change-tracking/change-query.png)
-
-5. After the alert logic is set, assign action groups to perform actions in response to triggering of the alert. In this case, we're setting up emails to be sent and an IT Service Management (ITSM) ticket to be created.
-
-    ![Configuring action group to alert on change](./media/manage-change-tracking/action-groups.png)
-
 ## Next steps
 
 * For information about scope configurations, see [Limit Change Tracking and Inventory deployment scope](manage-scope-configurations.md).

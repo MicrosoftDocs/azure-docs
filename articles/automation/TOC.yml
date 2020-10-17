@@ -212,6 +212,8 @@
               href: change-tracking/manage-inventory-vms.md
             - name: Work with scope configurations
               href: change-tracking/manage-scope-configurations.md
+            - name: Configure alerts
+              href: change-tracking/configure-alerts.md
             - name: Disable
               items:
                 - name: Remove Change Tracking and Inventory
