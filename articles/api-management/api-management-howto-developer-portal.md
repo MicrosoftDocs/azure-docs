@@ -12,7 +12,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/14/2020
+ms.date: 10/15/2020
 ms.author: apimpm
 ---
 
@@ -20,7 +20,7 @@ ms.author: apimpm
 
 Developer portal is an automatically generated, fully customizable website with the documentation of your APIs. It is where API consumers can discover your APIs, learn how to use them, request access, and try them out.
 
-This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also explains its architecture, migration from the legacy portal, and provides answers to frequently asked questions.
+This article describes the differences between self-hosted and managed versions of the developer portal in API Management. It also provides answers to frequently asked questions.
 
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
@@ -31,7 +31,7 @@ This article describes the differences between self-hosted and managed versions 
 > [!IMPORTANT]
 > The legacy developer portal is now deprecated and it will receive security updates only. You can continue to use it, as per usual, until its retirement in October 2023, when it will be removed from all API Management services.
 
-Migration to the new developer portal is described in the [dedicated documentation article](developer-portal-legacy-migration.md).
+Migration to the new developer portal is described in the [dedicated documentation article](developer-portal-deprecated-migration.md).
 
 ## Customization and styling
 
@@ -39,9 +39,14 @@ The developer portal can be customized and styled through the built-in, drag-and
 
 ## <a name="managed-vs-self-hosted"></a> Extensibility
 
-Your API Management service includes a built-in, **managed** developer portal.
+Your API Management service includes a built-in, always up-to-date, **managed** developer portal. You can access it from the Azure portal interface.
 
-If you need to extend it with custom logic, which isn't supported out-of-the-box, you can extend its codebase and **self-host** the resulting portal outside of your API Management service. For example, you could implement a new widget, which integrates with a third-party support system. If you self-host the portal, you become the its maintainer and you are responsible for upgrading the portal to the latest version. For details and instructions, refer to the [GitHub repository with the source code of the portal][1] and [the tutorial on implementing a widget][3]. The [tutorial for the managed version](api-management-howto-developer-portal-customize.md) walks through the portal's administrative panel, which is common for **managed** and **self-hosted** versions.
+If you need to extend it with custom logic, which isn't supported out-of-the-box, you can modify its codebase. The portal's codebase is [available in a GitHub repository][1]. For example, you could implement a new widget, which integrates with a third-party support system. When you implement new functionality, you can choose one of the following options:
+
+- **Self-host** the resulting portal outside of your API Management service. When you self-host the portal, you become its maintainer and you are responsible for its upgrades. Azure Support's assistance is limited only to the basic setup of self-hosted portals, as documented in the [Wiki section of the repository][2].
+- Open a pull request for the API Management team to merge new functionality to the **managed** portal's codebase.
+
+For extensibility details and instructions, refer to the [GitHub repository][1] and [the tutorials on implementing a widget][3]. The [tutorial for customizing the managed portal](api-management-howto-developer-portal-customize.md) walks you through the portal's administrative panel, which is common for **managed** and **self-hosted** versions.
 
 ## <a name="faq"></a> Frequently asked questions
 
@@ -63,11 +68,7 @@ If you first accessed the portal after the general availability announcement in 
 
 ### Functionality I need isn't supported in the portal
 
-You can open a feature request in the [GitHub repository][1] or [implement the missing functionality yourself][3]. If you implement the functionality yourself, you can either self-host the developer portal or open a pull request on GitHub to include the changes in the managed version.
-
-### I found a bug
-
-If you're able to reproduce the bug, file a bug report in the [GitHub repository][1]. Otherwise, request assistance from Azure Support.
+You can open a feature request in the [GitHub repository][1] or [implement the missing functionality yourself][3]. See the **Extensibility** section above for more details.
 
 ### <a id="automate"></a> How can I automate portal deployments?
 
