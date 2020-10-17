@@ -14,9 +14,9 @@ ms.topic: how-to
 # Install client tools for deploying and managing Azure Arc enabled data services
 
 > [!IMPORTANT]
-> If you are updating to a new monthly release, please be sure to also update to the latest version of Azure Data Studio, the Azure Data CLI (azdata) tool, and the Azure Data CLI and Azure Arc extensions for Azure Data Studio.
+> If you are updating to a new monthly release, please be sure to also update to the latest version of Azure Data Studio, the Azure Data CLI tool, and the Azure Data CLI and Azure Arc extensions for Azure Data Studio.
 
-This document walks you through the steps for installing the Azure Data CLI (azdata), Azure Data Studio, Azure CLI (az), and the Kubernetes CLI tool (kubectl) on your client machine.
+This document walks you through the steps for installing the Azure Data CLI, Azure Data Studio, Azure CLI (az), and the Kubernetes CLI tool (kubectl) on your client machine.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -26,7 +26,7 @@ The following table lists common tools required for creating and managing Azure 
 
 | Tool | Required | Description | Installation |
 |---|---|---|---|
-| Azure Data CLI (azdata) | Yes | Command-line tool for installing and managing a big data cluster. Azure Data CLI also includes a command line utility to connect to and query Azure SQL and SQL Server instances and Postgres servers using the commands `azdata sql query` (run a single query from the command line), `azdata sql shell` (an interactive shell), `azdata postgres query` and `azdata postgres shell`. | [Install](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
+| Azure Data CLI | Yes | Command-line tool for installing and managing a big data cluster. Azure Data CLI also includes a command line utility to connect to and query Azure SQL and SQL Server instances and Postgres servers using the commands `azdata sql query` (run a single query from the command line), `azdata sql shell` (an interactive shell), `azdata postgres query` and `azdata postgres shell`. | [Install](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
 | Azure Data Studio | Yes | Rich experience tool for connecting to and querying a variety of databases including Azure SQL, SQL Server, PostrgreSQL, and MySQL. Extensions to Azure Data Studio provide an administration experience for Azure Arc enabled data services. | [Install](/sql/azure-data-studio/download-azure-data-studio) |
 | Azure Data CLI extension for Azure Data Studio | Yes | Extension for Azure Data Studio that will install Azure Data CLI if you don't already have it.| Install from extensions gallery in Azure Data Studio.|
 | Azure Arc extension for Azure Data Studio | Yes | Extension for Azure Data Studio that provides a management experience for Azure Arc enabled data services. There is a dependency on the Azure Data CLI extension for Azure Data Studio. | Install from extensions gallery in Azure Data Studio.|

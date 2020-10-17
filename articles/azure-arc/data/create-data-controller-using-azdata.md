@@ -1,6 +1,6 @@
 ---
-title: Create data controller using Azure Data CLI (azdata)
-description: Create an Azure Arc data controller on a typical multi-node Kubernetes cluster which you already have created using the Azure Data CLI (azdata).
+title: Create data controller using Azure Data CLI
+description: Create an Azure Arc data controller on a typical multi-node Kubernetes cluster which you already have created using the Azure Data CLI.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -10,7 +10,7 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ---
-# Create Azure Arc data controller using the Azure Data CLI (azdata)
+# Create Azure Arc data controller using the Azure Data CLI
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 

@@ -19,9 +19,9 @@ This article explains how to configure Azure Arc enabled SQL managed instance.
 
 ## Configure Resources for Azure Arc enabled SQL Managed Instance
 
-### Configure using azdata
+### Configure using Azure Data CLI
 
-You can edit the configuration of Azure Arc enabled SQL Managed Instances with the `azdata` CLI. Run the following command to see configuration options. 
+You can edit the configuration of Azure Arc enabled SQL Managed Instances with the Azure Data CLI. Run the following command to see configuration options. 
 
 ```
 azdata arc sql mi edit --help
