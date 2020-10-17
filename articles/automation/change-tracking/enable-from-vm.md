@@ -34,7 +34,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 4. You must have the `Microsoft.OperationalInsights/workspaces/read` permission to determine if the VM is enabled for a workspace. To learn about additional permissions that are required, see [Feature setup permissions](../automation-role-based-access-control.md#feature-setup-permissions). To learn how to enable multiple machines at once, see [Enable Change Tracking and Inventory from an Automation account](enable-from-automation-account.md).
 
-5. Choose the Log Analytics workspace and Automation account, and click **Enable** to enable Change Tracking and Inventory for the VM. The setup takes up to 15 minutes to complete. 
+5. Choose the Log Analytics workspace and Automation account, and click **Enable** to enable Change Tracking and Inventory for the VM. The setup takes up to 15 minutes to complete.
 
 ## Next steps
 

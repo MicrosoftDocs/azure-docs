@@ -42,7 +42,7 @@ Sign in to Azure at https://portal.azure.com.
 
 5. An existing Log Analytics workspace and Automation account are selected by default. If you want to use a different Log Analytics workspace and Automation account, click **CUSTOM** to select them from the Custom Configuration page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation account. If a linked Automation account is found, you see the following screen. When done, click **OK**.
 
-    ![Select workspace and account](media/enable-from-portal/selectworkspaceandaccount.png)
+    ![Select workspace and account](media/enable-from-portal/select-workspace-and-account.png)
 
 6. If the workspace selected isn't linked to an Automation account, you see the following screen. Select an Automation account and click **OK** when finished.
 
