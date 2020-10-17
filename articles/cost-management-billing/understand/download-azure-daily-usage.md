@@ -23,12 +23,12 @@ Based on the type of subscription that you use, options to download your usage a
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
-    ![Screenshot that shows Azure portal search](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![Screenshot shows Azure portal search for Cost Management + Billing.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Depending on your access, you might need to select a Billing account or Billing profile.
 1. In the left menu, select **Invoices** under **Billing**.
 1. In the invoice grid, find the row of the billing period corresponding to the usage you want to download.
 1. Select the **download icon** or the ellipsis (`...`) on the right.  
-  ![Screenshot showing Usage + charges download location](./media/download-azure-daily-usage/download-usage-others.png)  
+  ![Screenshot shows Cost Management + Billing Invoices page with download option.](./media/download-azure-daily-usage/download-usage-others.png)  
 1. The Download pane opens on the right. Select **Download** from the **Usage Details** section.  
 
 ## Download usage for EA customers
@@ -37,10 +37,10 @@ To view and download usage data as a EA customer, you must be an Enterprise Admi
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for *Cost Management + Billing*.  
-    ![Screenshot that shows Azure portal search](./media/download-azure-daily-usage/portal-cm-billing-search.png)
+    ![Screenshot shows Azure portal search.](./media/download-azure-daily-usage/portal-cm-billing-search.png)
 1. Select **Usage + charges**.
 1. For the month you want to download, select **Download**.  
-    ![Screenshot showing Usage + charges download location](./media/download-azure-daily-usage/download-usage-ea.png)
+    ![Screenshot shows Cost Management + Billing Invoices page for E A customers.](./media/download-azure-daily-usage/download-usage-ea.png)
 
 ## Download usage for pending charges
 

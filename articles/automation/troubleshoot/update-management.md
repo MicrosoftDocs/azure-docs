@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Automation Update Management issues
 description: This article tells how to troubleshoot and resolve issues with Azure Automation Update Management.
 services: automation
-ms.date: 09/25/2020
+ms.date: 10/14/2020
 ms.topic: conceptual
 ms.service: automation
 ---
@@ -52,27 +52,25 @@ Old updates are appearing for an Automation account as missing even though they'
 
 ### Cause
 
-Superseded updates aren't correctly indicated as declined so that they can be considered not applicable.
+Superseded updates aren't declined in Windows Server Update Services (WSUS) so that they can be considered not applicable.
 
 ### Resolution
 
-When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to `Declined`. To change approval state for all your updates:
+When a superseded update becomes 100 percent not applicable, you should change the approval state of that update to `Declined` in WSUS. To change approval state for all your updates:
 
 1. In the Automation account, select **Update Management** to view machine status. See [View update assessments](../update-management/update-mgmt-view-update-assessments.md).
 
 2. Check the superseded update to make sure that it's 100 percent not applicable.
 
-3. Mark the update as declined unless you have a question about the update.
+3. On the WSUS server the machines report to, [decline the update](/windows-server/administration/windows-server-update-services/manage/updates-operations#declining-updates).
 
 4. Select **Computers** and, in the **Compliance** column, force a rescan for compliance. See [Manage updates for VMs](../update-management/update-mgmt-manage-updates-for-vm.md).
 
 5. Repeat the steps above for other superseded updates.
 
-6. Run the cleanup wizard to delete files from the declined updates. 
+6. For Windows Server Update Services (WSUS), clean all superseded updates to refresh the infrastructure using the WSUS [Server cleanup Wizard](/windows-server/administration/windows-server-update-services/manage/the-server-cleanup-wizard).
 
-7. For Windows Server Update Services (WSUS), manually clean all superseded updates to refresh the infrastructure.
-
-8. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
+7. Repeat this procedure regularly to correct the display issue and minimize the amount of disk space used for update management.
 
 ## <a name="nologs"></a>Scenario: Machines don't show up in the portal under Update Management
 
@@ -221,7 +219,7 @@ Here are possible causes for this issue:
 
 #### Incorrect access on selected scopes
 
-The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using RBAC and the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
+The Azure portal only displays machines for which you have write access in a given scope. If you don't have the correct access for a scope, see [Tutorial: Grant a user access to Azure resources using the Azure portal](../../role-based-access-control/quickstart-assign-role-user-portal.md).
 
 #### ARG query doesn't return expected machines
 
@@ -483,6 +481,8 @@ Verify that the system account has read access to the **C:\ProgramData\Microsoft
 The default maintenance window for updates is 120 minutes. You can increase the maintenance window to a maximum of 6 hours, or 360 minutes.
 
 ### Resolution
+
+To understand why this occurred during an update run after it starts successfully, [check the job output](../update-management/update-mgmt-deploy-updates.md#view-results-of-a-completed-update-deployment) from the affected machine in the run. You might find specific error messages from your machines that you can research and take action on.  
 
 Edit any failing scheduled update deployments, and increase the maintenance window.
 

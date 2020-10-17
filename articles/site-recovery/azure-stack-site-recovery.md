@@ -309,26 +309,7 @@ Then run a failover as follows:
 
 ### Fail back to Azure Stack
 
-When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, you need to download the Azure VM VHD, and upload it to Azure Stack.
-
-1. Shut down the Azure VM, so that the VHD can be downloaded.
-2. To start downloading the VHD, install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
-3. Navigate to the VM in the Azure Portal (using the VM name).
-4. In **Disks**, click on the disk name, and gather settings.
-
-    - As an example, the VHD URI used in our test: `https://502055westcentralus.blob.core.windows.net/wahv9b8d2ceb284fb59287/copied-3676553984.vhd` can be broken down to get the following input parameters that are used to download the VHD.
-        - Storage Account: 502055westcentralus
-        - Container: wahv9b8d2ceb284fb59287
-        - VHD Name: copied-3676553984.vhd
-
-5. Now, use Azure Storage Explorer to download the VHD.
-6. Upload the VHD to Azure Stack with [these steps](/azure-stack/user/azure-stack-manage-vm-disks#use-powershell-to-add-multiple-disks-to-a-vm).
-7. In the existing VM or new VM, attach the uploaded VHDs.
-8. Check that the OS Disk is correct, and start the VM.
-
-
-At this stage failback is complete.
-
+When your primary site is up and running again, you can fail back from Azure to Azure Stack. To do this, follow the steps listed out [here](https://docs.microsoft.com/azure-stack/operator/site-recovery-failback?view=azs-2005).
 
 ## Conclusion
 

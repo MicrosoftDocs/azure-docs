@@ -191,7 +191,7 @@ If you want to delegate the required approval to activate a role, follow these s
 
 1. Set the **Require approval** switch to **Enabled**. The pane expands with options to select approvers.
 
-    ![Azure AD roles - Settings - Require approval](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Screenshot that shows the "Require approval" switch with "Enable" selected.](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     If you don't specify any approvers, the Privileged role administrator becomes the default approver and is then required to approve all activation requests for this role.
 

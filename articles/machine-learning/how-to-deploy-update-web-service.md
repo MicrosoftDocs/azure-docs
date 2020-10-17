@@ -6,11 +6,11 @@ description: Learn how to refresh a web service that is already deployed in Azur
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-
+ms.reviewer: larryfr
 ms.author: gopalv
 author: gvashishtha
 ms.date: 07/31/2020
-
+ms.custom: deploy
 ---
 
 # Update a deployed web service

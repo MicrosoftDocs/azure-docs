@@ -33,7 +33,7 @@ landingContent:
         links:
           - text: Onboard a customer to Azure Lighthouse
             url: ./how-to/onboard-customer.md
-          - text: Link your ID for partner earned credit
+          - text: Link your partner ID
             url: ./how-to/partner-earned-credit.md
       - linkListType: concept
         links:

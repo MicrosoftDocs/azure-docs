@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/15/2020
+ms.date: 10/13/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -60,7 +60,7 @@ The **OrchestrationStep** element contains the following attributes:
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
 | `Order` | Yes | The order of the orchestration steps. |
-| `Type` | Yes | The type of the orchestration step. Possible values: <ul><li>**ClaimsProviderSelection** - Indicates that the orchestration step presents various claims providers to the user to select one.</li><li>**CombinedSignInAndSignUp** - Indicates that the orchestration step presents a combined social provider sign-in and local account sign-up page.</li><li>**ClaimsExchange** - Indicates that the orchestration step exchanges claims with a claims provider.</li><li>**GetClaims** - Specifies that the orchestration step should process claim data sent to Azure AD B2C from the relying party via its `InputClaims` configuration.</li><li>**InvokeSubJourney** - Indicates that the orchestration step exchanges claims with a sub journey (in public preview).</li><li>**SendClaims** - Indicates that the orchestration step sends the claims to the relying party with a token issued by a claims issuer.</li></ul> |
+| `Type` | Yes | The type of the orchestration step. Possible values: <ul><li>**ClaimsProviderSelection** - Indicates that the orchestration step presents various claims providers to the user to select one.</li><li>**CombinedSignInAndSignUp** - Indicates that the orchestration step presents a combined social provider sign-in and local account sign-up page.</li><li>**ClaimsExchange** - Indicates that the orchestration step exchanges claims with a claims provider.</li><li>**GetClaims** - Specifies that the orchestration step should process claim data sent to Azure AD B2C from the relying party via its `InputClaims` configuration.</li><li>**InvokeSubJourney** - Indicates that the orchestration step exchanges claims with a [sub journey](subjourneys.md) (in public preview).</li><li>**SendClaims** - Indicates that the orchestration step sends the claims to the relying party with a token issued by a claims issuer.</li></ul> |
 | ContentDefinitionReferenceId | No | The identifier of the [content definition](contentdefinitions.md) associated with this orchestration step. Usually the content definition reference identifier is defined in the self-asserted technical profile. But, there are some cases when Azure AD B2C needs to display something without a technical profile. There are two examples - if the type of the orchestration step is one of following: `ClaimsProviderSelection` or  `CombinedSignInAndSignUp`, Azure AD B2C needs to display the identity provider selection without having a technical profile. |
 | CpimIssuerTechnicalProfileReferenceId | No | The type of the orchestration step is `SendClaims`. This property defines the technical profile identifier of the claims provider that issues the token for the relying party.  If absent, no relying party token is created. |
 
@@ -243,4 +243,4 @@ The **Candidate** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| SubJourneyReferenceId | Yes | The identifier of the sub journey that is to be executed. |
+| SubJourneyReferenceId | Yes | The identifier of the [sub journey](subjourneys.md) that is to be executed. |

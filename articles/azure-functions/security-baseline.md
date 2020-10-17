@@ -86,7 +86,7 @@ In addition, configure a front-end gateway, such as Azure Web Application Firewa
 
 - [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/threat-protection.md)
+- [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 - [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -544,7 +544,7 @@ You may also use Private Endpoints to perform network isolation. An Azure Privat
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -648,7 +648,7 @@ In addition, follow recommendations from Azure Security Center to help secure yo
 
 - [How to add continuous security validation to your CI/CD pipeline](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/security-center-vulnerability-assessment-recommendations.md)
+- [How to implement Azure Security Center vulnerability assessment recommendations](../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -728,7 +728,7 @@ Allowed resource types
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -1090,7 +1090,7 @@ If you are using customer-managed-keys, ensure Soft-Delete in Key Vault is enabl
 
 - [Azure Storage encryption at rest](../storage/common/storage-service-encryption.md)
 
-- [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Yes
 

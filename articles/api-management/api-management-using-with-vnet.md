@@ -106,7 +106,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 <a name="required-ports"> </a>
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
-| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/security-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | Virtual Network type |
+| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose (\*)                                                 | Virtual Network type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                      | External             |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell         | External & Internal  |
@@ -150,7 +150,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 + **Azure Load Balancer**: Allowing Inbound request from Service Tag `AZURE_LOAD_BALANCER` is not a requirement for the `Developer` SKU, since we only deploy one unit of Compute behind it. But Inbound from [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) becomes critical when scaling to higher SKU like `Premium`, as failure of Health Probe from Load Balancer, fails a deployment.
 
-+ **Application Insights**: If [Azure Application Insights](api-management-howto-app-insights.md) monitoring is enabled on API Management, then we need to allow outbound connectivity to the [Telemetry endpoint](/azure/azure-monitor/app/ip-addresses#outgoing-ports) from the Virtual Network. 
++ **Application Insights**: If [Azure Application Insights](api-management-howto-app-insights.md) monitoring is enabled on API Management, then we need to allow outbound connectivity to the [Telemetry endpoint](../azure-monitor/app/ip-addresses.md#outgoing-ports) from the Virtual Network. 
 
 + **Force Tunneling Traffic to On-premises Firewall Using Express Route or Network Virtual Appliance**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces all traffic from the API Management delegated subnet to flow through an on-premises firewall or to a Network virtual appliance. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution requires you to do a couple of things:
 
@@ -200,7 +200,7 @@ Each additional scale unit of API Management requires two more IP addresses.
 
 ## <a name="control-plane-ips"> </a> Control Plane IP Addresses
 
-The IP Addresses are divided by **Azure Environment**. When allowing inbound requests IP address marked with **Global** must be whitelisted along with the **Region** specific IP Address.
+The IP Addresses are divided by **Azure Environment**. When allowing inbound requests IP address marked with **Global** must be allowed along with the **Region** specific IP Address.
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
@@ -220,6 +220,7 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 | Azure Public| Canada East| 52.139.80.117|
 | Azure Public| UAE North| 20.46.144.85|
 | Azure Public| Brazil South| 191.233.24.179|
+| Azure Public| Brazil Southeast| 191.232.18.181|
 | Azure Public| Southeast Asia| 40.90.185.46|
 | Azure Public| South Africa North| 102.133.130.197|
 | Azure Public| Canada Central| 52.139.20.34|
@@ -268,7 +269,7 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 * [Connecting a Virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
 * [Virtual Network Frequently asked Questions](../virtual-network/virtual-networks-faq.md)
-* [Service tags](../virtual-network/security-overview.md#service-tags)
+* [Service tags](../virtual-network/network-security-groups-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-select.png
@@ -281,6 +282,6 @@ The IP Addresses are divided by **Azure Environment**. When allowing inbound req
 [Related content]: #related-content
 
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[Network Security Group]: ../virtual-network/security-overview.md
+[Network Security Group]: ../virtual-network/network-security-groups-overview.md
 [ServiceEndpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md
-[ServiceTags]: ../virtual-network/security-overview.md#service-tags
+[ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags

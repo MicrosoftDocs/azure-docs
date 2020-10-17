@@ -30,7 +30,7 @@ Here are some use cases for Connection Monitor (Preview):
 - Your hybrid application needs connectivity to an Azure Storage endpoint. Your on-premises site and your Azure application connect to the same Azure Storage endpoint. You want to compare the latencies of the on-premises site to the latencies of the Azure application.
 - You want to check the connectivity between your on-premises setups and the Azure VMs that host your cloud application.
 
-In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity) feature.
+In its preview phase, Connection Monitor combines the best of two features: the Network Watcher [Connection Monitor](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#monitor-communication-between-a-virtual-machine-and-an-endpoint) feature and the Network Performance Monitor (NPM) [Service Connectivity Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitoring](https://docs.microsoft.com/azure/expressroute/how-to-npm), and [Performance Monitoring](https://docs.microsoft.com/azure/azure-monitor/insights/network-performance-monitor-performance-monitor) feature.
 
 Here are some benefits of Connection Monitor (Preview):
 
@@ -90,9 +90,8 @@ Sources can be Azure VMs or on-premises machines that have an installed monitori
 1. On the Azure portal home page, go to **Network Watcher**.
 1. On the left, in the **Monitoring** section, select **Connection Monitor (Preview)**.
 1. You see all of the connection monitors that were created in Connection Monitor (Preview). To see the connection monitors that were created in the classic experience of Connection Monitor, go to the **Connection Monitor** tab.
-
-    ![Screenshot showing connection monitors that were created in Connection Monitor (Preview)](./media/connection-monitor-2-preview/cm-resource-view.png)
-
+    
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-resource-view.png" alt-text="Screenshot showing connection monitors that were created in Connection Monitor (Preview)" lightbox="./media/connection-monitor-2-preview/cm-resource-view.png":::
 
 ### Create a connection monitor
 
@@ -140,9 +139,7 @@ Connection monitors have the following scale limits:
 * Maximum connection monitors per subscription per region: 100
 * Maximum test groups per connection monitor: 20
 * Maximum sources and destinations per connection monitor: 100
-* Maximum test configurations per connection monitor: 
-    * 20 via ARMClient
-    * 2 via the Azure portal
+* Maximum test configurations per connection monitor: 20
 
 ## Analyze monitoring data and set alerts
 
@@ -152,7 +149,7 @@ After you create a connection monitor, sources check connectivity to destination
 
 Based on the protocol that you chose in the test configuration, Connection Monitor (Preview) runs a series of checks for the source-destination pair. The checks run according to the test frequency that you chose.
 
-If you use HTTP, the service calculates the number of HTTP responses that returned a response code. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
+If you use HTTP, the service calculates the number of HTTP responses that returned a valid response code. Valid response codes can be set using PowerShell and CLI. The result determines the percentage of failed checks. To calculate RTT, the service measures the time between an HTTP call and the response.
 
 If you use TCP or ICMP, the service calculates the packet-loss percentage to determine the percentage of failed checks. To calculate RTT, the service measures the time taken to receive the acknowledgment (ACK) for the packets that were sent. If you enabled traceroute data for your network tests, you can see hop-by-hop loss and latency for your on-premises network.
 
@@ -162,7 +159,11 @@ Based on the data that the checks return, tests can have the following states:
 
 * **Pass** – Actual values for the percentage of failed checks and RTT are within the specified thresholds.
 * **Fail** – Actual values for the percentage of failed checks or RTT exceeded the specified thresholds. If no threshold is specified, then a test reaches the Fail state when the percentage of failed checks is 100.
-* **Warning** – No criteria was specified for the percentage of failed checks. In the absence of specified criteria, Connection Monitor (Preview) automatically assigns a threshold. When that threshold is exceeded, the test status changes to Warning.
+* **Warning** – 
+     * If threshold is specified and Connection Monitor(Preview) observes checks failed percent more than 80% of threshold,  the test is marked as warning.
+     * In the absence of specified thresholds, Connection Monitor (Preview) automatically assigns a threshold. When that threshold is exceeded, the test status changes to Warning. For round trip time in TCP or ICMP tests, the threshold is 750msec. For checks failed percent , the threshold is 10%. 
+* **Indeterminate** – No data in Log Analytics Workspace.  Check metrics. 
+* **Not Running** – Disabled by disabling test group  
 
 ### Data collection, analysis, and alerts
 
@@ -188,77 +189,71 @@ On the dashboard, you can expand each connection monitor to see its test groups.
 
 You can filter a list based on:
 
-* **Top-level filters** – Choose subscriptions, regions, time stamp sources, and destination types. See box 2 in the following image.
-* **State-based filters** – Filter by the state of the connection monitor, test group, or test. See arrow 3 in the following image.
-* **Custom filters** – Choose **Select all** to do a generic search. To search by a specific entity, select from the drop-down list. See arrow 4 in the following image.
+* **Top-level filters** – Search list by text, entity type (Connection Monitor, test group or test) timestamp and scope. Scope includes subscriptions, regions,  sources, and destination types. See box 1 in the following image.
+* **State-based filters** – Filter by the state of the connection monitor, test group, or test. See box 2 in the following image.
+* **Alert based filter** - Filter by alerts fired on the connection monitor resource. See box 3 in the following image.
 
-![Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection Monitor (Preview)](./media/connection-monitor-2-preview/cm-view.png)
-
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-view.png" alt-text="Screenshot showing how to filter views of connection monitors, test groups, and tests in Connection Monitor (Preview)" lightbox="./media/connection-monitor-2-preview/cm-view.png":::
+    
 For example, to look at all tests in Connection Monitor (Preview) where the source IP is 10.192.64.56:
 1. Change the view to **Test**.
 1. In the search field, type *10.192.64.56*
-1. In the drop-down list, select **Sources**.
+1. In **Scope** in top level filter, select **Sources**.
 
 To show only failed tests in Connection Monitor (Preview) where the source IP is 10.192.64.56:
 1. Change the view to **Test**.
 1. For the state-based filter, select **Fail**.
 1. In the search field, type *10.192.64.56*
-1. In the drop-down list, select **Sources**.
+1. In **Scope** in top level filter, select **Sources**.
 
 To show only failed tests in Connection Monitor (Preview) where the destination is outlook.office365.com:
 1. Change view to **Test**.
 1. For the state-based filter, select **Fail**.
 1. In the search field, enter *outlook.office365.com*
-1. In the drop-down list, select **Destinations**.
+1. In **Scope** in top level filter, select **Destinations**.
+  
+  :::image type="content" source="./media/connection-monitor-2-preview/tests-view.png" alt-text="Screenshot showing a view that's filtered to show only failed tests for the Outlook.Office365.com destination" lightbox="./media/connection-monitor-2-preview/tests-view.png":::
 
-   ![Screenshot showing a view that's filtered to show only failed tests for the Outlook.Office365.com destination](./media/connection-monitor-2-preview/tests-view.png)
-
+To know reason  for failure of a Connection monitor or test group or test, click the column named reason.  This tells which threshold ( checks failed % or  RTT) was breached and related diagnostic messages
+  
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-reason-of-failure.png" alt-text="Screenshot showing reason of failure for a connection monitor, test or test group" lightbox="./media/connection-monitor-2-preview/cm-reason-of-failure.png":::
+    
 To view the trends in RTT and the percentage of failed checks for a connection monitor:
-1. Select the connection monitor that you want to investigate. By default, the monitoring data is organized by test group.
+1. Select the connection monitor that you want to investigate.
 
-   ![Screenshot showing metrics for a connection monitor, displayed by test group](./media/connection-monitor-2-preview/cm-drill-landing.png)
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing.png" alt-text="Screenshot showing metrics for a connection monitor, displayed by test group" lightbox="./media/connection-monitor-2-preview/cm-drill-landing.png":::
 
-1. Choose the test group that you want to investigate.
+1. You will see the following sections  
+    1. Essentials - Resource specific properties of the selected Connection Monitor 
+    1. Summary - 
+        1. Aggregated trendlines for RTT and percentage of failed checks for all tests in the connection monitor. You can set a specific time to view the details.
+        1. Top 5 across test groups, sources and destinations  based on the RTT or percentage of failed checks. 
+    1. Tabs for Test Groups , Sources, Destinations and Test Configurations- Lists test groups, sources or destinations in the Connection Monitor. Check tests  failed, aggregate RTT and checks failed % values.  You can also go back in time to view data. 
+    1. Issues - Hop level issues for each test in the Connection Monitor. 
 
-   ![Screenshot showing where to select a test group](./media/connection-monitor-2-preview/cm-drill-select-tg.png)
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-drill-landing-2.png" alt-text="Screenshot showing metrics for a connection monitor, displayed by test group part 2" lightbox="./media/connection-monitor-2-preview/cm-drill-landing-2.png":::
 
-    You see your test group's top five failed tests, based on the RTT or percentage of failed checks. For each test, you see the RTT and trend lines for the percentage of failed checks.
-1. Select a test from the list, or choose another test to investigate. For your time interval and the percentage of failed checks, you see threshold and actual values. For RTT, you see the values for threshold, average, minimum, and maximum.
+1. You can
+    * Click View all tests - to view all tests in the Connection Monitor
+    * Click View all test groups, test configurations, sources and destinations - to view  details specific to each. 
+    * Choose a test group, test configuration, source or destination - to view all tests in the entity.
 
-   ![Screenshot showing a test's results for RTT and percentage of failed checks](./media/connection-monitor-2-preview/cm-drill-charts.png)
-
-1. Change the time interval to view more data.
-1. Change the view to see sources, destinations, or test configurations. 
-1. Choose a source based on failed tests, and investigate the top five failed tests. For example, choose **View by** > **Sources** and **View by** > **Destinations** to investigate the relevant tests in the connection monitor.
-
-   ![Screenshot showing performance metrics for the top five failed tests](./media/connection-monitor-2-preview/cm-drill-select-source.png)
+1. From the view all tests view, you can:
+    * Select tests and click compare.
+    
+    :::image type="content" source="./media/connection-monitor-2-preview/cm-compare-test.png" alt-text="Screenshot showing comparison of 2 tests" lightbox="./media/connection-monitor-2-preview/cm-compare-test.png":::
+    
+    * Use cluster to expand compound resources like VNET, Subnets to its child resources
+    * View topology for any tests by clicking topology.
 
 To view the trends in RTT and the percentage of failed checks for a test group:
-
 1. Select the test group that you want to investigate. 
-
-    By default, the monitoring data is arranged by sources, destinations, and test configurations (tests). Later, you can change the view from test groups to sources, destinations, or test configurations. Then choose an entity to investigate the top five failed tests. For example, change the view to sources and destinations to investigate the relevant tests in the selected connection monitor.
-1. Choose the test that you want to investigate.
-
-   ![Screenshot showing where to select a test](./media/connection-monitor-2-preview/tg-drill.png)
-
-    For your time interval and for your percentage of failed checks, you see threshold values and actual values. For RTT, you see values for threshold, average, minimum, and maximum. You also see fired alerts for the test that you selected.
-1. Change the time interval to view more data.
+1. You will view similar to connection monitor - essentials, summary, table for test groups, sources, destinations and test configurations. Navigate them like you would do for a connection monitor
 
 To view the trends in RTT and the percentage of failed checks for a test:
-1. Select the source, destination, and test configuration that you want to investigate.
+1. Select the test that you want to investigate. You will see the network topology and the end to end trend charts for checks failed % and round trip time. To see the identified issues, in the topology, select any hop in the path. (These hops are Azure resources.) This functionality isn't currently available for on-premises networks
 
-    For your time interval and for the percentage of failed checks, you see threshold values and actual values. For RTT, you see values for threshold, average, minimum, and maximum. You also see fired alerts for the test that you selected.
-
-   ![Screenshot showing metrics for a test](./media/connection-monitor-2-preview/test-drill.png)
-
-1. To see the network topology, select **Topology**.
-
-   ![Screenshot showing the network Topology tab](./media/connection-monitor-2-preview/test-topo.png)
-
-1. To see the identified issues, in the topology, select any hop in the path. (These hops are Azure resources.) This functionality isn't currently available for on-premises networks.
-
-   ![Screenshot showing a selected hop link on the Topology tab](./media/connection-monitor-2-preview/test-topo-hop.png)
+  :::image type="content" source="./media/connection-monitor-2-preview/cm-test-topology.png" alt-text="Screenshot showing topology view of a test" lightbox="./media/connection-monitor-2-preview/cm-test-topology.png":::
 
 #### Log queries in Log Analytics
 
@@ -268,7 +263,7 @@ Use Log Analytics to create custom views of your monitoring data. All data that 
 
 In connection monitors that were created before the Connection Monitor (Preview) experience, all four metrics are available: % Probes Failed, AverageRoundtripMs, ChecksFailedPercent (Preview), and RoundTripTimeMs (Preview). In connection monitors that were created in the Connection Monitor (Preview) experience, data is available only for the metrics that are tagged with *(Preview)*.
 
-![Screenshot showing metrics in Connection Monitor (Preview)](./media/connection-monitor-2-preview/monitor-metrics.png)
+  :::image type="content" source="./media/connection-monitor-2-preview/monitor-metrics.png" alt-text="Screenshot showing metrics in Connection Monitor (Preview)" lightbox="./media/connection-monitor-2-preview/monitor-metrics.png":::
 
 When you use metrics, set the resource type as Microsoft.Network/networkWatchers/connectionMonitors
 
@@ -279,24 +274,27 @@ When you use metrics, set the resource type as Microsoft.Network/networkWatchers
 | ChecksFailedPercent (Preview) | % Checks Failed (Preview) | Percentage | Average | Percentage of failed checks for a test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 | RoundTripTimeMs (Preview) | Round-trip Time (ms) (Preview) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
 
-#### Metric alerts in Azure Monitor
+#### Metric based alerts for Connection Monitor
 
-To create an alert in Azure Monitor:
+You can create metric alerts on connection monitors using the methods below 
 
-1. Choose the connection monitor resource that you created in Connection Monitor (Preview).
-1. Ensure that **Metric** shows up as signal type for the connection monitor.
-1. In **Add Condition**, for the **Signal Name**, select **ChecksFailedPercent(Preview)** or **RoundTripTimeMs(Preview)**.
-1. For **Signal Type**, choose **Metrics**. For example, select **ChecksFailedPercent(Preview)**.
-1. All of the dimensions for the metric are listed. Choose the dimension name and dimension value. For example, select **Source Address** and then enter the IP address of any source in your connection monitor.
-1. In **Alert Logic**, fill in the following details:
-   * **Condition Type**: **Static**.
-   * **Condition** and **Threshold**.
-   * **Aggregation Granularity and Frequency of Evaluation**: Connection Monitor (Preview) updates data every minute.
-1. In **Actions**, choose your action group.
-1. Provide alert details.
-1. Create the alert rule.
+1. From Connection Monitor(Preview), during creation of Connection Monitor [using Azure portal](connection-monitor-preview-create-using-portal.md#) 
+1. From Connection Monitor (Preview), using "Configure Alerts" in the dashboard 
+1. From Azure Monitor - To create an alert in Azure Monitor: 
+    1. Choose the connection monitor resource that you created in Connection Monitor (Preview).
+    1. Ensure that **Metric** shows up as signal type for the connection monitor.
+    1. In **Add Condition**, for the **Signal Name**, select **ChecksFailedPercent(Preview)** or **RoundTripTimeMs(Preview)**.
+    1. For **Signal Type**, choose **Metrics**. For example, select **ChecksFailedPercent(Preview)**.
+    1. All of the dimensions for the metric are listed. Choose the dimension name and dimension value. For example, select **Source Address** and then enter the IP address of any source in your connection monitor.
+    1. In **Alert Logic**, fill in the following details:
+        * **Condition Type**: **Static**.
+        * **Condition** and **Threshold**.
+        * **Aggregation Granularity and Frequency of Evaluation**: Connection Monitor (Preview) updates data every minute.
+    1. In **Actions**, choose your action group.
+    1. Provide alert details.
+    1. Create the alert rule.
 
-   ![Screenshot showing the Create rule area in Azure Monitor; "Source address" and "Source endpoint name" are highlighted](./media/connection-monitor-2-preview/mdm-alerts.jpg)
+  :::image type="content" source="./media/connection-monitor-2-preview/mdm-alerts.jpg" alt-text="Screenshot showing the Create rule area in Azure Monitor. Source address and Source endpoint name are highlighted" lightbox="./media/connection-monitor-2-preview/mdm-alerts.jpg":::
 
 ## Diagnose issues in your network
 
@@ -343,3 +341,8 @@ For networks whose sources are Azure VMs, the following issues can be detected:
 * Traffic stopped because of system routes or UDR.
 * BGP isn't enabled on the gateway connection.
 * The DIP probe is down at the load balancer.
+
+## Next Steps
+    
+   * Learn [How to create Connection Monitor (Preview) using Azure portal](connection-monitor-preview-create-using-portal.md)  
+   * Learn [How to create Connection Monitor (Preview) using ARMClient](connection-monitor-preview-create-using-arm-client.md)  

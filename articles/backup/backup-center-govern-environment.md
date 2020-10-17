@@ -11,6 +11,8 @@ Backup Center helps you govern your Azure environment to ensure that all your re
 
 * View and assign Azure Policies for backup
 
+* View compliance of your resources on all the built-in Azure Policies for backup.
+
 * View all datasources that haven't been configured for backup.
 
 ## Supported scenarios
@@ -24,6 +26,12 @@ To view all the [Azure Policies](https://docs.microsoft.com/azure/governance/pol
 Selecting any of the definitions allows you to [assign the policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage#assign-a-policy) to a scope.
 
 ![Select Azure Policy definitions](./media/backup-center-govern-environment/azure-policy-definitions.png)
+
+## Backup compliance
+
+Clicking on the Backup Compliance menu item helps you view the [compliance](https://docs.microsoft.com/azure/governance/policy/how-to/get-compliance-data) of your resources according to the various built-in policies that you've assigned to your Azure environment. You can view the percentage of resources that are compliant on all policies, as well as the policies that have one or more non-compliant resources.
+
+![View Backup Compliance](./media/backup-center-govern-environment/azure-policy-compliance.png)
 
 ## Protectable datasources
 

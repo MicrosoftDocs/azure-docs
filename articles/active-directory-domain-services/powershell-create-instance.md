@@ -2,7 +2,7 @@
 title: Enable Azure DS Domain Services using PowerShell | Microsoft Docs
 description: Learn how to configure and enable Azure Active Directory Domain Services using Azure AD PowerShell and Azure PowerShell.
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: d4bc5583-6537-4cd9-bc4b-7712fdd9272a
@@ -10,8 +10,8 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: sample
-ms.date: 07/09/2020
-ms.author: iainfou 
+ms.date: 10/02/2020
+ms.author: joflore 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -50,26 +50,33 @@ New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
 Now create an Azure AD group named *AAD DC Administrators*. Users added to this group are then granted permissions to perform administration tasks on the managed domain.
 
-Create the *AAD DC Administrators* group using the [New-AzureADGroup][New-AzureADGroup] cmdlet:
+First, get the *AAD DC Administrators* group object ID using the [Get-AzureADGroup][Get-AzureADGroup] cmdlet. If the group doesn't exist, create it with the *AAD DC Administrators* group using the [New-AzureADGroup][New-AzureADGroup] cmdlet:
 
 ```powershell
-New-AzureADGroup -DisplayName "AAD DC Administrators" `
-  -Description "Delegated group to administer Azure AD Domain Services" `
-  -SecurityEnabled $true -MailEnabled $false `
-  -MailNickName "AADDCAdministrators"
-```
-
-With the *AAD DC Administrators* group created, add a user to the group using the [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet. You first get the *AAD DC Administrators* group object ID using the [Get-AzureADGroup][Get-AzureADGroup] cmdlet, then the desired user's object ID using the [Get-AzureADUser][Get-AzureADUser] cmdlet.
-
-In the following example, the user object ID for the account with a UPN of `admin@contoso.onmicrosoft.com`. Replace this user account with the UPN of the user you wish to add to the *AAD DC Administrators* group:
-
-```powershell
-# First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
+# First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
   -Filter "DisplayName eq 'AAD DC Administrators'" | `
   Select-Object ObjectId
 
-# Now, retrieve the object ID of the user you'd like to add to the group.
+# If the group doesn't exist, create it
+if (!$GroupObjectId) {
+  $GroupObjectId = New-AzureADGroup -DisplayName "AAD DC Administrators" `
+    -Description "Delegated group to administer Azure AD Domain Services" `
+    -SecurityEnabled $true `
+    -MailEnabled $false `
+    -MailNickName "AADDCAdministrators"
+  }
+else {
+  Write-Output "Admin group already exists."
+}
+```
+
+With the *AAD DC Administrators* group created, get the desired user's object ID using the [Get-AzureADUser][Get-AzureADUser] cmdlet, then add the user to the group using the [Add-AzureADGroupMember][Add-AzureADGroupMember] cmdlet..
+
+In the following example, the user object ID for the account with a UPN of `admin@contoso.onmicrosoft.com`. Replace this user account with the UPN of the user you wish to add to the *AAD DC Administrators* group:
+
+```powershell
+# Retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
   -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
   Select-Object ObjectId
@@ -104,9 +111,9 @@ Create the subnets using the [New-AzVirtualNetworkSubnetConfig][New-AzVirtualNet
 
 ```powershell
 $VnetName = "myVnet"
-$SubnetName = "DomainServices"
 
 # Create the dedicated subnet for Azure AD Domain Services.
+$SubnetName = "DomainServices"
 $AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name $SubnetName `
   -AddressPrefix 10.0.0.0/24
@@ -175,7 +182,7 @@ $nsg = New-AzNetworkSecurityGroup -Name $NSGName `
     -SecurityRules $nsg101,$nsg201,$nsg301
 
 # Get the existing virtual network resource objects and information
-$vnet = Get-AzVirtualNetwork -Name $VnetName
+$vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $ResourceGroupName
 $subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $SubnetName
 $addressPrefix = $subnet.AddressPrefix
 
@@ -203,6 +210,7 @@ $ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+  -ApiVersion "2017-06-01" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `
@@ -242,16 +250,22 @@ Connect-AzAccount
 # Create the service principal for Azure AD Domain Services.
 New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
 
-# Create the delegated administration group for AAD Domain Services.
-New-AzureADGroup -DisplayName "AAD DC Administrators" `
-  -Description "Delegated group to administer Azure AD Domain Services" `
-  -SecurityEnabled $true -MailEnabled $false `
-  -MailNickName "AADDCAdministrators"
-
-# First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
+# First, retrieve the object ID of the 'AAD DC Administrators' group.
 $GroupObjectId = Get-AzureADGroup `
   -Filter "DisplayName eq 'AAD DC Administrators'" | `
   Select-Object ObjectId
+
+# Create the delegated administration group for Azure AD Domain Services if it doesn't already exist.
+if (!$GroupObjectId) {
+  $GroupObjectId = New-AzureADGroup -DisplayName "AAD DC Administrators" `
+    -Description "Delegated group to administer Azure AD Domain Services" `
+    -SecurityEnabled $true `
+    -MailEnabled $false `
+    -MailNickName "AADDCAdministrators"
+  }
+else {
+  Write-Output "Admin group already exists."
+}
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
@@ -270,6 +284,7 @@ New-AzResourceGroup `
   -Location $AzureLocation
 
 # Create the dedicated subnet for AAD Domain Services.
+$SubnetName = "DomainServices"
 $AaddsSubnet = New-AzVirtualNetworkSubnetConfig `
   -Name DomainServices `
   -AddressPrefix 10.0.0.0/24
@@ -285,9 +300,64 @@ $Vnet=New-AzVirtualNetwork `
   -Name $VnetName `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $AaddsSubnet,$WorkloadSubnet
+  
+$NSGName = "aaddsNSG"
+
+# Create a rule to allow inbound TCP port 443 traffic for synchronization with Azure AD
+$nsg101 = New-AzNetworkSecurityRuleConfig `
+    -Name AllowSyncWithAzureAD `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 101 `
+    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 443
+
+# Create a rule to allow inbound TCP port 3389 traffic from Microsoft secure access workstations for troubleshooting
+$nsg201 = New-AzNetworkSecurityRuleConfig -Name AllowRD `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 201 `
+    -SourceAddressPrefix CorpNetSaw `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389
+
+# Create a rule to allow TCP port 5986 traffic for PowerShell remote management
+$nsg301 = New-AzNetworkSecurityRuleConfig -Name AllowPSRemoting `
+    -Access Allow `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 301 `
+    -SourceAddressPrefix AzureActiveDirectoryDomainServices `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 5986
+
+# Create the network security group and rules
+$nsg = New-AzNetworkSecurityGroup -Name $NSGName `
+    -ResourceGroupName $ResourceGroupName `
+    -Location $AzureLocation `
+    -SecurityRules $nsg101,$nsg201,$nsg301
+
+# Get the existing virtual network resource objects and information
+$vnet = Get-AzVirtualNetwork -Name $VnetName -ResourceGroupName $ResourceGroupName
+$subnet = Get-AzVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name $SubnetName
+$addressPrefix = $subnet.AddressPrefix
+
+# Associate the network security group with the virtual network subnet
+Set-AzVirtualNetworkSubnetConfig -Name $SubnetName `
+    -VirtualNetwork $vnet `
+    -AddressPrefix $addressPrefix `
+    -NetworkSecurityGroup $nsg
+$vnet | Set-AzVirtualNetwork
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
+  -ApiVersion "2017-06-01" `
   -Location $AzureLocation `
   -Properties @{"DomainName"=$ManagedDomainName; `
     "SubnetId"="/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.Network/virtualNetworks/$VnetName/subnets/DomainServices"} `

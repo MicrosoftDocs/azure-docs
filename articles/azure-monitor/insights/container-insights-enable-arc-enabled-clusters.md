@@ -2,7 +2,7 @@
 title: Configure Azure Arc enabled Kubernetes cluster with Azure Monitor for containers | Microsoft Docs
 description: This article describes how to configure monitoring with Azure Monitor for containers on Azure Arc enabled Kubernetes clusters.
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 09/23/2020
 ---
 
 # Enable monitoring of Azure Arc enabled Kubernetes cluster
@@ -16,8 +16,6 @@ Azure Monitor for containers can be enabled for one or more existing deployments
 Azure Monitor for containers supports monitoring Azure Arc enabled Kubernetes (preview) as described in the [Overview](container-insights-overview.md) article, except for the following features:
 
 - Live Data (preview)
-
-- [Collect metrics](container-insights-update-metrics.md) from cluster nodes and pods and storing them in the Azure Monitor metrics database
 
 The following is officially supported with Azure Monitor for containers:
 
@@ -33,7 +31,7 @@ Before you start, make sure that you have the following:
 
 - A Log Analytics workspace.
 
-    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../platform/template-workspace-configuration.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
+    Azure Monitor for containers supports a Log Analytics workspace in the regions listed in Azure [Products by region](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). To create your own workspace, it can be created through [Azure Resource Manager](../samples/resource-manager-workspace.md), through [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../learn/quick-create-workspace.md).
 
 - To enable and access the features in Azure Monitor for containers, at a minimum you need to be a member of the Azure *Contributor* role in the Azure subscription, and a member of the [*Log Analytics Contributor*](../platform/manage-access.md#manage-access-using-azure-permissions) role of the Log Analytics workspace configured with Azure Monitor for containers.
 
@@ -101,7 +99,7 @@ To enable monitoring of your cluster using the PowerShell or bash script you dow
 1. Download and save the script to a local folder that configures your cluster with the monitoring add-on using the following commands:
 
     ```powershell
-    iwr https://aka.ms/enable-monitoring-powershell-script -outfile enable-monitoring.ps1
+    Invoke-WebRequest https://aka.ms/enable-monitoring-powershell-script -OutFile enable-monitoring.ps1
     ```
 
 2. Configure the `$azureArcClusterResourceId` variable by setting the corresponding values for `subscriptionId`, `resourceGroupName` and `clusterName` representing the resource ID of your Azure Arc-enabled Kubernetes cluster resource.

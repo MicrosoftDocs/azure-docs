@@ -63,7 +63,22 @@ Microsoft and Red Hat share an integrated, co-located support team that provides
 
 VMware HCX Enterprise Edition (EE) is available with Azure VMware Solution as a *Preview* function/service. While VMware HCX EE for Azure VMware Solution is in Preview, it is a free function/service and subject to Preview service terms and conditions. Once the VMware HCX EE service goes GA, you'll get a 30-day notice that billing will switch over. You'll also have the option to switch off/opt-out of the service.
 
-## Compute, network, and storage
+#### Can Azure VMware Solution VMs be managed by VMRC?
+Yes, provided the system it is installed on can access the private cloud vCenter and that it is using public DNS (so that it can resolve ESXi hostnames).
+
+#### Are there special instructions for installing and using VMRC with Azure VMware Solution VMs?
+No, use the [instructions provided by VMware](https://docs.vmware.com/en/VMware-vSphere/6.7/com.vmware.vsphere.vm_admin.doc/GUID-89E7E8F0-DB2B-437F-8F70-BA34C505053F.html) and fulfill the VM prerequisites specified in those instructions. 
+
+#### Is VMware HCX supported on VPNs?
+No, because of bandwidth and latency requirements.
+
+#### Can Azure Bastion be used for connecting to AVS VMs?
+Azure Bastion is the service recommended to connect to the jump box to prevent exposing Azure VMware Solution to the internet. You cannot use Azure Bastion to connect to Azure VMware Solution VMs since they are not Azure IaaS objects.
+
+#### Can an existing ExpressRoute Gateway be used to connect to Azure VMware Solution?
+Yes, you can use an existing ExpressRoute Gateway to connect to Azure VMware Solution as long as it does not exceed the limit of four ExpressRoute circuits per virtual network.  However, to access Azure VMware Solution from on-premises through ExpressRoute, you must have ExpressRoute Global Reach since the ExpressRoute gateway does not provide transitive routing between its connected circuits.
+
+## Compute, network, storage, and backup
 
 #### Is there more than one type of host available?
 
@@ -88,6 +103,22 @@ Each ESXi host is Azure VMware Solution is configured with four 25-Gbps NICs, wi
 #### Is data stored on the vSAN datastores encrypted at rest?
 
 Yes, all vSAN data is encrypted by default using keys stored in Azure Key Vault.
+
+#### You document that Commvault, Veritas, and Veeam have extended their backup solutions to work with Azure VMware Solution. What about other independent software vendor (ISV) backup solutions?
+
+As far as we know, any backup solution that uses VMware VADP with the HotAdd transport mode should work right out of the box on Azure VMware Solution.
+
+#### What about support for ISV backup solutions?
+
+As these backup solutions are installed and managed by customers, they can reach out to the respective ISV for support. 
+
+#### What is the correct storage policy for the dedup set up?
+
+Use the *thin_provision* storage policy for your VM template.  The default is *thick_provision*.
+
+#### Are the SNMP infrastructure logs shared?
+
+No.
 
 ## Hosts, clusters, and private clouds
 
@@ -162,6 +193,8 @@ No. Network traffic inbound from the internet directly to private clouds isn't a
 
 Yes. You'll need to use NSX-T manager to create a firewall that restricts VM access to the internet.
 
+
+
 ## Accounts and privileges
 
 #### What accounts and privileges will I get with my new Azure VMware Solution private cloud?
@@ -199,7 +232,7 @@ You'll need an Azure account in an Azure subscription.
 
 #### How do I request a host quota increase for Azure VMware Solution?
 
-* You'll need an [Azure Enterprise Agreement (EA)](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-agreements) with Microsoft.
+* You'll need an [Azure Enterprise Agreement (EA)](../cost-management-billing/manage/ea-portal-agreements.md) with Microsoft.
 * You'll need an Azure account in an Azure subscription.
 
 Before you create your Azure VMware Solution resource, you'll need to submit a support ticket to have your nodes allocated. Once the support team receives your request, it takes up to five business days to confirm your request and allocate your nodes. If you have an existing Azure VMware Solution private cloud and want more nodes allocated, you'll go through the same process.

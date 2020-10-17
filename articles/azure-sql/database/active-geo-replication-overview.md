@@ -113,7 +113,7 @@ To ensure that your application can immediately access the new primary after fai
 
 ## Configuring secondary database
 
-Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload, a secondary with lower compute size may not be able to keep up with it. That will cause redo lag on the secondary, and potential unavailability of the secondary. To mitigate these risks, active geo-replication will throttle the primary's transaction log rate if necessary to allow its secondaries to catch up.
+Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same backup storage redundancy and compute size (DTUs or vCores) as the primary. If the primary database is experiencing a heavy write workload, a secondary with lower compute size may not be able to keep up with it. That will cause redo lag on the secondary, and potential unavailability of the secondary. To mitigate these risks, active geo-replication will throttle the primary's transaction log rate if necessary to allow its secondaries to catch up.
 
 Another consequence of an imbalanced secondary configuration is that after failover, application performance may suffer due to insufficient compute capacity of the new primary. In that case, it will be necessary to scale up database service objective to the necessary level, which may take significant time and compute resources, and will require a [high availability](high-availability-sla.md) failover at the end of the scale up process.
 
@@ -121,8 +121,13 @@ If you decide to create the secondary with lower compute size, the log IO percen
 
 Transaction log rate throttling on the primary due to lower compute size on a secondary is reported using the HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO wait type, visible in the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) and [sys.dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) database views.
 
+By default, the backup storage redundancy of the secondary is same as that of the primary database. You can choose to configure the secondary with a different backup storage redundancy. Backups are always taken on the primary database. If the secondary is configured with a different backup storage redundancy, after failover when the secondary is promoted to the primary, backups will be billed according to the storage redundancy selected on the new primary (previous secondary). 
+
 > [!NOTE]
 > Transaction log rate on the primary may be throttled for reasons unrelated to lower compute size on a secondary. This kind of throttling may occur even if the secondary has the same or higher compute size than the primary. For details, including wait types for different kinds of log rate throttling, see [Transaction log rate governance](resource-limits-logical-server.md#transaction-log-rate-governance).
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Redundancy is currently generally available in Southeast Asia Azure region only. When the source database is created with locally-redundant or zone-redundant backup storage redundancy, creating a secondary database in a different Azure region is not supported. 
 
 For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](purchasing-models.md).
 

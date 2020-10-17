@@ -410,7 +410,7 @@ You can also enable a Just-In-Time access by using Azure AD Privileged Identity 
 
 * [How to create and use Tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
 
-* [Manage Role-Based Access Control](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Manage Azure role-based access control](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
 
 * [Firewall Rules](https://docs.microsoft.com/rest/api/datalakeanalytics/firewallrules)
 
@@ -458,7 +458,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 **Guidance**: Use Azure role-based access control (Azure RBAC) to control how users interact with the service.
 
-* [Manage Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-role-based-access-control)
+* [Manage Azure RBAC](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-manage-use-portal#manage-azure-role-based-access-control)
 
 **Azure Security Center monitoring**: Currently not available
 

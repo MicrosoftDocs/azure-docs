@@ -72,7 +72,7 @@ Routes is the first tab on the Message Routing pane. To add a new route, click +
 
 ![Screenshot showing adding a new route](./media/iot-hub-create-through-portal/iot-hub-add-route-storage-endpoint.png)
 
-Name your hub. The name must be unique within the list of routes for that hub. 
+Name your route. The route name must be unique within the list of routes for that hub. 
 
 For **Endpoint**, you can select one from the dropdown list, or add a new one. In this example, a storage account and container are already available. To add them as an endpoint, click +**Add** next to the Endpoint dropdown and select **Blob Storage**. The following screen shows where the storage account and container are specified.
 

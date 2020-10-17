@@ -85,6 +85,7 @@ To create a dataset in the studio:
 1. Select **Tabular** or **File** for Dataset type.
 1. Select **Next** to open the **Datastore and file selection** form. On this form you select where to keep your dataset after creation, as well as select what data files to use for your dataset.
     1. Enable skip validation if your data is in a virtual network. Learn more about [virtual network isolation and privacy](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. For Tabular datasets, you can specify a 'timeseries' trait to enable time related operations on your dataset. Learn how to [add the timeseries trait to your dataset](how-to-monitor-datasets.md#studio-dataset).
 1. Select **Next** to populate the **Settings and preview** and **Schema** forms; they are intelligently populated based on file type and you can further configure your dataset prior to creation on these forms. 
 1. Select **Next** to review the **Confirm details** form. Check your selections and create an optional data profile for your dataset. Learn more about [data profiling](#profile).
 1. Select **Create** to complete your dataset creation.
@@ -168,6 +169,6 @@ Use your datasets in your machine learning experiments for training ML models. [
 
 * [A step-by-step example of training with TabularDatasets and automated machine learning](tutorial-first-experiment-automated-ml.md).
 
-* [Train a model](how-to-train-ml-models.md).
+* [Train a model](how-to-set-up-training-targets.md).
 
 * For more dataset training examples, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/work-with-data/).
