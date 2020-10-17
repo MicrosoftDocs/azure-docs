@@ -19,17 +19,15 @@ ms.author: wesmc
 
 In this quickstart, you send telemetry to an Azure IoT Hub from an Android application running on a physical or simulated device. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses a pre-written Android application to send the telemetry. The telemetry will be read from the IoT Hub using the Azure Cloud Shell. Before you run the application, you create an IoT hub and register a device with the hub.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * [Android Studio with Android SDK 27](https://developer.android.com/studio/). For more information, see [android-installation](https://developer.android.com/studio/install). Android SDK 27 is used by the sample in this article.
 
 * [A sample Android application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample). This sample is part of the [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository.
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ### Add Azure IoT Extension
 

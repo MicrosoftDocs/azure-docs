@@ -19,9 +19,9 @@ ms.date: 05/26/2020
 
 In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java application. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses two pre-written Java applications: one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * Java SE Development Kit 8. In [Java long-term support for Azure and Azure Stack](/java/azure/jdk/?view=azure-java-stable), under **Long-term support**, select **Java 8**.
 
@@ -31,19 +31,17 @@ In this quickstart, you send telemetry to Azure IoT Hub and read it with a Java 
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-You can verify the current version of Java on your development machine using the following command:
+* You can verify the current version of Java on your development machine using the following command:
 
-```cmd/sh
-java -version
-```
+    ```cmd/sh
+    java -version
+    ```
 
-You can verify the current version of Maven on your development machine using the following command:
+* You can verify the current version of Maven on your development machine using the following command:
 
-```cmd/sh
-mvn --version
-```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+    ```cmd/sh
+    mvn --version
+    ```
 
 ### Add Azure IoT Extension
 

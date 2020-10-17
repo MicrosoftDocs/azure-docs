@@ -21,36 +21,34 @@ IoT Hub is an Azure service that enables you to ingest high volumes of telemetry
 
 The quickstart uses two pre-written C# applications, one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Prerequisites
+* The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 3.0 or greater on your development machine.
 
-The two sample applications you run in this quickstart are written using C#. You need the .NET Core SDK 3.0 or greater on your development machine.
+    You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
 
-You can download the .NET Core SDK for multiple platforms from [.NET](https://www.microsoft.com/net/download/all).
+    You can verify the current version of C# on your development machine using the following command:
 
-You can verify the current version of C# on your development machine using the following command:
+    ```cmd/sh
+    dotnet --version
+    ```
 
-```cmd/sh
-dotnet --version
-```
+    > [!NOTE]
+    > .NET Core SDK 3.0 or greater is recommended to compile the Event Hubs service code used to read telemetry in this quickstart. You can use .NET Core SDK 2.1 if you set the language version for the service code to preview as noted in the [Read the telemetry from your hub](#read-the-telemetry-from-your-hub) section.
 
-> [!NOTE]
-> .NET Core SDK 3.0 or greater is recommended to compile the Event Hubs service code used to read telemetry in this quickstart. You can use .NET Core SDK 2.1 if you set the language version for the service code to preview as noted in the [Read the telemetry from your hub](#read-the-telemetry-from-your-hub) section.
+* Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
 
-Run the following command to add the Microsoft Azure IoT Extension for Azure CLI to your Cloud Shell instance. The IOT Extension adds IoT Hub, IoT Edge, and IoT Device Provisioning Service (DPS) specific commands to Azure CLI.
+    ```azurecli-interactive
+    az extension add --name azure-iot
+    ```
 
-```azurecli-interactive
-az extension add --name azure-iot
-```
+    [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+* Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive.
 
-Download the Azure IoT C# samples from [https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) and extract the ZIP archive.
-
-Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 

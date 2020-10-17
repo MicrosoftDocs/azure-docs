@@ -38,11 +38,9 @@ The following figure illustrates how the device-local and service-local proxy ap
 > [!NOTE]
 > SSH traffic that's sent over a device stream is tunneled through the IoT hub's streaming endpoint rather than sent directly between service and device. For more information, see the [benefits of using Iot Hub device streams](iot-hub-device-streams-overview.md#benefits).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
 
@@ -67,9 +65,6 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
    az extension add --name azure-iot
    ```
 
-   ```azurecli-interactive
-   az extension add --name azure-iot
-   ```
 [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
 * [Download the Azure IoT C# samples](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip), and extract the ZIP archive.

@@ -41,11 +41,9 @@ The following figure illustrates how the device- and service-local proxy program
 > [!NOTE]
 > SSH traffic that's sent over a device stream is tunneled through the IoT hub's streaming endpoint rather than sent directly between service and device. For more information, see the [benefits of using Iot Hub device streams](iot-hub-device-streams-overview.md#benefits). Furthermore, the figure illustrates the SSH daemon that's running on the same device (or machine) as the device-local proxy. In this quickstart, providing the SSH daemon IP address allows the device-local proxy and the daemon to run on different machines as well.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * The preview of device streams is currently supported only for IoT hubs that are created in the following regions:
 

@@ -17,33 +17,31 @@ ms.author: robinsh
 
 In this quickstart, you run a service-side application and set up communication between a device and service by using device streams. Azure IoT Hub device streams allow service and device applications to communicate in a secure and firewall-friendly manner. During public preview, the Node.js SDK only supports device streams on the service side. As a result, this quickstart only covers instructions to run the service-side application.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * Completion of [Communicate to device apps in C via IoT Hub device streams](./quickstart-device-streams-echo-c.md) or [Communicate to device apps in C# via IoT Hub device streams](./quickstart-device-streams-echo-csharp.md).
-
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 * [Node.js 10+](https://nodejs.org).
 
 * [A sample Node.js project](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
-You can verify the current version of Node.js on your development machine using the following command:
+* You can verify the current version of Node.js on your development machine using the following command:
 
-```cmd/sh
-node --version
-```
+    ```cmd/sh
+    node --version
+    ```
 
-Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* Microsoft Azure IoT Hub currently supports device streams as a [preview feature](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-> [!IMPORTANT]
-> The preview of device streams is currently only supported for IoT Hubs created in the following regions:
->
-> * Central US
-> * Central US EUAP
-> * North Europe
-> * Southeast Asia
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+    > [!IMPORTANT]
+    > The preview of device streams is currently only supported for IoT Hubs created in the following regions:
+    >
+    > * Central US
+    > * Central US EUAP
+    > * North Europe
+    > * Southeast Asia
 
 ### Add Azure IoT Extension
 

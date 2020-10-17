@@ -31,13 +31,9 @@ The device-side C application in this quickstart has the following functionality
 
 The code demonstrates the initiation process of a device stream, as well as how to use it to send and receive data.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-## Prerequisites
-
-You need the following prerequisites:
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * Install [Visual Studio 2019](https://www.visualstudio.com/vs/) with the **Desktop development with C++** workload enabled.
 

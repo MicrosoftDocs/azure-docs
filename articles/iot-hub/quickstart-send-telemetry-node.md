@@ -19,9 +19,9 @@ ms.date: 06/21/2019
 
  In this quickstart, you send telemetry from a simulated device application through Azure IoT Hub to a back-end application for processing. IoT Hub is an Azure service that enables you to ingest high volumes of telemetry from your IoT devices into the cloud for storage or processing. This quickstart uses two pre-written Node.js applications: one to send the telemetry and one to read the telemetry from the hub. Before you run these two applications, you create an IoT hub and register a device with the hub.
 
-## Prerequisites
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-* An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 * [Node.js 10+](https://nodejs.org). If you are using the Azure Cloud Shell, do not update the installed version of Node.js. The Azure Cloud Shell already has the latest Node.js version.
 
@@ -29,13 +29,11 @@ ms.date: 06/21/2019
 
 * Port 8883 open in your firewall. The device sample in this quickstart uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
-You can verify the current version of Node.js on your development machine using the following command:
+* You can verify the current version of Node.js on your development machine using the following command:
 
-```cmd/sh
-node --version
-```
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+    ```cmd/sh
+    node --version
+    ```
 
 ### Add Azure IoT Extension
 
