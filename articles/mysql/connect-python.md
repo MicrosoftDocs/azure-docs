@@ -76,7 +76,7 @@ For each code example in this article:
    > [!NOTE]
    > On Windows, if *python.exe* is not found, you may need to add the Python path into your PATH environment variable, or provide the full path to *python.exe*, for example `C:\python27\python.exe createtable.py`.
 
-## Create a table and insert data
+## step 1: Create a table and insert data
 
 Use the following code to connect to the server and database, create a table, and load data by using an **INSERT** SQL statement.The code imports the mysql.connector library, and uses the method:
 - [connect()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysql-connector-connect.html) function to connect to Azure Database for MySQL using the [arguments](https://dev.mysql.com/doc/connector-python/en/connector-python-connectargs.html) in the config collection. 
@@ -133,7 +133,7 @@ else:
   print("Done.")
 ```
 
-## Read data
+## Step2 : Read data
 
 Use the following code to connect and read the data by using a **SELECT** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
@@ -151,7 +151,7 @@ The code reads the data rows using the [fetchall()](https://dev.mysql.com/doc/co
 
 ```
 
-## Update data
+## Step 3: Update data
 
 Use the following code to connect and update the data by using an **UPDATE** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
@@ -161,7 +161,7 @@ Use the following code to connect and update the data by using an **UPDATE** SQL
   print("Updated",cursor.rowcount,"row(s) of data.")
 ```
 
-## Delete data
+## Step 4: Delete data
 
 Use the following code to connect and remove data by using a **DELETE** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
