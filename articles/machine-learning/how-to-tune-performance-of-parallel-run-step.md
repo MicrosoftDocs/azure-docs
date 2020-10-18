@@ -37,10 +37,10 @@ Logs of ParallelRunStep are stored in temporary location of local disk during th
 
 ## How to Choose Compute Target
 
-For the concept of compute target, please refer to: 
+For the concept of compute target, please refer to:
 - [What are compute targets in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-compute-target)
 
-For the sizes and options for Azure virtual machines, please refer to: 
+For the sizes and options for Azure virtual machines, please refer to:
 - [Sizes for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes)
 
 
@@ -49,4 +49,22 @@ TBC.
 
 
 ## FAQ on Performance Issues
-TBC.
+Performance degradation
+Understand ParallelRunStep flow
+1. scheduling
+2. processing
+3. agent manager
+1. entry script init(), run(), shutdown()
+1.
+1.
+1.
+
+Limits
+100 nodes,
+1m folder per folder
+1m mini batches
+1000 files in one mini batch, 64K limit
+
+
+ParallelTask
+1000 nodes, 65536?
