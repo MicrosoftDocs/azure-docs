@@ -19,8 +19,8 @@ For this quickstart you need:
 - Create a Azure Database for MySQL single server using [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
 - Based on you choice of connectivity method, make sure you have completed the ONE of the task below
 
-|Task| How-to guide|Connectivity Method|
-| --- | --- | --- |
+|Action| How-to guide|Connectivity method|
+|:--- |:--- |:---|
 | **Configure firewall rules** | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|Public access secured by firewall rules|
 | **Configure Service Endpoint** | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md) | Public access secured by service endpoints. You can ONLY connect to the server with App Service Web App or Azure Virtual machine or any other resource as long as it is in the **same virtual network**.|
 | **Configure private link** | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | Private access| 
