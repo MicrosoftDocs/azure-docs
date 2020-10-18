@@ -53,7 +53,7 @@ Before you configure and set up your Azure Stack Edge Pro R device, make sure th
 
 5. Sign in to the web UI of your device. The default password is *Password1*. 
    
-    ![Azure Stack Edge device sign-in page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/connect-web-ui-3.png)
+    ![Azure Stack Edge device sign-in page](./media/azure-stack-edge-pro-r-deploy-connect-setup-activate/connect-web-ui-3.png)
 
 6. At the prompt, change the device administrator password.  
     The new password must contain between 8 and 16 characters. It must contain three of the following characters: uppercase, lowercase, numeric, and special characters.
