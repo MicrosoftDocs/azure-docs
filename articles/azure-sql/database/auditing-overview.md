@@ -94,9 +94,9 @@ Auditing of Microsoft Support operations (Preview) for Azure SQL Server allows y
 
 To enable Auditing of Microsoft Support operations (Preview) navigate to **Auditing** under the Security heading in your **Azure SQL server** pane, and switch **Auditing of Microsoft support operations (Preview)** to **ON**.
 
-    > [!IMPORTANT]
-    > Auditing of Microsoft support operations (Preview) does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
-
+   > [!IMPORTANT]
+   > Auditing of Microsoft support operations (Preview) does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
+    
 ![microsoft support operations](./media/auditing-overview/support_operations.png)
 
 ### <a id="audit-storage-destination"></a>Audit to storage destination
