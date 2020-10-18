@@ -66,7 +66,7 @@ Download the Postman collection for this tutorial at [Azure Samples: media-servi
 1. This collection will now show up in your Collections as BYOK.
 1. The environment variables will now appear in your Environments.
 
-### Understand the REST requests in the collection
+### Understand the REST API requests in the collection
 
 The collection provides the following REST API requests. The requests must be sent in the sequence provided as most of them have test scripts that dynamically create global variables for the next (or subsequent) request in the sequence. It is not necessary to manually create the global variables.
 
