@@ -185,6 +185,7 @@ WITH (
     | First_Row = integer
     | USE_TYPE_DEFAULT = { TRUE | FALSE }
     | Encoding = {'UTF8' | 'UTF16'}
+    | PARSER_VERSION = {'parser_version'}
 }
 ```
 
@@ -247,6 +248,9 @@ When reading from PARQUET external tables, this argument is ignored, but is used
 The DELIMITEDTEXT file format type supports the following compression method:
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+
+PARSER_VERSION = 'parser_version'
+Specifies parser version to be used when reading files. Check PARSER_VERSION argument in [OPENROWSET arguments](develop-openrowset.md#arguments) for details.
 
 ### Example for CREATE EXTERNAL FILE FORMAT
 
