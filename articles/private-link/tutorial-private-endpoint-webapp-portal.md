@@ -217,9 +217,9 @@ In this section, you'll use the virtual machine you created in the previous step
 
 9. Open a web browser on your local computer and enter the external URL of your web app, **https://\<webapp-name>.azurewebsites.net**.
 
-10. Verify that you receive a 403 forbidden page. This page indicates that the web app isn't accessible externally.
+10. Verify that you receive a **403** page. This page indicates that the web app isn't accessible externally.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="403 forbidden page for external web app address." border="true":::
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="403 page for external web app address." border="true":::
 
 11. In the bastion connection to **myVM**, open Internet Explorer.
 
