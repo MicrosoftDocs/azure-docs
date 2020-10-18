@@ -1,5 +1,5 @@
 ---
-title: Customer managed key with Media Services (BYOK)
+title: Bring your own key (customer managed keys) with Media Services
 description: You can use a customer managed key (aka Bring Your Own Key) with Media Services.
 author: IngridAtMicrosoft
 ms.author: inhenkel
@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/14/2020
 ---
 
-# Customer managed key with Media Services
+# Bring your own key (customer managed keys) with Media Services
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
