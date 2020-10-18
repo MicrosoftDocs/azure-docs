@@ -9,9 +9,9 @@ ms.author: mingshen
 ms.date: 10/19/2020
 ---
 
-# Configure virtual machine offer properties
+# How to configure virtual machine offer properties
 
-On the **Properties** page, you define the categories that are used to group your offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
+On the **Properties** page, you define the categories that are used to group your virtual machine (VM) offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
 
 ## Select a category
 

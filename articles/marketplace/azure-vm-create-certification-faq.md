@@ -398,7 +398,7 @@ To provide a fixed VM image to replace a VM image that has a vulnerability or ex
 
 #### Provide a new VM image to address the security vulnerability or exploit
 
-To complete these steps you'll need to prepare the technical assets for the VM image you want to add. For more information, see [Prepare technical assets](azure-vm-create-technical-assets.md) and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
+To complete these steps you'll need to prepare the technical assets for the VM image you want to add. For more information, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md), and [Generate a SAS URI for your VM image](azure-vm-get-sas-uri.md).
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 2. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.

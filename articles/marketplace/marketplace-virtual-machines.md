@@ -1,5 +1,5 @@
 ---
-title: Plan a virtual machine offer on Azure Marketplace
+title: Plan a virtual machine offer - Microsoft commercial marketplace
 description: This article describes the requirements for publishing a virtual machine offer to Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
@@ -10,24 +10,23 @@ ms.author: iqshah
 ms.date: 10/19/2020
 ---
 
-# Plan a virtual machine offer
+# How to plan a virtual machine offer
 
-This article explains the different options and requirements for publishing a virtual machine (VM) offer to the commercial marketplace. VM offers are transactable offers deployed and billed through Azure Marketplace).
+This article explains the different options and requirements for publishing a virtual machine (VM) offer to the commercial marketplace. VM offers are transactable offers deployed and billed through Azure Marketplace.
 
 Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and ensure your account is enrolled in the commercial marketplace program.
 
-### Technical resources
+### Technical fundamentals
 
 The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of the following Microsoft technologies:
 
 - [Design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/)
 - [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
-- Quickstart guides
-  - [Azure quickstart templates](https://azure.microsoft.com/resources/templates/)
-  - [GitHub Azure quickstart templates](https://github.com/azure/azure-quickstart-templates)
+
 - Tutorials
   - [Linux VMs](../virtual-machines/linux/tutorial-manage-vm.md)
   - [Windows VMs](../virtual-machines/windows/tutorial-manage-vm.md)
+
 - Samples
   - [Azure CLI samples for Linux VMs](../virtual-machines/linux/cli-samples.md)
   - [Azure PowerShell for Linux VMs](../virtual-machines/linux/powershell-samples.md)
@@ -43,16 +42,16 @@ A VM contains two components:
     - You can include up to 16 data disks.
     - Use one VHD per data disk, even if the disk is blank.
 
-> [!NOTE]
-> Regardless of which operating system you use, add only the minimum number of data disks needed by the solution. Customers cannot remove disks that are part of an image at the time of deployment, but they can always add disks during or after deployment.
+    > [!NOTE]
+    > Regardless of which operating system you use, add only the minimum number of data disks needed by the solution. Customers cannot remove disks that are part of an image at the time of deployment, but they can always add disks during or after deployment.
 
 VM offers have the following technical requirements:
 
 - You must prepare one operating system virtual hard disk (VHD). Data disk VHDs are optional.
+- The customer can cancel your offer at any time.
 - You must create at least one plan for your offer. Your plan is priced based on the [licensing option](#licensing-options) you select.
    > [!IMPORTANT]
    > Every VM Image in a plan must have the same number of data disks.
-- The customer can cancel your offer at any time.
 
 ## Preview audience
 
@@ -129,78 +128,7 @@ When creating your offer in Partner Center, you will see the **Resell through CS
 > [!NOTE]
 > The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
 
-## Offer listing examples
-
-The following screenshot is an example of a VM offer in Azure Marketplace.
-
-:::image type="content" source="media/create-vm/example-azure-marketplace-virtual-machine-offer.png" alt-text="Illustrates how a VM offer appears in Azure Marketplace.":::
-
-**Call-out descriptions**
-
-1. Large logo
-2. Price
-3. Categories
-4. Terms and conditions
-5. Privacy policy address (link)
-6. Offer name
-7. Description
-8. Useful links
-9. Screenshots/videos
-
-Here's an example of how offer information appears in Azure Marketplace search results:
-
-:::image type="content" source="media/create-vm/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
-
-**Call-out descriptions**
-
-1. Small logo
-2. Offer name
-3. Search results summary
-4. Trial
-
-Here's an example of Azure Marketplace plan details:
-
-:::image type="content" source="media/create-vm/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustrates Azure Marketplace plan details.":::
-
-**Call-out descriptions**
-
-1. Plan name and summary
-2. Recommend VM sizes
-3. Plan pricing
-
-<br>Here's an example of a VM offer in the Azure portal:
-
-:::image type="content" source="media/create-vm/example-azure-portal-virtual-machine-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
-
-**Call-out descriptions**
-
-1. Name
-2. Description
-3. Useful links
-4. Screenshots/videos
-
-<br>Here's an example of how offer information appears in the Azure portal search results:
-
-:::image type="content" source="media/create-vm/example-azure-portal-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
-
-**Call-out descriptions**
-
-1. Small logo
-2. Offer name
-3. Search results summary
-
-<br>Here's an example of the Azure portal plan details:
-
-:::image type="content" source="media/create-vm/example-azure-portal-virtual-machine-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
-
-**Call-out descriptions**
-
-1. Plan name
-2. Plan description
-
 ## Next steps
 
-- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
-- [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)
+- [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md).
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)
- 

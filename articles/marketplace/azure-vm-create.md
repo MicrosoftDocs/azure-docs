@@ -76,4 +76,5 @@ Select **Create** to generate the offer and continue.
 
 ## Next steps
 
-- [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md).
+- [Configure virtual machine offer properties](azure-vm-create-properties.md)
+- [Offer listing best practices](gtm-offer-listing-best-practices.md)

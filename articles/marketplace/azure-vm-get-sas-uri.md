@@ -103,4 +103,5 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 ## Next steps
 
 - If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md).
-- After you have the SAS URIs, [Configure VM offer properties](azure-vm-create-properties.md).
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
+- [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)

@@ -72,6 +72,6 @@ Connect to your [Windows](../virtual-machines/windows/connect-logon.md) or [Linu
 
 ## Next steps
 
-- Recommended next step, but optional: [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements.
+- Recommended next step: [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements. This is optional.
 - If you don't test your VM image, continue with [Generate the SAS URI](azure-vm-get-sas-uri.md).
 - If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).
