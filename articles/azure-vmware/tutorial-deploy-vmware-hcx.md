@@ -85,9 +85,9 @@ Infrastructure components must be running the required minimum version.
    :::image type="content" source="media/tutorial-vmware-hcx/select-ovf-template.png" alt-text="Go to the on-premises vCenter and select an OVF template to deploy to your on-premises vCenter." lightbox="media/tutorial-vmware-hcx/select-ovf-template.png":::
 
 
-1. Select a name and location, a resource/cluster where you are deploying the HCX Connector, and then review the details and required resources.  
+1. Select a name and location, a resource/cluster where you deploy the HCX Connector, and then review the details and required resources.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Select a name and location, a resource/cluster where you are deploying HCX, and then review the details and required resources." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/configure-template.png" alt-text="Select a name and location, a resource/cluster where you deploy the HCX Connector, and then review the details and required resources." lightbox="media/tutorial-vmware-hcx/configure-template.png":::
 
 1. Review license terms, and if you agree, select the required storage and network, and then select **Next**.
 
@@ -196,7 +196,7 @@ You will create four network profiles:
 
 1. For each network profile, select the network, port group, provide a name, create the IP pool for that particular segment, and then select **Create**. 
 
-   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="For the new network profile, enter the VMware HCX IX and NE IP address ranges (a minimum of two IP addresses is required for IX and NE appliances).":::
+   :::image type="content" source="media/tutorial-vmware-hcx/example-configurations-network-profile.png" alt-text="For each network profile, select the network, port group, provide a name, create the IP pool for that particular segment, and then select Create.":::
 
 For an end-to-end overview of this step, view the [Azure VMware Solution - VMware HCX create network profile](https://www.youtube.com/embed/NhyEcLco4JY) video.
 
@@ -230,7 +230,7 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
 
 1. Select **Management Network Profile**,  the management network profile you created in previous steps, and then select **Continue**.  
 
-   :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="Select the network profile through which the management interface of vCenter and the ESXi hosts can be reached. If you haven't already defined such a network profile, you can create it here." lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
+   :::image type="content" source="media/tutorial-vmware-hcx/select-management-network-profile.png" alt-text="Select Management Network Profile,  the management network profile you created in previous steps, and then select Continue." lightbox="media/tutorial-vmware-hcx/select-management-network-profile.png":::
 
    > [!NOTE]
    > The management network profile allows the VMware HCX appliance(s) to communicate with vCenter, and the ESXi hosts can be reached.
@@ -263,7 +263,7 @@ For an end-to-end overview of this step, view the [Azure VMware Solution - VMwar
 
    :::image type="content" source="media/tutorial-vmware-hcx/compute-profile-done.png" alt-text="You should now see a screen very similar to the one shown below." lightbox="media/tutorial-vmware-hcx/compute-profile-done.png":::
 
-For an end-to-end overview of this step, view the [Azure VMware Solution - VMware HCX create compute profile](https://www.youtube.com/embed/qASXi5xrFzM) video.
+For an end-to-end overview of this step, view the [Azure VMware Solution - VMware HCX create a compute profile](https://www.youtube.com/embed/qASXi5xrFzM) video.
 
 
 
@@ -291,7 +291,9 @@ Now it's time to configure Service Mesh between on-premises and Azure VMware Sol
 
 1. Review services that will be enabled and then select **Continue**.  
 
-1. In **Advanced Configuration - Override Uplink Network profiles** select **Continue**.  Uplink network profiles connect to the network via which the remote site's interconnect appliances can be reached.  
+1. In **Advanced Configuration - Override Uplink Network profiles** select **Continue**.  
+
+   Uplink network profiles connect to the network via which the remote site's interconnect appliances can be reached.  
   
 1. In **Advanced Configuration - Network Extension Appliance Scale Out**, review and select **Continue**. 
 
