@@ -88,6 +88,17 @@ The following section describes the configuration of auditing using the Azure po
   
    ![storage options](./media/auditing-overview/auditing-select-destination.png)
 
+### <a id="auditing-of-microsoft-support-operations"></a>Auditing of Microsoft Support operations (Preview)
+
+Auditing of Microsoft Support operations (Preview) for Azure SQL Server allows you to audit Microsoft support engineers' operations when they need to access your server during a support request. The use of this capability, along with your auditing, enables more transparency into your workforce and allows for anomaly detection, trend visualization, and data loss prevention.
+
+To enable Auditing of Microsoft Support operations (Preview) navigate to **Auditing** under the Security heading in your **Azure SQL server** pane, and switch **Auditing of Microsoft support operations (Preview)** to **ON**.
+
+    > [!IMPORTANT]
+    > Auditing of Microsoft support operations (Preview) does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
+
+![microsoft support operations](./media/auditing-overview/support_operations.png)
+
 ### <a id="audit-storage-destination"></a>Audit to storage destination
 
 To configure writing audit logs to a storage account, select **Storage** and open **Storage details**. Select the Azure storage account where logs will be saved, and then select the retention period. Then click **OK**. Logs older than the retention period are deleted.
