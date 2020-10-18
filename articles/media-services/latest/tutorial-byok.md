@@ -10,15 +10,15 @@ ms.date: 10/18/2020
 
 # Tutorial: Use customer managed keys or bring your own key (BYOK) with Media Services
 
-With the 2020-05-01 API, you can use a customer managed RSA key with a Media Services account that has a system managed identity.  This tutorial uses a Postman collection and environment to send REST requests to Azure services.  Services used:
+With the 2020-05-01 API, you can use a customer managed RSA key with a Media Services account that has a system managed identity.  This tutorial includes a Postman collection and environment to send REST requests to Azure services.  Services used:
 
-- Azure Active Directory (AAD) application registration for Postman
+- Azure Active Directory application registration for Postman
 - Microsoft Graph API
 - Azure storage
 - Azure Key Vault
 - Media Services
 
-In this tutorial, you learn to use Postman to:
+In this tutorial, you'll learn to use Postman to:
 
 > [!div class="checklist"]
 > * Get tokens for use with Azure services.
@@ -62,15 +62,15 @@ Download the Postman collection for this tutorial at [Azure Samples: media-servi
 1. Select **Upload files**.
 1. Navigate to where you have saved the collection and environment files.
 1. Select the collection and environment file.
-1. Select **Open**.  (You will see a warning that the files will not be imported as an API, but as collections, which is fine.  This is what you want.)
+1. Select **Open**.  (You will see a warning that the files will not be imported as an API, but as collections.  This is fine.  It is what you want.)
 1. This collection will now show up in your Collections as BYOK.
 1. The environment variables will now appear in your Environments.
 
 ### Understand the REST requests in the collection
 
-The collection provides the following REST API requests. They must be run in the sequence provided as most of the requests have test scripts that dynamically create global variables for the next (or subsequent) request in the sequence. It is not necessary to manually create the global variables.
+The collection provides the following REST API requests. The requests must be sent in the sequence provided as most of them have test scripts that dynamically create global variables for the next (or subsequent) request in the sequence. It is not necessary to manually create the global variables.
 
-In Postman, you will see these variables contained within `{{ }}` brackets.  For example, `{{bearerToken}}`.
+In Postman, you'll see these variables contained within `{{ }}` brackets.  For example, `{{bearerToken}}`.
 
 1. Get AAD token - the test sets the global variable *bearerToken*
 2. Get Graph token - the test sets the global variable *graphToken*
@@ -80,24 +80,24 @@ In Postman, you will see these variables contained within `{{ }}` brackets.  For
 6. Create a Key Vault, granting access to the service principal - the test sets the global variable *keyVaultId*
 7. Get a Key Vault token - the test sets global variable *keyVaultToken*
 8. Create RSA key in the key vault - the test sets global variable *keyId*
-9. Update the Media Services account to use the key with the storage account - there is no test script for this request.
+9. Update the Media Services account to use the key with the storage account - there isn't a test script for this request.
 
 ## Define environment variables
 
-1. Switch to the environment you just downloaded by selecting the environments dropdown list.
-1. Establish your environment variables in Postman. They will also be used as variables that contained within `{{ }}` brackets.  For example, `{{tenantId}}`.
+1. Switch to the environment you downloaded by selecting the environments dropdown list.
+1. Establish your environment variables in Postman. They are also used as variables contained within `{{ }}` brackets.  For example, `{{tenantId}}`.
 
-    * *tenantId* = your tenant id
-    * *servicePrincipalId* = the id of the service principal you establish with your favorite method: portal, CLI, etc.
+    * *tenantId* = your tenant ID
+    * *servicePrincipalId* = the ID of the service principal you establish with your favorite method: portal, CLI, and so on.
     * *servicePrincipalSecret* = the secret created for the service principal
-    * *subscription* = your subscription id
+    * *subscription* = your subscription ID
     * *storageName* = the name you want to give to your storage
     * *accountName* = the Media Service account name you want to use
     * *keyVaultName* = the Key Vault name you want to use
     * *resourceLocation* = centralus (Or where ever you want to put your resources.  This collection has only been tested with centralus.)
     * *resourceGroup* = the resource group name
 
-    The following variables are standard for working with Azure resources so there is no need to change them.
+    The following variables are standard for working with Azure resources so there's no need to change them.
 
     * *armResource* = `https://management.core.windows.net`
     * *graphResource* = `https://graph.windows.net/`
