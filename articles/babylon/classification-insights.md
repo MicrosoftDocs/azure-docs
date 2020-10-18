@@ -12,15 +12,13 @@ ms.date: 10/05/2020
 
 # Classification insights about your data from Project Babylon 
 
-This how-to guide describes how to access, view, and filter Babylon classification insight reports for your data in Azure Blob storage, Azure files, ADLS GEN 1, ADLS GEN 2, and Amazon S3 buckets.
-
+This how-to guide describes how to access, view, and filter Babylon classification insight reports for your data in Azure Blob storage, Azure files, ADLS GEN 1, and ADLS GEN 2.
 Make sure you've done the following before getting started with Babylon insights:
 
 - [Configure your Azure resources](scan-azure-data-sources-portal.md)
-- [Configure your Amazon S3 buckets](setup-configuration-connector-amazon-s3.md)
 - Populate the relevant accounts with your test data
 
-You'll also need to set up and complete a scan on the test data in each data source before you begin. Follow the instructions for scanning test data in [Azure resources](scan-azure-data-sources-portal.md), and [Amazon S3 buckets](setup-configuration-connector-amazon-s3.md). 
+You'll also need to set up and complete a scan on the test data in each data source before you begin. Follow the instructions for scanning test data in [Azure resources](scan-azure-data-sources-portal.md).
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]

@@ -12,11 +12,11 @@ ms.date: 10/05/2020
 
 # Sensitivity label insights about your data from Project Babylon 
 
-The how-to guide provides an explanation of how to access, view and filter security insights in the form of sensitivity labels on your data in Azure Blob Storage, Azure files, ADLS GEN 1, ADLS GEN 2, and Amazon S3 buckets. 
+The how-to guide provides an explanation of how to access, view and filter security insights in the form of sensitivity labels on your data in Azure Blob Storage, Azure files, ADLS GEN 1, and ADLS GEN 2.
 
-Make sure you've followed the explanations about [setting up Azure resources](scan-azure-data-sources-portal.md), [setting up Amazon S3 buckets](./setup-configuration-connector-amazon-s3.md), and populating the relevant accounts with your test data before getting starting with Babylon insights.
+Make sure you've followed the explanations about [setting up Azure resources](scan-azure-data-sources-portal.md) and populating the relevant accounts with your test data before getting starting with Babylon insights.
 
-You'll also need to set up and complete a scan on the test data in each data source before you begin. Follow the instructions for scanning test data in [Azure resources](scan-azure-data-sources-portal.md), and [Amazon S3 buckets](./setup-configuration-connector-amazon-s3.md). 
+You'll also need to set up and complete a scan on the test data in each data source before you begin. Follow the instructions for scanning test data in [Azure resources](scan-azure-data-sources-portal.md). 
 
 
 In this how-to guide, you'll learn how to:
