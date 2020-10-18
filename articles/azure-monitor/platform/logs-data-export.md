@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.custom: references_regions
 author: bwren
 ms.author: bwren
-ms.date: 10/13/2020
+ms.date: 10/14/2020
 
 ---
 
@@ -250,6 +250,10 @@ Supported tables are currently limited to those specified below. All data from t
 | AADDomainServicesLogonLogoff | |
 | AADDomainServicesPolicyChange | |
 | AADDomainServicesPrivilegeUse | |
+| AADManagedIdentitySignInLogs | |
+| AADNonInteractiveUserSignInLogs | |
+| AADProvisioningLogs | |
+| AADServicePrincipalSignInLogs | |
 | ADAssessmentRecommendation | |
 | ADFActivityRun | |
 | ADFPipelineRun | |
@@ -264,7 +268,8 @@ Supported tables are currently limited to those specified below. All data from t
 | ADXQuery | |
 | AegDeliveryFailureLogs | |
 | AegPublishFailureLogs | |
-| Alert | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| Alert |Partial support. Some of the data to this table is ingested through storage account. This data is currently not exported. |
+| Anomalies | |
 | ApiManagementGatewayLogs | |
 | AppCenterError | |
 | AppPlatformSystemLogs | |
@@ -273,6 +278,7 @@ Supported tables are currently limited to those specified below. All data from t
 | AppServiceConsoleLogs | |
 | AppServiceFileAuditLogs | |
 | AppServiceHTTPLogs | |
+| AppServiceIPSecAuditLogs | |
 | AppServicePlatformLogs | |
 | AuditLogs | |
 | AutoscaleEvaluationsLog | |
@@ -287,7 +293,7 @@ Supported tables are currently limited to those specified below. All data from t
 | CommonSecurityLog | |
 | CommonSecurityLog | |
 | ComputerGroup | |
-| ConfigurationData | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| ConfigurationData | Partial support. Some of the data is ingested through internal services that aren't supported for export. This data is currently not exported. |
 | ContainerImageInventory | |
 | ContainerInventory | |
 | ContainerLog | |
@@ -308,15 +314,43 @@ Supported tables are currently limited to those specified below. All data from t
 | DnsEvents | |
 | DnsInventory | |
 | Dynamics365Activity | |
-| Event | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| Event | Partial support. Some of the data to this table is ingested through storage account. This data is currently not exported. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
 | FunctionAppLogs | |
-| Heartbeat | Supported | |
+| HDInsightAmbariClusterAlerts | |
+| HDInsightAmbariSystemMetrics | |
+| HDInsightGatewayAuditLogs | |
+| HDInsightHadoopAndYarnLogs | |
+| HDInsightHadoopAndYarnMetrics | |
+| HDInsightHBaseLogs | |
+| HDInsightHBaseMetrics | |
+| HDInsightHiveAndLLAPLogsSample | |
+| HDInsightKafkaLogs | |
+| HDInsightKafkaMetrics | |
+| HDInsightOozieLogs | |
+| HDInsightSecurityLogs | |
+| HDInsightSparkApplicationEvents | |
+| HDInsightSparkBlockManagerEvents | |
+| HDInsightSparkEnvironmentEvents | |
+| HDInsightSparkEventsLog | |
+| HDInsightSparkExecutorEvents | |
+| HDInsightSparkExtraEvents | |
+| HDInsightSparkJobEvents | |
+| HDInsightSparkLogs | |
+| HDInsightSparkSQLExecutionEvents | |
+| HDInsightSparkStageEvents | |
+| HDInsightSparkStageTaskAccumulables | |
+| HDInsightSparkTaskEvents | |
+| HDInsightStormLogs | |
+| HDInsightStormMetrics | |
+| HDInsightStormTopologyMetrics | |
+| Heartbeat | |
 | HuntingBookmark | |
-| InsightsMetrics | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| InsightsMetrics | Partial support. Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
 | IntuneAuditLogs | |
+| IntuneDeviceComplianceOrg | |
 | IntuneOperationalLogs | |
 | KubeEvents | |
 | KubeHealth | |
@@ -325,24 +359,30 @@ Supported tables are currently limited to those specified below. All data from t
 | KubePodInventory | |
 | KubeServices | |
 | KubeServices | |
+| LAQueryLogs | |
 | McasShadowItReporting | |
 | MicrosoftAzureBastionAuditLogs | |
 | MicrosoftDataShareReceivedSnapshotLog | |
 | MicrosoftDataShareSentSnapshotLog | |
 | MicrosoftDataShareShareLog | |
 | MicrosoftHealthcareApisAuditLogs | |
+| NWConnectionMonitorDestinationListenerResult | |
+| NWConnectionMonitorDNSResult | |
+| NWConnectionMonitorPathResult | |
 | NWConnectionMonitorPathResult | |
 | NWConnectionMonitorTestResult | |
-| OfficeActivity | Some of the data to ingested via webhooks from O365 into LA. This portion is missing in export currently. |
-| Operation | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
-| Perf | Supported | |
-| SCCMAssessmentRecommendation | | 
+| NWConnectionMonitorTestResult | |
+| OfficeActivity | Partial support. Some of the data to ingested via webhooks from Office 365 into Log Analytics. This data is currently not exported. |
+| Operation | Partial support. Some of the data is ingested through internal services that aren't supported for export. This data is currently not exported. |
+| Perf | Partial support. Only windows performance data is currently supported. The linux performance data is currently not exported. |
+| ProtectionStatus | |
+| SCCMAssessmentRecommendation | |
 | SCOMAssessmentRecommendation | |
 | SecurityAlert | |
 | SecurityBaseline | |
 | SecurityBaselineSummary | |
 | SecurityDetection | |
-| SecurityEvent | Supported | |
+| SecurityEvent | |
 | SecurityIncident | |
 | SecurityIoTRawEvent | |
 | SecurityNestedRecommendation | |
@@ -355,24 +395,29 @@ Supported tables are currently limited to those specified below. All data from t
 | SPAssessmentRecommendation | |
 | SQLAssessmentRecommendation | |
 | SucceededIngestion | |
-| Syslog |Partial | Some of the data to this table is ingested through storage account. This portion is missing in export currently. |
+| SynapseGatewayEvents | |
+| SynapseRBACEvents | |
+| Syslog | Partial support. Some of the data to this table is ingested through storage account. This data is currently not exported. |
 | ThreatIntelligenceIndicator | |
-| Update |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| Update | Partial support. Some of the data is ingested through internal services that isn't supported for export. This data is currently not exported. |
 | UpdateRunProgress | |
 | UpdateSummary | |
 | Usage | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
+| Watchlist | |
 | WindowsEvent | |
 | WindowsFirewall | |
-| WireData |Partial | Some of the data is ingested through internal services that isn't supported for export. This portion is missing in export currently. |
+| WireData | Partial support. Some of the data is ingested through internal services that isn't supported for export. This data is currently not exported. |
 | WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
+| WVDAgentHealthStatus | |
 | WVDCheckpoints | |
 | WVDConnections | |
 | WVDErrors | |
 | WVDFeeds | |
 | WVDManagement | |
+
 
 ## Next steps
 

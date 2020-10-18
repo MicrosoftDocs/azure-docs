@@ -64,7 +64,9 @@
           href: how-to-manage-user-lists-within-teams.md
         - name: Manage VM pool
           href: how-to-manage-vm-pool-within-teams.md
-        - name: Create schedules
+        - name: Delete labs
+          href: how-to-delete-lab-within-teams.md
+        - name: Schedules and settings
           href: how-to-create-schedules-within-teams.md
         - name: Access a VM (student view)
           href: how-to-access-vm-for-students-within-teams.md

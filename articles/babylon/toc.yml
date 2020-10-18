@@ -4,6 +4,8 @@
   items:
   - name: What is Azure Babylon?
     href: overview.md
+  - name: Deployment best practices
+    href: deployment-best-practices.md
   - name: Product limitations
     href: product-limitations.md
 - name: Quickstarts
@@ -27,7 +29,7 @@
       href: starter-kit-tutorial-4.md
     - name: 5 - Glossary terms
       href: starter-kit-tutorial-5.md
-  - name: Call Babylon REST APIs
+  - name: Use the REST APIs
     href: tutorial-using-rest-apis.md
 #- name: Samples
 - name: Concepts
@@ -36,7 +38,7 @@
     href: catalog-client-overview.md
   - name: Catalog lineage user guide
     href: catalog-lineage-user-guide.md
-  - name: Scan to detect deleted assets
+  - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
   - name: Resource Sets
     href: concept-resource-sets.md
@@ -44,44 +46,61 @@
     href: supported-stores-and-classifications.md
 - name: How-to guides
   items:
-  - name: Scan
+  - name: Register & scan
     items:
-    - name: Register and scan Azure Files
+    - name: Azure Files
       href: register-scan-azure-files-storage-source.md
-    - name: Register and scan Teradata
+      displayName: Register and scan Azure files
+    - name: Teradata
       href: register-scan-teradata-source.md
-    - name: Register and scan Azure Blob Storage
+      displayName: Register and scan Teradata 
+    - name: Azure Blob Storage
       href: register-scan-azure-blob-storage-source.md
-    - name: Register and scan Azure Data Lake Storage Gen 1
+      displayName: Register and scan azure blob storage      
+    - name: Azure Data Lake Storage Gen 1
       href: register-scan-adls-gen1.md
-    - name: Register and scan Azure Data Lake Storage Gen 2
+      displayName: Register and scan Azure Data Lake Storage Gen 1 ADLS
+    - name: Azure Data Lake Storage Gen 2
       href: register-scan-adls-gen2.md
+      displayName: Register and scan Azure Data Lake Storage Gen 2 ADLS 
+    - name: Azure SQL DB with a firewall
+      href: scan-sqlresource-firewall.md
+      displayName: Register and scan Azure SQL DB with a firewall
+    - name: Azure SQL Database
+      href: register-scan-azure-sql-database.md
+      displayName: Register and scan Azure SQL DB
     - name: Create a scan rule set
       href: create-a-scan-rule-set.md
-    - name: Apply classifications
-      href: apply-classifications.md
-    - name: Register and scan Amazon S3 standard buckets
-      href: setup-configuration-connector-amazon-s3.md
   - name: Classify
     items: 
-    - name: Apply classifications
+    - name: Use classifications
       href: use-classifications.md
     - name: Create a custom classification
       href: create-a-custom-classification.md
     - name: Create a custom classification rule
-      href: create-custom-classification-rule.md      
-  - name: Security
+      href: create-custom-classification-rule.md
+    - name: Apply classifications
+      href: apply-classifications.md
+  - name: Search & browse
     items:
-    - name: Create senstivity labels
-      href: create-sensitivity-label.md
+    - name: Browse Babylon
+      href: how-to-browse-catalog.md  
+  - name: Lineage 
+    items:
+    - name: Azure Data Share
+      href: how-to-link-azure-data-share.md
+ #- name: Security
+ #  items:
+  - name: Insights
+    items:
+    - name: Map and discover insights
+      href: map-discover.md
     - name: View classification insights
       href: classification-insights.md
     - name: View sensitivity label insights
       href: sensitivity-insights.md
     - name: View file extension insights
       href: file-extension-insights.md
-  - name: Map and discover insights
-    href: map-discover.md
   - name: Frequently asked questions
     href: frequently-asked-questions.md
   - name: Provide feedback
