@@ -96,7 +96,7 @@ To enable Auditing of Microsoft Support operations (Preview) navigate to **Audit
 
   > [!IMPORTANT]
   > Auditing of Microsoft support operations (Preview) does not support storage account destination. To enable the capability, a Log Analytics workspace or an Event Hub destination has to be configured.
-    
+
 ![Screenshot of Microsoft Support Operations](./media/auditing-overview/support-operations.png)
 
 ### <a id="audit-storage-destination"></a>Audit to storage destination
@@ -116,7 +116,7 @@ To configure writing audit logs to a storage account, select **Storage** and ope
 - You can write audit logs to a an Azure Storage account behind a VNet or firewall. For specific instructions see, [Write audit to a storage account behind VNet and firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](threat-detection-overview.md).
 - For details about the log format, hierarchy of the storage folder and naming conventions, see the [Blob Audit Log Format Reference](https://go.microsoft.com/fwlink/?linkid=829599).
-- When using AAD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
+- When using Azure AD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
 - Auditing on [Read-Only Replicas](read-scale-out.md) is automatically enabled. For further details about the hierarchy of the storage folders, naming conventions, and log format, see the [SQL Database Audit Log Format](audit-log-format.md).
 
 ### <a id="audit-log-analytics-destination"></a>Audit to Log Analytics destination
