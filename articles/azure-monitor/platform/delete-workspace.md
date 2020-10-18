@@ -112,3 +112,6 @@ You must have at least *Log Analytics Contributor* permissions to delete a works
      1. [Recover](#recover-workspace) your workspace.
      2. [Permanently delete](#permanent-workspace-delete) your workspace.
      3. Create a new workspace using the same workspace name.
+* If you get a 204 Response code that shows "Resource not found," the cause could be due to consecutive trying to use the delete workspace operation. 204 is an empty response which usually means resource does not exist, so delete completed without doing anything.
+Once the deletion call is successfully completed in the backend, you will then have the ability to restore the workspace and perform the permanent delete operation in one of the methods suggested above.
+
