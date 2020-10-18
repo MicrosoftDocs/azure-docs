@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: "mvc, devx-track-csharp"
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 9/29/2020
+ms.date: 10/18/2020
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for MySQL
@@ -30,6 +30,7 @@ For this quickstart you need:
 - Install [.NET](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
 - Install [Visual Studio](https://www.visualstudio.com/downloads/) or [Visual Code](https://code.visualstudio.com/).
 
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Create a C# project
 At a command prompt, run:
@@ -117,6 +118,9 @@ namespace AzureMySqlExample
 }
 ```
 
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
+
 ## Step 2: Read data
 
 Use the following code to connect and read the data by using a `SELECT` SQL statement. The code uses the `MySqlConnection` class with methods:
@@ -179,6 +183,8 @@ namespace AzureMySqlExample
 }
 ```
 
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
 ## Step 3: Update data
 Use the following code to connect and read the data by using an `UPDATE` SQL statement. The code uses the `MySqlConnection` class with method:
 - [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL. 
@@ -231,6 +237,7 @@ namespace AzureMySqlExample
     }
 }
 ```
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Step 4: Delete data
 Use the following code to connect and delete the data by using a `DELETE` SQL statement. 
@@ -285,6 +292,7 @@ namespace AzureMySqlExample
     }
 }
 ```
+[Cannot find what you are looking for?Let us know.](https://aka.ms/mysql-doc-feedback)
 
 ## Next steps
 > [!div class="nextstepaction"]
