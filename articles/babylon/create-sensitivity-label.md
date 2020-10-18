@@ -100,10 +100,6 @@ For example:
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-azure.png" alt-text="View a sensitivity label on a file in your Azure file storage":::
 
-### Labeled files in Amazon S3
-
-:::image type="content" source="media/create-sensitivity-label/view-labeled-files-amazon-s3.png" alt-text="View a sensitivity label on a file in your Amazon S3 storage":::
-
 ### Labeled files in SQL tables
 
 In Babylon public preview, sensitivity labels applied to SQL columns are displayed at the SQL table level even though the sensitivity labels are are applied at the SQL column level. 
