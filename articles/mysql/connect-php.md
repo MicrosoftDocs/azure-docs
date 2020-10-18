@@ -49,10 +49,12 @@ You can get the database server connection information from the Azure portal by 
 > - Replace the **host, username, password,** and **db_name** parameters with your own values**
 
 ## Step 1: Connect with MySQLi
-Use the following code to connect. This code calls:
+SSL is enabled by default. You many need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment. This code calls:
 - [mysqli_init](https://secure.php.net/manual/mysqli.init.php) to initialize MySQLi.
+- [mysqli_ssl_set](https://www.php.net/manual/en/mysqli.ssl-set.php) to point to the SSL certificate path. If using  Azure Virtual machines or Azure Web App, 'mysqli-ssl_set()' is not required as the **DigiCertGlobalRootG2** certificate is already installed on the platform. But this is required for you local environment.
 - [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL.
 - [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
+
 
 ```php
 $host = 'mydemoserver.mysql.database.azure.com';
