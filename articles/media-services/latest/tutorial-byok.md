@@ -10,7 +10,7 @@ ms.date: 10/18/2020
 
 # Tutorial: Use customer managed keys or bring your own key (BYOK) with Media Services
 
-You can use a customer managed RSA key with a Media Services account that has a system managed identity.  This tutorial uses a Postman collection and environment to send REST requests to Azure services.  Services used:
+With the 2020-05-01 API, you can use a customer managed RSA key with a Media Services account that has a system managed identity.  This tutorial uses a Postman collection and environment to send REST requests to Azure services.  Services used:
 
 - Azure Active Directory (AAD) application registration for Postman
 - Microsoft Graph API
