@@ -9,7 +9,7 @@ ms.author: mingshen
 ms.date: 10/19/2020
 ---
 
-# Add a preview audience for a virtual machine offer
+# How to add a preview audience for a virtual machine offer
 
 Select the **Preview** tab, then select a limited **Preview Audience** for validating your offer before you publish it live to the broader commercial marketplace audience.
 
@@ -27,4 +27,4 @@ Select **Save draft** before you proceed to the next section.
 
 ## Next steps
 
-- [Create plans for a VM offer](azure-vm-create-plans.md)
+- [Review and publish offers](review-publish-offer.md)

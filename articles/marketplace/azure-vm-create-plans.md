@@ -4,12 +4,12 @@ description: Learn how to create plans for a virtual machine offer on Azure Mark
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
+author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/19/2020
 ---
 
-# Create plans for a virtual machine offer
+# How to create plans for a virtual machine offer
 
 You can provide a variety of plan options within the same offer in Partner Center. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
 
@@ -195,4 +195,4 @@ Select **Save draft** before you continue and return to **Plan overview**.
 
 ## Next steps
 
-- [Add ta preview audience](azure-vm-create-preview.md)
+- [Add a preview audience](azure-vm-create-preview.md)

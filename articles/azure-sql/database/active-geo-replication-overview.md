@@ -127,7 +127,7 @@ By default, the backup storage redundancy of the secondary is same as that of th
 > Transaction log rate on the primary may be throttled for reasons unrelated to lower compute size on a secondary. This kind of throttling may occur even if the secondary has the same or higher compute size than the primary. For details, including wait types for different kinds of log rate throttling, see [Transaction log rate governance](resource-limits-logical-server.md#transaction-log-rate-governance).
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only. In the preview, if the source database is created with locally-redundant or zone-redundant backup redundancy, creating a secondary database in a different Azure region will not be supported. 
+> Azure SQL Database Configurable Backup Storage Redundancy is currently generally available in Southeast Asia Azure region only. When the source database is created with locally-redundant or zone-redundant backup storage redundancy, creating a secondary database in a different Azure region is not supported. 
 
 For more information on the SQL Database compute sizes, see [What are SQL Database Service Tiers](purchasing-models.md).
 

@@ -48,7 +48,7 @@ The following list describes common words used with the Azure Maps services.
 
 <a name="azure-location-based-services-lbs"></a> **Azure Location Based Services (LBS)**: The former name of Azure Maps when it was in preview.
 
-<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**: Azure AD is Microsoft's cloud-based identity and access management service. Azure Maps Azure AD integration is currently available in preview for all Azure Maps APIs. Azure AD supports role-based access control (RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Azure AD integration, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
+<a name="azure-active-directory"></a> **Azure Active Directory (Azure AD)**: Azure AD is Microsoft's cloud-based identity and access management service. Azure Maps Azure AD integration is currently available in preview for all Azure Maps APIs. Azure AD supports Azure role-based access control (Azure RBAC) to allow fine-grained access to Azure Maps resources. To learn more about Azure Maps Azure AD integration, see [Azure Maps and Azure AD](azure-maps-authentication.md) and [Manage authentication in Azure Maps](how-to-manage-authentication.md).
 
 <a name="azure-maps-key"></a> **Azure Maps key**: See [Shared key authentication](#shared-key-authentication).
 

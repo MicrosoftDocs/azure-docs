@@ -78,4 +78,4 @@ You can choose to provide your own terms and conditions, instead of the standard
 
 ## Next steps
 
-- [Configure your virtual machine offer listing details](azure-vm-create-listing.md)
+- [Configure VM offer listing](azure-vm-create-listing.md)

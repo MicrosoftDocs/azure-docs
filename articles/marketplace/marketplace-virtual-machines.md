@@ -129,6 +129,75 @@ When creating your offer in Partner Center, you will see the **Resell through CS
 > [!NOTE]
 > The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
 
+## Offer listing examples
+
+The following screenshot is an example of a VM offer in Azure Marketplace.
+
+:::image type="content" source="media/create-vm/example-azure-marketplace-virtual-machine-offer.png" alt-text="Illustrates how a VM offer appears in Azure Marketplace.":::
+
+**Call-out descriptions**
+
+1. Large logo
+2. Price
+3. Categories
+4. Terms and conditions
+5. Privacy policy address (link)
+6. Offer name
+7. Description
+8. Useful links
+9. Screenshots/videos
+
+Here's an example of how offer information appears in Azure Marketplace search results:
+
+:::image type="content" source="media/create-vm/example-azure-marketplace-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in Azure Marketplace search results.":::
+
+**Call-out descriptions**
+
+1. Small logo
+2. Offer name
+3. Search results summary
+4. Trial
+
+Here's an example of Azure Marketplace plan details:
+
+:::image type="content" source="media/create-vm/example-azure-marketplace-virtual-machine-plan-details.png" alt-text="Illustrates Azure Marketplace plan details.":::
+
+**Call-out descriptions**
+
+1. Plan name and summary
+2. Recommend VM sizes
+3. Plan pricing
+
+<br>Here's an example of a VM offer in the Azure portal:
+
+:::image type="content" source="media/create-vm/example-azure-portal-virtual-machine-offer.png" alt-text="Illustrates how this offer appears in the Azure portal.":::
+
+**Call-out descriptions**
+
+1. Name
+2. Description
+3. Useful links
+4. Screenshots/videos
+
+<br>Here's an example of how offer information appears in the Azure portal search results:
+
+:::image type="content" source="media/create-vm/example-azure-portal-virtual-machine-search-results.png" alt-text="Illustrates how this offer appears in the Azure portal search results.":::
+
+**Call-out descriptions**
+
+1. Small logo
+2. Offer name
+3. Search results summary
+
+<br>Here's an example of the Azure portal plan details:
+
+:::image type="content" source="media/create-vm/example-azure-portal-virtual-machine-plan-details.png" alt-text="Illustrates the Azure portal plan details.":::
+
+**Call-out descriptions**
+
+1. Plan name
+2. Plan description
+
 ## Next steps
 
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)

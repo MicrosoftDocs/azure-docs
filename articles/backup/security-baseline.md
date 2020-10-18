@@ -485,7 +485,7 @@ Azure Backup provides three built-in roles to control backup management operatio
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
+- [Use Azure role-based access control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
 
 **Azure Security Center monitoring**: Currently not available
 

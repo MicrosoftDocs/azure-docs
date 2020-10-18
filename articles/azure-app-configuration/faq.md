@@ -41,11 +41,11 @@ Yes. App Configuration encrypts all key values it holds, and it encrypts network
 
 ## Where does data stored in App Configuration reside? 
 
-Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. App Configuration may replicate data to [paired regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) for data resiliency, but it won't replicate or move customer data outside their Geo as defined by [data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Customers and end users may move, copy, or access their customer data from any location globally.
+Customer data stored in App Configuration resides in the region where the customer's App Configuration store was created. App Configuration may replicate data to [paired regions](../best-practices-availability-paired-regions.md) for data resiliency, but it won't replicate or move customer data outside their Geo as defined by [data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/). Customers and end users may move, copy, or access their customer data from any location globally.
 
 ## How is App Configuration different from Azure App Service settings?
 
-Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](/azure/app-service/configure-common#configure-app-settings).
+Azure App Service allows you to define app settings for each App Service instance. These settings are passed as environment variables to the application code. You can associate a setting with a specific deployment slot, if you want. For more information, see [Configure app settings](../app-service/configure-common.md#configure-app-settings).
 
 In contrast, Azure App Configuration allows you to define settings that can be shared among multiple apps. This includes apps running in App Service, as well as other platforms. Your application code accesses these settings through the configuration providers for .NET and Java, through the Azure SDK, or directly via REST APIs.
 

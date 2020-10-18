@@ -25,6 +25,7 @@ Following are common issues encountered when working with shared access signatur
 |  |  |  |
 
 For details, see [Using shared access signatures (SAS)](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/).
+
 ## Next steps
 
 - [VHD creation FAQ](azure-vm-common-issues-during-vhd-creation.md)

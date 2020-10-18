@@ -12,7 +12,7 @@ zone_pivot_groups: programming-languages-spring-cloud
 
 # Use distributed tracing with Azure Spring Cloud
 
-With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This integration provides powerful distributed tracing capability from the Azure portal.
+With the distributed tracing tools in Azure Spring Cloud, you can easily debug and monitor complex issues. Azure Spring Cloud integrates [Spring Cloud Sleuth](https://spring.io/projects/spring-cloud-sleuth) with Azure's [Application Insights](../azure-monitor/app/app-insights-overview.md). This integration provides powerful distributed tracing capability from the Azure portal.
 
 ::: zone pivot="programming-language-csharp"
 In this article, you learn how to enable a .NET Core Steeltoe app to use distributed tracing.
@@ -139,15 +139,15 @@ If you have already built and deployed an application, you can modify the sample
 
 ## View the application map
 
-Return to the **Distributed Tracing** page and select **View application map**. Review the visual representation of your application and monitoring settings. To learn how to use the application map, see [Application Map: Triage distributed applications](https://docs.microsoft.com/azure/azure-monitor/app/app-map).
+Return to the **Distributed Tracing** page and select **View application map**. Review the visual representation of your application and monitoring settings. To learn how to use the application map, see [Application Map: Triage distributed applications](../azure-monitor/app/app-map.md).
 
 ## Use search
 
-Use the search function to query for other specific telemetry items. On the **Distributed Tracing** page, select **Search**. For more information on how to use the search function, see [Using Search in Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/diagnostic-search).
+Use the search function to query for other specific telemetry items. On the **Distributed Tracing** page, select **Search**. For more information on how to use the search function, see [Using Search in Application Insights](../azure-monitor/app/diagnostic-search.md).
 
 ## Use Application Insights
 
-Application Insights provides monitoring capabilities in addition to the application map and search function. Search the Azure portal for your application's name, and then open an Application Insights page to find monitoring information. For more guidance on how to use these tools, check out [Azure Monitor log queries](https://docs.microsoft.com/azure/azure-monitor/log-query/query-language).
+Application Insights provides monitoring capabilities in addition to the application map and search function. Search the Azure portal for your application's name, and then open an Application Insights page to find monitoring information. For more guidance on how to use these tools, check out [Azure Monitor log queries](/azure/data-explorer/kusto/query/).
 
 ## Disable Application Insights
 
