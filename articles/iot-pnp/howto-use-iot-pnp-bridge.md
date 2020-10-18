@@ -103,41 +103,77 @@ Expect this operation to take several minutes to complete.
 
 ## Setting up the Configuration JSON
 
-After cloning the IoT Plug and Play bridge repo to your machine, navigate to the `pnpbridge/docs/schema` directory of the cloned repository where you can find the [configuration JSON](https://aka.ms/iot-pnp-bridge-env-config) or `config.json` for the environmental sensor sample of the bridge. You can learn more about config files in the [IoT Plug and Play bridge concepts document](concepts-iot-pnp-bridge.md).
+After cloning the IoT Plug and Play bridge repo to your machine, navigate to the `pnpbridge/docs/schemas` directory of the cloned repository where you can find the [configuration JSON](https://aka.ms/iot-pnp-bridge-env-config) or `config.json` for the environmental sensor sample of the bridge. You can learn more about config files in the [IoT Plug and Play bridge concepts document](concepts-iot-pnp-bridge.md).
 
 For the `root-_interface_model_id` field you will need to copy the IoT Plug and Play model ID that identifies the model for your device. In this example, it is `dtmi:com:example:SampleDevice;1`. Modify the following parameters under **pnp_bridge_parameters** node in the `config.json` file in the ':
 
   Using Connection string (Note: the symmetric_key must match the SAS key in the connection string):
 
-  ```JSON
-    {
-      "connection_parameters": {
-        "connection_type" : "connection_string",
-        "connection_string" : "[CONNECTION STRING]",
-        "root_interface_model_id": "[To fill in]",
-        "auth_parameters" : {
-          "auth_type" : "symmetric_key",
-          "symmetric_key" : "[SYMMETRIC KEY]"
-        }
+  ```JSON  
+  {
+    "$schema": "../../../pnpbridge/src/pnpbridge_config_schema.json",
+    "pnp_bridge_connection_parameters": {
+      "connection_type" : "connection_string",
+      "connection_string" : "[To fill in]",
+      "root_interface_model_id": "[To fill in]",
+      "auth_parameters": {
+          "auth_type": "symmetric_key",
+          "symmetric_key": "[To fill in]"
+      },
+      "dps_parameters": {
+          "global_prov_uri": "[To fill in]",
+          "id_scope": "[To fill in]",
+          "device_id": "[To fill in]"
       }
-    }
+  },
+    "pnp_bridge_debug_trace": false,
+    "pnp_bridge_config_source": "local",
+    "_comment_devices": "Array of devices for Azure Pnp interface should be published",
+    "pnp_bridge_interface_components": [
+        {
+            "_comment": "Environment Sensor Device Component",
+            "pnp_bridge_component_name": "environmentalSensor",
+            "pnp_bridge_adapter_id": "environment-sensor-sample-pnp-adapter",
+            "pnp_bridge_adapter_config": {
+                "sensor_id": "10"
+            }
+        }
+    ]
   }
-  ```
+```
 
  Once filled in you the `config.json` file should resemble:
 
-   ```JSON
-    {
-      "connection_parameters": {
-        "connection_type" : "connection_string",
-        "connection_string" : "[CONNECTION STRING]",
-        "root_interface_model_id": "dtmi:com:example:SampleDevice;1",
-        "auth_parameters" : {
-          "auth_type" : "symmetric_key",
-          "symmetric_key" : "[SYMMETRIC KEY]"
-        }
+```JSON
+  {
+    "$schema": "../../../pnpbridge/src/pnpbridge_config_schema.json",
+    "pnp_bridge_connection_parameters": {
+      "connection_type" : "connection_string",
+      "connection_string" : "[To fill in]",
+      "root_interface_model_id": "dtmi:com:example:SampleDevice;1",
+      "auth_parameters": {
+          "auth_type": "symmetric_key",
+          "symmetric_key": "[To fill in]"
+      },
+      "dps_parameters": {
+          "global_prov_uri": "[To fill in]",
+          "id_scope": "[To fill in]",
+          "device_id": "[To fill in]"
       }
-    }
+  },
+    "pnp_bridge_debug_trace": false,
+    "pnp_bridge_config_source": "local",
+    "_comment_devices": "Array of devices for Azure Pnp interface should be published",
+    "pnp_bridge_interface_components": [
+        {
+            "_comment": "Environment Sensor Device Component",
+            "pnp_bridge_component_name": "environmentalSensor",
+            "pnp_bridge_adapter_id": "environment-sensor-sample-pnp-adapter",
+            "pnp_bridge_adapter_config": {
+                "sensor_id": "10"
+            }
+        }
+    ]
   }
 ```
 
@@ -170,7 +206,7 @@ cd scripts/linux
  Start the IoT Plug and Play bridge sample for Environmental sensors by navigating to the *pnpbridge* folder and running the following in a command prompt:
 
 ```bash
- cd cmake/pnpbridge_x86/src/adaptors/samples/environmental_sensor/
+ cd cmake/pnpbridge_linux/src/adaptors/samples/environmental_sensor/
 ./pnpbridge_environmentalsensor
 
 ```
