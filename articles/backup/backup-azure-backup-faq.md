@@ -53,6 +53,10 @@ If you've already configured the backup and must move from GRS to LRS, then see 
 - ILR is supported for Azure VMs backed up by Azure VM backup. For more information, see [article](backup-azure-restore-files-from-vm.md)
 - ILR isn't supported for online recovery points of on-premises VMs backed up by Azure Backup Server (MABS) or System Center DPM.
 
+### How can I move data from the Recovery Services vault to on-premises?
+
+Exporting data directly from the Recovery Services vault to on-premises using Data Box is not supported. Data must be restored to a storage account, and then it can be moved to on-premises via [Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) or [Import/Export](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+
 ## Azure Backup agent
 
 ### Where can I find common questions about the Azure Backup agent for Azure VM backup?

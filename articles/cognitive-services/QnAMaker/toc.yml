@@ -24,26 +24,14 @@
     href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
   - name: Create FAQ Bot with Azure Bot Service
     href: Tutorials/create-faq-bot-with-azure-bot-service.md
-  - name: Test with batch file
-    href: Quickstarts/batch-testing.md
 - name: Concepts
   items:
   - name: Plan your knowledge base
     href: Concepts/plan.md
   - name: Plan QnA Maker resources
     href: Concepts/azure-resources.md
-  - name: Design a knowledge base
-    items:
-    - name: For languages
-      href: Concepts/design-language-culture.md
-    - name: For client applications
-      href: Concepts/integration-with-other-applications.md
   - name: Data sources and content
-    items:
-    - name: Importing from data sources
-      href: Concepts/knowledge-base.md
-    - name: Content types imported
-      href: Concepts/content-types.md
+    href: Concepts/data-sources-and-content.md
   - name: Ranker Process	
     displayName: DefaultAnswer, Default answer	
     href: Concepts/query-knowledge-base.md	
@@ -58,22 +46,14 @@
 - name: How-to guides
   items:
   - name: Manage Azure resources
-    items:
-    - name: Manage resources
-      href: How-To/set-up-qnamaker-service-azure.md
-      displayName: azure, resource, key, upgrade, pricing, tier,
-    - name: Collaborate
-      href: How-To/collaborate-knowledge-base.md
-    - name: Turn on active learning
-      href: How-To/use-active-learning.md
-    - name: Change default answer
-      href: How-To/change-default-answer.md
+    href: How-To/set-up-qnamaker-service-azure.md
+    displayName: azure, resource, key, upgrade, pricing, tier,
+  - name: Manage QnA Maker App
+    href: How-To/manage-qna-maker-app.md
   - name: Manage knowledge base
     items:
     - name: Create knowledge base
       href: How-To/manage-knowledge-bases.md
-    - name: Language selection
-      href: How-To/language-knowledge-base.md
     - name: Add chit-chat
       href: How-to/chit-chat-knowledge-base.md
     - name: Migrate to new knowledge base
@@ -102,7 +82,7 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
-  - name: Role-based access control (RBAC)	    
+  - name: Azure role-based access control (Azure RBAC)	    
     href: Concepts/role-based-access-control.md	
   - name: Active learning	
     href: Concepts/active-learning-suggestions.md	
@@ -115,6 +95,8 @@
   - name: Add secured SharePoint files
     href: How-To/add-sharepoint-datasources.md
     displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
+  - name: Change default answer
+    href: How-To/change-default-answer.md
   - name: Service configuration
     href: reference-app-service.md
   - name: Content and data formats
