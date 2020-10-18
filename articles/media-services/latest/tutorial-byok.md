@@ -28,15 +28,15 @@ In this tutorial, you learn to use Postman to:
 > * Update the Media Services account to use the RSA key with the storage account.
 > * Use variables in Postman.
 
-If you don't have an Azure subscription, create a free trial account.
+If you don't have an Azure subscription, [create a free trial account](https://azure.microsoft.com/free/).
 
 ## Prerequisites
 
-- Create a service principal with the appropriate permissions.
+- Register a service principal with the appropriate permissions.
 - Install [Postman](https://www.postman.com)).
 - Download the Postman collection for this tutorial at [Azure Samples: media-services-customer-managed-keys-byok](https://github.com/Azure-Samples/media-services-customer-managed-keys-byok)
 
-## Register a service principal with the needed permissions
+### Register a service principal with the needed permissions
 
 > [!WARNING]
 > **REVIEWERS: Are these the correct least privilege permissions? What are they if not?**
@@ -47,15 +47,15 @@ The service principal needs the following permissions to perform the tasks in th
 
 ![the permissions needed for the service principal](./media/tutorial-byok/service-principal-permissions.png)
 
-## Install Postman
+### Install Postman
 
 If you haven't already installed Postman for use with Azure, you can get it at [postman.com](https://www.postman.com/).
 
-## Download and import the collection
+### Download and import the collection
 
 Download the Postman collection for this tutorial at [Azure Samples: media-services-customer-managed-keys-byok](https://github.com/Azure-Samples/media-services-customer-managed-keys-byok)
 
-### Installation of collection and environment
+## Installation of collection and environment
 
 1. Run Postman.
 1. Select **Import**.
@@ -66,7 +66,7 @@ Download the Postman collection for this tutorial at [Azure Samples: media-servi
 1. This collection will now show up in your Collections as BYOK.
 1. The environment variables will now appear in your Environments.
 
-### REST requests in the collection
+### Understand the REST requests in the collection
 
 The collection provides the following REST API requests. They must be run in the sequence provided as most of the requests have test scripts that dynamically create global variables for the next (or subsequent) request in the sequence. It is not necessary to manually create the global variables.
 

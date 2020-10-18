@@ -33,7 +33,7 @@ You can specify a key name and key version, or just a key name. When you use onl
 > Media Services monitors access to the customer key. If the customer key becomes inaccessible (for example, the key has been deleted or the Key Vault has been deleted or the access grant has been removed), Media Services will transition the account to the Customer Key Inaccessible State (effectively disabling the account).  The account will be reenabled when access to the key is restored.
 
 ## Tutorial
-You can try out the tutorial [Use customer managed keys or bring your own key (BYOK) with Media Services](tutorial-byok.md) to about how to set up and use customer managed keys with Postman and REST API.
+Try the tutorial [Use customer managed keys or bring your own key (BYOK) with Media Services](tutorial-byok.md) to learn about setting up and using customer managed keys with Postman and Azure REST API.
 
 ## Next steps
 
