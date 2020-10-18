@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Connect to a webapp using an Azure Private endpoint'
+title: 'Tutorial: Connect to a web app using an Azure Private endpoint'
 titleSuffix: Azure Private Link
 description: Get started with this tutorial using Azure Private endpoint to connect to a webapp privately.
 author: asudbring
@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.date: 10/19/2020
 ---
 
-# Tutorial: Connect to a webapp using an Azure Private Endpoint
+# Tutorial: Connect to a web app using an Azure Private Endpoint
 
 Azure Private endpoint is the fundamental building block for Private Link in Azure. It enables Azure resources, like virtual machines (VMs), to communicate with Private Link resources privately.
 
@@ -18,7 +18,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Create a virtual network and bastion host.
 > * Create a virtual machine.
-> * Create webapp with a private endpoint.
+> * Create a webapp.
+> * Create a private endpoint.
 > * Test connectivity to web app private endpoint.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -130,13 +131,13 @@ In this section, you'll create a virtual machine that will be used to test the p
   
 6. Review the settings, and then select **Create**.
 
-## Create storage account with a private endpoint
+## Create web app
 
-In this section, you'll create a storage account and configure the private endpoint.
+In this section, you'll create a web app.
 
-1. In the left-hand menu, select **Create a resource** > **Storage** > **Storage account**, or search for **Storage account** in the search box.
+1. In the left-hand menu, select **Create a resource** > **Storage** > **Web App**, or search for **Web App** in the search box.
 
-2. In the **Basics** tab of **Create storage account** enter or select the following information:
+2. In the **Basics** tab of **Create Web App** enter or select the following information:
 
     | Setting | Value                                          |
     |-----------------------|----------------------------------|
@@ -144,53 +145,47 @@ In this section, you'll create a storage account and configure the private endpo
     | Subscription | Select your Azure subscription |
     | Resource Group | Select **myResourceGroup** |
     | **Instance details** |  |
-    | Storage account name | Enter **mystorageaccount**. If the name is unavailable, enter a unique name. |
-    | Location | Select **East US** |
-    | Performance | Leave the default **Standard** |
-    | Account kind | Leave the default **Storage (general purpose v2)** |
-    | Replication| Leave the default **Read-access geo-redundant storage (RA-GRS)** |
+    | Name | Enter **mywebapp**. If the name is unavailable, enter a unique name. |
+    | Publish | Select **Code**. |
+    | Runtime stack | Select **.NET Core 3.1 (LTS)**. |
+    | Operating System | Select **Windows**. |
+    | Region | Select **East US** |
+    | **App Service Plan** |  |
+    | Windows Plan (East US) | Select **Create new**. </br> Enter **myServicePlan** in **Name**. |
+    | Sku and size | Select **Change size**. </br> Select **P2V2** in the **Spec Picker** screen. </br> Select **Apply**. |
    
-3. Select the **Networking** tab or select the **Next: Networking** button.
+3. Select **Review + create**.
 
-4. In the **Networking** tab, under **Connectivity method** select **Private endpoint**.
+4. Select **Create**.
 
-5. In **Private endpoint**, select **+ Add**.
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/create-web-app.png" alt-text="Basics tab of create web app in Azure portal." border="true":::
 
-6. In **Create private endpoint** enter or select the following information:
+## Create private endpoint
 
-    | Setting | Value                                          |
-    |-----------------------|----------------------------------|
-    | Subscription | Select your Azure subscription |
-    | Resource Group | Select **myResourceGroup** |
-    | Location | Select **East US** |
-    | Name | Enter **myPrivateEndpoint** |
-    | Storage subresource | Leave the default **blob** |
-    | **Networking** |  |
-    | Virtual network | Select **myVNet** |
-    | Subnet | Select **mySubnet** |
-    | **Private DNS integration** |
-    | Integrate with private DNS zone | Leave the default **Yes** |
-    | Private DNS Zone | Leave the default (New) privatelink.blob.core.windows.net |
+1. In the left-hand menu, select **All Resources** > **mywebapp** or the name you chose during creation.
 
-7. Select **OK**.
+2. In the web app overview, select **Settings** > **Networking**.
 
-8. Select **Review + create**.
+3. In **Networking**, select **Configure your private endpoint connections**.
 
-9. Select **Create**.
+4. Select **+ Add** in the **Private Endpoint connections** screen.
 
-10. Select **Resource groups** in the left-hand navigation pane.
+5. Enter or select the following information in the **Add Private Endpoint** screen:
 
-11. Select **myResourceGroup**.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter **mywebappendpoint**. |
+    | Subscription | Select your subscription. |
+    | Virtual network | Select **myVNet**. |
+    | Subnet | Select **mySubnet**. |
+    | Integrate with private DNS zone | Select **Yes**. |
 
-12. Select the storage account you created in the previous steps.
-
-13. In the **Settings** section of the storage account, select **Access keys**.
-
-14. Select copy on the **Connection string** for **key1**.
+6. Select **OK**.
+    
 
 ## Test connectivity to private endpoint
 
-In this section, you'll use the virtual machine you created in the previous step to connect to the storage account across the private endpoint.
+In this section, you'll use the virtual machine you created in the previous step to connect to the web app across the private endpoint.
 
 1. Select **Resource groups** in the left-hand navigation pane.
 
@@ -206,43 +201,39 @@ In this section, you'll use the virtual machine you created in the previous step
 
 7. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <storage-account-name>.blob.core.windows.net`. Replace **\<storage-account-name>** with the name of the storage account you created in the previous steps.  You'll receive a message similar to what is displayed below:
+8. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the storage account you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
     Address:  168.63.129.16
 
     Non-authoritative answer:
-    Name:    mystorageaccount8675.privatelink.blob.core.windows.net
+    Name:    mywebapp8675.privatelink.azurewebsites.net
     Address:  10.1.0.5
-    Aliases:  mystorageaccount8675.blob.core.windows.net
+    Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-    A private IP address of **10.1.0.5** is returned for the storage account name.  This address is in the subnet of the virtual network you created previously.
+    A private IP address of **10.1.0.5** is returned for the web app name.  This address is in the subnet of the virtual network you created previously.
 
-9. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) on the virtual machine.
+9. Open a web browser on your local computer and enter the external URL of your web app, **https://\<webapp-name>.azurewebsites.net**.
 
-10. Select **Finish** after the **Microsoft Azure Storage Explorer** is installed.  Leave the box checked to open the application.
+10. Verify that you receive a 403 forbidden page. This page indicates that the web app isn't accessible externally.
 
-11. In the **Connect to Azure Storage** screen, select **Use a connection string**.
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="403 forbidden page for external web app address." border="true":::
 
-12. Select **Next**.
+11. In the bastion connection to **myVM**, open Internet Explorer.
 
-13. Enter your storage account name from the previous steps in **Display name**.
+12. Enter the url of your web app, **https://\<webapp-name>.azurewebsites.net**.
 
-14. In the box under **Connection String**, paste the connection string from the storage account you copied in the previous steps.
+13. Verify you receive the default web app page.
 
-15. Select **Next**.
-
-16. Verify the settings are correct in **Connection Summary**.  
-
-17. Select **Connect**.
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Default web app page." border="true":::
 
 18. Close the connection to **myVM**.
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete the virtual network, virtual machine, and storage account with the following steps:
+If you're not going to continue to use this application, delete the virtual network, virtual machine, and web app with the following steps:
 
 1. From the left-hand menu, select **Resource groups**.
 
