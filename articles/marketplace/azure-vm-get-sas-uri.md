@@ -3,7 +3,7 @@ title: Get a SAS URI for your VM image - Azure Marketplace
 description: Generate a shared access signature (SAS) URI for your virtual hard disks (VHD) in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020

@@ -4,9 +4,9 @@ description: Learn how to publish a virtual machine offer to Azure Marketplace u
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
+author: mingshen-ms 
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/19/2020
 ---
 
 # Create a virtual machine using your own image

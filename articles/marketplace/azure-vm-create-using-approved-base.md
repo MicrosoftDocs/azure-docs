@@ -4,9 +4,9 @@ description: Learn how to create a virtual machine (VM) offer from an approved b
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
+author: mingshen-ms 
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/19/2020
 ---
 
 # Create a virtual machine from an approved base
@@ -19,54 +19,42 @@ Select one of the following Windows or Linux Images as your base.
 
 ### Windows
 
-- Windows Server ([2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
-- SQL Server 2019 ([Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Web](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview))
-- SQL Server 2014 ([Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md))
-- SQL Server 2012 SP2 ([Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md))
+- Windows Server [2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview)
+
+- SQL Server 2019 [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Web](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview)
+
+- SQL Server 2014 [Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)
+
+- SQL Server 2012 SP2 [Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)
 
 ### Linux
 
 Azure offers a range of approved Linux distributions. For a current list, see [Linux on distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
-## Create VM on the Azure portal
-
-Follow these steps to create the base VM image on the [Azure portal](https://ms.portal.azure.com/):
-
-#### Windows
-
-- Windows Server ([2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2016](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 R2 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2012 Datacenter](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
-- SQL Server 2019 ([Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Web](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview))
-- SQL Server 2014 ([Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md))
-- SQL Server 2012 SP2 ([Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md))
-
-#### Linux
-
-Azure offers a range of approved Linux distributions. For a current list, see [Linux on distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
-
 ### Create VM on the Azure portal
 
-Follow these steps to create the base VM image on the [Azure portal](https://ms.portal.azure.com/):
+Follow these steps to create the base VM image on the [Azure portal](https://ms.portal.azure.com/).
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
-2. Select **Virtual machines**.
-3. Select **+ Add** to open the **Create a virtual machine** screen.
-4. Select the image from the dropdown list or select **Browse all public and private images**  to search or browse all available virtual machine images.
-5. To create a **Gen 2** VM, go to the **Advanced** tab and select the **Gen 2** option.
+1. Select **Virtual machines**.
+1. Select **+ Add** to open the **Create a virtual machine** screen.
+1. Select the image from the dropdown list or select **Browse all public and private images**  to search or browse all available virtual machine images.
+1. To create a **Gen 2** VM, go to the **Advanced** tab and select the **Gen 2** option.
 
     :::image type="content" source="media/create-vm/vm-gen-option.png" alt-text="Select Gen 1 or Gen 2.":::
 
-5. Select the size of the VM to deploy:
+1. Select the size of the VM to deploy:
     1. If you plan to develop the VHD on-premises, the size doesn't matter. Consider using one of the smaller VMs.
     2. If you plan to develop the image in Azure, consider using one of the recommended VM sizes for the selected image.
 
     :::image type="content" source="media/create-vm/create-virtual-machine-sizes.png" alt-text="Select a recommended VM size for the selected image.":::
 
-6. Gen 1 only: On the **Disks** tab, expand the **Advanced** section and set the **Use managed disks** option to **No**.
+1. Gen 1 only: On the **Disks** tab, expand the **Advanced** section and set the **Use managed disks** option to **No**.
 
     :::image type="content" source="media/create-vm/use-managed-disks-option-gen-2.png" alt-text="Set Use managed disks to No for Gen 2.":::
 
-7. Provide the other required details to create the VM. [ WHICH ARE REQUIRED? ALL TABS? DO WE NEED TO REVIEW ALL FIELDS OR NOTE WHICH ARE REQUIRED? ]
-8. Select **Review + create** to review your choices. When the **Validation passed** message appears, select  **Create**.
+1. Provide the other required details to create the VM. [ WHICH ARE REQUIRED? ALL TABS? DO WE NEED TO REVIEW ALL FIELDS OR NOTE WHICH ARE REQUIRED? ]
+1. Select **Review + create** to review your choices. When the **Validation passed** message appears, select  **Create**.
 
 Azure begins provisioning the virtual machine you specified. Track its progress by selecting the **Virtual Machines** tab in the left menu. After it's created, the status [ WHERE? ] changes to **Running**.
 

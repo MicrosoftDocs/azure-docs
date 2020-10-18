@@ -6,65 +6,75 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/16/2020
+ms.date: 10/19/2020
 ---
 
 # Configure virtual machine offer properties
 
 On the **Properties** page, you define the categories that are used to group your offer on Azure Marketplace, your application version, and the legal contracts that support your offer.
 
-## Category
+## Select a category
 
-Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
+Select categories and subcategories to place your offer in the appropriate Azure Marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
 
 - At least one and up to two categories, including a primary and a secondary category (optional).
 - Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
 
 See the full list of categories and subcategories in [Offer Listing Best Practices](gtm-offer-listing-best-practices.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
 
-## Legal
+## Provide terms and conditions
 
-You must provide offer terms and conditions to your customers. You have two options: use your own terms and conditions, or use the Standard Contract for the Microsoft commercial marketplace.
+Under **Legal**, provide terms and conditions for your offer. You have two options:
 
-- **Use your own terms and conditions**
+- [Use the standard contract with optional amendments](#use-the-standard-contract)
+- [Use your own terms and conditions](#use-your-own-terms-and-conditions)
 
-   To provide your own custom terms and conditions, enter up to 10,000 characters of text in the **Terms and conditions** box. If you require a longer description, enter a single web address for your terms and conditions. It will be displayed to customers as an active link.
+To learn about the standard contract and optional amendments, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). You can download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF (make sure your pop-up blocker is off).
 
-   Your customers must accept these terms before they can try your offer.
+### Use the standard contract
 
-- **Use the Standard Contract for the Microsoft commercial marketplace**
+To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a standard contract you can use for your offers in the commercial marketplace. When you offer your software under the standard contract, customers only need to read and accept it one time, and you don't have to create custom terms and conditions.
 
-   To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract for the commercial marketplace. When you offer your software under the Standard Contract, customers need to read and accept it only once, and you don't have to creating custom terms and conditions.
+1. Select the **Use the Standard Contract for Microsoft's commercial marketplace** checkbox.
 
-   Use the Standard Contract by selecting the **Use the Standard Contract for Microsoft's commercial marketplace** check box and then, in the pop-up window, select **Accept** (you might have to scroll up to view it).
+   ![Illustrates the Use the Standard Contract for Microsoft's commercial marketplace check box.](partner-center-portal/media/use-standard-contract.png)
+1. In the **Confirmation** dialog box, select **Accept**. You may have to scroll up to see it.
+1. Select **Save draft** before continuing.
 
-   ![Screenshot showing the Legal pane in Partner Center with the "Use the Standard Contract for Microsoft's commercial marketplace" check box.](media/use-standard-contract.png)
+   > [!NOTE]
+   > After you publish an offer using the Standard Contract for the commercial marketplace, you can't use your own custom terms and conditions. Either offer your solution under the standard contract with optional amendments or under your own terms and conditions.
 
-  > [!NOTE]
-  > After you publish an offer by using the Standard Contract for the commercial marketplace, you can't use your own custom terms and conditions. You can offer a solution under either the Standard Contract or your own terms and conditions.
+### Add amendments to the standard contract (optional)
 
-  For more information, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). Download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF file (make sure your pop-up blocker is turned off).
+There are two kinds of amendments available: *universal* and *custom*.
 
-  ## Standard Contract amendments
+#### Add universal amendment terms
 
-  Standard Contract amendments let you select the Standard Contract terms for simplicity and create the terms for your product or business. Customers need to review the amendments to the contract only if they've already reviewed and accepted the Microsoft Standard Contract. There are two types of amendments:
+In the **Universal amendment terms to the standard contract for Microsoft's commercial marketplace** box, enter your universal amendment terms. You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or Azure portal during the discovery and purchase flow.
 
-  * **Universal amendments**: These amendments are applied universally to the Standard Contract for all customers. They are shown to every customer of the offer in the purchase flow. Customers must accept the terms of the Standard Contract and the amendments before they can use your offer. You can provide a single universal amendment per offer. You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or the Azure portal during the discovery and purchase flow.
+#### Add one or more custom amendments
 
-  * **Custom amendments**: These special amendments to the Standard Contract are targeted to specific customers through Azure tenant IDs. You can choose the tenant you want to target. Only customers from the tenant are presented with the custom amendment terms in the offer's purchase flow. Customers must accept the terms of the Standard Contract and the amendments before they can use your offer.
+1. Under **Custom amendments terms to the Standard Contract for Microsoft's commercial marketplace**, select the **Add custom amendment term (Max 10)** link.
+1. In the **Custom amendment terms** box, enter your amendment terms.
+1. In the **Tenant ID** box, enter a tenant ID. Only customers associated with the tenant IDs you specify for these custom terms will see them in the offer's purchase flow in the Azure portal.
+   > [!TIP]
+   > A tenant ID identifies your customer in Azure. You can ask your customer for this ID and they can find it by going to [**https://portal.azure.com**](https://portal.azure.com) > **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, `50c464d3-4930-494c-963c-1e951d15360e`). You can also look up the organization's tenant ID of your customer by using their domain name URL at [What is my Microsoft Azure and Office 365 tenant ID?](https://www.whatismytenantid.com/).
+1. In the **Description** box, optionally enter a friendly description for the tenant ID. This description helps you identify the customer you're targeting with the amendment.
+1. To add another tenant ID, select the **Add a customer's tenant ID** link and repeat steps 3 and 4. You can add up to 20 tenant IDs.
+1. To add another amendment term, repeat steps 1 through 5. You can provide up to ten custom amendment terms per offer. 
+2. Select **Save draft** before continuing.
 
-    1. Start by selecting **Add custom amendment terms (Max 10)**. You can provide up to ten custom amendment terms per offer. Do the following:
+### Use your own terms and conditions
 
-       a. Enter your own amendment terms in the **Custom amendment terms** box. You can enter an unlimited number of characters. Only customers from the tenant IDs that you specify for these custom terms will see them in the offer's purchase flow in the Azure portal.
+You can choose to provide your own terms and conditions, instead of the standard contract. Customers must accept these terms before they can try your offer.
 
-       b. (Required) Provide **Tenant IDs**. Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID, which identifies your customer in Azure. Your customer can find this for you in Azure by selecting **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also find the organization's tenant ID of your customer by using their domain name web address at [What is my Microsoft Azure and Microsoft 365 tenant ID?](https://www.whatismytenantid.com/).
+1. Under **Legal**, make sure the **Use the Standard Contract for Microsoft's commercial marketplace** check box is cleared.
+1. In the **Terms and conditions** box, enter up to 10,000 characters of text.
 
-       c. (Optional) Provide a friendly **Description** for the tenant ID, one that helps you identify the customer that you're targeting with the amendment.
+   > [!NOTE]
+   > If you require a longer description, enter a single web address that points to where your terms and conditions can be found. It will be displayed to customers as an active link.
 
-        > [!NOTE]
-        > These two types of amendments are paired with each other. Customers who are targeted with custom amendments will also get the universal amendments to the Standard Contract during the purchase.
-
-    1. Select **Save draft** before you continue.
+1. Select **Save draft** before continuing to the next tab, **Offer listing**.
 
 ## Next steps
 

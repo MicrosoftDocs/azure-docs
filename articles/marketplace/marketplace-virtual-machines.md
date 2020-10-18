@@ -16,6 +16,24 @@ This article explains the different options and requirements for publishing a vi
 
 Before you start, [Create a commercial marketplace account in Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) and ensure your account is enrolled in the commercial marketplace program.
 
+### Technical resources
+
+The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of the following Microsoft technologies:
+
+- [Design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/)
+- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
+- Quickstart guides
+  - [Azure quickstart templates](https://azure.microsoft.com/resources/templates/)
+  - [GitHub Azure quickstart templates](https://github.com/azure/azure-quickstart-templates)
+- Tutorials
+  - [Linux VMs](../virtual-machines/linux/tutorial-manage-vm.md)
+  - [Windows VMs](../virtual-machines/windows/tutorial-manage-vm.md)
+- Samples
+  - [Azure CLI samples for Linux VMs](../virtual-machines/linux/cli-samples.md)
+  - [Azure PowerShell for Linux VMs](../virtual-machines/linux/powershell-samples.md)
+  - [Azure CLI samples for Windows VMs](../virtual-machines/windows/cli-samples.md)
+  - [Azure PowerShell for Windows VMs](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
+
 ## Technical requirements
 
 A VM contains two components:
@@ -36,11 +54,14 @@ VM offers have the following technical requirements:
    > Every VM Image in a plan must have the same number of data disks.
 - The customer can cancel your offer at any time.
 
-The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of the following Microsoft technologies:
+## Preview audience
 
-- [Azure services](https://azure.microsoft.com/services/)
-- [Design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/)
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
+A preview audience can access your VM offer prior to being published live in Azure Marketplace in order to test the end-to-end functionality before you publish it live. On the **Preview audience** page, you can define a limited preview audience. 
+
+> [!NOTE]
+> A preview audience differs from a private plan. A private plan is one you make available only to a specific audience you choose. This enables you to negotiate a custom plan with specific customers. For more information, see the next section: Plans.
+
+You can send invites to Microsoft Account (MSA) or Azure Active Directory (Azure AD) email addresses. Add up to 10 email addresses manually or import up to 20 with a .csv file. If your offer is already live, you can still define a preview audience for testing any changes or updates to your offer.
 
 ## Plans and pricing
 
@@ -72,15 +93,18 @@ The following example shows a VM offer in Azure Marketplace that has usage-based
 
 :::image type="content" source="media/vm/sample-offer-screen.png" alt-text="Sample VM offer screen.":::
 
-### Private offers
+### Private plans
 
-You can restrict the discovery and deployment of your VM to a specific set of customers by publishing the image and pricing as a Private Offer. Private Offers unlock the ability for you to create exclusive offers for your closest customers and offer customized software and terms. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software. Private Offers enable you to give specific pricing or products to a limited set of customers by creating a new plan with those details.
+You can restrict the discovery and deployment of your VM to a specific set of customers by publishing the image and pricing as a private plan. Private plans unlock the ability for you to create exclusive offers for your closest customers and offer customized software and terms. The customized terms enable you to highlight a variety of scenarios, including field-led deals with specialized pricing and terms as well as early access to limited release software. Private plans enable you to give specific pricing or products to a limited set of customers.
 
-For more information, see [**Private Offers on Azure Marketplace**](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
-
+For more information, see [Plans and pricing for commercial marketplace offers](plans-pricing.md) and [Private Offers on Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).
 
 ## Test drives
 
+You can choose to enable a test drive for your VM. Test drives give customers access to a preconfigured environment for a fixed number of hours. You can enable test drives for any publishing option, however this feature has additional requirements. To learn more about test drives, see [What is a test drive?](what-is-test-drive.md). For information about configuring different kinds of test drives, see [Test drive technical configuration](test-drive-technical-configuration.md).
+
+> [!TIP]
+> A test drive is different from a [free trial](plans-pricing.md#free-trials). You can offer a test drive, free trial, or both. They both provide your customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
 ## Customer leads
 
@@ -98,149 +122,13 @@ If you choose to use the standard contract, you have the option to add universal
 > [!NOTE]
 > After you publish an offer using the standard contract for the commercial marketplace, you cannot use your own custom terms and conditions. It is an "or" scenario. You either offer your solution under the standard contract or your own terms and conditions. If you want to modify the terms of the standard contract you can do so through Standard Contract Amendments.
 
-## Offer listing details
+## Cloud Solution Providers
 
-When you [create a new SaaS offer](create-new-saas-offer.md) in Partner Center, you will enter text, images, optional videos, and other details on the **Offer listing** page. This is the information that customers will see when they discover your offer listing in the commercial marketplace, as shown in the following example.
-
-:::image type="content" source="./media/example-saas-1.png" alt-text="Illustrates how this offer appears in Microsoft AppSource.":::
-
-**Call-out descriptions**
-
-1. Logo
-2. Categories
-3. Industries
-4. Support address (link)
-5. Terms of use
-6. Privacy policy
-7. Offer name
-8. Summary
-9. Description
-10. Screenshots/videos
-11. Documents
-
-The following example shows an offer listing in the Azure portal.
-
-![Illustrates an offer listing in the Azure portal.](./media/example-managed-services.png)
-
-**Call out descriptions**
-
-1. Title
-1. Description
-1. Useful links
-1. Screenshots
-
-> [!NOTE]
-> Offer listing content is not required to be in English if the offer description begins with the phrase "This application is available only in [non-English language]".
-
-To help create your offer more easily, prepare some of these items ahead of time. The following items are required unless otherwise noted.
-
-- **Name**: This name will appear as the title of your offer listing in the commercial marketplace. The name may be trademarked. It cannot contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
-- **Search results summary**: Describe the purpose or function of your offer as a single sentence with no line breaks in 100 characters or less. This summary is used in the commercial marketplace listing(s) search results.
-- **Description**: This description will be displayed in the commercial marketplace listing(s) overview. Consider including a value proposition, key benefits, intended user base, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
-    
-    This text box has rich text editor controls that you can use to make your description more engaging. You can also use HTML tags to format your description. You can enter up to 3,000 characters of text in this box, including HTML markup. For additional tips, see [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
-
-- **Getting Started Instructions**: If you choose to sell your offer through Microsoft (transactable offer), this field is required. These are instructions to help customers connect to your SaaS offer. You can add up to 3,000 characters of text and links to more detailed online documentation.
-- **Search keywords** (optional): Provide up to three search keywords that customers can use to find your offer in the online stores. You don't need to include the offer **Name** and **Description**: that text is automatically included in search.
-- **Privacy policy link**: The URL for your company’s privacy policy. You must provide a valid privacy policy and are responsible for ensuring your app complies with privacy laws and regulations.
-- **Contact information**: You must designate the following contacts from your organization:
-  - **Support contact**: Provide the name, phone, and email for Microsoft partners to use when your customers open tickets. You must also include the URL for your support website.
-  - **Engineering contact**: Provide the name, phone, and email for Microsoft to use directly when there are problems with your offer. This contact information isn’t listed in the commercial marketplace.
-  - **CSP Program contact** (optional): Provide the name, phone, and email if you opt in to the CSP program, so those partners can contact you with any questions. You can also include a URL to your marketing materials.
-- **Useful links** (optional): You can provide links to various resources for users of your offer. For example, forums, FAQs, and release notes.
-- **Supporting documents**: You can provide up to three customer-facing documents, such as whitepapers, brochures, checklists, or PowerPoint presentations.
-- **Media – Logos**: Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
-
-   - Large (from 216 x 216 to 350 x 350 px, required)
-   - Medium (90 x 90 px, optional)
-   - Small (48 x 48 px, optional)
-
-  These logos are used in different places in the online stores:
-
-  - The Small logo appears in Azure Marketplace search results and on the Microsoft AppSource main page and search results page.
-  - The Medium logo appears when you create a new resource in Microsoft Azure.
-  - The Large logo appears on your offer listing page in Azure Marketplace and Microsoft AppSource.
-
-- **Media - Screenshots**: You must add at least one and up to five screenshots with the following requirements, that show how your offer works:
-  - 1280 x 720 pixels
-  - .png file
-  - Must include a caption
-- **Media - Videos** (optional): You can add up to four videos with the following requirements, that demonstrate your offer:
-  - Name
-  - URL: Must be hosted on YouTube or Vimeo only.
-  - Thumbnail: 1280 x 720 .png file
-
-> [!Note]
-> Your offer must meet the general [commercial marketplace certification policies](https://docs.microsoft.com/legal/marketplace/certification-policies#100-general) and the [software as a service policies](https://docs.microsoft.com/legal/marketplace/certification-policies#1000-software-as-a-service-saas) to be published to the commercial marketplace.
-
-## Additional sales opportunities
-
-You can choose to opt into Microsoft-supported marketing and sales channels. When creating your offer in Partner Center, you will see two tabs toward the end of the process:
-
-- **Resell through CSPs**: Use this option to allow Microsoft Cloud Solution Providers (CSP) partners to resell your solution as part of a bundled offer. See [Cloud Solution Provider program](cloud-solution-providers.md) for more information.
-
-- **Co-sell with Microsoft**: This option lets Microsoft sales teams consider your IP co-sell eligible solution when evaluating their customers’ needs. See [Co-sell option in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for detailed information on how to prepare your offer for evaluation.
-
-
+When creating your offer in Partner Center, you will see the **Resell through CSPs** tab. This option allows partners who are part of the Microsoft Cloud Solution Providers (CSP) program to resell your VM as part of a bundled offer. All Bring-your-own-license (BYOL) plans are automatically opted in to the program. You can also choose to opt in your non-BYOL plans. See [Cloud Solution Provider program](cloud-solution-providers.md) for more information. 
 
 > [!NOTE]
 > The Cloud Solution Provider (CSP) partner channel opt-in is now available. For more information about marketing your offer through Microsoft CSP partner channels, see [**Cloud Solution Providers**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
 
-
-FROM OTHER ARTICLE: 
-## Category
-
-Select categories and subcategories to place your offer in the appropriate marketplace search areas. Be sure to describe how your offer supports these categories in the offer description. Select:
-
-- At least one and up to two categories, including a primary and a secondary category (optional).
-- Up to two subcategories for each primary and/or secondary category. If no subcategory is applicable to your offer, select **Not applicable**.
-
-See the full list of categories and subcategories in [Offer Listing Best Practices](gtm-offer-listing-best-practices.md). Virtual machine offers always appear under the **Compute** category on Azure Marketplace.
-
-## Legal
-
-You must provide offer terms and conditions to your customers. You have two options: use your own terms and conditions, or use the Standard Contract for the Microsoft commercial marketplace.
-
-- **Use your own terms and conditions**
-
-   To provide your own custom terms and conditions, enter up to 10,000 characters of text in the **Terms and conditions** box. If you require a longer description, enter a single web address for your terms and conditions. It will be displayed to customers as an active link.
-
-   Your customers must accept these terms before they can try your offer.
-
-- **Use the Standard Contract for the Microsoft commercial marketplace**
-
-   To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract for the commercial marketplace. When you offer your software under the Standard Contract, customers need to read and accept it only once, and you don't have to creating custom terms and conditions.
-
-   Use the Standard Contract by selecting the **Use the Standard Contract for Microsoft's commercial marketplace** check box and then, in the pop-up window, select **Accept** (you might have to scroll up to view it).
-
-   ![Screenshot showing the Legal pane in Partner Center with the "Use the Standard Contract for Microsoft's commercial marketplace" check box.](media/use-standard-contract.png)
-
-  > [!NOTE]
-  > After you publish an offer by using the Standard Contract for the commercial marketplace, you can't use your own custom terms and conditions. You can offer a solution under either the Standard Contract or your own terms and conditions.
-
-  For more information, see [Standard Contract for the Microsoft commercial marketplace](standard-contract.md). Download the [Standard Contract](https://go.microsoft.com/fwlink/?linkid=2041178) PDF file (make sure your pop-up blocker is turned off).
-
-  ## Standard Contract amendments
-
-  Standard Contract amendments let you select the Standard Contract terms for simplicity and create the terms for your product or business. Customers need to review the amendments to the contract only if they've already reviewed and accepted the Microsoft Standard Contract. There are two types of amendments:
-
-  * **Universal amendments**: These amendments are applied universally to the Standard Contract for all customers. They are shown to every customer of the offer in the purchase flow. Customers must accept the terms of the Standard Contract and the amendments before they can use your offer. You can provide a single universal amendment per offer. You can enter an unlimited number of characters in this box. These terms are displayed to customers in AppSource, Azure Marketplace, and/or the Azure portal during the discovery and purchase flow.
-
-  * **Custom amendments**: These special amendments to the Standard Contract are targeted to specific customers through Azure tenant IDs. You can choose the tenant you want to target. Only customers from the tenant are presented with the custom amendment terms in the offer's purchase flow. Customers must accept the terms of the Standard Contract and the amendments before they can use your offer.
-
-    1. Start by selecting **Add custom amendment terms (Max 10)**. You can provide up to ten custom amendment terms per offer. Do the following:
-
-       a. Enter your own amendment terms in the **Custom amendment terms** box. You can enter an unlimited number of characters. Only customers from the tenant IDs that you specify for these custom terms will see them in the offer's purchase flow in the Azure portal.
-
-       b. (Required) Provide **Tenant IDs**. Each custom amendment can be targeted to up to 20 tenant IDs. If you add a custom amendment, you must provide at least one tenant ID, which identifies your customer in Azure. Your customer can find this for you in Azure by selecting **Azure Active Directory** > **Properties**. The directory ID value is the tenant ID (for example, 50c464d3-4930-494c-963c-1e951d15360e). You can also find the organization's tenant ID of your customer by using their domain name web address at [What is my Microsoft Azure and Microsoft 365 tenant ID?](https://www.whatismytenantid.com/).
-
-       c. (Optional) Provide a friendly **Description** for the tenant ID, one that helps you identify the customer that you're targeting with the amendment.
-
-        > [!NOTE]
-        > These two types of amendments are paired with each other. Customers who are targeted with custom amendments will also get the universal amendments to the Standard Contract during the purchase.
-
-    1. Select **Save draft** before you continue.
-    2. 
 ## Next steps
 
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
