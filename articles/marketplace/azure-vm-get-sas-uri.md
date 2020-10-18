@@ -3,13 +3,13 @@ title: Generate a SAS URI for a VM image - Azure Marketplace
 description: Generate a shared access signature (SAS) URI for a virtual hard disks (VHD) in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ---
 
-# Generate a SAS URI for a VM image
+# How to generate a SAS URI for a VM image
 
 During the publishing process, you must provide a SAS (Shared Access Signature) URI for each VHD associated with your plans (previously called SKUs). Microsoft needs access to these VHDs during the certification process. You’ll enter this URI on the **Plans** tab in Partner Center.
 
@@ -103,4 +103,5 @@ Check the SAS URI before publishing it on Partner Center to avoid any issues rel
 ## Next steps
 
 - If you run into issues, see [VM SAS failure messages](azure-vm-sas-failure-messages.md).
-- After you have the SAS URIs, [Configure VM offer properties](azure-vm-create-properties.md).
+- [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership)
+- [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)

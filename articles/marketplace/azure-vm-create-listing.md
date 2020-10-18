@@ -6,10 +6,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ---
 
-# Configure virtual machine offer listing details
+# How to configure virtual machine offer listing details
 
 On the **Offer listing** page, you define the offer details, such as offer name, description, links, and contacts.
 

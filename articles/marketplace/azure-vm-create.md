@@ -4,12 +4,12 @@ description: Learn how to create a virtual machine offer on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: emuench
+author: mingshen-ms
 ms.author: mingshen
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ---
 
-# Create a virtual machine offer on Azure Marketplace
+# How to create a virtual machine offer on Azure Marketplace
 
 This article describes how to create and publish an Azure virtual machine offer to [Azure Marketplace](https://azuremarketplace.microsoft.com/). It addresses both Windows-based and Linux-based virtual machines that contain an operating system, a virtual hard disk (VHD), and up to 16 data disks.
 
@@ -17,19 +17,7 @@ Before you start, [Create a commercial marketplace account in Partner Center](pa
 
 ## Before you begin
 
-If you haven't done so yet, review [Plan a virtual machine offer](marketplace-virtual-machines.md). It will explain the technical requirements for your virtual machine and list the information and assets you’ll need when you create your offer. Also review this Azure virtual machine material:
-
-- Quickstart guides
-  - [Azure quickstart templates](https://azure.microsoft.com/resources/templates/)
-  - [GitHub Azure quickstart templates](https://github.com/azure/azure-quickstart-templates)
-- Tutorials
-  - [Linux VMs](../virtual-machines/linux/tutorial-manage-vm.md)
-  - [Windows VMs](../virtual-machines/windows/tutorial-manage-vm.md)
-- Samples
-  - [Azure CLI samples for Linux VMs](../virtual-machines/linux/cli-samples.md)
-  - [Azure PowerShell for Linux VMs](../virtual-machines/linux/powershell-samples.md)
-  - [Azure CLI samples for Windows VMs](../virtual-machines/windows/cli-samples.md)
-  - [Azure PowerShell for Windows VMs](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md)
+If you haven't done so yet, review [Plan a virtual machine offer](marketplace-virtual-machines.md). It will explain the technical requirements for your virtual machine and list the information and assets you’ll need when you create your offer. 
 
 ## Create a new offer
 
@@ -52,33 +40,33 @@ Enter an **Offer alias**. The offer alias is the name that's used for the offer 
 
 - This name isn't used on Azure Marketplace. It is different from the offer name and other values that are shown to customers.
 
-## Test Drive
+## Enable a test drive (optional)
 
-A *Test Drive* is a demonstration that showcases your offer to potential customers. It gives them the option to "try before you buy" for a fixed period of time, which can help increase your conversions and generate highly qualified leads.
+A test drive is a great way to showcase your offer to potential customers by giving them access to a preconfigured environment for a fixed number of hours. Offering a test drive results in an increased conversion rate and generates highly qualified leads. To learn more about test drives, see [What is a test drive?](partner-center-portal/test-drive.md).
 
-To enable a Test Drive, select the **Enable a test drive** check box on the **Offer setup** pane. To remove the Test Drive from your offer, clear the check box.
+> [!TIP]
+> A test drive is different from a free trial. You can offer either a test drive, free trial, or both. They both provide customers with your solution for a fixed period-of-time. But, a test drive also includes a hands-on, self-guided tour of your product’s key features and benefits being demonstrated in a real-world implementation scenario.
 
-Additional Test Drive resources:
-
-- [Marketing best practices](what-is-test-drive.md)
-- [Technical best practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [Test drive overview](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf) PDF file (make sure that your pop-up blocker is turned off)
+**To enable a test drive**
+1.	Under **Test drive**, select the **Enable a test drive** check box.
+1.	Select the test drive type from the list that appears.
 
 ## Configure lead management
 
-When you're publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a Test Drive (see the preceding section). Otherwise, connecting to a CRM is optional.
+When you're publishing your offer to the commercial marketplace with Partner Center, connect it to your Customer Relationship Management (CRM) system. This lets you receive customer contact information as soon as someone expresses interest in or uses your product. Connecting to a CRM is required if you want to enable a test drive (see the preceding section). Otherwise, connecting to a CRM is optional.
 
-1. Select a lead destination where you want us to send customer leads. Partner Center supports the following CRM systems:
-    - [Dynamics 365](partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md) for customer engagement
-    - [Marketo](partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md)
-    - [Salesforce](partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md)
+1.Under **Customer leads**, select the **Connect** link.
+1. In the **Connection details** dialog box, select a lead destination from the list.
+1. Complete the fields that appear. For detailed steps, see the following articles:
 
-    > [!NOTE]
-    > If your CRM system isn't listed here, use [Azure Table storage](partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md) or an [HTTPS endpoint](partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) to store your customer lead data. Then export the data to your CRM system.
+   - [Configure your offer to send leads to the Azure table](./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md#configure-your-offer-to-send-leads-to-the-azure-table)
+   - [Configure your offer to send leads to Dynamics 365 Customer Engagement](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md#configure-your-offer-to-send-leads-to-dynamics-365-customer-engagement) (formerly Dynamics CRM Online)
+   - [Configure your offer to send leads to HTTPS endpoint](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md#configure-your-offer-to-send-leads-to-the-https-endpoint)
+   - [Configure your offer to send leads to Marketo](./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md#configure-your-offer-to-send-leads-to-marketo)
+   - [Configure your offer to send leads to Salesforce](./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md#configure-your-offer-to-send-leads-to-salesforce)
 
-1. Connect your offer to the lead destination when you're publishing in Partner Center.
-1. Confirm that the connection to the lead destination is configured properly. After you publish it in Partner Center, Microsoft validates the connection and sends you a test lead. While you're previewing the offer before it goes live, you can also test your lead connection by trying to deploy the offer yourself in the preview environment.
-1. Ensure that the connection to the lead destination stays updated so that you don't lose any leads.
+1. To validate the configuration you provided, select the **Validate** link.
+1. To close the dialog box, select **OK**.
 
 ## Resell through CSPs
 
@@ -88,4 +76,5 @@ Select **Create** to generate the offer and continue.
 
 ## Next steps
 
-- [Create VM technical assets](azure-vm-create-technical-assets.md)
+- [Configure virtual machine offer properties](azure-vm-create-properties.md)
+- [Offer listing best practices](gtm-offer-listing-best-practices.md)

@@ -6,10 +6,10 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ---
 
-# Create a virtual machine using an approved base
+# How to create a virtual machine using an approved base
 
 This article describes how to use Azure to create a virtual machine (VM) containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to [create and configure an on-premises VM](azure-vm-create-using-own-image.md) using an approved operating system, then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
@@ -22,13 +22,11 @@ Select one of the following Windows or Linux Images as your base.
 - [Windows Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview)
 - SQL Server [2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [2014](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp3-ws2012r2?tab=Overview), [2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2012sp4-ws2012r2?tab=Overview)
 
-### Linux
+- SQL Server 2019 [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Web](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview)
 
-Azure offers a range of approved Linux distributions. For a current list, see [Linux on distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+- SQL Server 2014 [Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)
 
-## Create VM on the Azure portal
-
-Follow these steps to create the base VM image on the [Azure portal](https://ms.portal.azure.com/):
+- SQL Server 2012 SP2 [Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 2. Select **Virtual machines**.
@@ -71,6 +69,6 @@ This section describes how to size, update, and generalize an Azure VM. These st
 
 ## Next steps
 
-- Recommended next step, but optional: [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements.
+- Recommended next step: [Test your VM image](azure-vm-image-test.md) to ensure it meets Azure Marketplace publishing requirements. This is optional.
 - If you don't test your VM image, continue with [Generate the SAS URI](azure-vm-get-sas-uri.md).
 - If you encountered difficulty creating your new Azure-based VHD, see [VM FAQ for Azure Marketplace](azure-vm-create-faq.md).
