@@ -1035,14 +1035,6 @@ productDirectory:
         - iot
       url: https://docs.microsoft.com/windows/iot-core/
     # Card
-    - title: Azure Defender for IoT
-      summary: Unify security management and enable threat protection across your Azure IoT solution
-      imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
-      azureCategories:
-        - iot
-        - security
-      url: asc-for-iot/index.yml
-    # Card
     - title: Automation
       summary: Simplify cloud management with process automation
       imageSrc: https://static.docs.com/ui/media/product/azure/automation.svg
