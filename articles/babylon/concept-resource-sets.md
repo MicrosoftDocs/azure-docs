@@ -31,7 +31,7 @@ For example, suppose you scan a data source whose URL is `https://myaccount.blob
 
 Or, for a URL like `https://myaccount.blob.core.windows.net/mycontainer/weblogs/en_au/23.json`, Azure Babylon matches both the localization pattern and the number pattern, producing a resource set named `https://myaccount.blob.core.windows.net/mycontainer/weblogs/{LOC}/{N}.json`.
 
-With this strategy, Azure Babylon maps the following resources to the same resource set, `https://myaccount.blob.core.windows.net/mycontainer/weblogs/{LOC}/{N}.json`:
+Using this strategy, Azure Babylon would map the following resources to the same resource set, `https://myaccount.blob.core.windows.net/mycontainer/weblogs/{LOC}/{N}.json`:
 
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/1004.json`
 - `https://myaccount.blob.core.windows.net/mycontainer/weblogs/cy_gb/234.json`
@@ -48,7 +48,7 @@ In addition to single schema and classifications, Azure Babylon stores the follo
 - Data from the latest partition resource it deep scanned.
 - Aggregate information about the partition resources that make up the resource set.
 - A partition count that shows how many partition resources it found.
-- A schema count that shows how many unique schemas it found in the sample set it did deep scans on.
+- A schema count that shows how many unique schemas it found in the sample set it did deep scans on. This value is either a number between 1–5, or for values greater than 5, 5+.
 - A list of partition types when more than a single partition type is included in the resource set. For example, an IoT sensor might output both XML and JSON files, although both are logically part of the same resource set.
 
 ## Built-in resource set patterns
@@ -57,8 +57,8 @@ Azure Babylon supports the following resource set patterns. These patterns can a
 
 | Pattern name | Display name | Description |
 |--------------|--------------|-------------|
-| GUID         | {GUID}       | A globally unique identifier, as defined in [RFC 4122](https://tools.ietf.org/html/rfc4122) |
-| Number       | {N}          | One or more digits |
+| GUID         | {GUID}       | A globally unique identifier, as defined in [RFC 4122](https://tools.ietf.org/html/rfc4122). |
+| Number       | {N}          | One or more digits. |
 | Date/time formats | {N}     | Azure Babylon supports different kinds of date/time formats, but all are reduced to a series of {N}s. |
 | 4ByteHex     | {HEX}        | A four-digit hexadecimal number. |
 | Localization | {LOC}        | A language tag, as defined in [BCP 47](https://tools.ietf.org/html/bcp47). Azure Babylon supports tags that contain either a hyphen (-) or an underscore (_). For example, en_ca and en-ca. |
