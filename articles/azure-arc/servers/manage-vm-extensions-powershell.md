@@ -19,7 +19,7 @@ Before using Azure PowerShell to manage VM extensions on your hybrid server mana
 
 When the installation completes, the following message is returned:
 
-`The installed extension ``Az.ConnectedMachine`` is experimental and not covered by customer support. Please use with discretion.`
+`The installed extension `Az.ConnectedMachine` is experimental and not covered by customer support. Please use with discretion.`
 
 ## Enable extension
 
