@@ -45,7 +45,7 @@ To deliver push notifications to client devices using Notification Hubs, [create
 > [!NOTE]
 > Currently the APNs and FCM platforms are supported.
 
-Once your Notification hub is configured, you can associate it to your Communication Services resource by supplying a connections string for the hub using the Azure Resource Manager Client or through the Azure portal. The connection string should contain "Send" permissions. We recommend creating another access policy with "Send" only permissions specifically for your hub. Learn more about [Notification Hubs security and access policies](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
+Once your Notification hub is configured, you can associate it to your Communication Services resource by supplying a connection string for the hub using the Azure Resource Manager Client or through the Azure portal. The connection string should contain "Send" permissions. We recommend creating another access policy with "Send" only permissions specifically for your hub. Learn more about [Notification Hubs security and access policies](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-push-notification-security)
 
 > [!IMPORTANT]
 > In order to enable Apple Push Notification Service VOIP notifications, you must set the name of your notification hub to be your application bundle ID with the the `.voip` suffix. See [Use APNS VOIP through Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/voip-apns).
