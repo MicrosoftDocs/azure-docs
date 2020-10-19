@@ -7,7 +7,7 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 08/31/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ---
 
@@ -36,28 +36,51 @@ The [Computer Vision][cv-containers] Read OCR container image can be found on th
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/vision/read/tags/list).
 
+# [Latest version](#tab/current)
+
+Release notes for `v2.0.013250001-amd64-preview`:
+
+* Further decrease memory usage for container.
+* External cache is required for multi-pods setup. For example, set-up Redis for caching.
+* Fixed missing results when Redis cache is set-up and `ResultExpirationPeriod` is set to 0.
+* Remove request body size limitation of 26MB. Container can now accept >26MB files.
+* Add time stamp and build version to console logging.
+
 | Image Tags                    | Notes |
 |-------------------------------|:------|
-| `latest ( (2.0.013250001-amd64-preview)` | • Further decrease memory usage for container. |
-|                                          | • External cache is required for multi-pods setup. For example, set-up Redis for caching. |
-|                                          | • Fix results missing issue when Redis cache is set-up and ResultExpirationPeriod=0.  |
-|                                          | • Remove request body size limitation of 26MB. Container can now accept >26MB files.  |
-|                                          | • Add time stamp and build version to console logging.  |
-| `1.1.013050001-amd64-preview`            | * Added ReadEngineConfig:ResultExpirationPeriod container initialization configuration to specify when the system should clean up recognition results. |
-|                                          | The setting is in hours, and default value is 48hr.   |
-|                                          |   The setting can reduce memory usage for result storing, especially when container in-memory storage is used.  |
-|                                          |    * Example 1. ReadEngineConfig:ResultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.   |
-|                                          |    * Example 2. ReadEngineConfig:ResultExpirationPeriod=0, the system will clear the recognition result after result retrieval.  |
-|                                          | Fixed an 500 Internal Server Error when invalid image format is passed into the system. It will now return a 400 error:   |
-|                                          | `{`  |
-|                                          | `"error": {`  |
-|                                          |      `"code": "InvalidImageSize",`  |
-|                                          |      `"message": "Image must be between 1024 and 209715200 bytes."`  |
-|                                          |          `}`  |
-|                                          | `}`  |
+| `2.0.013250001-amd64-preview` |  |
+
+# [Previous versions](#tab/previous)
+
+Release notes for `1.1.013050001-amd64-preview`
+
+* Added `ReadEngineConfig:ResultExpirationPeriod` container initialization configuration to specify when the system should clean up recognition results. 
+    * The setting is in hours, and the default value is 48 hours.
+    * The setting can reduce memory usage for result storing, especially when container in-memory storage is used.
+    * Example 1. ReadEngineConfig:ResultExpirationPeriod=1, the system will clear the recognition result 1hr after the process.
+    * If this configuration is set to 0, the system will clear the recognition result after the result is retrieved.
+
+* Fixed a 500 internal server error when an invalid image format is passed to the system. It will now return a 400 error:
+
+    ```json
+    {
+        "error": {
+        "code": "InvalidImageSize",
+        "message": "Image must be between 1024 and 209715200 bytes."
+        }
+    }
+    ```
+
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `1.1.013050001-amd64-preview` |       |
 | `1.1.011580001-amd64-preview` |       |
 | `1.1.009920003-amd64-preview` |       |
 | `1.1.009910003-amd64-preview` |       |
+
+---
+
 
 ## Form Recognizer
 
@@ -94,11 +117,6 @@ This container image has the following tags available. You can also find a full 
 
 The [Custom Speech-to-text][sp-cstt] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-speech-to-text`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-speech-to-text/tags/list).
 
-**v2.5.0 container release notes**
-
-* TBD
-* TBD
-
 This container image has the following tags available:
 
 | Image Tags            | Notes |
@@ -110,12 +128,6 @@ This container image has the following tags available:
 ## Custom Text-to-speech
 
 The [Custom Text-to-speech][sp-ctts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `custom-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/custom-text-to-speech`. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/custom-text-to-speech/tags/list).
-
-
-**v1.7.0 container release notes**
-
-* TBD
-* TBD
 
 This container image has the following tags available:
 
@@ -129,11 +141,6 @@ This container image has the following tags available:
 The [Speech-to-text][sp-stt] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text`.
 
 Speech-to-text v2.5.0 images are supported in *US Government Virginia*. Please use *US Government Virginia* billing endpoint and api keys to try.
-
-**v2.5.0 container release notes**
-
-* TBD
-* TBD
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).
 
@@ -184,11 +191,6 @@ This container image has the following tags available. You can also find a full 
 ## Text-to-speech
 
 The [Text-to-speech][sp-tts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/text-to-speech`.
-
-**v1.7.0 container release notes**
-
-* TBD
-* TBD
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/text-to-speech/tags/list).
 
@@ -282,11 +284,6 @@ This container image has the following tags available. You can also find a full 
 
 The [Neural Text-to-speech][sp-ntts] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `neural-text-to-speech`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/neural-text-to-speech`.
 
-**v1.2.0 container release notes**
-
-* TBD
-* TBD
-
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/neural-text-to-speech/tags/list).
 
 | Image Tags                                  | Notes                                                                      |
@@ -312,11 +309,6 @@ This container image has the following tags available. You can also find a full 
 ## Speech language detection
 
 The [Speech language detection][sp-lid] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `language-detection`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/language-detection`.
-
-**v1.1.0 container release notes**
-
-* TBD
-* TBD
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/language-detection/tags/list).
 
