@@ -60,8 +60,7 @@ az role assignment create –role Contributor –assignee $ARO_SERVICE_PRINCIPAL
 
 ### Set ARO cluster permissions
 
-The persistent volume binder service account on the ARO cluster will require the ability to read secrets. This step will create and assign an OpenShift clusterrole to achieve this.
-
+The persistent volume binder service account on the ARO cluster will require the ability to read secrets. This step will achieve this by creating and assigning an OpenShift clusterrole.
 ```bash
 ARO_API_SERVER=$(az aro list –query “[?contains(name,’$CLUSTER’)].[apiserverProfile.url]” -o tsv)
 
