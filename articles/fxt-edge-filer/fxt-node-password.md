@@ -23,9 +23,9 @@ In this tutorial, you will learn how to:
 > [!div class="checklist"]
 
 > * Connect a keyboard and monitor to the node and power it on
+> * Set a BIOS setup password
 > * Set passwords for the iDRAC port and root user on this node
 > * Sign in as root
-> * Set a BIOS setup password
 
 Repeat these steps for each node that you will use in your cluster.
 
@@ -58,6 +58,22 @@ Power on the node by pressing the power button on the front.
 
 ![diagram of front of Azure FXT Edge Filer - round power button is labeled near the top right](media/fxt-front-annotated.png)
 
+## Create a BIOS setup password
+
+A BIOS setup password protects the node's BIOS settings from accidental or unauthorized changes. This password is not needed to create a cluster, but it is strongly recommended as part of your cluster security strategy.
+
+To create a BIOS setup password:
+
+1. Turn on or restart the node, and immediately press F2 to open the system setup utility.
+
+1. On the **System Setup Main Menu** screen, choose **System BIOS** > **System Security**.
+
+1. Make sure that the **Password Status** setting is **Unlocked**.
+
+1. Use the **Setup Password** field to set the password. (You can also set a system BIOS password from this screen if you want to use one.)
+
+1. Press Esc to return to the **System BIOS** screen, then press Esc again. A message prompts you to save the changes. If the system does not restart automatically, restart it to get to the regular startup screen.<!-- how to exit this mode/do you need to reboot to get to the initial setup screen? -->
+
 ## Set initial passwords
 
 The Azure FXT Edge Filer node will print various messages to the monitor while booting. After a few moments, it shows an initial setup screen like this:
@@ -68,9 +84,16 @@ The Azure FXT Edge Filer node will print various messages to the monitor while b
 ------------------------------------------------------
 Password Setup
 ---------------
-Enter a password to set iDRAC and temporary root password.
+Enter a password to set the iDRAC and temporary root password.
 Minimum password length is 8.
+
+NOTE: This does not set a BIOS setup password. For security,
+Microsoft recommends using a BIOS setup password, restricting
+physical access to the node, and other measures. Learn more at
+https://aka.ms/fxt-security.
+
 Enter new password:
+
 ```
 
 The password you enter is used for two things:
@@ -103,22 +126,6 @@ Password:**********
 ```
 
 After you sign in as root, the network ports are active and will contact the DHCP server for IP addresses.
-
-## Add a BIOS setup password
-
-A BIOS setup password protects the node's BIOS settings from accidental or unauthorized changes. This password is not needed to create a cluster, but it is strongly recommended as part of your cluster security strategy.
-
-To create a BIOS setup password:
-
-1. Turn on or restart the node, and immediately press F2 to open the system setup utility.
-
-1. On the **System Setup Main Menu** screen, choose **System BIOS** > **System Security**.
-
-1. Make sure that the **Password Status** setting is **Unlocked**.
-
-1. Use the **Setup Password** field to set the password. (You can also set a system BIOS password from this screen if you want to use one.)
-
-1. Press Esc to return to the **System BIOS** screen, then press Esc again. A message prompts you to save the changes.
 
 ## Next steps
 
