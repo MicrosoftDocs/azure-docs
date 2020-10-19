@@ -4,7 +4,7 @@ description: Learn about Azure Analysis Services, a fully managed platform as a 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 09/08/2020
+ms.date: 10/19/2020
 ms.author: owend
 ms.reviewer: minewiskan
 #Customer intent: As a BI developer, I want to determine if Azure Analysis Services is the best data modeling platform for our organization.
@@ -65,8 +65,8 @@ This tier is for mission-critical production applications that require elastic u
 |S8v2 <sup>[1](#naar)</sup>   |    640     |    200     |
 |S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
-<a name="naar">1</a> - Not available in all regions.   
-<a name="rec">2</a> - v2 is recommended.
+<a name="naar">1</a> - Not available in all regions.
+<a name="rec">2</a> - S8 and S9 are [deprecated](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). v2 is recommended. 
 
 ## Availability by region
 
@@ -80,7 +80,7 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |Canada Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
 |East US 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|East US 2     |     S8, S9, S8v2, S9v2   |    1    |
+|East US 2     |     S8v2, S9v2   |    1    |
 |North Central US     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |North Central US     |     S8v2, S9v2    |    1     |
 |Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
@@ -88,9 +88,9 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |South Central US     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |West Central US   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |West US     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
-|West US     |    S8, S9, S8v2, S9v2   |    2  |
+|West US     |    S8v2, S9v2   |    2  |
 |West US2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
-|West US2    |    S8, S9, S8v2, S9v2  |    1     |
+|West US2    |    S8v2, S9v2  |    1     |
 
 ### Europe
 
@@ -100,17 +100,18 @@ Azure Analysis Services is supported in regions throughout the world. Supported 
 |North Europe     |    S8v2, S9v2      |    3     |
 |UK South     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
 |West Europe     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|West Europe    |   S8, S9, S8v2, S9v2  |  1  |
+|West Europe    |   S8v2, S9v2  |  1  |
 
 ### Asia Pacific 
 
 |Region  | Supported plans | Query replicas (Standard plans only) |
 |---------|---------|:---------:|
 |Australia East     |    B1, B2, S0, S1, S2, S4     |    3     |
-|Australia East     |    S8, S9, S8v2, S9v2    |    1     |
+|Australia East     |    S8v2, S9v2    |    1     |
 |Australia Southeast     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Japan East     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
-|Southeast Asia     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
+|Southeast Asia     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
+|Southeast Asia     |     S8v2, S9v2     |   1      |
 |West India     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## Scale to your needs
