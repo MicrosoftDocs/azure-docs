@@ -51,49 +51,49 @@
   - name: AI + Machine Learning
     items:
     - name: Machine Learning
-      href: /machine-learning/how-to-configure-private-link
+      href: /azure/machine-learning/how-to-configure-private-link
   - name: Analytics
     items:
     - name: Analysis Services
-      href: /azure-sql/database/private-endpoint-overview
+      href: /azure/azure-sql/database/private-endpoint-overview
     - name: Data Factory
-      href: /data-factory/data-factory-private-link
+      href: /azure/data-factory/data-factory-private-link
     - name: Event Hubs
-      href: /event-hubs/private-link-service
+      href: /azure/event-hubs/private-link-service
     - name: HDInsight
-      href: /hdinsight/hdinsight-private-link
+      href: /azure/hdinsight/hdinsight-private-link
     - name: Power BI
-      href: /power-bi/admin/service-security-private-links
+      href: /azure/power-bi/admin/service-security-private-links
   - name: Compute
     items:
     - name: Batch
-      href: /batch/private-connectivity
+      href: /azure/batch/private-connectivity
     - name: Managed disks with Private Links
-      href: /virtual-machines/disks-enable-private-links-for-import-export-portal
+      href: /azure/virtual-machines/disks-enable-private-links-for-import-export-portal
   - name: Containers
     items:
     - name: Container Registry
-      href: /container-registry/container-registry-private-link
+      href: /azure/container-registry/container-registry-private-link
     - name: Kubernetes Service
-      href: /aks/private-clusters
+      href: /azure/aks/private-clusters
   - name: Databases
     items:
     - name: Cache for Redis
-      href: /azure-cache-for-redis/cache-private-link
+      href: /azure/azure-cache-for-redis/cache-private-link
     - name: Cosmos DB
-      href: /cosmos-db/how-to-configure-private-endpoints
+      href: /azure/cosmos-db/how-to-configure-private-endpoints
     - name: Database for MariaDB
-      href: /mariadb/concepts-data-access-security-private-link
+      href: /azure/mariadb/concepts-data-access-security-private-link
     - name: Database for MySQL
-      href: /mysql/concepts-data-access-security-private-link
+      href: /azure/mysql/concepts-data-access-security-private-link
     - name: Database for PostgreSQL
-      href: /postgresql/concepts-data-access-and-security-private-link
+      href: /azure/postgresql/concepts-data-access-and-security-private-link
     - name: SQL
-      href: /azure-sql/database/private-endpoint-overview
+      href: /azure/azure-sql/database/private-endpoint-overview
   - name: Developer Tools
     items: 
     - name: App Configuration
-      href: /azure-app-configuration/concept-private-endpoint
+      href: /azure/azure-app-configuration/concept-private-endpoint
     - name: Relay
       href: /azure/azure-relay/private-link-service
   - name: Integration
@@ -101,7 +101,7 @@
     - name: Event Grid
       href: /azure/event-grid/network-security
     - name: Service Bus
-      href: /service-bus-messaging/private-link-service
+      href: /azure/service-bus-messaging/private-link-service
   - name: Internet of Things
     items:
     - name: IoT Hub
@@ -113,7 +113,7 @@
     - name: Backup
       href: /azure/backup/private-endpoints
     - name: Monitor
-      href: /azure-monitor/platform/private-link-security
+      href: /azure/azure-monitor/platform/private-link-security
   - name: Security
     items:
     - name: Key Vault
@@ -121,17 +121,17 @@
   - name: Storage
     items:
     - name: Files
-      href: /storage/files/storage-files-networking-endpoints
+      href: /azure/storage/files/storage-files-networking-endpoints
     - name: File Sync
-      href: /storage/files/storage-sync-files-networking-endpoints
+      href: /azure/storage/files/storage-sync-files-networking-endpoints
     - name: Storage
-      href: /storage/common/storage-private-endpoints
+      href: /azure/storage/common/storage-private-endpoints
   - name: Web
     items: 
     - name: Cognitive Search
-      href: /search/service-create-private-endpoint
+      href: /azure/search/service-create-private-endpoint
     - name: SignalR
-      href: /azure-signalr/howto-private-endpoints
+      href: /azure/azure-signalr/howto-private-endpoints
     - name: Web App
       href: tutorial-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
