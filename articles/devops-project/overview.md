@@ -50,7 +50,7 @@ You choose several configuration options as part of the initial setup. These opt
 * Selecting an app language
 * Choosing an app framework based on language
 * Selecting an Azure service (deployment target)
-* Select your GitHub or Azure Devops organization
+* Select your GitHub or Azure DevOps organization
 * Choosing your Azure subscription
 * Picking the location of Azure services
 * Choosing from various pricing tiers for Azure services
