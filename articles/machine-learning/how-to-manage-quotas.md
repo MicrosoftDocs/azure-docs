@@ -173,7 +173,7 @@ To request an allowance for these scenarios, use the following steps:
     | Issue type | Technical |
     | Service | My services. Select __Machine Learning__ in the dropdown list. |
     | Problem type | Workspace setup, SDK, and CLI |
-    | Problem subtype | Problem provisioning or managing workspace |
+    | Problem subtype | Private Endpoint and Private DNS Zone allowance request |
 
 2. From the __Details__ section, use the __Description__ field to provide the Azure region you want to use and the scenario that you plan to use. If you need to request quota increases for multiple subscriptions, list the subscription IDs in this field also.
 
