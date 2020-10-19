@@ -125,7 +125,7 @@ You can override the redirect URI by using the `RedirectUri` property (for examp
 - `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
 For additional iOS details, see [Migrate iOS applications that use Microsoft Authenticator from ADAL.NET to MSAL.NET](msal-net-migration-ios-broker.md) and [Leveraging the broker on iOS](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS).
-For additional Android details, see [Brokered auth in Android](brokered-auth.md).
+For additional Android details, see [Brokered auth in Android](msal-android-single-sign-on.md).
 
 ### Redirect URI for confidential client apps
 

@@ -161,7 +161,7 @@ You can remove the account from settings if you want to repeat the test.
 
 ## SSO through system browser
 
-Android applications have the option to use the WebView, system browser, or Chrome Custom Tabs for authentication user experience. If the application is not using brokered authentication, it will need to use the system browser rather than the native webview in order to achieve SSO. [Read more about authorization agents and SSO implications](authorization-agents.md).
+Android applications have the option to use the WebView, system browser, or Chrome Custom Tabs for authentication user experience. If the application is not using brokered authentication, it will need to use the system browser rather than the native webview in order to achieve SSO.
 
 ### Authorization agents
 
