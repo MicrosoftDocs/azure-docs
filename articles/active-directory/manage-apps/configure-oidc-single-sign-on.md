@@ -13,7 +13,7 @@ ms.author: kenwith
 ms.reviewer: arajpathak7
 ---
 
-# Understand SAML-based single sign-on
+# Understand OIDC-based single sign-on
 In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the OIDC-based option for single sign-on.
 
 
