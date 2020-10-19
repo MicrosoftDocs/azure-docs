@@ -10,13 +10,20 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2020
+ms.date: 10/20/2020
 ms.author: memildin
 ---
 
 # Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint
 
-Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution that includes risk-based vulnerability management and assessment, attack surface reduction, behavioral based and cloud-powered next generation protection, endpoint detection and response (EDR), automatic investigation and remediation, managed hunting services, rich APIs, and unified security management.
+Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution. Its main features are:
+
+- Risk-based vulnerability management and assessment 
+- Attack surface reduction
+- Behavioral based and cloud-powered protection
+- Endpoint detection and response (EDR)
+- Automatic investigation and remediation
+- Managed hunting services
 
 Defender for Endpoint is included at no additional cost with **Azure Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
 
@@ -34,7 +41,7 @@ Defender for Endpoint is included at no additional cost with **Azure Defender fo
 | Pricing:                        | Requires [Azure Defender for servers](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Supported platforms:            | ![Yes](./media/icons/yes-icon.png) Azure machines running Windows<br>![Yes](./media/icons/yes-icon.png) Azure Arc machines running Windows<br>Microsoft Defender for Endpoint is built into Windows 10 1703 (and newer) and Windows Server 2019. It does not require any agents to be installed on these versions.<br>Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1.<br>Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers. |
 | Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**                         |
-| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds.<br>![No](./media/icons/no-icon.png) GCC customers running workloads in public Azure clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov                                                        |
+| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds.<br>![No](./media/icons/no-icon.png) GCC customers running workloads in global Azure clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 
@@ -58,10 +65,9 @@ By integrating Defender for Endpoint with Security Center, you'll benefit from t
 
 ## Data storage location
 
-When you use Azure Security Center to monitor servers, a Microsoft Defender ATP tenant is automatically created. Data collected by Microsoft Defender ATP is stored in the geo-location of the tenant as identified during provisioning. Customer data in pseudonymized form may also be stored in the central storage and processing systems in the United States. 
+When you use Azure Security Center to monitor your servers, a Microsoft Defender for Endpoint tenant is automatically created. Data collected by Defender for Endpoint is stored in the geo-location of the tenant as identified during provisioning. Customer data - in pseudonymized form - may also be stored in the central storage and processing systems in the United States. 
 
-Once configured, you cannot change the location where your data is stored. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
-
+After you've configured the location, you can't change it. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
 
 
 ## Enable Microsoft Defender for Endpoint to access Azure Security Center data
@@ -104,7 +110,7 @@ To generate a benign Microsoft Defender for Endpoint test alert:
     ```
     :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="A command prompt window with the command to generate a test alert.":::
 
-1. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender ATP portal. This alert might take a few minutes to appear.
+1. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender for Endpoint portal. This alert might take a few minutes to appear.
 1. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
 1. From the investigation window, select the link to go to the Microsoft Defender for Endpoint portal.
 
