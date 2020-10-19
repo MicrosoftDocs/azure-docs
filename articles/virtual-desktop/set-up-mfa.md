@@ -3,7 +3,7 @@ title: Set up Azure Multi-Factor Authentication for Windows Virtual Desktop - Az
 description: How to set up Azure Multi-Factor Authentication for increased security in Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ms.author: helohr
 manager: lizross
 ---
@@ -14,9 +14,9 @@ manager: lizross
 
 The Windows client for Windows Virtual Desktop is an excellent option for integrating Windows Virtual Desktop with your local machine. However, when you configure your Windows Virtual Desktop account into the Windows Client, there are certain measures you'll need to take to keep yourself and your users safe.
 
-When you first sign in, the client asks for your username, password, and Azure MFA. After that, the next time you sign in, the client will remember your token from your Azure Active Directory (AD) Enterprise Application. When you select **Remember me**, your users can sign in after restarting the client without needing to reenter their credentials.
+When you first sign in, the client asks for your username, password, and Azure MFA. After that, the next time you sign in, the client will remember your token from your Azure Active Directory (AD) Enterprise Application. When you select **Remember me** on the prompt for credentials for the session host, your users can sign in after restarting the client without needing to reenter their credentials.
 
-While remembering credentials is convenient, it can also make deployments on Enterprise scenarios or personal devices less secure. To protect your users, you'll need to make sure the client keeps asking for Azure Multi-Factor Authentication (MFA) credentials. This article will show you how to configure the Conditional Access policy for Windows Virtual Desktop to enable this setting.
+While remembering credentials is convenient, it can also make deployments on Enterprise scenarios or personal devices less secure. To protect your users, you can make sure the client keeps asking for Azure Multi-Factor Authentication (MFA) credentials more frequently. This article will show you how to configure the Conditional Access policy for Windows Virtual Desktop to enable this setting.
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ Here's what you'll need to get started:
 - Enable Azure MFA for all your users. For more information about how to do that, see [How to require two-step verification for a user](../active-directory/authentication/howto-mfa-userstates.md#view-the-status-for-a-user).
 
 > [!NOTE]
-> The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/webclient/index.html).
+> The following setting also applies to the [Windows Virtual Desktop web client](https://rdweb.wvd.microsoft.com/arm/webclient/index.html).
 
 ## Create a Conditional Access policy
 
@@ -79,7 +79,7 @@ Here's how to create a Conditional Access policy that requires multi-factor auth
     >To find the App ID of the app you want to select, go to **Enterprise Applications** and select **Microsoft Applications** from the application type drop-down menu.
 
 12. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and then **Select**.
-13. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to **1** and the unit to **Hours**, and then select **Select**.
+13. Under **Access controls** > **Session**, select **Sign-in frequency**, set the value to the desired time between prompts and then select **Select**. For example, setting the value to **1** and the unit to **Hours**, will require MFA if a connection is launched an hour after the last one.
 14. Confirm your settings and set **Enable policy** to **On**.
 15. Select **Create** to enable your policy.
 
