@@ -12,7 +12,7 @@ ms.date: 10/20/2020
 
 You can manage Azure Database for MySQL Flexible Server configuration using server parameters. The server parameters are configured with the default and recommended value when you create the server.  
 
-This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows 
+This article describes how to view and configure server parameters by using the Azure portal. The server parameter blade on Azure portal shows both the modifiable and non-modifiable server parameter. The non-modifiable server parameters are greyed out.
 
 >[!Note]
 > Server parameters can be updated globally at the server-level, use the [Azure CLI](./how-to-configure-server-parameters-cli.md) or [Azure portal](./how-to-configure-server-parameters-portal.md).
