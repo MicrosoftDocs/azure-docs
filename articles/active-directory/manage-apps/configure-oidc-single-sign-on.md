@@ -1,0 +1,36 @@
+---
+title: Understand OIDC-based single sign-on (SSO) for apps in Azure Active Directory
+description: Understand OIDC-based single sign-on (SSO) for apps in Azure Active Directory.
+services: active-directory
+author: kenwith
+manager: celestedg
+ms.service: active-directory
+ms.subservice: app-mgmt
+ms.topic: conceptual
+ms.workload: identity
+ms.date: 10/19/2020
+ms.author: kenwith
+ms.reviewer: arajpathak7
+---
+
+# Understand SAML-based single sign-on
+In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the OIDC-based option for single sign-on.
+
+
+## Before you begin
+The process of adding an app to your Azure Active Directory tenant depends on the type of single sign-on the application implemented. This article covers adding apps that use the OpenID Connect (OIDC) standard for single sign on. 
+
+
+## Basic OIDC configuration
+In the [quickstart series](add-application-portal-setup-oidc-sso.md), there's an article on configuring single sign-on. In it, you learn how to add an OIDC-based app to your Azure tenant.
+
+The nice thing with adding an app that uses the OIDC standard for single sign-on is that configuration is minimal. Here is a short video showing how to add an OIDC-based app to your tenant.
+
+Adding an OIDC-based app in Azure Active Directory
+
+> [!VIDEO https://www.youtube.com/embed/4kv-upsZCI0]
+
+## Next steps
+
+- [Quickstart Series on Application Management](add-application-portal-setup-oidc-sso.md)
+- [Single sign-on options](sso-options.md)
