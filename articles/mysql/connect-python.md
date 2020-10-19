@@ -19,20 +19,21 @@ For this quickstart you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free).
 - Create a Azure Database for MySQL single server using [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
-- Based on you choice of connectivity method, make sure you have completed the ONE of the task below
+- Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
-|Action| How-to guide|Connectivity Method|
-|:--- |:--- |:--- |
-| **Configure firewall rules** | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|Public access secured by firewall rules|
-| **Configure Service Endpoint** | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md) | Public access secured by service endpoints. You can ONLY connect to the server with App Service Web App or Azure Virtual machine or any other resource as long as it is in the **same virtual network**.|
-| **Configure private link** | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | Private access|
+|Action| Connectivity method|How-to guide|
+|:--------- |:--------- |:--------- |
+| **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+| **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
+| **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
+- [Create a database and non-admin user](https://docs.microsoft.com/en-us/azure/mysql/howto-create-users?tabs=single-server)
 ## Install Python and the MySQL connector
 
 Install Python and the MySQL connector for Python on your computer by using the following steps: 
 
 > [!NOTE]
-> This quickstart uses a raw SQL query approach to connect to MySQL. If you're using a web framework, use the recommended connector for the framework, for example, [mysqlclient](https://pypi.org/project/mysqlclient/) for Django.
+> This quickstart is using [MySQL Connector/Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/).
 
 1. Download and install [Python 3.7 or above](https://www.python.org/downloads/) for your OS. Make sure to add Python to your `PATH`, because the MySQL connector requires that.
    
@@ -48,7 +49,6 @@ Install Python and the MySQL connector for Python on your computer by using the 
    pip install mysql-connector-python
    ```
    
- You can also install the Python connector for MySQL from [mysql.com](https://dev.mysql.com/downloads/connector/python/). For more information about the MySQL Connector for Python, see the [MySQL Connector/Python Developer Guide](https://dev.mysql.com/doc/connector-python/en/). 
 
 ## Get connection information
 
@@ -84,6 +84,9 @@ Use the following code to connect to the server and database, create a table, an
 - [cursor.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-close.html) when you are done using a cursor.
 - [conn.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-close.html) to close the connection the connection.
 
+> [!IMPORTANT]
+> SSL is enabled by default. You may need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment.
+
 ```python
 import mysql.connector
 from mysql.connector import errorcode
@@ -93,7 +96,9 @@ config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>@<mydemoserver>',
   'password':'<mypassword>',
-  'database':'<mydatabase>'
+  'database':'<mydatabase>',
+  'client_flags': [ClientFlag.SSL],
+  'ssl_cert': '/var/wwww/html/DigiCertGlobalRootG2.crt.pem'
 }
 
 # Construct connection string
