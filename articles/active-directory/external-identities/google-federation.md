@@ -26,7 +26,7 @@ By setting up federation with Google, you can allow invited users to sign in to 
 
 ## What is the experience for the Google user?
 When you send an invitation to Google Gmail users, the guest users should access your shared apps or resources by using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
-  - Guest users who aren't signed in to Google will be prompted to sign in to Google.
+  - Guest users who aren't signed in to Google will be prompted to do so.
   - Guest users who are already signed in to Google will be prompted to choose the account they want to use. They must choose the account you used to invite them.
 
 Guest users who see a "header too long" error can clear their cookies or open a private or incognito window and try to sign in again.
@@ -38,8 +38,8 @@ Guest users who see a "header too long" error can clear their cookies or open a 
 Teams fully supports Google guest users on all devices. Google users can sign in to Teams from a common endpoint like `https://teams.microsoft.com`.
 
 Other applications' common endpoints might not support Google users. Google guest users must sign in by using a link that includes your tenant information. Following are examples:
-  * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
-  * `https://portal.azure.com/<your tenant id>`
+  * `https://myapps.microsoft.com/?tenantid=<your tenant ID>`
+  * `https://portal.azure.com/<your tenant ID>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
    If Google guest users try to use a link like `https://myapps.microsoft.com` or `https://portal.azure.com`, they'll get an error.
@@ -50,7 +50,7 @@ You can also give Google guest users a direct link to an application or resource
 First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure Active Directory (Azure AD). 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
 2. Accept the terms of service if you're prompted to do so.
-3. Create a new project: On the Dashboard, select **Create Project**, give the project a name (for example, **Azure AD B2B**) and then select **Create**: 
+3. Create a new project: On the Dashboard, select **Create Project**, give the project a name (for example, **Azure AD B2B**), and then select **Create**: 
    
    ![Screenshot that shows a New Project page.](media/google-federation/google-new-project.png)
 
@@ -76,7 +76,7 @@ First, create a new project in the Google Developers Console to obtain a client 
 
 11. Under **Application type**, select **Web application**. Give the application a suitable name, like **Azure AD B2B**. Under **Authorized redirect URIs**, enter the following URIs:
     - `https://login.microsoftonline.com`
-    - `https://login.microsoftonline.com/te/\<tenant id>/oauth2/authresp` <br>(where `<tenant id>` is your tenant ID)
+    - `https://login.microsoftonline.com/te/<tenant ID>/oauth2/authresp` <br>(where `<tenant ID>` is your tenant ID)
    
     > [!NOTE]
     > To find your tenant ID, go to https://portal.azure.com. Under **Azure Active Directory**, select **Properties** and copy the **Tenant ID**.
@@ -108,10 +108,10 @@ You'll now set the Google client ID and client secret. You can use the Azure por
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId <client ID> -ClientSecret <client secret>`
  
    > [!NOTE]
-   > Use the client id and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
+   > Use the client ID and client secret from the app you created in "Step 1: Configure a Google developer project." For more information, see [New-AzureADMSIdentityProvider](https://docs.microsoft.com/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
  
 ## How do I remove Google federation?
-You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and reinviting them. 
+You can delete your Google federation setup. If you do so, Google guest users who have already redeemed their invitation won't be able to sign in. But you can give them access to your resources again by deleting them from the directory and re-inviting them. 
  
 **To delete Google federation in the Azure AD portal**
 1. Go to the [Azure portal](https://portal.azure.com). In the left pane, select **Azure Active Directory**. 
