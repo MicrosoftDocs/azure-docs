@@ -24,11 +24,20 @@ The [Anomaly Detector][ad-containers] container image can be found on the `mcr.m
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/decision/anomaly-detector/tags/list).
 
+# [Latest version](#tab/current)
+
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
-| `1.1.012300001-amd64-preview` |       |
 | `1.1.013560003-amd64-preview` |      |
+
+# [Previous versions](#tab/previous)
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `1.1.012300001-amd64-preview` |       |
+
+---
 
 ## Read OCR (Optical Character Recognition)
 
@@ -48,6 +57,7 @@ Release notes for `v2.0.013250001-amd64-preview`:
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
+| `latest`                      |       |
 | `2.0.013250001-amd64-preview` |  |
 
 # [Previous versions](#tab/previous)
@@ -71,7 +81,6 @@ Release notes for `1.1.013050001-amd64-preview`
     }
     ```
 
-
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `1.1.013050001-amd64-preview` |       |
@@ -88,12 +97,22 @@ The [Form Recognizer][fr-containers] container image can be found on the `mcr.mi
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/custom-form/labeltool/tags/list).
 
+# [Latest version](#tab/current)
+
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
 | `1.1.009301-amd64-preview`    |       |
+
+
+# [Previous versions](#tab/previous)
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
 | `1.1.008640001-amd64-preview` |       |
 | `1.1.008510001-amd64-preview` |       |
+
+---
 
 ## Language Understanding (LUIS)
 
@@ -101,17 +120,21 @@ The [LUIS][lu-containers] container image can be found on the `mcr.microsoft.com
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/language/luis/tags/list).
 
+# [Latest version](#tab/current)
+
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
-| `1.1.010330004-amd64-preview` |       |
-| `1.1.009301-amd64-preview`    |       |
-| `1.1.008710001-amd64-preview` |       |
-| `1.1.008510001-amd64-preview` |       |
-| `1.1.008010002-amd64-preview` |       |
-| `1.1.007750002-amd64-preview` |       |
-| `1.1.007360001-amd64-preview` |       |
-| `1.1.007020001-amd64-preview` |       |
+| `1.1.012280003-amd64-preview` |       |
+
+
+# [Latest version](#tab/current)
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `1.1.012130003-amd64-preview` |       |
+
+---
 
 ## Custom Speech-to-text
 
@@ -323,14 +346,22 @@ container image can be found on the `mcr.microsoft.com` container registry syndi
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/keyphrase/tags/list).
 
+# [Latest version](#tab/current)
+
+
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
-| `1.1.008510001-amd64-preview` |       |
-| `1.1.007750002-amd64-preview` |       |
-| `1.1.007360001-amd64-preview` |       |
-| `1.1.006770001-amd64-preview` |       |
+| `1.1.013570001-amd64` |       |
+
+# [Previous versions](#tab/previous)
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `1.1.012840001-amd64` |       |
+| `1.1.012830001-amd64`    |       |
+
+---
 
 ## Text language detection
 
@@ -339,19 +370,26 @@ The [Language Detection][ta-la] container image can be found on the `mcr.microso
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/language/tags/list).
 
+# [Latest versions](#tab/current)
+
 | Image Tags                    | Notes |
 |-------------------------------|:------|
 | `latest`                      |       |
-| `1.1.009301-amd64-preview`    |       |
-| `1.1.008510001-amd64-preview` |       |
-| `1.1.007750002-amd64-preview` |       |
-| `1.1.007360001-amd64-preview` |       |
-| `1.1.006770001-amd64-preview` |       |
+| `1.1.013570001-amd64` | |
+   
+
+# [Previous versions](#tab/previous)
+
+
+| Image Tags                    | Notes |
+|-------------------------------|:------|
+| `latest`                      |       |
+| `1.1.012840001-amd64` |   |
+| `1.1.012830001-amd64` |   |
 
 ## Sentiment analysis
 
 The [Sentiment Analysis][ta-se] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/textanalytics/` repository and is named `sentiment`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/textanalytics/sentiment`
-
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/textanalytics/sentiment/tags/list).
 
@@ -368,11 +406,7 @@ This container image has the following tags available. You can also find a full 
 | `3.0-ja`   | Sentiment Analysis v3 (Japanese)              |
 | `3.0-pt`   | Sentiment Analysis v3 (Portuguese)            |
 | `3.0-nl`   | Sentiment Analysis v3 (Dutch)                 |
-| `1.1.009301-amd64-preview`    | Sentiment Analysis v2      |
-| `1.1.008510001-amd64-preview` |       |
-| `1.1.007750002-amd64-preview` |       |
-| `1.1.007360001-amd64-preview` |       |
-| `1.1.006770001-amd64-preview` |       |
+| `2.1`    | Sentiment Analysis v2      |
 
 [ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
 [cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
