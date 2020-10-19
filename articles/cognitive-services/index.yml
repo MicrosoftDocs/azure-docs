@@ -30,7 +30,7 @@ highlightedContent:
     - title: Cognitive Services on-prem containers
       itemType: concept
       url: ./cognitive-services-container-support.md
-    - title: Cognitive Services with Databases
+    - title: Cognitive Services with databases
       itemType: concept
       url: ./big-data/cognitive-services-for-big-data.md
     - title: Language support
