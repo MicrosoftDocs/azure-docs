@@ -28,7 +28,7 @@ Sentiment Analysis in version 2.1 returns sentiment scores between 0 and 1 for e
 
 ### REST API
 
-If your application uses the REST API, update its request endpoint to the v3 endpoint for sentiment analysis. For example:`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`. You will also need to update the application to use the sentiment labels returned in the [JSON response](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
+If your application uses the REST API, update its request endpoint to the v3 endpoint for sentiment analysis. For example:`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/sentiment`. You will also need to update the application to use the sentiment labels returned in the [API's response](how-tos/text-analytics-how-to-sentiment-analysis.md#view-the-results). 
 
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
@@ -59,7 +59,7 @@ Entity Linking
 NER
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/entities/recognition/general`
 
-You will also need to update your application to use the [entity categories](named-entity-types.md) returned in the [JSON response](how-tos/text-analytics-how-to-entity-linking.md#view-results).
+You will also need to update your application to use the [entity categories](named-entity-types.md) returned in the [API's response](how-tos/text-analytics-how-to-entity-linking.md#view-results).
 
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
@@ -80,7 +80,7 @@ The language detection feature has not changed in v3 outside of the endpoint ver
 
 ### REST API
 
-If your application uses the REST API, update its request endpoint to the v3 endpoint for language detection. For example:`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`. You will also need to update the application to use `ConfidenceScore` instead of `score` in the [JSON response](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
+If your application uses the REST API, update its request endpoint to the v3 endpoint for language detection. For example:`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0/languages`. You will also need to update the application to use `ConfidenceScore` instead of `score` in the [API's response](how-tos/text-analytics-how-to-language-detection.md#step-3-view-the-results). 
 
 See the reference documentation for examples of the JSON response.
 * [Version 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7)
