@@ -58,7 +58,7 @@ If you have this role assignment already and still encounter the 403 issue, cont
 
 ### Solution #2
 
-The second solution is, if you're using an Azure AD app registration to authenticate a client app, to verify that the app registration has permissions configured for the Azure Digital Twins service. If these are not configured, set them up.
+If you're using an Azure AD app registration to authenticate a client app, the second possible solution is to verify that the app registration has permissions configured for the Azure Digital Twins service. If these are not configured, set them up.
 
 #### Check current setup
 
