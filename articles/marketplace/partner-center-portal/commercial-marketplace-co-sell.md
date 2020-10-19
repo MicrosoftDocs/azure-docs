@@ -53,7 +53,7 @@ Solution types help define the scenarios that your offer is designed to address.
 
 Solution areas help to further define your solution.
 
-You can add up to three solution areas for your offer. For each solution area, you can choose up to two solution subareas. To select multiple subcategories, use the `Ctrl` key (on Windows) or Command key (on Mac OS).
+You can add up to three solution areas for your offer. For each solution area, you can choose up to two solution subareas. To select multiple subcategories, use the `Ctrl` key (on Windows) or Command key (on macOS).
 
 ## Documents
 
