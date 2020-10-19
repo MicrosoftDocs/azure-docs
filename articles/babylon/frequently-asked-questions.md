@@ -41,7 +41,6 @@ The audience for these FAQ's are customers, Data & AI Global Black Belts, and ot
 |Azure SQL DB|Available|
 |ADLS Gen 1|Available|
 |ADLS Gen 2|Available|
-|Amazon S3|Available|
 |Azure Data Explorer|Available|
 |Cosmos DB|Available|
 |Synapse (aka SQL DW)|Available|
@@ -77,6 +76,7 @@ The audience for these FAQ's are customers, Data & AI Global Black Belts, and ot
 |Azure Files|Available|
 |ADLS Gen 1|Available|
 |ADLS Gen 2| Available|
+|Amazon S3|Available|
 |Power BI|CY2020|
 |Azure SQL DB|CY2020|
 |Azure Cosmos DB|CY2020|

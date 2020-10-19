@@ -61,7 +61,7 @@ Babylon is able to detect the file types found in your data estate, and provide 
 
     Do any of the following to find out more:
 
-    - Select the **Time** selector at the top of the reoport to change the time span for which the file extensions were found.
+    - Select the **Time** selector at the top of the report to change the time span for which the file extensions were found.
     
     - Select **View file extensions** below the graph to view a full list of the file extensions found. For more information, see [File extension drilldown and filtering](#file-extension-drilldown-and-filtering).
 
