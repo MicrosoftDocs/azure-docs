@@ -65,7 +65,7 @@ This tier is for mission-critical production applications that require elastic u
 |S8v2 <sup>[1](#naar)</sup>   |    640     |    200     |
 |S9v2 <sup>[1](#naar)</sup>    |    1280    |    400     |
 
-<a name="naar">1</a> - Not available in all regions.
+<a name="naar">1</a> - Not available in all regions.   
 <a name="rec">2</a> - S8 and S9 are [deprecated](https://azure.microsoft.com/updates/azure-s8-and-s9-analysis-services-skus-retiring-on-31-august-2023/). v2 is recommended. 
 
 ## Availability by region
