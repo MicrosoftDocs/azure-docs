@@ -45,7 +45,7 @@ DevOps Starter creates a workflow in GitHub. You can use an existing GitHub orga
 
 1. Ensure that the CI/CD provider is selected as **GitHub Actions**.
 
-    ![CICD_provider](_img/azure-devops-project-nodejs/provider_selection.png)
+    ![CICD_provider](_img/azure-devops-project-nodejs/provider-selection.png)
 
 1. Select **Node.js**, and then select **Next**.
 
@@ -63,13 +63,13 @@ DevOps Starter creates a workflow in GitHub. You can use an existing GitHub orga
  
 1. Enter a Web App name, and then select **Done**. After a few minutes, the Azure Web App will be ready. A sample Node.js application is set up in a repo in your GitHub organization, a workflow is triggered, and your application is deployed to the newly created Azure Web App.
 
-   ![Enter_GH_details](_img/azure-devops-project-nodejs/gh_details.png)    
+   ![Enter_GH_details](_img/azure-devops-project-nodejs/gh-details.png)    
 
    After it's completed, the DevOps Starter dashboard is displayed in the Azure portal. You can also navigate to the dashboard directly from **All resources** in the Azure portal. 
 
    The dashboard provides visibility into your GitHub code repo, your CI/CD workflow, and your running application in Azure.   
 
-   ![Dashboard view]
+   ![Dashboard view](_img/azure-devops-project-nodejs/full-dashboard.PNG)
 
 DevOps Starter automatically configures a trigger that deploys code changes to your repo.
     
@@ -78,8 +78,8 @@ DevOps Starter automatically configures a trigger that deploys code changes to y
 In the previous step, DevOps Starter automatically configured a full GitHub workflow. Explore and customize the workflow as needed. Take the following steps to familiarize yourself with the workflow.
 
 1. On the left of the DevOps Starter dashboard, select **GitHub workflow**. This link opens a browser tab and the GitHub workflow for your new project.
-> [!NOTE]
-> Do not rename the workflow file. The name of the workflow file should be **devops-starter-workflow.yml** for the dashboard to reflect the changes
+    > [!NOTE]
+    > Do not rename the workflow file. The name of the workflow file should be **devops-starter-workflow.yml** for the dashboard to reflect the changes
 
 1. The workflow yaml file contains all the GitHub Actions required to build and deploy the application. Click on **edit file** option to customize your workflow file.
 
