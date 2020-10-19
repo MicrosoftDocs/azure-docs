@@ -42,13 +42,13 @@ To meet the certification requirements, your device must:
 
 ## Test with the Azure IoT Extension CLI
 
-The [Azure IoT CLI extension](https://docs.microsoft.com/cli/azure/ext/azure-iot/iot/product?view=azure-cli-latest&preserve-view=true) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
+The [Azure IoT CLI extension](/cli/azure/ext/azure-iot/iot/product?preserve-view=true&view=azure-cli-latest) lets you validate that the device implementation matches the model before you submit the device for certification through the Azure Certified Device portal.
 
 The following steps show you how to prepare for and run the certification tests using the CLI:
 
 ### Install the Azure IoT extension for the Azure CLI
 
-See the installation instructions to set up the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true) in your environment.
+See the installation instructions to set up the [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest) in your environment.
 
 To install the Azure IoT Extension, run the following command:
 
@@ -56,7 +56,7 @@ To install the Azure IoT Extension, run the following command:
 az extension add --name azure-iot
 ```
 
-To learn more, see [Azure CLI for Azure IoT](https://docs.microsoft.com/cli/azure/azure-cli-reference-for-iot?view=azure-cli-latest&preserve-view=true).
+To learn more, see [Azure CLI for Azure IoT](/cli/azure/azure-cli-reference-for-iot?preserve-view=true&view=azure-cli-latest).
 
 ### Create a new product test
 
@@ -70,7 +70,7 @@ az iot product test create --badge-type Pnp --at SymmetricKey --device-type Fini
 ```
 
 > [!NOTE]
-> You need to [sign in](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true) to your subscription when you use the CLI.
+> You need to [sign in](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest) to your subscription when you use the CLI.
 
 The JSON output from the command contains the `primaryKey`, `registrationId`, and `scopeID` to use when you connect your device.
 

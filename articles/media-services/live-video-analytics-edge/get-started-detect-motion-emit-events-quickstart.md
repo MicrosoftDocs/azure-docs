@@ -14,6 +14,10 @@ After completing the setup steps, you'll be able to run a simulated live video s
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Live Video Analytics based on motion detection":::
 
+You can view the following video with detailed steps on how to get started with Live Video Analytics on IoT Edge:
+
+<iframe src="https://www.microsoft.com/en-us/videoplayer/embed/RE4Hcax" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+
 ## Prerequisites
 
 * An Azure account that has an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
@@ -80,7 +84,7 @@ Follow these instructions to connect to your IoT hub by using the Azure IoT Tool
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
-1. <!--In Visual Studio Code-->Select **View** > **Explorer**. Or, select Ctrl+Shift+E.
+1. Select **View** > **Explorer**. Or, select Ctrl+Shift+E.
 1. In the lower-left corner of the **Explorer** tab, select **Azure IoT Hub**.
 1. Select the **More Options** icon to see the context menu. Then select **Set IoT Hub Connection String**.
 1. When an input box appears, enter your IoT Hub connection string. In Cloud Shell, you can get the connection string from *~/clouddrive/lva-sample/appsettings.json*.

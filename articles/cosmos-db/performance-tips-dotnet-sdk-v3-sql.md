@@ -4,7 +4,7 @@ description: Learn client configuration options to help improve Azure Cosmos DB 
 author: j82w
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
 
@@ -35,7 +35,7 @@ For Linux and other unsupported platforms where ServiceInterop.dll isn't availab
 
 The four application types listed here use 32-bit host processing by default. To change host processing to 64-bit processing for your application type, do the following:
 
-- **For executable applications**: In the **Project Properties** window, on the **Build** pane, set the [platform target](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) to **x64**.
+- **For executable applications**: In the **Project Properties** window, on the **Build** pane, set the [platform target](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) to **x64**.
 
 - **For VSTest-based test projects**: On the Visual Studio **Test** menu, select **Test** > **Test Settings**, and then set **Default Processor Architecture** to **X64**.
 
@@ -63,32 +63,7 @@ If you're testing at high throughput levels, or at rates that are greater than 5
 
 **Connection policy: Use direct connection mode**
 
-How a client connects to Azure Cosmos DB has important performance implications, especially for observed client-side latency. Two key configuration settings are available for configuring client connection policy: the connection *mode* and the connection *protocol*. The two available connection modes are:
-
-   * Direct mode (default)
-
-     Direct mode supports connectivity through the TCP protocol and is the default connectivity mode if you're using the [Microsoft.Azure.Cosmos/.NET V3 SDK](https://github.com/Azure/azure-cosmos-dotnet-v3). Direct mode offers better performance and requires fewer network hops than Gateway mode.
-
-   * Gateway mode
-      
-     If your application runs within a corporate network that has strict firewall restrictions, Gateway mode is the best choice, because it uses the standard HTTPS port and a single endpoint. 
-     
-     The performance tradeoff, however, is that Gateway mode involves an additional network hop every time data is read from or written to Azure Cosmos DB. So Direct mode offers better performance because there are fewer network hops. We also recommend Gateway connection mode when you run applications in environments that have a limited number of socket connections.
-
-     When you use the SDK in Azure Functions, particularly in the [Consumption plan](../azure-functions/functions-scale.md#consumption-plan), be aware of the current [limits on connections](../azure-functions/manage-connections.md). In that case, Gateway mode might be better if you're also working with other HTTP-based clients within your Azure Functions application.
-     
-When you use the TCP protocol in Direct mode, in addition to the gateway ports, you need to ensure that the port range from 10000 through 20000 is open, because Azure Cosmos DB uses dynamic TCP ports. When you use Direct mode on [private endpoints](./how-to-configure-private-endpoints.md), the full range of TCP ports from 0 through 65535 should be open. The ports are open by default for the standard Azure VM configuration. If these ports aren't open and you try to use TCP, you'll receive a "503 Service Unavailable" error. 
-
-The following table shows the connectivity modes that are available for various APIs and the service ports that are used for each API:
-
-|Connection mode  |Supported protocol  |Supported SDKs  |API/Service port  |
-|---------|---------|---------|---------|
-|Gateway  |   HTTPS    |  All SDKs    |   SQL (443), MongoDB (10250, 10255, 10256), Table (443), Cassandra (10350), Graph (443) <br><br> Port 10250 maps to a default Azure Cosmos DB API for MongoDB instance without geo-replication, and ports 10255 and 10256 map to the instance with geo-replication.   |
-|Direct    |     TCP    |  .NET SDK    | When you use public/service endpoints: ports in the 10000 through 20000 range<br><br>When you use private endpoints: ports in the 0 through 65535 range |
-
-Azure Cosmos DB offers a simple, open RESTful programming model over HTTPS. Additionally, it offers an efficient TCP protocol, which is also RESTful in its communication model and is available through the .NET client SDK. The TCP protocol uses Transport Layer Security (TLS) for initial authentication and encrypting traffic. For best performance, use the TCP protocol when possible.
-
-For SDK V3, you configure the connection mode when you create the `CosmosClient` instance in `CosmosClientOptions`. Remember that Direct mode is the default.
+.NET V3 SDK default connection mode is direct. You configure the connection mode when you create the `CosmosClient` instance in `CosmosClientOptions`.  To learn more about different connectivity options, see the [connectivity modes](sql-sdk-connection-modes.md) article.
 
 ```csharp
 string connectionString = "<your-account-connection-string>";
@@ -98,10 +73,6 @@ new CosmosClientOptions
     ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
 });
 ```
-
-Because TCP is supported only in Direct mode, if you use Gateway mode, the HTTPS protocol is always used to communicate with the gateway.
-
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Establish connection to Azure Cosmos DB with different connection modes and protocols." border="false":::
 
 **Ephemeral port exhaustion**
 
@@ -195,7 +166,7 @@ Parallel queries provide two parameters that you can tune to fit your requiremen
 
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off throttling for the server-specified retry interval. Respecting the backoff helps ensure that you'll spend a minimal amount of time waiting between retries. 
 
-For more information, see [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+For more information, see [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 There's a mechanism for logging additional diagnostics information and troubleshooting latency issues, as shown in the following sample. You can log the diagnostics string for requests that have a higher read latency. The captured diagnostics string will help you understand how many times you received a *429* error for a given request.
 
@@ -283,4 +254,4 @@ The request charge (that is, the request-processing cost) of a specified operati
 ## Next steps
 For a sample application that's used to evaluate Azure Cosmos DB for high-performance scenarios on a few client machines, see [Performance and scale testing with Azure Cosmos DB](performance-testing.md).
 
-To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
+To learn more about designing your application for scale and high performance, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).

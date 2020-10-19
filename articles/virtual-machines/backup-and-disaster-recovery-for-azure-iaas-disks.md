@@ -43,7 +43,7 @@ Because of this architecture, Azure has consistently delivered enterprise-grade 
 
 Localized hardware faults on the compute host or in the Storage platform can sometimes result in of the temporary unavailability of the VM that is covered by the [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) for VM availability. Azure also provides an industry-leading SLA for single VM instances that use Azure premium SSDs.
 
-To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use [availability sets](windows/manage-availability.md). Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components.
+To safeguard application workloads from downtime due to the temporary unavailability of a disk or VM, customers can use [availability sets](./manage-availability.md). Two or more virtual machines in an availability set provide redundancy for the application. Azure then creates these VMs and disks in separate fault domains with different power, network, and server components.
 
 Because of these separate fault domains, localized hardware failures typically do not affect multiple VMs in the set at the same time. Having separate fault domains provides high availability for your application. It's considered a good practice to use availability sets when high availability is required. The next section covers the disaster recovery aspect.
 
@@ -72,7 +72,7 @@ Consider a production database server, like SQL Server or Oracle, that can suppo
 - The data must be protected and recoverable.
 - The server must be available for use.
 
-The disaster recovery plan might require maintaining a replica of the database in a different region as a backup. Depending on the requirements for server availability and data recovery, the solution might range from an active-active or active-passive replica site to periodic offline backups of the data. Relational databases, such as SQL Server and Oracle, provide various options for replication. For SQL Server, use [SQL Server AlwaysOn Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx) for high availability.
+The disaster recovery plan might require maintaining a replica of the database in a different region as a backup. Depending on the requirements for server availability and data recovery, the solution might range from an active-active or active-passive replica site to periodic offline backups of the data. Relational databases, such as SQL Server and Oracle, provide various options for replication. For SQL Server, use [SQL Server AlwaysOn Availability Groups](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) for high availability.
 
 NoSQL databases, like MongoDB, also support [replicas](https://docs.mongodb.com/manual/replication/) for redundancy. The replicas for high availability are used.
 
@@ -196,7 +196,7 @@ Another option to create consistent backups is to shut down the VM and take blob
 
 1. Create a snapshot of each virtual hard drive blob, which only takes a few seconds.
 
-    To create a snapshot, you can use [PowerShell](https://docs.microsoft.com/powershell/module/az.storage), the [Azure Storage REST API](https://msdn.microsoft.com/library/azure/ee691971.aspx), [Azure CLI](/cli/azure/), or one of the Azure Storage client libraries, such as [the Storage client library for .NET](https://msdn.microsoft.com/library/azure/hh488361.aspx).
+    To create a snapshot, you can use [PowerShell](/powershell/module/az.storage), the [Azure Storage REST API](/rest/api/storageservices/Snapshot-Blob), [Azure CLI](/cli/azure/), or one of the Azure Storage client libraries, such as [the Storage client library for .NET](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
 1. Start the VM, which ends the downtime. Typically, the entire process finishes within a few minutes.
 
@@ -219,7 +219,7 @@ To copy your incremental snapshots for DR efficiently, review the instructions i
 
 ### Recovery from snapshots
 
-To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot. This process reverts the disk to the snapshot. This process is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account, in the case of a read-access geo-redundant storage account, you must copy it to a primary account. You can copy a snapshot by [using PowerShell](https://docs.microsoft.com/powershell/module/az.storage) or by using the AzCopy utility. For more information, see [Transfer data with the AzCopy command-line utility](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy).
+To retrieve a snapshot, copy it to make a new blob. If you are copying the snapshot from the primary account, you can copy the snapshot over to the base blob of the snapshot. This process reverts the disk to the snapshot. This process is known as promoting the snapshot. If you are copying the snapshot backup from a secondary account, in the case of a read-access geo-redundant storage account, you must copy it to a primary account. You can copy a snapshot by [using PowerShell](/powershell/module/az.storage) or by using the AzCopy utility. For more information, see [Transfer data with the AzCopy command-line utility](../storage/common/storage-use-azcopy-v10.md).
 
 For VMs with multiple disks, you must copy all the snapshots that are part of the same coordinated restore point. After you copy the snapshots to writable VHD blobs, you can use the blobs to recreate your VM by using the template for the VM.
 
@@ -260,4 +260,3 @@ See [Back up Azure unmanaged Virtual Machine disks with incremental snapshots](l
 
 [1]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-1.png
 [2]: ./media/virtual-machines-common-backup-and-disaster-recovery-for-azure-iaas-disks/backup-and-disaster-recovery-for-azure-iaas-disks-2.png
-

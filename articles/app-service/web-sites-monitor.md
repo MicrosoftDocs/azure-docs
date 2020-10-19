@@ -11,7 +11,7 @@ ms.custom: seodec18
 
 ---
 # Monitor apps in Azure App Service
-[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) provides
+[Azure App Service](./overview.md) provides
 built-in monitoring functionality for web apps, mobile, and API apps in the [Azure portal](https://portal.azure.com).
 
 In the Azure portal, you can review *quotas* and *metrics* for an app and App Service plan, and set up *alerts* and *autoscaling* rules based metrics.
@@ -57,7 +57,7 @@ You can increase or remove quotas from your app by upgrading your App Service pl
 ## Understand metrics
 
 > [!NOTE]
-> **File System Usage** is a new metric being rolled out globally, no data is expected unless you've been granted access for private preview.
+> **File System Usage** is a new metric being rolled out globally, no data is expected unless your app is hosted in an App Service Environment.
 > 
 
 > [!IMPORTANT]

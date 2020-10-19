@@ -142,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on **Invite Users** in the left side menu and click on **Invite Single User** to add the user.
 
-    ![Egress create test user](./media/egress-tutorial/create-user-1.PNG)
+    ![Screenshot that shows the "Invite Users" page with the "Invite Single User" button selected.](./media/egress-tutorial/create-user-1.PNG)
 
 1. Fill the required fields and click on **Invite**.
 

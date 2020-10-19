@@ -49,7 +49,7 @@ Here is the list of requests that our platform will have to expose:
 - **[Q5]** List a post's likes
 - **[Q6]** List the *x* most recent posts created in short form (feed)
 
-As this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
+At this stage, we haven't thought about the details of what each entity (user, post etc.) will contain. This step is usually among the first ones to be tackled when designing against a relational store, because we have to figure out how those entities will translate in terms of tables, columns, foreign keys etc. It is much less of a concern with a document database that doesn't enforce any schema at write.
 
 The main reason why it is important to identify our access patterns from the beginning, is because this list of requests is going to be our test suite. Every time we iterate over our data model, we will go through each of the requests and check its performance and scalability.
 
@@ -322,7 +322,7 @@ This stored procedure takes the ID of the post and the body of the new comment a
 - replaces the post
 - adds the new comment
 
-As stored procedures are executed as atomic transactions, it is guaranteed that the value of `commentCount` and the actual number of comments will always stay in sync.
+As stored procedures are executed as atomic transactions, the value of `commentCount` and the actual number of comments will always stay in sync.
 
 We obviously call a similar stored procedure when adding new likes to increment the `likeCount`.
 
@@ -581,6 +581,6 @@ The change feed that we use to distribute updates to other containers store all 
 
 After this introduction to practical data modeling and partitioning, you may want to check the following articles to review the concepts we have covered:
 
-- [Work with databases, containers, and items](databases-containers-items.md)
+- [Work with databases, containers, and items](account-databases-containers-items.md)
 - [Partitioning in Azure Cosmos DB](partitioning-overview.md)
 - [Change feed in Azure Cosmos DB](change-feed.md)

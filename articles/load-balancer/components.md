@@ -121,6 +121,13 @@ Learn more about [outbound connections and rules](load-balancer-outbound-connect
 
 Basic load balancer doesn't support Outbound rules.
 
+## Limitations
+
+- Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
+- Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
+- A load balancer rule can't span two virtual networks.  Frontends and their backend instances must be located in the same virtual network.  
+- Forwarding IP fragments isn't supported on load-balancing rules. IP fragmentation of UDP and TCP packets isn't supported on load-balancing rules. HA ports load-balancing rules can be used to forward existing IP fragments. For more information, see [High availability ports overview](load-balancer-ha-ports-overview.md).
+
 ## Next steps
 
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer.
