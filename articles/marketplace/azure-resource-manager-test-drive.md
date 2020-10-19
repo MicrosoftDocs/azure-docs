@@ -29,7 +29,7 @@ A deployment template contains all the Azure resources that comprise your soluti
 
   - **Cold** – This type of instance represents the total number of instances that can possibly be deployed per region. Cold instances require the entire Test Drive Resource Manager template to deploy when a customer requests the test drive, so *Cold* instances are much slower to load than *Hot* instances. The tradeoff is that you only have to pay for the duration of the test drive, it is *not* always running on your Azure subscription as with a *Hot* instance.
 
-- **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Test drive Azure Resource Manager template** – Upload the .zip containing your Azure Resource Manager template. Learn more about creating an Azure Resource Manager template in the quickstart article [Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md). Before you upload the ARM Template you can check that it is valid using the API here [Deployments - Validate](/rest/api/resources/deployments/validate) 
 
 - **Test drive duration** (required) – Enter the number of hours the test drive will stay active. The test drive terminates automatically after this time period ends. Use only whole numbers (for example, "2" hours is valid, "1.5" is not).
 
