@@ -81,6 +81,7 @@ In this section you can find information in how to configure SSO with most of th
 
 ## Change Log
 
+- 10/15/2020: Release of SAP BusinessObjects BI Platform on Azure documentation, [SAP BusinessObjects BI platform planning and implementation guide on Azure](businessobjects-deployment-guide.md) and [SAP BusinessObjects BI platform deployment guide for linux on Azure](businessobjects-deployment-guide-linux.md)
 - 10/05/2020: Release of [SAP HANA scale-out HSR with Pacemaker on Azure VMs on RHEL](./sap-hana-high-availability-scale-out-hsr-rhel.md) configuration guide
 - 09/30/2020: Change in [High availability of SAP HANA on Azure VMs on RHEL](./sap-hana-high-availability-rhel.md), [HA for SAP HANA scale-up with ANF on RHEL](./sap-hana-high-availability-netapp-files-red-hat.md) and [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to adapt the instructions for RHEL 8.1
 - 09/29/2020: Making restrictions and recommendations around usage of PPG more obvious in the article [Azure proximity placement groups for optimal network latency with SAP applications](./sap-proximity-placement-scenarios.md) 

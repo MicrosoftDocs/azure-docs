@@ -22,7 +22,7 @@ You'll learn how to:
 ## Prerequisites
 
 * Complete [Quickstart: Render a model with Unity](render-model.md)
-* Install Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
+* Install Azure PowerShell [(documentation)](/powershell/azure/)
   * Open a PowerShell with admin rights
   * Run: `Install-Module -Name Az -AllowClobber`
 
@@ -161,7 +161,7 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
-> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](/powershell/module/az.accounts/connect-azaccount).
 
 Change to the `azure-remote-rendering\Scripts` directory and run the conversion script:
 

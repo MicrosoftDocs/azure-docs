@@ -45,7 +45,7 @@ For classic virtual networks, go to the **Overview** page of the classic virtual
 
 For virtual networks, go to the **Overview** page of the virtual network. Check **Connected devices** for the virtual network gateway.
 
-![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
+![Screenshot of the list of Connected devices for a virtual network in Azure portal. The Virtual network gateway is highlighted in the list.](media/virtual-network-troubleshoot-cannot-delete-vnet/vnet-gateway.png)
 
 Before you can remove the gateway, first remove any **Connection** objects in the gateway. 
 
@@ -53,7 +53,7 @@ Before you can remove the gateway, first remove any **Connection** objects in th
 
 Go to the **Overview** page of the virtual network. Check the **Connected devices** for the application gateway.
 
-![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
+![Screenshot of the list of Connected devices for a virtual network in Azure portal. The Application gateway is highlighted in the list.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 If there is an application gateway, you must remove it before you can delete the virtual network.
 
@@ -61,7 +61,7 @@ If there is an application gateway, you must remove it before you can delete the
 
 If the Active Directory Domain Service is enabled and connected to the virtual network, you cannot delete this virtual network. 
 
-![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
+![Screenshot of the Azure AD Domain Services screen in Azure portal. The Available in Virtual Network/Subnet field is highlighted.](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
 To disable the service, see [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/delete-aadds.md).
 

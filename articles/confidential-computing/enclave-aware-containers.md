@@ -46,14 +46,19 @@ This solution allows you to bring existing ML trained model and run them confide
 
 Get started with ML model lift and shift to ONNX runtime [here](https://aka.ms/confidentialinference)
 
-## Container Samples Implementations
+### Edgeless RT
 
-[Azure samples for enclave aware containers on AKS](https://github.com/Azure-Samples/enclave-aware-container-samples)
+Edgeless RT is an open-source project that builds upon the Open Enclave SDK. It adds support for Go and additional C++ features. Get started with a simple confidential Go application using your familiar VS Code environment [here](https://github.com/edgelesssys/edgelessrt). For Edgeless applications on AKS follow instructions [here](https://github.com/edgelesssys/edgelessrt/blob/master/docs/ERTAzureAKSDeployment.md)
+
+
+## Container Based Sample Implementations
+
+[Azure samples for enclave aware containers on AKS](https://github.com/Azure-Samples/confidential-computing/tree/main/containersamples)
 
 <!-- LINKS - external -->
-[Azure Attestation]: https://docs.microsoft.com/en-us/azure/attestation/
+[Azure Attestation](../attestation/overview.md)
 
 
 <!-- LINKS - internal -->
-[DC Virtual Machine]: /confidential-computing/virtual-machine-solutions
-[Confidential Containers]: /confidential-computing/containercompute/confidential-containers
+[DC Virtual Machine](/confidential-computing/virtual-machine-solutions)
+[Confidential Containers](/confidential-computing/containercompute/confidential-containers)

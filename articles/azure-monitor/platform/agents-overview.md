@@ -77,8 +77,8 @@ Use the Log Analytics agent if you need to:
 * Collect logs and performance data from virtual or physical machines inside or outside of Azure. 
 * Send data to a Log Analytics workspace to take advantage of features supported by [Azure Monitor Logs](data-platform-logs.md) such as [log queries](../log-query/log-query-overview.md).
 * Use [Azure Monitor for VMs](../insights/vminsights-overview.md) which allows you to monitor your virtual machines at scale and monitors their processes and dependencies on other resources and external processes..  
-* Manage the security of your virtual machines using [Azure Security Center](../../security-center/security-center-introduction.md)  or [Azure Sentinel](../../sentinel/overview.md).
-* Use [Azure Automation Update management](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking.md) to deliver comprehensive management of your Azure VMs
+* Manage the security of your virtual machines using [Azure Security Center](../../security-center/security-center-intro.md)  or [Azure Sentinel](../../sentinel/overview.md).
+* Use [Azure Automation Update management](../../automation/update-management/update-mgmt-overview.md), [Azure Automation State Configuration](../../automation/automation-dsc-overview.md), or [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md) to deliver comprehensive management of your Azure VMs
 * Use different [solutions](../monitor-reference.md#insights-and-core-solutions) to monitor a particular service or application.
 
 Limitations of the Log Analytics agent include:
@@ -144,9 +144,9 @@ The following tables list the operating systems that are supported by the Azure 
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(including multi-session) and Pro  | X | X | X | X |
-| Windows 8 Enterprise and Pro                             |   | X | X |   |
-| Windows 7 SP1                                            |   | X | X |   |
+| Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only)  | X | X | X | X |
+| Windows 8 Enterprise and Pro<br>(Server scenarios only)  |   | X | X |   |
+| Windows 7 SP1<br>(Server scenarios only)                 |   | X | X |   |
 
 
 ### Linux
