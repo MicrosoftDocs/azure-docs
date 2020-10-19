@@ -58239,18 +58239,18 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/healthcareapis/fhir-oss-cli-quickstart.md",
-      "redirect_url": "/azure/healthcareapis/fhir-paas-cli-quickstart",
+      "source_path": "articles/healthcare-apis/fhir-oss-cli-quickstart.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-paas-cli-quickstart",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/healthcareapis/fhir-oss-portal-quickstart.md",
-      "redirect_url": "/azure/healthcareapis/fhir-paas-portal-quickstart",
+      "source_path": "articles/healthcare-apis/fhir-oss-portal-quickstart.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-paas-portal-quickstart",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/healthcareapis/fhir-oss-powershell-quickstart.md",
-      "redirect_url": "/azure/healthcareapis/fhir-paas-powershell-quickstart",
+      "source_path": "articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-paas-powershell-quickstart",
       "redirect_document_id": false
     }
     
