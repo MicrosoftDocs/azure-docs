@@ -1,4 +1,20 @@
+---
+title: SAML authentication with Azure Active Directory
+description: Architectural guidance on achieving this authentication pattern
+services: active-directory
+author: BarbaraSelden
+manager: daveba
 
+ms.service: active-directory
+ms.workload: identity
+ms.subservice: fundamentals
+ms.topic: conceptual
+ms.date: 10/19/2020
+ms.author: baselden
+ms.reviewer: ajburnle
+ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
+---
 
 # SSH
 
