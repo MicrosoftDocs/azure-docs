@@ -64,6 +64,9 @@ Metrics having to do with API requests:
 
 Metrics having to do with billing:
 
+>[!NOTE]
+>While these metrics still show up in the selectable list, they will remain at zero until the new pricing on the service becomes available. To learn more, see [*Azure Digital Twins pricing*](https://azure.microsoft.coms/pricing/details/digital-twins/).
+
 | Metric | Metric display name | Unit | Aggregation type| Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
 | BillingApiOperations | Billing API Operations | Count | Total | Billing metric for the count of all API requests made against the Azure Digital Twins service. | Meter Id |
