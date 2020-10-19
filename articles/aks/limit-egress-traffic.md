@@ -52,6 +52,9 @@ The required network rules and IP address dependencies are:
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | If you're using custom DNS servers, you must ensure they're accessible by the cluster nodes. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Required if running pods/deployments that access the API Server, those pods/deployments would use the API IP. This is not required for [private clusters](private-clusters.md)  |
 
+> [!IMPORTANT]
+> Note that `APIServerIP` is the public IP of your AKS cluster, not the internal one.
+
 ### Azure Global required FQDN / application rules 
 
 The following FQDN / application rules are required:
