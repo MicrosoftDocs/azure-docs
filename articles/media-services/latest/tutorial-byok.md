@@ -33,7 +33,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 ## Prerequisites
 
 - Register a service principal with the appropriate permissions.
-- Install [Postman](https://www.postman.com)).
+- Install [Postman](https://www.postman.com).
 - Download the Postman collection for this tutorial at [Azure Samples: media-services-customer-managed-keys-byok](https://github.com/Azure-Samples/media-services-customer-managed-keys-byok)
 
 ### Register a service principal with the needed permissions
@@ -113,7 +113,7 @@ Once your environment variables have been defined, you can either run the reques
 
 ## Change the key
 
-Media services will automatically detect when the key has been changed.  To test this, create another key version for the same key. Media Services should detect this key after 5 minutes
+Media services will automatically detect when the key has been changed.  To test this, create another key version for the same key. Media Services should detect this key in less than 15 minutes.
 
 ## Clean up resources
 
