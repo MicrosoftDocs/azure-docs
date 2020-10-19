@@ -107,15 +107,7 @@ Allow access to the following URLs:
 | URL | How it's used |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
-| crl3.digicert.com<br>
-crl4.digicert.com<br>
-ocsp.digicert.com<br>
-www.d-trust.net<br>
-root-c3-ca2-2009.ocsp.d-trust.net<br>
-crl.microsoft.com<br>
-oneocsp.microsoft.com<br>
-ocsp.msocsp.com<br> 
-| The connector uses these URLs to verify certificates. |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | The connector uses these URLs to verify certificates. |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | The connector uses these URLs during the registration process. |
 
 You can allow connections to \*.msappproxy.net and \*.servicebus.windows.net if your firewall or proxy lets you configure DNS allow lists. If not, you need to allow access to the [Azure IP ranges and Service Tags - Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519). The IP ranges are updated each week.
