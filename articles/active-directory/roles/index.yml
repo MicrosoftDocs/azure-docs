@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
-title: Enterprise user management documentation - Azure AD
-summary: Azure AD user management services such as groups and administrator role assignments help you accomplish your top tasks quickly. Assign licenses, assign application access to groups or users, or delegate permissions to distribute identity management tasks. 
+title: Azure AD roles documentation - Azure AD
+summary: Azure AD role-based access control manages access to Azure AD resources. Create custom roles, assign roles that use administrative units to restrict scope of control, assign application access to groups or users, manage eligibility with Privileged Identity Management (PIM), or delegate permissions to distribute identity management tasks. 
 
 
 metadata:
-  title: Azure Active Directory users, groups, roles, and licenses documentation
-  description: Learn how to use users, groups, roles, and licenses to manage authentication to Azure cloud services in your organization.
+  title: Azure Active Directory roles documentation
+  description: Learn how to use Azure AD roles to manage access in your organization.
   services: active-directory
   ms.service: active-directory
-  ms.subservice: users-groups-roles
+  ms.subservice: roles
   manager: daveba
   ms.topic: landing-page
-  ms.date: 11/08/2019
+  ms.date: 10/19/2020
   author: curtand
   ms.author: curtand
 
@@ -21,74 +21,77 @@ metadata:
 
 landingContent:
   # Card
-  - title: About users, groups, roles, and licenses
+  - title: About Azure AD roles
     linkLists:
       - linkListType: overview
         links:
-          - text: Users, groups, licensing, and roles for large orgs
-            url: directory-overview-user-model.md
           - text: Custom roles overview
             url: roles-custom-overview.md
       - linkListType: concept
         links:
           - text: Delegate administration
             url: roles-concept-delegation.md
-          - text: Compare Azure roles and Azure AD administrator roles
-            url: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+          - text: Understand administrative units in Azure AD
+            url: administrative-units.md
+          - text: Use cloud groups to manage role assignments
+            url: groups-concept.md
 
   # Card
   - title: Get started
     linkLists:
       - linkListType: quickstart
         links:
-          - text: Add a user
-            url: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-          - text: Set expiration policy for groups
-            url: groups-quickstart-expiration.md
-          - text: Assign licenses to users
-            url: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+          - text: Grant permission to create unlimited app registrations
+            url: quickstart-app-registration-limits.md
 
   # Card
-  - title: Assign Azure AD admin roles
+  - title: Delegate roles
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Assign roles using PowerShell
-            url: roles-assign-powershell.md
-          - text: Assign roles using Graph API
-            url: roles-assign-graph.md
           - text: Delegate roles by task
             url: roles-delegate-by-task.md
           - text: Delegate application management
-            url: roles-delegate-app-roles.md
+            url: delegate-app-roles.md
 
   # Card
-  - title: Assign licenses
+  - title: Assign roles to users
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: License a group of users
-            url: licensing-groups-assign.md
-          - text: Licensing PowerShell examples
-            url: licensing-ps-examples.md
+          - text: Create custom roles
+            url: custom-create.md
+          - text: Assign roles using Graph API
+            url: custom-assign-graph.md
+          - text: Assign using PowerShell
+            url: custom-assign-powershell.md
+          - text: Assign roles using Graph API
+            url: roles-assign-graph.md
 
   # Card
-  - title: Manage groups
+  - title: Assign roles to groups
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Create a dynamic group
-            url: groups-create-rule.md
-          - text: Group settings in PowerShell
-            url: groups-settings-v2-cmdlets.md
-          - text: Set naming policy for groups  
-            url: groups-naming-policy.md
+          - text: Create role-assignable groups
+            url: groups-cre3ate-eligible.md
+          - text: Assign a role to a cloud group
+            url: groups-assign-role.md
+          - text: Make a group eligible for PIM
+            url: groups-pim-eligible.md
+          - text: Assign roles using Graph API
+            url: roles-assign-graph.md
+
   # Card
-  - title: Add domains
+  - title: Manage scope with administrative units
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Add a custom domain name
-            url: ../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-          - text: Managing custom domain names
-            url: domains-manage.md
+          - text: Add and remove administrative units
+            url: admin-units-manage.md
+          - text: Assign users to units
+            url: admin-units-add-manage-users.md
+          - text: Assign groups to units  
+            url: admin-units-add-manage-groups.md
+          - text: Assign groups with scope  
+            url: admin-units-assign-roles.md
