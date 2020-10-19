@@ -35,7 +35,7 @@ Some connectivity partners may extend the automation to include creating the Azu
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-The following partners are slated on our roadmap for the near future: 128 Technologies, Arista, Cisco Systems (Viptela), F5 Networks, Oracle SD-WAN and SharpLink.
+The following partners are slated on our roadmap based on a terms sheet signed between the companies indicating the scope of work to automate IPsec connectivity between the partner device and Azure Virtual WAN VPN Gateways : 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari) and SharpLink.
 
 ## Partners with integrated Virtual Hub offerings
 In addition to having automated branch office IPSec connectivity, some partners offer **Network Virtual Appliances (NVAs)** that can be integrated directly into the Azure Virtual WAN hub.  This allows the customers the option to terminate their branch connections into a compatible third-party appliance in the Virtual Hub.  

@@ -166,7 +166,7 @@
   - name: Best Practices
     items:
     - name: Best practices for network security and cloud services
-      href: ../best-practices-network-security.md
+      href: /azure/cloud-adoption-framework/reference/networking-vdc
     - name: Optimize routing
       href: expressroute-optimize-routing.md
     - name: Asymmetric routing
@@ -192,9 +192,9 @@
   - name: Azure CLI
     href: /cli/azure/network/express-route
   - name: REST
-    href: https://msdn.microsoft.com/library/azure/mt586720
+    href: /rest/api/expressroute/
   - name: REST (classic)
-    href: https://msdn.microsoft.com/library/azure/dn606310
+    href: /previous-versions/azure/reference/dn606310(v=azure.100)
   - name: Resource Manager template
     displayName: ARM,resource manager template
     href: /azure/templates/microsoft.network/expressroutecircuits

@@ -27,6 +27,18 @@ For an Azure Functions workflow, the file has three sections:
 > [!NOTE]
 > You do not need to create a service principal if you decide to use publishing profile for authentication.
 
+## Downloading and using a Publish Profile as deployment credential (recommended)
+
+To download the publishing profile of your function app:
+
+1. Select the function app's **Overview** page, and then select **Get publish profile**.
+
+   :::image type="content" source="media/functions-how-to-github-actions/get-publish-profile.png" alt-text="Download publish profile":::
+
+1. Save and copy the contents of the publish settings file.
+
+## Create a service principal (deprecated)
+=======
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
@@ -39,6 +51,8 @@ For an Azure Functions workflow, the file has three sections:
 
 The recommended way to authenticate with Azure Functions for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
 
+## Configure the GitHub secret
+=======
 Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
 
 # [Publish profile](#tab/publish-profile)
@@ -894,4 +908,4 @@ jobs:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Azure and GitHub integration](https://docs.microsoft.com/azure/developer/github/)
+> [Learn more about Azure and GitHub integration](/azure/developer/github/)
