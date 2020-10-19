@@ -99,7 +99,7 @@ The list of authorities that are known and trusted by you. In addition to the au
 > Authority validation cannot be enabled and disabled in MSAL.
 > Authorities are either known to you as the developer as specified via configuration or known to Microsoft via metadata.
 > If MSAL receives a request for a token to an unknown authority, an `MsalClientException` of type `UnknownAuthority` results.
-> Brokered authentication does not work for B2C.
+> Brokered authentication does not work for Azure AD B2C.
 
 #### Authority properties
 
