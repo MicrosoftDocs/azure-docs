@@ -243,7 +243,7 @@ Do the following steps in the Azure portal to order a device.
 
     ![Screenshot of the Order wizard showing the Basics step of the wizard with the correct info filled in.](media/data-box-deploy-ordered/select-data-box-import-06.png)
 
-    By default, the device unlock password is encrypted using a Microsoft-managed key. After you complete the order you can add a customer managed key. A customer managed key allows you to use you own key from an Azure Key vault key to protect you device unlock password. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
+    By default, the device unlock password is encrypted using a Microsoft-managed key. After you complete the order, you can add a customer-managed key. A customer-managed key allows you to use you own key from an Azure Key vault key to protect you device unlock password. For more information, see [Use customer-managed keys in Azure Key Vault for Azure Data Box](data-box-customer-managed-encryption-key-portal.md).
 
 7. In **Data destination** tab, select **Data destination**.
 
@@ -281,7 +281,7 @@ Do the following steps in the Azure portal to order a device.
 
    ![Expanded Bring your own password options for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
-   - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password** and type a password that meets the security requirements.
+   - To use your own password for your new device, by **Set preference for the device password**, select **Use your own password**, and type a password that meets the security requirements.
    
      ![Security screen for Data Box import, options for using your own device password](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
@@ -322,7 +322,7 @@ Do the following steps in the Azure portal to order a device.
 
 10. Select **Add Shipping Address** once the shipping details have been validated successfully. You will return to the **Contact details** tab.
 
-11. After you return to **Contact details** add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
+11. After you return to **Contact details**, add one or more email addresses. The service sends email notifications regarding any updates to the order status to the specified email addresses.
 
     We recommend that you use a group email so that you continue to receive notifications if an admin in the group leaves.
 
@@ -342,27 +342,27 @@ Do the following steps using Azure CLI to order a device:
 
    | Setting (parameter) | Description |  Sample value |
    |---|---|---|
-   |resource-group| Use an existing or create a new one. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
-   |name| The name of the order you are creating. | "mydataboxorder"|
-   |contact-name| The name associated with the shipping address. | "Gus Poland"|
-   |phone| The phone number of the person or business that will receive the order.| "14255551234"
-   |location| The nearest Azure region to you that will be shipping your device.| "US West"|
-   |sku| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
-   |email-list| The email addresses associated with the order.| "gusp@contoso.com" |
-   |street-address1| The street address to where the order will be shipped. | "15700 NE 39th St" |
-   |street-address2| The secondary address information, such as apartment number or building number. | "Bld 123" |
-   |city| The city that the device will be shipped to. | "Redmond" |
-   |state-or-province| The state where the device will be shipped.| "WA" |
-   |country| The country that the device will be shipped. | "United States" |
-   |postal-code| The zip code or postal code associated with the shipping address.| "98052"|
-   |company-name| The name of your company you work for.| "Contoso, LTD" |
-   |storage account| The Azure Storage account from where you want to import data.| "mystorageaccount"|
-   |debug| Include debugging information to verbose logging  | --debug |
-   |help| Display help information for this command. | --help -h |
-   |only-show-errors| Only show errors, suppressing warnings. | --only-show-errors |
-   |output -o| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
-   |query| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
-   |verbose| Include verbose logging. | --verbose |
+   |`resource-group`| Use an existing or create a new one. A resource group is a logical container for the resources that can be managed or deployed together. | "myresourcegroup"|
+   |`name`| The name of the order you are creating. | "mydataboxorder"|
+   |`contact-name`| The name associated with the shipping address. | "Gus Poland"|
+   |`phone`| The phone number of the person or business that will receive the order.| "14255551234"
+   |`location`| The nearest Azure region to you that will be shipping your device.| "US West"|
+   |`sku`| The specific Data Box device you are ordering. Valid values are: "DataBox", "DataBoxDisk", and "DataBoxHeavy"| "DataBox" |
+   |`email-list`| The email addresses associated with the order.| "gusp@contoso.com" |
+   |`street-address1`| The street address to where the order will be shipped. | "15700 NE 39th St" |
+   |`street-address2`| The secondary address information, such as apartment number or building number. | "Bld 123" |
+   |`city`| The city that the device will be shipped to. | "Redmond" |
+   |`state-or-province`| The state where the device will be shipped.| "WA" |
+   |`country`| The country that the device will be shipped. | "United States" |
+   |`postal-code`| The zip code or postal code associated with the shipping address.| "98052"|
+   |`company-name`| The name of your company you work for.| "Contoso, LTD" |
+   |`storage account`| The Azure Storage account from where you want to import data.| "mystorageaccount"|
+   |`debug`| Include debugging information to verbose logging  | --debug |
+   |`help`| Display help information for this command. | --help -h |
+   |`only-show-errors`| Only show errors, suppressing warnings. | --only-show-errors |
+   |`output -o`| Sets the output format.  Allowed values: json, jsonc, none, table, tsv, yaml, yamlc. The default value is json. | --output "json" |
+   |`query`| The JMESPath query string. For more information, see [JMESPath](http://jmespath.org/). | --query <string>|
+   |`verbose`| Include verbose logging. | --verbose |
 
 2. In your command-prompt of choice or terminal, run [az data box job create](/cli/azure/ext/databox/databox/job?view=azure-cli-latest#ext-databox-az-databox-job-create&preserve-view=true) to create your Azure Data Box order.
 
