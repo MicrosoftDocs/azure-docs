@@ -137,6 +137,8 @@ registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 
 ## Next steps
 
+* See these [Jupyter notebooks demonstrating Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
+
 * See the SDK reference for help with the [azureml-pipeline-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) package. View reference [documentation](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) for ParallelRunStep class.
 
 * Follow the [advanced tutorial](tutorial-pipeline-batch-scoring-classification.md) on using pipelines with ParallelRunStep. The tutorial shows how to pass another file as a side input. 
