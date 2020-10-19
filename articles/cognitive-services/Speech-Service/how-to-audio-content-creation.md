@@ -140,9 +140,10 @@ Users who are in the same speech resource will see each other’s work in ACC st
 ### Enable users to grant access
 If you want one of the users to give access to other users, you need to give the user the owner role for the speech resource and set the user as the Azure directory reader. 
 1. Add the user as the owner of the speech resource. See [how to add users to a speech resource](#add-users-to-a-speech-resource).
-2. Select the collapsed menu in the upper left. Click **Azure Active Directory**, and then Click **Users**.
-3. Search the user's Microsoft account, and go to the user's detail page. Click **Assigned roles**.
-4. Click **Add assignments** -> **Directory Readers**.
+    ![add-role](media/add-role.png "Add role assignment field")
+1. Select the collapsed menu in the upper left. Click **Azure Active Directory**, and then Click **Users**.
+1. Search the user's Microsoft account, and go to the user's detail page. Click **Assigned roles**.
+1. Click **Add assignments** -> **Directory Readers**.
 
 ## See also
 
