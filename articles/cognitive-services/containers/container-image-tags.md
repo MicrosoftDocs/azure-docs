@@ -128,7 +128,7 @@ This container image has the following tags available. You can also find a full 
 | `1.1.012280003-amd64-preview` |       |
 
 
-# [Latest version](#tab/current)
+# [Previous version](#tab/previous)
 
 | Image Tags                    | Notes |
 |-------------------------------|:------|
@@ -163,7 +163,7 @@ This container image has the following tags available:
 
 The [Speech-to-text][sp-stt] container image can be found on the `mcr.microsoft.com` container registry syndicate. It resides within the `azure-cognitive-services/speechservices/` repository and is named `speech-to-text`. The fully qualified container image name is, `mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text`.
 
-Speech-to-text v2.5.0 images are supported in *US Government Virginia*. Please use *US Government Virginia* billing endpoint and api keys to try.
+Speech-to-text v2.5.0 images are supported in the *US Government Virginia* region. Please use the *US Government Virginia* billing endpoint and API keys when using this region.
 
 This container image has the following tags available. You can also find a full list of [tags on the MCR](https://mcr.microsoft.com/v2/azure-cognitive-services/speechservices/speech-to-text/tags/list).
 
