@@ -52,6 +52,16 @@
     items:
     - name: Machine Learning
       href: /machine-learning/how-to-configure-private-link.md
+  - name: Analytics
+    items:
+    - name: Analysis Services
+      href: /azure-sql/database/private-endpoint-overview.md
+    - name: Event Hubs
+      href: /event-hubs/private-link-service.md
+    - name: Data Factory
+      href: /data-factory/data-factory-private-link
+    - name: Power BI
+      href: /power-bi/admin/service-security-private-links
   - name: Connect privately to a web app
     href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
