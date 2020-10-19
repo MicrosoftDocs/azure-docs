@@ -269,11 +269,15 @@ Do the following steps in the Azure portal to order a device.
 
     Select **Next: Security** to continue.
 
-    The **Security** screen lets you use your own device and share passwords and choose to use double encryption.
+    The **Security** screen lets you use your own device and share passwords and choose to use double encryption. 
+
+    All settings on the **Security** screen are optional. If you don't change any settings, the default settings will apply.
 
     ![Security screen for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-01.png)
 
 1. If you don't want to use the system-generated passwords that Azure Data Box uses by default, expand **Bring your own password**.
+
+   The system-generated passwords are secure, and are recommended unless your organization requires otherwise.
 
    ![Expanded Bring your own password options for a Data Box import order](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
