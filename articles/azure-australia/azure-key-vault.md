@@ -52,14 +52,14 @@ Azure Key Vault is secured with two separate interfaces:
 
 As required by the ISM, proper authentication and authorisation are required before a caller (a user or an application) before they can get access to key vault by either plane.
 
-Azure RBAC has one built-in role for Key Vault, [Key Vault Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-contributor), to control management of the Key Vaults. The creation of custom roles aligned to more granular roles for managing your Key Vaults is recommended.
+Azure RBAC has one built-in role for Key Vault, [Key Vault Contributor](../role-based-access-control/built-in-roles.md#key-vault-contributor), to control management of the Key Vaults. The creation of custom roles aligned to more granular roles for managing your Key Vaults is recommended.
 
 >[!WARNING]
 >When access to keys is enabled via Key Vault access policy then the user or application has that access to all keys in the key vault (for example, if a user has 'delete' access then they can delete all keys).  Therefore, multiple key vaults should be deployed to align with security domains/boundaries.
 
 ### Networking
 
-You can configure Key Vault firewalls and virtual networks to control access to the data plane.  You can allow access to users or applications on specified networks while denying access to users or applications on all other networks. [Trusted services](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services) are an exception to this control if "Allow trusted services" is enabled.  The virtual networking control does not apply to the management plane.
+You can configure Key Vault firewalls and virtual networks to control access to the data plane.  You can allow access to users or applications on specified networks while denying access to users or applications on all other networks. [Trusted services](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services) are an exception to this control if "Allow trusted services" is enabled.  The virtual networking control does not apply to the management plane.
 
 Access to Key Vaults should be explicitly restricted to the minimum set of networks that have users or applications requiring access to keys.
 
@@ -78,7 +78,7 @@ Go to the Microsoft Download Center and [download the Azure Key Vault BYOK tools
 
 The ACSC requires Commonwealth entities to use the appropriate Azure services to undertake real-time monitoring and reporting on their Azure workloads.
 
-Logging is enabled by enabling the **_"AuditEvent"_** diagnostic setting on Key Values.  Audit events will be logged to the specified storage account.  **_"RetentionInDays"_** period should be set according to the data retention policy.  [Operations](https://docs.microsoft.com/azure/key-vault/key-vault-logging#interpret) on both the management plane and data plane are audited and logged. The [Azure Key Vault solution in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/azure-key-vault) can be used to review Key Vault AuditEvent logs.  A number of other Azure services can be used to process and distribute Key Vault AuditEvents.
+Logging is enabled by enabling the **_"AuditEvent"_** diagnostic setting on Key Values.  Audit events will be logged to the specified storage account.  **_"RetentionInDays"_** period should be set according to the data retention policy.  [Operations](../key-vault/general/logging.md#interpret) on both the management plane and data plane are audited and logged. The [Azure Key Vault solution in Azure Monitor](../azure-monitor/insights/key-vault-insights-overview.md) can be used to review Key Vault AuditEvent logs.  A number of other Azure services can be used to process and distribute Key Vault AuditEvents.
 
 ### Key rotation
 
@@ -101,7 +101,7 @@ It is important to develop an appropriate key rotation strategy for keys which a
 ### High availability
 
 The ISM has several controls that relate to Business Continuity.
-Azure Key Vault has multiple layers of redundancy with contents replicated within the region and to the secondary, [paired region](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Azure Key Vault has multiple layers of redundancy with contents replicated within the region and to the secondary, [paired region](../best-practices-availability-paired-regions.md).
 
 When the key vault is in a fail-over state, it is in read-only mode and will return to read-write mode the primary service is restored.
 
@@ -154,7 +154,7 @@ There are three aspects to storage and keys stored in Key Vault:
 - Azure Storage Service Encryption (SSE) for data at rest
 - Managed disks and Azure Disk Encryption
 
-Key Vault's Azure Storage account key management is an extension to Key Vault's key service that supports synchronization and regeneration (rotation) of storage account keys.  [Azure Storage integration with Azure Active Directory](https://docs.microsoft.com/azure/storage/common/storage-auth-aad) (preview) is recommended when released as it provides superior security and ease of use.
+Key Vault's Azure Storage account key management is an extension to Key Vault's key service that supports synchronization and regeneration (rotation) of storage account keys.  [Azure Storage integration with Azure Active Directory](../storage/common/storage-auth-aad.md) (preview) is recommended when released as it provides superior security and ease of use.
 SSE uses two keys to manage encryption of data at rest:
 
 - Key Encryption Keys (KEK)
