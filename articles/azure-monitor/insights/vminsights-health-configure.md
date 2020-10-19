@@ -55,4 +55,4 @@ In the following example, CPU utilization is set to following health states:
 
 ## Next steps
 
-- [Configure monitors at scale using data collection rules.](vminsights-health-configure-template)
+- [Configure monitors at scale using data collection rules.](vminsights-health-configure-dcr.md)

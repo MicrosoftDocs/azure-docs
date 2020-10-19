@@ -46,8 +46,7 @@ For example, the `memory|available` monitor does not specify a warning threshold
 
 The resulting configuration would be a monitor that goes into a warning health state when less than 250Mb of memory is available and creates Severity 2 alert and also goes into critical health state when less than 100Mb of available memory is available and creates alert Severity 1 (or changes existing alert from severity 2 to 1 if it already existed).
 
-
-If two overrides define the same property on the same monitor, one value will take precedence. Overrides will be applied based on their [scope](#global-scope), from the most general to the most specific. This means that the most specific overrides will have the greatest chance of being applied. The specific order is as follows:
+If two overrides define the same property on the same monitor, one value will take precedence. Overrides will be applied based on their [scope](#scope-element), from the most general to the most specific. This means that the most specific overrides will have the greatest chance of being applied. The specific order is as follows:
 
 1. Global 
 2. Subscription
@@ -58,7 +57,7 @@ If multiple overrides at the same scope level define the same property on the sa
 
 
 ## Data collection rule configuration
-The JSON elements in the data collection rule that define overrides are described in the following sections. A complete example is provided in [Sample data collection rule](sample-data-collection-rule.md).
+The JSON elements in the data collection rule that define overrides are described in the following sections. A complete example is provided in [Sample data collection rule](#sample-data-collection-rule).
 
 ## extensions structure
 Guest health is implemented as an extension to the Azure Monitor agent, so overrides are defined in the `extensions` element of the data collection rule. 
@@ -85,7 +84,7 @@ Guest health is implemented as an extension to the Azure Monitor agent, so overr
 
 
 ## extensionSettings element
-Has the [healthRuleOverrides](#healthruleoverrides-element) which contains the definition for each override.
+Contains settings for the extension.
 
 ```json
 "extensionSettings": {
