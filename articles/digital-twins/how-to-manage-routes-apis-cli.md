@@ -184,7 +184,7 @@ One route should allow multiple notifications and event types to be selected.
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
+er.Filter = "true"; //Filter allows all messages
 await client.CreateEventRoute("routeName", er);
 ```
 
@@ -206,7 +206,7 @@ try
     Pageable <EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointId} with filter {r.Filter} ");
+        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
     foreach (EventRoute r in result)

@@ -115,10 +115,10 @@ Afterwards you can traverse the entity hierarchy and modify the entities and com
 
 ## API documentation
 
-* [C# RemoteManager.LoadModelAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
-* [C# RemoteManager.LoadModelFromSASAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
-* [C++ RemoteManager::LoadModelAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
-* [C++ RemoteManager::LoadModelFromSASAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
+* [C# RemoteManager.LoadModelAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C# RemoteManager.LoadModelFromSASAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C++ RemoteManager::LoadModelAsync()](/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C++ RemoteManager::LoadModelFromSASAsync()](/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
 
 ## Next steps
 
