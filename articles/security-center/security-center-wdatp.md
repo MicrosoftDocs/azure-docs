@@ -1,6 +1,6 @@
 ﻿---
-title: Microsoft Defender Advanced Threat Protection - Azure Security Center
-description: This document introduces the integration between Azure Security Center and Microsoft Defender Advanced Threat Protection.
+title: Using the Microsoft Defender for Endpoint license included with Azure Security Center
+description: Learn about Microsoft Defender for Endpoint and deploying it from Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,50 +10,51 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 10/18/2020
 ms.author: memildin
 ---
-# Microsoft Defender Advanced Threat Protection with Azure Security Center
 
-Azure Security Center integrates with [Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) to provide comprehensive Endpoint Detection and Response (EDR) capabilities.
+# Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint
+
+Microsoft Defender for Endpoint is a holistic, cloud delivered endpoint security solution that includes risk-based vulnerability management and assessment, attack surface reduction, behavioral based and cloud-powered next generation protection, endpoint detection and response (EDR), automatic investigation and remediation, managed hunting services, rich APIs, and unified security management.
+
+Defender for Endpoint is included at no additional cost with **Azure Defender for servers**. Alternatively, it can be purchased separately for 50 machines or more.
+
+> [!TIP]
+> Originally launched as **Windows Defender ATP**, this Endpoint Detection and Response (EDR) product was renamed in 2019 as **Microsoft Defender ATP**.
+>
+> At Ignite 2020, we launched the [Microsoft Defender XDR suite](https://www.microsoft.com/security/business/threat-protection) and this EDR component was renamed **Microsoft Defender for Endpoint**.
 
 
 ## Availability
 
-|Aspect|Details|
-|----|:----|
-|Release state:|Generally available (GA)|
-|Pricing:|Requires [Azure Defender](security-center-pricing.md)|
-|Supported machines:|![Yes](./media/icons/yes-icon.png) Azure machines running Windows<br>![Yes](./media/icons/yes-icon.png) Azure Arc machines running Windows|
-|Required roles and permissions:|To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**|
-|Clouds:|![Yes](./media/icons/yes-icon.png) Commercial clouds.<br>![No](./media/icons/no-icon.png) GCC customers running workloads in public Azure clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov|
-|||
+| Aspect                          | Details                                                                                                                                                                                                                                                                                                       |
+|---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Release state:                  | Generally available (GA)                                                                                                                                                                                                                                                                                      |
+| Pricing:                        | Requires [Azure Defender for servers](security-center-pricing.md)                                                                                                                                                                                                                                             |
+| Supported platforms:            | ![Yes](./media/icons/yes-icon.png) Azure machines running Windows<br>![Yes](./media/icons/yes-icon.png) Azure Arc machines running Windows<br>Microsoft Defender for Endpoint is built into Windows 10 1703 (and newer) and Windows Server 2019. It does not require any agents to be installed on these versions.<br>Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1.<br>Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers. |
+| Required roles and permissions: | To enable/disable the integration: **Security admin** or **Owner**<br>To view MDATP alerts in Security Center: **Security reader**, **Reader**, **Resource Group Contributor**, **Resource Group Owner**, **Security admin**, **Subscription owner**, or **Subscription Contributor**                         |
+| Clouds:                         | ![Yes](./media/icons/yes-icon.png) Commercial clouds.<br>![No](./media/icons/no-icon.png) GCC customers running workloads in public Azure clouds<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Other Gov                                                        |
+|                                 |                                                                                                                                                                                                                                                                                                               |
 
 
-## Microsoft Defender ATP features in Security Center
+## Microsoft Defender for Endpoint features in Security Center
 
-Microsoft Defender ATP provides:
+Microsoft Defender for Endpoint provides:
 
-- **Advanced post-breach detection sensors**: Microsoft Defender ATP sensors for Windows servers collect a vast array of behavioral signals.
+- **Advanced post-breach detection sensors**. Defender for Endpoint's sensors for Windows machines collect a vast array of behavioral signals.
 
-- **Analytics-based, cloud-powered post breach detection**: Microsoft Defender ATP quickly adapts to changing threats. It uses advanced analytics and big data. Microsoft Defender ATP is amplified by the power of the Intelligent Security Graph with signals across Windows, Azure, and Office to detect unknown threats. It provides actionable alerts and enables you to respond quickly.
+- **Analytics-based, cloud-powered, post-breach detection**. Defender for Endpoint quickly adapts to changing threats. It uses advanced analytics and big data. It's amplified by the power of the Intelligent Security Graph with signals across Windows, Azure, and Office to detect unknown threats. It provides actionable alerts and enables you to respond quickly.
 
-- **Threat intelligence**: Microsoft Defender ATP generates alerts when it identifies attacker tools, techniques, and procedures. It uses data generated by Microsoft threat hunters and security teams, augmented by intelligence provided by partners.
+- **Threat intelligence**. Defender for Endpoint generates alerts when it identifies attacker tools, techniques, and procedures. It uses data generated by Microsoft threat hunters and security teams, augmented by intelligence provided by partners.
 
+By integrating Defender for Endpoint with Security Center, you'll benefit from the following additional capabilities:
 
-By integrating Defender ATP with Azure Security Center, you can also benefit from the following additional capabilities:
+- **Automated onboarding**. Security Center automatically enables the Microsoft Defender for Endpoint sensor for all Windows servers monitored by Security Center (unless they're running Windows Server 2019).
 
-- **Automated onboarding**: The integration automatically enables the Microsoft Defender ATP sensor for Windows servers that monitored by Azure Security Center (unless they're running Windows Server 2019).
+- **Single pane of glass**. The Security Center console displays Microsoft Defender for Endpoint alerts. To investigate further, use Microsoft Defender for Endpoint's own portal pages where you'll see additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
 
-- **Single pane of glass**: The Azure Security Center console displays Microsoft Defender ATP alerts. To investigate further, use Microsoft Defender ATP. Microsoft Defender ATP provides additional information such as the alert process tree and the incident graph. You can also see a detailed machine timeline that shows every behavior for a historical period of up to six months.
-
-    ![Microsoft Defender ATP page with detailed information about an alert](media/security-center-wdatp/image3.png)
-
-## Platform support
-
-Microsoft Defender ATP in Security Center supports detection on Windows Server 2016, 2012 R2, and 2008 R2 SP1. For Azure VMs you need a to enable Azure Defender on your subscription, and for Non-Azure VMs you need Azure Defender to be enabled at the workspace level only.
-
-Server endpoint monitoring using this integration has been disabled for Office 365 GCC customers.
+    :::image type="content" source="./media/security-center-wdatp/microsoft-defender-security-center.png" alt-text="Microsoft Defender for Endpoint's own Security Center" lightbox="./media/security-center-wdatp/microsoft-defender-security-center.png":::
 
 ## Data storage location
 
@@ -62,63 +63,50 @@ When you use Azure Security Center to monitor servers, a Microsoft Defender ATP 
 Once configured, you cannot change the location where your data is stored. If you need to move your data to another location, contact Microsoft Support to reset the tenant.
 
 
-## Onboard servers to Security Center 
 
-To onboard servers to Security Center, click **Go to Azure Security Center to onboard servers** from the Microsoft Defender ATP server onboarding.
+## Enable Microsoft Defender for Endpoint to access Azure Security Center data
 
-1. In the **Onboarding** area, select or create a workspace in which to store the data.
+1. Enable **Azure Defender for servers**. See [Pricing of Azure Security Center](security-center-pricing.md#enable-azure-defender).
 
-2. If you can't see all your workspaces, it may be due to a lack of permissions, make sure your workspace is protected by Azure Defender.
-    
-3. Select **Add servers** to view instructions on how to install the Log Analytics agent. 
+    > [!NOTE]
+    > To protect your Azure-native VMs with Microsoft Defender for Endpoint, Azure Defender for servers on your **subscription**. To protect your Azure Arc enabled machines, you can enable Azure Defender at the workspace level.
 
-4. After onboarding, you can monitor the machines in [asset inventory](asset-inventory.md).
+1. If you've already deployed Microsoft Defender for Endpoints on your servers, remove it using the procedure described in [Offboard Windows servers](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
+1. From Security Center's menu, select **Pricing & settings**.
+1. Select the subscription you want to change.
+1. Select **Threat detection**.
+1. Select **Allow Windows Defender ATP to access my data**, and select **Save**.
 
-   ![Onboard computers](media/security-center-wdatp/onboard-computers.png)
+    :::image type="content" source="./media/security-center-wdatp/enable-integration-with-edr.png" alt-text="Enable the integration between Azure Security Center and Microsoft's EDR solution, Microsoft Defender for Endpoint":::
 
-## Enable Microsoft Defender ATP integration
+    Azure Security Center will automatically onboard your servers to Microsoft Defender for Endpoint. Onboarding might take up to 24 hours.
 
-To view if Microsoft Defender ATP integration is enabled, select **Security center** > **Pricing & settings** > select your subscription.
 
-Here you can see the integrations currently enabled.
+## Access the Microsoft Defender for Endpoint portal
 
-  ![Azure Security Center threat detection settings page with Microsoft Defender ATP integration enabled](media/security-center-wdatp/enable-integrations.png)
+1. Ensure the user account has the necessary permissions. [Learn more](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
-- If you've already enabled Azure Defender, no further action is necessary. Azure Security Center will automatically onboard the servers to Microsoft Defender ATP. Onboarding might take up to 24 hours.
+1. Check whether you have a proxy or firewall that is blocking anonymous traffic. The Defender for Endpoint sensor connects from the system context, so anonymous traffic must be permitted. To ensure unhindered access to the Defender for Endpoint portal, follow the instructions in [Enable access to service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 
-- If you've never onboarded the servers to Azure Security Center, onboard them to Azure Security Center and enable Azure Defender as usual.
+1. Open the [Microsoft Defender Security Center portal](https://securitycenter.windows.com/). Learn more about the portal's features and icons, in [Microsoft Defender Security Center portal overview](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/portal-overview). 
 
-- If you've onboarded the servers through Microsoft Defender ATP:
-  - Refer to the documentation for guidance on [how to offboard server machines](https://go.microsoft.com/fwlink/p/?linkid=852906).
-  - Onboard these servers to Azure Security Center.
+## Send a test alert
 
-## Access to the Microsoft Defender ATP portal
-
-1. Follow the instructions in [Assign user access to the portal](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
-
-1. Check whether you have a proxy or firewall that is blocking anonymous traffic. The Defender ATP sensor connects from the system context, so anonymous traffic must be permitted. To ensure unhindered access to the Microsoft Defender ATP portal, follow the instructions in [Enable access to Microsoft Defender ATP service URLs in the proxy server](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
-
-## Test the feature
-
-To generate a benign Microsoft Defender ATP test alert:
+To generate a benign Microsoft Defender for Endpoint test alert:
 
 1. Create a folder 'C:\test-MDATP-test'.
-
-1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM. Open a command-line window.
-
+1. Use Remote Desktop to access either a Windows Server 2012 R2 VM or a Windows Server 2016 VM.
+1. Open a command-line window.
 1. At the prompt, copy and run the following command. The Command Prompt window will close automatically.
 
-    ```
+    ```powershell
     powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
-
-   ![A Command Prompt window with the command above](media/security-center-wdatp/image4.jpeg)
+    :::image type="content" source="./media/security-center-wdatp/generate-edr-alert.png" alt-text="A command prompt window with the command to generate a test alert.":::
 
 1. If the command is successful, you'll see a new alert on the Azure Security Center dashboard and the Microsoft Defender ATP portal. This alert might take a few minutes to appear.
-
 1. To review the alert in Security Center, go to **Security alerts** > **Suspicious PowerShell CommandLine**.
-
-1. From the investigation window, select the link to go to the Microsoft Defender ATP portal.
+1. From the investigation window, select the link to go to the Microsoft Defender for Endpoint portal.
 
 ## Next steps
 

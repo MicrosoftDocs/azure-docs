@@ -43,12 +43,20 @@ The threat detection and protection capabilities provided with Azure Defender fo
 
     Adaptive Network Hardening provides recommendations to further harden the NSG rules. It uses a machine learning algorithm that factors in actual traffic, known trusted configuration, threat intelligence, and other indicators of compromise, and then provides recommendations to allow traffic only from specific IP/port tuples. [Learn more](security-center-adaptive-network-hardening.md).
 
-- **Integration with Microsoft Defender Advanced Threat Protection (ATP) (Windows only)** - Azure Defender integrates with Microsoft Defender Advanced Threat Protection (ATP). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. [Learn more](security-center-wdatp.md).
+- **Integrated license for Microsoft Defender for Endpoint (Windows only)** - Azure Defender for servers includes a license for [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender). Together, they provide comprehensive endpoint detection and response (EDR) capabilities. [Learn more](security-center-wdatp.md).
+
+    When Defender for Endpoint detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Defender for Endpoint console, and perform a detailed investigation to uncover the scope of the attack. Learn more about Microsoft Defender for Endpoint.
 
     > [!IMPORTANT]
-    > The Microsoft Defender ATP sensor is automatically enabled on Windows servers that use Security Center.
+    > The **Microsoft Defender for Endpoint** sensor is automatically enabled on Windows servers that use Security Center.
 
-    When Microsoft Defender ATP detects a threat, it triggers an alert. The alert is shown in Security Center. From Security Center, you can also pivot to the Microsoft Defender ATP console, and perform a detailed investigation to uncover the scope of the attack. For more information about Microsoft Defender ATP, see [Onboard servers to the Microsoft Defender ATP service](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints).
+    > [!TIP]
+    > For guidance on switching from a non-Microsoft endpoint solution to Microsoft Defender for Endpoint, see [Migration overview](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/switch-to-microsoft-defender-migration).
+
+
+
+
+
 
 - **Docker host hardening** -  Azure Security Center identifies unmanaged containers hosted on IaaS Linux VMs, or other Linux machines running Docker containers. Security Center continuously assesses the configurations of these containers. It then compares them with the Center for Internet Security (CIS) Docker Benchmark. Security Center includes the entire ruleset of the CIS Docker Benchmark and alerts you if your containers don't satisfy any of the controls. [Learn more](harden-docker-hosts.md).
 
