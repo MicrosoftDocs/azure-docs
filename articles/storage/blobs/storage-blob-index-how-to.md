@@ -4,7 +4,7 @@ description: See examples of how to use blob index tags to categorize, manage, a
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to

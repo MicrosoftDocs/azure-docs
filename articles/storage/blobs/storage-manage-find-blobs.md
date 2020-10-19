@@ -4,7 +4,7 @@ description: Learn how to use blob index tags to categorize, manage, and query f
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 10/14/2020
+ms.date: 10/19/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
