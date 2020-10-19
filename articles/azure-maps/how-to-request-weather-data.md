@@ -52,6 +52,177 @@ In this example, you'll use the [Get Current Conditions API](https://docs.micros
 
 4. Click the blue **Send** button. The response body contains current weather information.
 
+    ```json
+    {
+    "results": [
+        {
+            "dateTime": "2020-10-19T20:39:00+00:00",
+            "phrase": "Cloudy",
+            "iconCode": 7,
+            "hasPrecipitation": false,
+            "isDayTime": true,
+            "temperature": {
+                "value": 12.4,
+                "unit": "C",
+                "unitType": 17
+            },
+            "realFeelTemperature": {
+                "value": 13.7,
+                "unit": "C",
+                "unitType": 17
+            },
+            "realFeelTemperatureShade": {
+                "value": 13.7,
+                "unit": "C",
+                "unitType": 17
+            },
+            "relativeHumidity": 87,
+            "dewPoint": {
+                "value": 10.3,
+                "unit": "C",
+                "unitType": 17
+            },
+            "wind": {
+                "direction": {
+                    "degrees": 23.0,
+                    "localizedDescription": "NNE"
+                },
+                "speed": {
+                    "value": 4.5,
+                    "unit": "km/h",
+                    "unitType": 7
+                }
+            },
+            "windGust": {
+                "speed": {
+                    "value": 9.0,
+                    "unit": "km/h",
+                    "unitType": 7
+                }
+            },
+            "uvIndex": 1,
+            "uvIndexPhrase": "Low",
+            "visibility": {
+                "value": 9.7,
+                "unit": "km",
+                "unitType": 6
+            },
+            "obstructionsToVisibility": "",
+            "cloudCover": 100,
+            "ceiling": {
+                "value": 1494.0,
+                "unit": "m",
+                "unitType": 5
+            },
+            "pressure": {
+                "value": 1021.2,
+                "unit": "mb",
+                "unitType": 14
+            },
+            "pressureTendency": {
+                "localizedDescription": "Steady",
+                "code": "S"
+            },
+            "past24HourTemperatureDeparture": {
+                "value": -2.1,
+                "unit": "C",
+                "unitType": 17
+            },
+            "apparentTemperature": {
+                "value": 15.0,
+                "unit": "C",
+                "unitType": 17
+            },
+            "windChillTemperature": {
+                "value": 12.2,
+                "unit": "C",
+                "unitType": 17
+            },
+            "wetBulbTemperature": {
+                "value": 11.3,
+                "unit": "C",
+                "unitType": 17
+            },
+            "precipitationSummary": {
+                "pastHour": {
+                    "value": 0.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "past3Hours": {
+                    "value": 0.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "past6Hours": {
+                    "value": 0.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "past9Hours": {
+                    "value": 0.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "past12Hours": {
+                    "value": 0.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "past18Hours": {
+                    "value": 0.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "past24Hours": {
+                    "value": 0.4,
+                    "unit": "mm",
+                    "unitType": 3
+                }
+            },
+            "temperatureSummary": {
+                "past6Hours": {
+                    "minimum": {
+                        "value": 12.2,
+                        "unit": "C",
+                        "unitType": 17
+                    },
+                    "maximum": {
+                        "value": 14.0,
+                        "unit": "C",
+                        "unitType": 17
+                    }
+                },
+                "past12Hours": {
+                    "minimum": {
+                        "value": 12.2,
+                        "unit": "C",
+                        "unitType": 17
+                    },
+                    "maximum": {
+                        "value": 14.0,
+                        "unit": "C",
+                        "unitType": 17
+                    }
+                },
+                "past24Hours": {
+                    "minimum": {
+                        "value": 12.2,
+                        "unit": "C",
+                        "unitType": 17
+                    },
+                    "maximum": {
+                        "value": 15.6,
+                        "unit": "C",
+                        "unitType": 17
+                    }
+                }
+            }
+        }
+    ]
+}
+    ```
+
 ## Request severe weather alerts
 
 [Azure Maps Get Severe Weather Alerts API](https://docs.microsoft.com/rest/api/maps/weather/getsevereweatheralertspreview) returns the severe weather alerts that are available worldwide from both official Government Meteorological Agencies and leading global to regional weather alert providers. The service can return details such as alert type, category, level, and detailed descriptions about the active severe alerts for the requested location, such as hurricanes, thunderstorms, lightning, heat waves or forest fires. As an example, logistics managers can visualize severe weather conditions on a map, along with business locations and planned routes, and coordinate further with drivers and local workers.
@@ -121,7 +292,236 @@ In this example, you'll use the [Get Daily Forecast API](https://docs.microsoft.
     https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Click the blue **Send** button. The response body contains the five-day weather forecast data.
+3. Click the blue **Send** button. The response body contains the five-day weather forecast data. For the sake of brevity, the JSON response below shows the forecast for the first day.
+    ```json
+    {
+    "summary": {
+        "startDate": "2020-10-18T17:00:00+00:00",
+        "endDate": "2020-10-19T23:00:00+00:00",
+        "severity": 2,
+        "phrase": "Snow, mixed with rain at times continuing through Monday evening and a storm total of 3-6 cm",
+        "category": "snow/rain"
+    },
+    "forecasts": [
+        {
+            "date": "2020-10-19T04:00:00+00:00",
+            "temperature": {
+                "minimum": {
+                    "value": -1.1,
+                    "unit": "C",
+                    "unitType": 17
+                },
+                "maximum": {
+                    "value": 1.3,
+                    "unit": "C",
+                    "unitType": 17
+                }
+            },
+            "realFeelTemperature": {
+                "minimum": {
+                    "value": -6.0,
+                    "unit": "C",
+                    "unitType": 17
+                },
+                "maximum": {
+                    "value": 0.5,
+                    "unit": "C",
+                    "unitType": 17
+                }
+            },
+            "realFeelTemperatureShade": {
+                "minimum": {
+                    "value": -6.0,
+                    "unit": "C",
+                    "unitType": 17
+                },
+                "maximum": {
+                    "value": 0.7,
+                    "unit": "C",
+                    "unitType": 17
+                }
+            },
+            "hoursOfSun": 1.8,
+            "degreeDaySummary": {
+                "heating": {
+                    "value": 18.0,
+                    "unit": "C",
+                    "unitType": 17
+                },
+                "cooling": {
+                    "value": 0.0,
+                    "unit": "C",
+                    "unitType": 17
+                }
+            },
+            "airAndPollen": [
+                {
+                    "name": "AirQuality",
+                    "value": 23,
+                    "category": "Good",
+                    "categoryValue": 1,
+                    "type": "Ozone"
+                },
+                {
+                    "name": "Grass",
+                    "value": 0,
+                    "category": "Low",
+                    "categoryValue": 1
+                },
+                {
+                    "name": "Mold",
+                    "value": 0,
+                    "category": "Low",
+                    "categoryValue": 1
+                },
+                {
+                    "name": "Ragweed",
+                    "value": 0,
+                    "category": "Low",
+                    "categoryValue": 1
+                },
+                {
+                    "name": "Tree",
+                    "value": 0,
+                    "category": "Low",
+                    "categoryValue": 1
+                },
+                {
+                    "name": "UVIndex",
+                    "value": 0,
+                    "category": "Low",
+                    "categoryValue": 1
+                }
+            ],
+            "day": {
+                "iconCode": 22,
+                "iconPhrase": "Snow",
+                "hasPrecipitation": true,
+                "precipitationType": "Mixed",
+                "precipitationIntensity": "Light",
+                "shortPhrase": "Chilly with snow, 2-4 cm",
+                "longPhrase": "Chilly with snow, accumulating an additional 2-4 cm",
+                "precipitationProbability": 90,
+                "thunderstormProbability": 0,
+                "rainProbability": 54,
+                "snowProbability": 85,
+                "iceProbability": 8,
+                "wind": {
+                    "direction": {
+                        "degrees": 36.0,
+                        "localizedDescription": "NE"
+                    },
+                    "speed": {
+                        "value": 9.3,
+                        "unit": "km/h",
+                        "unitType": 7
+                    }
+                },
+                "windGust": {
+                    "direction": {
+                        "degrees": 70.0,
+                        "localizedDescription": "ENE"
+                    },
+                    "speed": {
+                        "value": 25.9,
+                        "unit": "km/h",
+                        "unitType": 7
+                    }
+                },
+                "totalLiquid": {
+                    "value": 4.3,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "rain": {
+                    "value": 0.5,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "snow": {
+                    "value": 2.72,
+                    "unit": "cm",
+                    "unitType": 4
+                },
+                "ice": {
+                    "value": 0.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "hoursOfPrecipitation": 9.0,
+                "hoursOfRain": 1.0,
+                "hoursOfSnow": 9.0,
+                "hoursOfIce": 0.0,
+                "cloudCover": 96
+            },
+            "night": {
+                "iconCode": 29,
+                "iconPhrase": "Rain and snow",
+                "hasPrecipitation": true,
+                "precipitationType": "Mixed",
+                "precipitationIntensity": "Light",
+                "shortPhrase": "Showers of rain and snow",
+                "longPhrase": "A couple of showers of rain or snow this evening; otherwise, cloudy; storm total snowfall 1-3 cm",
+                "precipitationProbability": 65,
+                "thunderstormProbability": 0,
+                "rainProbability": 60,
+                "snowProbability": 54,
+                "iceProbability": 4,
+                "wind": {
+                    "direction": {
+                        "degrees": 16.0,
+                        "localizedDescription": "NNE"
+                    },
+                    "speed": {
+                        "value": 16.7,
+                        "unit": "km/h",
+                        "unitType": 7
+                    }
+                },
+                "windGust": {
+                    "direction": {
+                        "degrees": 1.0,
+                        "localizedDescription": "N"
+                    },
+                    "speed": {
+                        "value": 35.2,
+                        "unit": "km/h",
+                        "unitType": 7
+                    }
+                },
+                "totalLiquid": {
+                    "value": 4.3,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "rain": {
+                    "value": 3.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "snow": {
+                    "value": 0.79,
+                    "unit": "cm",
+                    "unitType": 4
+                },
+                "ice": {
+                    "value": 0.0,
+                    "unit": "mm",
+                    "unitType": 3
+                },
+                "hoursOfPrecipitation": 4.0,
+                "hoursOfRain": 1.0,
+                "hoursOfSnow": 3.0,
+                "hoursOfIce": 0.0,
+                "cloudCover": 94
+            },
+            "sources": [
+                "AccuWeather"
+            ]
+        },...
+    ]
+    }
+    ```
 
 ## Request hourly weather forecast data
 
@@ -140,8 +540,99 @@ In this example, you'll use the [Get Hourly Forecast API](https://docs.microsoft
     https://atlas.microsoft.com/weather/forecast/hourly/json?api-version=1.0&query=47.60357,-122.32945&duration=12&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Click the blue **Send** button. The response body contains weather forecast data for the next 12 hours.
+3. Click the blue **Send** button. The response body contains weather forecast data for the next 12 hours. For the sake of brevity, the JSON response below shows the forecast for the first hour.
 
+    ```json
+    {
+    "forecasts": [
+        {
+            "date": "2020-10-19T21:00:00+00:00",
+            "iconCode": 12,
+            "iconPhrase": "Showers",
+            "hasPrecipitation": true,
+            "precipitationType": "Rain",
+            "precipitationIntensity": "Light",
+            "isDaylight": true,
+            "temperature": {
+                "value": 14.7,
+                "unit": "C",
+                "unitType": 17
+            },
+            "realFeelTemperature": {
+                "value": 13.3,
+                "unit": "C",
+                "unitType": 17
+            },
+            "wetBulbTemperature": {
+                "value": 12.0,
+                "unit": "C",
+                "unitType": 17
+            },
+            "dewPoint": {
+                "value": 9.5,
+                "unit": "C",
+                "unitType": 17
+            },
+            "wind": {
+                "direction": {
+                    "degrees": 242.0,
+                    "localizedDescription": "WSW"
+                },
+                "speed": {
+                    "value": 9.3,
+                    "unit": "km/h",
+                    "unitType": 7
+                }
+            },
+            "windGust": {
+                "speed": {
+                    "value": 14.8,
+                    "unit": "km/h",
+                    "unitType": 7
+                }
+            },
+            "relativeHumidity": 71,
+            "visibility": {
+                "value": 9.7,
+                "unit": "km",
+                "unitType": 6
+            },
+            "cloudCover": 100,
+            "ceiling": {
+                "value": 1128.0,
+                "unit": "m",
+                "unitType": 5
+            },
+            "uvIndex": 1,
+            "uvIndexPhrase": "Low",
+            "precipitationProbability": 51,
+            "rainProbability": 51,
+            "snowProbability": 0,
+            "iceProbability": 0,
+            "totalLiquid": {
+                "value": 0.3,
+                "unit": "mm",
+                "unitType": 3
+            },
+            "rain": {
+                "value": 0.3,
+                "unit": "mm",
+                "unitType": 3
+            },
+            "snow": {
+                "value": 0.0,
+                "unit": "cm",
+                "unitType": 4
+            },
+            "ice": {
+                "value": 0.0,
+                "unit": "mm",
+                "unitType": 3
+            }
+        }...
+    ]
+    }
+    ```
 ## Request minute-by-minute weather forecast data
 
  The [Get Minute Forecast API](https://docs.microsoft.com/rest/api/maps/weather/getminuteforecastpreview) returns minute-by-minute forecasts for a given location for the next 120 minutes. Users can request weather forecasts in intervals of 1, 5 and 15 minutes. The response includes details such as the type of precipitation (including rain, snow, or a mixture of both), start time, and precipitation intensity value (dBZ).
@@ -157,6 +648,95 @@ In this example, you'll use the [Get Minute Forecast API](https://docs.microsoft
     ```
 
 3. Click the blue **Send** button. The response body contains weather forecast data for the next 120 minutes, in 15-minute intervals.
+
+    ```json
+    {
+    "summary": {
+        "briefPhrase60": "No precipitation for at least 60 min",
+        "shortPhrase": "No precip for 120 min",
+        "briefPhrase": "No precipitation for at least 120 min",
+        "longPhrase": "No precipitation for at least 120 min",
+        "iconCode": 7
+    },
+    "intervalSummaries": [
+        {
+            "startMinute": 0,
+            "endMinute": 119,
+            "totalMinutes": 120,
+            "shortPhrase": "No precip for %MINUTE_VALUE min",
+            "briefPhrase": "No precipitation for at least %MINUTE_VALUE min",
+            "longPhrase": "No precipitation for at least %MINUTE_VALUE min",
+            "iconCode": 7
+        }
+    ],
+    "intervals": [
+        {
+            "startTime": "2020-10-19T20:51:00+00:00",
+            "minute": 0,
+            "dbz": 0.0,
+            "shortPhrase": "No Precipitation",
+            "iconCode": 7,
+            "cloudCover": 100
+        },
+        {
+            "startTime": "2020-10-19T21:06:00+00:00",
+            "minute": 15,
+            "dbz": 0.0,
+            "shortPhrase": "No Precipitation",
+            "iconCode": 7,
+            "cloudCover": 100
+        },
+        {
+            "startTime": "2020-10-19T21:21:00+00:00",
+            "minute": 30,
+            "dbz": 0.0,
+            "shortPhrase": "No Precipitation",
+            "iconCode": 7,
+            "cloudCover": 100
+        },
+        {
+            "startTime": "2020-10-19T21:36:00+00:00",
+            "minute": 45,
+            "dbz": 0.0,
+            "shortPhrase": "No Precipitation",
+            "iconCode": 7,
+            "cloudCover": 100
+        },
+        {
+            "startTime": "2020-10-19T21:51:00+00:00",
+            "minute": 60,
+            "dbz": 0.0,
+            "shortPhrase": "No Precipitation",
+            "iconCode": 7,
+            "cloudCover": 100
+        },
+        {
+            "startTime": "2020-10-19T22:06:00+00:00",
+            "minute": 75,
+            "dbz": 0.0,
+            "shortPhrase": "No Precipitation",
+            "iconCode": 7,
+            "cloudCover": 100
+        },
+        {
+            "startTime": "2020-10-19T22:21:00+00:00",
+            "minute": 90,
+            "dbz": 0.0,
+            "shortPhrase": "No Precipitation",
+            "iconCode": 7,
+            "cloudCover": 100
+        },
+        {
+            "startTime": "2020-10-19T22:36:00+00:00",
+            "minute": 105,
+            "dbz": 0.0,
+            "shortPhrase": "No Precipitation",
+            "iconCode": 7,
+            "cloudCover": 100
+        }
+        ]
+    }
+    ```
 
 ## Next steps
 
