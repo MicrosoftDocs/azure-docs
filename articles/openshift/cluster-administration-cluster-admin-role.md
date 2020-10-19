@@ -13,13 +13,10 @@ ms.date: 09/25/2019
 # Azure Red Hat OpenShift customer administrator role
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift 3.11 will be retired June 2022.
->
-> As of October 2020, you will no longer be able to create new 3.11 clusters.
-> Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
->
+> Azure Red Hat OpenShift 3.11 will be retired 30 June 2022. Support for creation of new Azure Red Hat OpenShift 3.11 clusters continues through 30 November 2020. Following retirement, remaining Azure Red Hat OpenShift 3.11 clusters will be shut down to prevent security vulnerabilities.
+> 
 > Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
-> If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
+> If you have specific questions, [please contact us](mailto:arofeedback@microsoft.com).
 
 You're the cluster administrator of an Azure Red Hat OpenShift cluster. Your account has increased permissions and access to all user-created projects.
 

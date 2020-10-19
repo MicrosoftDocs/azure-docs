@@ -14,13 +14,10 @@ ms.service: container-service
 # Manage projects, templates, image-streams in an Azure Red Hat OpenShift cluster
 
 > [!IMPORTANT]
-> Azure Red Hat OpenShift 3.11 will be retired June 2022.
->
-> As of October 2020 you will no longer be able to create new 3.11 clusters.
-> Existing 3.11 clusters will continue to operate until June 2022 but will no be longer supported after that date.
->
+> Azure Red Hat OpenShift 3.11 will be retired 30 June 2022. Support for creation of new Azure Red Hat OpenShift 3.11 clusters continues through 30 November 2020. Following retirement, remaining Azure Red Hat OpenShift 3.11 clusters will be shut down to prevent security vulnerabilities.
+> 
 > Follow this guide to [create an Azure Red Hat OpenShift 4 cluster](tutorial-create-cluster.md).
-> If you have specific questions, [please contact us](mailto:aro-feedback@microsoft.com).
+> If you have specific questions, [please contact us](mailto:arofeedback@microsoft.com).
 
 In an OpenShift Container Platform, projects are used to group and isolate related objects. As an administrator, you can give developers access to specific projects, allow them to create their own projects, and grant them administrative rights to individual projects.
 
