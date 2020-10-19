@@ -10,7 +10,7 @@
   - name: GitHub Actions
     items:
     - name: Node.js
-      href: ./devops-starter-GH-nodejs.md
+      href: ./devops-starter-gh-nodejs.md
       maintainContext: true
   - name: Azure DevOps
     items:
@@ -38,7 +38,7 @@
 - name: Tutorials
   items:
   - name: Deploy to Azure Web App with GitHub Actions
-    href: devops-starter-GH-webapp.md
+    href: devops-starter-gh-webapp.md
     maintainContext: true
   - name: BYOC with GitHub
     href: azure-devops-project-github.md
