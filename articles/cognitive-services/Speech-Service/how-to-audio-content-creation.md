@@ -136,7 +136,7 @@ Users who are in the same speech resource will see each other’s work in ACC st
 1. Search for **Cognitive services** in the Azure portal, select the speech resource that you want to remove users from.
 2. Click **Access control (IAM)**. Click the **Role assignments** tab to view all the role assignments for this speech resource.
 3. Select the users you want to remove, click **Remove** > **Yes**.
-    ![The Remove button](media/audio-content-creation/remove-user/png)
+    ![The Remove button](media/audio-content-creation/remove-user.png)
 
 ### Enable users to grant access
 If you want one of the users to give access to other users, you need to give the user the owner role for the speech resource and set the user as the Azure directory reader. 
