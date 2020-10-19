@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 ---
 # Operating system functionality on Azure App Service
-This article describes the common baseline operating system functionality that is available to all Windows apps running on [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). This functionality includes file, network, and registry access, and diagnostics logs and events. 
+This article describes the common baseline operating system functionality that is available to all Windows apps running on [Azure App Service](./overview.md). This functionality includes file, network, and registry access, and diagnostics logs and events. 
 
 > [!NOTE] 
 > [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. No access to the host operating system is allowed, you do have root access to the container. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system. 
@@ -123,4 +123,3 @@ App Service doesn't provide remote desktop access to the VM instances.
 
 [Azure App Service sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) - The most up-to-date information about the execution environment of App Service. This page is 
 maintained directly by the App Service development team.
-
