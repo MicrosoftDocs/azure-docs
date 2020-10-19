@@ -5,7 +5,7 @@ services: firewall-manager
 author: jomore
 ms.topic: tutorial
 ms.service: firewall-manager
-ms.date: 10/12/2020
+ms.date: 10/19/2020
 ms.author: victorh
 ---
 
@@ -100,11 +100,9 @@ Start with the first step, to configure your virtual network connections to prop
 # Configure Virtual Network connections in hub to propagate to None
 $VnetRoutingConfig = $Spoke1Connection.RoutingConfiguration    # You take $Spoke1Connection as baseline for the future vnet config, all vnets will have an identical config
 $NoneRT = Get-AzVhubRouteTable -ResourceGroupName $RG -HubName  $HubName -Name "noneRouteTable"
-$NewPropRT = @{}
-$NewPropRT.Add('Id', $NoneRT.id)
-$PropRTList = @()
-$PropRTList += $NewPropRT
-$VnetRoutingConfig.PropagatedRouteTables.Ids = $PropRTList
+$NewPropRT = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSResourceId
+$NewPropRT.Id = $NoneRT.Id
+$VnetRoutingConfig.PropagatedRouteTables.Ids = $NewPropRT
 $VnetRoutingConfig.PropagatedRouteTables.Labels = @()
 $Spoke1Connection = Update-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke1" -RoutingConfiguration $VnetRoutingConfig
 $Spoke2Connection = Update-AzVirtualHubVnetConnection -ResourceGroupName $RG -ParentResourceName  $HubName -Name "spoke2" -RoutingConfiguration $VnetRoutingConfig
