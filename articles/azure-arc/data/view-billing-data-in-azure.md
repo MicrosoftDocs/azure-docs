@@ -25,7 +25,7 @@ In the future, there will be two modes in which you can run your Azure Arc enabl
 - **Indirectly connected** - There is no direct connection to Azure. Data is sent to Azure only through an export/upload process. All Azure Arc data services deployments work in this mode today in preview.
 - **Directly connected** - In this mode there will be a dependency on the Azure Arc enabled Kubernetes service to provide a direct connection between Azure and the Kubernetes cluster on which the Azure Arc enabled data services are running. This will enable more capabilities and will also enable you to use the Azure portal and the Azure CLI to manage your Azure Arc enabled data services just like you manage your data services in Azure PaaS.  This connectivity mode is not yet available in preview, but will be coming soon.
 
-You can read more about the difference between the [connectivity modes](https://docs.microsoft.com/azure/azure-arc/data/connectivity).
+You can read more about the difference between the [connectivity modes](./connectivity.md).
 
 In the indirectly connected mode, billing data is periodically exported out of the Azure Arc data controller to a secure file and then uploaded to Azure and processed.  In the upcoming directly connected mode, the billing data will be automatically sent to Azure approximately 1/hour to give a near real-time view into the costs of your services. The process of exporting and uploading the data in the indirectly connected mode can also be automated using scripts or we may build a service that will do it for you.
 

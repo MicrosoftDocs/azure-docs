@@ -28,6 +28,7 @@
   - name: Static HTML site
     href: quickstart-html.md
   - name: ARM template
+    displayName: Resource Manager
     href: quickstart-arm-template.md
   - name: Custom container
     href: quickstart-custom-container.md
@@ -42,11 +43,11 @@
     - name: .NET Framework with SQL DB
       href: app-service-web-tutorial-dotnet-sqldatabase.md
     - name: PHP with MySQL
-      href: tutorial-php-mysql-app.md 
+      href: tutorial-php-mysql-app.md
     - name: Node.js with MongoDB
       href: tutorial-nodejs-mongodb-app.md
     - name: Ruby with Postgres
-      href: tutorial-ruby-postgres-app.md 
+      href: tutorial-ruby-postgres-app.md
     - name: Python with Postgres
       href: tutorial-python-postgresql-app.md
     - name: Java with Spring Data
