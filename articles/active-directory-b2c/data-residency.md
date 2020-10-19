@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/06/2020
+ms.date: 10/19/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: references_regions
@@ -55,14 +55,14 @@ The following countries/regions are in the process of being added to the list. F
 
 > Argentina, Australia, Brazil, Chile, Colombia, Ecuador, Iraq, New Zealand, Paraguay, Peru, Uruguay, and Venezuela.
 
-## Preview tenant
+## Remote profile solution
 
-If you had created a B2C tenant during Azure AD B2C's preview period, it's likely that your **Tenant type** says **Preview tenant**.
+With Azure AD B2C [custom policy](custom-policy-overview.md) you can integrate with [RESTful APIs services](custom-policy-rest-api-intro.md), which allows you to store and read user profile from a remote database (a marketing database, CRM system, or any line of business application). 
+- During the sign-up and profile editing flow, Azure AD B2C calls a custom REST API to persist the user profile to the remote data source. While the user's credentials are stored in Azure AD B2C directory. 
+- On sign-in, after the credentials validation, with local or social account, Azure AD B2C invokes the REST API, sending the user unique identifier as a user primary key (email address, or user objectId). The REST API reads the data from the remote database and return the user profile. 
 
-If this is the case, you must use your tenant ONLY for development and testing purposes. DO NOT use a preview tenant for production applications.
+After sign-up, edit profile, or sign-in, is completed Azure AD B2C includes the user profile in the access token that returns back to the application. For more information, see [Azure AD B2C Remote profile GitHub solution](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile).
 
-**There is no migration path** from a preview B2C tenant to a production-scale B2C tenant. You must create a new B2C tenant for your production applications.
+## Nest steps
 
-There are known issues when you delete a preview B2C tenant and create a production-scale B2C tenant with the same domain name. *You must create a production-scale B2C tenant with a different domain name*.
-
-![Screenshot of a tenant type, as preview tenant.](./media/data-residency/preview-b2c-tenant.png)
+- [Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
