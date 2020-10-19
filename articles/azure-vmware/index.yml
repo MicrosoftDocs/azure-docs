@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: dikamath 
   ms.author: dikamath 
-  ms.date: 09/21/2020 
+  ms.date: 10/19/2020 
 
 # card 1
 landingContent:
@@ -116,6 +116,8 @@ landingContent:
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md
+
+# card 6
   - title: VMware ecosystem
     linkLists:
       - linkListType: reference
