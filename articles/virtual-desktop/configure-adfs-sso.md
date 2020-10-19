@@ -17,8 +17,8 @@ This article will walk you through the process of configuring Active Directory F
 Before configuring AD FS single sign-on, you must have the following setup and running in your environment:
 
 - **Active Directory Certificate Services** - For the Active Directory Certificate Services role, make sure the servers running the role are domain-joined, have the latest Windows updates installed, and are configured as [enterprise certificate authorities](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731183%28v%3dws.10%29).
-- **Active Directory Federation Services (AD FS)** - The servers running this role must be domain-joined, have the latest Windows Updates installed, and running Windows Server 2016 or later.
-- **Azure AD Connect** - For the Azure Active Directory (AD) Connect role, your service must be configured in [federation mode](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-custom).
+- **Active Directory Federation Services (AD FS)** - The servers running this role must be domain-joined, have the latest Windows Updates installed, and running Windows Server 2016 or later. See this [federation tutorial](/azure/active-directory/hybrid/tutorial-federation.md) to get started.
+- **Azure AD Connect** - For the Azure Active Directory (AD) Connect role, your service must be configured in [federation mode](/azure/active-directory/connect/active-directory-aadconnect-get-started-custom.md).
 
 ## Configure the certificate authority to issue smart cards
 
@@ -116,7 +116,9 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 After that, update the SSO information for your Windows Virtual Desktop tenant by running the following cmdlet:
 
 ```powershell
+TODO TODO TODO
 Set-RdsTenant -Name <RdsTenantName> -SSOAdfsAuthority $config.SSOAdfsAuthority -SsoClientId $config.SSOClientId -SSOClientSecret $config.SSOClientSecret
+Update-AzWVDTenant -ResourceGroup <ResourceGroupName> -Name <RdsTenantName> -SSOAdfsAuthority <ADFS URL> -SsoClientId <ClientId> -ssoSecretType [CertificateInKeyVault/SharedKeyInKeyVault] - ssoClientSecretKeyVaultPath <key vault URI>
 ```
 
 ## Next steps
