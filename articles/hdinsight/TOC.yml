@@ -647,6 +647,8 @@
         href: ./kafka/apache-kafka-auto-create-topics.md
       - name: Use Apache Kafka with IoT Hub
         href: ./kafka/apache-kafka-connector-iot-hub.md
+      - name: Confluent Schema Registry
+        href: ./kafka/schema-registry.md
       - name: Create streaming pipelines
         items:
         - name: Apache Spark, Apache Kafka, and Azure Cosmos DB

@@ -1282,6 +1282,56 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/automation/change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking/overview",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-enable-changes-from-browse.md",
+      "redirect_url": "/azure/automation/change-tracking/enable-from-portal",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-enable-changes-from-vm.md",
+      "redirect_url": "/azure/automation/change-tracking/enable-from-vm",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-enable-changes-from-auto-acct.md",
+      "redirect_url": "/azure/automation/change-tracking/enable-from-automation-account",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-enable-changes-from-runbook.md",
+      "redirect_url": "/azure/automation/change-tracking/enable-from-runbook",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking-file-contents.md",
+      "redirect_url": "/azure/automation/change-tracking/manage-change-tracking",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-vm-inventory.md",
+      "redirect_url": "/azure/automation/change-tracking/manage-inventory-vms",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-scope-configurations-change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking/manage-scope-configurations.md",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-unlink-workspace-change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking/remove-feature.md",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-remove-vms-from-change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking/remove-vms-from-change-tracking.md",
+      "redirect_document": false
+    },
+    {
       "source_path": "articles/automation/automation-create-account-template.md",
       "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
       "redirect_document": false
@@ -4239,6 +4289,16 @@
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
       "redirect_url": "/azure/active-directory/develop/guidedsetups/active-directory-windesktop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/authorization-agents.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/brokered-auth.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
       "redirect_document_id": false
     },
     {
@@ -58179,6 +58239,6 @@
       "redirect_document_id": false
     }
 
-    
+
   ]
 }

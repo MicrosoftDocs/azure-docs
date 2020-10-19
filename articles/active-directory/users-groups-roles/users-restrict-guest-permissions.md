@@ -134,14 +134,15 @@ By supported we mean that the experience is as expected; specifically, that it i
 - Teams
 - Outlook (OWA)
 - SharePoint
+- Planner in Teams
+- Planner web app
 
 ### Services currently not supported
 
 Service without current support might have compatibility issues with the new guest restriction setting.
 
 - Forms
-- Planner in Teams
-- Planner app
+- Planner mobile app
 - Project
 - Yammer
 
@@ -152,7 +153,7 @@ Question | Answer
 Where do these permissions apply? | These directory level permissions are enforced across Azure AD services and portals including the Microsoft Graph, PowerShell v2, the Azure portal, and My Apps portal. Microsoft 365 services leveraging Microsoft 365 groups for collaboration scenarios are also affected, specifically Outlook, Microsoft Teams, and SharePoint.
 Which parts of the My Apps portal will this feature affect? | The groups functionality in the My Apps portal will honor these new permissions. This includes all paths to view the groups list and group memberships in My Apps. No changes were made to the group tile availability. The group tile availability is still controlled by the existing group setting in the Azure admin portal.
 Do these permissions override SharePoint or Microsoft Teams guest settings? | No. Those existing settings still control the experience and access in those applications. For example, if you see issues in SharePoint, double check your external sharing settings.
-What are the known compatibility issues in Planner and Yammer? | <li>With permissions set to ‘restricted’, guests logged into the Planner app or accessing the Planner in Microsoft Teams won't be able to access their plans or any tasks.<li>With permissions set to ‘restricted’, guests logged into Yammer won't be able to leave the group.
+What are the known compatibility issues in Planner and Yammer? | <li>With permissions set to ‘restricted’, guests logged into the Planner mobile app won't be able to access their plans or any tasks.<li>With permissions set to ‘restricted’, guests logged into Yammer won't be able to leave the group.
 Will my existing guest permissions be changed in my tenant? | No changes were made to your current settings. We maintain backward compatibility with your existing settings. You decide when you want make changes.
 Will these permissions be set by default? | No. The existing default permissions remain unchanged. You can optionally set the permissions to be more restrictive.
 Are there any license requirements for this feature? | No, there are no new licensing requirements with this feature.
