@@ -201,7 +201,7 @@ groups:
     title: Go
   - id: programming-language-ruby
     title: Ruby
-- id: programming-languages-set-seventeen
+- id: programming-languages-set-twenty-five
 # Owner: erhopf
   title: Programming languages
   prompt: Choose a programming language or CLI
