@@ -31,6 +31,8 @@
     href: tutorial-private-endpoint-storage-portal.md
   - name: Connect to a Cosmos DB account
     href: tutorial-private-endpoint-cosmosdb-portal.md
+  - name: Connect to a web app
+    href: tutorial-private-endpoint-webapp-portal.md
 - name: Concepts
   items:
   - name: Private Endpoint
