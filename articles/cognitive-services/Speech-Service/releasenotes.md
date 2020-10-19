@@ -269,7 +269,7 @@ Stay healthy!
 - C#, C++: Fixed an issue where using `Connection MessageReceived` event may cause crash if `Recognizer` is disposed before `Connection` object. Details for [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection.messagereceived?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/connection#messagereceived).
 - Android: Audio buffer size from microphone decreased from 800ms to 100ms to improve latency.
 - Android: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/563) with x86 Android emulator in Android Studio.
-- JavaScript: Added support for Regions in China with the `fromSubscription` API. Details [here](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#fromsubscription-string--string-). 
+- JavaScript: Added support for Regions in China with the `fromSubscription` API. Details [here](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest&preserve-view=true#fromsubscription-string--string-). 
 - JavaScript: Add more error information for connection failures from NodeJS.
 		
 **Samples**
