@@ -20,8 +20,8 @@ In this tutorial, you do the following steps:
 > * Create a new data flow.
 > * Add source data.
 > * Profile the source data.
-> * Test run the pipeline.
-> * Monitor a Data Flow activity
+> * Fill in missing values.
+> * Test and view your results
 
 ## Prerequisites
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
