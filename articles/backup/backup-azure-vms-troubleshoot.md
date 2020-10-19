@@ -323,6 +323,16 @@ If after restore, you notice the disks are offline then:
 * Verify if the machine where the script is executed meets the OS requirements. [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#system-requirements).  
 * Ensure you are not restoring to the same source, [Learn more](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#original-backed-up-machine-versus-another-machine).
 
+### UserErrorInstantRpNotFound - Restore failed because the Snapshot of the VM was not found
+
+Error code: UserErrorInstantRpNotFound <br>
+Error message: Restore failed because the snapshot of the VM was not found. The snapshot could have been deleted, please check.<br>
+
+This error occurs when you are trying to restore from a recovery point that was not transferred to the vault and was deleted in the snapshot phase. 
+<br>
+To resolve this issue, try to restore the VM from a different restore point.<br>
+
+#### Common errors 
 | Error details | Workaround |
 | --- | --- |
 | Restore failed with a cloud internal error. |<ol><li>The cloud service to which you're trying to restore is configured with DNS settings. You can check: <br>**$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings**.<br>If **Address** is configured, then DNS settings are configured.<br> <li>The cloud service to which to you're trying to restore is configured with **ReservedIP**, and existing VMs in the cloud service are in the stopped state. You can check that a cloud service has reserved an IP by using the following PowerShell cmdlets: **$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName**. <br><li>You're trying to restore a virtual machine with the following special network configurations into the same cloud service: <ul><li>Virtual machines under load balancer configuration, internal and external.<li>Virtual machines with multiple reserved IPs. <li>Virtual machines with multiple NICs. </ul><li>Select a new cloud service in the UI or see [restore considerations](backup-azure-arm-restore-vms.md#restore-vms-with-special-configurations) for VMs with special network configurations.</ol> |
