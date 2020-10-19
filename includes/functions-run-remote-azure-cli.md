@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 10/18/2020
+ms.author: glenga
+---
 
 ## Invoke the function on Azure
 
@@ -16,12 +23,3 @@ Run [`curl`](https://curl.haxx.se/) with the **Invoke URL**, appending the param
 ![The output of the function run on Azure using curl](./media/functions-run-remote-azure-cli/function-test-cloud-curl.png)
 
 ---
-
-> [!TIP]
-> To view near real-time logs for a published function app, use the [Application Insights Live Metrics Stream](../articles/azure-functions/functions-monitoring.md#streaming-logs).
->
-> Run the following command to open the live metrics stream in a browser.
->
->   ```console
->   func azure functionapp logstream <APP_NAME> --browser
->   ```

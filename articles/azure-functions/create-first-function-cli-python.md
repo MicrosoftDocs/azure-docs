@@ -102,6 +102,14 @@ This command creates a function app running in your specified language runtime u
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
+Run the following command to view near real-time [streaming logs](functions-run-local.md#enable-streaming-logs) in Application Insights in the Azure portal:
+
+```console
+func azure functionapp logstream <APP_NAME> --browser
+```
+
+In a separate terminal window or in the browser, call the remote function again. A verbose log of the function execution in Azure is shown in the terminal. 
+
 [!INCLUDE [functions-cleanup-resources-cli](../../includes/functions-cleanup-resources-cli.md)]
 
 ## Next steps
