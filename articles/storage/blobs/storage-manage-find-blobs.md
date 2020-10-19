@@ -313,7 +313,7 @@ az feature register --namespace Microsoft.Storage --name BlobIndex
 az provider register --namespace 'Microsoft.Storage'
 ```
 
-## Conditions and known issues (preview)
+## Conditions and known issues
 
 This section describes known issues and conditions in the public preview of blob index tags. This feature shouldn't be used for production workloads until it reaches general availability (GA) as behavior may change.
 
