@@ -263,7 +263,7 @@
       href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md
     - name: Azure.Messaging.ServiceBus (.NET Standard - latest)
       href: https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus
-    - name: Microsoft.Azure.ServiceBus (.NET Standard - legacy)
+    - name: Microsoft.Azure.ServiceBus (.NET Standard)
       href: https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus
     - name: Microsoft.ServiceBus.Messaging (.NET Framework)
       href: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging
