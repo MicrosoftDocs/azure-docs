@@ -228,7 +228,7 @@ else
 }
 ```
 
-Now launch the app again. You'll notice that you're prompted to give the app access to read your mail. This is expected when an app requests the Mail.Read scope.
+Now launch the app again. You'll notice that you're prompted to give the app access to read your mail. This is expected when an app requests the `Mail.Read` scope.
 
 After granting consent, navigate to the "Fetch data" page to read some email.
 
