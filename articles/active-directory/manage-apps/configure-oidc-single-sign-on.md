@@ -14,11 +14,10 @@ ms.reviewer: arajpathak7
 ---
 
 # Understand OIDC-based single sign-on
-In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about the OIDC-based option for single sign-on.
-
+In the [quickstart series](view-applications-portal.md) on application management, you learned how to use Azure AD as the Identity Provider (IdP) for an application. This article goes into more detail about apps that use the OpenID Connect standard to implement single sign-on. 
 
 ## Before you begin
-The process of adding an app to your Azure Active Directory tenant depends on the type of single sign-on the application implemented. This article covers adding apps that use the OpenID Connect (OIDC) standard for single sign on. 
+The process of adding an app to your Azure Active Directory tenant depends on the type of single sign-on the application implemented. To learn more about the single sign-on options available for apps that can use Azure AD for identity management, see [single sign-on options](sso-options.md). This article covers OIDC-based apps.
 
 
 ## Basic OIDC configuration
