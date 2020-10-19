@@ -15,7 +15,7 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL using
 ## Prerequisites
 For this quickstart you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - Create a Azure Database for MySQL single server using [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
 - Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
@@ -25,7 +25,7 @@ For this quickstart you need:
 | **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
 | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
-- [Create a database and non-admin user](https://docs.microsoft.com/en-us/azure/mysql/howto-create-users?tabs=single-server)
+- [Create a database and non-admin user](https://docs.microsoft.com/azure/mysql/howto-create-users?tabs=single-server)
 - Install latest PHP version  for your operating system
     - [PHP on MacOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP on Linux](https://secure.php.net/manual/install.unix.php)
