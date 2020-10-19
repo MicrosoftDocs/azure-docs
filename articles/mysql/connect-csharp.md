@@ -291,8 +291,15 @@ namespace AzureMySqlExample
     }
 }
 ```
-[Cannot find what you are looking for?Let us know.](https://aka.ms/mysql-doc-feedback)
+
+
+## Next steps
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Migrate your MySQL database to Azure Database for MySQL using dump and restore](concepts-migrate-dump-restore.md)
+> [Manage Azure Database for MySQL server using Portal](./howto-create-manage-server-portal.md)<br/>
+
+> [!div class="nextstepaction"]
+> [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
+
+[Cannot find what you are looking for?Let us know.](https://aka.ms/mysql-doc-feedback)
