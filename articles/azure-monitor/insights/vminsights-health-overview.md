@@ -105,4 +105,4 @@ If the VM changes to a Healthy state, then the alert will be closed.
 
 - [Enable guest health in Azure Monitor for VMs and onboard agents.](vminsights-health-enable.md)
 - [Configure monitors using the Azure portal.](vminsights-health-configure.md)
-- [Configure monitors using data collection rules.](vminsights-health-configure-template.md)
+- [Configure monitors using data collection rules.](vminsights-health-configure-dcr.md)

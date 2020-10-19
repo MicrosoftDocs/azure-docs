@@ -46,7 +46,7 @@ For example, the `memory|available` monitor does not specify a warning threshold
 
 The resulting configuration would be a monitor that goes into a warning health state when less than 250Mb of memory is available and creates Severity 2 alert and also goes into critical health state when less than 100Mb of available memory is available and creates alert Severity 1 (or changes existing alert from severity 2 to 1 if it already existed).
 
-If two overrides define the same property on the same monitor, one value will take precedence. Overrides will be applied based on their [scope](#scope-element), from the most general to the most specific. This means that the most specific overrides will have the greatest chance of being applied. The specific order is as follows:
+If two overrides define the same property on the same monitor, one value will take precedence. Overrides will be applied based on their [scope](#scopes-element), from the most general to the most specific. This means that the most specific overrides will have the greatest chance of being applied. The specific order is as follows:
 
 1. Global 
 2. Subscription

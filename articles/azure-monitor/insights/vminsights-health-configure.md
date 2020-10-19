@@ -10,7 +10,7 @@ ms.date: 09/08/2020
 ---
 
 # Configure monitoring in Azure Monitor for VMs guest health (preview)
-Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring using the Azure portal. It also describes fundamental concepts of monitors required for [configuring monitoring using resource manager templates](vminsights-health-configure-template.md).
+Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article describes how you can modify default monitoring using the Azure portal. It also describes fundamental concepts of monitors required for [configuring monitoring using a data collection rule](vminsights-health-configure-dcr.md).
 
 ## Open monitor configuration
 Open monitor configuration bin the Azure portal by selecting the monitor and then the **Configuration** tab.
