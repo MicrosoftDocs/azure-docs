@@ -17,15 +17,11 @@ ms.subservice: B2C
 
 # Tutorial: Register a web application in Azure Active Directory B2C
 
-Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal.
+Before your [applications](application-types.md) can interact with Azure Active Directory B2C (Azure AD B2C), they must be registered in a tenant that you manage. This tutorial shows you how to register a web application using the Azure portal. 
 
-In this article, you learn how to:
+A "web application" refers to a traditional web application that perform most of the application logic on the server. They may be built using frameworks like ASP.NET Core, Maven (Java), Flask (Python), and Express (Node.js).
 
-> [!div class="checklist"]
-> * Register a web application
-> * Create a client secret
-
-> > [!IMPORTANT]
+> [!IMPORTANT]
 > If you're using a **single-page application ("SPA")** instead (e.g. using Angular, Vue, or React), learn [how to register a single-page application](tutorial-register-spa.md).
 > 
 > If you're using a **native app** instead (e.g. iOS, Android, mobile & desktop), learn [how to register a native client application](add-native-application.md).
@@ -82,7 +78,7 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 
 ## Create a client secret
 
-If your application exchanges an authorization code for an access token, you need to create an application secret.
+For a web application, you need to create an application secret. This secret will be used by your application to exchange an authorization code for an access token.
 
 #### [App registrations](#tab/app-reg-ga/)
 
