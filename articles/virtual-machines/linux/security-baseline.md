@@ -758,7 +758,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [An introduction to Azure Automation](../../automation/automation-intro.md)
 
-* [Understanding Change Tracking](../../automation/change-tracking.md)
+* [Understanding Change Tracking](../../automation/change-tracking/overview.md)
 
 **Azure Security Center monitoring**: Not Available
 

@@ -41,7 +41,7 @@ Planar LSR reprojects those objects best that lie close to the supplied plane. T
 
 ### Configure Planar LSR in Unity
 
-The plane parameters are derived from a so called *focus point*, which you have to provide every frame through `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. See the [Unity Focus Point API](https://docs.microsoft.com/windows/mixed-reality/focus-point-in-unity) for details. If you don't set a focus point, a fallback will be chosen for you. However that automatic fallback often leads to suboptimal results.
+The plane parameters are derived from a so called *focus point*, which you have to provide every frame through `UnityEngine.XR.WSA.HolographicSettings.SetFocusPointForFrame`. See the [Unity Focus Point API](/windows/mixed-reality/focus-point-in-unity) for details. If you don't set a focus point, a fallback will be chosen for you. However that automatic fallback often leads to suboptimal results.
 
 You can calculate the focus point yourself, though it might make sense to base it on the one calculated by the Remote Rendering host. Call `RemoteManagerUnity.CurrentSession.GraphicsBinding.GetRemoteFocusPoint` to obtain that. You are asked to provide a coordinate frame in which to express the focus point. In most cases, you'll just want to provide the result from `UnityEngine.XR.WSA.WorldManager.GetNativeISpatialCoordinateSystemPtr` here.
 
