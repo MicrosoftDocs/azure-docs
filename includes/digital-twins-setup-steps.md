@@ -1,6 +1,6 @@
 ---
 author: baanders
-description: include file for steps overview and permission prerequisite in Azure Digital Twins setup - part 1
+description: include file for steps overview in Azure Digital Twins setup
 ms.service: digital-twins
 ms.topic: include
 ms.date: 10/14/2020
