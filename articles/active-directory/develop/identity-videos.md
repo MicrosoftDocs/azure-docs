@@ -32,6 +32,10 @@ ___
     :::column:::
         <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
 :::row-end:::
 
 
@@ -82,12 +86,6 @@ ___
     :::column-end:::
     :::column:::
         <a href="https://www.youtube.com/watch?v=-BK2iBDrmNo" target="_blank"> <img src="./media/identity-videos/id-for-devs-05.jpg" alt="Video thumbnail"> </a>
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank">The basics of modern authentication - Microsoft identity platform <span class="docon docon-navigate-external x-hidden-focus"></span></a> (12:28)
-    :::column-end:::
-    :::column:::
-        <a href="https://www.youtube.com/watch?v=tkQJSHFsduY" target="_blank"> <img src="./media/identity-videos/id-for-devs-07.jpg" alt="Video thumbnail"> </a>
     :::column-end:::
 :::row-end:::
 
