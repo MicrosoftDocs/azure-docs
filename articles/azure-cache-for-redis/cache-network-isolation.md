@@ -11,7 +11,7 @@ ms.date: 10/15/2020
 # Azure Cache for Redis network isolation options 
 In this article, you’ll learn how to determine the best network isolation solution for your needs. We’ll go through the basics of Azure Private Link, Azure Virtual Network (VNet) injection, and Azure Firewall Rules with their advantages and limitations.  
 
-## Azure Private Link (Public Preview) 
+## Azure Private Link (public preview) 
 Azure Private Link provides private connectivity from a virtual network to Azure PaaS services. It simplifies the network architecture and secures the connection between endpoints in Azure by eliminating data exposure to the public internet. 
 
 ### Advantages
@@ -31,7 +31,7 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 >
 >
 
-## Azure Virtual Network Injection 
+## Azure Virtual Network injection 
 VNet is the fundamental building block for your private network in Azure. VNet enables many Azure resources to securely communicate with each other, the internet, and on-premises networks. VNet is like a traditional network that you would operate in your own data center, but with the benefits of Azure infrastructure, scale, availability, and isolation. 
 
 ### Advantages
@@ -45,7 +45,7 @@ VNet is the fundamental building block for your private network in Azure. VNet e
 * When using a VNet injected cache, you'll need to open your VNet to cache dependencies such as CRLs/PKI, AKV, Azure Storage, Azure Monitor, and more.  
 
 
-## Firewall Rules
+## Azure Firewall rules
 [Azure Firewall](/azure/firewall/overview) is a managed, cloud-based network security service that protects your Azure VNet resources. It’s a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.  
 
 ### Advantages
