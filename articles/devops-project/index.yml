@@ -55,7 +55,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Deploy your app to Azure Web App using GitHub actions
-            url: devops-starter-gh-webapp.md
+            url: devops-starter-gh-web-app.md
           - text: Bring your own code with GitHub
             url: azure-devops-project-vms.md
           - text: Deploy your ASP.NET app to Azure Virtual Machines
