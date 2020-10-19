@@ -109,9 +109,9 @@ You must have at least *Log Analytics Contributor* permissions to delete a works
 * If you get an error message *This workspace name is already in use* or *conflict* when creating a workspace, it could be since:
   * The workspace name isn't available and being used by someone in your organization, or by other customer.
   * The workspace was deleted in the last 14 days and its name kept reserved for the soft-delete period. To override the soft-delete and permanently delete your workspace to create a new workspace with the same name, follow these steps to recover the workspace first and perform permanent delete:<br>
-     1. [Recover](#recover-workspace) your workspace.
-     2. [Permanently delete](#permanent-workspace-delete) your workspace.
-     3. Create a new workspace using the same workspace name.
-* If you get a 204 Response code that shows "Resource not found," the cause could be due to consecutive trying to use the delete workspace operation. 204 is an empty response which usually means resource does not exist, so delete completed without doing anything.
-Once the deletion call is successfully completed in the backend, you will then have the ability to restore the workspace and perform the permanent delete operation in one of the methods suggested above.
+    1. [Recover](#recover-workspace) your workspace.
+    2. [Permanently delete](#permanent-workspace-delete) your workspace.
+    3. Create a new workspace using the same workspace name.
+* If you see a 204 response code that shows *Resource not found*, the cause might be consecutive tries to use the delete workspace operation. 204 is an empty response, which usually means that the resource doesn't exist, so the delete completed without doing anything.
+  After the deletion call is successfully completed on the back end, you can restore the workspace and complete the permanent delete operation in one of the methods suggested earlier.
 
