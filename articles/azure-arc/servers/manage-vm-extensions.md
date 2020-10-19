@@ -1,7 +1,7 @@
 ---
 title: VM extension management with Azure Arc enabled servers
 description: Azure Arc enabled servers can manage deployment of virtual machine extensions that provide post-deployment configuration and automation tasks with non-Azure VMs.
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
 ---
 
@@ -9,19 +9,24 @@ ms.topic: conceptual
 
 Virtual machine (VM) extensions are small applications that provide post-deployment configuration and automation tasks on Azure VMs. For example, if a virtual machine requires software installation, anti-virus protection, or to run a script inside of it, a VM extension can be used.
 
-Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle. VM extensions can be run with Azure Resource Manager templates, from the Azure portal, Azure CLI, or Azure PowerShell on hybrid servers managed by Arc enabled servers.
+Azure Arc enabled servers enables you to deploy Azure VM extensions to non-Azure Windows and Linux VMs, simplifying the management of your hybrid machine on-premises, edge, and other cloud environments through their lifecycle. VM extensions can be managed using the following methods on your hybrid machines or servers managed by Arc enabled servers:
+
+- The [Azure portal](manage-vm-extensions-portal.md)
+- The [Azure CLI](manage-vm-extensions-cli.md)
+- [Azure PowerShell](manage-vm-extensions-powershell.md)
+- Azure [Resource Manager templates](manage-vm-extensions-template.md)
 
 ## Key benefits
 
 Azure Arc enabled servers VM extension support provides the following key benefits:
 
-* Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the DSC VM extension.
+- Use [Azure Automation State Configuration](../../automation/automation-dsc-overview.md) to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the DSC VM extension.
 
-* Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) enabled through the Log Analytics agent VM extension. This is useful for performing complex analysis across data from a variety of sources.
+- Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/platform/data-platform-logs.md) enabled through the Log Analytics agent VM extension. This is useful for performing complex analysis across data from a variety of sources.
 
-* With [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
+- With [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md), analyzes the performance of your Windows and Linux VMs, and monitor their processes and dependencies on other resources and external processes. This is achieved through enabling both the Log Analytics agent and Dependency agent VM extensions.
 
-* Download and execute scripts on hybrid connected machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
+- Download and execute scripts on hybrid connected machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
 
 ## Availability
 
@@ -48,8 +53,8 @@ To learn about the Azure Connected Machine agent package and details about the E
 
 This feature depends on the following Azure resource providers in your subscription:
 
-* **Microsoft.HybridCompute**
-* **Microsoft.GuestConfiguration**
+- **Microsoft.HybridCompute**
+- **Microsoft.GuestConfiguration**
 
 If they are not already registered, follow the steps under [Register Azure resource providers](agent-overview.md#register-azure-resource-providers).
 
@@ -65,4 +70,4 @@ To upgrade your machine to the version of the agent required, see [Upgrade agent
 
 ## Next steps
 
-* Troubleshooting information can be found in the [Troubleshoot VM extensions guide](troubleshoot-vm-extensions.md).
+You can deploy, manage, and remove VM extensions using the [Azure CLI](manage-vm-extensions-cli.md), [PowerShell](manage-vm-extensions-powershell.md), from the [Azure portal](manage-vm-extensions-portal.md), or [Azure Resource Manager templates](manage-vm-extensions-template.md).

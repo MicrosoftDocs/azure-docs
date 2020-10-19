@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension from Azure portal
 description: This article describes how to deploy virtual machine extensions to Azure Arc enabled servers running in hybrid cloud environments from the Azure portal.
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ms.topic: conceptual
 ---
 
@@ -46,6 +46,6 @@ You can remove one or more extensions from an Arc enabled server from the Azure 
 
 ## Next steps
 
-* You can deploy and remove an extension using Azure CLI, PowerShell, or Azure Resource Manager template.
+- You can deploy, manage, and remove VM extensions using the [Azure CLI](manage-vm-extensions-cli.md), [PowerShell](manage-vm-extensions-powershell.md), or [Azure Resource Manager templates](manage-vm-extensions-template.md).
 
-* Troubleshooting information can be found in the [Troubleshoot VM extensions guide](troubleshoot-vm-extensions.md).
+- Troubleshooting information can be found in the [Troubleshoot VM extensions guide](troubleshoot-vm-extensions.md).
