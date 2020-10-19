@@ -90,4 +90,4 @@ _LogsOperation
 ## Next steps
 
 - Learn more about [log alerts](alerts-log.md).
-- [Collect query audit data](../log-query-query-audit.md) for your workspace.
+- [Collect query audit data](../log-query/query-audit.md) for your workspace.
