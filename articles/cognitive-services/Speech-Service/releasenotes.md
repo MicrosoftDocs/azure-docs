@@ -19,7 +19,7 @@ ms.custom: seodec18
 
 ### New features
 
-* **Neural TTS: new speaking style for `en-US` Aria voice**. AriaNeural can sound like a newscaster when reading news. The 'newscast-formal' style sounds more serious, while the 'newscast-casual' style is more relaxed and informal. See [how to use the speaking styles in SSML](speech-synthesis-markup.md).
+* **Neural TTS: new speaking style for `en-US` Aria voice**. AriaNeural can sound like a news caster when reading news. The 'newscast-formal' style sounds more serious, while the 'newscast-casual' style is more relaxed and informal. See [how to use the speaking styles in SSML](speech-synthesis-markup.md).
 
 * **Custom Voice: a new feature is released to automatically check training data quality**. When you upload your data, the system will examine various aspects of your audio and transcript data, and automatically fix or filter issues to improve the quality of the voice model. This covers the volume of your audio, the noise level, the pronunciation accuracy of speech, the alignment of speech with the normalized text, silence in the audio, in addition to the audio and script format. 
 
@@ -33,7 +33,7 @@ ms.custom: seodec18
 
     * SSML documentation: linked to SSML document to help you check the rules for how to use all tuning features.
 
-* **The Voice List API is updated to include a user friendly display name and the speaking styles supported for neural voices**.
+* **The Voice List API is updated to include a user-friendly display name and the speaking styles supported for neural voices**.
 
 ### General TTS voice quality improvements
 
@@ -59,15 +59,15 @@ ms.custom: seodec18
 * Fixed a number of bugs with the Audio Content Creation tool 
     * Fixed issue with auto refreshing. 
     * Fixed issues with voice styles in zh-CN in the South East Asia region.
-    * Fixed stability issue, including an export error with the 'break' tag, and errors in punctuations.    
+    * Fixed stability issue, including an export error with the 'break' tag, and errors in punctuation.
 
 ## New speech-to-text locales: 2020-August Release
-Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. Please see the complete language list [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
+Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support).
 
 | Locale  | Language                          |
 |---------|-----------------------------------|
 | `cs-CZ` | Czech (Czech Republic)            | 
-| `en-HK` | English (Hong kong)               | 
+| `en-HK` | English (Hong Kong)               | 
 | `en-IE` | English (Ireland)                 | 
 | `en-PH` | English (Philippines)             | 
 | `en-SG` | English (Singapore)               | 
@@ -115,7 +115,7 @@ Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` a
 - **JavaScript**: Fixed an [issue](https://github.com/microsoft/cognitive-services-speech-sdk-js/issues/78) with a memory leak on streams.
 - **JavaScript**: Added caching for OCSP responses from NodeJS.
 - **Java**: Fixed an issue that was causing BigInteger fields to always return 0.
-- **iOS**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) with publishing Speech SDK based apps in the iOS App Store.
+- **iOS**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/702) with publishing Speech SDK-based apps in the iOS App Store.
 
 **Samples**
 - **C++**: Added sample code for Speaker Recognition [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/cpp/windows/console/samples/speaker_recognition_samples.cpp).
@@ -132,7 +132,7 @@ Stay healthy!
 
 * **Custom Voice, streamlined voice testing with the training flow to simplify user experience**: With the new testing feature, each voice will be automatically tested with a predefined test set optimized for each language to cover general and voice assistant scenarios. These test sets are carefully selected and tested to include typical use cases and phonemes in the language. Besides, users can still select to upload their own test scripts when training a model.
 
-* **Audio Content Creation: a set of new features are released to enable more powerful voice tuning and audio management capabilities**
+* **Audio Content Creation: a set of new features is released to enable more powerful voice tuning and audio management capabilities**
 
     * `Pitch`, `rate`, and `volume` are enhanced to support tuning with a predefined value, like slow, medium and fast. It's now straightforward for users to pick a 'constant' value for their audio editing.
 
@@ -158,7 +158,7 @@ Stay healthy!
     * Updated Katja in `de-DE` with the latest prosody modeling method, the MOS (Mean Opinion Score) gain is +0.13. 
     * Updated Nanami in `ja-JP` with a new pitch accent prosody model, the MOS (Mean Opinion Score) gain is +0.19;  
 
-* Improved word-level pronunciation accuracy in 5 languages.
+* Improved word-level pronunciation accuracy in five languages.
 
     | Language | Pronunciation error reduction |
     |---|---|
@@ -201,12 +201,12 @@ Stay healthy!
     -   `spx help csr examples`
 
 **New features**
--   **C\#, C++**: Speaker Recognition Preview: This feature enables speaker identification (who is speaking?) and speaker verification (is this who they claim to be?). Start with an [overview](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/speaker-recognition-overview), read the [Speaker Recognition basics article](https://docs.microsoft.com/azure/cognitive-services/speech-service/speaker-recognition-basics), or the [API reference docs](https://docs.microsoft.com/rest/api/speakerrecognition/).
+-   **C\#, C++**: Speaker Recognition Preview: This feature enables speaker identification (who is speaking?) and speaker verification (is the speaker who they claim to be?). Start with an [overview](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/speaker-recognition-overview), read the [Speaker Recognition basics article](https://docs.microsoft.com/azure/cognitive-services/speech-service/speaker-recognition-basics), or the [API reference docs](https://docs.microsoft.com/rest/api/speakerrecognition/).
 
 **Bug fixes**
 -   **C\#, C++**: Fixed microphone recording was not working in 1.12 in speaker recognition.
 -   **JavaScript**: Fixes for Text-To-Speech in Firefox, and Safari on macOS and iOS.
--   Fix for Windows application verifier access violation crash on conversation transcription when using 8-channel stream.
+-   Fix for Windows application verifier access violation crash on conversation transcription when using eight-channel stream.
 -   Fix for Windows application verifier access violation crash on multi-device conversation translation.
 
 **Samples**
@@ -231,13 +231,13 @@ Stay healthy!
 
 **Improvements & Optimizations**
 - **JavaScript**: Optimized browser microphone implementation improving speech recognition accuracy.
-- **Java**: Refactored bindings using direct JNI implementation without SWIG. This reduces by 10x the bindings size for all Java packages used for Windows, Android, Linux and Mac and eases further development of the Speech SDK Java implementation.
+- **Java**: Refactored bindings using direct JNI implementation without SWIG. This change reduces by 10x the bindings size for all Java packages used for Windows, Android, Linux and Mac and eases further development of the Speech SDK Java implementation.
 - **Linux**: Updated support [documentation](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux) with the latest RHEL 7 specific notes.
-- Improved connection logic to attempt connecting multiple times in case of service and network errors.
+- Improved connection logic to attempt connecting multiple times when service and network errors occur.
 - Updated the [portal.azure.com](https://portal.azure.com) Speech Quickstart page to help developers take the next step in the Azure Speech journey.
 
 **Bug fixes**
-- **C#, Java**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) with loading SDK libraries on Linux ARM (both 32 and 64 bit).
+- **C#, Java**: Fixed an [issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/587) with loading SDK libraries on Linux ARM (both 32 bit and 64 bit).
 - **C#**: Fixed explicit disposal of native handles for TranslationRecognizer, IntentRecognizer and Connection objects.
 - **C#**: Fixed audio input lifetime management for ConversationTranscriber object.
 - Fixed an issue where `IntentRecognizer` result reason was not set properly when recognizing intents from simple phrases.
@@ -251,7 +251,7 @@ Stay healthy!
 - Keyword recognition samples for [C\#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer) and [Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer) (Android).  
 
 **COVID-19 abridged testing:**
-Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
+Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. If we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
 
 ## Speech SDK 1.11.0: 2020-March release
@@ -259,7 +259,7 @@ Stay healthy!
 - Linux: Added support for Red Hat Enterprise Linux (RHEL)/CentOS 7 x64 with [instructions](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-configure-rhel-centos-7) on how to configure the system for Speech SDK.
 - Linux: Added support for .NET Core C# on Linux ARM32 and ARM64. Read more [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk?tabs=linux). 
 - C#, C++: Added `UtteranceId` in `ConversationTranscriptionResult`, a consistent ID across all the intermediates and final speech recognition result. Details for [C#](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.transcription.conversationtranscriptionresult?view=azure-dotnet), [C++](https://docs.microsoft.com/cpp/cognitive-services/speech/transcription-conversationtranscriptionresult).
-- Python: Added support for `Language ID`. Please see speech_sample.py in [GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
+- Python: Added support for `Language ID`. See speech_sample.py in [GitHub repo](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/python/console).
 - Windows: Added compressed audio input format support on Windows platform for all the win32 console applications. Details [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams). 
 - JavaScript: Support speech synthesis (text-to-speech) in NodeJS. Learn more [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/text-to-speech). 
 - JavaScript: Add new API's to enable inspection of all send and received messages. Learn more [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript). 
@@ -277,7 +277,7 @@ Stay healthy!
 - Python: Sample added for `Language ID`. Details [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/master/samples/python/console/speech_sample.py).
 	
 **Covid19 abridged testing:**
-Due to working remotely over the last few weeks, we couldn't do as much manual device verification testing as we normally do. An example of this is testing microphone input and speaker output on Linux, iOS, and macOS. We haven't made any changes we think could have broken anything on these platforms, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br> 
+Due to working remotely over the last few weeks, we couldn't do as much manual device verification testing as we normally do. For example, we couldn't test microphone input and speaker output on Linux, iOS, and macOS. We haven't made any changes we think could have broken anything on these platforms, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br> 
 Thank you for your continued support. As always, please post questions or feedback on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen) or [Stack Overflow](https://stackoverflow.microsoft.com/questions/tagged/731).<br>
 Stay healthy!
 
@@ -329,7 +329,7 @@ Stay healthy!
 
 - `OpenSSL` has been updated to version 1.1.1b and is statically linked to the Speech SDK core library for Linux. This may cause a break if your inbox `OpenSSL` has not been installed to the `/usr/lib/ssl` directory in the system. Please check [our documentation](how-to-configure-openssl-linux.md) under Speech SDK docs to work around the issue.
 - We have changed the data type returned for C# `WordLevelTimingResult.Offset` from `int` to `long` to allow for access to `WordLevelTimingResults` when speech data is longer than 2 minutes.
-- `PushAudioInputStream` and `PullAudioInputStream` now send wav header information to the Speech Service based on `AudioStreamFormat`, optionally specified when they were created. Customers must now use the [supported audio input format](how-to-use-audio-input-streams.md). Any other formats will get sub-optimal recognition results or may cause other issues. 
+- `PushAudioInputStream` and `PullAudioInputStream` now send wav header information to the Speech Service based on `AudioStreamFormat`, optionally specified when they were created. Customers must now use the [supported audio input format](how-to-use-audio-input-streams.md). Any other formats will get suboptimal recognition results or may cause other issues. 
 
 **Bug fixes**
 
@@ -369,7 +369,7 @@ Stay healthy!
 **Breaking changes**
 
 - Conversation Transcriber functionalities moved under namespace `Microsoft.CognitiveServices.Speech.Transcription`.
-- Part of the Conversation Transcriber methods are moved to new `Conversation` class.
+- Parts of the Conversation Transcriber methods are moved to new `Conversation` class.
 - Dropped support for 32-bit (ARMv7 and x86) iOS
 
 **Bug fixes**
@@ -442,7 +442,7 @@ Stay healthy!
 - Fix for .NET core app problem to load core library with net461 target framework in samples
 - Fix for occasional issues to deploy native libraries to the output folder in samples
 - Fix for web socket closing reliably
-- Fix for possible crash while opening a connection under very heavy load on Linux
+- Fix for possible crash while opening a connection under heavy load on Linux
 - Fix for missing metadata in the framework bundle for macOS
 - Fix for problems with `pip install --user` on Windows
 
@@ -657,7 +657,7 @@ This is a JavaScript-only release. No features have been added. The following fi
 Reliability improvements and bug fixes:
 
 - Fixed potential fatal error due to race condition in disposing recognizer
-- Fixed potential fatal error in case of unset properties.
+- Fixed potential fatal error when unset properties occur.
 - Added additional error and parameter checking.
 - Objective-C: Fixed possible fatal error caused by name overriding in NSString.
 - Objective-C: Adjusted visibility of API
