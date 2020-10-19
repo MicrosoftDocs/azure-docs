@@ -84,7 +84,7 @@ Run the [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-se
 az monitor diagnostic-settings create –name AzureFirewallApplicationRule --resource Firewall07 --storage-account MyStorageAccount
 ```
 
-Run the [az monitor diagnostic-settings list]( /cli/azure/monitor/diagnostic-settings #az_monitor_diagnostic_settings_list) command to see diagnostics settings for a resource:
+Run the [az monitor diagnostic-settings list](/cli/azure/monitor/diagnostic-settings #az_monitor_diagnostic_settings_list) command to see diagnostics settings for a resource:
 
 ```azurecli
 az monitor diagnostic-settings list --resource Firewall07
@@ -102,7 +102,7 @@ Run the [az monitor diagnostic-settings update](/cli/azure/monitor/diagnostic-se
 az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
 ```
 
-Use the [az monitor diagnostic-settings delete]( /cli/azure/monitor/diagnostic-settings #az_monitor_diagnostic_settings_delete) command to delete a diagnostics setting.
+Use the [az monitor diagnostic-settings delete](/cli/azure/monitor/diagnostic-settings #az_monitor_diagnostic_settings_delete) command to delete a diagnostics setting.
 
 ```azurecli
 az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
