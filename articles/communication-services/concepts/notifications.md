@@ -40,7 +40,7 @@ Communication Services uses Azure Notification Hub as a pass-through service to 
 
 ### Notification Hub provisioning 
 
-To deliver push notifications to client devices using Notification Hubs, [create a Notification Hub](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) within the same subscription as your Communication Services resource. Azure Notification Hubs must be configured for the Platform Notifications Service you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/ios-sdk-get-started) and select your target client platform from the drop-down list near the top of the page.
+To deliver push notifications to client devices using Notification Hubs, [create a Notification Hub](https://docs.microsoft.com/azure/notification-hubs/create-notification-hub-portal) within the same subscription as your Communication Services resource. Azure Notification Hubs must be configured for the Platform Notifications Service you want to use. To learn how to get push notifications in your client app from Notification Hubs, see [Getting started with Notification Hubs](https://docs.microsoft.com/en-us/azure/notification-hubs/notification-hubs-android-push-notification-google-fcm-get-started) and select your target client platform from the drop-down list near the top of the page.
 
 > [!NOTE]
 > Currently the APNs and FCM platforms are supported.
