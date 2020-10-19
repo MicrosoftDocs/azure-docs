@@ -411,7 +411,7 @@ In practical use cases, twin hierarchies will often be created from data stored 
 
 Consider the following data table, describing a set of digital twins and relationships to be created.
 
-| ModelID| Twin ID (must be unique) | Relationship Name | Target twin ID | Twin init data |
+| Model ID| Twin ID (must be unique) | Relationship name | Target twin ID | Twin init data |
 | --- | --- | --- | --- | --- |
 | dtmi:example:Floor;1 | Floor1 |  contains | Room1 |{"Temperature": 80, "Humidity": 60}
 | dtmi:example:Floor;1 | Floor0 |  has      | Room0 |{"Temperature": 70, "Humidity": 30}

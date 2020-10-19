@@ -240,7 +240,7 @@ twinData.Add(new Dictionary<string, object>() {
     { "op", "add"},
     { "path", "/Temperature"},
     { "value", 25.0}
-);
+});
 
 await client.UpdateDigitalTwinAsync(twin_Id, JsonSerializer.Serialize(twinData));
 Console.WriteLine("Updated twin properties");
@@ -329,7 +329,7 @@ The two calls that modify *Twin1* are executed one after another, and change mes
 
 You can delete twins using the `DeleteDigitalTwin()` method. However, you can only delete a twin when it has no more relationships. So, delete the twin's incoming and outgoing relationships first.
 
-Here is an example of the code to delete twins and its relationships:
+Here is an example of the code to delete twins and their relationships:
 
 ```csharp
 static async Task DeleteTwin(string id)
