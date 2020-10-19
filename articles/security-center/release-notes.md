@@ -25,6 +25,28 @@ This page is updated frequently, so revisit it often.
 > If you're looking for items older than six months, you'll find them in the [Archive for What's new in Azure Security Center](release-notes-archive.md).
 
 
+## October 2020
+
+### Vulnerability assessment for on-premise and multi-cloud machines (Preview)
+
+[Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc enabled servers.
+
+When you've enabled Azure Arc on your non-Azure machines, Security Center will offer to deploy the integrated vulnerability scanner on them - manually and at-scale.
+
+With this update, you can unleash the power of **Azure Defender for servers** to consolidate your vulnerability management program across all of your Azure and non-Azure assets.
+
+Main capabilities:
+
+- Monitoring the VA (vulnerability assessment) scanner provisioning state on Azure Arc machines
+- Provisioning the integrated VA agent to unprotected Windows and Linux Azure Arc machines (manually and at-scale)
+- Receiving and analyzing detected vulnerabilities from deployed agents (manually and at-scale)
+- Unified experience for Azure VMs and Azure Arc machines
+
+[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](https://docs.microsoft.com/azure/security-center/deploy-vulnerability-assessment-vm#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Learn more about Azure Arc enabled servers](https://docs.microsoft.com/azure/azure-arc/servers/).
+
+
 
 ## September 2020
 
@@ -727,47 +749,3 @@ Some of the benefits of this transition:
 - **Alert aggregation** - When CDA detected multiple attack patterns within a single crash dump, it triggered multiple security alerts. Fileless attack detection combines all of the identified attack patterns from the same process into a single alert, removing the need to correlate multiple alerts.
 
 - **Reduced requirements on your Log Analytics workspace** - Crash dumps containing potentially sensitive data will no longer be uploaded to your Log Analytics workspace.
-
-
-
-## April 2020
-
-Updates in April include:
-- [Dynamic compliance packages are now generally available](#dynamic-compliance-packages-are-now-generally-available)
-- [Identity recommendations now included in Azure Security Center free tier](#identity-recommendations-now-included-in-azure-security-center-free-tier)
-
-
-### Dynamic compliance packages are now generally available
-
-The Azure Security Center regulatory compliance dashboard now includes **dynamic compliance packages** (now generally available) to track additional industry and regulatory standards.
-
-Dynamic compliance packages can be added to your subscription or management group from the Security Center security policy page. When you've onboarded a standard or benchmark, the standard appears in your regulatory compliance dashboard with all associated compliance data mapped as assessments. A summary report for any of the standards that have been onboarded will be available to download.
-
-Now, you can add standards such as:
-
-- **NIST SP 800-53 R4**
-- **SWIFT CSP CSCF-v2020**
-- **UK Official and UK NHS**
-- **Canada Federal PBMM**
-- **Azure CIS 1.1.0 (new)** (which is a more complete representation of Azure CIS 1.1.0)
-
-In addition, we've recently added the **Azure Security Benchmark**, the Microsoft-authored Azure-specific guidelines for security and compliance best practices based on common compliance frameworks. Additional standards will be supported in the dashboard as they become available.  
- 
-Learn more about [customizing the set of standards in your regulatory compliance dashboard](update-regulatory-compliance-packages.md).
-
-
-### Identity recommendations now included in Azure Security Center free tier
-
-Security recommendations for identity and access on the Azure Security Center free tier are now generally available. This is part of the effort to make the cloud security posture management (CSPM) features free. Until now, these recommendations were only available on the standard pricing tier.
-
-Examples of identity and access recommendations include:
-
-- "Multifactor authentication should be enabled on accounts with owner permissions on your subscription."
-- "A maximum of three owners should be designated for your subscription."
-- "Deprecated accounts should be removed from your subscription."
-
-If you have subscriptions on the free pricing tier, their secure scores will be impacted by this change because they were never assessed for their identity and access security.
-
-Learn more about [identity and access recommendations](recommendations-reference.md#recs-identity).
-
-Learn more about [monitoring identity and access](security-center-identity-access.md).
