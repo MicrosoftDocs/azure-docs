@@ -116,8 +116,6 @@ landingContent:
             url: vrealize-operations-for-azure-vmware-solution.md
           - text: Deploy VMware Horizon
             url: azure-vmware-solution-horizon.md
-          
-# card 6
   - title: VMware ecosystem
     linkLists:
       - linkListType: reference
@@ -130,6 +128,8 @@ landingContent:
     linkLists:
       - linkListType: reference
         links:
+          - text: Azure PowerShell
+            url: https://docs.microsoft.com/powershell/module/az.vmware
           - text: Get help with deployment or provisioning failures
             url: fix-deployment-provisioning-failures.md
           - text: FAQ
