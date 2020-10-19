@@ -19,7 +19,7 @@ To use this indexer connection method, there are two requirements:
 
 + The Azure resource providing content or code must be previously registered with the [Azure Private Link service](https://azure.microsoft.com/services/private-link/).
 
-+ Azure Cognitive Search service must be Basic or higher (not available on the Free tier). Additionally, for indexers that have a skillset, the search service must be S2 or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
++ Azure Cognitive Search service must be Basic or higher (not available on the Free tier). Additionally, if your indexer has a skillset, the tier must be Standard 2 (S2) or higher. For more information, see [Service limits](search-limits-quotas-capacity.md#shared-private-link-resource-limits).
 
 ## Shared Private Link Resources Management APIs
 
