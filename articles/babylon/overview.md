@@ -15,7 +15,7 @@ Azure Babylon is a new cloud service for use by data users. You use Azure Babylo
 
 With the UI or Apache Atlas API, technical users can view metadata and the lineage of data assets in a central catalog.
 
-Subject-matter experts, owners, and security administrators can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification, based on metadata and content inspection.
+Subject-matter experts, owners, and security administrators can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification and autolabeling policies, based on metadata and content inspection.
 
 The Azure Babylon preview provides customers early access to preview releases in their Azure subscriptions for evaluation. You get product support and can provide feedback directly to the product team.
 
@@ -61,11 +61,11 @@ When such challenges are combined, they present a significant barrier for compan
 
 ## Discovery challenges for security administrators
 
-Users who are responsible for ensuring the security of their organization's data may have any of the challenges listed above as data users and producers, as well as the following additional challenges:
+Users who are responsible for ensuring the security of their organization's data may have any of the challenges listed above as data consumers and producers, as well as the following additional challenges:
 
-* An organization's data is constantly growing and being shared in new directions. The task of locating, identifying, and governing any sensitive data is one that never ends, and grows exponentially. You want to make sue that your organization's content is being shared with the correct people, and for the intended purposes.
-* Understanding the risk levels included in your organization's data requires diving deep into your content, looking for keywords and data types. You must constantly watch all data sources for sensitive content, as even the smallest amount of data can be critical to your organization.
-* Ensuring that your organization's continues to comply with legal requirements and corporate policies is a task that continues to grow as your content grows and changes, but also as those requirements and policies are updated for changing digital realities. Security administrators are often tasked with ensuring compliance in the quickest time possible.
+* An organization's data is constantly growing, stored, and shared in new directions. The task of discovering, protecting, and governing your sensitive data is one that never ends. You want to make sure that your organization's content is being shared with the correct people, applications, and with the correct permissions.
+* Understanding the risk levels in your organization's data requires diving deep into your content, looking for keywords, RegEx patterns and/or and sensitive data types. Sensitive data types can include Credit Card numbers, Social Security numbers, or Bank Account numbers, to name a few. You must constantly monitor all data sources for sensitive content, as even the smallest amount of data loss can be critical to your organization.
+* Ensuring that your organization's continues to comply with corporate security policies is a challenging task as your content grows and changes, and as those requirements and policies are updated for changing digital realities. Security administrators are often tasked with ensuring data security in the quickest time possible.
 
 
 ## Azure Babylon advantages
@@ -76,7 +76,7 @@ Azure Babylon provides a cloud-based service into which you can register data so
 
 After you register a data source, you can then enrich its metadata. Either the user who registered the data source or another user in the enterprise adds the metadata. Any user can annotate a data source by providing descriptions, tags, or other metadata for requesting data source access. This descriptive metadata supplements the structural metadata, such as column names and data types, that's registered from the data source.
 
-Discovering and understanding data sources and their use is the primary purpose of registering the sources. Enterprise users might need data for business intelligence, security administration, application development, data science, or any other task where the right data is required. They use the data catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for the purpose, and consume the data by opening the data source in their tool of choice.
+Discovering and understanding data sources and their use is the primary purpose of registering the sources. Enterprise users might need data for business intelligence, application development, data science, or any other task where the right data is required. They use the data catalog discovery experience to quickly find data that matches their needs, understand the data to evaluate its fitness for the purpose, and consume the data by opening the data source in their tool of choice.
 
 At the same time, users can contribute to the catalog by tagging, documenting, and annotating data sources that have already been registered. They can also register new data sources, which are then discovered, understood, and consumed by the community of catalog users.
 
