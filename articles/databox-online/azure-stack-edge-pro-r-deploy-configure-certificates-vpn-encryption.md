@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 10/19/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Pro R so I can use it to transfer data to Azure. 
 ---
@@ -45,15 +45,13 @@ Before you configure and set up your Azure Stack Edge Pro R device, make sure th
 
     - If you have not changed the device name or the DNS domain in the earlier step and do not wish to bring your own certificates, then you can skip this step and proceed to the next step. The device has automatically generated self-signed certificates to begin with. 
 
-        ![Local web UI "Certificates" page](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-2.png)
-
     - If you changed the device name or DNS domain, you will see that the status of certificates will show as **Not valid**. 
 
-        ![Local web UI "Certificates" page 2](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1.png)    
+        ![Local web UI "Certificates" page 2](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-1.png)    
 
         Select a certificate to view the details of the status.
 
-        ![Local web UI "Certificates" page 3](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-1a.png)  
+        ![Local web UI "Certificates" page 3](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-1a.png)  
 
         This is because the certificates do not reflect the updated device name and DNS domain (that are used in subject name and subject alternative). To successfully activate your device, choose one of the following options: 
     
@@ -74,11 +72,11 @@ Use these steps to regenerate and download the Azure Stack Edge Pro R device cer
 
 1. In the local UI of your device, go to **Configuration > Certificates**. Select **Generate certificates**.
 
-    ![Generate and download certificate 1](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-3.png)
+    ![Generate and download certificate 1](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-3.png)
 
 2. In the **Generate device certificates**, select **Generate**. 
 
-    ![Generate and download certificate 2](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-4.png)
+    ![Generate and download certificate 2](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-4.png)
 
     The device certificates are now generated and applied. It takes a few minutes to generate and apply the certificates.
     
@@ -87,30 +85,30 @@ Use these steps to regenerate and download the Azure Stack Edge Pro R device cer
 
     You are notified when the operation is successfully completed. **To avoid any potential cache issues, restart your browser.**
     
-    ![Generate and download certificate 4](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-5.png)
+    ![Generate and download certificate 4](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-5.png)
 
 3. After the certificates are generated: 
 
     - The status of all the certificates shows as **Valid**. 
 
-        ![Generate and download certificate 5](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6.png)
+        ![Generate and download certificate 5](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-6.png)
 
     - You can select a specific certificate name, and view the certificate details. 
 
-        ![Generate and download certificate 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6a.png)
+        ![Generate and download certificate 6](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-6a.png)
 
     - The **Download** column is now populated. This column has links to download the regenerated certificates. 
 
-        ![Generate and download certificate 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-6b.png)
+        ![Generate and download certificate 7](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-6b.png)
 
 
 4. Select the download link for a certificate and when prompted, save the certificate. 
 
-    ![Generate and download certificate 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-7.png)
+    ![Generate and download certificate 8](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-7.png)
 
 5. Repeat this process for all the certificates that you wish to download. 
     
-    ![Generate and download certificate 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/generate-certificate-8.png)
+    ![Generate and download certificate 9](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/generate-certificate-8.png)
 
     The device generated certificates are saved as DER certificates with the following name format: 
 
@@ -126,7 +124,6 @@ If using Azure Storage Explorer, you will need to install certificates on your c
 > - The download link is only available for the device generated certificates and not if you bring your own certificates.
 > - You can decide to have a mix of device generated certificates and bring your own certificates as long as other certificate requirements are met. For more information, go to [Certificate requirements](azure-stack-edge-j-series-certificate-requirements.md).
     
-
 ### Bring your own certificates
 
 Follow these steps to add your own certificates including the signing chain.
@@ -162,9 +159,11 @@ Follow these steps to add your own certificates including the signing chain.
     > [!NOTE]
     > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
 
+1. Select **< Back to Get started**.
+
 ## Configure VPN
 
-8. On the **Security** tile, select **Configure** for VPN.
+1. On the **Security** tile, select **Configure** for VPN.
 
     ![Local web UI "VPN" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-241.png)  
 
@@ -204,22 +203,25 @@ Follow these steps to add your own certificates including the signing chain.
     
             ![Configure local UI 5](media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-5.png)
 
+1. Select **< Back to Get started**.
 
 ## Configure encryption-at-rest
 
 1. On the **Security** tile, select **Configure** for encryption-at-rest. This is a required setting and until this is successfully configured, you can't activate the device. 
 
-    ![Local web UI "Encryption at rest" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-251.png)
+    <!--![Local web UI "Encryption at rest" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-251.png)-->
 
     At the factory, once the devices are imaged, the volume level BitLocker encryption is enabled. After you receive the device, you need to configure the encryption-at-rest. The storage pool and volumes are recreated and you can provide BitLocker keys to enable encryption-at-rest and thus create a second layer of encryption for your data-at-rest.
 
-1. In the **Encryption-at-rest** pane, enter a 32 character long Base-64 encoded key. This is a one-time configuration and this key is used to protect the actual encryption key.
+1. In the **Encryption-at-rest** pane, provide a 32 character long Base-64 encoded key. This is a one-time configuration and this key is used to protect the actual encryption key. You can choose to automatically generate this key or enter one.
 
-    ![Local web UI "Encryption at rest" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-25.png)
+    ![Local web UI "Encryption at rest" pane](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/encryption-key-1.png)
+
+    The key is saved in a key file on the **Cloud details** page after the device is activated.
 
 1. Select **Apply**. This operation takes several minutes and the status of operation is displayed on the **Security** tile.
 
-    ![Local web UI "Encryption at rest" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-26.png)
+    ![Local web UI "Encryption at rest" page](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/encryption-at-rest-status-1.png)
 
 1. After the status shows as **Completed**, select **< Back to Get started**.
 
