@@ -1,5 +1,5 @@
 ---
-title: DevOps with Azure API Management
+title: DevOps for Azure API Management using ARM templates
 description: Introduction to API DevOps with Azure API Management, using Azure Resource Manager templates to manage API deployments in a CI/CD pipeline
 services: api-management
 author: miaojiang
@@ -10,9 +10,9 @@ ms.date: 10/09/2020
 ms.author: apimpm
 ---
 
-# Build a CI/CD pipeline for API Management
+# CI/CD for API Management using Azure Resource Manager templates
 
-This article introduces API DevOps with Azure API Management. With the strategic value of APIs, a continuous integration (CI) and continuous deployment (CD) pipeline has become an important aspect of API development. It allows organizations to automate deployment of API changes without error-prone manual steps, detect issues earlier, and ultimately deliver value to end-users faster. 
+This article introduces API DevOps with Azure API Management, using Azure Resource Manager templates. With the strategic value of APIs, a continuous integration (CI) and continuous deployment (CD) pipeline has become an important aspect of API development. It allows organizations to automate deployment of API changes without error-prone manual steps, detect issues earlier, and ultimately deliver value to end-users faster. 
 
 For details, tools, and code samples to implement the DevOps approach described in this article, see the open-source [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) in GitHub. Because customers bring a wide range of engineering cultures and existing automation solutions, the approach isn't a one-size-fits-all solution.
 
@@ -30,7 +30,7 @@ As a result, customers face the following challenges:
 
 The proposed approach is illustrated in the following image. 
 
-:::image type="content" source="media/devops-api-development/apim-devops.png" alt-text="DevOps with API Management":::
+:::image type="content" source="media/devops-api-development-templates/apim-devops.png" alt-text="DevOps with API Management":::
 
 In this example, there are two deployment environments: *Development* and *Production*. Each has its own API Management instance. 
 
@@ -53,18 +53,24 @@ There are challenges for API developers when working with Resource Manager templ
 
 * API developers often work with the [OpenAPI Specification](https://github.com/OAI/OpenAPI-Specification) and may not be familiar with Resource Manager schemas. Authoring templates manually might be error-prone. 
 
-   A utility tool called [**Creator**](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Aditionally, developers can supply API Management policies for an API in XML format. 
+   A utility tool called [**Creator**](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#Creator) in the resource kit can help automate the creation of API templates based on an Open API Specification file. Additionally, developers can supply API Management policies for an API in XML format. 
 
 * For customers who are already using API Management, another challenge is to extract existing configurations into Resource Manager templates. For those customers, a tool called [**Extractor**](https://github.com/Azure/azure-api-management-devops-resource-kit/blob/master/src/APIM_ARMTemplate/README.md#extractor) in the resource kit can help generate templates by extracting configurations from their API Management instances.  
 
 ## Workflow
-Once API developers have finished developing and testing an API, and have generated the API templates, they can submit a pull request to merge the changes to the publisher repository. API publishers can validate the pull request and make sure the changes are safe and compliant. For example, they can check if only HTTPS is allowed to communicate with the API. Most validations can be automated as a step in the CI/CD pipeline.
 
-Once the changes are approved and merged successfully, API publishers can choose to deploy them to the Production instance either on schedule or on demand. The deployment of the templates can be automated using [GitHub Actions](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/devops/pipelines/), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or other tools.
+* Once API developers have finished developing and testing an API, and have generated the API templates, they can submit a pull request to merge the changes to the publisher repository. 
+
+* API publishers can validate the pull request and make sure the changes are safe and compliant. For example, they can check if only HTTPS is allowed to communicate with the API. Most validations can be automated as a step in the CI/CD pipeline.
+
+* Once the changes are approved and merged successfully, API publishers can choose to deploy them to the Production instance either on schedule or on demand. The deployment of the templates can be automated using [GitHub Actions](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/devops/pipelines/), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), [Azure CLI](../azure-resource-manager/templates/deploy-cli.md), or other tools.
 
 With this approach, the deployment of API changes into API Management instances can be automated, and it's easy to promote changes from one environment to another. Since different API development teams will be working on different sets of API templates and files, it prevents interference between different teams.
+
+## Video
+
+> [!VIDEO https://www.youtube.com/watch?v=4Sp2Qvmg6j8]
 
 ## Next steps
 
 - See the open-source [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) for additional information, tools, and sample templates.
-- See [a video](https://www.youtube.com/watch?v=4Sp2Qvmg6j8) that explains the CI/CD approach and demonstrates a sample implementation. 

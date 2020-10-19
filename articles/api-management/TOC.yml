@@ -78,7 +78,7 @@
       - name: Observability
         href: observability.md
       - name: CI/CD using ARM templates
-        href: devops-api-development.md
+        href: devops-api-development-templates.md
 
 - name: How-to guides
   items:
