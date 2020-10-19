@@ -990,7 +990,7 @@ You can also use lifecycle management feature to backup data to the Archive tier
 
 ### 9.4: Ensure protection of backups and customer-managed keys
 
-**Guidance**: Use Azure DevOps to securely store and manage your Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.  Use role-based access control to protect customer managed keys. Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. 
+**Guidance**: Use Azure DevOps to securely store and manage your Azure Resource Manager templates. To protect resources you manage in Azure DevOps, you can grant or deny permissions to specific users, built-in security groups, or groups defined in Azure Active Directory (Azure AD) if integrated with Azure DevOps, or Active Directory if integrated with TFS.  Use Azure role-based access control to protect customer managed keys. Enable Soft-Delete and purge protection in Key Vault to protect keys against accidental or malicious deletion. 
 
 * [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
 

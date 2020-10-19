@@ -85,9 +85,9 @@ You can use the **Add User Wizard** to easily provision new Data Lake users.
 7. Review all your selected changes, and then click **Run**.
 8. When the wizard is finished, click **Done**.
 
-## Manage Role-Based Access Control
+## Manage Azure role-based access control
 
-Like other Azure services, you can use Role-Based Access Control (RBAC) to control how users interact with the service.
+Like other Azure services, you can use Azure role-based access control (Azure RBAC) to control how users interact with the service.
 
 The standard Azure roles have the following capabilities:
 * **Owner**: Can submit jobs, monitor jobs, cancel jobs from any user, and configure the account.

@@ -70,15 +70,13 @@ This quickstart requires [.NET Core 3.1](https://www.microsoft.com/net/download/
 
 > [!div renderon="docs"]
 > [Download the Visual Studio project](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
-
-> [!div renderon="docs"]
-> > [!NOTE]
-> > You can run the provided project in either Visual Studio or Visual Studio for Mac
+>
+> You can run the provided project in either Visual Studio or Visual Studio for Mac.
 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > Run the project using Visual Studio 2019.
-> [!div renderon="portal" id="autoupdate" class="nextstepaction"]
+> [!div class="sxs-lookup" renderon="portal" id="autoupdate" class="nextstepaction"]
 > [Download the code sample](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
 
 > [!div class="sxs-lookup" renderon="portal"]

@@ -34,7 +34,7 @@ Azure Government services operate the same way as the corresponding services in 
 ||Language Understanding|See [LUIS REST API docs](https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource)|\*.cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)||
 ||Personalizer|See [Personalizer docs](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk#prerequisites)|\*.cognitiveservices.azure.us||
 ||QnA Maker|See [QnA Maker docs](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/set-up-qnamaker-service-azure)|\*.cognitiveservices.azure.us||
-||Speech Service|See [STT API docs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)||
+||Speech Service|See [STT API docs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-speech-to-text#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)<br><br>**Speech-to-text endpoints**<br>Virginia: `https://usgovvirginia.stt.speech.azure.us`<br>Arizona: `https://usgovarizona.stt.speech.azure.us` <br><br>**Text-to-speech endpoints**<br>Virginia: `https://usgovvirginia.tts.speech.azure.us`<br>Arizona: `https://usgovarizona.tts.speech.azure.us` <br><br>**Speech translation endpoints**<br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`<br>Arizona: `https://usgovarizona.s2s.speech.azure.us`<br><br>**Auth token service**<br>Virginia: `https://usgovvirginia.api.cognitive.microsoft.us/sts/v1.0/issueToken` <br>Arizona: `https://usgovarizona.api.cognitive.microsoft.us/sts/v1.0/issueToken` <br>||
 ||Translator|See [Translator API docs](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference#base-urls)|\*.cognitiveservices.azure.us||
 |**Analytics**|HDInsight|\*.azurehdinsight.net|\*.azurehdinsight.us||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -195,8 +195,7 @@ The following Virtual Machines **features are not currently available** in Azure
     - Ubuntu Advantage support plan
 
 ### [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)
-The following Azure Functions **features are not currently available** in Azure Government:
-- [Monitoring via Application Insights](https://docs.microsoft.com/azure/azure-functions/functions-monitoring).
+When connecting your function app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 ## Databases
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia) dashboard.
