@@ -27,14 +27,14 @@ The two smiley face options suggest the type of feedback you might want to provi
 
 :::image type="content" source="./media/how-to-provide-feedback/smiley-face-icon.png" alt-text="Smiley face icon for leaving positive feedback." border="false":::
 
-* Ask questions about how a feature or certain functionality works or is planned to work. Be sure to prefix your feedback with *QUESTION:*
+* Ask questions about how a feature or certain functionality works or is planned to work. Be sure to prefix your feedback with *QUESTION:* .
 * Provide specific feedback on what works well for you.
 
 :::image type="content" source="./media/how-to-provide-feedback/frowny-face-icon.png" alt-text="Frowny face icon for leaving negative feedback." border="false":::
 
 * Provide specific feedback on something that isn’t working well.
-* Provide additional details about any changes you might suggest. Be sure to prefix your feedback with *SUGGESTION:*
-* If you’re reporting a bug, it’s helpful to include your email address. You can also email us at *BabylonDiscussion@Microsoft.com*. You can attach any screenshots, provide steps for reproducing the issue, and detail any conditions that might apply. Be sure to prefix your feedback with *BUG:*
+* Provide additional details about any changes you might suggest. Be sure to prefix your feedback with *SUGGESTION:* .
+* If you’re reporting a bug, it’s helpful to include your email address. You can also email us at *BabylonDiscussion@Microsoft.com*. You can attach any screenshots, provide steps for reproducing the issue, and detail any conditions that might apply. Be sure to prefix your feedback with *BUG:* .
 
 ## Leave feedback
 
@@ -42,11 +42,11 @@ To leave feedback:
 
 1. Select the smiley face at the top of your browser window to open the **Feedback** page.
 
-   :::image type="content" source="./media/how-to-provide-feedback/feedback-pane.png" alt-text="img text":::
+   :::image type="content" source="./media/how-to-provide-feedback/feedback-pane.png" alt-text="Screenshot showing how to leave feedback on the Feedback page.":::
 
 1. Select either of the two smiley face options:
 
-   :::image type="content" source="./media/how-to-provide-feedback/smiley-face-options.png" alt-text="img text":::
+   :::image type="content" source="./media/how-to-provide-feedback/smiley-face-options.png" alt-text="Screenshot showing the two smiley face options.":::
 
 1. Share with us your **Email** or leave the box blank for anonymity.
 
