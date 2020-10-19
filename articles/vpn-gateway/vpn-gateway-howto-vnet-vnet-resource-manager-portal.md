@@ -81,6 +81,7 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 
 * **Virtual network gateway settings**
   * **Name**: VNet1GW
+  * **Resource group**: East US
   * **Generation**: Generation 1
   * **Gateway type**: Select **VPN**.
   * **VPN type**: Select **Route*based**.
@@ -108,6 +109,7 @@ This article shows you how to connect VNets by using the VNet-to-VNet connection
 
 * **Virtual network gateway settings**
   * **Name**: VNet4GW
+  * **Resource group**: West US
   * **Generation**: Generation 1
   * **Gateway type**: Select **VPN**.
   * **VPN type**: Select **Route-based**.
@@ -151,11 +153,11 @@ When the virtual network gateways for both VNet1 and VNet4 have completed, you c
 
 1. In the Azure portal, select **All resources**, enter *virtual network gateway* in the search box, and then navigate to the virtual network gateway for your VNet. For example, **VNet1GW**. Select the gateway to open the **Virtual network gateway** page. Under **Settings**, select **Connections**.
 
-   ![Connections page](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png "Connections page")
-2. Select **+Add** to open the **Add connection** page.
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/connections.png" alt-text="Connections page":::
+1. Select **+Add** to open the **Add connection** page.
 
-   ![Add connection](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png "Add a connection")
-3. On the **Add connection** page, fill in the values for your connection:
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet1-vnet4-connection.png" alt-text="Add connection":::
+1. On the **Add connection** page, fill in the values for your connection:
 
    * **Name**: Enter a name for your connection. For example, *VNet1toVNet4*.
 
@@ -170,8 +172,7 @@ When the virtual network gateways for both VNet1 and VNet4 have completed, you c
      * Select the virtual network gateway to which you want to connect.
 
      * **Shared key (PSK)**: In this field, enter a shared key for your connection. You can generate or create this key yourself. In a site-to-site connection, the key you use is the same for your on-premises device and your virtual network gateway connection. The concept is similar here, except that rather than connecting to a VPN device, you're connecting to another virtual network gateway.
-    
-4. Select **OK** to save your changes.
+1. Select **OK** to save your changes.
 
 ## Configure the VNet4 gateway connection
 Next, create a connection from VNet4 to VNet1. In the portal, locate the virtual network gateway associated with VNet4. Follow the steps from the previous section, replacing the values to create a connection from VNet4 to VNet1. Make sure that you use the same shared key.
@@ -179,24 +180,25 @@ Next, create a connection from VNet4 to VNet1. In the portal, locate the virtual
 ## Verify your connections
 
 1. Locate the virtual network gateway in the Azure portal. 
-2. On the **Virtual network gateway** page, select **Connections** to view the **Connections** page for the virtual network gateway. After the connection is established, you'll see the **Status** values change to **Connected**.
+1. On the **Virtual network gateway** page, select **Connections** to view the **Connections** page for the virtual network gateway. After the connection is established, you'll see the **Status** values change to **Connected**.
 
-   ![Verify connections](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png "Verify connections")
-3. Under the **Name** column, select one of the connections to view more information. When data begins flowing, you'll see values for **Data in** and **Data out**.
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/view-connections.png" alt-text="Verify connections":::
+1. Under the **Name** column, select one of the connections to view more information. When data begins flowing, you'll see values for **Data in** and **Data out**.
 
-   ![Screenshot shows a resource group which has values for Data in and Data out.](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png "Status")
+   :::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/status.png" alt-text="Screenshot shows a resource group which has values for Data in and Data out":::
 
 ## Add additional connections
 
 If you want to add additional connections, navigate to the virtual network gateway from which you want to create the connection, then select **Connections**. You can create another VNet-to-VNet connection, or create an IPsec Site-to-Site connection to an on-premises location. Be sure to adjust the **Connection type** to match the type of connection you want to create. Before you create additional connections, verify that the address space for your virtual network doesn't overlap with any of the address spaces you want to connect to. For steps to create a Site-to-Site connection, see [Create a Site-to-Site connection](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 ## VNet-to-VNet FAQ
+
 View the FAQ details for additional information about VNet-to-VNet connections.
 
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]
 
 ## Next steps
 
-For information about how you can limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/security-overview.md).
+* For information about how you can limit network traffic to resources in a virtual network, see [Network Security](../virtual-network/security-overview.md).
 
-For information about how Azure routes traffic between Azure, on-premises, and Internet resources, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
+* For information about how Azure routes traffic between Azure, on-premises, and Internet resources, see [Virtual network traffic routing](../virtual-network/virtual-networks-udr-overview.md).
