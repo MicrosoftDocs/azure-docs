@@ -65,7 +65,7 @@ You can now build and run the app. When you run this template app, you must spec
 dotnet run --framework netstandard2.1
 ```
 
-In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running and logging users it with the Microsoft identity platform.
+In your browser, navigate to `https://localhost:5001`, and log in using an Azure AD user account to see the app running and logging users in with the Microsoft identity platform.
 
 The individual components of this template that enable logins with Azure AD using the Microsoft identity platform are explained in the [ASP.NET doc on this topic](/aspnet/core/blazor/security/webassembly/standalone-with-azure-active-directory#authentication-package).
 
