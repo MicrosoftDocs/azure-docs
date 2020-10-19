@@ -1,6 +1,6 @@
 ---
 title: Debug PowerShell Azure Functions locally
-description: Understand how to develop functions by using PowerShell.
+description: Learn how to debug PowerShell functions when running locally.
 author: tylerleonhardt
 ms.topic: conceptual
 ms.date: 04/22/2019
@@ -61,6 +61,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ## Set the attach point
 
 To debug any PowerShell function, the function needs to stop for the debugger to be attached. The `Wait-Debugger` cmdlet stops execution and waits for the debugger.
+
+>[!NOTE]
+>When using PowerShell 7, you don't need to add the `Wait-Debugger` call in your code.
 
 All you need to do is add a call to the `Wait-Debugger` cmdlet just above the `if` statement, as follows:
 

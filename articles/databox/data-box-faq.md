@@ -52,11 +52,11 @@ A.  For information on which countries/regions the Data Box is available, go to 
 ### Q. Which regions can I store data in with Data Box?
 A. Data Box is supported for all regions within US, West Europe, North Europe, France, UK, Japan, Australia, and Canada. For more information, go to [Region availability](data-box-overview.md#region-availability).
 
-### Q. How can I import my on-premises source data to an Azure region in a different country/region or export data from an Azure region in one country to a different country/region?
+### Q. How can I import source data at my location in a particular country to an Azure region in a different country/region or export data from an Azure region in one country to a different country/region?
 
 Data Box supports data ingestion or egress only within the same country/region as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where Data Boxes can ship to and from any EU country/region.
 
-For example, in the import scenario, if you had on-premises data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
+For example, in the import scenario, if you had the source data in Canada that you wanted to move to an Azure WestUS storage account, then you could achieve it in the following way:
 
 1. Order Data Box in Canada by choosing a storage account in Cananda. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
 
@@ -231,8 +231,8 @@ A.  When you copy the data to Data Box, depending on whether the data is block b
 
 ### Q. I just noticed that I did not follow the Azure naming requirements for my containers. Will my data fail to upload to Azure?
 A.  If the container names have uppercase letter, then those names are automatically converted to lowercase. If the names are not compliant in other ways (special characters, other languages, and so on), the upload will fail. For more information on best practices for naming shares, containers, files, go to:
-- [Naming and referencing shares](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
-- [Block blobs and page blob conventions](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+- [Naming and referencing shares](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata)
+- [Block blobs and page blob conventions](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
 
 ### Q. How do I verify the data I copied onto Data Box?
 A.  After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).

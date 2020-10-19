@@ -8,8 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/18/2020
+ms.date: 08/28/2020
 ms.author: wolfma
+ms.custom: devx-track-csharp
 ---
 
 # How to use batch transcription
@@ -39,7 +40,7 @@ Once in the running state, the transcription occurs faster than the audio runtim
 
 ## Prerequisites
 
-As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md).
+As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
 > A standard subscription (S0) for Speech service is required to use batch transcription. Free subscription keys (F0) don't work. For more information, see [pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
@@ -166,12 +167,13 @@ Use these optional properties to configure transcription:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      Optional URL with [service SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. When not specified, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), the result data will also be deleted.
+      Optional URL with [Service ad hoc SAS](../../storage/common/storage-sas-overview.md) to a writeable container in Azure. The result is stored in this container. SAS with stored access policy are **not** supported. When not specified, Microsoft stores the results in a storage container managed by Microsoft. When the transcription is deleted by calling [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), the result data will also be deleted.
 :::row-end:::
 
 ### Storage
 
-Batch transcription can read audio from an internet URI and can read audio or write transcriptions using [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
+Batch transcription can read audio from a public-visible internet URI,
+and can read audio or write transcriptions using a SAS URI with [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
 ## Batch transcription result
 
@@ -243,7 +245,7 @@ Each transcription result file has this format:
 }
 ```
 
-The result contains the following forms:
+The result contains the following fields:
 
 :::row:::
    :::column span="1":::
@@ -309,7 +311,11 @@ Word-level timestamps must be enabled as the parameters in the above request ind
 
 ## Best practices
 
-The batch transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions through a `GET` on [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions). Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to a reasonable value to ensure eventual deletion of the results.
+The batch transcription service can handle large number of submitted transcriptions. You can query the status of your transcriptions 
+with [Get transcriptions](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetTranscriptions).
+Call [Delete transcription](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription) 
+regularly from the service once you retrieved the results. Alternatively set `timeToLive` property to ensure eventual
+deletion of the results.
 
 ## Sample code
 

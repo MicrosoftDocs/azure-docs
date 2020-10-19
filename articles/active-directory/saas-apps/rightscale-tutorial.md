@@ -93,11 +93,11 @@ To configure Azure AD single sign-on with Rightscale, perform the following step
 
 4. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
 
-    ![Rightscale Domain and URLs single sign-on information](common/preintegrated.png)
+    ![Screenshot shows the Basic SAML Configuration page.](common/preintegrated.png)
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Rightscale Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type the URL:
     `https://login.rightscale.com/`
@@ -122,32 +122,31 @@ To configure Azure AD single sign-on with Rightscale, perform the following step
 
 2. In the menu on the top, click the **Settings** tab and select **Single Sign-On**.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_001.png)
+    ![Screenshot shows Single Sign-On selected from Settings.](./media/rightscale-tutorial/tutorial_rightscale_001.png)
 
 3. Click the **new** button to add **Your SAML Identity Providers**.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_002.png)
+    ![Screenshot shows the new buttons selected to add a SAML Identity Provider.](./media/rightscale-tutorial/tutorial_rightscale_002.png)
 
 4. In the textbox of **Display Name**, input your company name.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_003.png)
+    ![Screenshot shows where enter a display name.](./media/rightscale-tutorial/tutorial_rightscale_003.png)
 
 5. Select **Allow RightScale-initiated SSO using a discovery hint** and input your **domain name** in the below textbox.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_004.png)
+    ![Screenshot shows where you can specify a Login Method.](./media/rightscale-tutorial/tutorial_rightscale_004.png)
 
 6. Paste the value of **Login URL** which you have copied from Azure portal into **SAML SSO Endpoint** in RightScale.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_006.png)
+    ![Screenshot shows where you can enter a SAML S S O Endpoint.](./media/rightscale-tutorial/tutorial_rightscale_006.png)
 
 7. Paste the value of **Azure AD Identifier** which you have copied from Azure portal into **SAML EntityID** in RightScale.
 
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_008.png)
+    ![Screenshot shows where you can enter a SAML Entity I D.](./media/rightscale-tutorial/tutorial_rightscale_008.png)
 
 8. Click **Browser** button to upload the certificate which you downloaded from Azure portal.
 
-
-    ![Configure Single Sign-On](./media/rightscale-tutorial/tutorial_rightscale_009.png)
+    ![Screenshot shows where you can specify your SAML Signing Certificate.](./media/rightscale-tutorial/tutorial_rightscale_009.png)
 
 9. Click **Save**.
 

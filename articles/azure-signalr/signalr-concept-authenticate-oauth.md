@@ -6,7 +6,7 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.custom: devx-track-javascript
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 # Azure SignalR Service authentication
 
@@ -42,7 +42,7 @@ To complete this tutorial, you must have the following prerequisites:
 * An account created on [GitHub](https://github.com/)
 * [Git](https://git-scm.com/)
 * [.NET Core SDK](https://www.microsoft.com/net/download/windows)
-* [Azure Cloud Shell configured](https://docs.microsoft.com/azure/cloud-shell/quickstart)
+* [Azure Cloud Shell configured](../cloud-shell/quickstart.md)
 * Download or clone the [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples) GitHub repository.
 
 ## Create an OAuth app
@@ -382,7 +382,7 @@ In this section, you will turn on real authentication by adding the `Authorize` 
 
 ## Deploy the app to Azure
 
-In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new web app in [Azure App Service](https://docs.microsoft.com/azure/app-service/) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
+In this section, you will use the Azure command-line interface (CLI) from the Azure Cloud Shell to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
 The steps in this section use the *signalr* extension for the Azure CLI. Execute the following command to install the *signalr* extension for the Azure CLI:
 

@@ -8,12 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: [amqp, 'Role: Cloud Development','Role: IoT Device']
+ms.custom: [amqp, 'Role: Cloud Development','Role: IoT Device', devx-track-csharp]
 ---
 
 # Set up X.509 security in your Azure IoT hub
 
 This tutorial shows the steps you need to secure your Azure IoT hub using the *X.509 Certificate Authentication*. For the purpose of illustration, we use the open-source tool OpenSSL to create certificates locally on your Windows machine. We recommend that you use this tutorial for test purposes only. For production environment, you should purchase the certificates from a *root certificate authority (CA)*.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## Prerequisites
 
@@ -41,6 +43,9 @@ You may choose any of the following ways to get your certificates:
 ## Register X.509 CA certificates to your IoT hub
 
 These steps show you how to add a new Certificate Authority to your IoT hub through the portal.
+
+> [!NOTE]
+> The maximum number of X.509 CA certificates that can be registered to an IoT hub is 25. For more information, see [Azure IoT Hub quotas and throttling](iot-hub-devguide-quotas-throttling.md).
 
 1. In the Azure portal, navigate to your IoT hub and select **Settings** > **Certificates** for the hub.
 
@@ -194,4 +199,4 @@ To learn more about securing your IoT solution, see:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)

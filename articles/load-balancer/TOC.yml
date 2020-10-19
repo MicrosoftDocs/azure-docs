@@ -9,26 +9,22 @@
   - name: Create public load balancer - Portal
     href: quickstart-load-balancer-standard-public-portal.md
   - name: Create public load balancer - PowerShell
-    href: quickstart-create-standard-load-balancer-powershell.md
+    href: quickstart-load-balancer-standard-public-powershell.md
   - name: Create public load balancer - Azure CLI
     href: quickstart-load-balancer-standard-public-cli.md
   - name: Create public load balancer - ARM template
     href: quickstart-load-balancer-standard-public-template.md
   - name: Create internal load balancer - Portal
     href: quickstart-load-balancer-standard-internal-portal.md
+  - name: Create internal load balancer - PowerShell
+    href: quickstart-load-balancer-standard-internal-powershell.md
+  - name: Create internal load balancer - Azure CLI
+    href: quickstart-load-balancer-standard-internal-cli.md
+  - name: Create internal load balancer - ARM template
+    href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Tutorials
   items:
-  - name: Internal Load Balancer
-    items: 
-    - name: Create an internal Load Balancer - Portal
-      href: tutorial-load-balancer-standard-internal-portal.md
-    - name: Create an internal Load Balancer - Azure CLI
-      href: load-balancer-get-started-ilb-arm-cli.md
-    - name: Create an internal Load Balancer - Azure PowerShell
-      href: load-balancer-get-started-ilb-arm-ps.md
-    - name: Create an internal Load Balancer - ARM template
-      href: load-balancer-get-started-ilb-arm-template.md
   - name: Load balance VMs across availability zones
     href: tutorial-load-balancer-standard-public-zone-redundant-portal.md
   - name: Load balance VM within a specific availability zone
@@ -43,11 +39,13 @@
     href: powershell-samples.md
 - name: Concepts
   items:
+  - name: Cross-region load balancer
+    href: cross-region-overview.md
   - name: What's new?
     href: whats-new.md
   - name: Components
     href: components.md
-  - name: Concepts
+  - name: Load balancing algorithm
     href: concepts.md
   - name: SKUs
     href: skus.md
@@ -65,20 +63,29 @@
     href: load-balancer-ha-ports-overview.md
   - name: Multiple frontends
     href: load-balancer-multivip-overview.md
-  - name: Outbound connections
+  - name: Outbound proxy
     href: load-balancer-outbound-connections.md
+  - name: TCP reset and TCP idle timeout
+  - name: Outbound rules
+    href: outbound-rules.md
   - name: TCP reset on idle timeout
     href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
-  - name: Built-in security controls
-    href: load-balancer-security-controls.md
+  - name: Floating IP configuration
+    href: load-balancer-floating-ip.md
+  - name: Security
+    items: 
+    - name: Security baseline
+      href: security-baseline.md
   - name: Backend Pool management
     href: backend-pool-management.md
   - name: Standard Load Balancer and Virtual Machine Scale Sets
     href: load-balancer-standard-virtual-machine-scale-sets.md
-- name: How to
+- name: How-to
   items:
+  - name: Portal settings
+    href: manage.md
   - name: Virtual machine scale sets
     items:
     - name: Use with an existing Azure Load Balancer - Portal
@@ -134,8 +141,10 @@
       href: load-balancer-troubleshoot.md
     - name: Troubleshoot common deployment errors
       href: load-balancer-common-deployment-errors.md
-    - name: Resolve common outbound connection issues
+    - name: Troubleshoot common outbound connection issues
       href: troubleshoot-outbound-connection.md
+    - name: Troubleshoot resource health and inbound availability issues
+      href: troubleshoot-rhc.md
 - name: Reference
   items:
   - name: Code samples

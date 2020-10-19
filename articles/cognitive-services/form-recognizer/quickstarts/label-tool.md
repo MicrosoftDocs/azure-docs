@@ -1,28 +1,34 @@
 ---
-title: "Quickstart: Label forms, train a model, and analyze a form using the sample labeling tool - Form Recognizer"
+title: "Quickstart: Label forms, train a model, and analyze forms using the sample labeling tool - Form Recognizer"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom model with the labeled documents and use the model to extract key/value pairs.
+description: In this quickstart, you'll use the Form Recognizer sample labeling tool to manually label form documents. Then you'll train a custom document processing model with the labeled documents and use the model to extract key/value pairs.
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 08/05/2020
+ms.date: 09/30/2020
 ms.author: pafarley
+ms.custom: cog-serv-seo-aug-2020
+keywords: document processing
 ---
 
 # Train a Form Recognizer model with labels using the sample labeling tool
 
-In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about this feature.
+In this quickstart, you'll use the Form Recognizer REST API with the sample labeling tool to train a custom document processing model with manually labeled data. See the [Train with labels](../overview.md#train-with-labels) section of the overview to learn more about supervised learning with Form Recognizer.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
+> [!VIDEO https://channel9.msdn.com/Shows/Docs-Azure/Azure-Form-Recognizer/player]
 
 ## Prerequisites
 
 To complete this quickstart, you must have:
 
-- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
+* Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
+    * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
+    * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
+* A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
 ## Create a Form Recognizer resource
 
@@ -48,14 +54,35 @@ You'll use the Docker engine to run the sample labeling tool. Follow these steps
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
+
+
+
+
 1. Get the sample labeling tool container with the `docker pull` command.
+
+    # [v2.0](#tab/v2-0)    
     ```
     docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
+    # [v2.1 preview](#tab/v2-1)    
+    ```
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview
+    ```
+
+    ---
+
 1. Now you're ready to run the container with `docker run`.
+
+    # [v2.0](#tab/v2-0)    
     ```
     docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
+    # [v2.1 preview](#tab/v2-1)    
+    ```
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:2.1.012970002-amd64-preview eula=accept    
+    ```
+
+    --- 
 
    This command will make the sample labeling tool available through a web browser. Go to `http://localhost:3000`.
 
@@ -93,7 +120,8 @@ Fill in the fields with the following values:
 * **Description** - Your project description.
 * **SAS URL** - The shared access signature (SAS) URL of your Azure Blob Storage container. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Set the expiry time to some time after you'll have used the service. Make sure the **Read**, **Write**, **Delete**, and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
-![Connection settings of sample labeling tool](../media/label-tool/connections.png)
+:::image type="content" source="../media/label-tool/connections.png" alt-text="Connection settings of sample labeling tool.":::
+
 
 ## Create a new project
 
@@ -107,7 +135,7 @@ In the sample labeling tool, projects store your configurations and settings. Cr
 * **API Key** - Your Form Recognizer subscription key.
 * **Description** - Optional - Project description
 
-![New project page on sample labeling tool](../media/label-tool/new-project.png)
+:::image type="content" source="../media/label-tool/new-project.png" alt-text="New project page on sample labeling tool.":::
 
 ## Label your forms
 
@@ -121,10 +149,15 @@ When you create or open a project, the main tag editor window opens. The tag edi
 
 Click **Run OCR on all files** on the left pane to get the text layout information for each document. The labeling tool will draw bounding boxes around each text element.
 
+It will also show which tables have been automatically extracted. Click on the table/grid icon on the left hand of the document to see the extracted table. In this quickstart, because the table content is automatically extracted, we will not be labeling the table content, but rather rely on the automated extraction.
+
+:::image type="content" source="../media/label-tool/table-extraction.png" alt-text="Table visualization in sample labeling tool.":::
+
 ### Apply labels to text
 
 Next, you'll create tags (labels) and apply them to the text elements that you want the model to recognize.
 
+# [v2.0](#tab/v2-0)  
 1. First, use the tags editor pane to create the tags you'd like to identify.
    1. Click **+** to create a new tag.
    1. Enter the tag name.
@@ -142,7 +175,30 @@ Next, you'll create tags (labels) and apply them to the text elements that you w
     > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
     > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
 
-![Main editor window of sample labeling tool](../media/label-tool/main-editor.png)
+
+# [v2.1 preview](#tab/v2-1) 
+1. First, use the tags editor pane to create the tags you'd like to identify.
+   1. Click **+** to create a new tag.
+   1. Enter the tag name.
+   1. Press Enter to save the tag.
+1. In the main editor, click to select words from the highlighted text elements. In the _v2.1 preview_ you can also click to select _Selection Marks_ like radio buttons and checkboxes as key value pairs. Form Recognizer will identify whether the selection mark is "selected" or "unselected" as the value.
+1. Click on the tag you want to apply, or press the corresponding keyboard key. The number keys are assigned as hotkeys for the first 10 tags. You can reorder your tags using the up and down arrow icons in the tag editor pane.
+    > [!Tip]
+    > Keep the following tips in mind when you're labeling your forms.
+    > * You can only apply one tag to each selected text element.
+    > * Each tag can only be applied once per page. If a value appears multiple times on the same form, create different tags for each instance. For example: "invoice# 1", "invoice# 2" and so on.
+    > * Tags cannot span across pages.
+    > * Label values as they appear on the form; don't try to split a value into two parts with two different tags. For example, an address field should be labeled with a single tag even if it spans multiple lines.
+    > * Don't include keys in your tagged fields&mdash;only the values.
+    > * Table data should be detected automatically and will be available in the final output JSON file. However, if the model fails to detect all of your table data, you can manually tag these fields as well. Tag each cell in the table with a different label. If your forms have tables with varying numbers of rows, make sure you tag at least one form with the largest possible table.
+    > * Use the buttons to the right of the **+** to search, rename, reorder, and delete your tags.
+    > * To remove an applied tag without deleting the tag itself, select the tagged rectangle on the document view and press the delete key.
+
+
+---
+
+:::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Main editor window of sample labeling tool.":::
+
 
 Follow the steps above to label at least five of your forms.
 
@@ -162,11 +218,14 @@ The following value types and variations are currently supported:
     * default, `dmy`, `mdy`, `ymd`
 * `time`
 * `integer`
+* `selectionMark` – _New in v2.1-preview.1!_
 
 > [!NOTE]
 > See these rules for date formatting:
 > 
-> The following characters can be used as DMY date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
+> You must specify a format (`dmy`, `mdy`, `ymd`) for date formatting to work.
+>
+> The following characters can be used as date delimiters: `, - / . \`. Whitespace cannot be used as a delimiter. For example:
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
@@ -175,11 +234,11 @@ The following value types and variations are currently supported:
 > * 1-1-2020
 > * 1-01-20
 >
-> If a DMY date string has eight digits, the delimiter is optional:
+> If a date string has eight digits, the delimiter is optional:
 > * 01012020
 > * 01 01 2020
 >
-> The month can also be written as its full or short name. If the name is used, delimiter characters are optional:
+> The month can also be written as its full or short name. If the name is used, delimiter characters are optional. However, this format may be recognized less accurately than others.
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020
@@ -192,14 +251,32 @@ Click the Train icon on the left pane to open the Training page. Then click the 
 * **Average Accuracy** - The model's average accuracy. You can improve model accuracy by labeling additional forms and training again to create a new model. We recommend starting by labeling five forms and adding more forms as needed.
 * The list of tags, and the estimated accuracy per tag.
 
-![training view](../media/label-tool/train-screen.png)
+
+:::image type="content" source="../media/label-tool/train-screen.png" alt-text="Training view.":::
 
 After training finishes, examine the **Average Accuracy** value. If it's low, you should add more input documents and repeat the steps above. The documents you've already labeled will remain in the project index.
 
 > [!TIP]
 > You can also run the training process with a REST API call. To learn how to do this, see [Train with labels using Python](./python-labeled-data.md).
 
-## Analyze a form
+## Compose trained models
+
+# [v2.0](#tab/v2-0)  
+
+This feature is currently available in v2.1. preview. 
+
+# [v2.1 preview](#tab/v2-1) 
+
+With Model Compose, you can compose up to 100 models to a single model ID. When you call Analyze with this composed model ID, Form Recognizer will first classify the form you submitted, matching it to the best matching model, and then return results for that model. This is useful when incoming forms may belong to one of several templates.
+
+To compose models in the sample labeling tool, click on the Model Compose (merging arrow) icon on the left. On the left, select the models you wish to compose together. Models with the arrows icon are already composed models. 
+Click on the "Compose" button. In the pop up, name your new composed model and click "Compose". When the operation completes, your new composed model should appear in the list. 
+
+:::image type="content" source="../media/label-tool/model-compose.png" alt-text="Model compose UX view.":::
+
+---
+
+## Analyze a form 
 
 Click on the Predict (light bulb) icon on the left to test your model. Upload a form document that you haven't used in the training process. Then click the **Predict** button on the right to get key/value predictions for the form. The tool will apply tags in bounding boxes and will report the confidence of each tag.
 
@@ -224,11 +301,14 @@ When you want to resume your project, you first need to create a connection to t
 
 ### Resume a project
 
-Finally, go to the main page (house icon) and click Open Cloud Project. Then select the blob storage connection, and select your project's *.vott* file. The application will load all of the project's settings because it has the security token.
+Finally, go to the main page (house icon) and click Open Cloud Project. Then select the blob storage connection, and select your project's *.fott* file. The application will load all of the project's settings because it has the security token.
 
 ## Next steps
 
-In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to integrate the labeling tool into your own application, use the REST APIs that deal with labeled data training.
+In this quickstart, you've learned how to use the Form Recognizer sample labeling tool to train a model with manually labeled data. If you'd like to build your own utility to label training data, use the REST APIs that deal with labeled data training.
 
 > [!div class="nextstepaction"]
 > [Train with labels using Python](./python-labeled-data.md)
+
+* [What is Form Recognizer?](../overview.md)
+* [Form Recognizer client library quickstarts](client-library.md)

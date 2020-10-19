@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot common errors
 description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
-ms.date: 06/29/2020
+ms.date: 10/14/2020
 ms.topic: troubleshooting
 ---
 # Troubleshoot errors using Azure Blueprints
@@ -21,11 +21,11 @@ it can be fixed and the next deployment succeeds.
    blueprint assignments to find the failed assignment. You can also sort the table of assignments
    by the **Provisioning State** column to see all failed assignments grouped together.
 
-1. Left-click on the blueprint with the _Failed_ status or right-click and select **View assignment
+1. Select the blueprint with the _Failed_ status or right-click and select **View assignment
    details**.
 
 1. A red banner warning that the assignment has failed is at the top of the blueprint assignment
-   page. Click anywhere on the banner to get more details.
+   page. Select anywhere on the banner to get more details.
 
 It's common for the error to be caused by an artifact and not the blueprint as a whole. If an
 artifact creates a Key Vault and Azure Policy prevents Key Vault creation, the entire assignment
@@ -68,8 +68,8 @@ dynamic function.
 
 To pass a function through as a parameter, escape the entire string with `[` such that the blueprint
 parameter looks like `[[resourceGroup().tags.myTag]`. The escape character causes Blueprints to
-treat the value as a string when processing the blueprint. Blueprints then places the function on
-the artifact allowing it to be dynamic as expected. For more information, see
+treat the value as a string when processing the blueprint. The Blueprints service then places the
+function on the artifact allowing it to be dynamic as expected. For more information, see
 [Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/templates/template-expressions.md).
 
 ## Delete errors
@@ -88,7 +88,7 @@ status code to Azure Blueprints.
 
 #### Resolution
 
-Blueprint assignments in a non-terminal state are automatically marked **Failed** after a _6 hour_
+Blueprint assignments in a non-terminal state are automatically marked **Failed** after a _six-hour_
 timeout. Once the timeout has adjusted the state of the blueprint assignment, the delete can be
 retried.
 

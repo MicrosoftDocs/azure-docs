@@ -4,7 +4,7 @@ description: Learn how Azure Cosmos DB provides database protection with Active 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/03/2020
+ms.date: 09/23/2020
 ms.author: mjbrown
 ---
 
@@ -20,11 +20,11 @@ The following are the built-in roles supported by Azure Cosmos DB:
 |---------|---------|
 |[DocumentDB Account Contributor](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Can manage Azure Cosmos DB accounts.|
 |[Cosmos DB Account Reader](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Can read Azure Cosmos DB account data.|
-|[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Can submit restore request for an Azure Cosmos database or a container.|
-|[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Can provision Azure Cosmos accounts, databases, and containers but cannot access the keys that are required to access the data.|
+|[Cosmos Backup Operator](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Can submit restore request for an Azure Cosmos database or a container. Cannot access any data or use Data Explorer.|
+|[Cosmos DB Operator](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|Can provision Azure Cosmos accounts, databases, and containers. Cannot access any data or use Data Explorer.|
 
 > [!IMPORTANT]
-> RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using master keys or resource tokens. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
+> RBAC support in Azure Cosmos DB applies to control plane operations only. Data plane operations are secured using primary keys or resource tokens. To learn more, see [Secure access to data in Azure Cosmos DB](secure-access-to-data.md)
 
 ## Identity and access management (IAM)
 
@@ -35,6 +35,9 @@ The **Access control (IAM)** pane in the Azure portal is used to configure role-
 ## Custom roles
 
 In addition to the built-in roles, users may also create [custom roles](../role-based-access-control/custom-roles.md) in Azure and apply these roles to service principals across all subscriptions within their Active Directory tenant. Custom roles provide users a way to create Azure role definitions with a custom set of resource provider operations. To learn which operations are available for building custom roles for Azure Cosmos DB see, [Azure Cosmos DB resource provider operations](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb)
+
+> [!TIP]
+> Custom roles that need to access data stored within Cosmos DB or use Data Explorer in the Azure portal must have `Microsoft.DocumentDB/databaseAccounts/listKeys/*` action.
 
 ## <a id="prevent-sdk-changes"></a>Preventing changes from the Azure Cosmos DB SDKs
 

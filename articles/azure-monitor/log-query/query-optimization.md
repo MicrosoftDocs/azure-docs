@@ -49,6 +49,8 @@ The following query performance indicators are available for every query that is
 ## Total CPU
 The actual compute CPU that was invested to process this query across all the query processing nodes. Since most queries are executed on large numbers of nodes, this will usually be much larger than the duration the query actually took to execute. 
 
+Query that utilizes more than 100 seconds of CPU is considered a query that consumes excessive resources. Query that utilizes more than 1,000 seconds of CPU is considered an abusive query and might be throttled.
+
 Query processing time is spent on:
 - Data retrieval – retrieval of old data will consume more time than retrieval of recent data.
 - Data processing – logic and evaluation of the data. 
@@ -92,18 +94,34 @@ For example, the following queries produce exactly the same result but the secon
 
 ```Kusto
 //less efficient
-Heartbeat 
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| where IPRegion == "WestCoast"
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| extend Msg = strcat("Syslog: ",SyslogMessage)
+| where  Msg  has "Error"
+| count 
 ```
 ```Kusto
 //more efficient
-Heartbeat 
-| where RemoteIPLongitude  < -94
-| extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count(), make_set(IPRegion) by Computer
+Syslog
+| where  SyslogMessage  has "Error"
+| count 
 ```
+
+In some cases the evaluated column is created implicitly by the query processing enine since the filtering is done not just on the field:
+```Kusto
+//less efficient
+SecurityEvent
+| where tolower(Process) == "conhost.exe"
+| count 
+```
+```Kusto
+//more efficient
+SecurityEvent
+| where Process =~ "conhost.exe"
+| count 
+```
+
+
+
 
 ### Use effective aggregation commands and dimensions in summarize and join
 
@@ -172,6 +190,8 @@ SecurityEvent
 ## Data used for processed query
 
 A critical factor in the processing of the query is the volume of data that is scanned and used for the query processing. Azure Data Explorer uses aggressive optimizations that dramatically reduce the data volume compared to other data platforms. Still, there are critical factors in the query that can impact the data volume that is used.
+
+Query that processes more than 2,000KB of data is considered a query that consumes excessive resources. Query that is processing more than 20,000KB of data is considered an abusive query and might be throttled.
 
 In Azure Monitor Logs, the **TimeGenerated** column is used as a way to index the data. Restricting the **TimeGenerated** values to as narrow a range as possible will make a significant improvement to query performance by significantly limiting the amount of data that has to be processed.
 
@@ -271,7 +291,7 @@ SecurityEvent
 | distinct FilePath, CallerProcessName1
 ```
 
-When the above doesn't allow to avoid using sub-queries, another technique is to hint to the query engine that there is a single source data used in each one of them using the [materialize() function](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). This is useful when the source data is coming from a function that is used several times within the query.
+When the above doesn't allow to avoid using sub-queries, another technique is to hint to the query engine that there is a single source data used in each one of them using the [materialize() function](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). This is useful when the source data is coming from a function that is used several times within the query. Materialize is effective when the output of the sub-query is much smaller than the input. The query engine will cache and reuse the output in all occurrences.
 
 
 
@@ -295,6 +315,8 @@ SecurityEvent
 ## Time span of the processed query
 
 All logs in Azure Monitor Logs are partitioned according to the **TimeGenerated** column. The number of partitions that are accessed are directly related to the time span. Reducing the time range is the most efficient way of assuring a prompt query execution.
+
+Query with time span of more than 15 days is considered a query that consumes excessive resources. Query with time span of more than 90 days is considered an abusive query and might be throttled.
 
 The time range can be set using the time range selector in the Log Analytics screen as described in [Log query scope and time range in Azure Monitor Log Analytics](scope.md#time-range). This is the recommended method as the selected time range is passed to the backend using the query metadata. 
 
@@ -385,6 +407,9 @@ There are several cases where the system cannot provide an accurate measurement 
 ## Age of processed data
 Azure Data Explorer uses several storage tiers: in-memory, local SSD disks and much slower Azure Blobs. The newer the data, the higher is the chance that it is stored in a more performant tier with smaller latency, reducing the query duration and CPU. Other than the data itself, the system also has a cache for metadata. The older the data, the less chance its metadata will be in cache.
 
+Query that processes data than is more than 14 days old is considered a query that consumes excessive resources.
+
+
 While some queries require usage of old data, there are cases where old data is used by mistake. This happens when queries are executed without providing time range in their meta-data and not all table references include filter on the **TimeGenerated** column. In these cases, the system will scan all the data that is stored in that table. When the data retention is long, it can cover long time ranges and thus data that is as old as the data retention period.
 
 Such cases can be for example:
@@ -404,6 +429,8 @@ There are several situations where a single query might be executed across diffe
 Cross-region query execution requires the system to serialize and transfer in the backend large chunks of intermediate data that are usually much larger than the query final results. It also limits the system's ability to perform optimizations, heuristics, and utilize caches.
 If there is no real reason to scan all these regions, you should adjust the scope so it covers fewer regions. If the resource scope is minimized but still many regions are used, it might happen due to misconfiguration. For example, audit logs and diagnostic settings are sent to different workspaces in different regions or there are multiple diagnostic settings configurations. 
 
+Query that spans more than 3 regions is considered a query that consumes excessive resources. Query that spans more than 6 regions is considered an abusive query and might be throttled.
+
 > [!IMPORTANT]
 > When a query is run across several regions, the CPU and data measurements will not be accurate and will represent the measurement only on one of the regions.
 
@@ -416,6 +443,8 @@ Usage of multiple workspaces can result from:
 - When a resource-scoped query is fetching data and the data is stored in multiple workspaces.
  
 Cross-region and cross-cluster execution of queries requires the system to serialize and transfer in the backend large chunks of intermediate data that are usually much larger than the query final results. It also limits the system ability to perform optimizations, heuristics and utilizing caches.
+
+Query that spans more than 5 workspace is considered a query that consumes excessive resources. Queries cannot span to to more than 100 workspaces.
 
 > [!IMPORTANT]
 > In some multi-workspace scenarios, the CPU and data measurements will not be accurate and will represent the measurement only to few of the workspaces.

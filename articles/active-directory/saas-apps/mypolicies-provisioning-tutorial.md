@@ -92,11 +92,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input `https://<myPoliciesCustomDomain>.mypolicies.com/scim` in **Tenant URL** where `<myPoliciesCustomDomain>` is your myPolicies custom domain. You can retrieve your myPolicies customer domain, from your URL.
 Example: `<demo0-qa>`.mypolicies.com.
@@ -113,11 +113,22 @@ Example: `<demo0-qa>`.mypolicies.com.
 
 9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to myPolicies**.
 
-	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/usermapping.png)
+	:::image type="content" source="media/mypolicies-provisioning-tutorial/usermapping.png" alt-text="Screenshot of the Mappings section. Under Name, Synchronize Azure Active Directory Users to customappsso is visible." border="false":::
 
 10. Review the user attributes that are synchronized from Azure AD to myPolicies in the **Attribute Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in myPolicies for update operations. Select the **Save** button to commit any changes.
 
-	![myPolicies User Mappings](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |Attribute|Type|
+   |---|---|
+   |userName|String|
+   |active|Boolean|
+   |emails[type eq "work"].value|String|
+   |name.givenName|String|
+   |name.familyName|String|
+   |name.formatted|String|
+   |externalId|String|
+   |addresses[type eq "work"].country|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
+
 
 11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -141,6 +152,10 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
 
 * myPolicies always requires **userName**, **email** and **externalId**.
 * myPolicies does not support hard deletes for user attributes.
+
+## Change log
+
+* 09/15/2020 - Added support for "country" attribute for Users.
 
 ## Additional resources
 

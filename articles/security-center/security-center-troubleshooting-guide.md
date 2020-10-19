@@ -25,7 +25,7 @@ Alert types:
 
 * Virtual Machine Behavioral Analysis (VMBA)
 * Network Analysis
-* SQL Database and SQL Data Warehouse Analysis
+* SQL Database and Azure Synapse Analytics (formerly SQL Data Warehouse) Analysis
 * Contextual Information
 
 Depending on the alert types, customers can gather the necessary information to investigate the alert by using the following resources:
@@ -87,7 +87,7 @@ There are two installation scenarios that can produce different results when ins
 | Installation failed -  local agent already installed | Log Analytics agent install failed. Security Center identified a local agent (Log Analytics or System Center Operations Manager) already installed on the VM. To avoid multi-homing configuration, where the VM is reporting to two separate workspaces, the Log Analytics agent installation stopped. | There are two ways to resolve: [manually install the extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) and connect it to your desired workspace. Or, set your desired workspace as your default workspace and enable automatic provisioning of the agent.  See [enable automatic provisioning](security-center-enable-data-collection.md). |
 | Agent cannot connect to workspace | Log Analytics agent installed but failed due to network connectivity.  Check that there is  internet access or that a valid HTTP proxy has been configured for the agent. | See monitoring agent network requirements. |
 | Agent connected to missing or unknown workspace | Security Center identified that the Log Analytics agent installed on the VM is connected to a workspace which it doesn't have access to. | This can happen in two cases. The workspace was deleted and no longer exists. Reinstall the agent with the correct workspace or uninstall the agent and allow Security Center to complete its automatic provisioning installation. The second case is where the workspace is part of a subscription that Security Center does not have permissions to. Security Center requires subscriptions to allow the Microsoft Security Resource Provider to access them. To enable, register the subscription to the Microsoft Security Resource Provider. This can be done by API, PowerShell, portal or by simply filtering on the subscription in the Security Center **Overview** dashboard. See [Resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) for more information. |
-| Agent not responsive or missing ID | Security Center is unable to retrieve security data scanned from the VM, even though the agent is installed. | The agent is not reporting any data, including heartbeat. The agent might be damaged or something is blocking traffic. Or, the agent is reporting data but is missing an Azure resource ID so it's impossible to match the data to the Azure VM. To troubleshoot Linux, see [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). To troubleshoot Windows, see [Troubleshooting Windows Virtual Machines](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
+| Agent not responsive or missing ID | Security Center is unable to retrieve security data scanned from the VM, even though the agent is installed. | The agent is not reporting any data, including heartbeat. The agent might be damaged or something is blocking traffic. Or, the agent is reporting data but is missing an Azure resource ID so it's impossible to match the data to the Azure VM. To troubleshoot Linux, see [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). To troubleshoot Windows, see [Troubleshooting Windows Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#troubleshoot-and-support). |
 | Agent not installed | Data collection is disabled. | Turn on data collection in the security policy or manually install the Log Analytics agent. |
 
 ## Troubleshooting monitoring agent network requirements <a name="mon-network-req"></a>
@@ -128,7 +128,7 @@ If you experience issues loading the Security Center dashboard, ensure that the 
 
 ## Contacting Microsoft Support
 
-Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Microsoft Q&A question page](https://docs.microsoft.com/answers/topics/azure-security-center.html). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
+Some issues can be identified using the guidelines provided in this article, others you can also find documented at the Security Center public [Microsoft Q&A page](https://docs.microsoft.com/answers/topics/azure-security-center.html). However if you need further troubleshooting, you can open a new support request using **Azure portal** as shown below:
 
 ![Microsoft Support](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
@@ -147,4 +147,4 @@ In this document, you learned how to configure security policies in Azure Securi
 * [Azure Security Center detection capabilities](security-center-detection-capabilities.md)
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQ](faq-general.md) — Find frequently asked questions about using the service
-* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance
+* [Azure Security Blog](https://docs.microsoft.com/archive/blogs/azuresecurity/) — Find blog posts about Azure security and compliance

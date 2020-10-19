@@ -9,7 +9,7 @@ tags: azure-service-management
 ms.assetid: a0c85092-2113-4982-b73a-4e80160bac36
 ms.service: virtual-machines-sql
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/18/2019
@@ -46,7 +46,7 @@ For more information on *how* and *why* to make these optimizations, please revi
 
 ## VM size guidance
 
-Start by collecting the cpu, memory, and storage throughput requirements of the workload at peak times. \LogicalDisk\Disk Reads/Sec and \LogicalDisk\Disk Writes/Sec performance counters can be used to collect read and write IOPS requirements and \LogicalDisk\Disk Bytes/Sec counter can be used to collect [storage throughput requirements](../../../virtual-machines/windows/premium-storage-performance.md#disk-caching) for Data, Log, and Temp DB files. After IOPS and throughput requirements at peak are defined then evaluate VM sizes offers that capacity. For example if your workload requires 20 K read IOPS and 10K write IOPS at peak, you can either choose E16s_v3 (with up to 32 K cached and 25600 uncached IOPS) or M16_s (with up to 20 K cached and 10K uncached IOPS) with 2 P30 disks. Make sure to understand both throughput and IOPS requirements of the workload as VMs has different scale limits for IOPS and throughput.<br/><br/>[DSv_3](../../../virtual-machines/dv3-dsv3-series.md) and [Es_v3-series](../../../virtual-machines/ev3-esv3-series.md) are hosted on general purpose hardware with Intel Haswell or Broadwell processors. [M-series](../../../virtual-machines/m-series.md) offers the highest vCPU count and memory for the largest SQL Server workloads and hosted on memory optimized hardware with Skylake processor family. These VM series support premium storage, which is recommended for the best performance with host level read cache. Both Es_v3 and M series are also available in [constrained core sizes](../../../virtual-machines/windows/constrained-vcpu.md), which saves money for workloads with lower compute and high storage capacity demands. 
+Start by collecting the cpu, memory, and storage throughput requirements of the workload at peak times. \LogicalDisk\Disk Reads/Sec and \LogicalDisk\Disk Writes/Sec performance counters can be used to collect read and write IOPS requirements and \LogicalDisk\Disk Bytes/Sec counter can be used to collect [storage throughput requirements](../../../virtual-machines/premium-storage-performance.md#disk-caching) for Data, Log, and Temp DB files. After IOPS and throughput requirements at peak are defined then evaluate VM sizes offers that capacity. For example if your workload requires 20 K read IOPS and 10K write IOPS at peak, you can either choose E16s_v3 (with up to 32 K cached and 25600 uncached IOPS) or M16_s (with up to 20 K cached and 10K uncached IOPS) with 2 P30 disks. Make sure to understand both throughput and IOPS requirements of the workload as VMs has different scale limits for IOPS and throughput.<br/><br/>[DSv_3](../../../virtual-machines/dv3-dsv3-series.md) and [Es_v3-series](../../../virtual-machines/ev3-esv3-series.md) are hosted on general purpose hardware with Intel Haswell or Broadwell processors. [M-series](../../../virtual-machines/m-series.md) offers the highest vCPU count and memory for the largest SQL Server workloads and hosted on memory optimized hardware with Skylake processor family. These VM series support premium storage, which is recommended for the best performance with host level read cache. Both Es_v3 and M series are also available in [constrained core sizes](../../../virtual-machines/constrained-vcpu.md), which saves money for workloads with lower compute and high storage capacity demands. 
 
 ## Storage guidance
 
@@ -79,7 +79,7 @@ Default caching policy on the operating system disk is **Read/Write**. For perfo
 
 The temporary storage drive, labeled as the **D** drive, is not persisted to Azure Blob storage. Do not store your user database files or user transaction log files on the **D**: drive.
 
-Place TempDB on the local SSD `D:\` drive for mission critical SQL Server workloads (after choosing correct VM size). If you create the VM from the Azure portal or Azure quickstart templates and [place Temp DB on the Local Disk](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583), then you do not need any further action; for all other cases follow the steps in the blog for  [Using SSDs to store TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) to prevent failures after restarts. If the capacity of the local drive is not enough for your Temp DB size, then place Temp DB on a storage pool [striped](../../../virtual-machines/windows/premium-storage-performance.md) on premium SSD disks with [read-only caching](../../../virtual-machines/windows/premium-storage-performance.md#disk-caching).
+Place TempDB on the local SSD `D:\` drive for mission critical SQL Server workloads (after choosing correct VM size). If you create the VM from the Azure portal or Azure quickstart templates and [place Temp DB on the Local Disk](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583), then you do not need any further action; for all other cases follow the steps in the blog for  [Using SSDs to store TempDB](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) to prevent failures after restarts. If the capacity of the local drive is not enough for your Temp DB size, then place Temp DB on a storage pool [striped](../../../virtual-machines/premium-storage-performance.md) on premium SSD disks with [read-only caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
 For VMs that support premium SSDs, you can also store TempDB on a disk that supports premium SSDs with read caching enabled.
 
@@ -192,10 +192,23 @@ If you are using Storage Spaces, when adding nodes to the cluster on the **Confi
 
 If you are using Storage Spaces and do not uncheck **Add all eligible storage to the cluster**, Windows detaches the virtual disks during the clustering process. As a result, they do not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](/windows-server/storage/storage-spaces/overview).
 
+## Multiple instances 
+
+Consider the following best practices when deploying multiple SQL Server instances to a single virtual machine: 
+
+- Set the max server memory for each SQL Server instance, ensuring there is memory left over for the operating system. Be sure to update the memory restrictions for the SQL Server instances if you change how much memory is allocated to the virtual machine. 
+- Have separate LUNs for data, logs, and TempDB since they all have different workload patterns and you do not want them impacting each other. 
+- Thoroughly test your environment under heavy production-like workloads to ensure it can handle peak workload capacity within your application SLAs. 
+
+Signs of overloaded systems can include, but are not limited to, worker thread exhaustion, slow response times, and/or stalled dispatcher system memory. 
+
+
+
+
 ## Next steps
 
-For more information about storage and performance, see [Storage Configuration Guidelines for SQL Server on Azure Virtual Machines](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
+For more information about storage and performance, see [Storage configuration guidelines for SQL Server on Azure Virtual Machines](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/25/storage-configuration-guidelines-for-sql-server-on-azure-vm/)
 
-For security best practices, see [Security Considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
+For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
 
 Review other SQL Server Virtual Machine articles at [SQL Server on Azure Virtual Machines Overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.md).

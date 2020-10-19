@@ -1,9 +1,9 @@
 ---
 title: Server-side encryption of Azure Managed Disks - Azure CLI
-description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can rely on Microsoft-managed keys for the encryption of your managed disks, or you can use customer-managed keys to manage encryption with your own keys.
+description: Azure Storage protects your data by encrypting it at rest before persisting it to Storage clusters. You can use customer-managed keys to manage encryption with your own keys, or you can rely on Microsoft-managed keys for the encryption of your managed disks.
 author: roygara
 
-ms.date: 07/10/2020
+ms.date: 09/23/2020
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-linux
@@ -41,6 +41,10 @@ For now, customer-managed keys have the following restrictions:
     If you need to work around this, you must [copy all the data](disks-upload-vhd-to-managed-disk-cli.md#copy-a-managed-disk) to an entirely different managed disk that isn't using customer-managed keys.
 [!INCLUDE [virtual-machines-managed-disks-customer-managed-keys-restrictions](../../../includes/virtual-machines-managed-disks-customer-managed-keys-restrictions.md)]
 
+#### Supported regions
+
+Customer-managed keys are available in all regions that managed disks are available.
+
 > [!IMPORTANT]
 > Customer-managed keys rely on managed identities for Azure resources, a feature of Azure Active Directory (Azure AD). When you configure customer-managed keys, a managed identity is automatically assigned to your resources under the covers. If you subsequently move the subscription, resource group, or managed disk from one Azure AD directory to another, the managed identity associated with managed disks isn't transferred to the new tenant, so customer-managed keys may no longer work. For more information, see [Transferring a subscription between Azure AD directories](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).
 
@@ -68,7 +72,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ### Supported regions
 
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+Double encryption is available in all regions that managed disks are available.
 
 ## Server-side encryption versus Azure disk encryption
 
@@ -76,7 +80,7 @@ High security sensitive customers who are concerned of the risk associated with 
 
 ## Next steps
 
-- Enable end-to-end encryption using encryption at host with either [CLI](disks-enable-host-based-encryption-cli.md) or the [Azure portal](disks-enable-host-based-encryption-portal.md).
-- Enable double encryption at rest for managed disks with either [CLI](disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](disks-enable-double-encryption-at-rest-portal.md).
-- Enable customer-managed keys for managed disks with either [CLI](disks-enable-customer-managed-keys-cli.md) or the [Azure portal](disks-enable-customer-managed-keys-portal.md).
+- Enable end-to-end encryption using encryption at host with either [CLI](disks-enable-host-based-encryption-cli.md) or the [Azure portal](../disks-enable-host-based-encryption-portal.md).
+- Enable double encryption at rest for managed disks with either [CLI](disks-enable-double-encryption-at-rest-cli.md) or the [Azure portal](../disks-enable-double-encryption-at-rest-portal.md).
+- Enable customer-managed keys for managed disks with either [CLI](disks-enable-customer-managed-keys-cli.md) or the [Azure portal](../disks-enable-customer-managed-keys-portal.md).
 - [What is Azure Key Vault?](../../key-vault/general/overview.md)

@@ -1,14 +1,17 @@
 ---
 title: Integrate Azure Key Vault with Kubernetes
 description: In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount into Kubernetes pods.
-author: rkarlin
-ms.author: rkarlin
+author: ShaneBala-keyvault
+ms.author: sudbalas
 ms.service: key-vault
 ms.topic: tutorial
-ms.date: 06/04/2020
+ms.date: 09/25/2020
 ---
 
 # Tutorial: Configure and run the Azure Key Vault provider for the Secrets Store CSI driver on Kubernetes
+
+> [!IMPORTANT]
+> CSI Driver is an open source project that is not supported by Azure technical support. Please report all feedback and issues related to CSI Driver Key Vault integration on the github link at the bottom of the page. This tool is provided for users to self-install into clusters and gather feedback from our community.
 
 In this tutorial, you access and retrieve secrets from your Azure key vault by using the Secrets Store Container Storage Interface (CSI) driver to mount the secrets into Kubernetes pods.
 
@@ -62,7 +65,7 @@ Complete the "Create a resource group," "Create AKS cluster," and "Connect to th
     ```azurecli
     kubectl version
     ```
-1. Ensure that your Kubernetes version is 1.16.0 or later. The following command upgrades both the Kubernetes cluster and the node pool. The command might take a couple of minutes to execute. In this example, the resource group is *contosoResourceGroup*, and the Kubernetes cluster is *contosoAKSCluster*.
+1. Ensure that your Kubernetes version is 1.16.0 or later. For windows clusters, ensure your Kubernetes version is 1.18.0 or later. The following command upgrades both the Kubernetes cluster and the node pool. The command might take a couple of minutes to execute. In this example, the resource group is *contosoResourceGroup*, and the Kubernetes cluster is *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
@@ -103,18 +106,20 @@ To create your own key vault and set your secrets, follow the instructions in [S
 
 ## Create your own SecretProviderClass object
 
-To create your own custom SecretProviderClass object with provider-specific parameters for the Secrets Store CSI driver, [use this template](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass.yaml). This object will provide identity access to your key vault.
+To create your own custom SecretProviderClass object with provider-specific parameters for the Secrets Store CSI driver, [use this template](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml). This object will provide identity access to your key vault.
 
 In the sample SecretProviderClass YAML file, fill in the missing parameters. The following parameters are required:
 
-* **userAssignedIdentityID**: The client ID of the service principal
+* **userAssignedIdentityID**: # [REQUIRED] If you're using a service principal, use the client ID to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client ID. If the value is empty, it defaults to use the system-assigned identity on the VM 
 * **keyvaultName**: The name of your key vault
 * **objects**: The container for all of the secret content you want to mount
     * **objectName**: The name of the secret content
     * **objectType**: The object type (secret, key, certificate)
-* **resourceGroup**: The name of the resource group
-* **subscriptionId**: The subscription ID of your key vault
+* **resourceGroup**: The name of the resource group  # [REQUIRED for version < 0.0.4] the resource group of the KeyVault
+* **subscriptionId**: The subscription ID of your key vault # [REQUIRED for version < 0.0.4] the subscription ID of the KeyVault
 * **tenantID**: The tenant ID, or directory ID, of your key vault
+
+Documentation of all required fields is available here: [Link](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
 
 The updated template is shown in the following code. Download it as a YAML file, and fill in the required fields. In this example, the key vault is **contosoKeyVault5**. It has two secrets, **secret1** and **secret2**.
 
@@ -129,7 +134,7 @@ metadata:
 spec:
   provider: azure
   parameters:
-    usePodIdentity: "false"         		  # [REQUIRED] Set to "true" if using managed identities
+    usePodIdentity: "false"                   # [REQUIRED] Set to "true" if using managed identities
     useVMManagedIdentity: "false"             # [OPTIONAL] if not provided, will default to "false"
     userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED] If you're using a service principal, use the client id to specify which user-assigned managed identity to use. If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
                                                              #     az ad sp show --id http://contosoServicePrincipal --query appId -o tsv
@@ -137,12 +142,12 @@ spec:
     keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
                                               #     az keyvault show --name contosoKeyVault5
                                               #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
-    cloudName: ""          			          # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud
+    cloudName: ""                                # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud
     objects:  |
       array:
         - |
           objectName: secret1                 # [REQUIRED] object name
-                                              #     az keyvault secret list --vault-name “contosoKeyVault5”
+                                              #     az keyvault secret list --vault-name "contosoKeyVault5"
                                               #     the above command will display a list of secret names from your key vault
           objectType: secret                  # [REQUIRED] object types: secret, key, or cert
           objectVersion: ""                   # [OPTIONAL] object versions, default to latest if empty
@@ -203,6 +208,9 @@ If you're using managed identities, assign specific roles to the AKS cluster you
 1. To create, list, or read a user-assigned managed identity, your AKS cluster needs to be assigned the [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role. Make sure that the **$clientId** is the Kubernetes cluster's clientId. For the scope, it will be under your Azure subscription service, specifically the node resource group that was made when the AKS cluster was created. This scope will ensure only resources within that group are affected by the roles assigned below. 
 
     ```azurecli
+    RESOURCE_GROUP=contosoResourceGroup
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$RESOURCE_GROUP
+    
     az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
     
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/$SUBID/resourcegroups/$NODE_RESOURCE_GROUP
@@ -297,6 +305,8 @@ spec:
         readOnly: true
         volumeAttributes:
           secretProviderClass: azure-kvname
+        nodePublishSecretRef:
+          name: secrets-store-creds 
 ```
 
 Run the following command to deploy your pod:

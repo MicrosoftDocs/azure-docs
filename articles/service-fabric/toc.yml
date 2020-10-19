@@ -4,12 +4,16 @@
   items:
   - name: What is Service Fabric?
     href: service-fabric-overview.md
+  - name: Service Fabric managed clusters
+    href: overview-managed-cluster.md
 - name: Quickstarts
   expanded: true
   items:
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-cluster-template.md
+  - name: Managed cluster
+    href: quickstart-managed-cluster-template.md
   - name: Create .NET application
     href: service-fabric-quickstart-dotnet.md
   - name: Deploy a Linux container application
@@ -64,6 +68,16 @@
       href: service-fabric-tutorial-package-containers.md
     - name: 3- Fail over and scale
       href: service-fabric-tutorial-containers-failover.md
+  - name: Create a Service Fabric managed cluster
+    items:
+    - name: 1- Deploy a Service Fabric managed cluster
+      href: tutorial-managed-cluster-deploy.md
+    - name: 2- Scale out a managed cluster node type
+      href: tutorial-managed-cluster-scale.md
+    - name: 3- Add and remove managed cluster node types
+      href: tutorial-managed-cluster-add-remove-node-type.md
+    - name: 4- Connect to a managed cluster and deploy an application
+      href: tutorial-managed-cluster-deploy-app.md
   - name: Create and manage a cluster
     items:
     - name: 1- Create a cluster on Azure
@@ -116,9 +130,6 @@
     href: service-fabric-powershell-samples.md
   - name: Service Fabric CLI
     href: samples-cli.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Understand microservices
@@ -158,7 +169,7 @@
       items:
       - name: Containers overview
         href: service-fabric-containers-overview.md
-      - name: Docker compose (preview)
+      - name: Docker compose
         href: service-fabric-docker-compose.md
       - name: Probes
         href: probes-codepackage.md
@@ -434,7 +445,7 @@
         href: service-fabric-deploy-existing-app.md
     - name: Build a container service
       items:      
-      - name: Docker compose (preview)
+      - name: Docker compose
         href: service-fabric-docker-compose.md
       - name: Volume and logging drivers
         href: service-fabric-containers-volume-logging-drivers.md
@@ -513,7 +524,7 @@
           href: service-fabric-application-secret-management-windows.md
         - name: Set up an encryption certificate and encrypt secrets on Linux
           href: service-fabric-application-secret-management-linux.md
-        - name: Securely store secrets with KeyVaultReference (preview)
+        - name: Securely store secrets with KeyVaultReference
           href: service-fabric-keyvault-references.md
       - name: Configure reverse proxy for secure communication
         href: service-fabric-reverseproxy-configure-secure-communication.md
@@ -679,6 +690,8 @@
           href: service-fabric-how-to-remove-node-type.md
       - name: Upgrade
         items:
+        - name: Add a VM scale set extension to a managed cluster node type
+          href: how-to-managed-cluster-vmss-extension.md
         - name: Upgrade the Service Fabric version 
           href: service-fabric-cluster-upgrade-version-azure.md    
         - name: Upgrade cluster configuration
@@ -897,12 +910,17 @@
       href: service-fabric-service-model-schema-element-groups.md
   - name: Environment variables
     href: service-fabric-environment-variables-reference.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Common questions
     href: service-fabric-common-questions.md
+  - name: Service Fabric managed clusters common questions
+    href: faq-managed-cluster.md
   - name: Microsoft Q&A question page
     href: /answers/topics/azure-service-fabric.html
   - name: Azure Resource Manager Deployment Guardrails

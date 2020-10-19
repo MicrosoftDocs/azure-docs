@@ -3,7 +3,7 @@ title: API server authorized IP ranges in Azure Kubernetes Service (AKS)
 description: Learn how to secure your cluster using an IP address range for access to the API server in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 09/21/2020
 
 
 #Customer intent: As a cluster operator, I want to increase the security of my cluster by limiting access to the API server to only the IP addresses that I specify.
@@ -15,18 +15,21 @@ In Kubernetes, the API server receives requests to perform actions in the cluste
 
 This article shows you how to use API server authorized IP address ranges to limit which IP addresses and CIDRs can access control plane.
 
-> [!IMPORTANT]
-> On clusters created after API server authorized IP address ranges moved out of preview in October 2019, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is but cannot be migrated to a *Standard* SKU load balancer. Those existing clusters will also continue to work if their Kubernetes version or control plane are upgraded. API server authorized IP address ranges are not supported for private clusters.
-
 ## Before you begin
 
 This article shows you how to create an AKS cluster using the Azure CLI.
 
 You need the Azure CLI version 2.0.76 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
+### Limitations
+
+The API server Authorized IP ranges feature has the following limitations:
+- On clusters created after API server authorized IP address ranges moved out of preview in October 2019, API server authorized IP address ranges are only supported on the *Standard* SKU load balancer. Existing clusters with the *Basic* SKU load balancer and API server authorized IP address ranges configured will continue work as is but cannot be migrated to a *Standard* SKU load balancer. Those existing clusters will also continue to work if their Kubernetes version or control plane are upgraded. API server authorized IP address ranges are not supported for private clusters.
+- This feature is not compatible with clusters that use [Public IP per Node node pools preview feature](use-multiple-node-pools.md#assign-a-public-ip-per-node-for-your-node-pools-preview).
+
 ## Overview of API server authorized IP ranges
 
-The Kubernetes API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. AKS provides a single-tenant cluster master, with a dedicated API server. By default, the API server is assigned a public IP address, and you should control access using role-based access control (RBAC).
+The Kubernetes API server is how the underlying Kubernetes APIs are exposed. This component provides the interaction for management tools, such as `kubectl` or the Kubernetes dashboard. AKS provides a single-tenant cluster control plane, with a dedicated API server. By default, the API server is assigned a public IP address, and you should control access using role-based access control (RBAC).
 
 To secure access to the otherwise publicly accessible AKS control plane / API server, you can enable and use authorized IP ranges. These authorized IP ranges only allow defined IP address ranges to communicate with the API server. A request made to the API server from an IP address that isn't part of these authorized IP ranges is blocked. Continue to use RBAC to authorize users and the actions they request.
 
@@ -80,7 +83,7 @@ az aks create \
 
 In the above example, all IPs provided in the parameter *`--load-balancer-outbound-ip-prefixes`* are allowed along with the IPs in the *`--api-server-authorized-ip-ranges`* parameter.
 
-Alternatively, you can specify the *`--load-balancer-outbound-ip-prefixes`* parameter to allow outbound load balancer IP prefixes.
+Instead, you can specify the *`--load-balancer-outbound-ip-prefixes`* parameter to allow outbound load balancer IP prefixes.
 
 ### Allow only the outbound public IP of the Standard SKU load balancer
 
@@ -124,6 +127,32 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges ""
 ```
+
+## How to find my IP to include in `--api-server-authorized-ip-ranges`?
+
+You must add your development machines, tooling or automation IP addresses to the AKS cluster list of approved IP ranges in order to access the API server from there. 
+
+Another option is to configure a jumpbox with the needed tooling inside a separate subnet in the Firewall's virtual network. This assumes your environment has a Firewall with the respective network, and you have added the Firewall IPs to authorized ranges. Similarly, if you have forced tunnelling from the AKS subnet to the Firewall subnet, than having the jumpbox in the cluster subnet is fine too.
+
+Add another IP address to the approved ranges with the following command.
+
+```bash
+# Retrieve your IP address
+CURRENT_IP=$(dig @resolver1.opendns.com ANY myip.opendns.com +short)
+# Add to AKS approved list
+az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/32
+```
+
+>> [!NOTE]
+> The above example appends the API server authorized IP ranges on the cluster. To disable authorized IP ranges, use az aks update and specify an empty range "". 
+
+Another option is to use the below command on Windows systems to get the public IPv4 address, or you can use the steps in [Find your IP address](https://support.microsoft.com/en-gb/help/4026518/windows-10-find-your-ip-address).
+
+```azurepowershell-interactive
+Invoke-RestMethod http://ipinfo.io/json | Select -exp ip
+```
+
+You can also find this address by searching "what is my IP address" in an internet browser.
 
 ## Next steps
 

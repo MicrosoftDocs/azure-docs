@@ -47,7 +47,7 @@ For more information, see [Azure Spatial Anchors overview](overview.md).
 
 **Q: How does Azure Spatial Anchors store data?**
 
-**A:** All data is stored encrypted with a Microsoft managed data encryption key.
+**A:** All data is stored encrypted with a Microsoft managed data encryption key and all data is stored regionally for each of the resources.
 
 **Q: What information about an environment is transmitted and stored on the service when using Azure Spatial Anchors? Are pictures of the environment transmitted and stored?**
 
@@ -124,4 +124,4 @@ Get started with [development here](index.yml).
 
 **Q: What ports and protocols does Azure Spatial Anchors use?**
 
-**A:** Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), which communicates using HTTPS over port 443.
+**A:** Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](../active-directory/index.yml), which communicates using HTTPS over port 443.

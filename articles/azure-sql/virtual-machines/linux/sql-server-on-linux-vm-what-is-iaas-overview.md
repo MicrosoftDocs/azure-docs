@@ -7,7 +7,7 @@ author: MashaMSFT
 tags: azure-service-management
 ms.service: virtual-machines-sql
 
-ms.topic: conceptual
+ms.topic: overview
 ms.workload: iaas-sql-server
 ms.date: 04/10/2018
 ms.author: mathoma
@@ -23,6 +23,9 @@ ms.reviewer: jroth
 SQL Server on Azure Virtual Machines enables you to use full versions of SQL Server in the cloud without having to manage any on-premises hardware. SQL Server VMs also simplify licensing costs when you pay as you go.
 
 Azure virtual machines run in many different [geographic regions](https://azure.microsoft.com/regions/) around the world. They also offer a variety of [machine sizes](../../../virtual-machines/windows/sizes.md). The virtual machine image gallery allows you to create a SQL Server VM with the right version, edition, and operating system. This makes virtual machines a good option for a many different SQL Server workloads. 
+
+If you're new to Azure SQL, check out the *SQL Server on Azure VM Overview* video from our in-depth [Azure SQL video series](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
 
 ## <a id="create"></a> Get started with SQL Server VMs
 
@@ -49,9 +52,9 @@ When you configure SQL Server on Linux, you install the Database Engine package 
 
 | Distribution | [Database Engine](https://docs.microsoft.com/sql/linux/sql-server-linux-setup) | [Tools](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-tools) | [SQL Server agent](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-sql-agent) | [Full-text search](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-full-text-search) | [SSIS](https://docs.microsoft.com/sql/linux/sql-server-linux-setup-ssis) | [HA add-on](https://docs.microsoft.com/sql/linux/sql-server-linux-business-continuity-dr) |
 |---|---|---|---|---|---|---|
-| RHEL | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
-| SLES | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![no](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
-| Ubuntu | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![yes](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| RHEL | ![RHEL and database engine](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL and tools](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL and SQL Server agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL and full-text search](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL and SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![RHEL and HA add-on](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
+| SLES | ![SLES and database engine](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES and tools](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES and SQL Server agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES and full-text search](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![SLES and SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/no.png) | ![SLES and HA add-on](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png)|
+| Ubuntu | ![Ubuntu and database engine](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and tools](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and SQL Server agent](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and full-text search](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and SSIS](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) | ![Ubuntu and HA add-on](./media/sql-server-on-linux-vm-what-is-iaas-overview/yes.png) |
 
 ## Related products and services
 

@@ -1,6 +1,7 @@
 ---
-title: Microsoft identity platform Python daemon | Azure
-description: Learn how a Python process can get an access token and call an API protected by Microsoft identity platform endpoint, using the app's own identity
+title: "Quickstart: Call Microsoft Graph from a Python daemon | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, you learn how a Python process can get an access token and call an API protected by Microsoft identity platform endpoint, using the app's own identity
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -190,7 +191,7 @@ app = msal.ConfidentialClientApplication(
 > |---------|---------|
 > | `config["secret"]` | Is the client secret created for the application in Azure Portal. |
 > | `config["client_id"]` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
-> | `config["authority"]`    | The STS endpoint for user to authenticate. Usually <https://login.microsoftonline.com/{tenant}> for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
+> | `config["authority"]`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}` for public cloud, where {tenant} is the name of your tenant or your tenant Id.|
 
 For more information, please see the [reference documentation for `ConfidentialClientApplication`](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
 
@@ -221,18 +222,3 @@ To learn more about daemon applications, see the scenario landing page
 
 > [!div class="nextstepaction"]
 > [Daemon application that calls web APIs](scenario-daemon-overview.md)
-
-For the daemon application tutorial, see:
-
-> [!div class="nextstepaction"]
-> [Daemon Python console tutorial](https://github.com/Azure-Samples/ms-identity-python-daemon)
-
-Learn more about permissions and consent:
-
-> [!div class="nextstepaction"]
-> [Permissions and Consent](v2-permissions-and-consent.md)
-
-To know more about the auth flow for this scenario, see the Oauth 2.0 client credentials flow:
-
-> [!div class="nextstepaction"]
-> [Client credentials Oauth flow](v2-oauth2-client-creds-grant-flow.md)

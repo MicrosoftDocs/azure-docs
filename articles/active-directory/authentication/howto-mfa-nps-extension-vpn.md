@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -38,7 +38,7 @@ Network Policy and Access Services gives organizations the ability to:
 * Establish and enforce Network Access Protection (NAP) client health policies that determine whether devices are granted unrestricted or restricted access to network resources.
 
 * Provide a way to enforce authentication and authorization for access to 802.1x-capable wireless access points and Ethernet switches.
-  For more information, see [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top).
+  For more information, see [Network Policy Server](/windows-server/networking/technologies/nps/nps-top).
 
 To enhance security and provide a high level of compliance, organizations can integrate NPS with Azure Multi-Factor Authentication to ensure that users use two-step verification to connect to the virtual port on the VPN server. For users to be granted access, they must provide their username and password combination and other information that they control. This information must be trusted and not easily duplicated. It can include a cell phone number, a landline number, or an application on a mobile device.
 
@@ -91,7 +91,7 @@ If you do not have a working VPN infrastructure in place, you can quickly create
 
 Network Policy and Access Services provides the RADIUS server and client functionality. This article assumes that you have installed the Network Policy and Access Services role on a member server or domain controller in your environment. In this guide, you configure RADIUS for a VPN configuration. Install the Network Policy and Access Services role on a server *other than* your VPN server.
 
-For information about installing the Network Policy and Access Services role service Windows Server 2012 or later, see [Install a NAP Health Policy Server](https://technet.microsoft.com/library/dd296890.aspx). NAP is deprecated in Windows Server 2016. For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best practices for NPS](https://technet.microsoft.com/library/cc771746).
+For information about installing the Network Policy and Access Services role service Windows Server 2012 or later, see [Install a NAP Health Policy Server](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd296890(v=ws.10)). NAP is deprecated in Windows Server 2016. For a description of best practices for NPS, including the recommendation to install NPS on a domain controller, see [Best practices for NPS](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771746(v=ws.10)).
 
 ### Azure MFA License
 
@@ -443,13 +443,13 @@ A related event from the Azure Multi-Factor Authentication log is shown here:
 
 ![Azure Multi-Factor Authentication logs](./media/howto-mfa-nps-extension-vpn/image48.png)
 
-To do advanced troubleshooting, consult the NPS database format log files where the NPS service is installed. The log files are created in the _%SystemRoot%\System32\Logs_ folder as comma-delimited text files. For a description of the log files, see [Interpret NPS Database Format Log Files](https://technet.microsoft.com/library/cc771748.aspx).
+To do advanced troubleshooting, consult the NPS database format log files where the NPS service is installed. The log files are created in the _%SystemRoot%\System32\Logs_ folder as comma-delimited text files. For a description of the log files, see [Interpret NPS Database Format Log Files](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc771748(v=ws.10)).
 
 The entries in these log files are difficult to interpret unless you export them to a spreadsheet or a database. You can find many Internet Authentication Service (IAS) parsing tools online to assist you in interpreting the log files. The output of one such downloadable [shareware application](https://www.deepsoftware.com/iasviewer) is shown here:
 
 ![Sample Shareware app IAS parser](./media/howto-mfa-nps-extension-vpn/image49.png)
 
-To do additional troubleshooting, you can use a protocol analyzer such as Wireshark or [Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx). The following image from Wireshark shows the RADIUS messages between the VPN server and the NPS.
+To do additional troubleshooting, you can use a protocol analyzer such as Wireshark or [Microsoft Message Analyzer](/message-analyzer/microsoft-message-analyzer-operating-guide). The following image from Wireshark shows the RADIUS messages between the VPN server and the NPS.
 
 ![Microsoft Message Analyzer showing filtered traffic](./media/howto-mfa-nps-extension-vpn/image50.png)
 

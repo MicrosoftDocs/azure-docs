@@ -8,12 +8,13 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 08/17/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Enable per-user Azure Multi-Factor Authentication to secure sign-in events
 
@@ -75,7 +76,7 @@ To change the per-user Azure Multi-Factor Authentication state for a user, compl
 
 1. Confirm your selection in the pop-up window that opens.
 
-After you enable users, notify them via email. Tell the users that a prompt is displayed to ask them to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. For more information, see the [Azure Multi-Factor Authentication end-user guide](../user-help/multi-factor-authentication-end-user.md) to help them get started.
+After you enable users, notify them via email. Tell the users that a prompt is displayed to ask them to register the next time they sign in. Also, if your organization uses non-browser apps that don't support modern authentication, they need to create app passwords. For more information, see the [Azure Multi-Factor Authentication end-user guide](../user-help/multi-factor-authentication-end-user-first-time.md) to help them get started.
 
 ## Change state using PowerShell
 

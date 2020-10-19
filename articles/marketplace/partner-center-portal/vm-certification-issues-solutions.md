@@ -1,22 +1,22 @@
 ---
-title: Virtual machine certification - issues and solutions 
-description: This article explains common error messages for VM images. It also discusses related solutions
+title: Common issues when certifying virtual machine images for Azure Marketplace
+description: This article explains common error messages and issues when testing and certifying VM images for Azure Marketplace. It also discusses related solutions.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 06/16/2020
+ms.date: 10/16/2020
 ---
 
-# Issues and solutions during virtual machine certification 
+# Common issues when certifying virtual machine images for Azure Marketplace
 
 When you publish your virtual machine (VM) image to Azure Marketplace, the Azure team validates it to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail, and you'll receive an error message that describes the issue.
 
 This article explains common error messages during VM image publishing, along with related solutions.
 
 > [!NOTE]
-> If you have questions or feedback for improvement, contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
+> If you have questions or feedback for improvement, please contact [Partner Center Support](https://partner.microsoft.com/support/v2/?stage=1).
 
 ## Approved base image
 
@@ -28,6 +28,9 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 
 - [Linux images](../../virtual-machines/linux/endorsed-distros.md?toc=/azure/virtual-machines/linux/toc.json)
 - [Windows images](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
+
+> [!Note]
+> If you are using a Linux base image not taken from Azure Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Azure Marketplace.  
 
 ## VM extension failure
 
@@ -108,7 +111,7 @@ The following table lists common errors that are found while executing previous 
  
 |Scenario|Test case|Error|Solution|
 |---|---|---|---|
-|1|Linux Agent version test case|The minimum Linux agent version is 2.241 or later. This requirement has been mandatory since May 1, 2020.|The image must be updated with the required version to [submit the request](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
+|1|Linux Agent version test case|The minimum Linux agent version is 2.2.41 or later. This requirement has been mandatory since May 1, 2020.|Please update Linux agent version and it should be 2.241 or later. For more information you can visit [Linux Agent Version update page](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Bash history test case|You'll see an error if the size of the bash history in your submitted image is more than 1 kilobyte (KB). The size is restricted to 1 KB to ensure that any potentially sensitive information isn't captured in your bash history file.|To resolve this problem, mount the VHD to any other working VM and make any changes you want (for example, delete the *.bash* history files) to reduce the size to less than or equal to 1 KB.|
 |3|Required kernel parameter test case|You'll receive this error when the value for **console** isn't set to **ttyS0**. Check by running the following command:<br>`cat /proc/cmdline`|Set the value for **console** to **ttyS0**, and resubmit the request.|
 |4|ClientAlive interval test case|If the toolkit result gives you a failed result for this test case, there is an inappropriate value for **ClientAliveInterval**.|Set the value for **ClientAliveInterval** to less than or equal to 235, and then resubmit the request.|
@@ -137,7 +140,7 @@ The following table lists the Windows test cases that the toolkit will run, alon
 |16|Windows Internet Name Service|Windows Internet Name Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 
-If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team. 
+If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team.
 
 ## Data disk size verification
 
@@ -191,8 +194,8 @@ Update the kernel with an approved version, and resubmit the request. You can fi
 
 If your image isn't installed with one of the following kernel versions, update it with the correct patches. Request the necessary approval from the Support team after the image is updated with these required patches:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |OS family|Version|Kernel|
@@ -253,21 +256,24 @@ If you come across access denied issues while you're running the test cases on t
 Check to see whether proper access is enabled for the account on which the self-test cases are running. If access is not enabled, enable it to run the test cases. If you don't want to enable access, you might share the self-test case results with the Support team.
 
 ## Download failure
-    
+
 Refer to the following table for any issues that arise when you download the VM image by using a shared access signature (SAS) URL.
 
 |Scenario|Error|Reason|Solution|
 |---|---|---|---|
-|1|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
+|1|Blob not found|The VHD might either be deleted or moved from the specified location.||
 |2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it by using an SAS URL.|
 |3|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |4|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |6|HTTP conditional header|The SAS URL is invalid.|Get the correct SAS URL.|
 |7|Invalid VHD name|Check to see whether any special characters, such as a percent sign (%) or quotation marks ("), exist in the VHD name.|Rename the VHD file by removing the special characters.|
 
-## First 1-MB partition
+## First MB (2048 KB) partition (Only for Linux)
 
-When you submit the VHD, ensure that the first 1-MB partition of the VHD is empty. Otherwise, your request will fail.
+When you submit the VHD, ensure that the first 2048 KB of the VHD is empty. Otherwise, your request will fail*.
+
+>[!NOTE]
+>*For certain special images, such as those built on top of Azure Windows base images taken from Azure Marketplace, we check for a Billing tag and ignore the MB partition if the billing tag is present and matches our internal available values.
 
 ## Default credentials
 
@@ -306,7 +312,7 @@ For solutions to errors that are related to the data disk, use the following tab
 
 ## Remote access issue
 
-If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error. 
+If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error.
 
 Enable RDP access for Windows images before you submit them.
 
@@ -317,19 +323,19 @@ information isn't captured in your bash history file.
 
 Below are the steps to delete the “Bash History”.
 
-Step 1.	Deploy the VM and click on “Run Command” option on Azure portal.
+Step 1. Deploy the VM and click on “Run Command” option on Azure portal.
 ![Run command on Azure portal](./media/vm-certification-issues-solutions-3.png)
 
-Step 2.	Select first option “RunShellScript” and run the below command.
+Step 2. Select first option “RunShellScript” and run the below command.
 
 Command: “cat /dev/null > ~/.bash_history && history -c”
 ![Bash History command on Azure portal](./media/vm-certification-issues-solutions-4.png)
 
-Step 3.	After successful executing the command, Restart the VM.
+Step 3.After successful executing the command, Restart the VM.
 
-Step 4.	Generalize the VM, take the Image VHD and Stop the VM.
+Step 4.Generalize the VM, take the Image VHD and Stop the VM.
 
-Step 5. 	Re-Submit the generalized image.
+Step 5. Re-Submit the generalized image.
 
 ## Requesting exceptions (custom templates) on VM images for selective tests
 
@@ -340,7 +346,7 @@ In the sections below, we will talk about main scenarios where exceptions are re
 
 Scenarios for exception
 
-There are three scenarios/cases where publishers generally request these exceptions. 
+There are three scenarios/cases where publishers generally request these exceptions.
 
 * **Exception for one or more test cases:** Publishers can reach out to [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases. 
 
@@ -348,21 +354,79 @@ There are three scenarios/cases where publishers generally request these excepti
        In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
 
-* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs. 
-In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation. 
+* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs.
+
+In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation.
 
 ### Information to provide for exception scenarios
 
 Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
 
-   1.	Publisher ID – The publisher ID on Partner Center portal
-   2.	Offer ID/name – The Offer ID/name for which exception is requested 
-   3.	SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
-   4.	 Version – The version of the VM offer for which exception is requested
-   5.	Exception Type –Tests, Locked Down VM, Custom Templates
-   6.	Reason of request – Reason for this exception and information on tests to be exempted 
-   7.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
+   1. Publisher ID – The publisher ID on Partner Center portal
+   1. Offer ID/name – The Offer ID/name for which exception is requested 
+   1. SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
+   1. Version – The version of the VM offer for which exception is requested
+   1. Exception Type –Tests, Locked Down VM, Custom Templates
+   1. Reason of request – Reason for this exception and information on tests to be exempted 
+   1. Timeline - Date till which this exception has been requested 
+   1. Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
 
+## How to address a vulnerability or exploit in a VM offer
+
+This FAQ helps you provide a virtual machine (VM) image when a vulnerability or exploit is discovered with one of your VM images. This FAQ applies only to Azure Virtual Machine offers that are published to the Azure Marketplace.
+
+> [!NOTE]
+> You can’t remove the last VM image from a plan and you can’t stop sell the last plan for an offer.
+
+Do one of the following:
+
+1. If you have a new VM image to replace the vulnerable VM image, then go to [How to provide a fixed VM image](#how-to-provide-a-fixed-vm-image).
+1. If you don’t have a new VM image to replace the only VM image in a plan and if you’re done with the plan, then you can [stop selling the plan](update-existing-offer.md#stop-selling-an-offer-or-plan).
+1. If you don’t plan to replace the only VM image in the offer, then we recommend that you [stop selling the offer](update-existing-offer.md#stop-selling-an-offer-or-plan).
+
+### How to provide a fixed VM image
+
+To provide a fixed VM image to replace a VM image that has a vulnerability or exploit, you must do the following:
+
+1. Provide a new VM image to address the security vulnerability or exploit.
+1. Remove the VM image that has the security vulnerability or exploit.
+1. Republish the offer.
+
+#### Provide a new VM image to address the security vulnerability or exploit
+
+To complete these steps, you’ll need prepare the technical asset for the VM image you want to add. For more information, see [Create technical assets for an Azure Marketplace virtual machine offer](create-azure-vm-technical-asset.md) and [Get a SAS URI for your VM image](get-sas-uri.md).
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. In the **Offer alias** column, select the offer.
+1. On the **Plan overview** tab, in the **Name** column, select the plan you want to add the VM to.
+1. On the **Technical configuration** tab, under **VM Images**, select **+ Add VM Image**.
+   > [!NOTE]
+   > You can add only one VM image to a plan at a time. To add multiple VM images, publish each one live before you add the next VM image.
+1. In the boxes that appear, provide a new disk version and the virtual machine image.
+1. Select **Save draft**.
+1. Continue to the next section to remove the VM image with the security vulnerability.
+
+#### Remove the VM image that has the security vulnerability or exploit
+
+Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-navigation menu, select **Commercial Marketplace** > **Overview**.
+1. In the **Offer alias** column, select the offer.
+1. On the **Plan overview** tab, in the **Name** column, select the plan with the VM you want to remove.
+1. On the **Technical configuration** tab, under **VM Images**, next to the VM image you want to remove, select **Remove VM Image**.
+1. In the dialog box that appears, select **Continue**.
+1. Select **Save draft**.
+1. Continue to the next section to republish the offer.
+
+#### Republish the offer
+
+After you’ve removed or replaced the VM image, you need to republish the offer.
+1. Select **Review and publish**.
+1. If you need to provide any information to the certification team, add it to the **Notes for certification** box.
+1. Select **Publish**.
+1. When the publishing status reaches the Publish phase, select **Go live**.
+
+For more details about the publishing process, see [How to review and publish an offer to the commercial marketplace](../review-publish-offer.md).
 
 ## Next steps
 

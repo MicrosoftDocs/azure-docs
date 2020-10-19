@@ -1,6 +1,7 @@
 ---
-title: Add Microsoft identity platform sign-in to an ASP.NET web app | Azure
-description: Learn how to implement Microsoft sign-in on an ASP.NET web app using OpenID Connect.
+title: "Quickstart: Add sign-in with Microsoft to an ASP.NET web app | Azure"
+titleSuffix: Microsoft identity platform
+description: In this quickstart, learn how to implement Microsoft sign-in on an ASP.NET web app using OpenID Connect.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,15 +10,21 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 09/25/2020
 ms.author: jmprieur
-ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET"
+ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperfq1"
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
 ---
 
 # Quickstart: Add Microsoft identity platform sign-in to an ASP.NET web app
 In this quickstart, you use a code sample to learn how an ASP.NET web app to sign in personal accounts (hotmail.com, outlook.com, others) and work and school accounts from any Azure Active Directory (Azure AD) instance.  (See [How the sample works](#how-the-sample-works) for an illustration.)
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)
+> * [.NET Framework 4.7.2+](https://dotnet.microsoft.com/download/visual-studio-sdks)
+>
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
@@ -66,7 +73,7 @@ In this quickstart, you use a code sample to learn how an ASP.NET web app to sig
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Your app is configured and ready to run
-> We have configured your project with values of your app's properties. 
+> We have configured your project with values of your app's properties.
 
 > [!div renderon="docs"]
 > #### Step 3: Run your Visual Studio project
@@ -111,7 +118,7 @@ You can set up the authentication pipeline with cookie-based authentication usin
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb  
+Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### OWIN Startup Class
@@ -156,7 +163,7 @@ public void Configuration(IAppBuilder app)
 > |Where  | Description |
 > |---------|---------|
 > | `ClientId`     | Application ID from the application registered in the Azure portal |
-> | `Authority`    | The STS endpoint for user to authenticate. Usually <https://login.microsoftonline.com/{tenant}/v2.0> for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
+> | `Authority`    | The STS endpoint for user to authenticate. Usually `https://login.microsoftonline.com/{tenant}/v2.0` for public cloud, where {tenant} is the name of your tenant, your tenant Id, or *common* for a reference to the common endpoint (used for multi-tenant applications) |
 > | `RedirectUri`  | URL where users are sent after authentication against Microsoft identity platform endpoint |
 > | `PostLogoutRedirectUri`     | URL where users are sent after signing-off |
 > | `Scope`     | The list of scopes being requested, separated by spaces |
@@ -192,13 +199,11 @@ public void SignIn()
 
 You can protect a controller or controller actions using the `[Authorize]` attribute. This attribute restricts access to the controller or actions by allowing only authenticated users to access the actions in the controller, which means that authentication challenge will happen automatically when a *non-authenticated* user tries to access one of the actions or controller decorated by the `[Authorize]` attribute.
 
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
 ## Next steps
 
 Try out the ASP.NET tutorial for a complete step-by-step guide on building applications and new features, including a full explanation of this quickstart.
 
-### Learn the steps to create the application used in this quickstart
-
 > [!div class="nextstepaction"]
-> [Sign-in tutorial](./tutorial-v2-asp-webapp.md)
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+> [Add sign-in to an ASP.NET web app](tutorial-v2-asp-webapp.md)

@@ -139,15 +139,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **Plan Admin** from the left navigation bar.
 
-	![Configure Single Sign-On](./media/amplitude-tutorial/configure1.png)
+	![Screenshot shows the Amplitude menu with Plan Admin selected.](./media/amplitude-tutorial/configure1.png)
 
 1. Select **Microsoft Azure Active Directory Metadata** from the **SSO Integration**.
 
-	![Configure Single Sign-On](./media/amplitude-tutorial/configure2.png)
+	![Screenshot shows the Plan Admin pane with the Microsoft Azure Active Directory Metadata link called out.](./media/amplitude-tutorial/configure2.png)
 
 1. On the **Set Up Single Sign-On** section, perform the following steps:
 
-	![Configure Single Sign-On](./media/amplitude-tutorial/configure3.png)
+	![Screenshot shows the Set Up Single Sign-on section with values described in this step.](./media/amplitude-tutorial/configure3.png)
 
 	a. Open the downloaded **Metadata Xml** from Azure portal in notepad, paste the content into the **Microsoft Azure Active Directory Metadata** textbox.
 

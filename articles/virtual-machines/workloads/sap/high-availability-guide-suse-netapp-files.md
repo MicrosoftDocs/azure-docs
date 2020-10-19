@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 
 ---
@@ -316,6 +316,10 @@ First you need to create the Azure NetApp Files volumes. Deploy the VMs. Afterwa
       1. Additional ports for the ASCS ERS
          * Repeat the steps above under "d" for ports 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 and TCP for the ASCS ERS
 
+      
+      > [!IMPORTANT]
+      > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). If you need additional IP address for the VM, deploy a second NIC.  
+
       > [!Note]
       > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
@@ -575,7 +579,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
      op monitor interval=20s timeout=40s
    
    # If using NFSv4.1
-   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1'\
+   sudo crm configure primitive fs_<b>QAS</b>_ERS Filesystem device='<b>10.1.0.4</b>:/usrsap<b>qas</b>/usrsap<b>QAS</b>ers' directory='/usr/sap/<b>QAS</b>/ERS<b>01</b>' fstype='nfs' options='sec=sys,vers=4.1' \
      op start timeout=60s interval=0 \
      op stop timeout=60s interval=0 \
      op monitor interval=20s timeout=40s

@@ -4,14 +4,14 @@ description: Install the runtime, SDK, and tools and create a local development 
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.custom: sfrev
+ms.custom: sfrev, devx-track-azurepowershell
 ---
 # Prepare your development environment on Windows
 
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
-> * [OSX](service-fabric-get-started-mac.md)
+> * [Mac OS X](service-fabric-get-started-mac.md)
 >
 >
 
@@ -62,8 +62,8 @@ If you only need the SDK, you can install this package:
 
 The current versions are:
 
-* Service Fabric SDK and Tools 4.1.456
-* Service Fabric runtime 7.1.456
+* Service Fabric SDK and Tools 4.1.458
+* Service Fabric runtime 7.1.458
 
 For a list of supported versions, see [Service Fabric versions](service-fabric-versions.md)
 
@@ -90,6 +90,7 @@ Now that you've finished setting up your development environment, start building
 * [Learn about the programming models: Reliable Services and Reliable Actors](service-fabric-choose-framework.md)
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Prepare a Linux development environment on Windows](service-fabric-local-linux-cluster-windows.md)
 * Learn about [Service Fabric support options](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Service Fabric campaign page"

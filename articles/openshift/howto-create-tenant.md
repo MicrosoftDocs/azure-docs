@@ -40,7 +40,7 @@ To create a tenant:
 
 ## Resources
 
-Check out [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/) for more info on [Azure AD tenants](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant).
+Check out [Azure Active Directory documentation](../active-directory/index.yml) for more info on [Azure AD tenants](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## Next steps
 

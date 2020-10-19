@@ -83,7 +83,7 @@ You can set up an Azure environment for advanced analytics that employs an HDIns
    
    * Remember to link the storage account created in step 1 with your HDInsight cluster when you are creating it. This storage account accesses data that is processed within the cluster.
    * After you create the cluster, enable Remote Access to the head node of the cluster. Browse to the **Configuration** tab, and select **Enable Remote**. This step specifies the user credentials used for remote login.
-3. [Create an Azure Machine Learning workspace](../studio/create-workspace.md): You use this workspace to build machine learning models. This task is addressed after completing an initial data exploration and down-sampling, by using the HDInsight cluster.
+3. [Create an Azure Machine Learning workspace](../classic/create-workspace.md): You use this workspace to build machine learning models. This task is addressed after completing an initial data exploration and down-sampling, by using the HDInsight cluster.
 
 ## <a name="getdata"></a>Get the data from a public source
 > [!NOTE]
@@ -909,7 +909,7 @@ You can now proceed to model building and model deployment in [Machine Learning]
   Here, the coefficient of determination is 0.709, implying that about 71 percent of the variance is explained by the model coefficients.
 
 > [!IMPORTANT]
-> To learn more about Machine Learning and how to access and use it, see [What's Machine Learning](../studio/what-is-machine-learning.md). In addition, the [Azure AI Gallery](https://gallery.cortanaintelligence.com/) covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Machine Learning.
+> To learn more about Machine Learning and how to access and use it, see [What's Machine Learning](../classic/index.yml). In addition, the [Azure AI Gallery](https://gallery.cortanaintelligence.com/) covers a gamut of experiments and provides a thorough introduction into the range of capabilities of Machine Learning.
 > 
 > 
 
@@ -931,6 +931,3 @@ This sample walkthrough and its accompanying scripts are shared by Microsoft und
 <!-- Module References -->
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-
-
-

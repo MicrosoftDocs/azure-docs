@@ -17,8 +17,8 @@ This article gives suggestions for creating and engaging Microsoft commercial ma
 
 | Setting | Best practice |
 |:--- |:--- |  
-| Offer Name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) |
-| Offer Description | Provide a clear description that describes your offer's value proposition in the first few sentences.  Keep in mind that these sentences may be used in search engine results. Core components of your value proposition should include: <ul> <li>Description of the product or solution. </li> <li> User persona that benefits from the product or solution. </li> <li> Customer need or pain the product or solution addresses. </li> </ul> <br> Use industry standard vocabulary or benefit-based wording when possible.  Do not rely on features and functionality to sell your product.  Instead, focus on the value you deliver. <br> <br> For Consulting Service listings, clearly state the professional service you provide. |
+| Offer name | For apps, provide a clear title that includes search keywords to help customers discover your offer. <br> <br> For Consulting Services, follow this format: [Offer Name: [Duration] [Offer Type] (for example, Contoso: 2-Week Implementation) |
+| Offer description | Provide a clear description that describes your offer's value proposition in the first few sentences.  Keep in mind that these sentences may be used in search engine results. Core components of your value proposition should include: <ul> <li>Description of the product or solution. </li> <li> User persona that benefits from the product or solution. </li> <li> Customer need or pain the product or solution addresses. </li> </ul> <br> Use industry standard vocabulary or benefit-based wording when possible.  Do not rely on features and functionality to sell your product.  Instead, focus on the value you deliver. <br> <br> For Consulting Service listings, clearly state the professional service you provide. |
 
 > [!IMPORTANT]
 > Make sure your offer name and offer description adhere to **[Microsoft Trademark and Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/usage/general.aspx)** and other relevant, product-specific guidelines when referring to Microsoft trademarks and the names of Microsoft software, products, and services.
@@ -43,20 +43,21 @@ Categories and industries for a different online store will be applicable to dif
 
 ### Categories
 
-Microsoft AppSource and Azure Marketplace are two different online stores that serve unique customer requirements. Azure Marketplace targets IT professionals and developers building solutions on Azure.  Microsoft AppSource targets business users looking for business and/or industry SaaS applications, Dynamics 365 add-ins, Microsoft 365 add-ins and Power Platform apps.
+Microsoft AppSource and Azure Marketplace are online stores that offer different solution types. Azure Marketplace offers IT solutions built on or for Azure.  Microsoft AppSource offer business solutions, such as industry SaaS applications, Dynamics 365 add-ins, Microsoft 365 add-ins, and Power Platform apps.
 
-Categories and subcategories are mapped to each online store based on the target audience. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the offer type, transaction capabilities of the offer and category/subcategory selection. 
+Categories and subcategories are mapped to each online store based on the solution type. Your offer will be published to Microsoft AppSource or Azure Marketplace depending on the offer type, transaction capabilities of the offer and category/subcategory selection. 
 
-Select categories and subcategories that best align with your offer and your intended audience. You can select:
+Select categories and subcategories that best align with your solution type. You can select:
 
-* Up to two (2) categories, including a primary and a secondary category (optional).
-* Up to two (2) subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only.
+* Up to two categories, including a primary and a secondary category (optional).
+* Up to two subcategories for each primary and/or secondary category. If no subcategory is selected, you offer will still be discoverable on the selected category only.
 
 [!INCLUDE [categories and subcategories](./includes/categories.md)]
 
-**IMPORTANT: SaaS Offers and Microsoft 365 Add-ins**
+#### IMPORTANT: SaaS Offers and Microsoft 365 Add-ins
 
-Consult the [guide by offer type](https://docs.microsoft.com/azure/marketplace/partner-center-portal/commercial-marketplace-overview) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published:
+See [Transacting in the commercial marketplace](marketplace-commercial-transaction-capabilities-and-considerations.md) for specific details on how transact capabilities may affect how your offer can be viewed and purchased by marketplace customers. For SaaS offers, the offer's transaction capability as well as the category selection will determine the online store where your offer will be published.
+
 
 | SaaS offer    | SaaS offer   | SaaS offer  | SaaS offer   | SaaS offer   | SaaS offer   | SaaS offer    | Applicable online store| Applicable online store |
 |:-------------:|:---:|:--------:|:---------:|:--:|:--:|:---:|:---------------------:|:-------------:|
@@ -115,9 +116,9 @@ Keywords can help customers find your offer when they search. Identify the top s
 ## Online store marketing details
 | Setting | Best practice |
 |:--- |:--- |  
-| Offer logo (PNG format, 48&nbsp;&times;&nbsp;48): search page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the search page of your offer. |
-| Offer logo (PNG format, 216&nbsp;&times;&nbsp;216): app details page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the app details listing page of your offer. |
-| "Learn more" documents | Include supporting sales and marketing assets under "Learn more," some examples are: <ul> <li> white papers, </li> <li> brochures, </li> <li> checklists, or </li> <li> PowerPoint presentations.</li> </ul>Save all files in PDF format. Your goal here should be to educate customers, not sell to them. <br><br>Add a link to your app landing page to all your documents and add URL parameters to help you track visitors and trials. |
+| Offer logo (PNG format, from 216 × 216 to 350 x 350 px): app details page | Design and optimize your logo for a digital medium:<br>Upload the logo in PNG format to the app details listing page of your offer. Partner Center will resize it to the required logo sizes. |
+| Offer logo (PNG format, 48 × 48 pixels): search page | Partner Center will generate this logo from the Large logo you uploaded. You can optionally replace this with a different image later. |
+| "Learn more" documents | Include supporting sales and marketing assets under "Learn more," some examples are:<ul><li>white papers</li><li> brochures</li><li>checklists, or</li><li> PowerPoint presentations</li></ul><br>Save all files in PDF format. Your goal here should be to educate customers, not sell to them.<br><br>Add a link to your app landing page to all your documents and add URL parameters to help you track visitors and trials. |
 | Videos: AppSource, consulting services, and SaaS offers only | The strongest videos communicate the value of your offer in narrative form:<ul> <li> Make your customer, not your company, the hero of the story. </li> <li> Your video should address the principal challenges and goals of your target customer. </li> <li> Recommended length: 60-90 seconds.</li> <li> Incorporate key search words that use the name of the videos. </li> <li> Consider adding additional videos, such as a how-to, getting started, or customer testimonials. </li> </ul> |
 | Screenshots (1280&nbsp;&times;&nbsp;720) | Add up to five screenshots:<br>Incorporate key search words in the file names. |
 
@@ -137,4 +138,3 @@ By adding the parameters to your AppSource URL, you can review the effectiveness
 Learn more about your [commercial marketplace benefits](./gtm-your-marketplace-benefits.md).
 
 Sign in to [Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create and configure your offer.
-

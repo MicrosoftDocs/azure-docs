@@ -61,7 +61,10 @@ View commercial marketplace metrics in a variety of ways:
 
 ## Marketplace Insights summary
 
-The Marketplace insights summary section displays a count of **Page visits**, **Calls to action**, and **Unique visitors** for the selected date range.
+The Marketplace Insights summary section displays a count of **Page visits**, **Calls to action**, and **Unique visitors** for the selected date range.
+
+>[!NOTE]
+>The Marketplace Insights dashboard provides clickstream data, which shouldn't be correlated with leads generated in the lead destination endpoint.
 
 ### Page visits
 

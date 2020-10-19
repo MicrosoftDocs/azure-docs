@@ -32,6 +32,7 @@ Translator supports the following languages for text to text translation.
 |:-----|:-----:|
 |Afrikaans|	`af`|
 |Arabic|	`ar`	|
+|Assamese|	`as`	|
 |Bangla|	`bn`	|
 |Bosnian (Latin)|	`bs`	|
 |Bulgarian|	`bg`	|
@@ -65,7 +66,6 @@ Translator supports the following languages for text to text translation.
 |Japanese|	`ja`	|
 |Kannada|`kn`|
 |Kazakh|`kk`|
-|Kiswahili|	`sw`	|
 |Klingon|	`tlh-Latn`	|
 |Klingon (plqaD)|	`tlh-Piqd`	|
 |Korean	|`ko`	|
@@ -96,6 +96,7 @@ Translator supports the following languages for text to text translation.
 |Slovak|	`sk`	|
 |Slovenian|	`sl`	|
 |Spanish|	`es`	|
+|Swahili|	`sw`	|
 |Swedish|	`sv`	|
 |Tahitian|	`ty`	|
 |Tamil|	`ta`	|
@@ -146,14 +147,15 @@ Translator detects the following languages for translation and transliteration.
 |Irish | `ga`|
 |Italian|	`it`	|
 |Japanese|	`ja`	|
-|Kiswahili|	`sw`	|
 |Klingon|	`tlh-Latn`	|
 |Korean	|`ko`	|
+|Kurdish (Central)	|`ku-Arab`	|
 |Latvian|	`lv`	|
 |Lithuanian|	`lt`	|
 |Malay|	`ms`		|
 |Maltese|	`mt`	|
 |Norwegian|	`nb`	|
+|Pashto|	`ps`	|
 |Persian|	`fa`	|
 |Polish|	`pl`	|
 |Portuguese (Brazil)|	`pt-br`	|
@@ -165,6 +167,7 @@ Translator detects the following languages for translation and transliteration.
 |Slovak|	`sk`	|
 |Slovenian|	`sl`	|
 |Spanish|	`es`	|
+|Swahili|	`sw`	|
 |Swedish|	`sv`	|
 |Tahitian|	`ty`	|
 |Thai|	`th`	|
@@ -190,19 +193,19 @@ The Transliterate method supports the following languages. In the "To/From", "<-
 | Chinese (Simplified) | `zh-Hans` | Chinese Simplified `Hans`| <--> | Chinese Traditional `Hant`|
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Latin `Latn` |
 | Chinese (Traditional) | `zh-Hant` | Chinese Traditional `Hant`| <--> | Chinese Simplified `Hans` |
-| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latin `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | <--> | Latin `Latn` |
 | Hebrew | `he` | Hebrew `Hebr` | <--> | Latin `Latn` |
 | Hindi | `hi` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Japanese | `ja` | Japanese `Jpan` | <--> | Latin `Latn` |
-| Kannada | `kn` | Kannada `Knda` | --> | Latin `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latin `Latn` |
-| Marathi | `mr` | Devanagari `Deva` | --> | Latin `Latn` |
+| Kannada | `kn` | Kannada `Knda` | <--> | Latin `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | <--> | Latin `Latn` |
+| Marathi | `mr` | Devanagari `Deva` | <--> | Latin `Latn` |
 | Odia | `or` | Oriya `Orya` | <--> | Latin `Latn` |
 | Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latin `Latn`  |
 | Serbian (Cyrillic) | `sr-Cyrl` | Cyrillic `Cyrl`  | --> | Latin `Latn` |
 | Serbian (Latin) | `sr-Latn` | Latin `Latn` | --> | Cyrillic `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latin `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latin `Latn` |
+| Tamil | `ta` | Tamil `Taml` | <--> | Latin `Latn` |
+| Telugu | `te` | Telugu `Telu` | <--> | Latin `Latn` |
 | Thai | `th` | Thai `Thai` | --> | Latin `Latn` |
 
 ### Dictionary
@@ -238,7 +241,6 @@ View reference documentation for the [Dictionary Lookup](reference/v3-0-dictiona
 | Indonesian      | `id`          |
 | Italian      | `it`          |
 | Japanese      | `ja`          |
-| Kiswahili      | `sw`          |
 | Klingon      | `tlh`          |
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
@@ -255,6 +257,7 @@ View reference documentation for the [Dictionary Lookup](reference/v3-0-dictiona
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |
 | Spanish      | `es`          |
+| Swahili      | `sw`          |
 | Swedish      | `sv`          |
 | Tamil      | `ta`          |
 | Thai      | `th`          |
@@ -276,10 +279,12 @@ The following languages are available for customization to or from English using
 
 | Language    | Language code |
 |:----------- |:-------------:|
+|Afrikaans|	`af`|
 | Arabic       | `ar`          |
 | Bangla      | `bn`          |
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
+|Catalan|	`ca`	|
 | Chinese Simplified      | `zh-Hans`          |
 |Chinese Traditional|	`zh-Hant`	|
 | Croatian      | `hr`          |
@@ -288,6 +293,8 @@ The following languages are available for customization to or from English using
 | Dutch      | `nl`          |
 | English    | `en`     |
 | Estonian      | `et`          |
+|Fijian|	`fj`	|
+|Filipino|	`fil`	|
 | Finnish      | `fi`          |
 | French      | `fr`          |
 | German      | `de`          |
@@ -301,12 +308,13 @@ The following languages are available for customization to or from English using
 | Irish | `ga`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
-| Kiswahili|	`sw`	|
+|Kannada|`kn`|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
 | Malagasy|	`mg`	|
 | Malay|	`ms`		|
+|Maltese|	`mt`	|
 | Maori| `mi`  |
 | Marathi| `mr`  |
 | Norwegian      | `nb`          |
@@ -321,8 +329,11 @@ The following languages are available for customization to or from English using
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |
 | Spanish      | `es`          |
+| Swahili|	`sw`	|
 | Swedish      | `sv`          |
+|Tahitian|	`ty`	|
 | Thai      | `th`          |
+|Tongan|	`to`	|
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Urdu|	`ur`	|

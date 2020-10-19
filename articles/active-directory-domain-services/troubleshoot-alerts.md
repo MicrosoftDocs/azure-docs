@@ -2,7 +2,7 @@
 title: Common alerts and resolutions in Azure AD Domain Services | Microsoft Docs
 description: Learn how to resolve common alerts generated as part of the health status for Azure Active Directory Domain Services
 services: active-directory-ds
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 
 ms.assetid: 54319292-6aa0-4a08-846b-e3c53ecca483
@@ -11,7 +11,7 @@ ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
-ms.author: iainfou
+ms.author: joflore
 
 ---
 # Known issues: Common alerts and resolutions in Azure Active Directory Domain Services
@@ -102,7 +102,7 @@ Azure AD DS requires an active subscription, and can't be moved to a different s
 
 Azure AD DS requires an active subscription. If the Azure subscription that the managed domain was associated with isn't active, you must renew it to reactivate the subscription.
 
-1. [Renew your Azure subscription](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Renew your Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
 2. Once the subscription is renewed, an Azure AD DS notification lets you re-enable the managed domain.
 
 When the managed domain is enabled again, the managed domain's health automatically updates itself within two hours and removes the alert.
@@ -158,7 +158,7 @@ This error is unrecoverable. To resolve the alert, [delete your existing managed
 
 Some automatically generated service principals are used to manage and create resources for a managed domain. If the access permissions for one of these service principals is changed, the domain is unable to correctly manage resources. The following steps show you how to understand and then grant access permissions to a service principal:
 
-1. Read about [role-based access control and how to grant access to applications in the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+1. Read about [role-based access control and how to grant access to applications in the Azure portal](../role-based-access-control/role-assignments-portal.md).
 2. Review the access that the service principal with the ID *abba844e-bc0e-44b0-947a-dc74e5d09022* has and grant the access that was denied at an earlier date.
 
 ## AADDS112: Not enough IP address in the managed domain
@@ -272,7 +272,7 @@ The following common reasons cause synchronization to stop in a managed domain:
 
 Azure AD DS requires an active subscription. If the Azure subscription that the managed domain was associated with isn't active, you must renew it to reactivate the subscription.
 
-1. [Renew your Azure subscription](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
+1. [Renew your Azure subscription](../cost-management-billing/manage/subscription-disabled.md).
 2. Once the subscription is renewed, an Azure AD DS notification lets you re-enable the managed domain.
 
 When the managed domain is enabled again, the managed domain's health automatically updates itself within two hours and removes the alert.

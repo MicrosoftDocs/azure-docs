@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ---
@@ -23,10 +23,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
+- A set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Download and extract *sample_data.zip*. Upload the training files to the root of a blob storage container in a standard-performance-tier Azure Storage account.
 
 > [!NOTE]
-> This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync).
+> This quickstart uses remote documents accessed by URL. To use local files instead, see the [reference documentation for v2.0](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/TrainCustomModelAsync) and [reference documentation for v2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/TrainCustomModelAsync).
 
 ## Create a Form Recognizer resource
 
@@ -36,9 +36,9 @@ To complete this quickstart, you must have:
 
 Next you'll need to set up the required input data. The labeled data feature has special input requirements beyond what's needed to train a custom model without labels.
 
-Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into sub-folders based on common format. When you train, you'll need to direct the API to a sub-folder.
+Make sure all the training documents are of the same format. If you have forms in multiple formats, organize them into subfolders based on common format. When you train, you'll need to direct the API to a subfolder.
 
-In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these file below.
+In order to train a model using labeled data, you'll need the following files as inputs in the sub-folder. You will learn how to create these files below.
 
 * **Source forms** – the forms to extract data from. Supported types are JPEG, PNG, PDF, or TIFF.
 * **OCR layout files** - these are JSON files that describe the sizes and positions of all readable text in each source form. You'll use the Form Recognizer Layout API to generate this data. 
@@ -65,6 +65,7 @@ You need OCR result files in order for the service to consider the corresponding
 1. Call the **[Get Analyze Layout Result](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/GetAnalyzeLayoutResult)** API, using the operation ID from the previous step.
 1. Get the response and write the content to a file. For each source form, the corresponding OCR file should have the original file name appended with `.ocr.json`. The OCR JSON output should have the following format. See the [sample OCR file](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/Invoice_1.pdf.ocr.json) for a full example. 
 
+    # [v2.0](#tab/v2-0)
     ```json
     {
     "status": "succeeded",
@@ -112,7 +113,61 @@ You need OCR result files in order for the service to consider the corresponding
                         ]
                     },
                     ...
-    ```
+    ```    
+    # [v2.1 preview](#tab/v2-1)
+    ```json
+    {
+    "status": "succeeded",
+    "createdDateTime": "2019-11-12T21:18:12Z",
+    "lastUpdatedDateTime": "2019-11-12T21:18:17Z",
+    "analyzeResult": {
+        "version": "2.1.0",
+        "readResults": [
+            {
+                "page": 1,
+                "language": "en",
+                "angle": 0,
+                "width": 8.5,
+                "height": 11,
+                "unit": "inch",
+                "lines": [
+                    {
+                        "language": "en",
+                        "boundingBox": [
+                            0.5384,
+                            1.1583,
+                            1.4466,
+                            1.1583,
+                            1.4466,
+                            1.3534,
+                            0.5384,
+                            1.3534
+                        ],
+                        "text": "Contoso",
+                        "words": [
+                            {
+                                "boundingBox": [
+                                    0.5384,
+                                    1.1583,
+                                    1.4466,
+                                    1.1583,
+                                    1.4466,
+                                    1.3534,
+                                    0.5384,
+                                    1.3534
+                                ],
+                                "text": "Contoso",
+                                "confidence": 1
+                            }
+                        ]
+                    },
+                    ...
+    ```    
+
+
+    ---
+
+
 
 ### Create the label files
 
@@ -199,6 +254,7 @@ To train a model with labeled data, call the **[Train Custom Model](https://west
 1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 1. Replace `<Blob folder name>` with the folder name in your blob container where the input data is located. Or, if your data is at the root, leave this blank and remove the `"prefix"` field from the body of the HTTP request.
 
+# [v2.0](#tab/v2-0)
 ```python
 ########### Python Form Recognizer Labeled Async Train #############
 import json
@@ -238,7 +294,52 @@ try:
 except Exception as e:
     print("POST model failed:\n%s" % str(e))
     quit() 
-```
+```    
+# [v2.1 preview](#tab/v2-1)    
+```python
+########### Python Form Recognizer Labeled Async Train #############
+import json
+import time
+from requests import get, post
+
+# Endpoint URL
+endpoint = r"<Endpoint>"
+post_url = endpoint + r"/formrecognizer/v2.1-preview.1/custom/models"
+source = r"<SAS URL>"
+prefix = "<Blob folder name>"
+includeSubFolders = False
+useLabelFile = True
+
+headers = {
+    # Request headers
+    'Content-Type': 'application/json',
+    'Ocp-Apim-Subscription-Key': '<subsription key>',
+}
+
+body =     {
+    "source": source,
+    "sourceFilter": {
+        "prefix": prefix,
+        "includeSubFolders": includeSubFolders
+    },
+    "useLabelFile": useLabelFile
+}
+
+try:
+    resp = post(url = post_url, json = body, headers = headers)
+    if resp.status_code != 201:
+        print("POST model failed (%s):\n%s" % (resp.status_code, json.dumps(resp.json())))
+        quit()
+    print("POST model succeeded:\n%s" % resp.headers)
+    get_url = resp.headers["location"]
+except Exception as e:
+    print("POST model failed:\n%s" % str(e))
+    quit() 
+```   
+
+---
+
+
 
 ## Get training results
 
@@ -346,199 +447,294 @@ Copy the `"modelId"` value for use in the following steps.
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-When the process is completed, you'll receive a `202 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value associations are in the `"documentResults"` node. The Layout API results (the content and positions of all the text in the document) are in the `"readResults"` node.
+When the process is completed, you'll receive a `202 (Success)` response with JSON content in the following format. The response has been shortened for simplicity. The main key/value associations are in the `"documentResults"` node. The `"selectionMarks"` node (in v2.1 preview) shows every selection mark (checkbox, radio mark) and whether its status is "selected" or "unselected". The Layout API results (the content and positions of all the text in the document) are in the `"readResults"` node.
 
+# [v2.0](#tab/v2-0)
 ```json
-{ 
-    "analyzeResult":{ 
-      "version":"2.0.0",
-      "readResults":[ 
-        { 
-          "page":1,
-          "language":"en",
-          "angle":0,
-          "width":8.5,
-          "height":11,
-          "unit":"inch",
-          "lines":[ 
-            { 
-              "language":"en",
-              "boundingBox":[ 
-                0.5375,
-                1.1349,
-                2.6064,
-                1.1349,
-                2.6064,
-                1.354,
-                0.5375,
-                1.354
-              ],
-              "text":"Contoso Suites",
-              "words":[ 
-                { 
-                  "boundingBox":[ 
-                    0.5375,
-                    1.1402,
-                    1.6595,
-                    1.1402,
-                    1.6595,
-                    1.354,
-                    0.5375,
-                    1.354
-                  ],
-                  "text":"Contoso",
-                  "confidence":1
-                },
-                { 
-                  "boundingBox":[ 
-                    1.758,
-                    1.1349,
-                    2.6064,
-                    1.1349,
-                    2.6064,
-                    1.3534,
-                    1.758,
-                    1.3534
-                  ],
-                  "text":"Suites",
-                  "confidence":1
-                }
-              ]
-            },
-            ...
-          ]
-        }
-      ],
-      "pageResults":[ 
-        { 
-          "page":1,
-          "tables":[ 
-            { 
-              "rows":2,
-              "columns":6,
-              "cells":[ 
-                { 
-                  "rowIndex":0,
-                  "columnIndex":0,
-                  "text":"Invoice Number",
-                  "boundingBox":[ 
-                    0.5075,
-                    2.8088,
-                    1.9061,
-                    2.8088,
-                    1.9061,
-                    3.3219,
-                    0.5075,
-                    3.3219
-                  ],
-                  "elements":[ 
-                    "#/readResults/0/lines/7/words/0",
-                    "#/readResults/0/lines/7/words/1"
-                  ]
-                },
-                { 
-                  "rowIndex":0,
-                  "columnIndex":1,
-                  "text":"Invoice Date",
-                  "boundingBox":[ 
-                    1.9061,
-                    2.8088,
-                    3.3074,
-                    2.8088,
-                    3.3074,
-                    3.3219,
-                    1.9061,
-                    3.3219
-                  ],
-                  "elements":[ 
-                    "#/readResults/0/lines/8/words/0",
-                    "#/readResults/0/lines/8/words/1"
-                  ]
-                },
-                ...        
-              ]
-            }
-          ]
-        }
-      ],
-      "documentResults":[ 
-        { 
-          "docType":"Analyze",
-          "pageRange":[ 
-            1,
-            1
-          ],
-          "fields":{ 
-            "total":{ 
-              "type":"string",
-              "valueString":"$22,123.24",
-              "text":"$22,123.24",
-              "boundingBox":[ 
-                5.29,
-                3.41,
-                5.9750000000000009,
-                3.41,
-                5.9750000000000009,
-                3.54,
-                5.29,
-                3.54
-              ],
-              "page":1,
-              "confidence":1,
-              "elements":[ 
-                "#/analyzeResult/readResults/0/lines/15/words/0"
-              ]
-            },
-            "invoice #":{ 
-              "type":"string",
-              "valueString":"7689302",
-              "text":"7689302",
-              "boundingBox":[ 
-                0.54,
-                3.41,
-                1.065,
-                3.41,
-                1.065,
-                3.515,
-                0.54,
-                3.515
-              ],
-              "page":1,
-              "confidence":1,
-              "elements":[ 
-                "#/analyzeResult/readResults/0/lines/12/words/0"
-              ]
-            },
-            "vat":{ 
-              "type":"string",
-              "valueString":"QR",
-              "text":"QR",
-              "boundingBox":[ 
-                6.2250000000000009,
-                3.41,
-                6.425,
-                3.41,
-                6.425,
-                3.52,
-                6.2250000000000009,
-                3.52
-              ],
-              "page":1,
-              "confidence":0.9839357733726502,
-              "elements":[ 
-                "#/analyzeResult/readResults/0/lines/16/words/0"
-              ]
-            },
-            ...
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-08-21T02:16:28Z",
+  "lastUpdatedDateTime": "2020-08-21T02:16:35Z",
+  "analyzeResult": {
+    "version": "2.0.0",
+    "readResults": [
+      {
+        "page": 1,
+        "language": "en",
+        "angle": 0,
+        "width": 8.5,
+        "height": 11,
+        "unit": "inch",
+        "lines": [
+          {
+            "boundingBox": [
+              0.5826,
+              0.4411,
+              2.3387,
+              0.4411,
+              2.3387,
+              0.7969,
+              0.5826,
+              0.7969
+            ],
+            "text": "Contoso, Ltd.",
+            "words": [
+              {
+                "boundingBox": [
+                  0.5826,
+                  0.4411,
+                  1.744,
+                  0.4411,
+                  1.744,
+                  0.7969,
+                  0.5826,
+                  0.7969
+                ],
+                "text": "Contoso,",
+                "confidence": 1
+              },
+              {
+                "boundingBox": [
+                  1.8448,
+                  0.4446,
+                  2.3387,
+                  0.4446,
+                  2.3387,
+                  0.7631,
+                  1.8448,
+                  0.7631
+                ],
+                "text": "Ltd.",
+                "confidence": 1
+              }
+            ]
+          },
+          ...
+            ]
           }
+        ] 
+      }
+    ],
+    "pageResults": [
+      {
+        "page": 1,
+        "tables": [
+          {
+            "rows": 5,
+            "columns": 5,
+            "cells": [
+              {
+                "rowIndex": 0,
+                "columnIndex": 0,
+                "text": "Training Date",
+                "boundingBox": [
+                  0.5133,
+                  4.2167,
+                  1.7567,
+                  4.2167,
+                  1.7567,
+                  4.4492,
+                  0.5133,
+                  4.4492
+                ],
+                "elements": [
+                  "#/readResults/0/lines/14/words/0",
+                  "#/readResults/0/lines/14/words/1"
+                ]
+              },
+              ...
+            ]
+          },
+        ]
+      }
+    ],
+    "documentResults": [
+      {
+        "docType": "custom:form",
+        "pageRange": [
+          1,
+          1
+        ],
+        "fields": {
+          "Receipt No": {
+            "type": "string",
+            "valueString": "9876",
+            "text": "9876",
+            "page": 1,
+            "boundingBox": [
+              7.615,
+              1.245,
+              7.915,
+              1.245,
+              7.915,
+              1.35,
+              7.615,
+              1.35
+            ],
+            "confidence": 1,
+            "elements": [
+              "#/readResults/0/lines/3/words/3"
+            ]
+          },
+          ...
         }
-      ]
-    },
-    "status":"succeeded",
-    "createdDateTime":"2019-11-12T21:26:19+00:00",
-    "lastUpdatedDateTime":"2019-11-12T21:27:27.0488571+00:00"
+      }
+    ],
+    "errors": []
+  }
 }
 ```
+# [v2.1 preview](#tab/v2-1) 
+```json   
+{
+  "status": "succeeded",
+  "createdDateTime": "2020-08-21T02:29:42Z",
+  "lastUpdatedDateTime": "2020-08-21T02:29:50Z",
+  "analyzeResult": {
+    "version": "2.1.0",
+    "readResults": [
+      {
+        "page": 1,
+        "angle": 0,
+        "width": 8.5,
+        "height": 11,
+        "unit": "inch",
+        "lines": [
+          {
+            "boundingBox": [
+              0.5826,
+              0.4411,
+              2.3387,
+              0.4411,
+              2.3387,
+              0.7969,
+              0.5826,
+              0.7969
+            ],
+            "text": "Contoso, Ltd.",
+            "words": [
+              {
+                "boundingBox": [
+                  0.5826,
+                  0.4411,
+                  1.744,
+                  0.4411,
+                  1.744,
+                  0.7969,
+                  0.5826,
+                  0.7969
+                ],
+                "text": "Contoso,",
+                "confidence": 1
+              },
+              {
+                "boundingBox": [
+                  1.8448,
+                  0.4446,
+                  2.3387,
+                  0.4446,
+                  2.3387,
+                  0.7631,
+                  1.8448,
+                  0.7631
+                ],
+                "text": "Ltd.",
+                "confidence": 1
+              }
+            ]
+          },
+          ...
+        ], 
+        "selectionMarks": [
+          {
+            "boundingBox": [
+              3.9737,
+              3.7475,
+              4.1693,
+              3.7475,
+              4.1693,
+              3.9428,
+              3.9737,
+              3.9428
+            ],
+            ...
+        ] 
+      }
+    ],
+    "pageResults": [
+      {
+        "page": 1,
+        "tables": [
+          {
+            "rows": 5,
+            "columns": 5,
+            "cells": [
+              {
+                "rowIndex": 0,
+                "columnIndex": 0,
+                "text": "Training Date",
+                "boundingBox": [
+                  0.5133,
+                  4.2167,
+                  1.7567,
+                  4.2167,
+                  1.7567,
+                  4.4492,
+                  0.5133,
+                  4.4492
+                ],
+                "elements": [
+                  "#/readResults/0/lines/12/words/0",
+                  "#/readResults/0/lines/12/words/1"
+                ]
+              },
+              ...
+            ]
+          }
+        ] 
+      }
+    ], 
+    "documentResults": [
+      {
+        "docType": "custom:e1073364-4f3d-4797-8cc4-4bdbcd0dab6b",
+        "modelId": "e1073364-4f3d-4797-8cc4-4bdbcd0dab6b",
+        "pageRange": [
+          1,
+          1
+        ],
+        "fields": {
+          "ID #": {
+            "type": "string",
+            "valueString": "5554443",
+            "text": "5554443",
+            "page": 1,
+            "boundingBox": [
+              2.315,
+              2.43,
+              2.74,
+              2.43,
+              2.74,
+              2.515,
+              2.315,
+              2.515
+            ],
+            "confidence": 1,
+            "elements": [
+              "#/readResults/0/lines/8/words/1"
+            ]
+          },
+          ...
+        },
+        "docTypeConfidence": 1
+      }
+    ],
+    "errors": []
+  }
+}
+```
+
+---
+
 
 ## Improve results
 

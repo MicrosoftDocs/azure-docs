@@ -17,15 +17,13 @@ Dv2 and Dsv2-series, a follow-on to the original D-series, features a more power
 
 Dv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
 
-ACU: 210 - 250
-
-Premium Storage: Not Supported
-
-Premium Storage caching: Not Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 210 - 250<br>
+[Premium Storage](premium-storage-performance.md): Not Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Not Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1<br>
+<br> 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max data disks/throughput: IOPS | Max NICs|Expected network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
@@ -42,15 +40,13 @@ Memory Preserving Updates: Supported
 
 DSv2-series sizes run on Intel® Xeon® Platinum 8272CL (Cascade Lake), Intel® Xeon® 8171M 2.1 GHz (Skylake), or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell), or the Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) processors.
 
-ACU: 210 - 250 <sup>1</sup>
-
-Premium Storage:  Supported
-
-Premium Storage caching:  Supported
-
-Live Migration: Supported
-
-Memory Preserving Updates: Supported
+[ACU](acu.md): 210 - 250 <sup>1</sup><br>
+[Premium Storage](premium-storage-performance.md): Supported<br>
+[Premium Storage caching](premium-storage-performance.md): Supported<br>
+[Live Migration](maintenance-and-updates.md): Supported<br>
+[Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
+[VM Generation Support](generation-2.md): Generation 1 and 2<br>
+<br> 
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Max uncached disk throughput: IOPS/MBps | Max NICs|Expected network bandwidth (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |---|
@@ -60,7 +56,7 @@ Memory Preserving Updates: Supported
 | Standard_DS14_v2 <sup>3</sup> | 16 | 112 | 224 | 64 | 64000/512 (576) | 51200/768 | 8|12000 |
 | Standard_DS15_v2 <sup>2</sup> | 20 | 140 | 280 | 64 | 80000/640 (720) | 64000/960 | 8|25000 <sup>4</sup> |
 
-<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](./windows/premium-storage-performance.md).
+<sup>1</sup> The maximum disk throughput (IOPS or MBps) possible with a DSv2 series VM may be limited by the number, size and striping of the attached disk(s).  For details, see [Designing for high performance](./premium-storage-performance.md).
 <sup>2</sup>  Instance is isolated to the Intel Haswell based hardware and dedicated to a single customer.  
 <sup>3</sup> Constrained core sizes available.  
 <sup>4</sup> 25000 Mbps with Accelerated Networking.

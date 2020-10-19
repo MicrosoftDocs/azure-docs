@@ -7,7 +7,7 @@ services: iot-hub
 ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
-ms.custom: [mvc, mqtt, devx-track-azurecli]
+ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 #Customer intent: As a developer, I want to know how to set up and check metrics and diagnostic logs, to help me troubleshoot when there is a problem with an Azure IoT hub. 
 ---
 
@@ -182,7 +182,7 @@ Now set up some metrics to watch for when messages are sent to the hub.
 
 Go to the hub in the portal. Click **Resource Groups**, select *ContosoResources*, then select IoT Hub *ContosoTestHub*. 
 
-IoT Hub has not been migrated to the [metrics in Azure Monitor](/azure/azure-monitor/platform/data-collection#metrics) yet; you have to use [classic alerts](/azure/azure-monitor/platform/alerts-classic.overview).
+IoT Hub has not been migrated to the [metrics in Azure Monitor](../azure-monitor/platform/data-platform.md#metrics) yet; you have to use [classic alerts](../azure-monitor/platform/alerts-classic.overview.md).
 
 1. Under **Monitoring**, click **Alerts** This shows the main alert screen. 
 
@@ -361,7 +361,7 @@ Click **Download** to download it and open it. You see the logs of the device co
 
 To remove all of the resources you've created in this tutorial, delete the resource group. This action deletes all resources contained within the group. In this case, it removes the IoT hub, the storage account, and the resource group itself. If you have pinned metrics to the dashboard, you will have to remove those manually by clicking on the three dots in the upper right-hand corner of each and selecting **Remove**.
 
-To remove the resource group, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
+To remove the resource group, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete) command.
 
 ```azurecli-interactive
 az group delete --name $resourceGroup

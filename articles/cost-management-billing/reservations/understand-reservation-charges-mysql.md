@@ -4,6 +4,7 @@ description: Learn how a reservation discount is applied to your Azure Database 
 author: kummanish
 ms.author: manishku
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ---
@@ -34,7 +35,7 @@ For the rest of these examples, assume that the Azure Database for MySQL reserve
 
 * **Example 4**: You run one 16 vCore Azure Database for MySQL server from 1 pm to 1:45 pm. You run another 16 vCore Azure Database for MySQL server from 1:30 to 2 pm. You're charged the pay-as-you-go price for the 15-minute overlap. The reservation discount applies to the compute usage for the rest of the time.
 
-To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](https://docs.microsoft.com/azure/billing/billing-understand-reserved-instance-usage-ea).
+To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](./understand-reserved-instance-usage-ea.md).
 
 ## Next steps
 

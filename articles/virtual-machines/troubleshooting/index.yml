@@ -119,7 +119,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text:  Virtual Disks FAQ
-            url: ../windows/faq-for-disks.md
+            url: ../faq-for-disks.md
           - text:  Troubleshoot allocation failures when resizing a VM
             url: ./allocation-failure.md
           - text:  Understanding the temporary drive on your VM
@@ -145,7 +145,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text:  Troubleshooting shared image galleries-replication is slow
-            url: ../windows/troubleshooting-shared-images.md#replication-is-slow
+            url: ../troubleshooting-shared-images.md#replication-is-slow
         
    # Card
   - title: VM Extension issues

@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 ---
 
@@ -19,7 +19,7 @@ This article describes Time Series Model, the capabilities, and how to start bui
 > [!TIP]
 >
 > * Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment for a live Time Series Model example.
-> * Learn [how to work with Time Series Model](/azure/time-series-insights/how-to-edit-your-model) using the Azure Time Series Insights Gen2 Explorer.
+> * Learn [how to work with Time Series Model](/azure/time-series-insights/how-to-edit-your-model) using the Azure Time Series Insights Explorer.
 
 ## Summary
 
@@ -70,7 +70,7 @@ These components are combined to specify a time series model and to organize you
 
 [![Time Series Model overview chart](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-A time series model can be created and managed through the [Azure Time Series Insights Gen2 Explorer](/azure/time-series-insights/concepts-model-overview). Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
+A time series model can be created and managed through the [Azure Time Series Insights Explorer](/azure/time-series-insights/concepts-model-overview). Time Series Model settings can be managed through the [Model Settings API](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## Time Series Model instances
 
@@ -82,7 +82,7 @@ Instances have descriptive information associated with them called *instance pro
 
 *Instance fields* are a collection of descriptive information that can include values for hierarchy levels, as well as manufacturer, operator, and so on.
 
-After an event source is configured for the Azure Time Series Insights Gen2 environment, instances are automatically discovered and created in a time series model. The instances can be created or updated via the Azure Time Series Insights Gen2 Explorer by using Time Series Model queries.
+After an event source is configured for the Azure Time Series Insights Gen2 environment, instances are automatically discovered and created in a time series model. The instances can be created or updated via the Azure Time Series Insights Explorer by using Time Series Model queries.
 
 The [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) provides several live instance examples.
 
@@ -211,7 +211,7 @@ Given the instance fields used in the previous definition and several time serie
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | None of "building", "floor", or "room" is set. |
 
-Time Series **ID1** and **ID4** are displayed as part of hierarchy **H1** in the [Azure Time Series Insights Gen2 Explorer](time-series-insights-update-explorer.md) because they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
+Time Series **ID1** and **ID4** are displayed as part of hierarchy **H1** in the [Azure Time Series Insights Explorer](time-series-insights-update-explorer.md) because they have fully defined and correctly ordered *building*, *floor*, and *room* parameters.
 
 The others are classified under *Unparented Instances* because they don't conform to the specified data hierarchy.
 

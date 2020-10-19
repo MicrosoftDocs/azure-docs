@@ -11,7 +11,7 @@ ms.devlang:
 ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
+ms.reviewer: sstein
 ms.date: 03/23/2020
 ---
 # Authorize database access to SQL Database, SQL Managed Instance, and Azure Synapse Analytics
@@ -19,7 +19,7 @@ ms.date: 03/23/2020
 
 In this article, you learn about:
 
-- Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly Azure SQL Data Warehouse) to enable users to perform administrative tasks and to access the data stored in these databases.
+- Options for configuring Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics (formerly SQL Data Warehouse) to enable users to perform administrative tasks and to access the data stored in these databases.
 - The access and authorization configuration after initially creating a new server.
 - How to add logins and user accounts in the master database and user accounts and then grant these accounts administrative permissions.
 - How to add user accounts in user databases, either associated with logins or as contained user accounts.
@@ -59,7 +59,7 @@ To identify the administrator accounts for a database, open the Azure portal, an
 
 ![SQL Server Admins](./media/logins-create-manage/sql-admins.png)
 
-![SQL Server Admins](./media/logins-create-manage/sql-admins2.png)
+![Screenshot that highlights the Properties menu option.](./media/logins-create-manage/sql-admins2.png)
 
 > [!IMPORTANT]
 > The admin login name can't be changed after it has been created. To reset the password for the server admin, go to the [Azure portal](https://portal.azure.com), click **SQL Servers**, select the server from the list, and then click **Reset Password**. To reset the password for the SQL Managed Instance, go to the Azure portal, click the instance, and click **Reset password**. You can also use PowerShell or the Azure CLI.

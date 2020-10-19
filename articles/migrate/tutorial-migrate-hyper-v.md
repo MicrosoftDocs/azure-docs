@@ -18,7 +18,7 @@ This tutorial is the third in a series that demonstrates how to assess and migra
  In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Add the Azure Migration:Server Migration tool.
+> * Add the Azure Migrate:Server Migration tool.
 > * Discover VMs you want to migrate.
 > * Start replicating VMs.
 > * Run a test migration to make sure everything's working as expected.
@@ -107,28 +107,32 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 5. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.
 7. In **Replication Storage Account**, select the Azure Storage account in which replicated data will be stored in Azure.
 8. **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
-9. In **Azure Hybrid Benefit**:
+9. In **Availability options**, select:
+    -  Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones
+    -  Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option.
+    - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines.
+10. In **Azure Hybrid Benefit**:
 
     - Select **No** if you don't want to apply Azure Hybrid Benefit. Then, click **Next**.
     - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
     ![Target settings](./media/tutorial-migrate-hyper-v/target-settings.png)
 
-10. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
+11. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with [Azure requirements](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements).
 
     - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
     - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
-    - **Availability set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
+    - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
 
     ![VM compute settings](./media/tutorial-migrate-hyper-v/compute-settings.png)
 
-11. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
+12. In **Disks**, specify the VM disks that needs to be replicated to Azure. Then click **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration. 
 
-    ![Disks](./media/tutorial-migrate-hyper-v/disks.png)
+    ![Screenshot shows the Disks tab of the Replicate dialog box.](./media/tutorial-migrate-hyper-v/disks.png)
 
-10. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
+13. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
 > [!NOTE]
 > You can update replication settings any time before replication starts, in **Manage** > **Replicating machines**. Settings can't be changed after replication starts.

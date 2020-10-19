@@ -36,7 +36,7 @@ ms.collection: M365-identity-device-management
 
 * Automate review outcomes, such as removing users’ access to resources
 
-  ![Planning access reviews](./media/deploy-access-review/1-planning-review.png)
+  ![Diagram that shows the access reviews flow.](./media/deploy-access-review/1-planning-review.png)
 
 Access Reviews is an [Azure AD Identity Governance](identity-governance-overview.md) capability. The other capabilities are [Entitlement Management](entitlement-management-overview.md), [Privileged Identity Management](../privileged-identity-management/pim-configure.md) and [Terms of Use](../conditional-access/terms-of-use.md). Together, they help organizations address these four questions:
 
@@ -92,7 +92,7 @@ For Access Reviews, you'll likely include representatives from the following tea
 
 * **IT administration** manages your IT infrastructure and administers your cloud investments and Software as a Service (SaaS) apps. This team will:
 
-   * Review privileged access to infrastructure and apps, including Office 365 and Azure AD.
+   * Review privileged access to infrastructure and apps, including Microsoft 365 and Azure AD.
 
    * Schedule and run Access Reviews on groups that are used to maintain exception lists or IT pilot projects, to maintain up-to-date access lists.
 
@@ -179,9 +179,9 @@ Typical targets for review include:
 
 * [Applications integrated with Azure AD for Single Sign-on](../manage-apps/what-is-application-management.md) (such as SaaS, line-of-business).
 
-* Group [membership](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) (synchronized to Azure AD, or created in Azure AD or Office 365, including Microsoft Teams).
+* Group [membership](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) (synchronized to Azure AD, or created in Azure AD or Microsoft 365, including Microsoft Teams).
 
-* [Access Package](/entitlement-management-overview.md) that group resources (groups, apps, and sites) into a single package to manage access.
+* [Access Package](/azure/active-directory/governance/entitlement-management-overview) that group resources (groups, apps, and sites) into a single package to manage access.
 
 * [Azure AD roles​ and Azure Resource roles](../privileged-identity-management/pim-resource-roles-assign-roles.md) as defined in Privileged Identity Management.
 
@@ -282,7 +282,7 @@ External identities can be granted access to company resources through one of th
 
 * Assigned a privileged role in Azure AD or in an Azure subscription
 
-See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse.). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to Sharepoint resources, without the use of groups.
+See [sample script](https://github.com/microsoft/access-reviews-samples/tree/master/ExternalIdentityUse). The script will show where external identities invited into the tenant are used. You can see external user’s group membership, role assignments, and application assignments in Azure AD. The script won't show any assignments outside of Azure AD, for example direct rights assignment to Sharepoint resources, without the use of groups.
 
 When creating an Access Review for groups or applications, you can choose to let the reviewer focus on Everyone with access, or Guest users only. By selecting Guest users only, reviewers are given a focused list of external identities from Azure AD B2B that have access to the resource.
 
@@ -299,11 +299,11 @@ When [creating an Access Package](entitlement-management-access-package-create.m
 
 Open the Lifecycle tab to scroll down to Access Reviews.
 
- ![Edit policy](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
+ ![Screenshot that shows the "Edit policy" in the "Lifecycle" tab.](./media/deploy-access-review/5-plan-access-packages-admin-ui.png)
 
 ## Plan Access Reviews for groups
 
-Besides Access Packages, reviewing group membership is the most effective way of governing access. We recommend that access to resources is assigned via [security groups or Office 365 groups](../fundamentals/active-directory-manage-groups.md), and that users are added to those groups to gain access.
+Besides Access Packages, reviewing group membership is the most effective way of governing access. We recommend that access to resources is assigned via [security groups or Microsoft 365 groups](../fundamentals/active-directory-manage-groups.md), and that users are added to those groups to gain access.
 
 A single group can be granted access to all appropriate resources. You can assign the group access to individual resources, or to an Access Package that groups applications and other resources. With this method, you can review access to the group rather than an individual’s access to each application. 
 
@@ -321,9 +321,9 @@ Group membership can be reviewed by:
 
 We recommend that group owners review membership, as they're best situated to know who needs access. Ownership of groups differs with the type of group:
 
-Groups that are created in Office 365 and Azure AD have one or more well-defined owners. In most cases, these owners make perfect reviewers for their own groups as they know who should have access. 
+Groups that are created in Microsoft 365 and Azure AD have one or more well-defined owners. In most cases, these owners make perfect reviewers for their own groups as they know who should have access. 
 
-For example, Microsoft Teams uses Office 365 Groups as the underlying authorization model to grant users access to resources that are in SharePoint, Exchange, OneNote, or other Office 365 services. The creator of the team automatically becomes an owner and should be responsible for attesting to the membership of that group. 
+For example, Microsoft Teams uses Microsoft 365 Groups as the underlying authorization model to grant users access to resources that are in SharePoint, Exchange, OneNote, or other Microsoft 365 services. The creator of the team automatically becomes an owner and should be responsible for attesting to the membership of that group. 
 
 Groups created manually in the Azure AD portal or via scripting through Microsoft Graph may not necessarily have owners defined. We recommend that you define them either through the Azure AD Portal in the group’s “Owners” section or via Graph.
 
@@ -388,7 +388,7 @@ Access reviews can be for the members of a group or for users who were assigned 
 
 ## Plan review of Azure AD and Azure resource roles
 
-[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) and [Azure resources](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) much smaller and increases the overall security of the directory.
+[Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) simplifies how enterprises manage privileged access to resources in Azure AD. This keeps the list of privileged roles, both in [Azure AD](../users-groups-roles/directory-assign-admin-roles.md) and [Azure resources](../../role-based-access-control/built-in-roles.md) much smaller and increases the overall security of the directory.
 
 Access Reviews allows reviewers to attest whether users still need to be in a role. Just like Access Reviews for Access Packages, reviews for Azure AD roles and Azure resource are integrated into the PIM admin user experience. We recommend you review the following role assignments regularly:
 
@@ -402,7 +402,7 @@ Access Reviews allows reviewers to attest whether users still need to be in a ro
 
 * Security Administrator
 
-* All Office 365 and Dynamics Service Administration roles
+* All Microsoft 365 and Dynamics Service Administration roles
 
 Roles selected here include permanent and eligible role. 
 
@@ -421,7 +421,7 @@ To reduce the risk of stale access, administrators can enable periodic reviews o
 | How-to articles| Description |
 | - | - |
 | [Create Access Reviews](entitlement-management-access-reviews-create.md)| Enable reviews of Access Package. |
-| [Perform Access Reviews](/entitlement-management-access-reviews-review-access.md)| Perform access reviews for other users that are assigned to an Access Package. |
+| [Perform Access Reviews](entitlement-management-access-reviews-review-access.md)| Perform access reviews for other users that are assigned to an Access Package. |
 | [Self-review assigned Access Package(s)](entitlement-management-access-reviews-self-review.md)| Self-review of assigned Access Package(s) |
 
 
@@ -445,15 +445,15 @@ Access needs to groups and applications for employees and guests likely change o
 
 To reduce the risk associated with stale role assignments, you should regularly review access of privileged Azure AD roles.
 
-![review azure ad roles](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
+![Screenshot that shows the "Review membership" list of Azure A D roles.](./media/deploy-access-review/8-review-azure-ad-roles-picker.png)
 
 Follow the instructions in the links below:
 
 | How-to articles | Description |
 | - | - |
- [Create Access Reviews](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-start-security-review?toc=/azure/active-directory/governance/toc.json)| Create access reviews for privileged Azure AD roles in PIM |
-| [Self-review your access](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-perform-security-review?toc=/azure/active-directory/governance/toc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an Access Review](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-how-to-complete-review?toc=/azure/active-directory/governance/toc.json)| View an Access Review and apply the results |
+ [Create Access Reviews](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure AD roles in PIM |
+| [Self-review your access](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
+| [Complete an Access Review](../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
 
 
 ### Review Azure resource roles
@@ -466,14 +466,14 @@ Follow the instructions in the links below:
 
 | How-to articles| Description |
 | - | -|
-| [Create Access Reviews](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-start-access-review?toc=/azure/active-directory/governance/toc.json)| Create access reviews for privileged Azure resource roles in PIM |
-| [Self-review your access](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-perform-access-review?toc=/azure/active-directory/governance/toc.json)| If you are assigned to an administrative role, approve or deny access to your role |
-| [Complete an Access Review](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-resource-roles-complete-access-review?toc=/azure/active-directory/governance/toc.json)| View an Access Review and apply the results |
+| [Create Access Reviews](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| Create access reviews for privileged Azure resource roles in PIM |
+| [Self-review your access](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| If you are assigned to an administrative role, approve or deny access to your role |
+| [Complete an Access Review](../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json)| View an Access Review and apply the results |
 
 
 ## Use the Access Reviews API
 
-See [graph API methods](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) and [role and application permission authorization checks](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) to interact with and manage reviewable resources. The Access Reviews methods in the Microsoft Graph API are available for both application and user contexts. When running scripts in the application context, the account used to run the API (the service principle) must be granted the “AccessReview.Read.All” permission to query Access Reviews information.
+See [graph API methods](/graph/api/resources/accessreviews-root?view=graph-rest-beta) and [role and application permission authorization checks](/graph/api/resources/accessreviews-root?view=graph-rest-beta) to interact with and manage reviewable resources. The Access Reviews methods in the Microsoft Graph API are available for both application and user contexts. When running scripts in the application context, the account used to run the API (the service principle) must be granted the “AccessReview.Read.All” permission to query Access Reviews information.
 
 Popular Access Reviews tasks to automate using the Graph API for Access Reviews are:
 
@@ -518,4 +518,3 @@ Learn about the below related technologies.
 
 * [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
 
- 

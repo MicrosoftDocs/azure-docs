@@ -2,7 +2,8 @@
 title: How to create Guest Configuration policies for Linux
 description: Learn how to create an Azure Policy Guest Configuration policy for Linux.
 ms.date: 08/17/2020
-ms.topic: how-to
+ms.topic: how-to 
+ms.custom: devx-track-azurepowershell
 ---
 # How to create Guest Configuration policies for Linux
 
@@ -28,7 +29,7 @@ non-Azure machine.
 >
 > The Guest Configuration extension is required to perform audits in Azure virtual machines. To
 > deploy the extension at scale across all Linux machines, assign the following policy definition:
-> - [Deploy prerequisites to enable Guest Configuration Policy on Linux VMs.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> `Deploy prerequisites to enable Guest Configuration Policy on Linux VMs`
 
 ## Install the PowerShell module
 
@@ -197,10 +198,10 @@ New-GuestConfigurationPackage `
 ```
 
 After creating the Configuration package but before publishing it to Azure, you can test the package
-from your workstation or CI/CD environment. The GuestConfiguration cmdlet
-`Test-GuestConfigurationPackage` includes the same agent in your development environment as is used
-inside Azure machines. Using this solution, you can perform integration testing locally before
-releasing to billed cloud environments.
+from your workstation or continuous integration and continuous deployment (CI/CD) environment. The
+GuestConfiguration cmdlet `Test-GuestConfigurationPackage` includes the same agent in your
+development environment as is used inside Azure machines. Using this solution, you can perform
+integration testing locally before releasing to billed cloud environments.
 
 Since the agent is actually evaluating the local environment, in most cases you need to run the
 Test- cmdlet on the same OS platform as you plan to audit.
@@ -225,8 +226,8 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 New-GuestConfigurationPackage -Name AuditFilePathExists -Configuration ./Config/AuditFilePathExists.mof -ChefProfilePath './' | Test-GuestConfigurationPackage
 ```
 
-The next step is to publish the file to blob storage. The script below contains a function you can
-use to automate this task. The commands used in the `publish` function require the `Az.Storage`
+The next step is to publish the file to Azure Blob Storage. The script below contains a function you
+can use to automate this task. The commands used in the `publish` function require the `Az.Storage`
 module.
 
 ```azurepowershell-interactive

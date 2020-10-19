@@ -1,6 +1,6 @@
 ---
 title: Copy data in bulk using Azure portal
-description: Learn how to use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
+description: Use Azure Data Factory and Copy Activity to copy data from a source data store to a destination data store in bulk.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -40,7 +40,7 @@ In this scenario, you have a number of tables in Azure SQL Database that you wan
 ![Workflow](media/tutorial-bulk-copy-portal/tutorial-copy-multiple-tables.png)
 
 * The first pipeline looks up the list of tables that needs to be copied over to the sink data stores.  Alternatively you can maintain a metadata table that lists all the tables to be copied to the sink data store. Then, the pipeline triggers another pipeline, which iterates over each table in the database and performs the data copy operation.
-* The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in Azure Synapse Analytics (formerly SQL DW) using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 
+* The second pipeline performs the actual copy. It takes the list of tables as a parameter. For each table in the list, copy the specific table in Azure SQL Database to the corresponding table in Azure Synapse Analytics (formerly SQL DW) using [staged copy via Blob storage and PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-synapse-analytics) for best performance. In this example, the first pipeline passes the list of tables as a value for the parameter. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -57,7 +57,7 @@ Create a database in SQL Database with Adventure Works LT sample data following 
 
 **Prepare the sink Azure Synapse Analytics (formerly SQL DW)**:
 
-1. If you don't have an Azure Synapse Analytics (formerly SQL DW), see the [Create a SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) article for steps to create one.
+1. If you don't have an Azure Synapse Analytics (formerly SQL DW) workspace, see the [Get started with Azure Synapse Analytics](..\synapse-analytics\get-started.md) article for steps to create one.
 
 1. Create corresponding table schemas in Azure Synapse Analytics (formerly SQL DW). You use Azure Data Factory to migrate/copy data in a later step.
 

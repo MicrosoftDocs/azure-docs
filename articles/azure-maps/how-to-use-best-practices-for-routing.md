@@ -1,9 +1,9 @@
 ---
-title: Best practices for Azure Maps Route Service  | Microsoft Azure Maps 
+title: Best practices for Azure Maps Route Service in Microsoft Azure Maps 
 description: Learn how to route vehicles by using Route Service from Microsoft Azure Maps.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 03/11/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -14,21 +14,22 @@ manager: philmea
 
 The Route Directions and Route Matrix APIs in Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route) can be used to calculate the estimated arrival times (ETAs) for each requested route. Route APIs consider factors such as real-time traffic information and historic traffic data, like the typical road speeds on the requested day of the week and time of day. The APIs return the shortest or fastest routes available to multiple destinations at a time in sequence or in optimized order, based on time or distance. Users can also request specialized routes and details for walkers, bicyclists, and commercial vehicles like trucks. In this article, we'll share the best practices to call Azure Maps [Route Service](https://docs.microsoft.com/rest/api/maps/route), and you'll learn how-to:
 
-* Choose between the Route Directions APIs and the Matrix Routing API
-* Request historic and predicted travel times, based on real-time and historical traffic data
-* Request route details, like time and distance, for the entire route and each leg of the route
-* Request route for a commercial vehicle, like a truck
-* Request traffic information along a route, like jams and toll information
-* Request a route that consists of one or more stops (waypoints)
-* Optimize a route of one or more stops to obtain the best order to visit each stop (waypoint)
-* Optimize alternative routes using supporting points. For example, offer alternative routes that pass an electric vehicle charging station.
-* Use the [Route Service](https://docs.microsoft.com/rest/api/maps/route) with the Azure Maps Web SDK
+ * Choose between the Route Directions APIs and the Matrix Routing API
+ * Request historic and predicted travel times, based on real-time and historical traffic data
+ * Request route details, like time and distance, for the entire route and each leg of the route
+ * Request route for a commercial vehicle, like a truck
+ * Request traffic information along a route, like jams and toll information
+ * Request a route that consists of one or more stops (waypoints)
+ * Optimize a route of one or more stops to obtain the best order to visit each stop (waypoint)
+ * Optimize alternative routes using supporting points. For example, offer alternative routes that pass an electric vehicle charging station.
+ * Use the [Route Service](https://docs.microsoft.com/rest/api/maps/route) with the Azure Maps Web SDK
 
 ## Prerequisites
 
-To make calls to the Azure Maps APIs, you need an Azure Maps account and a key. For more information, see [Create an account](quick-demo-map-app.md#create-an-azure-maps-account) and [Get a primary key](quick-demo-map-app.md#get-the-primary-key-for-your-account). The primary key is also known as the primary subscription key, or subscription key.
+1. [Make an Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Obtain a primary subscription key](quick-demo-map-app.md#get-the-primary-key-for-your-account), also known as the primary key or the subscription key.
 
-For information about authentication in Azure Maps, see [Manage authentication in Azure Maps](./how-to-manage-authentication.md). And for more information about the coverage of the Route Service, see the [Routing Coverage](routing-coverage.md).
+For more information about the coverage of the Route Service, see the [Routing Coverage](routing-coverage.md).
 
 This article uses the [Postman app](https://www.postman.com/downloads/) to build REST calls, but you can choose any API development environment.
 
@@ -128,43 +129,23 @@ By default, the Route service will return an array of coordinates. The response 
 
 The following image shows the `points` element.
 
-<center>
-
-![point list](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
-
-</center>
+![Points element](media/how-to-use-best-practices-for-routing/points-list-is-hidden-img.png)
 
 Expand the `point` element to see the list of coordinates for the path:
 
-<center>
-
-![point list](media/how-to-use-best-practices-for-routing/points-list-img.png)
-
-</center>
+![Expanded points element](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
 The Route Directions APIs support different formats of instructions that can be used by specifying the **instructionsType** parameter. To format instructions for easy computer processing, use **instructionsType=coded**. Use **instructionsType=tagged** to display instructions as text for the user. Also, instructions can be formatted as text where some elements of the instructions are marked, and the instruction is presented with special formatting. For more information, see the [list of supported instruction types](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 When instructions are requested, the response returns a new element named `guidance`. The `guidance` element holds two pieces of information: turn-by-turn directions and summarized instructions.
 
-<center>
-
 ![Instructions type](media/how-to-use-best-practices-for-routing/instructions-type-img.png)
-
-</center>
 
 The `instructions` element holds turn-by-turn directions for the trip, and the `instructionGroups` has summarized instructions. Each instruction summary covers a segment of the trip that could cover multiple roads. The APIs can return details for sections of a route. such as, the coordinate range of a traffic jam or the current speed of traffic.
 
-<center>
-
 ![Turn by turn instructions](media/how-to-use-best-practices-for-routing/instructions-turn-by-turn-img.png)
 
-</center>
-
-<center>
-
 ![Summarized Instructions](media/how-to-use-best-practices-for-routing/instructions-summary-img.png)
-
-</center>
 
 ## Request a route for a commercial vehicle
 
@@ -180,11 +161,7 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 The Route API returns directions that accommodate the dimensions of the truck and the hazardous waste. You can read the route instructions by expanding the `guidance` element.
 
-<center>
-
 ![Truck with class 1 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste-img.png)
-
-</center>
 
 ### Sample query
 
@@ -196,11 +173,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 The response below is for a truck carrying a class 9 hazardous material, which is less dangerous than a class 1 hazardous material. When you expand the `guidance` element to read the directions, you'll notice that the directions aren't the same. There are more route instructions for the truck carrying class 1 hazardous material.
 
-<center>
+
 
 ![Truck with class 9 hazwaste](media/how-to-use-best-practices-for-routing/truck-with-hazwaste9-img.png)
 
-</center>
+
 
 ## Request traffic information along a route
 
@@ -216,19 +193,11 @@ https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-M
 
 The response contains the sections that are suitable for traffic along the given coordinates.
 
-<center>
-
-![traffic sections](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
-
-</center>
+![Traffic sections](media/how-to-use-best-practices-for-routing/traffic-section-type-img.png)
 
 This option can be used to color the sections when rendering the map, as in the image below: 
 
-<center>
-
-![traffic sections](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
-
-</center>
+![Colored sections rendered on map](media/how-to-use-best-practices-for-routing/show-traffic-sections-img.png)
 
 ## Calculate and optimize a multi-stop route
 
@@ -252,19 +221,13 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 The response describes the path length to be 140,851 meters, and that it would take 9,991 seconds to travel that path.
 
-<center>
-
 ![Non-optimized response](media/how-to-use-best-practices-for-routing/non-optimized-response-img.png)
-
-</center>
 
 The image below illustrates the path resulting from this query. This path is one possible route. It's not the optimal path based on time or distance.
 
-<center>
-
 ![Non-optimized image](media/how-to-use-best-practices-for-routing/non-optimized-image-img.png)
 
-</center>
+
 
 This route waypoint order is: 0, 1, 2, 3, 4, 5, and 6.
 
@@ -278,19 +241,11 @@ https://atlas.microsoft.com/route/directions/json?api-version=1.0&subscription-k
 
 The response describes the path length to be 91,814 meters, and that it would take 7,797 seconds to travel that path. The travel distance and the travel time are both lower here because the API returned the optimized route.
 
-<center>
-
-![Non-optimized response](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
-
-</center>
+![Optimized response](media/how-to-use-best-practices-for-routing/optimized-response-img.png)
 
 The image below illustrates the path resulting from this query.
 
-<center>
-
-![Non-optimized image](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
-
-</center>
+![Optimized image](media/how-to-use-best-practices-for-routing/optimized-image-img.png)
 
 The optimal route has the following waypoint order: 0, 5, 1, 2, 4, 3, and 6.
 
@@ -310,15 +265,11 @@ When calling the [Post Route Directions API](https://docs.microsoft.com/rest/api
 
 The image below is an example of rendering alternative routes with specified deviation limits for the time and the distance.
 
-<center>
-
 ![Alternative routes](media/how-to-use-best-practices-for-routing/alternative-routes-img.png)
-
-</center>
 
 ## Use the Routing service in a web app
 
-The Azure Maps Web SDK provides a [Service module](https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest). This module is a helper library that makes it easy to use the Azure Maps REST APIs in web or Node.js applications, using JavaScript or TypeScript. The Service module can be used to render the returned routes on the map. The module automatically determines which API to use with GET and POST requests.
+The Azure Maps Web SDK provides a [Service module](https://docs.microsoft.com/javascript/api/azure-maps-rest/). This module is a helper library that makes it easy to use the Azure Maps REST APIs in web or Node.js applications, using JavaScript or TypeScript. The Service module can be used to render the returned routes on the map. The module automatically determines which API to use with GET and POST requests.
 
 ## Next steps
 

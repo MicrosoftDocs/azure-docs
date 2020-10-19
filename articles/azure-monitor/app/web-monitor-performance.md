@@ -108,11 +108,11 @@ You can use the performance investigation experience to review slow performing o
 
 To get a better sense of the user experiences for this operation, we can select a larger time range. We can then also narrow down in time on a specific time window where the operation was slow. In the following example, we've switched from the default 24 hours time range to the 7 days time range and then zoomed into the 9:47 to 12:47 time window between Tue the 12th and Wed the 13th. Both the duration distribution and the number of sample and profiler traces have been updated on the right.
 
-![GET Customers/Details three duration spikes in 7 days range with a time window](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
+![Screenshot shows Performance (preview) with three duration spikes in 7 days range with a time window](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrend.png)
 
 To narrow in on the slow experiences, we next zoom into the durations that fall between 95th and the 99th percentile. These represent the 4% of user interactions that were slow.
 
-![GET Customers/Details three duration spikes in 7 days range with a time window](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
+![Screenshot shows GET Customers/Details three duration spikes in 7 days range with a time window.](./media/web-monitor-performance/PerformanceTriageView7DaysZoomedTrendZoomed95th99th.png)
 
 We can now either look at the representative samples, by clicking on the Samples button, or at the representative profiler traces, by clicking on the Profiler traces button. In this example, there are four traces that have been collected for GET Customers/Details in the time window and range duration of interest.
 
@@ -122,7 +122,7 @@ Sometimes the issue will not be in your code, but rather in a dependency your co
 
 The performance investigation experience shows relevant insights along side the sample set you decided to focus on. The best way to look at all of the available insights is to switch to a 30 days time range and then select Overall to see insights across all operations for the past month.
 
-![GET Customers/Details three duration spikes in 7 days range with a time window](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
+![Screenshot shows Performance (preview) with the Overall window open and Insights selected.](./media/web-monitor-performance/Performance30DayOveralllnsights.png)
 
 
 ## <a name="next"></a>Next steps

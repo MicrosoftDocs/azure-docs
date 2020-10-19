@@ -108,7 +108,7 @@ Site Recovery replicates on-premises VMware VMs and physical servers to managed 
 
 No. Beginning in March 2019, in the Azure portal, you can replicate only to Azure managed disks.
 
-Replication of new VMs to a storage account is available only by using PowerShell or the REST API (version 2018-01-10 or 2016-08-10).
+Replication of new VMs to a storage account is available only by using PowerShell ([Az.RecoveryServices module version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) or the REST API (version 2018-01-10 or 2016-08-10). [Learn how](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) to setup replication using the PowerShell commands.
 
 ### What are the benefits of replicating to managed disks?
 

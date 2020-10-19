@@ -10,7 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Tutorial: Create a single-page app using the Bing Image Search API

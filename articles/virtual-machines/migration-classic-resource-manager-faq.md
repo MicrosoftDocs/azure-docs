@@ -18,11 +18,11 @@ ms.author: tagore
 
 ## What is Azure Service Manager and what does it mean by classic?
 
-The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+The word "classic" in IaaS VM (classic) refers to VMs managed by Azure Service Manager (ASM). Azure Service Manager (ASM) is the old control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
 ## What is Azure Resource Manager?
 
-[Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) is the latest control plane of azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
+[Azure Resource Manager](../azure-resource-manager/management/overview.md) is the latest control plane of Azure responsible for creating, managing, deleting VMs and performing other control plane operations. 
 
 ## What is the time required for migration?
 
@@ -38,7 +38,7 @@ Customer who had active or stopped but allocated IaaS VMs (Classic) in their sub
 
 ## Why am I getting an error stating "NewClassicVMCreationNotAllowedForSubscription"?
 
-As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). If you cannot use Azure VMs using ARM, please contact support to add your subscription to the allow list.
+As part of the retirement process, IaaS VM (classic) are no longer available for new customers. We identified you as new customers and hence your operation was not authorized. We strongly recommend using [Azure Virtual Machines using ARM](./windows/quick-create-powershell.md). If you cannot use Azure VMs using ARM, please contact support to add your subscription to the allow list.
 
 ## Does this migration plan affect any of my existing services or applications that run on Azure virtual machines? 
 
@@ -68,7 +68,7 @@ You cannot abort migration if the commit operation fails. All migration operatio
 
 ## Do I have to buy another express route circuit if I have to use IaaS under Resource Manager? 
 
-No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](~/articles/expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
+No. We recently enabled [moving ExpressRoute circuits from the classic to the Resource Manager deployment model](../expressroute/expressroute-move.md). You don’t have to buy a new ExpressRoute circuit if you already have one.
 
 ## What if I had configured Role-Based Access Control policies for my classic IaaS resources? 
 
@@ -91,7 +91,7 @@ To migrate the virtual machine to Resource Manager mode,
 1. Delete the backup/snapshot extension from the VM.
 2. Migrate the virtual machine from classic mode to Resource Manager mode. Make sure the storage and network information corresponding to the virtual machine is also migrated to Resource Manager mode.
 
-Additionally, if you want to back up the migrated VM, go to Virtual Machine management blade to [enable backup](~/articles/backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
+Additionally, if you want to back up the migrated VM, go to Virtual Machine management blade to [enable backup](../backup/quick-backup-vm-portal.md#enable-backup-on-a-vm).
 
 ## Can I validate my subscription or resources to see if they're capable of migration? 
 
@@ -103,7 +103,7 @@ We recommend that you abort your migration and then log a support request to inc
 
 ## How do I report an issue? 
 
-Post your issues and questions about migration to our [Microsoft Q&A question page for VM](https://docs.microsoft.com/answers/topics/azure-virtual-machines.html), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
+Post your issues and questions about migration to our [Microsoft Q&A question page for VM](/answers/topics/azure-virtual-machines.html), with the keyword ClassicIaaSMigration. We recommend posting all your questions on this forum. If you have a support contract, you're welcome to log a support ticket as well.
 
 ## What if I don't like the names of the resources that the platform chose during migration? 
 
@@ -111,7 +111,7 @@ All the resources that you explicitly provide names for in the classic deploymen
 
 ## Can I migrate ExpressRoute circuits used across subscriptions with authorization links? 
 
-ExpressRoute circuits which use cross-subscription authorization links cannot be migrated automatically without downtime. We have guidance on how these can be migrated using manual steps. See [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](~/articles/expressroute/expressroute-migration-classic-resource-manager.md) for steps and more information.
+ExpressRoute circuits which use cross-subscription authorization links cannot be migrated automatically without downtime. We have guidance on how these can be migrated using manual steps. See [Migrate ExpressRoute circuits and associated virtual networks from the classic to the Resource Manager deployment model](../expressroute/expressroute-migration-classic-resource-manager.md) for steps and more information.
 
 ## I got the message *"VM is reporting the overall agent status as Not Ready. Hence, the VM cannot be migrated. Ensure that the VM Agent is reporting overall agent status as Ready"* or *"VM contains Extension whose Status is not being reported from the VM. Hence, this VM cannot be migrated."*
 

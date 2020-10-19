@@ -29,12 +29,14 @@ For more information about Resource Manager templates, see these topics:
 * [Azure Resource Manager template best practices](../azure-resource-manager/templates/template-best-practices.md)
 * [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/templates-cloud-consistency.md)
 
+For template resource information specific to logic apps, integration accounts, integration account artifacts, and integration service environments, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
+
 For sample logic app templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
 * [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create) in GitHub
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
+For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview](/rest/api/logic).
 
 <a name="template-structure"></a>
 
@@ -264,17 +266,7 @@ Your template has a `resources` object, which is an array that contains definiti
 
 ### View resource definitions
 
-To review the resource definitions for all the resources in an Azure resource group, either [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment, or follow these steps in the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
-
-1. Find the Azure resource group that contains your logic app, connections, and other resources.
-
-1. On the resource group toolbar, select **Overview**, and then select all the resources in the resource group.
-
-1. On the resource group toolbar, under **Settings**, select **Export template**.
-
-   The portal shows the definitions for the resources that you selected. For more information, see [Single and multi-resource export to a template in Azure portal](../azure-resource-manager/templates/export-template-portal.md).
+To review the resource definitions for all the resources in an Azure resource group, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 For general information about template resources and their attributes, see these topics:
 
@@ -285,7 +277,7 @@ For general information about template resources and their attributes, see these
 
 ### Logic app resource definition
 
-Your logic app's resource definition starts with the `properties` object, which includes this information:
+Your logic app's [workflow resource definition in a template](/azure/templates/microsoft.logic/workflows) starts with the `properties` object, which includes this information:
 
 * Your logic app's state at deployment
 * The ID for any integration account used by your logic app
@@ -339,7 +331,31 @@ Here are the attributes that are specific to your logic app resource definition:
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 ||||
 
-For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
+For more information about resource definitions for these Logic Apps objects, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions):
+
+* [Workflow resource definition](/azure/templates/microsoft.logic/workflows)
+* [Integration service environment resource definition](/azure/templates/microsoft.logic/integrationserviceenvironments)
+* [Integration service environment managed API resource definition](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
+
+* [Integration account resource definition](/azure/templates/microsoft.logic/integrationaccounts)
+
+* Integration account artifacts:
+
+  * [Agreement resource definition](/azure/templates/microsoft.logic/integrationaccounts/agreements)
+
+  * [Assembly resource definition](/azure/templates/microsoft.logic/integrationaccounts/assemblies)
+
+  * [Batch configuration resource definition](/azure/templates/microsoft.logic/integrationaccounts/batchconfigurations)
+
+  * [Certificate resource definition](/azure/templates/microsoft.logic/integrationaccounts/certificates)
+
+  * [Map resource definition](/azure/templates/microsoft.logic/integrationaccounts/maps)
+
+  * [Partner resource definition](/azure/templates/microsoft.logic/integrationaccounts/partners)
+
+  * [Schema resource definition](/azure/templates/microsoft.logic/integrationaccounts/schemas)
+
+  * [Session resource definition](/azure/templates/microsoft.logic/integrationaccounts/sessions)
 
 <a name="workflow-definition-parameters"></a>
 
@@ -582,7 +598,7 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## Connection resource definitions
 
-When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections.
+When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/apis-list.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 ```json
 {

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 10/16/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -47,7 +47,7 @@ Azure AD terms of use has the following capabilities:
 - List who has or hasn't accepted to your terms of use.
 - Assist in meeting privacy regulations.
 - Display a log of terms of use activity for compliance and audit.
-- Create and manage terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
+- Create and manage terms of use using [Microsoft Graph APIs](/graph/api/resources/agreement?view=graph-rest-beta) (currently in preview).
 
 ## Prerequisites
 
@@ -261,7 +261,7 @@ Per-device terms of use has the following constraints:
 
 - A device can only be joined to one tenant.
 - A user must have permissions to join their device.
-- The Intune Enrollment app is not supported.
+- The Intune Enrollment app is not supported. Ensure that it is excluded from any Conditional Access policy requiring Terms of Use.
 - Azure AD B2B users are not supported.
 
 If the user's device is not joined, they will receive a message that they need to join their device. Their experience will be dependent on the platform and software.
@@ -389,4 +389,3 @@ A: Terms of use utilizes the following endpoints for authentication: https://tok
 ## Next steps
 
 - [Quickstart: Require terms of use to be accepted before accessing cloud apps](require-tou.md)
-- [Best practices for Conditional Access in Azure Active Directory](best-practices.md)

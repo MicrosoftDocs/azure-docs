@@ -39,7 +39,7 @@ For information on how to download and install the Azure AD PowerShell cmdlets, 
 
 ## Activity-based automatic renewal
 
-With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Office 365 services like Outlook, SharePoint, or Teams. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed and the owner does not get any renewal notifications.
+With Azure AD intelligence, groups are now automatically renewed based on whether they have been recently used. This feature eliminates the need for manual action by group owners, because it's based on user activity in groups across Microsoft 365 services like Outlook, SharePoint, or Teams. For example, if an owner or a group member does something like upload a document in SharePoint, visit a Teams channel, or send an email to the group in Outlook, the group is automatically renewed and the owner does not get any renewal notifications.
 
 ### Activities that automatically renew group expiration
 
@@ -107,7 +107,7 @@ If the group you're restoring contains documents, SharePoint sites, or other per
 
 ## How to retrieve Microsoft 365 group expiration date
 
-In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of an Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](https://docs.microsoft.com/graph/api/group-get?view=graph-rest-beta#example).
+In addition to Access Panel where users can view group details including expiration date and last renewed date, expiration date of an Microsoft 365 group can be retrieved from Microsoft Graph REST API Beta. expirationDateTime as a group property has been enabled in Microsoft Graph Beta. It can be retrieved with a GET request. For more details, please refer to [this example](/graph/api/group-get?view=graph-rest-beta#example).
 
 > [!NOTE]
 > In order to manage group memberships on Access Panel, "Restrict access to Groups in Access Panel" needs to be set to "No" in Azure Active Directory Groups General Setting.
@@ -174,11 +174,10 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    Remove-AzureADMSGroupLifecyclePolicy -Id "26fcc232-d1c3-4375-b68d-15c296f1f077"
    ```
   
-The following cmdlets can be used to configure the policy in more detail. For more information, see [PowerShell documentation](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&branch=master#groups).
+The following cmdlets can be used to configure the policy in more detail. For more information, see [PowerShell documentation](/powershell/module/azuread/?branch=master&view=azureadps-2.0-preview#groups).
 
 - Get-AzureADMSGroupLifecyclePolicy
 - New-AzureADMSGroupLifecyclePolicy
-- Get-AzureADMSGroupLifecyclePolicy
 - Set-AzureADMSGroupLifecyclePolicy
 - Remove-AzureADMSGroupLifecyclePolicy
 - Add-AzureADMSLifecyclePolicyGroup

@@ -25,13 +25,36 @@ Use the following steps to monitor the replication status for your virtual machi
 
   1. Go to the Servers page in Azure Migrate on the Azure portal.
   2. Navigate to the "Replicating machines" page by clicking on "Replicating servers" in the Server Migration tile.
-  3. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The health column indicates the current replication health of the VM. A 'Critical'or 'Warning' value in the health column typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select "Error Details." The Error Details page contains information on the error and additional details on how to troubleshoot. You'll also see a "Recent Events" link that can be used to navigate to the events page for the VM.
+  3. You'll see a list of replicating servers along with additional information such as status, health, last sync time, etc. The health column indicates the current replication health of the VM. A 'Critical' or 'Warning' value in the health column typically indicates that the previous replication cycle for the VM failed. To get more details, right-click on the VM, and select "Error Details." The Error Details page contains information on the error and additional details on how to troubleshoot. You'll also see a "Recent Events" link that can be used to navigate to the events page for the VM.
   4. Click "Recent Events" to see the previous replication cycle failures for the VM. In the events page, look for the most recent event of type "Replication cycle failed" or "Replication cycle failed for disk" for the VM.
   5. Click on the event to understand the possible causes of the error and recommended remediation steps. Use the information provided to troubleshoot and remediate the error.
     
 ## Common Replication Errors
 
 This section describes some of the common errors, and how you can troubleshoot them.
+
+## Key Vault operation failed error when trying to replicate VMs
+
+**Error:** “Key Vault operation failed. Operation : Configure managed storage account, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
+
+**Error:** “Key Vault operation failed. Operation : Generate shared access signature definition, Key Vault: Key-vault-name, Storage Account: storage account name failed with the error:”
+
+![Key Vault](./media/troubleshoot-changed-block-tracking-replication/key-vault.png)
+
+This error typically occurs because the User Access Policy for the Key Vault doesn't give the currently logged in user the necessary permissions to configure storage accounts to be Key Vault managed. To check for user access policy on the key vault, go to the Key vault page on the portal for the Key vault and select Access policies 
+
+When the portal creates the key vault it also adds a user access policy granting the currently logged in user permissions to configure storage accounts to be Key Vault managed. This can fail for two reasons
+
+- The logged in user is a remote principal on the customers Azure tenant (CSP subscription - and the logged in user is the partner admin). The workaround in this case is to delete the key vault, log out from the portal, and then log in with a user account from the customers tenant (not a remote principal) and retry the operation. The CSP partner will typically have a user account in the customers Azure Active Directory tenant that they can use. If not they can create a new user account for themselves in the customers Azure Active Directory tenant, log in to the portal as the new user and then retry the replicate operation. The account used must have either Owner or Contributor+User Access Administrator permissions granted to the account on the resource group (Migrate project resource group)
+
+- The other case where this may happen is when one user (user1) attempted to setup replication initially and encountered a failure, but the key vault has already been created (and user access policy appropriately assigned to this user). Now at a later point a different user (user2) tries to setup replication, but the Configure Managed Storage Account or Generate SAS definition operation fails as there is no user access policy corresponding to user2 in the key vault.
+
+**Resolution**: To workaround this issue create a user access policy for user2 in the keyvault granting user2 permission to configure managed storage account and generate SAS definitions. User2 can do this from Azure PowerShell using the below cmdlets:
+
+$userPrincipalId = $(Get-AzureRmADUser -UserPrincipalName "user2_email_address").Id
+
+Set-AzureRmKeyVaultAccessPolicy -VaultName "keyvaultname" -ObjectId $userPrincipalId -PermissionsToStorage get, list, delete, set, update, regeneratekey, getsas, listsas, deletesas, setsas, recover, backup, restore, purge
+
 
 ## DisposeArtefactsTimedOut
 
@@ -54,7 +77,7 @@ The component trying to replicate data to Azure is either down or not responding
 
    2.  Open the Microsoft services MMC snap-in (run > services.msc), and check if the "Microsoft Azure Gateway Service" is running. If the service is stopped or not running, start the service. Alternatively, you can open command prompt or PowerShell and do: "Net Start asrgwy"
 
-3. Check for connectivity issues between Azure Migrate appliance and cache Storage Account: 
+3. Check for connectivity issues between Azure Migrate appliance and Appliance Storage Account: 
 
     Run the following command after downloading azcopy in the Azure Migrate appliance:
     
@@ -144,7 +167,7 @@ The possible causes include:
     
       1. [Download](https://go.microsoft.com/fwlink/?linkid=2138966) azcopy
         
-      2. Look for the appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migrategwsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
+      2. Look for the Appliance Storage Account in the Resource Group. The Storage Account has a name that resembles migratelsa\*\*\*\*\*\*\*\*\*\*. This is the value of parameter [account] in the above command.
         
       3. Search for your storage account in the Azure portal. Ensure that the subscription you use to search is the same subscription (target subscription) in which the storage account is created. Go to Containers in the Blob Service section. Click on +Container and create a Container. Leave Public Access Level to default selected value.
         
@@ -221,7 +244,7 @@ For example: Error Message: An internal error occurred. [An Invalid snapshot con
 
 The following section lists some of the commonly seen VMware errors and how you can mitigate them.
 
-## Error Message: An internal error occurred. [Server Refused Connection]
+### Error Message: An internal error occurred. [Server Refused Connection]
 
 The issue is a known VMware issue and occurs in VDDK 6.7. You need to stop the gateway service running in the Azure Migrate appliance, [download an update from VMware KB](https://go.microsoft.com/fwlink/?linkid=2138889), and restart the gateway service.
 
@@ -235,33 +258,33 @@ Steps to start gateway service:
 1. Press Windows + R, open services.msc. Right click on "Microsoft Azure Gateway Service", and start it.
 2. Alternatively, you can open command prompt or PowerShell and do: Net Start asrgwy.
 
-## Error Message: An internal error occurred. ['An Invalid snapshot configuration was detected.']
+### Error Message: An internal error occurred. ['An Invalid snapshot configuration was detected.']
 
 If you have a virtual machine with multiple disks, you may encounter this error if you remove a disk from the virtual machine. To remediate this problem, refer to the steps in [this VMware article](https://go.microsoft.com/fwlink/?linkid=2138890).
 
-## Error Message: An internal error occurred. [Generate Snapshot Hung]
+### Error Message: An internal error occurred. [Generate Snapshot Hung]
 
-This issue occurs when snapshot generation is hung. When this issue occurs, you can see create snapshot task stops at 95% or 99%. Refer to this [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) to overcome this issue.
+This issue occurs when snapshot generation stops responding. When this issue occurs, you can see create snapshot task stops at 95% or 99%. Refer to this [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138969) to overcome this issue.
 
-## Error Message: An internal error occurred. [Failed to consolidate the disks on VM _[Reasons]_]
+### Error Message: An internal error occurred. [Failed to consolidate the disks on VM _[Reasons]_]
 
 When we consolidate disks at the end of replication cycle, the operation fails. Follow the instructions in the [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) by selecting the appropriate _Reason_ to resolve the issue.
 
 The following errors occur when VMware snapshot-related operations – create, delete, or consolidate disks fail. Follow the guidance in the next section to remediate the errors:
 
-## Error Message: An internal error occurred. [Another task is already in progress]
+### Error Message: An internal error occurred. [Another task is already in progress]
 
 This issue occurs when there are conflicting virtual machine tasks running in the background, or when a task within the vCenter Server times out. Follow the resolution provided in the following [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138891).
 
-## Error Message: An internal error occurred. [Operation not allowed in current state]
+### Error Message: An internal error occurred. [Operation not allowed in current state]
 
 This issue occurs when vCenter Server management agents stop working. To resolve this issue, refer to the resolution in the following [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138971).
 
-## Error Message: An internal error occurred. [Snapshot Disk size invalid]
+### Error Message: An internal error occurred. [Snapshot Disk size invalid]
 
 This is a known VMware issue in which the disk size indicated by snapshot becomes zero. Follow the resolution given in the [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138972).
 
-## Error Message: An internal error occurred. [Memory allocation failed. Out of memory.]
+### Error Message: An internal error occurred. [Memory allocation failed. Out of memory.]
 
 This happens when the NFC host buffer is out of memory. To resolve this issue, you need to move the VM (compute vMotion) to a different host, which has free resources.
 

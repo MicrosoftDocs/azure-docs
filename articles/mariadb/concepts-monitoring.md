@@ -5,6 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
+ms.custom: references_regions
 ms.date: 8/13/2020
 ---
 # Monitoring in Azure Database for MariaDB
@@ -31,7 +32,7 @@ These metrics are available for Azure Database for MariaDB:
 |storage_limit|Storage limit|Bytes|The maximum storage for this server.|
 |active_connections|Active Connections|Count|The number of active connections to the server.|
 |connections_failed|Failed Connections|Count|The number of failed connections to the server.|
-|seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the master server. (Not applicable for Basic tier servers)|
+|seconds_behind_master|Replication lag in seconds|Count|The number of seconds the replica server is lagging against the source server. (Not applicable for Basic tier servers)|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
 |backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used. This metric represents the sum of storage consumed by all the full database backups, differential backups, and log backups retained based on the backup retention period set for the server. The frequency of the backups is service managed and explained in the [concepts article](concepts-backup.md). For geo-redundant storage, backup storage usage is twice that of the locally redundant storage.|
@@ -56,8 +57,10 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 **Planned maintenance notifications** allow you to receive alerts for upcoming planned maintenance to your Azure Database for MariaDB. These notifications are integrated with [Service Health's](../service-health/overview.md) planned maintenance and allow you to view all scheduled maintenance for your subscriptions in one place. It also helps to scale the notification to the right audiences for different resource groups, as you may have different contacts responsible for different resources. You will receive the notification about the upcoming maintenance 72 hours before the event.
 
-> [!Note]
-> We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
+During planned maintenance, you can expect your server to restart and [transient errors](concepts-connectivity.md#transient-errors) can occur. Most of these events are automatically mitigated by the system in less than 60 seconds. 
+
+> [!IMPORTANT]
+> Planned maintenance notifications are currently available in preview in all regions **except** West Central US.
 
 ### To receive planned maintenance notification
 
@@ -72,8 +75,8 @@ The [Performance Recommendations](concepts-performance-recommendations.md) featu
 
 For detailed steps on how to create **service health alerts**, refer to [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications.md).
 
-> [!IMPORTANT]
-> Planned maintenance notifications are currently available in preview in all regions **except** West Central US
+> [!Note]
+> We will make every attempt to provide **Planned maintenance notification** 72 hours notice for all events. However, in cases of critical or security patches, notifications might be sent closer to the event or be omitted.
 
 ## Next steps
 

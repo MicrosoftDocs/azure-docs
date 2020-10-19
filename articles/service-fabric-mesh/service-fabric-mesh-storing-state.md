@@ -1,8 +1,8 @@
 ---
 title: State storage options on Azure Service Fabric Mesh 
 description: Learn about reliably storing state in Service Fabric Mesh applications running on Azure Service Fabric Mesh.
-author: dkkapur
-ms.author: dekapur
+author: georgewallace
+ms.author: gwallace
 ms.date: 11/27/2018
 ms.topic: conceptual
 ---
@@ -16,7 +16,7 @@ With Service Fabric Mesh, you can easily deploy a new application and connect it
 
 Containers often make use of temporary disks. Temporary disks are ephemeral, however, so you get a new temporary disk and lose the information when a container crashes. It is also difficult to share information on temporary disks with other containers. Volumes are directories that get mounted inside your container instances that you can use to persist state. Volumes give you general-purpose file storage and allow you to read/write files using normal disk I/O file APIs. The Volume resource describes how to mount a directory and which backing storage to use. You can choose either Azure File storage or Service Fabric Volume disk to store data.
 
-![Volumes][image3]
+![Diagram shows Service, which flows to Volume, which flows both to Service Fabric Reliable Volume on a replicated local disk and to Azure Files Volume on network storage.][image3]
 
 ### Service Fabric Reliable Volume
 

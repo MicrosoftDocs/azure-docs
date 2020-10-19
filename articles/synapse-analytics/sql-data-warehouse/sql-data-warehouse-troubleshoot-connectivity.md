@@ -10,7 +10,7 @@ ms.subservice: sql-dw
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse
+ms.custom: "seo-lt-2019, azure-synapse, devx-track-csharp"
 ---
 
 # Troubleshooting connectivity issues in Synapse SQL pool
@@ -29,14 +29,14 @@ The status of your SQL pool will be shown here. If the service isn't showing as 
 
 If your Resource health shows that your SQL pool instance is paused or scaling, follow the guidance to resume your instance.
 
-![Service Paused](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
+![Screenshot shows an instance of SQL data warehouse that is paused or scaling.](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png)
 Additional information about Resource Health can be found here.
 
 ## Check for paused or scaling operation
 
 Check the portal to see if your SQL pool instance is paused or scaling.
 
-![Service Paused](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
+![Screenshot shows how to check whether a data warehouse is paused.](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
 If you see that your service is paused or scaling, check to see it isn't during your maintenance schedule. On the portal for your SQL pool *Overview*, you'll see the elected maintenance schedule.
 

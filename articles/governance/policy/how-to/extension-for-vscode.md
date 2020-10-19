@@ -1,7 +1,7 @@
 ---
 title: Azure Policy extension for Visual Studio Code
 description: Learn how to use the Azure Policy extension for Visual Studio Code to look up Azure Resource Manager aliases.
-ms.date: 06/16/2020
+ms.date: 10/14/2020
 ms.topic: how-to
 ---
 # Use Azure Policy extension for Visual Studio Code
@@ -53,7 +53,7 @@ For a national cloud user, follow these steps to set the Azure environment first
 
 1. Select the nation cloud from the list:
 
-   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Set default Azure cloud sign in for Visual Studio Code" border="false":::
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Screenshot of selecting the nation Azure cloud sign in for Visual Studio Code." border="false":::
 
 ## Connect to an Azure account
 
@@ -66,13 +66,13 @@ to connect to Azure from Visual Studio Code:
 
      From the Azure Policy extension, select **Sign in to Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Azure cloud sign in for Visual Studio Code from Azure Policy extension" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot of Visual Studio Code and the icon for the Azure Policy extension." border="false":::
 
    - Command Palette
 
      From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Sign In**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Azure cloud sign in for Visual Studio Code from Command Palette" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot of the Azure cloud sign in options for Visual Studio Code from the Command Palette." border="false":::
 
 1. Follow the sign in instructions to sign in to Azure. After you're connected, your Azure account
    name is shown on the status bar at the bottom of the Visual Studio Code window.
@@ -87,11 +87,13 @@ these steps:
 
    - Command Palette: 
 
-     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select Subscriptions**.
+     From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Select
+     Subscriptions**.
 
    - Window footer
 
-     In the window footer at the bottom of the screen, select the segment that matches **Azure: \<your account\>**.
+     In the window footer at the bottom of the screen, select the segment that matches **Azure:
+     \<your account\>**.
 
 1. Use the filter box to quickly find subscriptions by name. Then, check or remove the check from
    each subscription to set the subscriptions shown by the Azure Policy extension. When done adding
@@ -150,7 +152,7 @@ Azure Policy alias if one exists. In this example, the resource is a
 **properties.storageProfile.imageReference.offer** property is hovered over. Hovering shows the
 matching aliases.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Azure Policy extension hover shows Resource Manager property alias" border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot of the Azure Policy extension for Visual Studio Code hovering a property to display the alias names." border="false":::
 
 > [!NOTE]
 > The VS Code extension only exposes Resource Manager mode properties and doesn't display any

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/11/2018
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -22,7 +22,13 @@ If you use Active Directory Federation Services (AD FS) and want to secure cloud
 In this article, we discuss using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2 or Windows Server 2016. For more information, read about how to [secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS 2.0](howto-mfaserver-adfs-2.md).
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> As of July 1, 2019, Microsoft no longer offers MFA Server for new deployments. New customers that want to require multi-factor authentication (MFA) during sign-in events should use cloud-based Azure Multi-Factor Authentication.
+>
+> To get started with cloud-based MFA, see [Tutorial: Secure user sign-in events with Azure Multi-Factor Authentication](tutorial-enable-azure-mfa.md).
+>
+> If you use cloud-based MFA, see [Securing cloud resources with Azure Multi-Factor Authentication and AD FS](howto-mfa-adfs.md).
+>
+> Existing customers that activated MFA Server before July 1, 2019 can download the latest version, future updates, and generate activation credentials as usual.
 
 ## Secure Windows Server AD FS with Azure Multi-Factor Authentication Server
 
@@ -95,7 +101,7 @@ There are two options for configuring the Web Service SDK. The first is with a u
 
 If you don't want to use a username and password, follow these steps to configure the Web Service SDK with a client certificate.
 
-1. Obtain a client certificate from a certificate authority for the server that is running the Web Service SDK. Learn how to [obtain client certificates](https://technet.microsoft.com/library/cc770328.aspx).  
+1. Obtain a client certificate from a certificate authority for the server that is running the Web Service SDK. Learn how to [obtain client certificates](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770328(v=ws.10)).  
 2. Import the client certificate to the local computer personal certificate store on the server that is running the Web Service SDK. Make sure that the certificate authority's public certificate is in Trusted Root Certificates certificate store.  
 3. Export the public and private keys of the client certificate to a .pfx file.  
 4. Export the public key in Base64 format to a .cer file.  

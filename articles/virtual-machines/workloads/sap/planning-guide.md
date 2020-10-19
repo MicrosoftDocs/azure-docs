@@ -264,7 +264,7 @@ ms.custom: H1Hack27Feb2017
 [virtual-machines-linux-create-upload-vhd-oracle]:../../linux/oracle-create-upload-vhd.md
 [virtual-machines-linux-redhat-create-upload-vhd]:../../linux/redhat-create-upload-vhd.md
 [virtual-machines-linux-how-to-attach-disk]:../../linux/add-disk.md
-[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#connect-to-the-linux-vm-to-mount-the-new-disk
+[virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]:../../linux/add-disk.md#format-and-mount-the-disk
 [virtual-machines-linux-tutorial]:../../linux/quick-create-cli.md
 [virtual-machines-linux-update-agent]:../../linux/update-agent.md
 [virtual-machines-manage-availability]:../../linux/manage-availability.md
@@ -480,18 +480,18 @@ As pricing model you have several different pricing options that list like:
 The pricing of each of the different offers with different service offers around operating systems and different regions is available on the site [Linux Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows Virtual Machines Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). For details and flexibility of one year and three year reserved instances, check these articles:
 
 - [What are Azure Reservations?](../../../cost-management-billing/reservations/save-compute-costs-reservations.md)
-- [Virtual machine size flexibility with Reserved VM Instances](../../windows/reserved-vm-instance-size-flexibility.md)
+- [Virtual machine size flexibility with Reserved VM Instances](../../reserved-vm-instance-size-flexibility.md)
 - [How the Azure reservation discount is applied to virtual machines](../../../cost-management-billing/manage/understand-vm-reservation-charges.md)
 
 For more information on spot pricing, read the article [Azure Spot Virtual Machines](https://azure.microsoft.com/pricing/spot/). Pricing of the same VM type can also be different between different Azure regions. For some customers, it was worth to deploy into a less expensive Azure region.
 
-Additionally, Azure offers the concepts of a dedicated host. The dedicated host concept gives you more control on patching cycles that are done by Azure. You can time the patching according to your own schedules. This offer is specifically targeting customers with workload that might not follow the normal cycle of workload. To read up on the concepts of Azure dedicated host offers, read the article [Azure Dedicated Host](../../windows/dedicated-hosts.md). Using this offer is supported for SAP workload and is used by several SAP customers who want to have more control on patching of infrastructure and eventual maintenance plans of Microsoft. For more information on how Microsoft maintains and patches the Azure infrastructure that hosts virtual machines, read the article [Maintenance for virtual machines in Azure](../../maintenance-and-updates.md).
+Additionally, Azure offers the concepts of a dedicated host. The dedicated host concept gives you more control on patching cycles that are done by Azure. You can time the patching according to your own schedules. This offer is specifically targeting customers with workload that might not follow the normal cycle of workload. To read up on the concepts of Azure dedicated host offers, read the article [Azure Dedicated Host](../../dedicated-hosts.md). Using this offer is supported for SAP workload and is used by several SAP customers who want to have more control on patching of infrastructure and eventual maintenance plans of Microsoft. For more information on how Microsoft maintains and patches the Azure infrastructure that hosts virtual machines, read the article [Maintenance for virtual machines in Azure](../../maintenance-and-updates.md).
 
 #### Generation 1 and Generation 2 virtual machines
-Microsoft's hypervisor is able to handle two different generations of virtual machines. Those formats are called **Generation 1** and **Generation 2**. **Generation 2** was introduced in the year 2012 with Windows Server 2012 hypervisor. Azure started out using Generation 1 virtual machines. As you deploy Azure virtual machines, the default is still to use the Generation 1 format. Meanwhile you can deploy Generation 2 VM formats as well. The article [Support for generation 2 VMs on Azure](../../windows/generation-2.md) lists the Azure VM families that can be deployed as Generation 2 VM. This article also lists the important functional differences of Generation 2 virtual machines as they can run on Hyper-V private cloud and Azure. More important this article also lists functional differences between Generation 1 virtual machines and Generation 2 VMs, as those run in Azure.
+Microsoft's hypervisor is able to handle two different generations of virtual machines. Those formats are called **Generation 1** and **Generation 2**. **Generation 2** was introduced in the year 2012 with Windows Server 2012 hypervisor. Azure started out using Generation 1 virtual machines. As you deploy Azure virtual machines, the default is still to use the Generation 1 format. Meanwhile you can deploy Generation 2 VM formats as well. The article [Support for generation 2 VMs on Azure](../../generation-2.md) lists the Azure VM families that can be deployed as Generation 2 VM. This article also lists the important functional differences of Generation 2 virtual machines as they can run on Hyper-V private cloud and Azure. More important this article also lists functional differences between Generation 1 virtual machines and Generation 2 VMs, as those run in Azure.
 
 > [!NOTE]
-> There are functional differences of Generation 1 and Generation 2 VMs running in Azure. Read the article  [Support for generation 2 VMs on Azure](../../windows/generation-2.md) to see a list of those differences.
+> There are functional differences of Generation 1 and Generation 2 VMs running in Azure. Read the article  [Support for generation 2 VMs on Azure](../../generation-2.md) to see a list of those differences.
 
 Moving an existing VM from one generation to the other generation is not possible. To change the virtual machine generation, you need to deploy a new VM of the generation you desire and re-install the software that you are running in the virtual machine of the generation. This change only affects the base VHD image of the VM and has no impact on the data disks or attached NFS or SMB shares. Data disks, NFS, or SMB shares that originally were assigned to, for example, on a Generation 1 VM.
 
@@ -508,11 +508,11 @@ Microsoft Azure Virtual Machines utilize different storage types. When implement
 Azure VMs offer non-persistent disks after a VM is deployed. In case of a VM reboot, all content on those drives will be wiped out. Hence, it is a given that data files and log/redo files of databases should under no circumstances be located on those non-persisted drives. There might be exceptions for some of the databases, where these non-persisted drives could be suitable for tempdb and temp tablespaces. However, avoid using those drives for A-Series VMs since those non-persisted drives are limited in throughput with that VM family. For further details, read the article [Understanding the temporary drive on Windows VMs in Azure](/archive/blogs/mast/understanding-the-temporary-drive-on-windows-azure-virtual-machines)
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > Drive D:\ in an Azure VM is a non-persisted drive, which is backed by some local disks on the Azure compute node. Because it is non-persisted, this means that any changes made to the content on the D:\ drive is lost when the VM is rebooted. By "any changes",  like files stored, directories created, applications installed, etc.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > Linux Azure VMs automatically mount a drive at /mnt/resource that is a non-persisted drive backed by local disks on the Azure compute node. Because it is non-persisted, this means that any changes made to content in /mnt/resource are lost when the VM is rebooted. By any changes, like files stored, directories created, applications installed, etc.
 >
@@ -766,20 +766,20 @@ Microsoft Azure offers multiple ways to deploy VMs and associated disks. Thus it
 
 You plan to move a specific SAP system from on-premises to Azure. This can be done by uploading the VHD, which contains the OS, the SAP Binaries, and DBMS binaries plus the VHDs with the data and log files of the DBMS to Azure. In contrast to [scenario #2 below][planning-guide-5.1.2], you keep the hostname, SAP SID, and SAP user accounts in the Azure VM as they were configured in the on-premises environment. Therefore, generalizing the image is not necessary. See chapters [Preparation for moving a VM from on-premises to Azure with a non-generalized disk][planning-guide-5.2.1] of this document for on-premises preparation steps and upload of non-generalized VMs or VHDs to Azure. Read chapter [Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP][deployment-guide-3.4] in the [Deployment Guide][deployment-guide] for detailed steps of deploying such an image in Azure.
 
-Another option which we will not discuss in detail in this guide is using Azure Site Recovery to replicate SAP NetWeaver Application Servers and SAP NetWeaver Central Services to Azure. We do not recommend to use Azure Site Recovery for the database layer and rather use database specific replication mechanisms, like HANA System Replication. For more information, see chapter [Protect SAP](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload#protect-sap) of the [About disaster recovery for on-premises apps](https://docs.microsoft.com/azure/site-recovery/site-recovery-workload) guide.
+Another option which we will not discuss in detail in this guide is using Azure Site Recovery to replicate SAP NetWeaver Application Servers and SAP NetWeaver Central Services to Azure. We do not recommend to use Azure Site Recovery for the database layer and rather use database specific replication mechanisms, like HANA System Replication. For more information, see chapter [Protect SAP](../../../site-recovery/site-recovery-workload.md#protect-sap) of the [About disaster recovery for on-premises apps](../../../site-recovery/site-recovery-workload.md) guide.
 
 #### <a name="e18f7839-c0e2-4385-b1e6-4538453a285c"></a>Deploying a VM with a customer-specific image
 
 Due to specific patch requirements of your OS or DBMS version, the provided images in the Azure Marketplace might not fit your needs. Therefore, you might need to create a VM using your own private OS/DBMS VM image, which can be deployed several times afterwards. To prepare such a private image for duplication, the following items have to be considered:
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > See more details here: <https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed>
 > The Windows settings (like Windows SID and hostname) must be abstracted/generalized on the on-premises VM via the sysprep command.
 >
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > Follow the steps described in these articles for [SUSE][virtual-machines-linux-create-upload-vhd-suse], [Red Hat][virtual-machines-linux-redhat-create-upload-vhd], or [Oracle Linux][virtual-machines-linux-create-upload-vhd-oracle], to prepare a VHD to be uploaded to Azure.
 >
@@ -809,13 +809,13 @@ Requirements when preparing your own Azure VM Disk are:
 * Add other local accounts as those might be needed for the specific deployment scenario.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > In this scenario no generalization (sysprep) of the VM is required to upload and deploy the VM on Azure.
 > Make sure that drive D:\ is not used.
 > Set disk automount for attached disks as described in chapter [Setting automount for attached disks][planning-guide-5.5.3] in this document.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > In this scenario no generalization (waagent -deprovision) of the VM is required to upload and deploy the VM on Azure.
 > Make sure that /mnt/resource is not used and that ALL disks are mounted via uuid. For the OS disk, make sure that the bootloader entry also reflects the uuid-based mount.
@@ -836,12 +836,12 @@ Requirements when preparing your own Azure VM Image are:
 * If the image contains an installation of SAP NetWeaver and renaming of the host name from the original name at the point of the Azure deployment is likely, it is recommended to copy the latest versions of the SAP Software Provisioning Manager DVD into the template. This will enable you to easily use the SAP provided rename functionality to adapt the changed hostname and/or change the SID of the SAP system within the deployed VM image as soon as a new copy is started.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > Make sure that drive D:\ is not used
 > Set disk automount for attached disks as described in chapter [Setting automount for attached disks][planning-guide-5.5.3] in this document.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > Make sure that /mnt/resource is not used and that ALL disks are mounted via uuid. For the OS disk, make sure the bootloader entry also reflects the uuid-based mount.
 >
@@ -855,13 +855,13 @@ If the VM is prepared sufficiently to be generic and eventually independent of a
 
 ##### Generalizing a VM
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > The last step is to sign in to a VM with an Administrator account. Open a Windows command window as *administrator*. Go to %windir%\windows\system32\sysprep and execute sysprep.exe.
 > A small window will appear. It is important to check the **Generalize** option (the default is unchecked) and change the Shutdown Option from its default of 'Reboot' to 'shutdown'. This procedure assumes that the sysprep process is executed on-premises in the Guest OS of a VM.
 > If you want to perform the procedure with a VM already running in Azure, follow the steps described in [this article](../../windows/capture-image-resource.md).
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > [How to capture a Linux virtual machine to use as a Resource Manager template][capture-image-linux-step-2-create-vm-image]
 >
@@ -1129,7 +1129,7 @@ Ideally the handling of the structure of a VM and the associated disks should be
 
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > With many customers we saw configurations where, for example, SAP and DBMS binaries were not installed on the c:\ drive where the OS was installed. There were various reasons
 > for this, but when we went back to the root, it usually was that the drives were small and OS upgrades needed additional space 10-15 years ago. Both conditions do not apply these
@@ -1138,7 +1138,7 @@ Ideally the handling of the structure of a VM and the associated disks should be
 >
 > The Windows operating system pagefile should be on the D: drive (non-persistent disk)
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > Place the Linux swapfile under /mnt /mnt/resource on Linux as described in [this article][virtual-machines-linux-agent-user-guide]. The swap file can be configured in the configuration file of the Linux Agent /etc/waagent.conf. Add or change the following settings:
 >
@@ -1165,11 +1165,11 @@ Experience of SAP deployments over the last two years taught us some lessons, wh
 * IOPS traffic to different data files is not always the same since existing customer systems might have differently sized data files representing their SAP database(s). As a result it turned out to be better using a RAID configuration over multiple disks to place the data files LUNs carved out of those. There were situations, especially with Azure Standard Storage where an IOPS rate hit the quota of a single disk against the DBMS transaction log. In such scenarios, the use of Premium Storage is recommended or alternatively aggregating multiple Standard Storage disks with a software stripe.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > * [Performance best practices for SQL Server in Azure Virtual Machines][virtual-machines-sql-server-performance-best-practices]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > * [Configure Software RAID on Linux][virtual-machines-linux-configure-raid]
 > * [Configure LVM on a Linux VM in Azure][virtual-machines-linux-configure-lvm]
@@ -1199,13 +1199,13 @@ Next, you need to decide whether you want to create a new and empty disk or whet
 **IMPORTANT**: You **DO NOT** want to use Host Caching with Azure Standard Storage. You should leave the Host Cache preference at the default of NONE. With Azure Premium Storage, you should enable Read Caching if the I/O characteristic is mostly read like typical I/O traffic against database data files. In case of database transaction log file, no caching is recommended.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > [How to attach a data disk in the Azure portal][virtual-machines-linux-attach-disk-portal]
 >
 > If disks are attached, you need to sign in to the VM to open the Windows Disk Manager. If automount is not enabled as recommended in chapter [Setting automount for attached disks][planning-guide-5.5.3], the newly attached volume needs to be taken online and initialized.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > If disks are attached, you need to sign in to the VM and initialize the disks as described in [this article][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux]
 >
@@ -1222,7 +1222,7 @@ Azure Geo-replication works locally on each VHD in a VM and does not replicate t
 
 #### <a name="17e0d543-7e8c-4160-a7da-dd7117a1ad9d"></a>Setting automount for attached disks
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > For VMs, which are created from own Images or Disks, it is necessary to check and possibly set the automount parameter. Setting this parameter will allow the VM after a restart or redeployment in Azure to mount the attached/mounted drives again automatically.
 > The parameter is set for the images provided by Microsoft in the Azure Marketplace.
@@ -1236,7 +1236,7 @@ Azure Geo-replication works locally on each VHD in a VM and does not replicate t
 >
 > If disks are attached, you need to sign in to the VM to open the Windows Disk Manager. If automount is not enabled as recommended in chapter [Setting automount for attached disks][planning-guide-5.5.3],  the newly attached volume >needs to be taken online and initialized.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > You need to initialize a newly attached empty disk as described in [this article][virtual-machines-linux-how-to-attach-disk-how-to-initialize-a-new-data-disk-in-linux].
 > You also need to add new disks to the /etc/fstab.
@@ -1266,14 +1266,15 @@ See the architecture difference between classic model and ARM as described in [t
 #### Configuration of the SAP System and SAP GUI connectivity over the internet
 
 See this article, which describes details to this topic:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2014/06/24/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure.aspx>
+
+<https://docs.microsoft.com/archive/blogs/saponsqlserver/sap-gui-connection-closed-when-connecting-to-sap-system-in-azure>
 
 #### Changing Firewall Settings within VM
 
 It might be necessary to configure the firewall on your virtual machines to allow inbound traffic to your SAP system.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > By default, the Windows Firewall within an Azure deployed VM is turned on. You now need to allow the SAP Port to be opened, otherwise the SAP GUI will not be able to connect.
 > To do this:
@@ -1290,7 +1291,7 @@ It might be necessary to configure the firewall on your virtual machines to allo
 >
 > ![Port rule definition][planning-guide-figure-1600]
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > The Linux images in the Azure Marketplace do not enable the iptables firewall by default and the connection to your SAP system should work. If you enabled iptables or another firewall, refer to the documentation of iptables or the used firewall to allow inbound tcp traffic to  port 32xx (where xx is the system number of your SAP system).
 >
@@ -1602,7 +1603,7 @@ Other security measures when deploying VMs in such a scenario could be to create
 Setting up your on-premises TCP/IP based network printers in an Azure VM is overall the same as in your corporate network, assuming you do have a VPN Site-To-Site tunnel or ExpressRoute connection established.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > To do this:
 >
@@ -1613,7 +1614,7 @@ Setting up your on-premises TCP/IP based network printers in an Azure VM is over
 > * Printer Port standard 9100
 > * If necessary install the appropriate printer driver manually.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > * like for Windows just follow the standard procedure to install a network printer
 > * just follow the public Linux guides for [SUSE](https://www.suse.com/documentation/sles-12/book_sle_deployment/data/sec_y2_hw_print.html) or [Red Hat and Oracle Linux](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/deployment_guide/sec-printer_configuration) on how to add a printer.
@@ -1637,20 +1638,20 @@ The printer share is identified by a unique name in the network:
 How to:
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > Share your local printer.
 > In the Azure VM, open the Windows Explorer and type in the share name of the printer.
 > A printer installation wizard will guide you through the installation process.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > Here are some examples of documentation about configuring network printers in Linux or including
 > a chapter regarding printing in Linux. It will work the same way in an Azure Linux VM as long as
 > the VM is part of a VPN:
 >
 > * SLES <https://en.opensuse.org/SDB:Printing_via_SMB_(Samba)_Share_or_Windows_Share>
-> * RHEL or Oracle Linux <https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/System_Administrators_Guide/sec-Printer_Configuration.html#s1-printing-smb-printer>
+> * RHEL or Oracle Linux <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html-single/system_administrators_guide/index#sec-Starting_Print_Settings_Config>
 >
 >
 
@@ -1660,7 +1661,7 @@ How to:
 In Azure the ability of the Remote Desktop Services to provide users the access to their local printer devices in a remote session is not available.
 
 ---
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > More details on printing with Windows can be found here: <https://technet.microsoft.com/library/jj590748.aspx>.
 >
@@ -1825,7 +1826,7 @@ There are two types of Azure platform events that can affect the availability of
 * Planned maintenance events are periodic updates made by Microsoft to the underlying Azure platform to improve overall reliability, performance, and security of the platform infrastructure that your virtual machines run on.
 * Unplanned maintenance events occur when the hardware or physical infrastructure underlying your virtual machine has faulted in some way. This may include local network failures, local disk failures, or other rack level failures. When such a failure is detected, the Azure platform will automatically migrate your virtual machine from the unhealthy physical server hosting your virtual machine to a healthy physical server. Such events are rare, but may also cause your virtual machine to reboot.
 
-For more details, see [Availability of Windows virtual machines in Azure](../../windows/manage-availability.md) and [Availability of Linux virtual machines in Azure](../../linux/manage-availability.md).
+For more details, see [Availability of Windows virtual machines in Azure](../../manage-availability.md) and [Availability of Linux virtual machines in Azure](../../manage-availability.md).
 
 #### Azure Storage Redundancy
 
@@ -1892,7 +1893,6 @@ Deploying a few SAP application server instances in their dedicated VMs and assu
 
 ![HA of SAP Application Servers in Azure][planning-guide-figure-3000]
 
-More details can be found in this documentation: <https://azure.microsoft.com/documentation/articles/virtual-machines-manage-availability>
 
 #### High Availability for SAP Central Services on Azure
 
@@ -1911,7 +1911,7 @@ Here are two examples of a complete SAP NetWeaver HA architecture in Azure - one
 Unmanaged disks only: The concepts as explained below may need to be compromised a bit when you deploy many SAP systems and the number of VMs deployed are exceeding the maximum limit of Storage Accounts per subscription. In such cases, VHDs of VMs need to be combined within one Storage Account. Usually you would do so by combining VHDs of SAP application layer VMs of different SAP systems.  We also combined different VHDs of different DBMS VMs of different SAP systems in one Azure Storage Account. Thereby keeping the IOPS limits of Azure Storage Accounts in mind (<https://azure.microsoft.com/documentation/articles/storage-scalability-targets>)
 
 
-##### ![Windows][Logo_Windows] HA on Windows
+##### ![Windows logo.][Logo_Windows] HA on Windows
 
 ![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3200]
 
@@ -1933,7 +1933,7 @@ The following figure illustrated the same landscape using Managed Disks.
 
 ![SAP NetWeaver Application HA Architecture with SQL Server in Azure IaaS][planning-guide-figure-3201]
 
-##### ![Linux][Logo_Linux] HA on Linux
+##### ![Linux logo.][Logo_Linux] HA on Linux
 
 The architecture for SAP HA on Linux on Azure is basically the same as for Windows as described above. Refer to SAP Note [1928533] for a list of supported high availability solutions.
 
@@ -1987,7 +1987,7 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 > backup requires installation of a new SAP license key as the restored VM is considered to be a new VM and not a replacement of the
 > former one which was saved.
 >
-> ![Windows][Logo_Windows] Windows
+> ![Windows logo.][Logo_Windows] Windows
 >
 > Theoretically, VMs that run databases can be backed up in a consistent manner as well if the DBMS system supports the Windows VSS
 > (Volume Shadow Copy Service <https://msdn.microsoft.com/library/windows/desktop/bb968832(v=vs.85).aspx>) as, for example, SQL Server does.
@@ -2001,7 +2001,7 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 > backup/restore databases. More information can be found here:
 > <https://docs.microsoft.com/azure/backup/backup-azure-dpm-introduction>.
 >
-> ![Linux][Logo_Linux] Linux
+> ![Linux logo.][Logo_Linux] Linux
 >
 > There is no equivalent to Windows VSS in Linux. Therefore only file-consistent backups are possible but not
 > application-consistent backups. The SAP DBMS backup should be done using DBMS functionality. The file system
@@ -2015,9 +2015,9 @@ Other VMs within the SAP system can be backed up using Azure Virtual Machine Bac
 Since Mid 2014, extensions to various components around Hyper-V, System Center, and Azure enable the usage of Azure as DR site for VMs running on-premises based on Hyper-V.
 
 A blog detailing how to deploy this solution is documented here:
-<https://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
+<https://docs.microsoft.com/archive/blogs/saponsqlserver/protecting-sap-solutions-with-azure-site-recovery>.
 
-## Summary
+## Summary for High Availability for SAP systems
 
 The key points of High Availability for SAP systems in Azure are:
 

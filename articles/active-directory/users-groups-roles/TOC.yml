@@ -7,10 +7,10 @@
 - name: Quickstarts
   items:
   - name: Add users to Azure AD
-    href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
   - name: Assign licenses to users    
     href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
-  - name: Grant permission for unlimited app registrations
+  - name: Create unlimited app registrations
     href: roles-quickstart-app-registration-limits.md
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
@@ -26,24 +26,24 @@
   - name: Delegate Azure AD admin roles
     href: roles-concept-delegation.md
   - name: Compare default user permissions    
-    href: /azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: ../fundamentals/users-default-permissions.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
   - name: Compare Azure and Azure AD roles    
-    href: /azure/role-based-access-control/rbac-and-directory-admin-roles?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: ../../role-based-access-control/rbac-and-directory-admin-roles.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
   - name: Group-based licensing basics    
-    href: /azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: ../fundamentals/active-directory-licensing-whatis-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
   - name: Manage access with groups    
-    href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    href: ../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
 - name: How-to guides
   expanded: true
   items:
   - name: Manage users
     items: 
     - name: Create users 
-      href: /azure/active-directory/fundamentals/add-users-azure-active-directory?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Bulk create users
       href: users-bulk-add.md    
     - name: Manage user profiles
-      href: /azure/active-directory/fundamentals/active-directory-users-profile-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: My Staff delegation
       href: my-staff-configure.md
     - name: Download user info
@@ -51,27 +51,31 @@
     - name: Share user accounts
       href: users-sharing-accounts.md
     - name: Assign users to admin roles    
-      href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
+    - name: User management enhancements
+      href: users-search-enhanced.md
     - name: Bulk delete users
       href: users-bulk-delete.md
     - name: Restore a deleted user    
-      href: /azure/active-directory/fundamentals/active-directory-users-restore?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-users-restore.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Bulk restore users
       href: users-bulk-restore.md
     - name: Revoke a user's access
       href: users-revoke-access.md
     - name: Close an account in an unmanaged directory
       href: users-close-account.md
-    - name: Add B2B users  
+    - name: Add guest users  
       href: /azure/active-directory/b2b/what-is-b2b?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Assign role to B2B user    
+    - name: Assign role to guest user    
       href: /azure/active-directory/b2b/add-guest-to-role?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Dynamic groups and B2B   
+    - name: Restrict guest user access
+      href: users-restrict-guest-permissions.md
+    - name: Dynamic groups and guests   
       href: /azure/active-directory/b2b/use-dynamic-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
   - name: Manage your directory
     items:
     - name: Azure AD organizations    
-      href: /azure/active-directory/fundamentals/active-directory-administer?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Manage domain names
       href: domains-manage.md
     - name: Delete a directory    
@@ -83,13 +87,13 @@
     - name: Take over a directory    
       href: domains-admin-takeover.md
     - name: Azure AD Connect    
-      href: /azure/active-directory/connect/active-directory-aadconnect?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../hybrid/whatis-hybrid-identity.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
   - name: Manage groups
     items: 
     - name: Manage access with groups
-      href: /azure/active-directory/fundamentals/active-directory-manage-groups?context=azure/active-directory/users-groups-roles/context/ugr-context  
+      href: ../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context  
     - name: Create a group (Azure portal)    
-      href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Manage groups PowerShell for Graph (v2)   
       href: groups-settings-v2-cmdlets.md
     - name: Manage groups with PowerShell MSOnline    
@@ -97,7 +101,7 @@
     - name: Search group and member lists   
       href: groups-members-owners-search.md
     - name: Add or remove group members    
-      href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-groups-members-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Dynamic groups    
       items: 
       - name: Create a dynamic group    
@@ -119,11 +123,11 @@
     - name: Restore deleted groups   
       href: groups-restore-deleted.md
     - name: Manage group settings
-      href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
+      href: ../fundamentals/active-directory-groups-settings-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Manage group owners
-      href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-accessmanagement-managing-group-owners.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Manage groups in groups
-      href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-groups-membership-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Add group access to SaaS apps
       href: groups-saasapps.md
     - name: Set group naming policy
@@ -137,7 +141,7 @@
   - name: Assign licenses
     items:
     - name: Assign licenses to users    
-      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Assign licenses to a group    
       href: licensing-groups-assign.md
     - name: Resolve group license problems   
@@ -161,18 +165,26 @@
       href: directory-manage-roles-portal.md
     - name: Custom roles
       items:
-      - name: Custom roles        
+      - name: Custom roles overview        
         href: roles-custom-overview.md
       - name: Create a custom role
         href: roles-create-custom.md
       - name: View custom role assignments
         href: roles-view-assignments.md
-      - name: Assign roles in Azure AD admin center
-        href: /azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+      - name: Assign custom roles in Azure portal
+        href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
       - name: Assign custom roles in PowerShell
         href: roles-assign-powershell.md
+      - name: Assign custom roles for enterprise apps
+        href: custom-enterprise-apps.md
       - name: Custom role permissions
-        href: roles-custom-available-permissions.md
+        items:
+        - name: App registration permissions
+          href: roles-custom-available-permissions.md
+        - name: Enterprise app permissions
+          href: custom-enterprise-app-permissions.md
+        - name: App consent permissions
+          href: custom-consent-permissions.md
       - name: Delegate app admin permissions
         href: roles-delegate-app-roles.md
     - name: Use groups to manage role assignments
@@ -218,7 +230,7 @@
   - name: Manage sign-in
     items:    
     - name: Customize company branding    
-      href: /azure/active-directory/fundamentals/customize-branding?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/customize-branding.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Sign-in options
       href: signin-account-support.md
     - name: Home Realm Discovery
@@ -232,7 +244,7 @@
   - name: Troubleshoot
     items:
     - name: Get support for Azure AD    
-      href: /azure/active-directory/fundamentals/active-directory-troubleshooting-support-howto?context=azure/active-directory/users-groups-roles/context/ugr-context
+      href: ../fundamentals/active-directory-troubleshooting-support-howto.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Troubleshoot groups   
       href: groups-troubleshooting.md
     - name: Troubleshoot group licensing    
@@ -240,10 +252,10 @@
 - name: Reference
   items:
   - name: Graph API  
-    href: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/azure_ad_overview
+    href: /graph/api/resources/azure-ad-overview?view=graph-rest-1.0
   - name: Azure AD CLI    
-    href: https://docs.microsoft.com/cli/azure/ad
+    href: /cli/azure/ad
   - name:  Azure AD PowerShell for Graph
-    href: https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0
+    href: /powershell/azure/active-directory/install-adv2?view=azureadps-2.0
   - name: Azure AD service limits
     href: directory-service-limits-restrictions.md
