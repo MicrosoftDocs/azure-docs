@@ -146,6 +146,37 @@ Next, you add configuration settings that the build process uses to build your a
 
    :::image type="content" source="./media/publish-hugo/deployed-app.png" alt-text="Deployed application":::
 
+#### Custom Hugo version
+
+When you generate a Static Web App, a [workflow file](./apps/github-actions-workflow.md) is generated which contains the publishing configuration settings for the application. You can designate a specific Hugo version in the workflow file by providing a value for `HUGO_VERSION` in the `env` section. The following example configuration demonstrates how to set set Hugo to a specific version.
+
+```yaml
+jobs:
+  build_and_deploy_job:
+    if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
+    runs-on: ubuntu-latest
+    name: Build and Deploy Job
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: true
+      - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v0.0.1-preview
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match you app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/" # App source code path
+          api_location: "api" # Api source code path - optional
+          app_artifact_location: "public" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
+        env:
+          HUGO_VERSION: 0.58.0
+```
+
 ## Clean up resources
 
 [!INCLUDE [cleanup-resource](../../includes/static-web-apps-cleanup-resource.md)]
