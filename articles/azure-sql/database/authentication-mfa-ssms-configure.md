@@ -13,6 +13,7 @@ ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
 ---
+
 # Configure multi-factor authentication for SQL Server Management Studio and Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
@@ -31,6 +32,8 @@ This article shows you how to use Azure Active Directory (Azure AD) multi-factor
 ## Connecting by using universal authentication with SSMS
 
 The following steps show how to connect using the latest SSMS.
+
+[!INCLUDE[ssms-connect-azure-ad](../includes/ssms-connect-azure-ad.md)]
 
 1. To connect using Universal Authentication, on the **Connect to Server** dialog box in SQL Server Management Studio (SSMS), select **Active Directory - Universal with MFA support**. (If you see **Active Directory Universal Authentication** you are not on the latest version of SSMS.)
 

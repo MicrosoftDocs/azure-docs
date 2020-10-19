@@ -186,6 +186,7 @@ Remote desktop connection to an Azure AD joined devices requires the host machin
 Starting Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
 
 ## Understand your provisioning options
+**Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
 
 You can provision Azure AD join using the following approaches:
 

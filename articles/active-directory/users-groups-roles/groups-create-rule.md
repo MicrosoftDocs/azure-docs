@@ -36,7 +36,7 @@ Here are some examples of advanced rules or syntax for which we recommend that y
 > [!NOTE]
 > The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
 
-![Add membership rule for a dynamic group](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Screenshot that shows the "Dynamic membership rules" page with the "Add expression" action on the "Configure rules" tab selected.](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 For examples of syntax, supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
 
@@ -50,7 +50,7 @@ For examples of syntax, supported properties, operators, and values for a member
 
 1. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
-   ![Add membership rule for a dynamic group](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Screenshot that shows the "All groups" page with the "New group" action selected.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. To see the custom extension properties available for your membership query:
    1. Select **Get custom extension properties**

@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: service
 ms.custom: sqldbrb=3
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: overview
 author: stevestein
 ms.author: sstein
 ms.reviewer:

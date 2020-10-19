@@ -134,19 +134,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Click on the **applications icon** and select **Admin**.
 
-    ![Claromentis Configuration](./media/claromentis-tutorial/config1.png)
+    ![Screenshot shows the Claromentis website with Admin selected.](./media/claromentis-tutorial/config1.png)
 
 1. Select **Custom Login Handler** tab.
 
-    ![Claromentis Configuration](./media/claromentis-tutorial/config2.png)
+    ![Screenshot shows the Administration page with Custom Login Handler selected.](./media/claromentis-tutorial/config2.png)
 
 1. Select **SAML Config**.
 
-    ![Claromentis Configuration](./media/claromentis-tutorial/config3.png)
+    ![Screenshot shows the configuration page for SAML.](./media/claromentis-tutorial/config3.png)
 
 1. On the **SAML Config** tab, scroll down to the **Config** section and perform the following steps:
 
-    ![Claromentis Configuration](./media/claromentis-tutorial/config4.png)
+    ![Screenshot shows the Config section of the page where you can enter the information described in this step.](./media/claromentis-tutorial/config4.png)
 
     a. In the **Technical Contact Name** textbox, enter the name of technical contact person.
 
@@ -156,7 +156,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Scroll down to **Auth Sources** and perform the following steps:
 
-    ![Claromentis Configuration](./media/claromentis-tutorial/config5.png)
+    ![Screenshot shows the Auth Sources section where you can enter the information described in this step.](./media/claromentis-tutorial/config5.png)
 
     a. In the **IDP** textbox, enter the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
@@ -168,7 +168,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. You will now notice all URLs have been populated within the **Identity Provider** section in the **SAML Config** section.
 
-    ![Claromentis Configuration](./media/claromentis-tutorial/config6.png)
+    ![Screenshot shows the Identity Provider page populated with U R Ls.](./media/claromentis-tutorial/config6.png)
 
     a. Copy **Identifier (Entity ID)** value, paste this value in the **Identifier** textbox on the **Basic SAML Configuration** section in Azure portal.
 

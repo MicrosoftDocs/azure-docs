@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 10/07/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -96,6 +96,7 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 }
 }
 ```
+
 ### Microsoft Graph
 
 ```http
@@ -131,14 +132,20 @@ https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.Ad
 
 There are two ways you can remove a group from an administrative unit in the Azure portal.
 
-Open **Azure AD** > **Groups** and open the profile for group you want to remove from administrative unit. 
-Select **Administrative units** in the left panel to list all the administrative units where the group is a member. Select the administrative unit that you want to remove the group from, and then select **Remove from administrative unit**.
+- Remove from a group overview
 
-![Remove a group from an administrative unit](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
+  1. Open **Azure AD** > **Groups** and open the profile for group you want to remove from an administrative unit.
+  1. Select **Administrative units** in the left panel to list all the administrative units where the group is a member. Select the administrative unit that you want to remove the group from, and then select **Remove from administrative unit**.
 
-Alternatively, you can go to **Azure AD** > **Administrative units** and select the administrative unit where the group is a member. Select **Groups** in the left panel to list the member groups. Select the group to be removed from the administrative unit and then select **Remove groups**.
+    ![Remove a group from an administrative unit](./media/roles-admin-units-add-manage-groups/group-au-remove.png)
 
-![List groups in an administrative unit](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
+- Remove from an administrative unit
+
+  1. Open **Azure AD** > **Administrative units** and select the administrative unit where the group is a member.
+  1. Select **Groups** in the left panel to list the member groups.
+  1. Select the group to be removed from the administrative unit and then select **Remove groups**.
+
+    ![List groups in an administrative unit](./media/roles-admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
 ### PowerShell
 

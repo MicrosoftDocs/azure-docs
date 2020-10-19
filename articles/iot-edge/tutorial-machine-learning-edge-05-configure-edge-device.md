@@ -90,7 +90,7 @@ To store our certificates securely and to make them accessible from multiple dev
 
 To connect an Azure IoT Edge device to an IoT hub, we first create an identity for the device in the hub. We take the connection string from the device identity in the cloud and use it to configure the runtime on our IoT Edge device. Once a configured device connects to the hub, we are able to deploy modules and send messages. We can also change the configuration of the physical IoT Edge device by changing its corresponding device identity in IoT hub.
 
-For this tutorial, we create the new device identity using Visual Studio Code. You can also complete these steps using the [Azure portal](how-to-register-device.md#register-in-the-azure-portal), or [Azure CLI](how-to-register-device.md#register-with-the-azure-cli).
+For this tutorial, we create the new device identity using Visual Studio Code. You can also complete these steps using the Azure portal or the Azure CLI.
 
 1. On your development machine, open Visual Studio Code.
 
@@ -288,12 +288,9 @@ Next we will update the certificates and hostname by directly editing the config
     ```bash
     journalctl -u iotedge --no-pager --no-full
     ```
-
 ## Next steps
 
 We just completed configuring an Azure VM as Azure IoT Edge Transparent Gateway. We started by generating test certificates that we uploaded to Azure Key Vault. Next, we used a script and Resource Manager template to deploy the VM with the "Ubuntu Server 16.04 LTS + Azure IoT Edge runtime" image from the Azure Marketplace. With the VM up and running we connected via SSH, we signed into Azure and downloaded certificates from Key Vault. We made several updates to the configuration of the IoT Edge Runtime by updating the config.yaml file.
-
-For more information see [How an IoT Edge device can be used as a gateway](iot-edge-as-gateway.md) and [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md).
 
 Continue to the next article to build IoT Edge modules.
 

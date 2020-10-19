@@ -18,15 +18,15 @@
       href: add-application-portal-configure.md
     - name: Assign users to an app
       href: add-application-portal-assign-users.md
-    - name: Set up SAML-based single sign-on
+    - name: Setup SAML-based single sign-on
       href: add-application-portal-setup-sso.md
-    - name: Set up OIDC-based single sign-on
+    - name: Setup OIDC-based single sign-on
       href: add-application-portal-setup-oidc-sso.md
     - name: Delete an app
       href: delete-application-portal.md
   - name: Tutorials
     items:
-    - name: Integrated gallery apps (e.g. ServiceNow, Salesforce, Dropbox)
+    - name: List of pre-configured apps
       href: /azure/active-directory/saas-apps/
     - name: Add an on-premises app with Application Proxy
       href: application-proxy-add-on-premises-application.md
@@ -57,10 +57,16 @@
         href: developer-guidance-for-integrating-applications.md
     - name: Single sign-on
       items:
-      - name: Single sign-on options 
-        href: sso-options.md
       - name: Plan a single sign-on deployment
         href: plan-sso-deployment.md
+      - name: Single sign-on options 
+        href: sso-options.md
+      - name: SAML-based SSO
+        href: configure-saml-single-sign-on.md
+      - name: Password-based SSO
+        href: configure-password-single-sign-on-non-gallery-applications.md
+      - name: Linked-based SSO
+        href: configure-linked-sign-on.md
       - name: One-click SSO
         href: one-click-sso-tutorial.md
     - name: Application security
@@ -102,28 +108,28 @@
   - name: How-to guides
     expanded: false
     items:
-    - name: Configure single sign-on
-      items:
-      - name: Configure SAML-based single sign-on
-        href: configure-saml-single-sign-on.md
-      - name: Configure password-based sign-on
-        href: configure-password-single-sign-on-non-gallery-applications.md
-      - name: Configure linked sign-on
-        href: configure-linked-sign-on.md
     - name: Assign users and manage access to apps
       items:
-      - name: Configure user consent
-        href: configure-user-consent.md
-      - name: Manage and evaluate consent requests
-        href: manage-consent-requests.md
-      - name: Grant tenant-wide admin consent
-        href: grant-admin-consent.md
-      - name: Configure admin consent workflow (preview)
-        href: configure-admin-consent-workflow.md
+      - name: Consent and permissions
+        items:
+        - name: Configure user consent
+          href: configure-user-consent.md
+        - name: Configure group owner consent
+          href: configure-user-consent-groups.md
+        - name: Configure permission classifications
+          href: configure-permission-classifications.md
+        - name: Manage app consent policies
+          href: manage-app-consent-policies.md
+        - name: Configure admin consent workflow (preview)
+          href: configure-admin-consent-workflow.md
+        - name: Manage and evaluate consent requests
+          href: manage-consent-requests.md
+        - name: Grant tenant-wide admin consent
+          href: grant-admin-consent.md
+        - name: Review permissions granted to apps
+          href: manage-application-permissions.md
       - name: Manage user assignment for an app
         href: assign-user-or-group-access-portal.md
-      - name: Review permissions granted to apps
-        href: manage-application-permissions.md
       - name: Create collections on My Apps
         href: access-panel-collections.md
       - name: Use self-service app access
@@ -142,7 +148,7 @@
       items:
       - name: Migration resources
         href: migration-resources.md
-      - name: Migrate an ADFS app to Azure
+      - name: Migrate an AD FS app to Azure
         href: migrate-adfs-apps-to-azure.md
       - name: Use the AD FS application activity report (preview)
         href: migrate-adfs-application-activity.md
@@ -224,12 +230,8 @@
           href: application-sign-in-problem-application-error.md
         - name: Problem signing into a Microsoft app
           href: application-sign-in-problem-first-party-microsoft.md
-        - name: Problem with federated single sign-on - non-gallery app
-          href: application-sign-in-problem-federated-sso-non-gallery.md
-        - name: Problem with federated single sign-on - gallery app
+        - name: Problem with single sign-on
           href: application-sign-in-problem-federated-sso-gallery.md
-        - name: Problem with custom-developed app
-          href: application-sign-in-problem-custom-dev.md
       - name: Troubleshoot on-premises apps
         items:
         - name: Application Proxy troubleshooting
@@ -260,7 +262,7 @@
           href: application-proxy-sign-in-bad-gateway-timeout-error.md
         - name: Problem installing the Application Proxy Agent Connector
           href: application-proxy-connector-installation-problem.md
-        - name: Sign-in problem
+        - name: Sign in problem
           href: application-sign-in-problem-on-premises-application-proxy.md
         - name: CORS issues in Application Proxy
           href: application-proxy-understand-cors-issues.md

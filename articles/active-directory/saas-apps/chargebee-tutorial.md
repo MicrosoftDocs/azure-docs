@@ -130,11 +130,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. From the left side of menu, click on **Settings** > **Security** > **Manage**.
 
-	![Chargebee configuration](./media/chargebee-tutorial/config01.png)
+	![Screenshot shows the Chargebee company site with Settings, Security, and Manage selected.](./media/chargebee-tutorial/config01.png)
 
 5. On the **Single Sign-On** pop-up, perform the following steps:
 
-	![Chargebee configuration](./media/chargebee-tutorial/config02.png)
+	![Screenshot shows the Single Sign-On dialog box with SAML selected and the option to confirm.](./media/chargebee-tutorial/config02.png)
 
 	a. Select **SAML**.
 
@@ -154,11 +154,11 @@ To enable Azure AD users, sign in to Chargebee, they must be provisioned into Ch
 
 2. From the left side of menu,, click on **Customers** and then navigate to **Create a New Customer**.
 
-	![Freedcamp configuration](./media/chargebee-tutorial/config03.png)
+	![Screenshot shows Chargebee site with Customers and Create a New Customer selected.](./media/chargebee-tutorial/config03.png)
 
 3. On the **New Customer** page, fill the respective fields shown below and click **Create Customer** for user creation.
 
-	![Freedcamp configuration](./media/chargebee-tutorial/config04.png)
+	![Screenshot shows the New Customer page where you can enter customer information.](./media/chargebee-tutorial/config04.png)
 
 ## Test SSO 
 

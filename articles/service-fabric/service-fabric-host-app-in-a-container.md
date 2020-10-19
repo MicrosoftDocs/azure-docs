@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
 
 1. Right-click the **FabrikamFiber.Web** project > **Add** > **Container Orchestrator Support**.  Select **Service Fabric** as the container orchestrator and click **OK**.
 
-2. Click **Yes** to switch Docker to Windows containers now.
+2. If prompted, click **Yes** to switch Docker to Windows containers now.
 
    A new project Service Fabric application project **FabrikamFiber.CallCenterApplication** is created in the solution.  A Dockerfile is added to the existing **FabrikamFiber.Web** project.  A **PackageRoot** directory is also added to the **FabrikamFiber.Web** project, which contains the service manifest and settings for the new FabrikamFiber.Web service.
 
@@ -153,7 +153,7 @@ When creating the cluster:
 
 1. Right-click on the **FabrikamFiber.CallCenterApplication** application project in the Solution Explorer and choose **Publish**.
 2. Sign in by using your Azure account so that you can have access to your subscription(s).
-3. Select the dropdown for the **Connection Endpoint** and select the **Create New Cluster...** option.
+3. Below the dropdown for the **Connection Endpoint**, select the **Create New Cluster...** option.
 4. In the **Create cluster** dialog, modify the following settings:
 
     a. Specify the name of your cluster in the **Cluster Name** field, as well as the subscription and location you want to use. Take note of the name of your cluster resource group.
