@@ -21,9 +21,9 @@ The Azure Container Registry service supports a set of [built-in Azure roles](..
 
 ## Assign roles
 
-See [Steps to add a role assignent](../role-based-access-control/role-assignments-steps.md) for high-level steps to add a role assignment to an existing user, group, service principal, or managed identity. You can use the Azure portal, Azure CLI, or other Azure tools.
+See [Steps to add a role assignment](../role-based-access-control/role-assignments-steps.md) for high-level steps to add a role assignment to an existing user, group, service principal, or managed identity. You can use the Azure portal, Azure CLI, or other Azure tools.
 
-When creatng a service principal, you also configure its access and permissions to Azure resources such as a container registry. For an example script using the Azure CLI, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md#create-a-service-principal).
+When creating a service principal, you also configure its access and permissions to Azure resources such as a container registry. For an example script using the Azure CLI, see [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md#create-a-service-principal).
 
 ## Differentiate users and services
 
