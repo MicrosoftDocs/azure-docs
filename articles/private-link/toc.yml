@@ -56,12 +56,26 @@
     items:
     - name: Analysis Services
       href: /azure-sql/database/private-endpoint-overview.md
+    - name: Data Factory
+      href: /data-factory/data-factory-private-link.md
     - name: Event Hubs
       href: /event-hubs/private-link-service.md
-    - name: Data Factory
-      href: /data-factory/data-factory-private-link
+    - name: HDInsight
+      href: /hdinsight/hdinsight-private-link.md
     - name: Power BI
-      href: /power-bi/admin/service-security-private-links
+      href: /power-bi/admin/service-security-private-links.md
+  - name: Compute
+    items:
+    - name: Batch
+      href: /batch/private-connectivity.md
+    - name: Managed disks with Private Links
+      href: /virtual-machines/disks-enable-private-links-for-import-export-portal.md
+  - name: Containers
+    items:
+    - name: Container Registry
+      href: /container-registry/container-registry-private-link.md
+    - name: Kubernetes Service
+      href: /aks/private-clusters.md
   - name: Connect privately to a web app
     href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
