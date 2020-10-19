@@ -207,7 +207,7 @@
       href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Find, search, and understand blob data
       items:
-      - name: Use blob index to manage and find blob data
+      - name: Use blob index tags to manage and find blob data
         href: storage-manage-find-blobs.md
       - name: Use AI to understand blob data
         href: ../../search/search-blob-ai-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
