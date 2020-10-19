@@ -16,13 +16,13 @@ ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---
 
-# Azure Active Directory integrations with legacy authentication and synchronization protocols
+# Azure Active Directory integrations with authentication and synchronization protocols
 
 Microsoft Azure Active Directory (Azure AD) enables integration with many authentication and synchronization protocols. The authentication integrations enable you to use Azure AD and its security and management features with little or no changes to your applications that use legacy authentication methods. The synchronization integrations enable you to sync user and group data to Azure AD, and then user Azure AD management capabilities. Some sync patterns also enable automated provisioning.
 
-## Authentication patterns
+## Legacy authentication protocols
 
-The following table presents authentication patterns and their capabilities. Select the name of an authentication patterns to see
+The following table presents authentication Azure AD integration with legacy authentication protocols and their capabilities. Select the name of an authentication protocol to see
 
 * A detailed description
 
@@ -36,7 +36,7 @@ The following table presents authentication patterns and their capabilities. Sel
 
  
 
-| Authentication patterns| Authentication| Authorization| Multi-factor Authentication| Conditional Access |
+| Authentication protocol| Authentication| Authorization| Multi-factor Authentication| Conditional Access |
 | - |- | - | - | - |
 | [Header-based authentication](auth-header-based.md)|![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
 | [LDAP authentication](auth-ldap.md)| ![check mark](./media/authentication-patterns/check.png)| | |  |
@@ -45,6 +45,7 @@ The following table presents authentication patterns and their capabilities. Sel
 | [Password based SSO authentication](auth-password-based-sso.md )| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
 | [RADIUS authentication]( auth-radius.md)| ![check mark](./media/authentication-patterns/check.png)| | ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
 | [Remote Desktop Gateway services](auth-remote-desktop-gateway.md)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
+| [Secure Shell (SSH)](auth-ssh.md) |  ![check mark](./media/authentication-patterns/check.png)| | ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
 | [SAML authentication](auth-saml.md)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
 | [Windows Authentication - Kerberos Constrained Delegation](auth-kcd.md)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png)| ![check mark](./media/authentication-patterns/check.png) |
 
@@ -52,7 +53,7 @@ The following table presents authentication patterns and their capabilities. Sel
  
 ## Synchronization patterns
 
-The following table presents synchronization patterns and their capabilities. Select the name of a pattern to see
+The following table presents Azure AD integration with synchronization patterns and their capabilities. Select the name of a pattern to see
 
 * A detailed description
 
