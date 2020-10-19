@@ -21,7 +21,7 @@ When working with an Azure Digital Twins instance, it is common to interact with
 
 This is not required for all authentication scenarios. However, if you are using an authentication strategy or code sample that does require an app registration, including a **client ID** and **tenant ID**, this article shows you how to set one up.
 
-## Using Azure Active Directory app registrations
+## Using Azure AD app registrations
 
 [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) is Microsoft's cloud-based identity and access management service. Setting up an **app registration** in Azure AD is one way to grant a client app access to Azure Digital Twins.
 
