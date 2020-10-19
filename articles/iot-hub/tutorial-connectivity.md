@@ -17,7 +17,7 @@ ms.service: iot-hub
 
 In this tutorial, you use Azure IoT Hub portal tools and Azure CLI commands to test device connectivity. This tutorial also uses a simple device simulator that you run on your desktop machine.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -26,31 +26,29 @@ In this tutorial, you learn how to:
 > * Check cloud-to-device connectivity
 > * Check device twin synchronization
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Prerequisites
+ - The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
 
-The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
+   ```azurecli-interactive
+   az extension add --name azure-iot
+   ```
 
-```azurecli-interactive
-az extension add --name azure-iot
-```
+   [!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
 
-[!INCLUDE [iot-hub-cli-version-info](../../includes/iot-hub-cli-version-info.md)]
+ - The device simulator application you run in this tutorial is written using Node.js. You need Node.js v10.x.x or later on your development machine.
 
-The device simulator application you run in this tutorial is written using Node.js. You need Node.js v10.x.x or later on your development machine.
+   You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
-You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
+   You can verify the current version of Node.js on your development machine using the following command:
 
-You can verify the current version of Node.js on your development machine using the following command:
+   ```cmd/sh
+   node --version
+   ```
 
-```cmd/sh
-node --version
-```
+ - Download the sample device simulator Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
-Download the sample device simulator Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
-
-Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+ - Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Create an IoT hub
 

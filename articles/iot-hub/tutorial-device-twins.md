@@ -29,25 +29,23 @@ In this tutorial, you perform the following tasks:
 > * Use desired properties to send state information to your simulated device.
 > * Use reported properties to receive state information from your simulated device.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Prerequisites
+ - The two sample applications you run in this quickstart are written using Node.js. You need Node.js v10.x.x or later on your development machine.
 
-The two sample applications you run in this quickstart are written using Node.js. You need Node.js v10.x.x or later on your development machine.
+   You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
 
-You can download Node.js for multiple platforms from [nodejs.org](https://nodejs.org).
+   You can verify the current version of Node.js on your development machine using the following command:
 
-You can verify the current version of Node.js on your development machine using the following command:
+   ```cmd/sh
+   node --version
+   ```
 
-```cmd/sh
-node --version
-```
+ - Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
 
-Download the sample Node.js project from https://github.com/Azure-Samples/azure-iot-samples-node/archive/master.zip and extract the ZIP archive.
-
-Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
+ - Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
 ## Set up Azure resources
 

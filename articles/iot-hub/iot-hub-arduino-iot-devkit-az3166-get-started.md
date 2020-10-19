@@ -34,7 +34,7 @@ You can find the source code for all DevKit tutorials from [code samples gallery
 * A computer running Windows 10, macOS 10.10+ or Ubuntu 18.04+.
 * An active Azure subscription. [Activate a free 30-day trial Microsoft Azure account](https://azureinfo.microsoft.com/us-freetrial.html).
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
   
 ## Prepare your hardware
 
