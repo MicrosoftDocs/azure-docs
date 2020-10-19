@@ -119,7 +119,7 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
     - Microsoft.HybridCompute
     - Microsoft.GuestConfiguration
 
-1.Create a Service Principal for onboarding at scale
+1. Create a Service Principal for onboarding at scale.
 As an **Owner** on the subscription you want to use for the onboarding, create a a service principal for Azure Arc onboarding as described in [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
 
 
