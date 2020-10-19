@@ -53,7 +53,7 @@
   - name: Resources
     items:
     - name: Azure Product Catalog
-      href: ../../index.yml#pivot=products
+      href: ../../index.yml
     - name: Azure Roadmap
       href: https://azure.microsoft.com/roadmap/
     - name: Pricing calculator
