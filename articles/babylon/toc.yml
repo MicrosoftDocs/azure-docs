@@ -95,6 +95,8 @@
     items:
     - name: Map and discover insights
       href: map-discover.md
+    - name: Create senstivity labels
+      href: create-sensitivity-label.md
     - name: View classification insights
       href: classification-reporting-data-azure-blob-storage.md
     - name: View sensitivity label insights
