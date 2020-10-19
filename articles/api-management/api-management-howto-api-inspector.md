@@ -47,7 +47,7 @@ In this tutorial, you learn how to:
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configure API tracing":::
 
 > [!TIP]
-> If **Ocp-Apim-Subscription-Key** isn't automatically populated in the HTTP request, you can retrieve it by going to the Developer Portal and expose the keys on the Profile page. Then, add it to the header.
+> If **Ocp-Apim-Subscription-Key** isn't automatically populated in the HTTP request, you can retrieve it by going to the [developer portal](api-management-howto-developer-portal.md) and show the keys on the Profile page. Then, add a key to the header.
 
 ## Review trace information
 
@@ -56,16 +56,16 @@ In this tutorial, you learn how to:
 
      :::image type="content" source="media/api-management-howto-api-inspector/response-trace.png" alt-text="Review response trace":::
 
-    * In the **Inbound** section, you see the original request API Management received from the caller and the policies applied to the request. For example, policies you added in [Tutorial: Transform and protect your API](transform-api.md) will appear here.
+    * **Inbound** - Shows the original request API Management received from the caller and the policies applied to the request. For example, if you added policies in [Tutorial: Transform and protect your API](transform-api.md), they will appear here.
 
-    * In the **backend** section, you see the requests API Management sent to the API backend and the response it received.
+    * **Backend** - Shows the requests API Management sent to the API backend and the response it received.
 
-    * In the **outbound** section, you see the policies applied to the response before sending back to the caller.
+    * **Outbound** - Shows the policies applied to the response before sending back to the caller.
 
     > [!TIP]
     > Each step also shows the elapsed time since the request is received by API Management.
 
-1. On the **Message** tab, the **ocp-apim-trace-location** header returns the location of the trace data stored in Azure blob storage. If needed, go to this location to retrieve the trace.
+1. On the **Message** tab, the **ocp-apim-trace-location** header shows the location of the trace data stored in Azure blob storage. If needed, go to this location to retrieve the trace.
 
      :::image type="content" source="media/api-management-howto-api-inspector/response-message.png" alt-text="Review response trace":::
 ## Next steps
