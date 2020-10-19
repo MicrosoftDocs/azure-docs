@@ -33,3 +33,4 @@ Adding an OIDC-based app in Azure Active Directory
 
 - [Quickstart Series on Application Management](add-application-portal-setup-oidc-sso.md)
 - [Single sign-on options](sso-options.md)
+- [How to: Sign in any Azure Active Directory user using the multi-tenant application pattern](../develop/howto-convert-app-to-be-multi-tenant.md)
