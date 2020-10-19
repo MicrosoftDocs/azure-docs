@@ -3,7 +3,7 @@ title: Request real-time and forecasted weather data using Azure Maps Weather se
 description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 10/05/2020
+ms.date: 10/19/2020
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
@@ -118,7 +118,7 @@ In this example, you'll use the [Get Daily Forecast API](https://docs.microsoft.
 2. Select the **GET** HTTP method in the builder tab and enter the following URL. For this request, and other requests mentioned in this article, replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key.
 
     ```http
-    https://atlas.microsoft.com/weather/severe/alerts/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/weather/forecast/daily/json?api-version=1.0&query=47.60357,-122.32945&duration=5&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 3. Click the blue **Send** button. The response body contains the five-day weather forecast data.
