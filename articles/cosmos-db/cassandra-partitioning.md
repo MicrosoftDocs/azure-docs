@@ -79,11 +79,11 @@ insert into uprofile.user (user, id, message) values ('theo', 2, 'hello again');
 
 When data is returned, it is sorted by the clustering key, as expected in Apache Cassandra:
 
-:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="partitions":::
+:::image type="content" source="./media/cassandra-partitioning/select-from-pk.png" alt-text="Screenshot that shows the returned data that is sorted by the clustering key.":::
 
 With data modeled in this way, multiple records can be assigned to each partition, grouped by user. We can thus issue a query that is efficiently routed by the `partition key` (in this case, `user`) to get all the messages for a given user. 
 
-:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="partitions" border="false":::
+:::image type="content" source="./media/cassandra-partitioning/cassandra-partitioning2.png" alt-text="Diagram that shows how multiple records can be assigned to each partition, grouped by user." border="false":::
 
 
 ## Composite partition key

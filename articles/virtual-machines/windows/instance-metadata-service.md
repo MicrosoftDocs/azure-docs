@@ -731,7 +731,7 @@ Add-Type -AssemblyName System.Security
 $signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
 $signedCms.Decode($signature);
 $content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
-Write-Host "Attested data: " $conten
+Write-Host "Attested data: " $content
 $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```

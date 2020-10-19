@@ -24613,6 +24613,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/active-directory/conditional-access/best-practices.md",
+      "redirect_url": "/azure/active-directory/conditional-access/overview",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/conditional-access/app-sign-in-risk.md",
       "redirect_url": "/azure/active-directory/conditional-access/howto-conditional-access-policy-risk",
       "redirect_document_id": true
@@ -39735,7 +39740,7 @@
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal.md",
       "redirect_url": "/azure/active-directory/conditional-access/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",
@@ -54189,6 +54194,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/jenkins/container-instances-jenkins.md",
       "redirect_url": "/azure/developer/jenkins/azure-container-instances-as-jenkins-build-agent",
       "redirect_document_id": false
@@ -58156,6 +58171,11 @@
     {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/batch-testing.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-link/create-private-endpoint-webapp-portal.md",
+      "redirect_url": "/azure/private-link/tutorial-private-endpoint-webapp-portal",
       "redirect_document_id": false
     }
 

@@ -42,7 +42,7 @@ If you are moving from a *trial* to *paid* Video Indexer account, you can choose
 
     You'll use this member when connecting your Video Indexer account to Azure.
 
-    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator.
+    This user should be a member in your Azure subscription with either an **Owner** role, or both **Contributor** and **User Access Administrator** roles. A user can be added twice, with two roles. Once with Contributor and once with user Access Administrator. For more information, see [View the access a user has to Azure resources](https://docs.microsoft.com/azure/role-based-access-control/check-access).
 
     ![access control](./media/create-account/access-control-iam.png)
 
