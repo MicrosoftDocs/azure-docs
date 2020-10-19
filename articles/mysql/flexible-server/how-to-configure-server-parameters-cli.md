@@ -19,7 +19,7 @@ This article describes how to list, show, and update server parameters by using 
 
 ## Prerequisites
 To step through this how-to guide, you need:
-- [An Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-cli.md)
+- [An Azure Database for MySQL flexible server](quickstart-create-server-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) command-line utility or use the Azure Cloud Shell in the browser.
 
 ## List server parameters for Azure Database for MySQL flexible server
@@ -76,7 +76,7 @@ CALL mysql.az_load_timezone();
 ```
 
 > [!IMPORTANT]
-> You should restart the server to ensure the time zone tables are properly populated. To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md).
+> You should restart the server to ensure the time zone tables are properly populated.<!-- fIX me To restart the server, use the [Azure portal](howto-restart-server-portal.md) or [CLI](howto-restart-server-cli.md). -->
 
 To view available time zone values, run the following command:
 

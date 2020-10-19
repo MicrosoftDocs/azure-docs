@@ -27,7 +27,7 @@ This article describes how to view and configure server parameters by using the 
 4. Click  **Save** to save your changes.
 :::image type="content" source="./media/how-to-server-parameters/4-save_parameters.png" alt-text="Save or Discard changes":::
 5. The static parameters are the one which require server reboot to take in effect. If you are modifying the static parameter, you will be prompted to **Restart now** or **Restart later**.
-:::image type="content" source="./media/how-to-server-parameters/5-save_parameter.png" alt-text="Enumerate drop down":::
+:::image type="content" source="./media/how-to-server-parameters/5-save_parameter.png" alt-text="Restart on static parameter save":::
 6. If you have saved new values for the parameters, you can always revert everything back to the default values by selecting **Reset all to default**.
 :::image type="content" source="./media/how-to-server-parameters/6-reset_parameters.png" alt-text="Reset all to default":::
 
@@ -85,4 +85,4 @@ Refer to the MySQL documentation for [Date and Time Functions](https://dev.mysql
 
 ## Next steps
 
-- [Connection libraries for Azure Database for MySQL](concepts-connection-libraries.md).
+- How to configure [server parameters in Azure CLI](./how-to-configure-server-parameters-cli.md)
