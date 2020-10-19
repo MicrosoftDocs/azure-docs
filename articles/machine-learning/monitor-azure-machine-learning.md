@@ -38,7 +38,7 @@ Start with the article [Monitoring Azure resources with Azure Monitor](/azure/az
 
 The following sections build on this article by describing the specific data gathered for Azure Machine Learning. These sections also provide examples for configuring data collection and analyzing this data with Azure tools.
 
-> [!TIP}
+> [!TIP]
 > To understand costs associated with Azure Monitor, see [Usage and estimated costs](/azure/azure-monitor/platform/usage-estimated-costs). To understand the time it takes for your data to appear in Azure Monitor, see [Log data ingestion time](/azure/azure-monitor/platform/data-ingestion-time).
 
 ## Monitoring data from Azure Machine Learning
