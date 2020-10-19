@@ -62,18 +62,18 @@ Install-Module -Name Az.Synapse
 
 1. Define necessary environment variables to create resources for Azure Synapse workspace.
 
-|        Variable Name        |                                                 Description                                                 |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| StorageAccountName          | Name for your existing ADLS Gen2 storage account.                                                           |
-| StorageAccountResourceGroup | Name of your existing ADLS Gen2 storage account resource group.                                             |
-| FileShareName               | Name of your existing storage file system.                                                                  |
-| SynapseResourceGroup        | Choose a new name for your Azure Synapse resource group.                                                    |
-| Region                      | Choose one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
-| SynapseWorkspaceName        | Choose a unique name for your new Azure Synapse Workspace.                                                  |
-| SqlUser                     | Choose a value for a new username.                                                                          |
-| SqlPassword                 | Choose a secure password.                                                                                   |
-| ClientIP                    | Public IP Address of the system you're running PowerShell from.                                             |
-|                             |                                                                                                             |
+   |        Variable name        |                                                 Description                                                 |
+   | --------------------------- | ----------------------------------------------------------------------------------------------------------- |
+   | StorageAccountName          | Name for your existing ADLS Gen2 storage account.                                                           |
+   | StorageAccountResourceGroup | Name of your existing ADLS Gen2 storage account resource group.                                             |
+   | FileShareName               | Name of your existing storage file system.                                                                  |
+   | SynapseResourceGroup        | Choose a new name for your Azure Synapse resource group.                                                    |
+   | Region                      | Choose one of the [Azure regions](https://azure.microsoft.com/global-infrastructure/geographies/#overview). |
+   | SynapseWorkspaceName        | Choose a unique name for your new Azure Synapse Workspace.                                                  |
+   | SqlUser                     | Choose a value for a new username.                                                                          |
+   | SqlPassword                 | Choose a secure password.                                                                                   |
+   | ClientIP                    | Public IP Address of the system you're running PowerShell from.                                             |
+   |                             |                                                                                                             |
 
 1. Create a resource group as a container for your Azure Synapse workspace:
 
@@ -144,7 +144,7 @@ Install-Module -Name Az.Synapse
    Start-Process $WorkspaceWeb
    ```
 
-    [ ![Azure Synapse workspace web](media/quickstart-create-synapse-workspace-powershell/create-workspace-powershell-1.png) ](media/quickstart-create-synapse-workspace-powershell/create-workspace-powershell-1.png#lightbox)
+   ![Azure Synapse workspace web](media/quickstart-create-synapse-workspace-powershell/create-workspace-powershell-1.png)
 
 ## Clean up resources
 
