@@ -17,7 +17,7 @@ This tutorial explains how to add cluster nodes and enable the High Availability
 In this tutorial, you will learn:
 
 > [!div class="checklist"]
-
+>
 > * How to add nodes to the FXT cluster
 > * How to enable HA
 

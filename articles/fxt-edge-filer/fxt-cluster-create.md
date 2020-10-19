@@ -17,7 +17,7 @@ This tutorial walks you through the steps to configure your hardware nodes as a 
 In this tutorial, you will learn:
 
 > [!div class="checklist"]
-
+>
 > * What information is needed before starting to create the cluster
 > * The difference between the cluster's management network, the cluster network, and the client-facing network
 > * How to connect to a cluster node

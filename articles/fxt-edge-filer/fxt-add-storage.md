@@ -19,7 +19,7 @@ The namespace is the client-facing pseudo filesystem that allows you to swap out
 In this tutorial you will learn:
 
 > [!div class="checklist"]
-
+>
 > * How to add back-end storage to the Azure FXT Edge Filer cluster
 > * How to define the client-facing path for storage
 

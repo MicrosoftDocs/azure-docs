@@ -21,7 +21,7 @@ This tutorial explains how to connect to the hardware node and set the password.
 In this tutorial, you will learn how to:
 
 > [!div class="checklist"]
-
+>
 > * Connect a keyboard and monitor to the node and power it on
 > * Set a BIOS setup password
 > * Set passwords for the iDRAC port and root user on this node

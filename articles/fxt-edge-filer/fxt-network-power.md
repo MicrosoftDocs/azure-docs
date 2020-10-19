@@ -15,7 +15,7 @@ This tutorial teaches you how to cable the network connections for an Azure FXT 
 In this tutorial, you will learn:
 
 > [!div class="checklist"]
-
+>
 > * How to choose the type of network cable for your environment
 > * How to connect an Azure FXT Edge Filer node to your datacenter network
 > * How to route cables through the cable management arm (CMA)

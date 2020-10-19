@@ -19,7 +19,7 @@ It takes approximately one hour to install an Azure FXT Edge Filer node.
 This tutorial includes these setup steps:
 
 > [!div class="checklist"]
-
+>
 > * Unpack the device
 > * Mount the device in a rack
 > * Install the front bezel (optional)
