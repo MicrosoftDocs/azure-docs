@@ -983,7 +983,7 @@
       - name: Configure
         href: insights/vminsights-health-configure.md
       - name: Configure at scale
-        href: insights/vminsights-health-configure-template.md
+        href: insights/vminsights-health-configure-dcr.md
       - name: Troubleshoot
         href: insights/vminsights-health-troubleshoot.md
     - name: Monitor changes
