@@ -6,7 +6,7 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 09/24/2020
+ms.date: 10/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
 ---
@@ -51,7 +51,9 @@ Network filtering rules for non-TCP/UDP protocols (for example ICMP) don't work 
 |Configuration updates may take five minutes on average|An Azure Firewall configuration update can take three to five minutes on average, and parallel updates aren't supported.|A fix is being investigated.|
 |Azure Firewall uses SNI TLS headers to filter HTTPS and MSSQL traffic|If browser or server software does not support the Server Name Indicator (SNI) extension, you won't be able to connect through Azure Firewall.|If browser or server software does not support SNI, then you may be able to control the connection using a network rule instead of an application rule. See [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication) for software that supports SNI.|
 |Custom DNS (preview) doesn't work with forced tunneling|If force tunneling is enabled, custom DNS (preview) doesn't work.|A fix is being investigated.|
-|New public IP address support for multiple Availability Zones|You can't add a new public IP address when you deploy a firewall with two availability zones (either 1 and 2, 2 and 3, or 1 and 3)|This is a public IP address resource limitation.
+|New public IP address support for multiple Availability Zones|You can't add a new public IP address when you deploy a firewall with two availability zones (either 1 and 2, 2 and 3, or 1 and 3)|This is a public IP address resource limitation.|
+|Start/Stop doesn’t work with a firewall configured in forced-tunnel mode|Start/stop doesn’t work with Azure firewall configured in forced-tunnel mode. Attempting to start Azure Firewall with forced tunneling configured results in the following error:<br><br>*Set-AzFirewall: AzureFirewall FW-xx management IP configuration cannot be added to an existing firewall. Redeploy with a management IP configuration if you want to use forced tunneling support.<br>StatusCode: 400<br>ReasonPhrase: Bad Request*|Under investigation.<br><br>As a workaround, you can delete the existing firewall and create a new one with the same parameters.|
+
 
 ## Next steps
 
