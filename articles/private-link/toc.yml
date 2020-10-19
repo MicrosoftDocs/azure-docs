@@ -51,31 +51,31 @@
   - name: AI + Machine Learning
     items:
     - name: Machine Learning
-      href: /machine-learning/how-to-configure-private-link.md
+      href: /machine-learning/how-to-configure-private-link
   - name: Analytics
     items:
     - name: Analysis Services
-      href: /azure-sql/database/private-endpoint-overview.md
+      href: /azure-sql/database/private-endpoint-overview
     - name: Data Factory
-      href: /data-factory/data-factory-private-link.md
+      href: /data-factory/data-factory-private-link
     - name: Event Hubs
-      href: /event-hubs/private-link-service.md
+      href: /event-hubs/private-link-service
     - name: HDInsight
-      href: /hdinsight/hdinsight-private-link.md
+      href: /hdinsight/hdinsight-private-link
     - name: Power BI
-      href: /power-bi/admin/service-security-private-links.md
+      href: /power-bi/admin/service-security-private-links
   - name: Compute
     items:
     - name: Batch
-      href: /batch/private-connectivity.md
+      href: /batch/private-connectivity
     - name: Managed disks with Private Links
-      href: /virtual-machines/disks-enable-private-links-for-import-export-portal.md
+      href: /virtual-machines/disks-enable-private-links-for-import-export-portal
   - name: Containers
     items:
     - name: Container Registry
-      href: /container-registry/container-registry-private-link.md
+      href: /container-registry/container-registry-private-link
     - name: Kubernetes Service
-      href: /aks/private-clusters.md
+      href: /aks/private-clusters
   - name: Connect privately to a web app
     href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
