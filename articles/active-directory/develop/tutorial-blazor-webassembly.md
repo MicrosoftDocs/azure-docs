@@ -134,7 +134,7 @@ builder.Services.AddMsalAuthentication(options =>
 await builder.Build().RunAsync();
 ```
 
-Finally, replace the *FetchData.razor* page with the following code. This code fetches user email data from the Microsoft Graph API and displays them as a list. In `OnInitializedAsync`, the new `HttpClient` that uses the proper access token is created and used to make the request to the Microsoft Graph API.
+Finally, replace the contents of the *FetchData.razor* page with the following code. This code fetches user email data from the Microsoft Graph API and displays them as a list. In `OnInitializedAsync`, the new `HttpClient` that uses the proper access token is created and used to make the request to the Microsoft Graph API.
 
 ```c#
 @page "/fetchdata"
