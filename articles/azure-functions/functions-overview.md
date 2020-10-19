@@ -17,7 +17,7 @@ Azure Functions allows you to run small pieces of code (called "functions") with
 
 A function is "triggered" by a specific type of event. [Supported triggers](./functions-triggers-bindings.md) include responding to changes in data, responding to messages, running on a schedule, or as the result of an HTTP request.
 
-While you can always code directly against a myriad services, integrating with other services is streamlined by using bindings. Bindings give you [declarative access to a wide variety of Azure and third-party services](./functions-triggers-bindings.md).
+Although you can always code directly against myriad services, integrating with other services is streamlined by using bindings. Bindings give you [declarative access to a wide variety of Azure and third-party services](./functions-triggers-bindings.md).
 
 ## Features
 
