@@ -105,4 +105,4 @@
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/az.vmware
+    href: https://docs.microsoft.com/powershell/module/az.vmware/
