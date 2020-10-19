@@ -518,7 +518,7 @@ productDirectory:
         - web
       url: spring-cloud/index.yml
     # Card
-    - title: Azure VMware Solution (Preview)
+    - title: Azure VMware Solution
       summary: Run your VMware workloads natively on Azure
       imageSrc: ./media/index/azure-vmware.svg
       azureCategories:
@@ -1034,14 +1034,6 @@ productDirectory:
       azureCategories:
         - iot
       url: https://docs.microsoft.com/windows/iot-core/
-    # Card
-    - title: Security Center for IoT
-      summary: Unify security management and enable threat protection across your Azure IoT solution
-      imageSrc: https://static.docs.com/ui/media/product/azure/security-center.svg
-      azureCategories:
-        - iot
-        - security
-      url: asc-for-iot/index.yml
     # Card
     - title: Automation
       summary: Simplify cloud management with process automation

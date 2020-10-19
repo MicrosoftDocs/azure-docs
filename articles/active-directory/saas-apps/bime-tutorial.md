@@ -128,7 +128,7 @@ To configure Azure AD single sign-on with Bime, perform the following steps:
 
 2. In the toolbar, click **Admin**, and then **Account**.
   
-    ![Admin](./media/bime-tutorial/ic775558.png "Admin")
+    ![Screenshot shows the Admin item selected and Account selected.](./media/bime-tutorial/ic775558.png "Admin")
 
 3. On the account configuration page, perform the following steps:
   
@@ -203,7 +203,7 @@ In order to enable Azure AD users to log in to Bime, they must be provisioned in
 
 2. In the toolbar, click **Admin**, and then **Users**.
 
-    ![Admin](./media/bime-tutorial/ic775561.png "Admin")
+    ![Screenshot shows the Admin item selected and Users selected.](./media/bime-tutorial/ic775561.png "Admin")
 
 3. In the **Users List**, click **Add New User** (“+”).
 

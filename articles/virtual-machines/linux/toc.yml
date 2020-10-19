@@ -293,7 +293,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Spot VMs
-      displayName: pre-empt, preempt
+      displayName: pre-empt, preempt, spot
       href: ../spot-vms.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Azure VMs with no temp disk
       href: ../azure-vms-no-temp-disk.md
@@ -400,7 +400,7 @@
       - name: CLI
         href: spot-cli.md
       - name: Portal
-        href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+        href: ../spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
       - name: ARM template
         displayName: Azure Resource Manager
         href: spot-template.md
@@ -493,6 +493,8 @@
           items:
           - name: Generalized
             href: ../vm-generalized-image-version-cli.md
+          - name: Specialized
+            href: ../vm-specialized-image-version-cli.md
         - name: Update image resources
           href: ../update-image-resources-cli.md
         - name: App registration for sharing
@@ -577,6 +579,8 @@
       href: build-image-with-packer.md
     - name: Download existing disk
       href: download-vhd.md
+    - name: Managed disk from image version
+      href: ../managed-disk-from-image-version.md
   - name: Secure VMs
     items:
     - name: Recommendations

@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 10/06/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -53,6 +53,23 @@ You can now automate creating, updating, and deleting user accounts for these ne
 - [Webroot Security Awareness](../saas-apps/webroot-security-awareness-training-provisioning-tutorial.md)
 
 For more information about how to better secure your organization by using automated user account provisioning, see [Automate user provisioning to SaaS applications with Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+### Cloud Provisioning Public Preview Refresh
+
+**Type:** New feature  
+**Service category:** Azure AD Cloud Provisioning 
+**Product capability:** Identity Lifecycle Management
+ 
+Azure AD Connect Cloud Provisioning public preview refresh features two major enhancements developed from customer feedback: 
+
+- Attribute Mapping Experience through Azure Portal
+
+    With this feature, IT Admins can map user, group, or contact attributes from AD to Azure AD using various mapping types present today. Attribute mapping is a feature used for standardizing the values of the attributes that flow from Active Directory to Azure Active Directory. One can determine whether to directly map the attribute value as it is from AD to Azure AD or use expressions to transform the attribute values when provisioning users. [Learn more](../cloud-provisioning/how-to-attribute-mapping.md)
+
+- On-demand Provisioning or Test User experience
+
+    Once you have setup your configuration, you might want to test to see if the user transformation is working as expected before applying it to all your users in scope. With on-demand provisioning, IT Admins can enter the Distinguished Name (DN) of an AD user and see if they are getting synced as expected. On-demand provisioning provides a great way to ensure that the attribute mappings you did previously work as expected. [Learn More](../cloud-provisioning/how-to-on-demand-provision.md)
  
 ---
 
@@ -102,7 +119,7 @@ Continuous access evaluation (CAE) is now available in public preview for Azure 
 
 ---
 
-### Ask users requesting an access package additional questions to improve approval decisions
+### Public preview: ask users requesting an access package additional questions to improve approval decisions
 
 **Type:** New feature  
 **Service category:** User Access Management  

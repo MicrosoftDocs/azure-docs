@@ -48,7 +48,7 @@ Right-click on the project in the _Solution Explorer_ and choose **Manage User S
 }
 ```
 
-### Install Active Directory
+### Install Active Directory NuGet package
 
 The following code uses objects from the **Microsoft.IdentityModel.Clients.ActiveDirectory** NuGet package so you'll need to add a reference to that package in your project.
 

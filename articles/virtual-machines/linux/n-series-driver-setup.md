@@ -305,7 +305,7 @@ To query the GPU device state, SSH to the VM and run the [nvidia-smi](https://de
 
 If the driver is installed, you will see output similar to the following. Note that **GPU-Util** shows 0% unless you are currently running a GPU workload on the VM. Your driver version and GPU details may be different from the ones shown.
 
-![NVIDIA device status](./media/n-series-driver-setup/smi-nv.png)
+![Screenshot that shows the output when the GPU device state is queried.](./media/n-series-driver-setup/smi-nv.png)
  
 
 ### X11 server

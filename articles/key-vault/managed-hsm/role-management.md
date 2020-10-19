@@ -48,7 +48,7 @@ For more information on login options via the CLI, see [sign in with Azure CLI](
 
 ### Assign roles for all keys
 
-Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2@contoso.com** for all  **keys** (scope `/keys`) in the ContosoHSM.
+Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2\@contoso.com** for all  **keys** (scope `/keys`) in the ContosoHSM.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys
@@ -56,7 +56,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 ### Assign role for a specific key
 
-Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2@contoso.com** for a specific key named **myrsakey**.
+Use `az keyvault role assignment create` command to assign a **Managed HSM Crypto Officer** role to user identified by user principal name **user2\@contoso.com** for a specific key named **myrsakey**.
 
 ```azurecli-interactive
 az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey
@@ -66,7 +66,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 Use `az keyvault role assignment list` to list role assignments.
 
-All role assignments at scope / (default when no --scope is specified) for all users (default when --assignee is specified)
+All role assignments at scope / (default when no --scope is specified) for all users (default when no --assignee is specified)
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM
@@ -93,7 +93,7 @@ az keyvault role assignment list --hsm-name ContosoMHSM --assignee user2@contoso
 
 ## Delete a role assignment
 
-Use `az keyvault role assignment delete` command to delete a **Managed HSM Crypto Officer** role assigned to user **user2@contoso.com** for key **myrsakey2**.
+Use `az keyvault role assignment delete` command to delete a **Managed HSM Crypto Officer** role assigned to user **user2\@contoso.com** for key **myrsakey2**.
 
 ```azurecli-interactive
 az keyvault role assignment delete --hsm-name ContosoMHSM --role "Managed HSM Crypto Officer" --assignee user2@contoso.com  --scope /keys/myrsakey2

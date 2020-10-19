@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 08/25/2020
+ms.date: 10/02/2020
 # As a data scientist, I want to know what a compute instance is and how to use it for Azure Machine Learning.
 ---
 
@@ -20,7 +20,7 @@ Compute instances make it easy to get started with Azure Machine Learning develo
 
 Use a compute instance as your fully configured and managed development environment in the cloud for machine learning. They can also be used as a compute target for training and inferencing for development and testing purposes.  
 
-For production grade model training, use an [Azure Machine Learning compute cluster](how-to-create-attach-compute-sdk.md#amlcompute) with multi-node scaling capabilities. For production grade model deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
+For production grade model training, use an [Azure Machine Learning compute cluster](how-to-create-attach-compute-cluster.md) with multi-node scaling capabilities. For production grade model deployment, use [Azure Kubernetes Service cluster](how-to-deploy-azure-kubernetes-service.md).
 
 ## Why use a compute instance?
 
@@ -28,10 +28,12 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 |Key benefits|Description|
 |----|----|
-|Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace. You can also set up VS Code remote development using [SSH](how-to-set-up-vs-code-remote.md) |
+|Productivity|You can build and deploy models using integrated notebooks and the following tools in Azure Machine Learning studio:<br/>-  Jupyter<br/>-  JupyterLab<br/>-  RStudio (preview)<br/>Compute instance is fully integrated with Azure Machine Learning workspace and studio. You can share notebooks and data with other data scientists in the workspace.<br/> You can also use [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) with compute instances.
 |Managed & secure|Reduce your security footprint and add compliance with enterprise security requirements. Compute instances  provide robust management policies and secure networking configurations such as:<br/><br/>- Autoprovisioning from Resource Manager templates or Azure Machine Learning SDK<br/>- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview)<br/>- [Virtual network support](how-to-enable-virtual-network.md#compute-instance)<br/>- SSH policy to enable/disable SSH access<br/>TLS 1.2 enabled |
 |Preconfigured&nbsp;for&nbsp;ML|Save time on setup tasks with pre-configured and up-to-date ML packages, deep learning frameworks, GPU drivers.|
 |Fully customizable|Broad support for Azure VM types including GPUs and persisted low-level customization such as installing packages and drivers makes advanced scenarios a breeze. |
+
+You can [create a compute instance](how-to-create-manage-compute-instance.md?tabs=python#create) yourself, or an administrator can [create a compute instance for you](how-to-create-manage-compute-instance.md?tabs=python#create-on-behalf-of-preview).
 
 ## <a name="contents"></a>Tools and environments
 
@@ -42,7 +44,11 @@ A compute instance is a fully managed cloud-based workstation optimized for your
 
 Azure Machine Learning compute instance enables you to author, train, and deploy models in a fully integrated notebook experience in your workspace.
 
-These tools and environments are installed on the compute instance: 
+You can run Jupyter notebooks in [VS Code](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) using compute instance as the remote server with no SSH needed. You can also enable VS Code integration through [remote SSH extension](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
+
+You can [install packages](how-to-create-manage-compute-instance.md#install-packages) and [add kernels](how-to-create-manage-compute-instance.md#add-new-kernels) to your compute instance.  
+
+Following tools and environments are already installed on the compute instance: 
 
 |General tools & environments|Details|
 |----|:----:|
@@ -74,46 +80,6 @@ These tools and environments are installed on the compute instance:
 |Azure Machine Learning Python & R SDK samples||
 
 Python packages are all installed in the **Python 3.6 - AzureML** environment.  
-
-### Installing packages
-
-You can install packages directly in Jupyter Notebook or RStudio:
-
-* RStudio Use the **Packages** tab on the bottom right, or the **Console** tab on the top left.  
-* Python: Add install code and execute in a Jupyter Notebook cell.
-
-Or you can access a terminal window in any of these ways:
-
-* RStudio: Select the **Terminal** tab on top left.
-* Jupyter Lab:  Select the **Terminal** tile under the **Other** heading in the Launcher tab.
-* Jupyter:  Select **New>Terminal** on top right in the Files tab.
-* SSH to the machine.  Then install Python packages into the **Python 3.6 - AzureML** environment.  Install R packages into the **R** environment.
-
-While customizing the compute instance please ensure that you don't delete the azureml_py36 conda environment or Python 3.6 - AzureML kernel. This is needed for Jupyter/JupyterLab functionality
-
-### Add new kernels
-
-To add a new Jupyter kernel to the compute instance:
-
-1. Create new terminal from Jupyter, JupyterLab or from notebooks pane or SSH into the compute instance
-2. Use the terminal window to create a new environment.  For example, the code below creates `newenv`:
-    ```shell
-    conda create --name newenv
-    ```
-3. Activate the environment.  For example, after creating `newenv`:
-
-    ```shell
-    conda activate newenv
-    ```
-4. Install pip and ipykernel package to the new environment and create a kernel for that conda env
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 
 ## Accessing files
 
@@ -167,7 +133,7 @@ You can also create an instance
 * Directly from the [integrated notebooks experience](tutorial-1st-experiment-sdk-setup.md#azure)
 * In Azure portal
 * From Azure Resource Manager template. For an example template, see the [create an Azure Machine Learning compute instance template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).
-* With [Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-computeinstance/train-on-computeinstance.ipynb)
+* With [Azure Machine Learning SDK](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/machine-learning/concept-compute-instance.md)
 * From the [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md#computeinstance)
 
 The dedicated cores per region per VM family quota and total regional quota, which applies to compute instance creation, is unified and shared with Azure Machine Learning training compute cluster quota. Stopping the compute instance does not release quota to ensure you will be able to restart the compute instance.
@@ -176,7 +142,7 @@ The dedicated cores per region per VM family quota and total regional quota, whi
 ### Create on behalf of (preview)
 
 As an administrator, you can create a compute instance on behalf of a data scientist and assign the instance to them with:
-* [Azure Resource Manager template](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2020-09-01-preview/examples/createComputeInstance.json).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
+* [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  For details on how to find the TenantID and ObjectID needed in this template, see [Find identity object IDs for authentication configuration](../healthcare-apis/find-identity-object-ids.md).  You can also find these values in the Azure Active Directory portal.
 * REST API
 
 The data scientist you create the compute instance for needs the following RBAC permissions: 
@@ -215,4 +181,5 @@ New Notebook VMs cannot be created. However, you can still access and use Notebo
 
 ## Next steps
 
- * [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.
+* [Create and manage a compute instance](how-to-create-manage-compute-instance.md)
+* [Tutorial: Train your first ML model](tutorial-1st-experiment-sdk-train.md) shows how to use a compute instance with an integrated notebook.

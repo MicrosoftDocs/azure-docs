@@ -10,7 +10,7 @@ author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, deploy
 ---
 
 # Deploy a deep learning model for inference with GPU
