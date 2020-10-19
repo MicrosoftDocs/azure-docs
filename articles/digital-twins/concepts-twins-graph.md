@@ -46,11 +46,14 @@ This section shows what it looks like to create digital twins and relationships 
 
 Below is a snippet of client code that uses the [DigitalTwins APIs](how-to-use-apis-sdks.md) to instantiate a twin of type *Room*.
 
-All properties of a twin must be initialized before the twin can be created. This is done by creating a JSON document that provides the necessary initialization values.
+You can initialize the properties of a twin when it is created, or set them later. To create a twin with initialized properties, create a JSON document that provides the necessary initialization values.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
 You can also use a helper class called `BasicDigitalTwin` to store property fields in a "twin" object more directly, as an alternative to using a dictionary. For more information about the helper class and examples of its use, see the [*Create a digital twin*](how-to-manage-twin.md#create-a-digital-twin) section of *How-to: Manage digital twins*.
+
+>[!NOTE]
+>While twin properties are treated as optional and thus don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin **do** need to be set when the twin is created.
 
 ### Create relationships
 
