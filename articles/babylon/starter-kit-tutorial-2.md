@@ -54,7 +54,7 @@ Before you begin, here's a quick refresher on some fundamental terminology:
   
 * **Schema**: Also known as a column or attribute, a schema represents the structure of an asset or a resource set.
 
-* **Resource set**: A single object in the catalog that represents many physical objects in storage. These objects usually share a common schema, and in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*. For more information, see [Resource sets in Azure Babylon](concept-resource-sets.md).
+* **Resource set**: A single object in the catalog that represents many physical objects in storage. These objects usually share a common schema, and in most cases, a naming convention or folder structure. For example, the date format is *yyyy/mm/dd*. For more information, see [Understand resource sets](concept-resource-sets.md).
 
 * **Asset type**: A grouping of assets and resource sets under a logical name, which usually maps to the name of the data platform.
 
