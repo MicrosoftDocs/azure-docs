@@ -6,27 +6,34 @@ ms.author: bagol
 ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/19/2020
 # Customer intent: As a security officer, I need to understand how to use Babylon Insights to learn about the file extensions found in my data.
 ---
 
 # File extension insights about your data from Project Babylon 
 
-This how-to guide provides an explanation of how to access, view, and filter insights about the file extensions, or file types, found in your data in Azure Blob Storage, Azure file, ADLS GEN 1, and ADLS GEN 2.
-
-To make it easy for you to get started, make sure you've followed the explanations about [setting up Azure resources](scan-azure-data-sources-portal.md) and populating the relevant accounts with your test data before getting starting with Babylon insights. 
-
-You'll also need to set up and complete a scan on the test data in each data source before you begin. Follow the instructions for scanning test data in [Azure resources](scan-azure-data-sources-portal.md). 
+This how-to guide describes how to access, view, and filter insights about the file extensions, or file types, found in your data in Azure Blob Storage, Azure file, ADLS GEN 1, and ADLS GEN 2.
 
 In this how-to guide, you'll learn how to:
 > [!div class="checklist"]
-> Launch your Babylon account from Azure. 
-> View and filter insights about the file extensions found across your data estate
- 
-After making sure that your Azure resources are set up, contain test data, and that scanning succeeded, let's get started.
+> * Launch your Babylon account from Azure. 
+> * View and filter insights about the file extensions found across your data estate
 
 > [!NOTE]
 > If you're blocked at any point in this process, send an email to BabylonDiscussion@microsoft.com for support.
+
+## Prerequisites 
+
+Before getting started with Babylon insights, make sure that you've completed the following steps:
+
+
+- Followed explanations about setting up Azure resources and populating the relevant accounts with your test data
+
+- Set up and completed a scan on the test data in each data source.
+
+For more information, see [Tutorial: Use Azure Babylon to scan Azure data sources](scan-azure-data-sources-portal.md).
+ 
+After making sure your Azure Blob Storage is created, contains test data, and scanning test data succeeded, let's get started.  
 
 ## Babylon insights
 
@@ -34,33 +41,35 @@ After making sure that your Azure resources are set up, contain test data, and t
 
 Babylon is able to detect the file types found in your data estate, and provide you more details about each file type, including how many files of each type you have, where those files are, and whether they are scannable for sensitive content.
 
+**To view file extension insights:**
+
 1. Go to the **Babylon** [instance screen in the Azure portal](https://aka.ms/babylonportal). Select your Babylon account.
 
-1. When the Babylon blade is open, click the **Launch Babylon** account tile in the **Get Started** section.  
+1. On the **Overview** page, in the **Get Started** section, select the **Launch Babylon** account tile.
 
     ![Launch Babylon from the Azure portal](./media/insights/portal-access.png)
 
-1. With Babylon open, click the **View insights** tile to access your insights area.
+1. With Babylon open, select the **View insights** tile to access your insights area.
 
     ![Babylon Insights area](./media/insights/view-insights.png)
     
-1. Within **Insights**, select the **File extensions** blade.
+1. Within **Insights**, select the **File extensions** tab.
 
     The report displays a summary of how many unique file extensions are found, as well as a graph of top 10 extensions found.
 
-    :::image type="content" source="media/file-extension-insights/file-extension-overview.PNG" alt-text="File extension report blade - overview":::
+    :::image type="content" source="media/file-extension-insights/file-extension-overview.PNG" alt-text="File extension report - overview":::
 
     Do any of the following to find out more:
 
-    - Click the **Time** selector at the top of the blade to change the time span for which the file extensions were found.
+    - Select the **Time** selector at the top of the reoport to change the time span for which the file extensions were found.
     
-    - Click **View file extensions** below the graph to view a full list of the file extensions found. For more information, see [File extension drilldown and filtering](#file-extension-drilldown-and-filtering).
+    - Select **View file extensions** below the graph to view a full list of the file extensions found. For more information, see [File extension drilldown and filtering](#file-extension-drilldown-and-filtering).
 
 ### File extension drilldown and filtering
 
-After viewing the high level details about the types of files found in your data estate, drill down to view details about where they are located, and whether they can be scanned for sensitive content.
+Once you've viewed the high-level information about the file types found in your data estate, drill down for more details about where they are located, and whether they can be scanned for sensitive content.
 
-:::image type="content" source="media/file-extension-insights/file-extension-drilldown.PNG" alt-text="File extension report blade - drilldown":::
+:::image type="content" source="media/file-extension-insights/file-extension-drilldown.PNG" alt-text="File extension report - drilldown":::
 
 The grid shows details for each file extension found, including:
 
@@ -74,7 +83,7 @@ The grid shows details for each file extension found, including:
 
 #### Filter the data shown
 
-On the **File extension analysis** blade, use the following toolbar options to filter the data shown:
+On the **File extension analysis** page, use the following toolbar options to filter the data shown:
 
 |Option  |Description  |
 |---------|---------|
