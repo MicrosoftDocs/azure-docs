@@ -10,16 +10,16 @@ ms.date: 10/19/2020
 
 # Build data quality using Azure Data Factory data flows
 
-If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
+If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md). For a tutorial for building generic data flows, see [Transform data using mapping data flows](tutorial-data-flow.md).
 
-In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a pipeline that copies and transforms data from an Azure Data Lake Storage (ADLS) Gen2 source to an ADLS Gen2 sink using mapping data flow. The configuration pattern in this tutorial can be expanded upon when transforming data using mapping data flow
+In this tutorial, you'll use the Azure Data Factory user interface (UX) to create a data flow that includes data profiling and a data quality rule to fill in missing values.
 
 In this tutorial, you do the following steps:
 
 > [!div class="checklist"]
-> * Create a data factory.
-> * Create a pipeline with a Data Flow activity.
-> * Build a mapping data flow with four transformations.
+> * Create a new data flow.
+> * Add source data.
+> * Profile the source data.
 > * Test run the pipeline.
 > * Monitor a Data Flow activity
 
