@@ -25,6 +25,7 @@ The Azure App Service is a distributed system. The roles that handle incoming HT
 | App assigned address | Hybrid Connections |
 | Access Restrictions | Gateway required VNet Integration |
 | Service Endpoints | VNet Integration |
+| Private Endpoints ||
 
 Unless otherwise stated, all of the features can be used together. You can mix the features to solve your various problems.
 
@@ -92,7 +93,7 @@ The Access Restrictions capability lets you filter **inbound** requests. The fil
 ![Access Restrictions](media/networking-features/access-restrictions.png)
 #### IP based Access Restriction rules
 
-The IP based Access Restrictions feature helps in scenarios where you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 is supported. Among the use cases for this feature are:
+The IP based Access Restrictions feature helps in scenarios where you want to restrict the IP addresses that can be used to reach your app. Both IPv4 and IPv6 are supported. Among the use cases for this feature are:
 
 * Restrict access to your app from a set of well-defined addresses 
 * Restrict access coming through a load-balancing service, such as Azure Front Door
@@ -101,7 +102,7 @@ The IP based Access Restrictions feature helps in scenarios where you want to re
 
 Learn how to enable this feature with the tutorial on [Configuring Access Restrictions][iprestrictions].
 
-If you wish to lock down access to your app so that it can only be reached from resources in your Azure Virtual Network (VNet), you need a static public address on whatever your source is in your VNet. If the resources do not have a public address, you should use the Service Endpoints feature instead. 
+#### Service Endpoint based Access Restriction rules
 
 Service endpoints allow you to lock down **inbound** access to your app such that the source address must come from a set of subnets that you select. This feature works in conjunction with the IP Access Restrictions. Service endpoints are not compatible with remote debugging. To use remote debugging with your app, your client cannot be in a subnet with Service endpoints enabled. Service endpoints are set in the same user experience as the IP Access Restrictions. You can build an allow/deny list of access rules that includes public addresses as well as subnets in your VNets. This feature supports scenarios such as:
 
