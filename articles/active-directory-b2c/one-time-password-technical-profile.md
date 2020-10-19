@@ -69,7 +69,7 @@ The following settings can be used to configure code generation mode:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Time in seconds until code expiration. Minimum: `60`; Maximum: `1200`; Default: `600`. Every time a code is provided (same code using ReuseSameCode, or a new code), the code expiration is extended.  |
+| CodeExpirationInSeconds | No | Time in seconds until code expiration. Minimum: `60`; Maximum: `1200`; Default: `600`. Every time a code is provided (same code using `ReuseSameCode`, or a new code), the code expiration is extended.  |
 | CodeLength | No | Length of the code. The default value is `6`. |
 | CharacterSet | No | The character set for the code, formatted for use in a regular expression. For example, `a-z0-9A-Z`. The default value is `0-9`. The character set must include a minimum of 10 different characters in the set specified. |
 | NumRetryAttempts | No | The number of verification attempts before the code is considered invalid. The default value is `5`. |
