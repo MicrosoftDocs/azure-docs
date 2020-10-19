@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 07/27/2020
+ms.date: 10/05/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -32,7 +32,7 @@ For Azure Policies, use:
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
 * [remediations](/azure/templates/microsoft.policyinsights/remediations)
 
-For role-based access control, use:
+For Azure role-based access control (Azure RBAC), use:
 
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
@@ -47,7 +47,9 @@ For creating new resource groups, use:
 
 For managing your subscription, use:
 
+* [Advisor configurations](/azure/templates/microsoft.advisor/configurations)
 * [budgets](/azure/templates/microsoft.consumption/budgets)
+* [Change Analysis profile](/azure/templates/microsoft.changeanalysis/profile)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [tags](/azure/templates/microsoft.resources/tags)
 
@@ -57,7 +59,7 @@ Other supported types include:
 * [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
 * [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
-### Schema
+## Schema
 
 The schema you use for subscription-level deployments is different than the schema for resource group deployments.
 
@@ -73,11 +75,25 @@ The schema for a parameter file is the same for all deployment scopes. For param
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
+## Deployment scopes
+
+When deploying to a subscription, you can target one subscription and any resource groups within the subscription. You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
+
+Resources defined within the resources section of the template are applied to the subscription.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+To target a resource group within the subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `rg2`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+In this article, you can find templates that show how to deploy resources to different scopes. For a template that creates a resource group and deploys a storage account to it, see [Create resource group and resources](#create-resource-group-and-resources). For a template that creates a resource group, applies a lock to it, and assigns a role for the resource group, see [Access control](#access-control).
+
 ## Deployment commands
 
 The commands for subscription-level deployments are different than the commands for resource group deployments.
 
-For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). The following example deploys a template to create a resource group:
+For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -108,56 +124,15 @@ You can provide a name for the deployment, or use the default deployment name. T
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
-## Deployment scopes
-
-When deploying to a subscription, you can target the subscription or any resource groups within the subscription. The user deploying the template must have access to the specified scope.
-
-Resources defined within the resources section of the template are applied to the subscription.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        subscription-level-resources
-    ],
-    "outputs": {}
-}
-```
-
-To target a resource group within the subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `rg2`.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "resources": [
-        {
-            "type": "Microsoft.Resources/deployments",
-            "apiVersion": "2020-06-01",
-            "name": "nestedDeployment",
-            "resourceGroup": "rg2",
-            "properties": {
-                "mode": "Incremental",
-                "template": {
-                    nested-template
-                }
-            }
-        }
-    ],
-    "outputs": {}
-}
-```
-
 ## Use template functions
 
 For subscription-level deployments, there are some important considerations when using template functions:
 
 * The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
 * The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the resource ID for resources that are deployed at subscription level.
+* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at subscription level. Instead, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function.
 
-  For example, to get the resource ID for a policy definition, use:
+  For example, to get the resource ID for a policy definition that is deployed to a subscription, use:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -415,7 +390,7 @@ You can [define](../../governance/policy/concepts/definition-structure.md) and a
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]

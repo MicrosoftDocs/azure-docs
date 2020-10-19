@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 03/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
@@ -91,7 +92,7 @@ The preceding messages indicate that you purchased an Azure Enterprise Agreement
 Here's how to fix the problems:
 
 1. Your reseller needs to enable _markup_ for your account. For instructions, see the [Indirect Customer Onboarding Guide](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. You generate the Azure Enterprise Agreement key for use with Cloudyn. For instructions, see [Register an Azure Enterprise Agreement and view cost data](https://docs.microsoft.com/azure/cost-management/quick-register-ea).
+2. You generate the Azure Enterprise Agreement key for use with Cloudyn. For instructions, see [Register an Azure Enterprise Agreement and view cost data](./quick-register-ea.md).
 
 Before you can generate the Azure Enterprise Agreement API key to set up Cloudyn, you must enable the Azure Billing API by following the instructions at:
 

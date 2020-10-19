@@ -22,7 +22,7 @@ This article describes how to create and publish an Internet of Things (IoT) Edg
     ![Illustrates the left-navigation menu.](./media/new-offer-iot-edge.png)
 
 > [!IMPORTANT]
-> After an offer is published, edits made to it in Partner Center only appear in storefronts after republishing the offer. Make sure you always republish after making changes.
+> After an offer is published, edits made to it in Partner Center only appear in online stores after republishing the offer. Make sure you always republish after making changes.
 
 ### Offer ID and alias
 
@@ -73,9 +73,9 @@ When publishing your offer to the marketplace with Partner Center, you can optio
 
 Here are some additional lead management resources:
 
-- [Lead management overview](commercial-marketplace-get-customer-leads.md)
-- [Lead management FAQs](../lead-management-for-cloud-marketplace.md#frequently-asked-questions))
-- [Common lead configuration errors](../lead-management-for-cloud-marketplace.md#publishing-config-errors))
+- [Customer leads from your commercial marketplace offer](commercial-marketplace-get-customer-leads.md)
+- [Common questions about lead management](../lead-management-faq.md#common-questions-about-lead-management)
+- [Troubleshooting lead configuration errors](../lead-management-faq.md#publishing-config-errors)
 - [Lead Management Overview](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) PDF (Make sure your pop-up blocker is turned off).
 
 Select **Save draft** before continuing.
@@ -189,23 +189,24 @@ To learn more about creating offer listings, see [Offer listing best practices](
 
 Provide logos and images to use with your offer. All images must be in PNG format. Blurry images will be rejected.
 
-[!INCLUDE [logostips](../includes/graphics-suggestions.md)]
+[!INCLUDE [logo tips](../includes/graphics-suggestions.md)]
 
 >[!Note]
 >If you have an issue uploading files, make sure your local network does not block the https://upload.xboxlive.com service used by Partner Center.
 
 #### Store logos
 
-Provide PNG files of your offer's logo in each of the following four pixel sizes:
+Provide a PNG file for the **Large** size logo. Partner Center will use this to create a **Small** and a **Medium** logo. You can optionally replace these with different images later.
 
-- **Small (48 x 48)**
-- **Medium (90 x 90)**
-- **Large (216 x 216)**
-- **Wide (255 x 115)**
+- **Large** (from 216 x 216 to 350 x 350 px, required)
+- **Medium** (90 x 90 px, optional)
+- **Small** (48 x 48 px, optional)
 
-All four logos are required and are used in different places in the marketplace listing.
+These logos are used in different places in the listing:
 
 [!INCLUDE [logos-azure-marketplace-only](../includes/logos-azure-marketplace-only.md)]
+
+[!INCLUDE [Logo tips](../includes/graphics-suggestions.md)]
 
 #### Screenshots (optional)
 
@@ -387,7 +388,7 @@ This field is commonly used when:
 
 ## Technical configuration
 
-The **IoT Edge module** offer type is a specific type of container that runs on an IoT Edge device. On the **Technical Configuration** tab you'll provide reference information for your container image repository inside the [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), along with configuration settings that let customers use the module easily.
+The **IoT Edge module** offer type is a specific type of container that runs on an IoT Edge device. On the **Technical Configuration** tab, you'll provide reference information for your container image repository inside the [Azure Container Registry](https://azure.microsoft.com/services/container-registry/), along with configuration settings that let customers use the module easily.
 
 After the offer is published, your IoT Edge container image is copied to Azure Marketplace in a specific public container registry. All requests from Azure users to use your module are served from the Azure Marketplace public container registry, not your private container registry.
 
@@ -423,7 +424,7 @@ You'll provide the following information on the **Image repository details** tab
 2. Username
 3. Password
 
-**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](../../container-registry/container-registry-repositories.md). Note that after the name is set, it can't be changed. Use a unique name for each offer in your account.
+**Repository name within the Azure Container Registry**. Provide the name of the Azure Container Registry repository that has your image. You specify the name of the repository when you push the image to the registry. You can find the name of the repository by going to the [Container Registry](https://azure.microsoft.com/services/container-registry/) > **Repositories page**. For more information, see [View container registry repositories in the Azure portal](../../container-registry/container-registry-repositories.md). After the name is set, it can't be changed. Use a unique name for each offer in your account.
 
 ### Image tags for new versions of your offer
 
@@ -460,7 +461,7 @@ For example, if a module requires to accept terms of use before being started, y
 - Name #1: ACCEPT_EULA
 - Value #1: Y
 
-**Default container create options**. Container creation options direct the creation of the IoT Edge module Docker container. IoT Edge supports Docker engine API Create Container options. See all the options at [List containers.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) The create options field must be valid JSON, non-escaped, and less than 512 characters.
+**Default container create options**. Container creation options direct the creation of the IoT Edge module Docker container. IoT Edge supports Docker engine API Create Container options. See all the options at [List containers.](https://docs.docker.com/engine/api/v1.30/#operation/ContainerList) The create options field must be valid JSON, non-escaped, and fewer than 512 characters.
 
 For example, if a module requires port binding, define the following create options:
 

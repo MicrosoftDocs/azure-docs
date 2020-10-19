@@ -23,7 +23,7 @@ This article provides you with the information you need to plan your Azure AD jo
  
 ## Prerequisites
 
-This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](../device-management-introduction.md).
+This article assumes that you are familiar with the [Introduction to device management in Azure Active Directory](./overview.md).
 
 ## Plan your implementation
 
@@ -55,7 +55,7 @@ Azure AD join works with both, managed and federated environments.
 
 ### Managed environment
 
-A managed environment can be deployed either through [Password Hash Sync](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) or [Pass Through Authentication](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) with Seamless Single Sign On.
+A managed environment can be deployed either through [Password Hash Sync](../hybrid/how-to-connect-password-hash-synchronization.md) or [Pass Through Authentication](../hybrid/how-to-connect-pta-quick-start.md) with Seamless Single Sign On.
 
 These scenarios don't require you to configure a federation server for authentication.
 
@@ -88,7 +88,7 @@ You can't use smartcards or certificate-based authentication to join devices to 
 
 If you create users in your:
 
-- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **On-premises Active Directory**, you need to synchronize them to Azure AD using [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
 - **Azure AD**, no additional setup is required.
 
 On-premises UPNs that are different from Azure AD UPNs are not supported on Azure AD joined devices. If your users use an on-premises UPN, you should plan to switch to using their primary UPN in Azure AD.
@@ -161,7 +161,7 @@ If you use AD FS, see [Verify and manage single sign-on with AD FS](/previous-ve
 
 Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
-**Recommendation:** Deploy [Azure AD App proxy](/azure/active-directory/manage-apps/application-proxy) to enable secure access for these applications.
+**Recommendation:** Deploy [Azure AD App proxy](../manage-apps/application-proxy.md) to enable secure access for these applications.
 
 ### On-premises network shares
 
@@ -183,13 +183,14 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 Remote desktop connection to an Azure AD joined devices requires the host machine to be either Azure AD joined or Hybrid Azure AD joined. Remote desktop from an unjoined or non-Windows device is not supported. For more information, see [Connect to remote Azure AD joined pc](/windows/client-management/connect-to-remote-aadj-pc)
 
-Starting Windows 10 2004 update, users can alo use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
+Starting Windows 10 2004 update, users can also use remote desktop from an Azure AD registered Windows 10 device to an Azure AD joined device. 
 
 ## Understand your provisioning options
+**Note**: Azure AD joined devices cannot be deployed using  System Preparation Tool (Sysprep) or similar imaging tools
 
 You can provision Azure AD join using the following approaches:
 
-- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](../user-help/user-help-join-device-on-network.md). 
 - **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform an Azure AD join. For more information, see the [Overview of Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. For more information, see [Bulk enrollment for Windows devices](/intune/windows-bulk-enroll).
  
@@ -296,7 +297,7 @@ You can use this implementation to [require managed devices for cloud app access
 
 > [!div class="nextstepaction"]
 > [Join a new Windows 10 device with Azure AD during a first run](azuread-joined-devices-frx.md)
-> [Join your work device to your organization's network](/azure/active-directory/user-help/user-help-join-device-on-network)
+> [Join your work device to your organization's network](../user-help/user-help-join-device-on-network.md)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

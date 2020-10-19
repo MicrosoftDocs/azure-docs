@@ -119,7 +119,7 @@ Next, you'll upload this file to Cloud Shell. In your Cloud Shell window, click 
 :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload option":::
 Navigate to the *manifest.json* you just created and hit "Open."
 
-Next, run the following command to create an app registration (replacing placeholders as needed):
+Next, run the following command to create an app registration, with a *Public client/native (mobile & desktop)* reply URL of `http://localhost`. Replace placeholders as needed:
 
 ```azurecli
 az ad app create --display-name <name-for-your-app-registration> --native-app --required-resource-accesses manifest.json --reply-url http://localhost
@@ -133,7 +133,7 @@ Here is an excerpt of the output from this command, showing information about th
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-1.md](../../includes/digital-twins-setup-verify-app-registration-1.md)]
 
-First, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
+Next, verify that the settings from your uploaded *manifest.json* were properly set on the registration. To do this, select *Manifest* from the menu bar to view the app registration's manifest code. Scroll to the bottom of the code window and look for the fields from your *manifest.json* under `requiredResourceAccess`:
 
 [!INCLUDE [digital-twins-setup-verify-app-registration-2.md](../../includes/digital-twins-setup-verify-app-registration-2.md)]
 
@@ -151,5 +151,9 @@ Take note of the *Application (client) ID* and *Directory (tenant) ID* shown on 
 
 ## Next steps
 
-See how to connect your client application to your instance by writing the client app's authentication code:
+Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
+* [az dt reference](/cli/azure/ext/azure-iot/dt?preserve-view=true&view=azure-cli-latest)
+* [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md)
+
+Or, see how to connect your client application to your instance by writing the client app's authentication code:
 * [*How-to: Write app authentication code*](how-to-authenticate-client.md)

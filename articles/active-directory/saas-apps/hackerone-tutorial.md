@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with HackerOne | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and HackerOne.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 229d1efb-b6a5-4df8-9839-5d551487db4e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with HackerOne
 
@@ -129,11 +122,11 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
 2. In the menu on the top, click the **Settings**.
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_001.png)
+    ![Screenshot that shows "Settings" selected in the menu.](./media/hackerone-tutorial/tutorial_hackerone_001.png)
 
 3. Navigate to **Authentication** and click **Add SAML settings**.
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_003.png)
+    ![Screenshot that shows the "Authentication Settings" page with the "Add S A M L settings" button selected.](./media/hackerone-tutorial/tutorial_hackerone_003.png)
 
 4. On the **SAML Settings** dialog, perform the following steps:
 
@@ -149,7 +142,7 @@ To configure Azure AD single sign-on with HackerOne, perform the following steps
 
 5. On the Authentication Settings dialog, perform the following steps:
 
-    ![Configure Single Sign-On](./media/hackerone-tutorial/tutorial_hackerone_005.png)
+    ![Screenshot that shows the "Authentication Settings" dialog with the "Run test" button selected.](./media/hackerone-tutorial/tutorial_hackerone_005.png)
 
     a. Click **Run test**.
 

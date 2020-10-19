@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Datadog | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Datadog.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b7845bdd-7bcd-4888-84fd-2551345054ee
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/13/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Datadog
@@ -143,6 +137,22 @@ In this section, you create a user called B.Simon in Datadog. Work with [Datadog
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
 When you click the Datadog tile in the Access Panel, you should be automatically signed in to the Datadog for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+
+### Enable all users from your tenant to authenticate with the app
+
+In this section, you enable everyone within your tenant to access Datadog if one user has an account on the Datadog side.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Datadog**.
+1. On the app's overview page, under **Manage**, select **Properties**.
+
+    ![The "Properties" link](common/properties.png)
+
+1. For **User assignment required?**, select **No**.
+
+    ![User assignment not required](common/user-assignment-not-required.png)
+
+1. Select **Save**.
 
 ## Additional resources
 

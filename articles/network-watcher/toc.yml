@@ -31,6 +31,8 @@
     href: connection-monitor-preview.md
   - name: Diagnose VM network traffic filter problems
     href: network-watcher-ip-flow-verify-overview.md
+  - name: Diagnose NSG rules and Traffic filtering
+    href: network-watcher-network-configuration-diagnostics-overview.md
   - name: Diagnose VM routing problems
     href: network-watcher-next-hop-overview.md
   - name: Diagnose outbound VM communication problems
@@ -61,6 +63,12 @@
       href: connection-monitor-preview-create-using-portal.md
     - name: Using ARMClient
       href: connection-monitor-preview-create-using-arm-client.md 
+  - name: Migrate to Connection Monitor (Preview)
+    items:
+    - name: From Network Performance Monitor
+      href: migrate-to-connection-monitor-preview-from-network-performance-monitor.md
+    - name: From Connection Monitor
+      href: migrate-to-connection-monitor-preview-from-connection-monitor.md
   - name: Diagnose VM network problems
     items:
     - name: Install VM extension
@@ -119,6 +127,8 @@
         href: network-watcher-nsg-flow-logging-rest.md
       - name: Azure Resource Manager
         href: network-watcher-nsg-flow-logging-azure-resource-manager.md
+      - name: Built-in Policy
+        href: nsg-flow-logs-policy-portal.md
     - name: Delete NSG flow log storage blobs
       href: network-watcher-delete-nsg-flow-log-blobs.md
     - name: Analyze NSG flow logs

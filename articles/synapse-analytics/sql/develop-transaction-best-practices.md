@@ -1,6 +1,6 @@
 ---
 title: Optimize transactions for SQL pool
-description: Learn how to optimize the performance of your transactional code in SQL pool (data warehouse) while minimizing risk for long rollbacks.
+description: Learn how to optimize the performance of your transactional code in SQL pool.
 services: synapse-analytics
 author: XiaoyuMSFT 
 manager: craigg
@@ -18,9 +18,9 @@ Learn how to optimize the performance of your transactional code in SQL pool whi
 
 ## Transactions and logging
 
-Transactions are an important component of a relational database engine. SQL pool uses transactions during data modification. These transactions can be explicit or implicit. Single INSERT, UPDATE, and DELETE statements are all examples of implicit transactions. Explicit transactions use BEGIN TRAN, COMMIT TRAN, or ROLLBACK TRAN. Explicit transactions are typically used when multiple modification statements need to be tied together in a single atomic unit.
+Transactions are an important component of a relational database engine. SQL pool uses transactions during data modification. These transactions can be explicit or implicit. Single INSERT, UPDATE, and DELETE statements are all examples of implicit transactions. Explicit transactions use BEGIN TRAN, COMMIT TRAN, or ROLLBACK TRAN. Explicit transactions are typically used when multiple modification statements need to be tied together into a single atomic unit.
 
-SQL pool commits changes to the database using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, whilst this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
+SQL pool commits changes to the database using transaction logs. Each distribution has its own transaction log. Transaction log writes are automatic. There is no configuration required. However, while this process guarantees the write it does introduce an overhead in the system. You can minimize this impact by writing transactionally efficient code. Transactionally efficient code broadly falls into two categories.
 
 * Use minimal logging constructs whenever possible
 * Process data using scoped batches to avoid singular long running transactions
@@ -79,7 +79,7 @@ Loading data into a non-empty table with a clustered index can often contain a m
 
 ## Optimize deletes
 
-DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) to swap out your old table with the newly created table.
+DELETE is a fully logged operation.  If you need to delete a large amount of data in a table or a partition, it often makes more sense to `SELECT` the data you wish to keep, which can be run as a minimally logged operation.  To select the data, create a new table with [CTAS](../sql-data-warehouse/sql-data-warehouse-develop-ctas.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).  Once created, use [RENAME](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) to swap out your old table with the newly created table.
 
 ```sql
 -- Delete all sales transactions for Promotions except PromotionKey 2.

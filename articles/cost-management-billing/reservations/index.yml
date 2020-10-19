@@ -6,6 +6,7 @@ metadata:
   title: Save with Azure reservations
   description: Learn how Azure Reservations help you save money by committing to one-year or three-years plans for virtual machines, Azure Blob storage or Azure Data Lake Storage Gen2, SQL Database compute capacity, Azure Cosmos DB throughput, and other Azure resources. 
   ms.service: cost-management-billing
+  ms.subservice: reservations
   ms.topic: landing-page
   ms.collection: collection
   author: bandersmsft
@@ -27,7 +28,7 @@ landingContent:
       - text: Reservation exchanges and refunds
         url: exchange-and-refund-azure-reservations.md
       - text: Buy a reservation with monthly payments
-        url: monthly-payments-reservations.md
+        url: ./prepare-buy-reservation.md
     - linkListType: how-to-guide
       links:
       - text: Renew reservations
@@ -41,7 +42,7 @@ landingContent:
       - text: Cosmos DB
         url: ../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
       - text: SQL Database
-        url: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/toc.json
+        url: ../../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252ftoc.json
       - text: Azure Data Explorer
         url: /azure/data-explorer/pricing-reserved-capacity?toc=/azure/cost-management-billing/toc.json
       - text: Azure Databricks
@@ -58,7 +59,7 @@ landingContent:
       links:
       - text: Reserved VM instances
         url: ../manage/understand-vm-reservation-charges.md
-      - text: Azure Strorage reserved capacity
+      - text: Azure Storage reserved capacity
         url: understand-storage-charges.md
       - text: Cosmos DB reserved capacity
         url: understand-cosmosdb-reservation-charges.md

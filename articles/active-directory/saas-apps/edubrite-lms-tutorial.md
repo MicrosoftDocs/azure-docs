@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with EduBrite LMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and EduBrite LMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f071670e-a1bd-45d6-bd71-b3ea6eb92bf9
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with EduBrite LMS
 
@@ -102,7 +95,7 @@ To configure Azure AD single sign-on with EduBrite LMS, perform the following st
 
 4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![EduBrite LMS Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" with the "Identifier", "Reply U R L", and "Save" button highlighted.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<customer-specific>.edubrite.com`

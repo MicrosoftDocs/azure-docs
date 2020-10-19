@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
+ms.custom: devx-track-csharp
 
 ---
 # Tuning query performance with Azure Cosmos DB

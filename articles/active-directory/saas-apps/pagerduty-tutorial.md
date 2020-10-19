@@ -1,22 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with PagerDuty | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PagerDuty.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 0410456a-76f7-42a7-9bb5-f767de75a0e0
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with PagerDuty

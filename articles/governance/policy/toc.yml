@@ -17,6 +17,12 @@
   - name: Assign a policy - Azure PowerShell
     displayName: assign, compliance
     href: ./assign-policy-powershell.md
+  - name: Assign a policy - .NET
+    displayName: assign, compliance
+    href: ./assign-policy-dotnet.md  
+  - name: Assign a policy - JavaScript
+    displayName: assign, compliance
+    href: ./assign-policy-javascript.md
   - name: Assign a policy - Python
     displayName: assign, compliance
     href: ./assign-policy-python.md
@@ -72,6 +78,8 @@
       href: ./samples/azure-security-benchmark.md
     - name: CIS Microsoft Azure Foundations Benchmark 1.1.0
       href: ./samples/cis-azure-1-1-0.md
+    - name: HIPAA HITRUST 9.2
+      href: ./samples/hipaa-hitrust-9-2.md
     - name: NIST SP 800-53 R4
       href: ./samples/nist-sp-800-53-r4.md
     - name: NIST SP 800-171 R2
@@ -84,15 +92,24 @@
   - name: Understand effects
     displayName: order, evaluation
     href: ./concepts/effects.md
+  - name: Scope
+    displayName: location, notScope, exemption, waiver, save
+    href: ./concepts/scope.md
   - name: Initiative structure
     displayName: parameters, groups, domains, policies
     href: ./concepts/initiative-definition-structure.md
   - name: Assignment structure
     displayName: parameters, enforcementmode, policyDefinitionId
     href: ./concepts/assignment-structure.md
+  - name: Exemption structure
+    displayName: waiver, mitigated, compliance
+    href: ./concepts/exemption-structure.md
   - name: Evaluate the impact of a new policy
     displayName: audit, enforcementmode, compliance
     href: ./concepts/evaluate-impact.md
+  - name: Recommended policies
+    displayName: VMs, virtual machines
+    href: ./concepts/recommended-policies.md
   - name: Regulatory Compliance
     displayName: standards, domains, controls
     href: ./concepts/regulatory-compliance.md
@@ -101,10 +118,10 @@
     href: ./concepts/policy-as-code.md
   - name: Kubernetes integration
     items:
-    - name: Azure Policy for Kubernetes (preview)
+    - name: Azure Policy for Kubernetes
       displayName: aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc
       href: ./concepts/policy-for-kubernetes.md
-    - name: Secure pods with Azure Policy (preview)
+    - name: Secure pods with Azure Policy
       displayName: aks, psp, rego, opa
       href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Audit VMs with Guest Configuration
@@ -125,6 +142,9 @@
   - name: Author policies for array properties
     displayName: array property, alias, aliases, in, notIn, type, defaultValue
     href: ./how-to/author-policies-for-arrays.md
+  - name: Export Azure Policy resources
+    displayName: github, json, definition
+    href: ./how-to/export-resources.md
   - name: Guest Configuration
     items:
     - name: Create a Guest Configuration policy on Windows
@@ -167,7 +187,11 @@
       displayName: monitor, insights, log analytics, builtin
       href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Troubleshoot
-  href: ./troubleshoot/general.md
+  items:
+  - name: Common issues
+    href: ./troubleshoot/general.md
+  - name: Known issues
+    href: https://github.com/azure/azure-policy#known-issues
 - name: Reference
   items:
   - name: Azure CLI
@@ -175,9 +199,9 @@
   - name: Azure PowerShell
     items:
     - name: Policy
-      href: /powershell/module/az.resources/#policies
+      href: /powershell/module/az.resources#policy
     - name: Policy Insights
-      href: /powershell/module/az.policyinsights#policy_insights
+      href: /powershell/module/az.policyinsights
     - name: Guest Configuration
       href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
   - name: Azure SDK for .NET
@@ -189,9 +213,9 @@
   - name: Azure SDK for Java
     items:
     - name: Assignments
-      href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+      href: /java/api/com.microsoft.azure.management.resources.policyassignment
     - name: Policy Definitions
-      href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
+      href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions
   - name: Azure SDK for JavaScript
     items:
     - name: Policy
@@ -216,6 +240,8 @@
       href: /rest/api/resources/policyassignments
     - name: Policy Definitions
       href: /rest/api/resources/policydefinitions
+    - name: Policy Exemptions
+      href: /rest/api/resources/policyexemptions
     - name: Initiatives Definitions
       href: /rest/api/resources/policysetdefinitions
     - name: Policy Tracked Resources
@@ -234,31 +260,45 @@
       href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Resources
   items:
-  - name: Known issues
-    href: https://github.com/azure/azure-policy#known-issues
   - name: GitHub - Azure Policy samples
     href: https://github.com/Azure/azure-policy
-  - name: GitHub - Community Policy repo
-    href: https://github.com/Azure/Community-Policy
-  - name: Microsoft Q&A for Azure Policy
-    href: /answers/topics/azure-policy.html
-  - name: Governance YouTube Channel
-    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
-  - name: Guest Configuration videos
+  - name: Community tools
     items:
-    - name: Getting Started
-      href: https://www.youtube.com/watch?v=mjJw9_EIyHo
-    - name: Understanding Initiatives
-      href: https://www.youtube.com/watch?v=4JZH3kuG8bI
-    - name: Assign Policy
-      href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
-    - name: Remediation Task
-      href: https://www.youtube.com/watch?v=URE4DUYMgmg
-  - name: Video - Ignite 2019
-    href: https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions
+    - name: GitHub - Community Policy repo
+      href: https://github.com/Azure/Community-Policy
+    - name: GitHub Action for Azure Policy Compliance Scan
+      href: https://github.com/marketplace/actions/azure-policy-compliance-scan
+    - name: CCO Azure Governance Dashboard
+      href: https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages
+    - name: AzAdvertizer
+      href: https://www.azadvertizer.net/
+    - name: Azure Governance Visualizer
+      href: https://github.com/julianhayward/azure-mg-sub-governance-reporting
+  - name: Feedback and support
+    items:
+    - name: Microsoft Q&A for Azure Policy
+      href: /answers/topics/azure-policy.html
+    - name: Azure support ticket
+      href: https://azure.microsoft.com/support/create-ticket/
+    - name: UserVoice
+      href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055
+  - name: Videos
+    items:
+    - name: Governance YouTube Channel
+      href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
+    - name: Video - Ignite 2019
+      href: https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions
+    - name: Guest Configuration videos
+      items:
+      - name: Getting Started
+        href: https://www.youtube.com/watch?v=mjJw9_EIyHo
+      - name: Understanding Initiatives
+        href: https://www.youtube.com/watch?v=4JZH3kuG8bI
+      - name: Assign Policy
+        href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
+      - name: Remediation Task
+        href: https://www.youtube.com/watch?v=URE4DUYMgmg
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: UserVoice
-    href: https://feedback.azure.com/forums/915958-azure-governance?category_id=345055

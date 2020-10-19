@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure 8x8 for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to 8x8.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-
-ms.assetid: 81b4cde7-4938-4a1a-8495-003c06239b27
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2020
 ms.author: Zhchia
@@ -94,17 +89,17 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab. Click on **Get started**.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
    ![Get started blade](./media/8x8-provisioning-tutorial/get-started.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, copy the **8x8 URL** from Configuration Manager into **Tenant URL**. Copy the **8x8 API Token** from Configuration Manager into **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to 8x8. If the connection fails, ensure your 8x8 account has Admin permissions and try again.
 
-	![Provisioning](./media/8x8-provisioning-tutorial/provisioning.png)
+	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/8x8-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 

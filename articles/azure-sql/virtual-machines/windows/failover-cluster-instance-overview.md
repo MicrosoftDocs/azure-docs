@@ -7,7 +7,7 @@ author: MashaMSFT
 editor: monicar
 tags: azure-service-management
 ms.service: virtual-machines-sql
-ms.topic: article
+ms.topic: overview
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: "06/02/2020"
@@ -54,7 +54,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 
 ### Azure shared disks
 
-[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/windows/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
+[Azure shared disks](../../../virtual-machines/windows/disks-shared.md) are a feature of [Azure managed disks](../../../virtual-machines/managed-disks-overview.md). Windows Server Failover Clustering supports using Azure shared disks with a failover cluster instance. 
 
 **Supported OS**: All   
 **Supported SQL version**: All     
@@ -62,7 +62,7 @@ The rest of this section lists the benefits and limitations of each storage opti
 **Benefits**: 
 - Useful for applications looking to migrate to Azure while keeping their high-availability and disaster recovery (HADR) architecture as is. 
 - Can migrate clustered applications to Azure as is because of SCSI Persistent Reservations (SCSI PR) support. 
-- Supports shared Azure Premium SSD for all versions of SQL Server and shared Azure Ultra Disk Storage for SQL Server 2019. 
+- Supports shared Azure Premium SSD and Azure Ultra Disk storage.
 - Can use a single shared disk or stripe multiple shared disks to create a shared storage pool. 
 - Supports Filestream.
 
@@ -136,8 +136,8 @@ For shared storage and data replication solutions from Microsoft partners, conta
 
 ## Connectivity
 
-Failover cluster instances with SQL Server on Azure Virtual Machines use a [distributed network name (DNN)](hadr-distributed-network-name-dnn-configure.md) or 
-a [virtual network name (VNN) with Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md) to route traffic to the SQL Server instance, regardless of which node currently owns the clustered resources. There are additional considerations when using certain features and the DNN with a SQL Server FCI. See [DNN interoperability with SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) to learn more. 
+Failover cluster instances with SQL Server on Azure Virtual Machines use a [distributed network name (DNN)](failover-cluster-instance-distributed-network-name-dnn-configure.md) or 
+a [virtual network name (VNN) with Azure Load Balancer](failover-cluster-instance-vnn-azure-load-balancer-configure.md) to route traffic to the SQL Server instance, regardless of which node currently owns the clustered resources. There are additional considerations when using certain features and the DNN with a SQL Server FCI. See [DNN interoperability with SQL Server FCI](failover-cluster-instance-dnn-interoperability.md) to learn more. 
 
 For more details about cluster connectivity options, see [Route HADR connections to SQL Server on Azure VMs](hadr-cluster-best-practices.md#connectivity). 
 
@@ -150,10 +150,11 @@ At this time, SQL Server failover cluster instances on Azure virtual machines ar
 
 The full extension supports features such as automated backup, patching, and advanced portal management. These features will not work for SQL Server VMs after the agent is reinstalled in lightweight management mode.
 
-### MSDTC   
-Azure Virtual Machines supports MSDTC on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md).
+### MSDTC 
 
-On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier because:
+Azure Virtual Machines support Microsoft Distributed Transaction Coordinator (MSDTC) on Windows Server 2019 with storage on Clustered Shared Volumes (CSV) and [Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-overview.md) or on SQL Server VMs that are using Azure shared disks. 
+
+On Azure Virtual Machines, MSDTC isn't supported for Windows Server 2016 or earlier with Clustered Shared Volumes because:
 
 - The clustered MSDTC resource can't be configured to use shared storage. On Windows Server 2016, if you create an MSDTC resource, it won't show any shared storage available for use, even if storage is available. This issue has been fixed in Windows Server 2019.
 - The basic load balancer doesn't handle RPC ports.

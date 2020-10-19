@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with moconavi | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and moconavi.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: e1916224-e1c2-426f-b233-0a2518fa41db
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with moconavi
 
@@ -194,15 +188,15 @@ In this section, you create a user called Britta Simon in moconavi. Work with [
 
 3. Click **Connect setting** button.
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing1.png)
+	![Screenshot shows moconavi with the Connection setting button.](./media/moconavi-tutorial/testing1.png)
 
 4. Enter `https://mcs-admin.moconavi.biz/gateway` into **Connect to URL** textbox and then click **Done** button.
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing2.png)
+	![Screenshot shows the Connect to U R L box and Done button.](./media/moconavi-tutorial/testing2.png)
 
 5. On the following screenshot, perform the following steps:
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing3.png)
+	![Screenshot shows the moconavi page where you can enter the values described.](./media/moconavi-tutorial/testing3.png)
 
 	a. Enter **Input Authentication Key**:`azureAD` into **Input Authentication Key** textbox.
 
@@ -212,11 +206,11 @@ In this section, you create a user called Britta Simon in moconavi. Work with [
 
 6. Input your Azure AD password to **Password** textbox and then click **Login** button.
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing4.png)
+	![Screenshot shows where to enter your Azure A D password.](./media/moconavi-tutorial/testing4.png)
 
 7. Azure AD authentication is successful when the menu is displayed.
 
-	![Testing single sign-on](./media/moconavi-tutorial/testing5.png)
+	![Screenshot shows the Telephone icon in moconavi.](./media/moconavi-tutorial/testing5.png)
 
 ## Additional Resources
 

@@ -82,7 +82,6 @@ The main project folder (\_\_app\_\_) can contain the following files:
 * *requirements.txt*: Contains the list of packages the system installs when publishing to Azure.
 * *host.json*: Contains global configuration options that affect all functions in a function app. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
 * *.funcignore*: (Optional) declares files that shouldn't get published to Azure.
-* *.gitignore*: (Optional) declares files that are excluded from a git repo, such as local.settings.json.
 * *Dockerfile*: (Optional) used when publishing your project in a [custom container](functions-create-function-linux-custom-image.md).
 
 Each function has its own code file and binding configuration file (function.json).
@@ -291,21 +290,38 @@ In this function, the value of the `name` query parameter is obtained from the `
 
 Likewise, you can set the `status_code` and `headers` for the response message in the returned [HttpResponse] object.
 
-## Scaling and concurrency
+## Scaling and Performance
 
-By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
+It's important to understand how your functions perform and how that performance affects the way your function app gets scaled. This is particularly important when designing highly performant apps. The following are several factors to consider when designing, writing and configuring your functions apps.
 
-This scaling behavior is sufficient for many applications. Applications with any of the following characteristics, however, may not scale as effectively:
+### Horizontal scaling
+By default, Azure Functions automatically monitors the load on your application and creates additional host instances for Python as needed. Functions uses built-in thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. These thresholds aren't user configurable. For more information, see [How the Consumption and Premium plans work](functions-scale.md#how-the-consumption-and-premium-plans-work).
 
-- The application needs to handle many concurrent invocations.
-- The application processes a large number of I/O events.
-- The application is I/O bound.
+### Improving throughput performance
 
-In such cases, you can improve performance further by employing async patterns and by using multiple language worker processes.
+A key to improving performance is understanding how your app uses resources and being able to configure your function app accordingly.
 
-### Async
+#### Understanding your workload
 
-Because Python is a single-threaded runtime, a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance by running functions asynchronously.
+The default configurations are suitable for most of Azure Functions applications. However, you can improve the performance of your applications' throughput by employing configurations based on your workload profile. The first step is to understand the type of workload that you are running.
+
+|| I/O-bound workload | CPU-bound workload |
+|--| -- | -- |
+|Function app characteristics| <ul><li>App needs to handle many concurrent invocations.</li> <li> App processes a large number of I/O events, such as network calls and disk read/writes.</li> </ul>| <ul><li>App does long-running computations, such as image resizing.</li> <li>App does data transformation.</li> </ul> |
+|Examples| <ul><li>Web APIs</li><ul> | <ul><li>Data processing</li><li> Machine learning inference</li><ul>|
+
+ 
+> [!NOTE]
+>  As real world functions workload are most of often a mix of I/O and CPU bound, we recommend to profile the workload under realistic production loads.
+
+
+#### Performance-specific configurations
+
+After understanding the workload profile of your function app, the following are configurations that you can use to improve the throughput performance of your functions.
+
+##### Async
+
+Because [Python is a single-threaded runtime](https://wiki.python.org/moin/GlobalInterpreterLock), a host instance for Python can process only one function invocation at a time. For applications that process a large number of I/O events and/or is I/O bound, you can improve performance significantly by running functions asynchronously.
 
 To run a function asynchronously, use the `async def` statement, which runs the function with [asyncio](https://docs.python.org/3/library/asyncio.html) directly:
 
@@ -313,6 +329,21 @@ To run a function asynchronously, use the `async def` statement, which runs the 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
+Here is an example of a function with HTTP trigger that uses [aiohttp](https://pypi.org/project/aiohttp/) http client:
+
+```python
+import aiohttp
+
+import azure.functions as func
+
+async def main(req: func.HttpRequest) -> func.HttpResponse:
+    async with aiohttp.ClientSession() as client:
+        async with client.get("PUT_YOUR_URL_HERE") as response:
+            return func.HttpResponse(await response.text())
+
+    return func.HttpResponse(body='NotFound', status_code=404)
+```
+
 
 A function without the `async` keyword is run automatically in an asyncio thread-pool:
 
@@ -323,11 +354,25 @@ def main():
     some_blocking_socket_io()
 ```
 
-### Use multiple language worker processes
+In order to achieve the full benefit of running functions asynchronously, the I/O operation/library that is used in your code needs to have async implemented as well. Using synchronous I/O operations in functions that are defined as asynchronous **may hurt** the overall performance.
+
+Here are a few examples of client libraries that has implemented async pattern:
+- [aiohttp](https://pypi.org/project/aiohttp/) - Http client/server for asyncio 
+- [Streams API](https://docs.python.org/3/library/asyncio-stream.html) - High-level async/await-ready primitives to work with network connection
+- [Janus Queue](https://pypi.org/project/janus/) - Thread-safe asyncio-aware queue for Python
+- [pyzmq](https://pypi.org/project/pyzmq/) - Python bindings for ZeroMQ
+ 
+
+##### Use multiple language worker processes
 
 By default, every Functions host instance has a single language worker process. You can increase the number of worker processes per host (up to 10) by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers.
 
+For CPU bound apps, you should set the number of language worker to be the same as or higher than the number of cores that are available per function app. To learn more, see [Available instance SKUs](functions-premium-plan.md#available-instance-skus). 
+
+I/O-bound apps may also benefit from increasing the number of worker processes beyond the number of cores available. Keep in mind that setting the number of workers too high can impact overall performance due to the increased number of required context switches. 
+
 The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand.
+
 
 ## Context
 

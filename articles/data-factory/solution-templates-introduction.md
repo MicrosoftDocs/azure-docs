@@ -63,9 +63,9 @@ Data Factory uses Azure Resource Manager templates for saving data factory pipel
 
         -   From SQL Server on premises to Azure SQL Database
 
-        -   From SQL Server on premises to Azure SQL Data Warehouse
+        -   From SQL Server on premises to Azure Synapse Analytics (formerly SQL Data Warehouse)
 
-        -   From Oracle on premises to Azure SQL Data Warehouse
+        -   From Oracle on premises to Azure Synapse Analytics (formerly SQL Data Warehouse)
 
 -   SSIS templates
 

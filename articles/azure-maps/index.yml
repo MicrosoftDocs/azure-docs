@@ -127,13 +127,13 @@ landingContent:
       - linkListType: reference
         links:
           - text: Map control
-            url: https://docs.microsoft.com/javascript/api/azure-maps-control/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-control/
           - text: Drawing tools module
-            url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
           - text: Service module
-            url: https://docs.microsoft.com/javascript/api/azure-maps-rest/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-rest/
           - text: Spatial IO module 
-            url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/?view=azure-maps-typescript-latest
+            url: https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/
   # Card
   - title: Developing with Android SDK
     linkLists:
@@ -241,7 +241,7 @@ landingContent:
             url: weather-services-concepts.md
       - linkListType: tutorial
         links:
-          - text: Analyze weather data using Azure notebooks (Python)
+          - text: Analyze weather data using Azure Notebooks (Python)
             url: weather-service-tutorial.md
       - linkListType: reference
         links:

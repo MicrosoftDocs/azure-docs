@@ -28,7 +28,7 @@ Vault credentials expire after 10 days. If the credentials file expires, downloa
 
 ### What characters are allowed for the passphrase?
 
-The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](https://docs.microsoft.com/office/vba/language/reference/user-interface-help/character-set-0127).
+The passphrase should use characters from the ASCII character set, with [ASCII values less than or equal to 127](/office/vba/language/reference/user-interface-help/character-set-0127).
 
 ### From what drives can I back up files and folders?
 
@@ -118,7 +118,7 @@ The size of the cache folder determines the amount of data that you're backing u
 1. Run this command in an elevated command prompt to stop the Backup engine:
 
     ```Net stop obengine```
-2. If you have configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
+2. If you've configured System State backup, open Disk Management and unmount the disk(s) with names in the format `"CBSSBVol_<ID>"`.
 3. By default, the scratch folder is located at `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copy the entire `\Scratch` folder to a different drive that has sufficient space. Ensure the contents are copied, not moved.
 5. Update the following registry entries with the path of the newly moved scratch folder.
@@ -195,7 +195,7 @@ If you have the same passphrase (that you provided during registration) of the o
 
 ### My backup jobs have been failing or not running for a long time. I'm past the retention period. Can I still restore?
 
-As a safety measure, Azure Backup will preserve the last recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
+As a safety measure, Azure Backup will preserve the most recent recovery point, even if it's past the retention period. Once backups resume and fresh recovery points become available, the older recovery point will be removed according to the specified retention.
 
 ### What happens if I cancel an ongoing restore job?
 

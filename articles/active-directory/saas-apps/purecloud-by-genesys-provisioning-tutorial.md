@@ -2,17 +2,12 @@
 title: 'Tutorial: Configure PureCloud by Genesys for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to PureCloud by Genesys.
 services: active-directory
-documentationcenter: ''
 author: Zhchia
 writer: Zhchia
-manager: beatrizd
-
-ms.assetid: 5f04b88b-117e-40da-a15c-e3732b240d5d
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
@@ -80,15 +75,15 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, input your PureCloud by Genesys API URL and Oauth Token in the **Tenant URL** and **Secret Token** fields respectively. The API URL will be be structured as `{{API Url}}/api/v2/scim/v2`, using the API URL for your PureCloud region from the [PureCloud Developer Center](https://developer.mypurecloud.com/api/rest/index.html). Click **Test Connection** to ensure Azure AD can connect to PureCloud by Genesys. If the connection fails, ensure your PureCloud by Genesys account has Admin permissions and try again.
 
- 	![provisioning](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows the Admin Credentials dialog box, where you can enter your Tenant U R L and Secret Token.](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
 6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and select the **Send an email notification when a failure occurs** check box.
 
@@ -111,6 +106,8 @@ This section guides you through the steps to configure the Azure AD provisioning
 	 |phoneNumbers[type eq "work"].value|String|
 	 |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Reference|
+	 |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|String|
+	 
 
 10. Under the **Mappings** section, select **Synchronize Azure Active Directory Groups to PureCloud by Genesys**.
 
@@ -144,6 +141,10 @@ Once you've configured provisioning, use the following resources to monitor your
 * Use the [provisioning logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) to determine which users have been provisioned successfully or unsuccessfully
 * Check the [progress bar](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) to see the status of the provisioning cycle and how close it is to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## Change log
+
+09/10 - Added support for enterprise attribute "employeeNumber".
 
 ## Additional resources
 

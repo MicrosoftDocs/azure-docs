@@ -22,7 +22,7 @@ Get started using Azure AD as your Identity and Access Management (IAM) system f
 
 To view applications that have been registered in your Azure AD tenant, you need:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 >[!IMPORTANT]
 >We recommend using a non-production environment to test the steps in this quickstart.

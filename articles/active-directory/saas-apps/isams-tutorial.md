@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with iSAMS | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and iSAMS.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 01f4ef26-9adb-4a3d-b36c-dce523815afd
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/04/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with iSAMS
@@ -136,16 +130,16 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. Navigate to the Control Panel and open the **Authentication** module.
 1. From the right-hand menu, select **Identity Providers**
 
-    ![Configuration](./media/isams-tutorial/click-identity-provider.png)
+    ![Screenshot shows Active Directory Configuration with Identity Providers selected.](./media/isams-tutorial/click-identity-provider.png)
 
 1. Select **Add Provider**
 
-    ![Configuration](./media/isams-tutorial/add-identity-provider.png)
+    ![Screenshot shows Identity Providers with Add Providers selected.](./media/isams-tutorial/add-identity-provider.png)
 
 
 1. Perform the following steps in the following page:
 
-    ![Configuration](./media/isams-tutorial/configure-isams.png)
+    ![Screenshot shows the Identity Providers Wizard where you can do the steps described.](./media/isams-tutorial/configure-isams.png)
 
     a. In the **Name** textbox, give a valid name like `Saml2 Azure`. This is the name that will appear on the login page.
 
@@ -163,12 +157,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2.  Go to the **Control Panel Home** -> **Security & Permissions** -> **User Accounts** -> **User Options & Tasks** -> **Modify User Properties**
 
-    ![Test User](./media/isams-tutorial/modify-user-properties.png)
+    ![Screenshot shows the User Accounts page with Modify User Properties selected.](./media/isams-tutorial/modify-user-properties.png)
 
 
 3. In the resulting popup window, select the **Account Details** tab, and change the **Authorization** to that of your newly created Identity Provider.
 
-    ![Test User](./media/isams-tutorial/account-details.png)
+    ![Screenshot shows Account Details with a value for Authorization.](./media/isams-tutorial/account-details.png)
 
 4. Click on **Save & Close**.
 

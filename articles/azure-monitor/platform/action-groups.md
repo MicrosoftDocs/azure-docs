@@ -61,7 +61,7 @@ Under **Instance details**:
 
     c. **Details**: Based on the selected notification type, enter an email address, phone number, etc.
     
-    d. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+    d. **Common alert schema**: You can choose to enable the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
 
     ![The Notifications tab](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,7 +77,7 @@ Under **Instance details**:
 
     c. **Details**: Based on the action type, enter a webhook URI, Azure app, ITSM connection, or Automation runbook. For ITSM Action, additionally specify **Work Item** and other fields your ITSM tool requires.
     
-    d. **Common alert schema**: You can choose to enable the [common alert schema](https://aka.ms/commonAlertSchemaDocs), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
+    d. **Common alert schema**: You can choose to enable the [common alert schema](./alerts-common-schema.md), which provides the advantage of having a single extensible and unified alert payload across all the alert services in Azure Monitor.
     
     ![The Actions tab](./media/action-groups/action-group-3-actions.png)
 
@@ -124,6 +124,8 @@ You may have a limited number of email actions in an Action Group. See the [rate
 
 ### Email Azure Resource Manager Role
 Send email to the members of the subscription's role. Email will only be sent to **Azure AD user** members of the role. Email will not be sent to Azure AD groups or service principals.
+
+A notification email is sent only to the *primary email* address.
 
 You may have a limited number of email actions in an Action Group. See the [rate limiting information](./alerts-rate-limiting.md) article.
 
@@ -279,7 +281,32 @@ To receive updates about changes to these IP addresses, we recommend you configu
 
 You may have a limited number of Webhook actions in an Action Group.
 
+### Service Tag
+A service tag represents a group of IP address prefixes from a given Azure service. Microsoft manages the address prefixes encompassed by the service tag and automatically updates the service tag as addresses change, minimizing the complexity of frequent updates to network security rules for an ActionGroup.
 
+1. In Azure portal under Azure Services search for *Network Security Group*.
+2. Click on **Add** and create a Network Security Group.
+
+   1. Add the Resource Group Name and then enter *Instance Details*.
+   1. Click on **Review + Create** and then click *Create*.
+   
+   :::image type="content" source="media/action-groups/action-group-create-security-group.png" alt-text="Example on how to create a Network Security Group."border="true":::
+
+3. Go to Resource Group and then click on *Network Security Group* you have created.
+
+    1. Select *Inbound Security Rules*.
+    1. Click on **Add**.
+    
+    :::image type="content" source="media/action-groups/action-group-add-service-tag.png" alt-text="Example on how to add a service tag."border="true":::
+
+4. A new window will open in right pane.
+    1.  Select Source: **Service Tag**
+    1.  Source Service Tag: **ActionGroup**
+    1.  Click **Add**.
+    
+    :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Example on how to add service tag."border="true":::
+
+Using **Service Tag** for ActionGroup helps with minimizing the complexity of frequent updates to IP addresses.
 
 ## Next steps
 * Learn more about [SMS alert behavior](./alerts-sms-behavior.md).  
@@ -288,4 +315,3 @@ You may have a limited number of Webhook actions in an Action Group.
 * Learn more about [rate limiting](./alerts-rate-limiting.md) on alerts.
 * Get an [overview of activity log alerts](./alerts-overview.md), and learn how to receive alerts.  
 * Learn how to [configure alerts whenever a service health notification is posted](../../service-health/alerts-activity-log-service-notifications-portal.md).
-

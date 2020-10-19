@@ -6,7 +6,7 @@ ms.service: sql-database
 ms.subservice: scenario
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -30,7 +30,7 @@ In this tutorial you learn how to:
 > -	Query the analytics database.
 > -	Use Power BI for data visualization to highlight trends in tenant data and make recommendation for improvements.
 
-![architectureOverView](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
+![Diagram shows an overview of the architecture used for this article.](./media/saas-tenancy-tenant-analytics/architectureOverview.png)
 
 ## Offline tenant analytics pattern
 
@@ -38,7 +38,7 @@ Multi-tenant SaaS applications typically have a vast amount of tenant data store
 
 Accessing data for all tenants is simple when all the data is in just one multi-tenant database. But the access is more complex when distributed at scale across potentially thousands of databases. One way to tame the complexity and to minimize the impact of analytics queries on transactional data is to extract data into a purpose designed analytics database or data warehouse.
 
-This tutorial presents a complete analytics scenario for Wingtip Tickets SaaS application. First, *Elastic Jobs* is used to extract data from each tenant database and load it into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL Data Warehouse. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is recommended.
+This tutorial presents a complete analytics scenario for Wingtip Tickets SaaS application. First, *Elastic Jobs* is used to extract data from each tenant database and load it into staging tables in an analytics store. The analytics store could either be an SQL Database or a SQL pool. For large-scale data extraction, [Azure Data Factory](../../data-factory/introduction.md) is recommended.
 
 Next, the aggregated data is transformed into a set of [star-schema](https://www.wikipedia.org/wiki/Star_schema) tables. The tables consist of a central fact table plus related dimension tables.  For Wingtip Tickets:
 
@@ -132,7 +132,7 @@ Each job extracts its data, and posts it into the analytics store. There a separ
 4. Press F5 to run the script that creates and runs the job that extracts tickets and customers data from each tenant database. The job saves the data into the analytics store.
 5. Query the TicketsRawData table in the tenantanalytics database, to ensure that the table is populated with tickets information from all tenants.
 
-![ticketExtracts](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
+![Screenshot shows the ExtractTickets database with the TicketsRawData d b o selected in Object Explorer.](./media/saas-tenancy-tenant-analytics/ticketExtracts.png)
 
 Repeat the preceding steps, except this time replace **\ExtractTickets.sql** with **\ExtractVenuesEvents.sql** in step 2.
 
@@ -171,7 +171,7 @@ Use the following steps to connect to Power BI, and to import the views you crea
 
 5. Select **Database** in the left pane, then enter user name = *developer*, and enter password = *P\@ssword1*. Click **Connect**.  
 
-    ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
+    ![Screenshot shows the SQL Server database dialog where you can enter a User name and Password.](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
 6. In the **Navigator** pane, under the analytics database, select the star-schema tables: fact_Tickets, dim_Events, dim_Venues, dim_Customers and dim_Dates. Then select **Load**. 
 
@@ -179,13 +179,13 @@ Congratulations! You have successfully loaded the data into Power BI. Now you ca
 
 You start by analyzing ticket sales data to see the variation in usage across the venues. Select the following options in Power BI to plot a bar chart of the total number of tickets sold by each venue. Due to random variation in the ticket generator, your results may be different.
  
-![TotalTicketsByVenues](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
+![Screenshot shows a Power B I visualization and controls for the data visualization on the right side.](./media/saas-tenancy-tenant-analytics/TotalTicketsByVenues.PNG)
 
 The preceding plot confirms that the number of tickets sold by each venue varies. Venues that sell more tickets are using your service more heavily than venues that sell fewer tickets. There may be an opportunity here to tailor resource allocation according to different tenant needs.
 
 You can further analyze the data to see how ticket sales vary over time. Select the following options in Power BI to plot the total number of tickets sold each day for a period of 60 days.
  
-![SaleVersusDate](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
+![Screenshot shows Power B I visualization titled Ticket Sale Distribution versus Sale Day.](./media/saas-tenancy-tenant-analytics/SaleVersusDate.PNG)
 
 The preceding chart displays that ticket sales spike for some venues. These spikes reinforce the idea that some venues might be consuming system resources disproportionately. So far there is no obvious pattern in when the spikes occur.
 
@@ -211,7 +211,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 Select the following visualization options to plot the percentage tickets sold by each venue to determine their relative success.
 
-![AvgTicketsByVenues](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
+![Screenshot shows Power B I visualization titled Average Tickets Sold By Each Venue.](./media/saas-tenancy-tenant-analytics/AvgTicketsByVenues.PNG)
 
 The preceding plot shows that even though most venues sell more than 80% of their tickets, some are struggling to fill more than half the seats. Play around with the Values Well to select maximum or minimum percentage of tickets sold for each venue.
 

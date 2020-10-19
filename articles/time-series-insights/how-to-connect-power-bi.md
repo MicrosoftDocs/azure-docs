@@ -7,7 +7,7 @@ manager: diviso
 services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 
 # Customer intent: As a data analyst or developer, I want to learn how to connect Azure Time Series Insights to Power BI to share and display data.
 ---
@@ -49,20 +49,20 @@ To connect your Azure Time Series Insights environment to Power BI, follow these
 
 To get started:
 
-1. Open the Azure Time Series Insights Gen2 Explorer and curate your data.
+1. Open the Azure Time Series Insights Explorer and curate your data.
 1. Once you have created a view you are satisfied with, navigate to the **More actions** dropdown menu and select **Connect to Power BI**.
 
-    [![Azure Time Series Insights Gen2 Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
+    [![Azure Time Series Insights Explorer export](media/how-to-connect-power-bi/time-series-insights-export-option.png)](media/how-to-connect-power-bi/time-series-insights-export-option.png#lightbox)
 
 1. Set your parameters inside this tab:
 
    1. Specify a relative timeframe to view. If you are happy with your existing view, leave this as **Existing timeframe**.
-   
-   1. Choose between **Aggregated** and **Raw Events**. 
-   
+
+   1. Choose between **Aggregated** and **Raw Events**.
+
        > [!NOTE]
-       > You can always aggregate your data later in Power BI, but you cannot revert to raw data after aggregation. 
-       
+       > You can always aggregate your data later in Power BI, but you cannot revert to raw data after aggregation.
+
        > [!NOTE]
        > There is a 250,000 event count limit for Raw Event level data.
 
@@ -86,7 +86,7 @@ To get started:
     [![Connect Power BI to Azure Time Series Insights](media/how-to-connect-power-bi/connect-to-time-series-insights.png)](media/how-to-connect-power-bi/connect-to-time-series-insights.png#lightbox)
 
     Alternatively, navigate to the **Azure** tab, select **Azure Time Series Insights (Beta)**, then **Connect**.
-    
+
 1. A message dialogue box will display asking for permission to connect to third-party resources. Select **continue**.
 
     [![Choose Create Custom Query](media/how-to-connect-power-bi/confirm-the-connection.png)](media/how-to-connect-power-bi/confirm-the-connection.png#lightbox)
@@ -107,19 +107,19 @@ Now that you have imported the data into Power BI, it’s time to build a report
 
 1. On the left side of the window, make sure you have selected the **Report** view.
 
-    [![Select the Report View](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
+    [![Screenshot shows Report view icon.](media/how-to-connect-power-bi/select-the-report-view.png)](media/how-to-connect-power-bi/select-the-report-view.png#lightbox)
 
-1.	In the **Visualizations** column, select your visual of choice. For example, select **Line chart**. This will add a blank line chart to your canvas.
+1. In the **Visualizations** column, select your visual of choice. For example, select **Line chart**. This will add a blank line chart to your canvas.
 
-1.	In the **Fields** list, select **_Timestamp** and drag it to the **Axis** field to display items along the X-axis. Make sure to switch to **_Timestamp** to as the value for the **Axis** (default is **Date Hierarchy**).
+1. In the **Fields** list, select **_Timestamp** and drag it to the **Axis** field to display items along the X-axis. Make sure to switch to **_Timestamp** to as the value for the **Axis** (default is **Date Hierarchy**).
 
-    [![Select the Report View](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
+    [![Screenshot shows Timestamp menu with _Timestamp selected.](media/how-to-connect-power-bi/select-timestamp.png)](media/how-to-connect-power-bi/select-timestamp.png#lightbox)
 
-1.	Again, in the **Fields** list, select **TimeSeriesId** and drag it to the **Values** field to display items along the Y-axis.
+1. Again, in the **Fields** list, select **TimeSeriesId** and drag it to the **Values** field to display items along the Y-axis.
 
     [![Create a line chart](media/how-to-connect-power-bi/power-bi-line-chart.png)](media/how-to-connect-power-bi/power-bi-line-chart.png#lightbox)
 
-1.	To add another chart to your canvas, select anywhere on the canvas outside the line chart and repeat this process.
+1. To add another chart to your canvas, select anywhere on the canvas outside the line chart and repeat this process.
 
     [![Create additional charts to share](media/how-to-connect-power-bi/power-bi-additional-charts.png)](media/how-to-connect-power-bi/power-bi-additional-charts.png#lightbox)
 

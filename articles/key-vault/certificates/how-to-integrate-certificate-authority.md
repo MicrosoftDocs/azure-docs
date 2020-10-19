@@ -8,7 +8,7 @@ tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: certificates
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
 ---
@@ -102,7 +102,7 @@ New-AzKeyVault -Name 'Contoso-Vaultname' -ResourceGroupName 'ContosoResourceGrou
 
 ```azurepowershell-interactive
 $accountId = "myDigiCertCertCentralAccountID"
-$org = New-AzureKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
+$org = New-AzKeyVaultCertificateOrganizationDetails -Id OrganizationIDfromDigiCertAccount
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 $issuerName = "DigiCertCA"
 ```
@@ -133,8 +133,15 @@ For more information, see the [Certificate operations in the Key Vault REST API 
 
 - Can I generate a digicert wildcard certificate through KeyVault? 
    Yes. It would depend upon how you have configured your digicert account.
-- If we were to create an EV cert, how do we specify that? 
-   When creating a certificate, click on Advanced Policy Configuration, then specify the Certificate type. Values supported are : OV-SSL, EV-SSL
+- How can I create **OV-SSL or EV-SSL** certificate with DigiCert?? 
+   Key vault supports creating OV and EV SSL certificates. When creating a certificate, click on Advanced Policy Configuration, then specify the Certificate type. Values supported are : OV-SSL, EV-SSL
+   
+   You would be able to create this type of certificate in key vault if your Digicert account allows. For this type of certificate, the validation is performed by DigiCert and their support team would be able to best help you with the solution, if validation fails. You can add additional information when creating a certificate by defining them in subjectName.
+
+Example
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+   
 - Is there a time delay in creating digicert certificate through integration vs acquiring certificate through digicert directly?
    No. When creating a certificate, it is the process of verification which may take time and that verification is dependent on process DigiCert follows.
 

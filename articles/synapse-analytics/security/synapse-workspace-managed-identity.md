@@ -53,4 +53,4 @@ In the next window, choose **Managed Identity** for **Authentication method**. Y
 
 ## Next steps
 
-[Granting permissions to Azure Synapse workspace managed identity](./how-to-grant-workspace-managed-identity-permissions.md)
+Learn more about [Granting permissions to Azure Synapse workspace managed identity](./how-to-grant-workspace-managed-identity-permissions.md)

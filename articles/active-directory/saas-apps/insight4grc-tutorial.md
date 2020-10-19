@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Insight4GRC | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Insight4GRC.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: db3b4bd1-b372-4660-88d7-aea0b0ca962e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Insight4GRC
 
@@ -100,7 +94,7 @@ To configure Azure AD single sign-on with Insight4GRC, perform the following ste
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![Insight4GRC Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://<subdomain>.Insight4GRC.com/SAML`
@@ -110,7 +104,7 @@ To configure Azure AD single sign-on with Insight4GRC, perform the following ste
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Insight4GRC Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://<subdomain>.Insight4GRC.com/Public/Login.aspx`

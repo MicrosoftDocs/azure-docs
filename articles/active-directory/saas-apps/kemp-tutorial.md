@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kemp LoadMaster Azure AD integration | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kemp LoadMaster Azure AD integration.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: f42e1731-0477-4955-9571-b69a0f3de0bc
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory SSO integration with Kemp LoadMaster Azure AD integration
@@ -142,13 +136,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create a Virtual Service 
 
-1. Go to Kemp LoadMaster Azure AD integration Load Master Web UI > Virtual Services > Add New.
+1. Go to Kemp LoadMaster Azure AD integration LoadMaster Web UI > Virtual Services > Add New.
 
 1. Click Add New.
 
 1. Specify the Parameters for the Virtual Service.
 
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-1.png)
+    ![Screenshot that shows the "Please Specify the Parameters for the Virtual Service" page with example values in the boxes.](./media/kemp-tutorial/kemp-1.png)
 
     a. Virtual Address
     
@@ -164,7 +158,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Specify the Parameters for the Real Server.
     
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-2.png)
+    ![Screenshot that shows the "Please Specify the Parameters for the Real Server" page with example values in the boxes.](./media/kemp-tutorial/kemp-2.png)
 
     a. Select Allow Remote Addresses
     
@@ -200,13 +194,13 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### SSL Acceleration
  
-1. Go to Kemp Load Master Web UI > Virtual Services > Virtual Services.
+1. Go to Kemp LoadMaster Web UI > Virtual Services > View/Modify Services.
 
 1. Click in Modify under Operation.
 
-1. Under Properties for tcp/x.x.x.:443 (ID:6) - Operating at Layer 7, click on SSL Properties.
+1. Click on SSL Properties, (which operates at Layer 7).
     
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-3.png)
+    ![Screenshot that shows the "S S L Properties" section with "S S L Acceleration - Enabled" selected and an example certificate selected.](./media/kemp-tutorial/kemp-3.png)
     
     a. Click on Enabled in SSL Acceleration.
     
@@ -225,7 +219,7 @@ Go to Kemp LoadMaster Azure AD integration Web Console
 
 1. Click Intermediate Certificates under Certificates and Authority.
 
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-6.png)
+    ![Screenshot that shows the "Currently installed Intermediate Certificates" section with an example certificate selected.](./media/kemp-tutorial/kemp-6.png)
 
     a. Click choose file in Add a new Intermediate Certificate.
     
@@ -241,7 +235,7 @@ Go to Kemp LoadMaster Azure AD integration Web Console
  
 Go to Manage SSO under Virtual Services.
 
-   ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-7.png)
+   ![Screenshot that shows the "Manage S S O" page.](./media/kemp-tutorial/kemp-7.png)
    
    a. Click Add under Add new Client Side Configuration after giving it a name.
 
@@ -271,7 +265,7 @@ On Kemp LoadMaster Azure AD integration Web Console
 
 1. Click on Modify and navigate to ESP Options.
     
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-8.png)
+    ![Screenshot that shows the "View/Modify Services" page, with the "ESP Options" and "Real Servers" sections expanded.](./media/kemp-tutorial/kemp-8.png)
 
     a. Click on Enable ESP.
     
@@ -289,7 +283,7 @@ Browse to the application URL
 
 You should see your tenanted login page instead of unauthenticated access previously. 
 
-![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-9.png)
+![Screenshot that shows the tenanted "Sign in" page.](./media/kemp-tutorial/kemp-9.png)
 
 ## Configuring Kerberos Based Authentication 
  
@@ -297,7 +291,7 @@ You should see your tenanted login page instead of unauthenticated access previo
 
 1. Create a user Account (in this example AppDelegation).
     
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-10.png)
+    ![Screenshot that shows the "kcd user Properties" window with the "Account" tab selected.](./media/kemp-tutorial/kemp-10.png)
 
 
     a. Select the Attribute Editor tab.
@@ -314,7 +308,7 @@ You should see your tenanted login page instead of unauthenticated access previo
 
 1. Select the Delegation tab.
 
-    ![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-11.png)
+    ![Screenshot that shows the "kcd user Properties" window with the "Delegation" tab selected.](./media/kemp-tutorial/kemp-11.png)
 
     a. Select Trust this user for delegation to specified services only.
 
@@ -335,7 +329,7 @@ You should see your tenanted login page instead of unauthenticated access previo
 
 Go to  Kemp LoadMaster Azure AD integration Web Console > Virtual Services > Manage SSO.
 
-![Kemp LoadMaster Azure AD integration webserver](./media/kemp-tutorial/kemp-12.png)
+![Screenshot that shows the "Manage S S O - Manage Domain" page.](./media/kemp-tutorial/kemp-12.png)
 
 a. Navigate to Server Side Single Sign On Configurations.
 

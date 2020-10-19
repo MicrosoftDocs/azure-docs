@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Rackspace SSO | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Rackspace SSO.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 36b398be-2f7e-4ce8-9031-53587299bc4a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Rackspace SSO
 
@@ -101,11 +95,11 @@ To configure Azure AD single sign-on with Rackspace SSO, perform the following s
 
 	a. Click **Upload metadata file**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot shows Basic SAML Configuration with the Upload metadata file link.](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![image](common/browse-upload-metadata.png)
+	![Screenshot shows a dialog box where you can select and upload a file.](common/browse-upload-metadata.png)
 
 	c. Once the metadata file is successfully uploaded, the necessary urls get auto populated automatically.
 

@@ -1,23 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco Webex Meetings | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Cisco Webex Meetings.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 26704ca7-13ed-4261-bf24-fd6252e2072b
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Cisco Webex Meetings
@@ -166,11 +159,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Common Site Settings** and navigate to **SSO Configuration**.
  
-	![Configure single sign-on](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
+	![Screenshot shows Cisco Webex Administration with Common Site Settings and S S O Configuration selected.](./media/cisco-webex-tutorial/tutorial-cisco-webex-11.png)
 
 3. On the **Webex Administration** page, perform the following steps:
 
-	![Configure single sign-on](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
+	![Screenshot shows the Webex Administration page with the information described in this step.](./media/cisco-webex-tutorial/tutorial-cisco-webex-10.png)
 
 	a. select **SAML 2.0** as **Federation Protocol**.
 

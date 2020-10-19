@@ -78,7 +78,7 @@ Now it is assumed you have a storage account. Navigate to the storage account in
 
  Click on the **Add** button in the "Add a role assignment" tile to add the first role:
 
-![Storage account IAM](./media/azure-add-role-assignment.png)
+![Storage account IAM add role assignment](./media/azure-add-role-assignment.png)
 
 * The first role to assign is **Owner** as shown in the screenshot above.
 * Select **Remote Rendering Account** from the **Assign access to** dropdown.
@@ -95,6 +95,8 @@ Repeat adding new roles two more times for the respective selections from the **
 The other dropdowns are selected as in the first step.
 
 If you have added all three roles, your Azure Remote Rendering account has access to your storage account using system assigned Managed Service Identities.
+> [!IMPORTANT]
+> Azure role assignments are cached by Azure Storage, so there may be a delay of up to 30 minutes between when you grant access to your remote rendering account and when it can be used to access your storage account. See the [Role base access control documentation](../../role-based-access-control/troubleshooting.md#role-assignment-changes-are-not-being-detected) for details.
 
 ## Next steps
 

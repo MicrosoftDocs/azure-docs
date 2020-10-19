@@ -1,5 +1,5 @@
 ---
-title: Create custom keywords - Speech service
+title: Create Keyword quickstart - Speech service
 titleSuffix: Azure Cognitive Services
 description: Your device is always listening for a keyword (or phrase). When the user says the keyword, the device sends all subsequent audio to the cloud, until the user stops speaking. Customizing your keyword is an effective way to differentiate your device and strengthen your branding.
 services: cognitive-services
@@ -8,17 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/20/2019
+ms.date: 10/02/2020
 ms.author: trbye
+ms.custom: devx-track-csharp
 ---
 
-# Custom keyword basics
+# Get started with Custom Keyword
 
-In this article, you learn the basics of working with custom keywords, using Speech Studio and the Speech SDK. A keyword is a word or short phrase which allows your product to be voice activated. You create keyword models in Speech Studio, then you export a model file that you use with the Speech SDK in your applications.
+In this quickstart, you learn the basics of working with custom keywords, using Speech Studio and the Speech SDK. A keyword is a word or short phrase which allows your product to be voice activated. You create keyword models in Speech Studio, then you export a model file that you use with the Speech SDK in your applications.
 
 ## Prerequisites
 
-The steps in this article require a Speech subscription, and the Speech SDK. If you don't already have a subscription, [try the Speech service for free](get-started.md). To get the SDK, see the [install guide](quickstarts/setup-platform.md) for your platform.
+The steps in this article require a Speech subscription, and the Speech SDK. If you don't already have a subscription, [try the Speech service for free](overview.md#try-the-speech-service-for-free). To get the SDK, see the [install guide](quickstarts/setup-platform.md) for your platform.
 
 ## Create a keyword in Speech Studio
 
@@ -48,7 +49,7 @@ Before you can use a custom keyword, you need to create a keyword using the [Cus
 
 1. The portal creates candidate pronunciations for your keyword. Listen to each candidate by clicking the play buttons and remove the checks next to any pronunciations that are incorrect. Once only good pronunciations are checked, click **Train** to begin generating the keyword model. 
 
-    ![Review your keyword](media/custom-keyword/custom-kws-portal-choose-prons.png)
+    ![Screenshot that shows where you choose the correct pronounciations.](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
 1. It may take up to thirty minutes for the model to be generated. The keyword list will change from **Processing** to **Succeeded** when the model is complete. You can then download the file.
 

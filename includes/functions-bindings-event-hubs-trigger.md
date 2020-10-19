@@ -280,6 +280,10 @@ def main(event: func.EventHubEvent):
     logging.info('  EnqueuedTimeUtc =', event.enqueued_time)
     logging.info('  SequenceNumber =', event.sequence_number)
     logging.info('  Offset =', event.offset)
+
+    # Metadata
+    for key in event.metadata:
+        logging.info(f'Metadata: {key} = ', event.metadata[key])
 ```
 
 # [Java](#tab/java)

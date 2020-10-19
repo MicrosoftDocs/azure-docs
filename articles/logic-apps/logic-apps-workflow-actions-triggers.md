@@ -5,8 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/10/2020
-ms.custom: devx-track-javascript
+ms.date: 09/22/2020
+ms.custom: devx-track-js
 ---
 
 # Schema reference guide for trigger and action types in Azure Logic Apps
@@ -155,7 +155,7 @@ This trigger checks or *polls* an endpoint by using [Microsoft-managed APIs](../
 
 *Example*
 
-This trigger definition checks for email every day inside the inbox for an Office 365 Outlook account:
+This trigger definition checks for email every day inside the inbox for a work or school account:
 
 ```json
 "When_a_new_email_arrives": {
@@ -1106,7 +1106,7 @@ This action runs code that gets your logic app's name and returns the text "Hell
 
 *Example 2*
 
-This action runs code in a logic app that triggers when a new email arrives in an Office 365 Outlook account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
+This action runs code in a logic app that triggers when a new email arrives in a work or school account. The logic app also uses a send approval email action that forwards the content from the received email along with a request for approval.
 
 The code extracts the email addresses from the trigger's `Body` property and returns the addresses along with the `SelectedOption` property value from the approval action. The action explicitly includes the send approval email action as a dependency in the `explicitDependencies` > `actions` attribute.
 
@@ -2404,6 +2404,7 @@ You can change the default behavior for triggers and actions with the `operation
 | Operation option | Type | Description | Trigger or action | 
 |------------------|------|-------------|-------------------| 
 | `DisableAsyncPattern` | String | Run HTTP-based actions synchronously, rather than asynchronously. <p><p>To set this option, see [Run actions synchronously](#disable-asynchronous-pattern). | Actions: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
+| `IncludeAuthorizationHeadersInOutputs` | String | For logic apps that [enable Azure Active Directory Open Authentication (Azure AD OAuth)](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) to authorize access for inbound calls to a request-based trigger endpoint, include the `Authorization` header from the OAuth access token in the trigger outputs. For more information, see [Include 'Authorization' header in request trigger outputs](../logic-apps/logic-apps-securing-a-logic-app.md#include-auth-header). | Triggers: <p>[Request](#request-trigger), <br>[HTTP Webhook](#http-webhook-trigger) | 
 | `OptimizedForHighThroughput` | String | Change the [default limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) on the number of action executions per 5 minutes to the [maximum limit](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>To set this option, see [Run in high throughput mode](#run-high-throughput-mode). | All actions | 
 | `Sequential` | String | Run "for each" loop iterations one at a time, rather than all at the same time in parallel. <p>This option works the same way as setting the `runtimeConfiguration.concurrency.repetitions` property to `1`. You can set either property, but not both. <p><p>To set this option, see [Run "for each" loops sequentially](#sequential-for-each).| Action: <p>[Foreach](#foreach-action) | 
 | `SingleInstance` | String | Run the trigger for each logic app instance sequentially and wait for the previously active run to finish before triggering the next logic app instance. <p><p>This option works the same way as setting the `runtimeConfiguration.concurrency.runs` property to `1`. You can set either property, but not both. <p>To set this option, see [Trigger instances sequentially](#sequential-trigger). | All triggers | 
@@ -2422,8 +2423,6 @@ Here are some considerations for when you want to enable concurrency on a trigge
 * When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * You can't disable concurrency after you enable the concurrency control.
-
-* When concurrency is enabled, the [SplitOn limit](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) is significantly reduced for [debatching arrays](#split-on-debatch). If the number of items exceeds this limit, the SplitOn capability is disabled.
 
 * When concurrency is enabled, a long-running logic app instance might cause new logic app instances to enter a waiting state. This state prevents Azure Logic Apps from creating new instances and happens even when the number of concurrent runs is less than the specified maximum number of concurrent runs.
 

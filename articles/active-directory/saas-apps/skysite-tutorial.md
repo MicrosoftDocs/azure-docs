@@ -1,23 +1,16 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SKYSITE | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SKYSITE.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 04c6a47a-1730-4acf-bc5c-a04daccff9b3
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with SKYSITE
@@ -90,15 +83,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. SKYSITE application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
-	![image](common/edit-attribute.png)
+	![Screenshot shows User Attributes with the Edit icon selected.](common/edit-attribute.png)
 
 1. In addition to above, SKYSITE application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
 	a. Click the **pen** next to **Groups returned in claim**.
 
-	![image](./media/skysite-tutorial/config01.png)
+	![Screenshot shows User claims with the option to Add new claim.](./media/skysite-tutorial/config01.png)
 
-	![image](./media/skysite-tutorial/config02.png)
+	![Screenshot shows the Manage user claims dialog box where you can enter the values described.](./media/skysite-tutorial/config02.png)
 
 	b. Select **All Groups** from the radio list.
 
@@ -150,11 +143,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 4. Click on **Settings** on the top right side of page and then navigate to **Account setting**.
 
-	![Configuration](./media/skysite-tutorial/config03.png)
+	![Screenshot shows Account setting selected from Settings.](./media/skysite-tutorial/config03.png)
 
 5. Switch to **Single sign on (SSO)** tab, perform the following steps:
 
-	![Configuration](./media/skysite-tutorial/config04.png)
+	![Screenshot shows the Single sign on tab where you can enter the values described.](./media/skysite-tutorial/config04.png)
 
 	a. In the **Identity Provider sign in URL** text box, paste the value of **User access URL**, which you have copied from the **properties** tab in Azure portal.
 

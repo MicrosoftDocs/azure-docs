@@ -6,6 +6,7 @@ ms.author: banders
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: micflan
 ---
 
@@ -104,7 +105,7 @@ Azure Cost Management receives tags as part of each usage record submitted by th
 
 - Tags must be applied directly to resources and are not implicitly inherited from the parent resource group.
 - Resource tags are only supported for resources deployed to resource groups.
-- Some deployed resources may not support tags or may not include tags in usage data – see [Tags support for Azure resources](../../azure-resource-manager/tag-support.md).
+- Some deployed resources may not support tags or may not include tags in usage data – see [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md).
 - Resource tags are only included in usage data while the tag is applied – tags are not applied to historical data.
 - Resource tags are only available in Cost Management after the data is refreshed – see [Cost and usage data updates and retention](#cost-and-usage-data-updates-and-retention).
 - Resource tags are only available in Cost Management when the resource is active/running and producing usage records (e.g. not when a VM is deallocated).
@@ -115,7 +116,7 @@ If you do not see a specific tag in Cost Management, consider the following:
 
 - Was the tag applied directly to the resource?
 - Was the tag applied more than 24 hours ago? See [Cost and usage data updates and retention](#cost-and-usage-data-updates-and-retention)
-- Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/tag-support.md) for the full list of what is supported.
+- Does the resource type support tags? The following resource types do not support tags in usage data as of December 1, 2019. See [Tags support for Azure resources](../../azure-resource-manager/management/tag-support.md) for the full list of what is supported.
     - Azure Active Directory B2C Directories
     - Azure Bastion
     - Azure Firewalls
@@ -179,4 +180,4 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 
 ## See also
 
-- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](../../cost-management/quick-acm-cost-analysis.md).
+- If you haven't already completed the first quickstart for Cost Management, read it at [Start analyzing costs](./quick-acm-cost-analysis.md).

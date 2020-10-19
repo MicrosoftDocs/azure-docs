@@ -29,8 +29,10 @@ Models for Azure Digital Twins are defined using the Digital Twins Definition la
 
 Azure Digital Twins uses **DTDL _version 2_**. For more information about this version of DTDL, see its spec documentation in GitHub: [*Digital Twins Definition Language (DTDL) - version 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). Use of DTDL _version 1_ with Azure Digital Twins has now been deprecated.
 
-> [!TIP] 
-> Not all services that use DTDL implement the exact same features of DTDL. For example, IoT Plug and Play does not use the DTDL features that are for graphs, while Azure Digital Twins does not currently implement DTDL commands. For more information on the DTDL features that are specific to Azure Digital Twins, see the section later in this article on [Azure Digital Twins DTDL implementation specifics](#azure-digital-twins-dtdl-implementation-specifics).
+> [!NOTE] 
+> Not all services that use DTDL implement the exact same features of DTDL. For example, IoT Plug and Play does not use the DTDL features that are for graphs, while Azure Digital Twins does not currently implement DTDL commands.
+>
+> For more information on the DTDL features that are specific to Azure Digital Twins, see the section later in this article on [Azure Digital Twins DTDL implementation specifics](#azure-digital-twins-dtdl-implementation-specifics).
 
 ## Elements of a model
 
@@ -56,7 +58,7 @@ Here is some additional guidance on distinguishing between DTDL **property** and
 
 The difference between properties and telemetry for Azure Digital Twins models is as follows:
 * **Properties** are expected to have backing storage. This means that you can read a property at any time and retrieve its value. If the property is writeable, you can also store a value in the property.  
-* **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back ot it and read it later. 
+* **Telemetry** is more like a stream of events; it's a set of data messages that have short lifespans. If you don't set up listening for the event and actions to take when it happens, there is no trace of the event at a later time. You can't come back to it and read it later. 
   - In C# terms, telemetry is like a C# event. 
   - In IoT terms, telemetry is typically a single measurement sent by a device.
 
@@ -76,6 +78,8 @@ For a DTDL model to be compatible with Azure Digital Twins, it must meet these r
 * DTDL for Azure Digital Twins must not define any *commands*.
 * Azure Digital Twins only allows a single level of component nesting. This means that an interface that's being used as a component can't have any components itself. 
 * Interfaces can't be defined inline within other DTDL interfaces; they must be defined as separate top-level entities with their own IDs. Then, when another interface wants to include that interface as a component or through inheritance, it can reference its ID.
+
+Azure Digital Twins also does not observe the `writable` attribute on properties or relationships. Although this can be set as per DTDL specifications, the value isn't used by Azure Digital Twins. Instead, these are always treated as writable by external clients that have general write permissions to the Azure Digital Twins service.
 
 ## Example model code
 

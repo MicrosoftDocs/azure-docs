@@ -93,6 +93,10 @@ The reason for the warnings is the cluster has RBAC enabled and access to the da
 
 Ensure ports 22, 9000 and 1194 are open to connect to the API server. Check whether the `tunnelfront` or `aks-link` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
+## I'm getting `"tls: client offered only unsupported versions"` from my client when connecting to AKS API. What should I do?
+
+The minimum supported TLS version in AKS is TLS 1.2.
+
 ## I'm trying to upgrade or scale and am getting a `"Changing property 'imageReference' is not allowed"` error. How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modify or delete tags and other properties of resources in the MC_* resource group can lead to unexpected results. Altering the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
@@ -171,15 +175,40 @@ Use the following workarounds for this issue:
 * If using automation scripts, add time delays between service principal creation and AKS cluster creation.
 * If using Azure portal, return to the cluster settings during create and retry the validation page after a few minutes.
 
+## I'm getting `"AADSTS7000215: Invalid client secret is provided."` when using AKS API. What should I do?
 
+This is generally due to expiry of service principal credentials. [Update the credentials for an AKS cluster.](update-credentials.md)
 
+## I can't access my cluster API from my automation/dev machine/tooling when using API server authorized IP ranges. How do I fix this problem?
 
+This requires `--api-server-authorized-ip-ranges` to include the IP(s) or IP range(s) of automation/dev/tooling systems being used. Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
+
+## I'm unable to view resources in Kubernetes resource viewer in Azure portal for my cluster configured with API server authorized IP ranges. How do I fix this problem?
+
+The [Kubernetes resource viewer](kubernetes-portal.md) requires `--api-server-authorized-ip-ranges` to include access for the local client computer or IP address range (from which the portal is being browsed). Refer section 'How to find my IP' in [Secure access to the API server using authorized IP address ranges](api-server-authorized-ip-ranges.md).
 
 ## I'm receiving errors after restricting egress traffic
 
 When restricting egress traffic from an AKS cluster, there are [required and optional recommended](limit-egress-traffic.md) outbound ports / network rules and FQDN / application rules for AKS. If your settings are in conflict with any of these rules, certain `kubectl` commands won't work correctly. You may also see errors when creating an AKS cluster.
 
 Verify that your settings aren't conflicting with any of the required or optional recommended outbound ports / network rules and FQDN / application rules.
+
+## I'm receiving "429 - Too Many Requests" errors 
+
+When a kubernetes cluster on Azure (AKS or no) does a frequent scale up/down or uses the cluster autoscaler (CA), those operations can result in a large number of HTTP calls that in turn exceed the assigned subscription quota leading to failure. The errors will look like
+
+```
+Service returned an error. Status=429 Code=\"OperationNotAllowed\" Message=\"The server rejected the request because too many requests have been received for this subscription.\" Details=[{\"code\":\"TooManyRequests\",\"message\":\"{\\\"operationGroup\\\":\\\"HighCostGetVMScaleSet30Min\\\",\\\"startTime\\\":\\\"2020-09-20T07:13:55.2177346+00:00\\\",\\\"endTime\\\":\\\"2020-09-20T07:28:55.2177346+00:00\\\",\\\"allowedRequestCount\\\":1800,\\\"measuredRequestCount\\\":2208}\",\"target\":\"HighCostGetVMScaleSet30Min\"}] InnerError={\"internalErrorCode\":\"TooManyRequestsReceived\"}"}
+```
+
+These throttling errors are described in detail [here](../azure-resource-manager/management/request-limits-and-throttling.md) and [here](../virtual-machines/troubleshooting/troubleshooting-throttling-errors.md)
+
+The recommandation from AKS Engineering Team is to ensure you are running version at least 1.18.x which contains many improvements. More details can be found on these improvements [here](https://github.com/Azure/AKS/issues/1413) and [here](https://github.com/kubernetes-sigs/cloud-provider-azure/issues/247).
+
+Given these throttling errors are measured at the subscription level, they might still happen if:
+- There are 3rd party applications making GET requests (eg. monitoring applications, etc...). The recommendation is to reduce the frequency of these calls.
+- There is a lot of AKS clusters / nodepools in the VMSS. The usual recommendation is to have less than 20-30 clusters in a given subscription.
+
 
 ## Azure Storage and AKS Troubleshooting
 
@@ -441,3 +470,15 @@ On Kubernetes versions **older than 1.15.0**, you may receive an error such as *
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### Why do upgrades to Kubernetes 1.16 fail when using node labels with a kubernetes.io prefix
+
+As of Kubernetes [1.16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [only a defined subset of labels with the kubernetes.io prefix](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) can be applied by the kubelet to nodes. AKS cannot remove active labels on your behalf without consent, as it may cause downtime to impacted workloads.
+
+As a result, to mitigate this you can:
+
+1. Upgrade your cluster control plane to 1.16 or higher
+2. Add a new nodepoool on 1.16 or higher without the unsupported kubernetes.io labels
+3. Delete the older nodepool
+
+AKS is investigating the capability to mutate active labels on a nodepool to improve this mitigation.

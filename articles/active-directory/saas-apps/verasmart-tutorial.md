@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with VeraSMART | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and VeraSMART.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 9cab0c07-de64-4168-ae9b-73bbf775a750
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/07/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with VeraSMART
@@ -135,7 +129,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Go to the **Administration** -> **Security** -> **Authentication Configuration**.
 
-    ![Configuration](./media/verasmart-tutorial/configuration.png)
+    ![Screenshot shows VeraSMART with Administration, then Security, then Authentication Configuration selected.](./media/verasmart-tutorial/configuration.png)
 
 1. Perform the following steps in the following page:
 

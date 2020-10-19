@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
+ms.custom: references_regions
 ---
 
 # Planning for an Azure File Sync deployment
@@ -130,9 +131,8 @@ Invoke-AzStorageSyncCompatibilityCheck -ComputerName <computer name> -SkipNamesp
  
 To display the results in CSV:
 ```powershell
-$errors = Invoke-AzStorageSyncCompatibilityCheck […]
-$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path
-    C:\results.csv -Encoding utf8
+$validation = Invoke-AzStorageSyncCompatibilityCheck C:\DATA
+$validation.Results | Select-Object -Property Type, Path, Level, Description, Result | Export-Csv -Path C:\results.csv -Encoding utf8
 ```
 
 ### File system compatibility

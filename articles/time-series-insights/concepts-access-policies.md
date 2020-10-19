@@ -9,7 +9,7 @@ manager: dviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 07/07/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 ---
 
@@ -101,7 +101,7 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 
 1. The administrator [shares the environment URL](time-series-insights-parameterized-urls.md) with their guest.
 
-1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they will be directed to Azure portal. 
+1. After the guest user is signed in to the email address you used to invite them, and they accept the invitation, they will be directed to Azure portal.
 
 1. The guest can now access the shared environment using the environment URL provided by the administrator. They can enter that URL into their web browser for immediate access.
 
@@ -109,14 +109,14 @@ Follow these steps to grant guest access to an Azure Time Series Insights enviro
 
     [![Avatar selection on insights.azure.com](media/data-access/data-access-select-tenant-and-instance.png)](media/data-access/data-access-select-tenant-and-instance.png#lightbox)
 
+    After the guest user selects the administrator's tenant, they will have the ability to select the shared Azure Time Series Insights environment.
 
-    After the guest user selects the administrator's tenant, they will have the ability to select the shared Azure Time Series Insights environment. 
-    
     They now have all the capabilities associated with the role that you provided them with in **step 5**.
 
     [![Guest user selects your Azure tenant from drop-down](media/data-access/data-access-all-capabilities.png)](media/data-access/data-access-all-capabilities.png#lightbox)
 
 ## Next steps
+
 * Read [Authentication and Authorization](time-series-insights-authentication-and-authorization.md) for Azure Active Directory app registration steps.
 
-* View [your environment in the Azure Time Series Insights Gen2 explorer](./time-series-insights-update-explorer.md).
+* View [your environment in the Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md).

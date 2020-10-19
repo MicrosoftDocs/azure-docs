@@ -5,11 +5,11 @@ description: How to configure a single page application which supports Azure AD 
 author: anastasia-ms
 ms.author: v-stharr
 ms.date: 06/12/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Secure a single page application with user sign-in
@@ -62,7 +62,7 @@ Create the web application in Azure AD for users to sign in. The web application
         </script>   
     ```
 
-7. Configure Azure role based access control for users or groups. See the [following sections to enable RBAC](#grant-role-based-access-for-users-to-azure-maps).
+7. Configure Azure role-based access control (Azure RBAC) for users or groups. See the [following sections to enable Azure RBAC](#grant-role-based-access-for-users-to-azure-maps).
    
 [!INCLUDE [grant role access to users](./includes/grant-rbac-users.md)]
 

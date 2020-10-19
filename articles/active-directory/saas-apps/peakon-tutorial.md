@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Peakon | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Peakon.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: a944c397-ed3f-4d45-b9b2-6d4bcb6b0a09
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Peakon
 
@@ -112,7 +106,7 @@ To configure Azure AD single sign-on with Peakon, perform the following steps:
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![Peakon Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot that shows the "Set additional U R Ls" selected with the "Sing on U R L" text box highlighted.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL:
     `https://app.peakon.com/login`

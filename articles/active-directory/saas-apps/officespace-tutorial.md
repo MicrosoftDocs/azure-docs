@@ -2,22 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with OfficeSpace Software | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and OfficeSpace Software.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 95d8413f-db98-4e2c-8097-9142ef1af823
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with OfficeSpace Software
@@ -154,11 +147,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Go to **Settings** and click **Connectors**.
 
-	![Configure Single Sign-On On App Side](./media/officespace-tutorial/tutorial_officespace_002.png)
+	![Screenshot that shows the "Settings" drop-down with "Connectors" selected.](./media/officespace-tutorial/tutorial_officespace_002.png)
 
 3. Click **SAML Authentication**.
 
-	![Configure Single Sign-On On App Side](./media/officespace-tutorial/tutorial_officespace_003.png)
+	![Screenshot that shows the "Authentication" section with the "S A M L Authentication" action selected.](./media/officespace-tutorial/tutorial_officespace_003.png)
 
 4. In the **SAML Authentication** section, perform the following steps:
 

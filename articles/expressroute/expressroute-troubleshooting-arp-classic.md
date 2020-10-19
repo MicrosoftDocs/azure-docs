@@ -2,12 +2,12 @@
 title: 'Azure ExpressRoute: ARP tables - Troubleshooting: classic'
 description: This page provides instructions for getting the ARP tables for an ExpressRoute circuit - classic deployment model.
 services: expressroute
-author: charwen
+author: duongau
 
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 01/30/2017
-ms.author: charwen
+ms.author: duau
 
 ---
 # Getting ARP tables in the classic deployment model

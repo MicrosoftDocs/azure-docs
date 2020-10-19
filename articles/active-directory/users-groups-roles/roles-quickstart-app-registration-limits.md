@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 08/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, devx-track-azurepowershell
 
 ms.collection: M365-identity-device-management
 ---
@@ -55,7 +55,7 @@ Done! In this quickstart, you successfully created a custom role with permission
 There are two permissions available for granting the ability to create application registrations, each with different behavior.
 
 - microsoft.directory/applications/createAsOwner: Assigning this permission results in the creator being added as the first owner of the created app registration, and the created app registration will count against the creator's 250 created objects quota.
-- microsoft.directory/applicationPolicies/create: Assigning this permission results in the creator not being added as the first owner of the created app registration, and the created app registration will not count against the creator's 250 created objects quota. Use this permission carefully, because there is nothing preventing the assignee from creating app registrations until the directory-level quota is hit. If both permissions are assigned, this permission takes precedence.
+- microsoft.directory/applications/create: Assigning this permission results in the creator not being added as the first owner of the created app registration, and the created app registration will not count against the creator's 250 created objects quota. Use this permission carefully, because there is nothing preventing the assignee from creating app registrations until the directory-level quota is hit. If both permissions are assigned, this permission takes precedence.
 
 ## Create a custom role in Azure AD PowerShell
 

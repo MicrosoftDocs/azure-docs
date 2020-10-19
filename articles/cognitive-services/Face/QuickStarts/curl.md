@@ -17,7 +17,7 @@ ms.author: pafarley
 
 In this quickstart, you'll use the Azure Face REST API with cURL to detect human faces in an image.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 ## Prerequisites
 
@@ -30,9 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
  
 You'll use a command like the following to call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make changes to certain parts of the command before you can run it.
 
-```shell
-curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://<My Endpoint String>.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
-```
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_2":::
 
 ### Subscription key
 Replace `<Subscription Key>` with your valid Face subscription key.
@@ -42,14 +40,6 @@ Replace `<Subscription Key>` with your valid Face subscription key.
 The URL `https://<My Endpoint String>.com/face/v1.0/detect` indicates the Azure Face endpoint to query. You may need to change the first part of this URL to match the endpoint that corresponds to your subscription key.
 
 [!INCLUDE [subdomains-note](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-### URL query string
-
-The query string of the Face endpoint URL specifies which face attributes to retrieve. You may wish to change this string depending on your intended use.
-
-```
-?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
-```
 
 ### Image source URL
 The source URL indicates the image to use as input. You can change this to point to any image you want to analyze.
@@ -61,6 +51,28 @@ https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
 ## Run the command
 
 Once you've made your changes, open a command prompt and enter the new command. You should see the face information displayed as JSON data in the console window. For example:
+
+```json
+[
+  {
+    "faceId": "49d55c17-e018-4a42-ba7b-8cbbdfae7c6f",
+    "faceRectangle": {
+      "top": 131,
+      "left": 177,
+      "width": 162,
+      "height": 162
+    }
+  }
+]  
+```
+
+## Extract Face Attributes
+ 
+To extract face attributes, use detection model 1 and add the `returnFaceAttributes` query parameter. The command should now look like the following. As before, insert your Face subscription key and endpoint.
+
+:::code language="shell" source="~/cognitive-services-quickstart-code/curl/face/detect.sh" id="detection_model_1":::
+
+The returned face information now includes face attributes. For example:
 
 ```json
 [

@@ -4,9 +4,9 @@ description: Create a new database in Azure SQL Database or Azure SQL Managed In
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: migrate
-ms.custom: sqldbrb=1, devx-track-azurecli
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
@@ -141,6 +141,10 @@ az sql db import --resource-group "<resourceGroup>" --server "<server>" --name "
 
 - Importing to a database in elastic pool isn't supported. You can import data into a single database and then move the database to an elastic pool.
 - Import Export Service does not work when Allow access to Azure services is set to OFF. However you can work around the problem by manually running sqlpackage.exe from an Azure VM or performing the export directly in your code by using the DACFx API.
+- Import does not support specifying a backup storage redundancy while creating a new database and creates with the default geo-redundant backup storage redundancy. To workaround, first create an empty database with desired backup storage redundancy using Azure portal or PowerShell and then import the BACPAC into this empty database. 
+
+> [!NOTE]
+> Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only.
 
 ## Import using wizards
 

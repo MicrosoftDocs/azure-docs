@@ -3,8 +3,8 @@ title: "Quickstart: Create a C# ASP.NET Core app"
 description: Learn how to run web apps in Azure App Service by deploying your first ASP.NET core app.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
-ms.date: 08/01/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18"
+ms.date: 09/24/2020
+ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperfq1"
 zone_pivot_groups: app-service-platform-windows-linux
 ---
 
@@ -54,8 +54,8 @@ To publish your web app, you must first create and configure a new App Service t
 
 As part of setting up the App Service, you'll create:
 
-- A new [resource group](https://docs.microsoft.com/azure/azure-resource-manager/management/overview#terminology) to contain all of the Azure resources for the service.
-- A new [Hosting Plan](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) that specifies the location, size, and features of the web server farm that hosts your app.
+- A new [resource group](../azure-resource-manager/management/overview.md#terminology) to contain all of the Azure resources for the service.
+- A new [Hosting Plan](./overview-hosting-plans.md) that specifies the location, size, and features of the web server farm that hosts your app.
 
 Follow these steps to create your App Service and publish your web app:
 
@@ -132,7 +132,7 @@ To manage your web app, go to the [Azure portal](https://portal.azure.com), and 
 
 On the **App Services** page, select the name of your web app.
 
-![Portal navigation to Azure app](./media/quickstart-dotnetcore/select-app-service.png)
+:::image type="content" source="./media/quickstart-dotnetcore/select-app-service.png" alt-text="Screenshot of the App Services page with an example web app selected.":::
 
 The **Overview** page for your web app, contains options for basic management like browse, stop, start, restart, and delete. The left menu provides further pages for configuring your app.
 
@@ -155,7 +155,7 @@ Advance to the next article to learn how to create a .NET Core app and connect i
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](https://docs.microsoft.com/aspnet/core/) app on App Service on Linux. You create the app using the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
+[App Service on Linux](overview.md#app-service-on-linux) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to create a [.NET Core](/aspnet/core/) app on App Service on Linux. You create the app using the [Azure CLI](/cli/azure/get-started-with-azure-cli), and you use Git to deploy the .NET Core code to the app.
 
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -169,6 +169,8 @@ To complete this quickstart:
 
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
 * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
+
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Create the app locally
 
@@ -209,13 +211,23 @@ git add .
 git commit -m "first commit"
 ```
 
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 [!INCLUDE [Configure deployment user](../../includes/configure-deployment-user.md)]
 
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+
 [!INCLUDE [Create resource group](../../includes/app-service-web-create-resource-group-linux.md)]
 
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-linux.md)]
+
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Create a web app
 
@@ -260,6 +272,8 @@ To https://&lt;app-name&gt;.scm.azurewebsites.net:443/&lt;app-name&gt;.git
    d87e6ca..d6b5447  master -> master
 </pre>
 
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+
 ## Browse to the app
 
 Browse to the deployed application using your web browser.
@@ -273,6 +287,8 @@ The .NET Core sample code is running in App Service on Linux with a built-in ima
 ![Sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
 **Congratulations!** You've deployed your first .NET Core app to App Service on Linux.
+
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 ## Update and redeploy the code
 
@@ -293,13 +309,15 @@ Once deployment has completed, switch back to the browser window that opened in 
 
 ![Updated sample app running in Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
 
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+
 ## Manage your new Azure app
 
 Go to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> to manage the app you created.
 
 From the left menu, click **App Services**, and then click the name of your Azure app.
 
-![Portal navigation to Azure app](./media/quickstart-dotnetcore/portal-app-service-list.png)
+:::image type="content" source="./media/quickstart-dotnetcore/portal-app-service-list.png" alt-text="Screenshot of the App Services page showing an example Azure app selected.":::
 
 You see your app's Overview page. Here, you can perform basic management tasks like browse, stop, start, restart, and delete. 
 
@@ -309,6 +327,8 @@ The left menu provides different pages for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
+[Having issues? Let us know.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
+
 ## Next steps
 
 > [!div class="nextstepaction"]
@@ -317,4 +337,4 @@ The left menu provides different pages for configuring your app.
 > [!div class="nextstepaction"]
 > [Configure ASP.NET Core app](configure-language-dotnetcore.md)
 
-::: zone-end  
+::: zone-end

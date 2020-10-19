@@ -17,7 +17,8 @@ ms.reviewer: azmetadatadev
 
 The Azure Instance Metadata Service (IMDS) provides information about currently running virtual machine instances and can be used to manage and configure your virtual machines.
 This information includes the SKU, storage, network configurations, and upcoming maintenance events. For a complete list of the data that is available, see [metadata APIs](#metadata-apis).
-Instance Metadata Service is available for both the VM and virtual machine scale set Instances. It is only available for running VMs created/managed using [Azure Resource Manager](/rest/api/resources/).
+Instance Metadata Service is available for running virtual machine and virtual machine scale set instances. All APIs support VMs created/managed using [Azure Resource Manager](/rest/api/resources/). Only
+the Attested and Network endpoints support Classic (non-ARM) VMs, and Attested does so only to a limited extent.
 
 Azure's IMDS is a REST Endpoint that is available at a well-known non-routable IP address (`169.254.169.254`), it can be accessed only from within the VM. Communication between the VM and IMDS never leaves the Host.
 It is best practice to have your HTTP clients bypass web proxies within the VM when querying IMDS and treat `169.254.169.254` the same as [`168.63.129.16`](../../virtual-network/what-is-ip-address-168-63-129-16.md).
@@ -42,13 +43,16 @@ Below is the sample code to retrieve all metadata for an instance, to access spe
 **Request**
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/instance?api-version=2020-06-01 | ConvertTo-Json
 ```
+> [!NOTE]
+> The `-NoProxy` flag is only available in PowerShell 6 or greater. You may omit the flag if you don't
+> have a proxy setup.
 
 **Response**
 
 > [!NOTE]
-> The response is a JSON string. The following example response is pretty-printed for readability.
+> The response is a JSON string. We pipe our REST query through the `ConvertTo-Json` cmdlet for pretty-printing.
 
 ```json
 {
@@ -246,8 +250,8 @@ offer | Offer information for the VM image and is only present for images deploy
 osType | Linux or Windows | 2017-04-02
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
 plan | [Plan](/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if it is an Azure Marketplace Image | 2018-04-02
-platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
-platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
+platformUpdateDomain |  [Update domain](../manage-availability.md) the VM is running in | 2017-04-02
+platformFaultDomain | [Fault domain](../manage-availability.md) the VM is running in | 2017-04-02
 provider | Provider of the VM | 2018-10-01
 publicKeys | [Collection of Public Keys](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 publisher | Publisher of the VM image | 2017-04-02
@@ -514,10 +518,11 @@ caching | Caching requirements
 createOption | Information about how the VM was created
 diffDiskSettings | Ephemeral disk settings
 diskSizeGB | Size of the disk in GB
+encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
-lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
+osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
@@ -529,11 +534,10 @@ caching | Caching requirements
 createOption | Information about how the VM was created
 diffDiskSettings | Ephemeral disk settings
 diskSizeGB | Size of the disk in GB
-encryptionSettings | Encryption settings for the disk
 image   | Source user image virtual hard disk
+lun     | Logical unit number of the disk
 managedDisk | Managed disk parameters
 name    | Disk name
-osType  | Type of OS included in the disk
 vhd     | Virtual hard disk
 writeAcceleratorEnabled | Whether or not writeAccelerator is enabled on the disk
 
@@ -682,7 +686,7 @@ Nonce is an optional 10-digit string. If not provided, IMDS returns the current 
 }
 ```
 
-The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with the VM details like vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
+The signature blob is a [pkcs7](https://aka.ms/pkcs7) signed version of document. It contains the certificate used for signing along with certain VM-specific details. For ARM VMs, this includes vmId, sku, nonce, subscriptionId, timeStamp for creation and expiry of the document and the plan information about the image. The plan information is only populated for Azure Marketplace images. For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated. The certificate can be extracted from the response and used to validate that the response is valid and is coming from Azure.
 The document contains the following fields:
 
 Data | Description
@@ -694,6 +698,9 @@ timestamp/expiresOn | The UTC timestamp for when the signed document expires
 vmId |  [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM
 subscriptionId | Azure subscription for the Virtual Machine, introduced in `2019-04-30`
 sku | Specific SKU for the VM image, introduced in `2019-11-01`
+
+> [!NOTE]
+> For Classic (non-ARM) VMs, only the vmId is guaranteed to be populated.
 
 ### Sample 2: Validating that the VM is running in Azure
 
@@ -724,7 +731,7 @@ Add-Type -AssemblyName System.Security
 $signedCms = New-Object -TypeName System.Security.Cryptography.Pkcs.SignedCms
 $signedCms.Decode($signature);
 $content = [System.Text.Encoding]::UTF8.GetString($signedCms.ContentInfo.Content)
-Write-Host "Attested data: " $conten
+Write-Host "Attested data: " $content
 $json = $content | ConvertFrom-Json
 # Do additional validation here
 ```

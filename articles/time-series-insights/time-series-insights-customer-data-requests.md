@@ -4,10 +4,10 @@ description: Learn about customer data request features in Azure Time Series Ins
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 04/17/2020
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
+ms.date: 10/02/2020
 ms.custom: seodec18
 ---
 
@@ -49,13 +49,13 @@ It is also possible to perform export operations on access policies using the "l
 
 Personal data might make its way into Time Series Insights storage, a different scenario from user and admin data. If you consider the data stored in Time Series Insights as personal data, you can export and delete that data using the following steps:
 
-**View and export data**
+### View and export data
 
 To view and export data stored within Time Series Insights, you need to search for that data. You can use the Time Series Insights explorer or Time Series Insights query APIs to view and export data. To view and export data using the Time Series Insights explorer, first search to find the user data in question. After searching, right-click on the chart and select **Explore events**. The events grid appears and presents options to export the data as CSV and JSON.
 
 For more information, read [Azure Time Series Insights explorer](time-series-insights-explorer.md).
 
-**Delete data**
+### Delete data
 
 Currently, Time Series Insights does not support granular deletion of data. However, Time Series Insights provides the ability to remove customer data stored within Time Series Insights by configuring retention policies. You can adjust the retention period of the entire Time Series Insights environment to any number of days to support your deletion requirements.
 

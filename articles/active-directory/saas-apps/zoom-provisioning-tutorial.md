@@ -2,16 +2,12 @@
 title: 'Tutorial: Configure Zoom for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Zoom.
 services: active-directory
-documentationcenter: ''
 author: zchia
 writer: zchia
-manager: beatrizd
-ms.assetid: na
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: Zhchia
@@ -51,19 +47,19 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 2. Navigate to **Manage** in the top-right corner of the page. 
 
-	![Zoom Install](media/zoom-provisioning-tutorial/zoom02.png)
+	![Screenshot of the Zoom App Marketplace with the Manage option called out.](media/zoom-provisioning-tutorial/zoom02.png)
 
 3. Navigate to your created Azure AD app. 
 	
-	![Zoom App](media/zoom-provisioning-tutorial/zoom03.png)
+	![Screenshot of the Created Apps section with the Azure A D app called out.](media/zoom-provisioning-tutorial/zoom03.png)
 
 4. Select **App Credentials** in the left navigation pane.
 
-	![Zoom App](media/zoom-provisioning-tutorial/zoom04.png)
+	![Screenshot of the left navigation pane with the App Credentials option highlighted.](media/zoom-provisioning-tutorial/zoom04.png)
 
 5. Copy and save the **JWT Token**. This value will be entered in the **Secret Token** field in the Provisioning tab of your Zoom application in the Azure portal. If you need a new non-expiring token, you will need to reconfigure the expiration time which will auto generate a new token. 
 
-	![Zoom Install](media/zoom-provisioning-tutorial/zoom05.png)
+	![Screenshot of the App Credentials page.](media/zoom-provisioning-tutorial/zoom05.png)
 
 ## Step 3. Add Zoom from the Azure AD application gallery
 
@@ -94,11 +90,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 3. Select the **Provisioning** tab.
 
-	![Provisioning tab](common/provisioning.png)
+	![Screenshot of the Manage options with the Provisioning option called out.](common/provisioning.png)
 
 4. Set the **Provisioning Mode** to **Automatic**.
 
-	![Provisioning tab](common/provisioning-automatic.png)
+	![Screenshot of the Provisioning Mode dropdown list with the Automatic option called out.](common/provisioning-automatic.png)
 
 5. Under the **Admin Credentials** section, enter `https://api.zoom.us/scim` in **Tenant URL**. Input the **JWT Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Zoom. If the connection fails, ensure your Zoom account has Admin permissions and try again.
 

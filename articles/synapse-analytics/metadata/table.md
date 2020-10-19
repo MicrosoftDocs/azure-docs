@@ -9,6 +9,7 @@ ms.subservice: metadata
 ms.date: 05/01/2020 
 ms.author: mrys 
 ms.reviewer: jrasnick
+ms.custom: devx-track-csharp
 ---
 
 # Azure Synapse Analytics shared metadata tables
@@ -99,7 +100,7 @@ Create a managed Spark table with SparkSQL by running the following command:
     CREATE TABLE mytestdb.myParquetTable(id int, name string, birthdate date) USING Parquet
 ```
 
-This creates the table `myParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
+This command creates the table `myParquetTable` in the database `mytestdb`. After a short delay, you can see the table in SQL on-demand. For example, run the following statement from SQL on-demand.
 
 ```sql
     USE mytestdb;

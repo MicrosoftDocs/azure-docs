@@ -48,4 +48,4 @@ Administrators have the capability to create multiple policies in report-only mo
  
 ## Next steps
 
-[Configure report-only mode on a Conditional Access policy](howto-conditional-access-report-only.md)
+[Configure report-only mode on a Conditional Access policy](howto-conditional-access-insights-reporting.md)

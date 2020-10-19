@@ -25,7 +25,7 @@ Secure authentication and authorization require deep understanding of security, 
 > [!NOTE]
 > Enabling this feature will cause **all** non-secure HTTP requests to your application to be automatically redirected to HTTPS, regardless of the App Service configuration setting to [enforce HTTPS](configure-ssl-bindings.md#enforce-https). If needed, you can disable this via the `requireHttps` setting in the [auth settings configuration file](app-service-authentication-how-to.md#configuration-file-reference), but you must then take care to ensure no security tokens ever get transmitted over non-secure HTTP connections.
 
-For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
+For information specific to native mobile apps, see [User authentication and authorization for mobile apps with Azure App Service](/previous-versions/azure/app-service-mobile/app-service-mobile-auth).
 
 ## How it works
 
@@ -46,7 +46,7 @@ The module runs separately from your application code and is configured using ap
 
 ### On Containers
 
-The authentication and authorization module runs in a separate container, isolated from your application code. Using what's known as the [Ambassador pattern](https://docs.microsoft.com/azure/architecture/patterns/ambassador), it interacts with the incoming traffic to perform similar functionality as on Windows. Because it does not run in-process, no direct integration with specific language frameworks is possible; however, the relevant information that your app needs is passed through using request headers as explained below.
+The authentication and authorization module runs in a separate container, isolated from your application code. Using what's known as the [Ambassador pattern](/azure/architecture/patterns/ambassador), it interacts with the incoming traffic to perform similar functionality as on Windows. Because it does not run in-process, no direct integration with specific language frameworks is possible; however, the relevant information that your app needs is passed through using request headers as explained below.
 
 ### User/Application claims
 
@@ -143,11 +143,11 @@ With this option, you don't need to write any authentication code in your app. F
 
 ## More resources
 
-[Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](tutorial-auth-aad.md)  
-[Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](containers/tutorial-auth-aad.md)  
-[Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
-[.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
-[Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service (Windows)](tutorial-auth-aad.md)  
+* [Tutorial: Authenticate and authorize users end-to-end in Azure App Service for Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
+* [Customize authentication and authorization in App Service](app-service-authentication-how-to.md)
+* [.NET Core integration of Azure AppService EasyAuth (3rd party)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+* [Getting Azure App Service authentication working with .NET Core (3rd party)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Provider-specific how-to guides:
 
@@ -165,8 +165,8 @@ Provider-specific how-to guides:
 [Twitter]: configure-authentication-provider-twitter.md
 [OIDC]: configure-authentication-provider-openid-connect.md
 
-[custom-auth]: ../app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk.md#custom-auth
+[custom-auth]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-backend-how-to-use-server-sdk#custom-auth
 
-[ADAL-Android]: ../app-service-mobile/app-service-mobile-android-how-to-use-client-library.md#adal
-[ADAL-iOS]: ../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#adal
-[ADAL-dotnet]: ../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#adal
+[ADAL-Android]: /previous-versions/azure/app-service-mobile/app-service-mobile-android-how-to-use-client-library#adal
+[ADAL-iOS]: /previous-versions/azure/app-service-mobile/app-service-mobile-ios-how-to-use-client-library#adal
+[ADAL-dotnet]: /previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#adal

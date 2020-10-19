@@ -2,7 +2,7 @@
 author: rothja
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018    
+ms.date: 09/16/2020   
 ms.author: jroth
 ---
 >[!NOTE]
@@ -23,7 +23,7 @@ ms.author: jroth
 | Programs in running state per channel |3|
 | Streaming endpoints that are stopped or running per Media Services account|2|
 | Streaming units per streaming endpoint |10 |
-| Storage accounts | 1,000<sup>5</sup> (fixed) |
+| Storage accounts | 100<sup>5</sup> (fixed) |
 | Policies | 1,000,000<sup>6</sup> |
 | File size| In some scenarios, there's a limit on the maximum file size supported for processing in Media Services.<sup>7</sup> |
 

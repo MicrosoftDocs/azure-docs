@@ -14,7 +14,7 @@ ms.date: 07/24/2020
 
 ## Azure AD benefits
 
-Microsoft AppSource and Azure Marketplace customers use in-product experiences to search storefront listing catalogs. These actions require customers to sign in to the product. Azure AD integration provides the following benefits:
+Microsoft AppSource and Azure Marketplace customers use in-product experiences to search online store listing catalogs. These actions require customers to sign in to the product. Azure AD integration provides the following benefits:
 
 - Faster engagement and an optimized customer experience
 - Single sign-on (SSO) for millions of enterprise users
@@ -50,8 +50,8 @@ During authentication, Azure AD sends a token to your app or offer. The user inf
 
 When you use Azure AD to enable one-click authentication in your app or trial listing, you:
 
-- Streamline the customer experience from the Marketplace to your trial listing.
-- Maintain the feel of an in-product experience even when the user is redirected from the Marketplace to your domain or trial environment.
+- Streamline the customer experience from the commercial marketplace to your trial listing.
+- Maintain the feel of an in-product experience even when the user is redirected from the commercial marketplace to your domain or trial environment.
 - Reduce the likelihood of abandonment when users are redirected because there are no additional sign-in steps.
 - Reduce deployment barriers for the large population of Azure AD users.
 
@@ -61,12 +61,12 @@ When you use Azure AD to enable one-click authentication in your app or trial li
 
 Use Azure AD to support the following actions:
 
-- Register your app in one of the Marketplace storefronts. View [App registration](../active-directory/develop/quickstart-register-app.md) or [AppSource certification](../active-directory/azuread-dev/howto-get-appsource-certified.md) for more information.
+- Register your app in one of the commercial marketplace online stores. View [App registration](../active-directory/develop/quickstart-register-app.md) or [AppSource certification](../active-directory/azuread-dev/howto-get-appsource-certified.md) for more information.
 - Enable the multitenancy support feature in Azure AD to get a one-click trial experience.
 
 If you're new to using Azure AD federated single sign-on, take these steps:
 
-1. Register your app in the Marketplace.
+1. Register your app in the commercial marketplace.
 1. Develop SSO with Azure AD by using [OAuth 2.0](../active-directory/azuread-dev/v1-protocols-oauth-code.md) or [OpenID Connect](../active-directory/azuread-dev/v1-protocols-openid-connect-code.md).
 1. Enable the multitenancy support feature in Azure AD to provide a one-click trial experience.
 
@@ -83,7 +83,7 @@ Use Azure AD to support one of the following actions:
 
 If you haven't already done so, 
 
-- [Learn](https://azuremarketplace.microsoft.com/sell) about the marketplace.
+- [Learn](https://azuremarketplace.microsoft.com/sell) about the commercial marketplace.
 
 To register in Partner Center, start creating a new offer or working on an existing one:
 

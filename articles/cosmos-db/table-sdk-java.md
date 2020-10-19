@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB Table API for Java
-description: Learn all about the Azure Cosmos DB Table API including release dates, retirement dates, and changes made between each version.
+description: Learn all about the Azure Cosmos DB Table API for Java including release dates, retirement dates, and changes made between each version.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: java

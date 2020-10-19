@@ -40,7 +40,7 @@ Azure Migrate Server Migration | NA | Migrate [VMware VMs](tutorial-migrate-vmwa
 [DMA](/sql/dma/dma-overview?view=sql-server-2017) | Assess SQL Server databases. | NA
 [DMS](../dms/dms-overview.md) | NA | Migrate SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure (VDI) | NA
-[Movere](https://www.movere.io/) | Assess VMWare VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | NA
+[Movere](https://www.movere.io/) | Assess VMware VMs, Hyper-V VMs, Xen VMs, physical machines, workstations (including VDI), public cloud workloads | NA
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | NA | Migrate VMWare VMs, Hyper-V VMs, Xen VMs, KVM VMs, physical machines, public cloud workloads 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads. | NA
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | Assess VMware VMs, Hyper-V VMs, physical servers, public cloud workloads, and SQL Server databases. | NA
@@ -87,9 +87,12 @@ France | France Central
 India | Central India or South India
 Japan |  Japan East or Japan West
 Korea | Korea Central or Korea South
+Switzerland | Switzerland North
 United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
+> [!NOTE]
+> For Switzerland geography, Switzerland West is only available for REST API users and need an approved subscription.
 
 ## Supported geographies (Azure Government)
 

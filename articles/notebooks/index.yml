@@ -3,7 +3,7 @@ title: Azure Notebooks Preview Documentation
 summary: On October 9, 2020 the Azure Notebooks public preview site will be retired and replaced with integrated services from Visual Studio, Azure, and GitHub. Learn about your options and Microsoft's other notebook experiences at https://notebooks.azure.com/Content/alternatives.html.
 metadata:
   title: Azure Notebooks Preview Documentation
-  description: Learn how to create, run, and share Jupyter notebooks through the hosted Azure Notebooks Preview service.
+  description: Learn how to create, run, and share Jupyter Notebooks through the hosted Azure Notebooks Preview service.
   ms.service: azure-notebooks
   ms.topic: landing-page
   author: JoshuaPartlow
@@ -26,7 +26,7 @@ landingContent:
             url: azure-notebooks-samples.md
       - linkListType: get-started
         links:
-          - text: Access your Azure notebooks
+          - text: Access your Azure Notebooks files
             url: https://notebooks.azure.com/
 
   # Card
@@ -38,17 +38,17 @@ landingContent:
             url: /learn/modules/analyze-climate-data-with-azure-notebooks/
       - linkListType: tutorial
         links:
-          - text: Create and run a Jupyter notebook with Python
+          - text: Create and run a Jupyter Notebook with Python
             url: tutorial-create-run-jupyter-notebook.md
       - linkListType: quickstart
         links:
           - text: Sign in and set a user ID
             url: quickstart-sign-in-azure-notebooks.md
-          - text: Create and share a notebook
+          - text: Create and share a Notebook
             url: quickstart-create-share-jupyter-notebook.md
-          - text: Clone a notebook
+          - text: Clone a Notebook
             url: quickstart-clone-jupyter-notebook.md
-          - text: Migrate a local Jupyter notebook
+          - text: Migrate a local Jupyter Notebook
             url: quickstart-migrate-local-jupyter-notebook.md
           - text: Create a project with a custom environment
             url: quickstart-create-jupyter-notebook-project-environment.md
@@ -65,7 +65,7 @@ landingContent:
             url: work-with-project-data-files.md
           - text: Create and clone projects
             url: create-clone-jupyter-notebooks.md
-          - text: Access cloud data in a notebook
+          - text: Access cloud data in a Notebook
             url: access-data-resources-jupyter-notebooks.md
-          - text: Install packages in a notebook
+          - text: Install packages in a Notebook
             url: install-packages-jupyter-notebook.md

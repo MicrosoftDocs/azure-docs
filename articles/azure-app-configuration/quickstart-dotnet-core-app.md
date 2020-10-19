@@ -1,12 +1,12 @@
 ---
 title: Quickstart for Azure App Configuration with .NET Core | Microsoft Docs
-description: A quickstart for using Azure App Configuration with .NET Core apps
+description: In this quickstart, create a .NET Core app with Azure App Configuration to centralize storage and management of application settings separate from your code.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.date: 1/9/2019
+ms.date: 09/28/2020
 ms.author: lcozzens
 
 #Customer intent: As a .NET Core developer, I want to manage all my app settings in one place.
@@ -17,14 +17,14 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
 - [.NET Core SDK](https://dotnet.microsoft.com/download) - also available in the [Azure Cloud Shell](https://shell.azure.com).
 
 ## Create an App Configuration store
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
+7. Select **Configuration Explorer** > **Create** > **Key-value** to add the following key-value pairs:
 
     | Key | Value |
     |---|---|
@@ -32,15 +32,15 @@ In this quickstart, you incorporate Azure App Configuration into a .NET Core con
 
     Leave **Label** and **Content Type** empty for now.
 
-7. Select **Apply**.
+8. Select **Apply**.
 
 ## Create a .NET Core console app
 
-You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/dotnet/core/tools/) to create a new .NET Core console app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
+You use the [.NET Core command-line interface (CLI)](/dotnet/core/tools/) to create a new .NET Core console app project. The advantage of using the .NET Core CLI over Visual Studio is that it's available across the Windows, macOS, and Linux platforms.  Alternatively, use the preinstalled tools available in the [Azure Cloud Shell](https://shell.azure.com).
 
 1. Create a new folder for your project.
 
-2. In the new folder, run the following command to create a new ASP.NET Core console app project:
+2. In the new folder, run the following command to create a new .NET Core console app project:
 
     ```dotnetcli
     dotnet new console
@@ -120,7 +120,7 @@ You use the [.NET Core command-line interface (CLI)](https://docs.microsoft.com/
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it with a .NET Core console app via the [App Configuration provider](https://go.microsoft.com/fwlink/?linkid=2074664). To learn how to configure your .NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
+In this quickstart, you created a new App Configuration store and used it with a .NET Core console app via the [App Configuration provider](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration). To learn how to configure your .NET Core app to dynamically refresh configuration settings, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
 > [Enable dynamic configuration](./enable-dynamic-configuration-dotnet-core.md)
