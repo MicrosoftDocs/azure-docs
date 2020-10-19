@@ -15,7 +15,7 @@ Azure Babylon is a new cloud service for use by data users. You use Azure Babylo
 
 With the UI or Apache Atlas API, technical users can view metadata and the lineage of data assets in a central catalog.
 
-Subject-matter experts and owners can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification, based on metadata and content inspection.
+Subject-matter experts, owners, and security administrators can annotate data assets to share their tribal knowledge. They do so with the UI or at scale through automated classification and autolabeling policies, based on metadata and content inspection.
 
 The Azure Babylon preview provides customers early access to preview releases in their Azure subscriptions for evaluation. You get product support and can provide feedback directly to the product team.
 
@@ -58,6 +58,15 @@ Although data consumers face the previously mentioned challenges, users who are 
 * Restricting access to data sources and ensuring that data consumers know how to request access is an ongoing challenge.
 
 When such challenges are combined, they present a significant barrier for companies that want to encourage and promote the use and understanding of enterprise data.
+
+## Discovery challenges for security administrators
+
+Users who are responsible for ensuring the security of their organization's data may have any of the challenges listed above as data consumers and producers, as well as the following additional challenges:
+
+* An organization's data is constantly growing, stored, and shared in new directions. The task of discovering, protecting, and governing your sensitive data is one that never ends. You want to make sure that your organization's content is being shared with the correct people, applications, and with the correct permissions.
+* Understanding the risk levels in your organization's data requires diving deep into your content, looking for keywords, RegEx patterns and/or and sensitive data types. Sensitive data types can include Credit Card numbers, Social Security numbers, or Bank Account numbers, to name a few. You must constantly monitor all data sources for sensitive content, as even the smallest amount of data loss can be critical to your organization.
+* Ensuring that your organization's continues to comply with corporate security policies is a challenging task as your content grows and changes, and as those requirements and policies are updated for changing digital realities. Security administrators are often tasked with ensuring data security in the quickest time possible.
+
 
 ## Azure Babylon advantages
 
