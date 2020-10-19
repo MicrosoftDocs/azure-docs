@@ -7,6 +7,7 @@ ms.author: saveenr
 manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
+ms.subservice: monitoring
 ms.topic: tutorial
 ms.date: 07/27/2020 
 ---

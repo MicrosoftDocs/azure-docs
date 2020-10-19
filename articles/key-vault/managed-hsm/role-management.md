@@ -66,7 +66,7 @@ az keyvault role assignment create --hsm-name ContosoMHSM --role "Managed HSM Cr
 
 Use `az keyvault role assignment list` to list role assignments.
 
-All role assignments at scope / (default when no --scope is specified) for all users (default when --assignee is specified)
+All role assignments at scope / (default when no --scope is specified) for all users (default when no --assignee is specified)
 
 ```azurecli-interactive
 az keyvault role assignment list --hsm-name ContosoMHSM

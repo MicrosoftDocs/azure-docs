@@ -47,7 +47,6 @@ After you connect your data sources, choose from a gallery of expertly created w
     | Australia | Australia |
     | United Kingdom | United Kingdom |
     | Canada | Canada |
-    | Asia Pacific | Asia Pacific (Singapore) |
     | Japan | Japan |
     |
 
