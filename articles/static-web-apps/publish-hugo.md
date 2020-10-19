@@ -148,7 +148,7 @@ Next, you add configuration settings that the build process uses to build your a
 
 #### Custom Hugo version
 
-When you generate a Static Web App, a [workflow file](./apps/github-actions-workflow.md) is generated which contains the publishing configuration settings for the application. You can designate a specific Hugo version in the workflow file by providing a value for `HUGO_VERSION` in the `env` section. The following example configuration demonstrates how to set set Hugo to a specific version.
+When you generate a Static Web App, a [workflow file](./github-actions-workflow.md) is generated which contains the publishing configuration settings for the application. You can designate a specific Hugo version in the workflow file by providing a value for `HUGO_VERSION` in the `env` section. The following example configuration demonstrates how to set set Hugo to a specific version.
 
 ```yaml
 jobs:
