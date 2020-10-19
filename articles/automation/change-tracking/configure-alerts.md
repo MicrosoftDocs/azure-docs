@@ -11,7 +11,7 @@ ms.topic: conceptual
 
 Alerts in Azure proactively notify you of results from runbook jobs, service health issues, or other scenarios related to your Automation account. Azure Automation does not include pre-configured alert rules, but you can create your own based on data that it generates. This article provides guidance on creating alert rules based on changes identified by Change Tracking and Inventory.
 
-If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../../azure-monitor/platform/alerts-unified-log).
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md).
 
 ## Create alert
 
