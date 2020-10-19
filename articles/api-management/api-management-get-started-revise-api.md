@@ -84,11 +84,11 @@ In this tutorial, you learn how to:
 If you've tried the [developer portal](api-management-howto-developer-portal-customize.md), you can review the API changes and change log there.
 
 1. In the Azure portal, select **APIs**.
-2. Select **Developer portal** from the top menu.
-3. In the developer portal, select **APIs**, and then select **Demo Conference API**.
-4. Notice your new **test** operation is now available.
-5. Click on **Changelog** near the API name.
-6. Notice that your change log entry appears in this list.
+1. Select **Developer portal** from the top menu.
+1. In the developer portal, select **APIs**, and then select **Demo Conference API**.
+1. Notice your new **test** operation is now available.
+1. Click on **Changelog** near the API name.
+1. Notice that your change log entry appears in this list.
 
 ## Next steps
 
