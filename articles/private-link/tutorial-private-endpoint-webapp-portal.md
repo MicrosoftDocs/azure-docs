@@ -201,7 +201,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 7. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the storage account you created in the previous steps.  You'll receive a message similar to what is displayed below:
+8. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
