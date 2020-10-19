@@ -13,7 +13,7 @@ ms.date: 10/19/2020
 
 Providing information on the Co-sell tab is entirely optional. It is required to achieve Co-sell Ready and IP Co-sell Ready status. The information you provide will be used by Microsoft sales teams to learn more about your solution when evaluating its fit for customer needs. It is not available directly to customers. For more information, see [sell through Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft).
 
-The co-sell option in Partner Center is currently available for some offer types. Support for additional offer types will be made available over time.
+The Co-sell option in Partner Center is currently available for some offer types. Support for additional offer types will be made available over time.
 
 | **Offer Type** | **Co-sell Page available in Partner Center** |
 |    -----------------------    |    -----------------------------  |
@@ -86,7 +86,7 @@ You can also export your existing list of contacts of an offer, and then make ch
     | **Role**    | **Description**  |
     | :------------------- | :-------------------|
     | *:::no-loc text="Partner marketing":::* | This role focuses on marketing your solution and collaborating on marketing efforts with Microsoft sales teams and channel resellers. The main point of contact for marketing engagements and offer listing content, such as product descriptions, images, and videos. |
-    | *:::no-loc text="Partner sales":::* | This role focuses on selling your solution and collaborating on sales with Microsoft sales teams and channel resellers. For co-sell solutions, indicate at least one partner sales contact per region in which you wish to be Co-sell Ready. The same partner sales contact may cover multiple regions. |
+    | *:::no-loc text="Partner sales":::* | This role focuses on selling your solution and collaborating on sales with Microsoft sales teams and channel resellers. For Co-sell solutions, indicate at least one partner sales contact per region in which you wish to be Co-sell Ready. The same partner sales contact may cover multiple regions. |
     | *:::no-loc text="Partner technical sales":::* | Supports technical architecture and deployment considerations during the sales cycle, the post-sales integration, and deployment periods. |
     | *:::no-loc text="Partner customer success manager":::* | Typically supports customers post-deployment, to help them get the most out of your solution and grow its footprint within the customer's organization. |
 

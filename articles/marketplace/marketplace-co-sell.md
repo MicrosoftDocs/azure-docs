@@ -1,6 +1,6 @@
 ---
 title: Co-sell partner engagement - Microsoft commercial marketplace
-description: The Microsoft Partner Center co-sell program for partners can help you reach a vast customer base and generate new sales.
+description: The Microsoft Partner Center Co-sell program for partners can help you reach a vast customer base and generate new sales.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
