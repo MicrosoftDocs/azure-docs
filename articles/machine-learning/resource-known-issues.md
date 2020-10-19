@@ -361,7 +361,7 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
     displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
     ```
 * **automl_setup fails**: 
-    * On Windows, run automl_setup from an Anaconda Prompt. To install Miniconda click [here](https://docs.conda.io/en/latest/miniconda.html).
+    * On Windows, run automl_setup from an Anaconda Prompt. Use this link to [install Miniconda](https://docs.conda.io/en/latest/miniconda.html).
     * Ensure that conda 64-bit is installed, rather than 32-bit by running the `conda info` command. The `platform` should be `win-64` for Windows or `osx-64` for Mac.
     * Ensure that conda 4.4.10 or later is installed. You can check the version with the command `conda -V`. If you have a previous version installed, you can update it by using the command: `conda update conda`.
     * Linux - `gcc: error trying to exec 'cc1plus'`
@@ -369,17 +369,17 @@ method, or from the Experiment tab view in Azure Machine Learning studio client 
       * Pass a new name as the first parameter to automl_setup to create a new conda environment. View existing conda environments using `conda env list` and remove them with `conda env remove -n <environmentname>`.
       
 * **automl_setup_linux.sh fails**: If automl_setup_linus.sh fails on Ubuntu Linux with the error: `unable to execute 'gcc': No such file or directory`-
-  1. Make sure that outbound ports 53 and 80 are enabled. On an Azure VM, you can do this from the Azure Portal by selecting the VM and clicking on Networking.
+  1. Make sure that outbound ports 53 and 80 are enabled. On an Azure VM, you can do this from the Azure portal by selecting the VM and clicking on Networking.
   2. Run the command: `sudo apt-get update`
   3. Run the command: `sudo apt-get install build-essential --fix-missing`
   4. Run `automl_setup_linux.sh` again
 
 * **configuration.ipynb fails**:
   * For local conda, first ensure that automl_setup has successfully run.
-  * Ensure that the subscription_id is correct. Find the subscription_id in the Azure Portal by selecting All Service and then Subscriptions. The characters "<" and ">" should not be included in the subscription_id value. For example, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` has the valid format.
+  * Ensure that the subscription_id is correct. Find the subscription_id in the Azure portal by selecting All Service and then Subscriptions. The characters "<" and ">" should not be included in the subscription_id value. For example, `subscription_id = "12345678-90ab-1234-5678-1234567890abcd"` has the valid format.
   * Ensure Contributor or Owner access to the Subscription.
   * Check that the region is one of the supported regions: `eastus2`, `eastus`, `westcentralus`, `southeastasia`, `westeurope`, `australiaeast`, `westus2`, `southcentralus`.
-  * Ensure access to the region using the Azure Portal.
+  * Ensure access to the region using the Azure portal.
   
 * **import AutoMLConfig fails**: There were package changes in the automated machine learning version 1.0.76, which require the previous version to be uninstalled before updating to the new version. If the `ImportError: cannot import name AutoMLConfig` is encountered after upgrading from an SDK version before v1.0.76 to v1.0.76 or later, resolve the error by running: `pip uninstall azureml-train automl` and then `pip install azureml-train-auotml`. The automl_setup.cmd script does this automatically. 
 
