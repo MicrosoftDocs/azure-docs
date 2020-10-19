@@ -11,13 +11,13 @@ ms.topic: conceptual
 
 Alerts in Azure proactively notify you of results from runbook jobs, service health issues, or other scenarios related to your Automation account. Azure Automation does not include pre-configured alert rules, but you can create your own based on data that it generates. This article provides guidance on creating alert rules based on changes identified by Change Tracking and Inventory.
 
-If you are new to Azure alerts, see [Azure Alerts overview](../../azure-monitor/platform/alerts-overview.md).
+If you're not familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log alerts in Azure Monitor](../../azure-monitor/platform/alerts-unified-log).
 
 ## Create alert
 
 The following example shows that the file **c:\windows\system32\drivers\etc\hosts** has been modified on a machine. This file is important because Windows uses it to resolve host names to IP addresses. This operation takes precedence over DNS, and might result in connectivity issues. It can also lead to redirection of traffic to malicious or otherwise dangerous websites.
 
-![Chart showing the hosts file change](./media/manage-change-tracking/changes.png)
+![Chart showing the hosts file change](./media/configure-alerts/changes.png)
 
 Let's use this example to discuss the steps for creating alerts on a change.
 
@@ -29,7 +29,7 @@ Let's use this example to discuss the steps for creating alerts on a change.
 
 4. Check your query again and modify the alert logic. In this case, you want the alert to be triggered if there's even one change detected across all the machines in the environment.
 
-    ![Change to query for tracking changes to hosts file](./media/manage-change-tracking/change-query.png)
+    ![Change to query for tracking changes to hosts file](./media/configure-alerts/change-query.png)
 
 5. After the alert logic is set, assign action groups to perform actions in response to triggering of the alert. In this case, we're setting up emails to be sent and an IT Service Management (ITSM) ticket to be created.
 
@@ -61,3 +61,8 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 ## Next steps
 
+* Learn more about [alerts in Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+
+* Learn about [log queries](../../azure-monitor/log-query/log-query-overview.md) to retrieve and analyze data from a Log Analytics workspace.
+
+* Manage [usage and costs with Azure Monitor Logs](../../azure-monitor/platform/manage-cost-storage.md) describes how to control your costs by changing your data retention period, and how to analyze and alert on your data usage.
