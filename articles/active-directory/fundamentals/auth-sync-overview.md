@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory authentication and synchronization protocol overview
-description: Architectural guidance on achieving this authentication pattern
+description: Architectural guidance on integrating Azure AD with legacy authentication protocols and sync patterns
 services: active-directory
 author: BarbaraSelden
 manager: daveba
