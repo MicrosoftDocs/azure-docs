@@ -54,7 +54,7 @@ az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --ass
 
 For more details about this role requirement and the assignment process, see the [*Set up your user's access permissions* section](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) of *How-to: Set up an instance and authentication (CLI or portal)*.
 
-If you have this role assignment already and still encounter the 403 issue, continue to the next solution.
+If you have this role assignment already *and* you're using an Azure AD app registration to authenticate a client app, you can continue to the next solution if this solution did not resolve the 403 issue.
 
 ### Solution #2
 
