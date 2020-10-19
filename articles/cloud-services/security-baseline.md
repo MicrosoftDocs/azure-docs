@@ -649,13 +649,12 @@ You can also edit the "permissionLevel" in the Cloud service (Classic)'s Certifi
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/32210.).
 
-**Guidance**: It is recommended to configure TLS for Cloud service (Classic) in Azure. This can be done by creating a certificate with the common name (CN) equal to the GUID-based URL (for example, 328187776e774ceda8fc57609d404462.cloudapp.net). You can use the Azure portal to add the certificate to your staged Cloud service (Classic) and add the certificate information to your Cloud service (Classic)' CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package. 
+**Guidance**: Configure TLS for Cloud service (Classic) in Azure. Use the Azure portal to add the certificate to your staged Cloud service (Classic) and add the certificate information to your Cloud service (Classic)' CSDEF and CSCFG files, repackage your application, and update your staged deployment to use the new package. 
 
-Additionally, certificates are used in Azure for Cloud service (Classic) (service certificates) and for authenticating with the management API (management certificates).  
+Use service certificates in Azure which are attached to Cloud service (Classic) to enable secure communication to and from the service.
+Provide a certificate that can authenticate an exposed HTTPS endpoint. Define Service certificates in the Cloud service (Classic)'s service definition and automatically deploy them to the virtual machine that is running an instance of your role.
 
-Service certificates are attached to Cloud service (Classic) and enable secure communication to and from the service. If you have deployed a web role, You should provide a certificate that can authenticate an exposed HTTPS endpoint. Service certificates are defined in the Cloud service (Classic)'s service definition and are automatically deployed to the virtual machine that is running an instance of your role.
-
-Management certificates allow you to authenticate with the classic deployment model. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. 
+Authenticate with the management API with management certificates). Management certificates allow you to authenticate with the classic deployment model. Many programs and tools (such as Visual Studio or the Azure SDK) use these certificates to automate configuration and deployment of various Azure services. 
 
 For additional reference, the Azure Service Management API provides programmatic access to the service management functionality available through the Azure portal. Azure SDK for Python can be used to manage Cloud service (Classic) and storage accounts. The Azure SDK for Python wraps the Service Management API, which is a REST API. All API operations are performed over TLS and mutually authenticated by using X.509 v3 certificates. The management service can be accessed from within a service running in Azure. It also can be accessed directly over the Internet from any application that can send an HTTPS request and receive an HTTPS response.
 
