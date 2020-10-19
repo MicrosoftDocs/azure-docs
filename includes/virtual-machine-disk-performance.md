@@ -21,21 +21,21 @@ Your application's performance gets capped when it requests more IOPS or through
 
 **Setup:**
 
-* Standard_D8s_v3
-  * Uncached IOPS: 12,800
-* E30 OS disk
-  * IOPS: 500
-* 2 E30 data disks
-  * IOPS: 500
+- Standard_D8s_v3
+  - Uncached IOPS: 12,800
+- E30 OS disk
+  - IOPS: 500
+- Two E30 data disks × 2
+  - IOPS: 500
 
 ![Diagram showing disk level capping.](media/vm-disk-performance/disk-level-throttling.jpg)
 
 The application running on the virtual machine makes a request that requires 10,000 IOPS to the virtual machine. All of which are allowed by the VM because the Standard_D8s_v3 virtual machine can execute up to 12,800 IOPS.
 
-Then, the 10,000 IOPS requests are broken down into three different requests to the different disks:
+The 10,000 IOPS requests are broken down into three different requests to the different disks:
 
-* 1,000 IOPS are requested to the operating system disk.
-* 4,500 IOPS are requested to each data disk.
+- 1,000 IOPS are requested to the operating system disk.
+- 4,500 IOPS are requested to each data disk.
 
 All attached disks are E30 disks and can only handle 500 IOPS. So, they respond back with 500 IOPS each. The application's performance is capped by the attached disks, and it can only process 1,500 IOPS. The application could work at peak performance at 10,000 IOPS if better performing disks are used. Such as, Premium SSD P30 disks.
 
@@ -43,12 +43,12 @@ All attached disks are E30 disks and can only handle 500 IOPS. So, they respond 
 
 **Setup:**
 
-* Standard_D8s_v3
-  * Uncached IOPS: 12,800
-* P30 OS disk
-  * IOPS: 5,000
-* 2 P30 data disks
-  * IOPS: 5,000
+- Standard_D8s_v3
+  - Uncached IOPS: 12,800
+- P30 OS disk
+  - IOPS: 5,000
+- Two P30 data disks × 2
+  - IOPS: 5,000
 
 ![Diagram showing virtual machine level capping.](media/vm-disk-performance/vm-level-throttling.jpg)
 
@@ -56,7 +56,7 @@ The application running on the virtual machine makes a request that requires 15,
 
 Those 12,800 IOPS requested are broken down into three different requests to the different disks:
 
-* 4,267 IOPS are requested to the operating system disk.
-* 4,266 IOPS are requested to each data disk.
+- 4,267 IOPS are requested to the operating system disk.
+- 4,266 IOPS are requested to each data disk.
 
 All attached disks are P30 disks that can handle 5,000 IOPS. So, they respond back with their requested amounts.

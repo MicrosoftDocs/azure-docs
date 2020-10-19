@@ -16,6 +16,6 @@ Virtual machines that are enabled for both premium storage and premium storage c
 
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance-2.md)]
 
-Let's run a benchmarking test on this virtual machine and disk combination that creates IO activity. To learn how to benchmark storage IO on Azure, see [Benchmark your application on Azure Disk Storage](disks-benchmarks.md). From the benchmarking tool, you can see that the VM and Disk combination is able to achieve 22,800 IOPS:
+Let's run a benchmarking test on this virtual machine and disk combination that creates IO activity. To learn how to benchmark storage IO on Azure, see [Benchmark your application on Azure Disk Storage](disks-benchmarks.md). From the benchmarking tool, you can see that the VM and Disk combination can achieve 22,800 IOPS:
 
 [!INCLUDE [VM and Disk Performance](../../../includes/virtual-machine-disk-performance-3.md)]

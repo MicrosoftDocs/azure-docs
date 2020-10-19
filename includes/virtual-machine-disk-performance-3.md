@@ -19,15 +19,15 @@ Let's first take a look at our **VM Cached IOPS Consumed Percentage** metric:
 
 ![Screenshot showing V M Cached I O P S Consumed Percentage.](media/vm-disk-performance/utilization-metrics-example/vm-cached.jpg)
 
-This metric tells us that of the 16,000 IOPS allotted to the cached IOPS on the VM, 61% is being used. This means that the storage IO bottleneck isn't with the disks that are cached because it isn't at 100%. Now let's take a look at our **VM Uncached IOPS Consumed Percentage** metric:
+This metric tells us that 61% of the 16,000 IOPS allotted to the cached IOPS on the VM is being used. This percentage means that the storage IO bottleneck isn't with the disks that are cached because it isn't at 100%. Now let's look at our **VM Uncached IOPS Consumed Percentage** metric:
 
 ![Screenshot showing V M Uncached I O P S Consumed Percentage.](media/vm-disk-performance/utilization-metrics-example/vm-uncached.jpg)
 
-This metric is at 100%. It tells us that all of the 12,800 IOPS allotted to the uncached IOPS on the VM are being used. One way we can remediate this issue is to change the size of our VM to a larger size that can handle the additional IO. But before we do that, let's take a look at the attached disk to find out how many IOPS they are seeing. Check the OS Disk by looking at the **OS Disk IOPS Consumed Percentage**:
+This metric is at 100%. It tells us that all of the 12,800 IOPS allotted to the uncached IOPS on the VM are being used. One way we can remediate this issue is to change the size of our VM to a larger size that can handle the additional IO. But before we do that, let's look at the attached disk to find out how many IOPS they are seeing. Check the OS Disk by looking at the **OS Disk IOPS Consumed Percentage**:
 
 ![Screenshot showing O S Disk I O P S Consumed Percentage.](media/vm-disk-performance/utilization-metrics-example/os-disk.jpg)
 
-This metric tells us that of the 5,000 IOPS provisioned for this P30 OS disk, around 90% of it is being used. This means there is no bottleneck at the OS Disk. Now let's check the data disks that are attached to the VM by looking at the **Data Disk IOPS Consumed Percentage**:
+This metric tells us that around 90% of the 5,000 IOPS provisioned for this P30 OS disk is being used. This percentage means there's no bottleneck at the OS Disk. Now let's check the data disks that are attached to the VM by looking at the **Data Disk IOPS Consumed Percentage**:
 
 ![Screenshot showing Data Disk I O P S Consumed Percentage.](media/vm-disk-performance/utilization-metrics-example/data-disks-no-splitting.jpg)
 
