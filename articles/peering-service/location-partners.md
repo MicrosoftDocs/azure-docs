@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Infrastructure-services
-ms.date: 10/19/2020
+ms.date: 05/29/2020
 ms.author: derekol
 ---
 
@@ -28,7 +28,7 @@ The table in this article provides information on the Peering Service connectivi
 | [CenturyLink](https://www.ctl.io/microsoft-azure-peering-services/) |United States|
 | [BBIX](https://www.bbix.net/en/service/) |Japan |
 | [CCL](https://concepts.co.nz/news/general-news/) |Oceania |
-| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe|
+| [Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/)|Europe, Asia|
 | [DE-CIX](https://www.de-cix.net/microsoft)|Europe, North America |
 | [IIJ](https://www.iij.ad.jp/en/) | Japan |
 | [Intercloud](https://intercloud.com/microsoft-saas-applications/)|Europe  |
