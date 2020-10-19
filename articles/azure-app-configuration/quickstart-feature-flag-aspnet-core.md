@@ -27,7 +27,7 @@ The .NET Core Feature Management libraries extend the framework with comprehensi
 
 [!INCLUDE[Azure App Configuration resource creation steps](../../includes/azure-app-configuration-create.md)]
 
-7. Select **Operations** > **Feature manager** > **Add** to add a feature flag called *Beta*.
+8. Select **Operations** > **Feature manager** > **Add** to add a feature flag called *Beta*.
 
     > [!div class="mx-imgBorder"]
     > ![Enable feature flag named Beta](media/add-beta-feature-flag.png)
@@ -104,7 +104,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
     ---
 
-    With the preceding change, the [configuration provider for App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664) has been registered with the .NET Core Configuration API.
+    With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
 
 1. In *Startup.cs*, add a reference to the .NET Core feature manager:
 
@@ -258,7 +258,7 @@ dotnet new mvc --no-https --output TestFeatureFlags
 
 ## Next steps
 
-In this quickstart, you created a new App Configuration store and used it to manage features in an ASP.NET Core web app via the [Feature Management libraries](https://go.microsoft.com/fwlink/?linkid=2074664).
+In this quickstart, you created a new App Configuration store and used it to manage features in an ASP.NET Core web app via the [Feature Management libraries](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration).
 
 * Learn more about [feature management](./concept-feature-management.md).
 * [Manage feature flags](./manage-feature-flags.md).

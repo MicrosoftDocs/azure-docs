@@ -2,7 +2,7 @@
 title: Group calling hero sample
 titleSuffix: An Azure Communication Services sample overview
 description: Overview of calling hero sample using Azure Communication Services to enable developers to learn more about the inner workings of the sample.
-author: ddematheu
+author: ddematheu2
 manager: nimag
 services: azure-communication-services
 
@@ -27,7 +27,7 @@ The Azure Communication Services **Group Calling Hero Sample** demonstrates how 
 In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
 
 > [!IMPORTANT]
-> [Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+> [Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 ## Overview
 
@@ -47,9 +47,9 @@ Once you configure your display name and devices, you can join the call session.
 
 Components of the main calling screen:
 
-- **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
-- **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
-- **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
+1. **Media Gallery**: The main stage where participants are shown. If a participant has their camera enabled, their video feed is shown here. Each participant has an individual tile which shows their display name and video stream (when there is one)
+2. **Header**: This is where the primary call controls are located to toggle settings and participant side bar, turn video and mix on/off, share screen and leave the call.
+3. **Side Bar**: This is where participants and settings information are shown when toggled using the controls on the header. The component can be dismissed using the 'X' on the top right corner. Participants side bar will show a list of participants and a link to invite more users to chat. Settings side bar allows you to configure microphone and camera settings.
 
 Below you'll find more information on prerequisites and steps to set up the sample.
 
@@ -58,7 +58,7 @@ Below you'll find more information on prerequisites and steps to set up the samp
 - Create an Azure account with an active subscription. For details, see [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - [Node.js (12.18.4 and above)](https://nodejs.org/en/download/)
 - [Visual Studio (2019 and above)](https://visualstudio.microsoft.com/vs/)
-- [.NET Core 2.2](https://dotnet.microsoft.com/download/dotnet-core/2.2) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
+- [.NET Core 3.1](https://dotnet.microsoft.com/download/dotnet-core/3.1) (Make sure to install version that corresponds with your visual studio instance, 32 vs 64 bit)
 - Create an Azure Communication Services resource. For details, see [Create an Azure Communication Resource](../quickstarts/create-communication-resource.md). You'll need to record your resource **connection string** for this quickstart.
 
 ## Locally deploy the service & client applications
@@ -100,7 +100,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 ## Next steps
 
 >[!div class="nextstepaction"] 
->[Download the sample from GitHub](https://github.com/Azure/Communication/tree/master/samples/Group%20Calling%20Hero%20Sample/Web/Calling)
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 For more information, see the following articles:
 
@@ -112,6 +112,6 @@ For more information, see the following articles:
 
 - [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
 - [Redux](https://redux.js.org/) - Client-side state management
-- [FluentUI](https://developer.microsoft.com/fluentui#/) - Microsoft powered UI library
+- [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
 - [React](https://reactjs.org/) - Library for building user interfaces
 - [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework for building web applications

@@ -6,12 +6,11 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-
 ms.reviewer: larryfr
-ms.author: aashishb
-author: aashishb
-ms.date: 09/24/2020
-ms.custom: contperfq4, tracking-python
+ms.author: peterlu
+author: peterclu
+ms.date: 10/12/2020
+ms.custom: contperfq4, tracking-python, contperfq1
 
 ---
 
@@ -29,6 +28,7 @@ In this article you learn how to secure the following inferencing resources in a
 > [!div class="checklist"]
 > - Default Azure Kubernetes Service (AKS) cluster
 > - Private AKS cluster
+> - AKS cluster with private link
 > - Azure Container Instances (ACI)
 
 
@@ -77,11 +77,17 @@ To add AKS in a virtual network to your workspace, use the following steps:
 
    ![Azure Machine Learning: Machine Learning Compute virtual network settings](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
 
-1. Make sure that the NSG group that controls the virtual network has an inbound security rule enabled for the scoring endpoint so that it can be called from outside the virtual network.
+1. When you deploy a model as a web service to AKS, a scoring endpoint is created to handle inferencing requests. Make sure that the NSG group that controls the virtual network has an inbound security rule enabled for the IP address of the scoring endpoint if you want to call it from outside the virtual network.
+
+    To find the IP address of the scoring endpoint, look at the scoring URI for the deployed service. For information on viewing the scoring URI, see [Consume a model deployed as a web service](how-to-consume-web-service.md#connection-information).
+
    > [!IMPORTANT]
    > Keep the default outbound rules for the NSG. For more information, see the default security rules in [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 
    [![An inbound security rule](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+
+    > [!IMPORTANT]
+    > The IP address shown in the image for the scoring endpoint will be different for your deployments. While the same IP is shared by all deployments to one AKS cluster, each AKS cluster will have a different IP address.
 
 You can also use the Azure Machine Learning SDK to add Azure Kubernetes Service in a virtual network. If you already have an AKS cluster in a virtual network, attach it to the workspace as described in [How to deploy to AKS](how-to-deploy-and-where.md). The following code creates a new AKS instance in the `default` subnet of a virtual network named `mynetwork`:
 

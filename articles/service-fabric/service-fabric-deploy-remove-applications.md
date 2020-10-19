@@ -132,7 +132,7 @@ For example, here is compression statistics for some packages, which show the in
 |2048|1000|00:01:04.3775554|1231|
 |5012|100|00:02:45.2951288|3074|
 
-Once a package is compressed, it can be uploaded to one or multiple Service Fabric clusters as needed. The deployment mechanism is same for compressed and uncompressed packages. Compressed packages are stored as such in the cluster image store. The packages are uncompressed on the node, before the application is run.
+Once a package is compressed, it can be uploaded to one or multiple Service Fabric clusters as needed. The deployment mechanism is the same for compressed and uncompressed packages. Compressed packages are stored as such in the cluster image store. The packages are uncompressed on the node, before the application is run.
 
 
 The following example uploads the package to the image store, into a folder named "MyApplicationV1":

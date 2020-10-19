@@ -26,7 +26,7 @@ You can re-create the HSM instance in same or different region if you have the f
 Here are the steps of the disaster recovery procedure:
 
 1. Create a new HSM Instance.
-1. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response, which will be downloaded a SecurityDomainExchangeKey (public key).
+1. Activate "Security Domain recovery". A new RSA key pair (Security Domain Exchange Key) will be generated for Security Domain transfer and sent in response, which will be downloaded as a SecurityDomainExchangeKey (public key).
 1. Create and then upload the "Security Domain Transfer File". You will need the private keys that encrypt the security domain. The private keys are used locally, and never transferred anywhere in this process.
 1. Take a backup of the new HSM. A backup is required before any restore, even when the HSM is empty. Backups allow for easy roll-back.
 1. Restore the recent HSM backup from the source HSM
@@ -57,7 +57,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
 * **name**: In the example, the name is ContosoMHSM. You'll use this name for other Key Vault commands.
-* **hsmUri**: In the example, the URI is https://contosohsm.managedhsm.azure.net. Applications that use your HSM through its REST API must use this URI.
+* **hsmUri**: In the example, the URI is 'https://contosohsm.managedhsm.azure.net.' Applications that use your HSM through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
 
@@ -79,7 +79,7 @@ For this step you will need following:
 The `az keyvault security-domain upload` command performs following operations:
 
 - Decrypt the source HSM's Security Domain with the private keys you supply. 
-- create a Security Domain Upload blob encrypted with the Security Domain Exchange Key we downloaded in the previous step and then
+- Create a Security Domain Upload blob encrypted with the Security Domain Exchange Key we downloaded in the previous step and then
 - Upload the Security Domain Upload blob to the HSM to complete security domain recovery
 
 In the example below, we use the Security Domain from the **ContosoMHSM**, the 2 of the corresponding private keys, and upload it to **ContosoMHSM2**, which is waiting to receive a Security Domain. 
@@ -98,7 +98,7 @@ To create an HSM backup, you will need the following
 - A storage account where the backup will be stored
 - A blob storage container in this storage account where the backup process will create a new folder to store encrypted backup
 
-In the example below, we use `az keyvault backup` command to the HSM backup in the storage container **mhsmbackupcontainer** a storage account **ContosoBackup**. We create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the backup.
+We use `az keyvault backup` command to the HSM backup in the storage container **mhsmbackupcontainer**, which is in the storage account **ContosoBackup** for the example below. We create a SAS token that expires in 30 minutes and provide that to Managed HSM to write the backup.
 
 ```azurecli-interactive
 end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')

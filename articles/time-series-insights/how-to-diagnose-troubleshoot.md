@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 10/01/2020
 ms.custom: seodec18
 ---
 
@@ -38,17 +38,17 @@ There are several common reasons why your data might not appear in the [Azure Ti
 
 - Your event source key is missing a required permission.
 
-  * For an IoT hub, you need to provide the key that has **service connect** permission.
+  - For an IoT hub, you need to provide the key that has **service connect** permission.
 
     [![Verify IoT hub permissions.](media/preview-troubleshoot/verify-correct-permissions.png)](media/preview-troubleshoot/verify-correct-permissions.png#lightbox)
 
-    * Both the policies **iothubowner** and **service** work because they have **service connect** permission.
+    - Both the policies **iothubowner** and **service** work because they have **service connect** permission.
 
-  * For an event hub, you need to provide the key that has **Listen** permission.
+  - For an event hub, you need to provide the key that has **Listen** permission.
   
     [![Review event hub permissions.](media/preview-troubleshoot/verify-eh-permissions.png)](media/preview-troubleshoot/verify-eh-permissions.png#lightbox)
 
-    * Both the **Read** and **Manage** policies work because they have **Listen** permission.
+    - Both the **Read** and **Manage** policies work because they have **Listen** permission.
 
 - Your consumer group provided isn't exclusive to Time Series Insights.
 
@@ -70,30 +70,30 @@ You might be sending data without the Time Series ID.
 
 ## Problem: Data was showing, but now ingestion has stopped
 
-- Your event source key may have been regenerate and your Gen2 environment needs the new event source key.
+- Your event source key may have been regenerated and your Gen2 environment needs the new event source key.
 
-This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub. 
+This problem occurs when the key provided when creating your event source is no longer valid. You would see telemetry in your hub but no Ingress Received Messages in Time Series Insights. If you are unsure whether or not the key was regenerated, you can search your Event Hubs' Activity log for "Create or Update Namespace Authorization Rules" or search "Create or update IotHub Resource" for IoT hub.
 
-To update your Time Series Insights Gen2 environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources. 
+To update your Time Series Insights Gen2 environment with the new key open your hub resource in the Azure portal and copy the new key. Navigate to your TSI resource and click on Event Sources.
 
-   [![Update key.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
+   [![Screenshot shows T S I resource with Event Sources menu item called out.](media/preview-troubleshoot/update-hub-key-step-1.png)](media/preview-troubleshoot/update-hub-key-step-1.png#lightbox)
 
 Select the event source(s) that have from which ingestion has stopped, paste in the new key and click Save.
 
-   [![Update key.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
+   [![Screenshot shows T S I resource with I o T hub policy key entered.](media/preview-troubleshoot/update-hub-key-step-2.png)](media/preview-troubleshoot/update-hub-key-step-2.png#lightbox)
 
 ## Problem: My event source's Timestamp property name doesn't work
 
 Ensure that the name and value conform to the following rules:
 
-* The Timestamp property name is case sensitive.
-* The Timestamp property value that comes from your event source as a JSON string has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `"2008-04-12T12:53Z"`.
+- The Timestamp property name is case sensitive.
+- The Timestamp property value that comes from your event source as a JSON string has the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `"2008-04-12T12:53Z"`.
 
 The easiest way to ensure that your Timestamp property name is captured and working properly is to use the Time Series Insights Gen2 Explorer. Within the Time Series Insights Gen2 Explorer, use the chart to select a period of time after you provided the Timestamp property name. Right-click the selection, and select the **explore events** option. The first column header is your Timestamp property name. It should have `($ts)` next to the word `Timestamp`, rather than:
 
-* `(abc)`, which indicates that Time Series Insights reads the data values as strings.
-* The **calendar** icon, which indicates that Time Series Insights reads the data value as datetime.
-* `#`, which indicates that Time Series Insights reads the data values as an integer.
+- `(abc)`, which indicates that Time Series Insights reads the data values as strings.
+- The **calendar** icon, which indicates that Time Series Insights reads the data value as datetime.
+- `#`, which indicates that Time Series Insights reads the data values as an integer.
 
 If the Timestamp property isn't explicitly specified, an event's IoT hub or event hub Enqueued Time is used as the default time stamp.
 
@@ -124,9 +124,9 @@ This problem might occur if your environment doesn't have a Time Series Model hi
 
 This problem might occur if you are not using the latest version of the Power BI Connector in Power BI Desktop.
 
-[![Unparented instances will display a warning.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
+[![Screenshot shows the Unable to connect dialog box.](media/preview-troubleshoot/power-bi-unable-to-connect.png)](media/preview-troubleshoot/power-bi-unable-to-connect.png#lightbox)
 
-* Check the version of your Power BI Desktop and make sure that you're using the July 2020 Version. If not, update your Power BI Desktop and run the connector again. 
+- Check the version of your Power BI Desktop and make sure that you're using the July 2020 Version. If not, update your Power BI Desktop and run the connector again.
 
 ## Next steps
 

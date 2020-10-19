@@ -51,7 +51,7 @@ If the query returns a continuation token, then there are additional query resul
 
 In Azure Cosmos DB's REST API, you can manage continuation tokens with the `x-ms-continuation` header. As with querying with the .NET or Java SDK, if the `x-ms-continuation` response header is not empty, it means the query has additional results.
 
-As long as you are using the same SDK version, continuation tokens never expire. You can optionally [restrict the size of a continuation token](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Regardless of the amount of data or number of physical partitions in your container, queries return a single continuation token.
+As long as you are using the same SDK version, continuation tokens never expire. You can optionally [restrict the size of a continuation token](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions.responsecontinuationtokenlimitinkb?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Documents_Client_FeedOptions_ResponseContinuationTokenLimitInKb). Regardless of the amount of data or number of physical partitions in your container, queries return a single continuation token.
 
 You cannot use continuation tokens for queries with [GROUP BY](sql-query-group-by.md) or [DISTINCT](sql-query-keywords.md#distinct) because these queries would require storing a significant amount of state. For queries with `DISTINCT`, you can use continuation tokens if you add `ORDER BY` to the query.
 

@@ -7,7 +7,7 @@ ms.service: sql-managed-instance
 ms.subservice: operations
 ms.custom: 
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, mathoma

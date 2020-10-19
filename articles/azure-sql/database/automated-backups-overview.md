@@ -7,10 +7,10 @@ ms.service: sql-db-mi
 ms.subservice: backup-restore
 ms.custom: references_regions
 ms.topic: conceptual
-author: anosov1960
-ms.author: sashan
-ms.reviewer: mathoma, carlrab, danil
-ms.date: 09/25/2020
+author: shkale-msft
+ms.author: shkale
+ms.reviewer: mathoma, stevestein, danil
+ms.date: 10/05/2020
 ---
 # Automated backups - Azure SQL Database & SQL Managed Instance
 
@@ -44,7 +44,7 @@ For a SQL Database the backup storage redundancy can be configured at the time o
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Azure SQL Database Configurable Backup Storage Redundancy is currently available in public preview in Southeast Asia Azure region only.  
+> Configurable Backup Storage Redundancy for Azure SQL Database is currently generally available in Southeast Asia Azure region only. This feature is not yet available for Hyperscale tier. 
 
 ### Backup usage
 
@@ -409,6 +409,9 @@ Set-AzSqlDatabase -ResourceGroupName "ResourceGroup01" -DatabaseName "Database01
 
 For details visit [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
 
+> [!NOTE]
+> To use -BackupStorageRedundancy parameter with database restore, database copy or create secondary operations, use Azure PowerShell version Az.Sql 2.11.0. 
+
 
 #### [SQL Managed Instance](#tab/managed-instance)
 
@@ -419,6 +422,8 @@ New-AzSqlInstance -Name managedInstance2 -ResourceGroupName ResourceGroup01 -Loc
 ```
 
 For more details visit [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance).
+
+---
 
 ## Use Azure Policy to enforce backup storage redundancy
 
@@ -435,11 +440,13 @@ Following new built-in policies are added, which can be assigned at the subscrip
 
 A full list of built-in policy definitions for SQL Database and Managed Instance can be found [here](https://docs.microsoft.com/azure/azure-sql/database/policy-reference).
 
-To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure portal or Azure PowerShell. Note that, Azure policies are not enforced when creating a database via T-SQL. 
+To enforce data residency requirements at an organizational level, these policies can be assigned to a subscription. After these are assigned at a subscription level, users in the given subscription will not be able to create a database or a managed instance with geo-redundant backup storage via Azure portal or Azure PowerShell. 
+
+> [!IMPORTANT]
+> Azure policies are not enforced when creating a database via T-SQL. To enforce data residency when creating a database using T-SQL, [use 'LOCAL' or 'ZONE' as input to BACKUP_STORAGE_REDUNDANCY paramater in CREATE DATABASE statement](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current#create-database-using-zone-redundancy-for-backups).
 
 Learn how to assign policies using the [Azure portal](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal) or [Azure PowerShell](https://docs.microsoft.com/azure/governance/policy/assign-policy-powershell)
 
----
 
 ## Next steps
 

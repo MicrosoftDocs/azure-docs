@@ -2,7 +2,7 @@
 title: Use multi-instance tasks to run MPI applications
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 ms.topic: how-to
-ms.date: 03/13/2019
+ms.date: 10/08/2020
 ms.custom: "H1Hack27Feb2017, devx-track-csharp"
 ---
 
@@ -34,7 +34,7 @@ When you submit a task with multi-instance settings to a job, Batch performs sev
 >
 
 ## Requirements for multi-instance tasks
-Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool) property to 1.
+Multi-instance tasks require a pool with **inter-node communication enabled**, and with **concurrent task execution disabled**. To disable concurrent task execution, set the [CloudPool.TaskSlotsPerNode](/dotnet/api/microsoft.azure.batch.cloudpool) property to 1.
 
 > [!NOTE]
 > Batch [limits](batch-quota-limit.md#pool-size-limits) the size of a pool that has inter-node communication enabled.
@@ -53,11 +53,11 @@ CloudPool myCloudPool =
 // Multi-instance tasks require inter-node communication, and those nodes
 // must run only one task at a time.
 myCloudPool.InterComputeNodeCommunicationEnabled = true;
-myCloudPool.MaxTasksPerComputeNode = 1;
+myCloudPool.TaskSlotsPerNode = 1;
 ```
 
 > [!NOTE]
-> If you try to run a multi-instance task in a pool with internode communication disabled, or with a *maxTasksPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state. 
+> If you try to run a multi-instance task in a pool with internode communication disabled, or with a *taskSlotsPerNode* value greater than 1, the task is never scheduled--it remains indefinitely in the "active" state.
 
 
 ### Use a StartTask to install MPI
@@ -90,11 +90,11 @@ Look for the sizes specified as "RDMA capable" in the following articles:
   * [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (Windows only)
 * **VirtualMachineConfiguration** pools
 
-  * [Sizes for virtual machines in Azure](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) (Linux)
-  * [Sizes for virtual machines in Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) (Windows)
+  * [Sizes for virtual machines in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json) (Linux)
+  * [Sizes for virtual machines in Azure](../virtual-machines/sizes.md?toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json) (Windows)
 
 > [!NOTE]
-> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes. 
+> To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes.
 >
 
 ## Create a multi-instance task with Batch .NET

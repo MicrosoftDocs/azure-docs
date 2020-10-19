@@ -35,7 +35,7 @@ For Linux and other unsupported platforms where ServiceInterop.dll isn't availab
 
 The four application types listed here use 32-bit host processing by default. To change host processing to 64-bit processing for your application type, do the following:
 
-- **For executable applications**: In the **Project Properties** window, on the **Build** pane, set the [platform target](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) to **x64**.
+- **For executable applications**: In the **Project Properties** window, on the **Build** pane, set the [platform target](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019&preserve-view=true) to **x64**.
 
 - **For VSTest-based test projects**: On the Visual Studio **Test** menu, select **Test** > **Test Settings**, and then set **Default Processor Architecture** to **X64**.
 
@@ -159,7 +159,7 @@ When you're working on Azure Functions, instances should also follow the existin
 For workloads that have heavy create payloads, set the `EnableContentResponseOnWrite` request option to `false`. The service will no longer return the created or updated resource to the SDK. Normally, because the application has the object that's being created, it doesn't need the service to return it. The header values are still accessible, like a request charge. Disabling the content response can help improve performance, because the SDK no longer needs to allocate memory or serialize the body of the response. It also reduces the network bandwidth usage to further help performance.  
 
 ```csharp
-ItemRequestOption requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
+ItemRequestOptions requestOptions = new ItemRequestOptions() { EnableContentResponseOnWrite = false };
 ItemResponse<Book> itemResponse = await this.container.CreateItemAsync<Book>(book, new PartitionKey(book.pk), requestOptions);
 // Resource will be null
 itemResponse.Resource
@@ -195,7 +195,7 @@ Parallel queries provide two parameters that you can tune to fit your requiremen
 
 During performance testing, you should increase load until a small rate of requests are throttled. If requests are throttled, the client application should back off throttling for the server-specified retry interval. Respecting the backoff helps ensure that you'll spend a minimal amount of time waiting between retries. 
 
-For more information, see [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
+For more information, see [RetryAfter](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosexception.retryafter?view=azure-dotnet&preserve-view=true#Microsoft_Azure_Cosmos_CosmosException_RetryAfter).
     
 There's a mechanism for logging additional diagnostics information and troubleshooting latency issues, as shown in the following sample. You can log the diagnostics string for requests that have a higher read latency. The captured diagnostics string will help you understand how many times you received a *429* error for a given request.
 

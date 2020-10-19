@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/22/2020
+ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
 ---
@@ -81,7 +81,7 @@ Now let's switch to working with code. Let's clone a SQL API app from GitHub, se
 Run the following command to clone the sample repository. This command creates a copy of the sample app on your computer.
 
 ```bash
-git clone https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos
+git clone https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started.git
 ```
 
 ## Review the code

@@ -93,7 +93,7 @@
     - name: Software plans
       href: ../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json
     - name: SQL Database
-      href: ../../sql-database/sql-database-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json
+      href: ../../azure-sql/database/reserved-capacity-overview.md?toc=%252fazure%252fcost-management-billing%252freservations%252ftoc.json
     - name: Virtual machines
       href: ../../virtual-machines/windows/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json
   - name: View, Manage and Optimize after purchase
@@ -118,6 +118,10 @@
     items:
     - name: Renew a reservation
       href: reservation-renew.md?toc=/azure/cost-management-billing/reservations/toc.json
+  - name: Troubleshoot
+    items:
+    - name: No eligible subscriptions
+      href: troubleshoot-no-eligible-subscriptions.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: Reference
   items:
   - name: Reservations REST API
@@ -130,3 +134,7 @@
     href: /rest/api/consumption/usagedetails
   - name: Cost Management - Consumption Reservations Details REST API
     href: /rest/api/consumption/reservationsdetails
+- name: Resources
+  items:
+  - name: Save money with reserved instances Learn module
+    href: /learn/modules/save-money-with-azure-reserved-instances

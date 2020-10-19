@@ -22,7 +22,7 @@ In this quickstart, you will learn how to quickly be able to view and monitor wh
 
 ## Get visualization
 
-To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into incidents. **incidents** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
+To visualize and get analysis of what's happening on your environment, first, take a look at the overview dashboard to get an idea of the security posture of your organization. You can click on each element of these tiles to drill down to the raw data from which they are created. To help you reduce noise and minimize the number of alerts you have to review and investigate, Azure Sentinel uses a fusion technique to correlate alerts into incidents. **Incidents** are groups of related alerts that together create an actionable incident that you can investigate and resolve.
 
 - In the Azure portal, select Azure Sentinel and then select the workspace you want to monitor.
 

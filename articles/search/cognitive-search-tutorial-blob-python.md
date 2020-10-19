@@ -311,7 +311,7 @@ In this section, you define the index schema by specifying the fields to include
 
 This exercise uses the following fields and field types:
 
-| field-names: | id         | content   | languageCode | keyPhrases         | organizations     |
+| field-names: | ID         | content   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 

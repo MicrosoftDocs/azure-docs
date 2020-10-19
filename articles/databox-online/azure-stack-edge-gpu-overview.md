@@ -70,7 +70,7 @@ Azure Stack Edge Pro physical device, Azure resource, and target storage account
 
 - **Resource availability** - For this preview release, the resource is available in East US, West EU, and South East Asia regions.
 
-- **Device availability** - For a list of all the countries where the Azure Stack Edge Pro device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
+- **Device availability** - For a list of all the countries/regions where the Azure Stack Edge Pro device is available, go to **Availability** section in the **Azure Stack Edge Pro** tab for [Azure Stack Edge Pro pricing](https://azure.microsoft.com/pricing/details/azure-stack/edge/#azureStackEdgePro).
     
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions. The regions where the storage accounts store Azure Stack Edge Pro data should be located close to where the device is located for optimum performance. A storage account located far from the device results in long latencies and slower performance.
 
