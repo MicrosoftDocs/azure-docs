@@ -184,7 +184,7 @@ One route should allow multiple notifications and event types to be selected.
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
-er.Filter("true"); //Filter allows all messages
+er.Filter = "true"; //Filter allows all messages
 await client.CreateEventRoute("routeName", er);
 ```
 
@@ -206,7 +206,7 @@ try
     Pageable <EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
-        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointId} with filter {r.Filter} ");
+        Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
     }
     Console.WriteLine("Deleting routes:");
     foreach (EventRoute r in result)
@@ -231,7 +231,7 @@ Without filtering, endpoints receive a variety of events from Azure Digital Twin
 
 You can restrict the events being sent by adding a **filter** for an endpoint to your event route.
 
-To add a filter, you can use a PUT request to *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-05-31-preview* with the following body:
+To add a filter, you can use a PUT request to *https://{YourHost}/EventRoutes/myNewRoute?api-version=2020-10-31* with the following body:
 
 ```json  
 {

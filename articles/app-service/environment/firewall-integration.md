@@ -222,6 +222,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |rteventservice.trafficmanager.net:443 |
 |ctldl.windowsupdate.com:80 |
 |ctldl.windowsupdate.com:443 |
+|global-dsms.dsms.core.windows.net:443 |
 
 #### Wildcard HTTP/HTTPS dependencies 
 
@@ -425,6 +426,7 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |www.microsoft.com:443 |
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
+|global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png
