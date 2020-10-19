@@ -114,8 +114,12 @@ AWS Systems Manager is required for automating tasks across your AWS resources. 
 - [Installing and Configuring SSM Agent on Amazon EC2 Linux Instances](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-ssm-agent.html)
 
 
-### Step 4. Create a Service Principal for onboarding at scale
+### Step 4. Complete Azure Arc prerequisites
+1. Make sure the appropriate [Azure resources providers](../azure-arc/servers/agent-overview#register-azure-resource-providers) are registered
+    - Microsoft.HybridCompute
+    - Microsoft.GuestConfiguration
 
+1.Create a Service Principal for onboarding at scale
 As an **Owner** on the subscription you want to use for the onboarding, create a a service principal for Azure Arc onboarding as described in [Create a Service Principal for onboarding at scale](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
 
 
