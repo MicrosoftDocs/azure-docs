@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Sage Intacct | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Sage Intacct.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 92518e02-a62c-4b1b-a8e9-2803eb2b49ac
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Integrate Sage Intacct with Azure Active Directory
@@ -191,7 +185,7 @@ To set up Azure AD users so they can sign in to Sage Intacct, they must be provi
 
 1. In the **User Information** section, perform the following steps:
 
-    ![User Information](./media/intacct-tutorial/ic790043.png "User Information")
+    ![Screenshot shows the User Information section where you can enter the information in this step.](./media/intacct-tutorial/ic790043.png "User Information")
 
     a. Enter the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title**, and the **Phone** of an Azure AD account that you want to provision into the **User Information** section.
 
@@ -206,7 +200,7 @@ To set up Azure AD users so they can sign in to Sage Intacct, they must be provi
 
 1. Click **Single sign-on** tab and make sure that the **Federated SSO user ID** in below screenshot and the **Source Attribute** value which is mapped with the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` in the **User Attributes** section in the Azure portal should be same.
 
-	![User Information](./media/intacct-tutorial/ic790044.png "User Information")
+	![Screenshot shows the User Information section where you can enter the Federated S S O user i d.](./media/intacct-tutorial/ic790044.png "User Information")
 
 > [!NOTE]
 > To provision Azure AD user accounts, you can use other Sage Intacct user account creation tools or APIs that are provided by Sage Intacct.

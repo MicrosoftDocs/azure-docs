@@ -4,8 +4,9 @@ description: Learn about the Reporting APIs that enable Enterprise Azure custome
 author: mumami
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.topic: reference
-ms.date: 06/22/2020
+ms.date: 08/20/2020
 ms.author: banders
 
 ---

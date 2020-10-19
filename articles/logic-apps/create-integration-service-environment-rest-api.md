@@ -60,7 +60,7 @@ In the request header, include these properties:
 
 ## Request body
 
-Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section. For an existing ISE, you can send a PATCH request for only the `certificates` object. For more information about using self-signed certificates, see also [HTTP connector - Self-signed certificates](../connectors/connectors-native-http.md#self-signed).
+Here is the request body syntax, which describes the properties to use when you create your ISE. To create an ISE that permits using a self-signed certificate that's installed at the `TrustedRoot` location, include the `certificates` object inside the ISE definition's `properties` section. For an existing ISE, you can send a PATCH request for only the `certificates` object. For more information about using self-signed certificates, see [Secure access and data - Access for outbound calls to other services and systems](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ```json
 {

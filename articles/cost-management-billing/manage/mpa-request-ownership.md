@@ -1,35 +1,36 @@
 ---
 title: Get billing ownership of Azure subscriptions for Microsoft Partner Agreement (MPA)
-description: Learn how to request billing ownership of Azure subscriptions from other users.
+description: Learn how to request billing ownership of Azure subscriptions from other users for Microsoft Partner Agreement (MPA).
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: how-to
-ms.date: 07/24/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Get billing ownership of Azure subscriptions to your MPA account
 
 To provide a single combined invoice for managed services and Azure consumption, a Cloud Solution Provider (CSP) can take over billing ownership of Azure subscriptions from their customers with Direct Enterprise Agreements (EA).
 
 This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
-To request the billing ownership, you must have **Global Admin** or **Admin Agents** role. To learn more, see [Partner Center - Assign users roles and permissions](https://docs.microsoft.com/partner-center/permissions-overview).
+To request the billing ownership, you must have **Global Admin** or **Admin Agents** role. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
 This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement (MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
 ## Prerequisites
 
-1. Establish [reseller relationship](https://docs.microsoft.com/partner-center/request-a-relationship-with-a-customer) with the customer. Check [CSP Regional Authorization Overview](https://docs.microsoft.com/partner-center/regional-authorization-overview) to ensure both customer and Partner tenant are within the same authorized regions.
-1. [Confirm customer has accepted the Microsoft Customer Agreement](https://docs.microsoft.com/partner-center/confirm-customer-agreement).
-1. Set up an [Azure plan](https://docs.microsoft.com/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to set up an Azure plan for each combination of a customer and a reseller.
+1. Establish [reseller relationship](/partner-center/request-a-relationship-with-a-customer) with the customer. Check [CSP Regional Authorization Overview](/partner-center/regional-authorization-overview) to ensure both customer and Partner tenant are within the same authorized regions.
+1. [Confirm customer has accepted the Microsoft Customer Agreement](/partner-center/confirm-customer-agreement).
+1. Set up an [Azure plan](/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to set up an Azure plan for each combination of a customer and a reseller.
 
 ## Request billing ownership
 
 1. Sign in to the [Azure portal](https://portal.azure.com) using CSP Admin Agent credentials in the CSP tenant.
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-request-ownership/search-cmb.png)
+    ![Screenshot that shows Azure portal search for cost management + billing to request billing ownership.](./media/mpa-request-ownership/search-cmb.png)
 1. Select **Customers** from the left-hand side and then select a customer from the list.  
     [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Select **Transfer requests** from the lower-left side and then select **Add a new request**.  
@@ -51,7 +52,7 @@ This article applies to billing accounts for Microsoft Partner Agreements. These
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Cost Management + Billing**.  
-    ![Screenshot that shows Azure portal search for cost management + billing](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
+    ![Screenshot that shows Azure portal search for cost management + billing to request transfer status.](./media/mpa-request-ownership/billing-search-cost-management-billing.png)
 1. Select **Customers** from the left-hand side.  
     [![Screenshot that shows selecting customers](./media/mpa-request-ownership/mpa-select-customers.png)](./media/mpa-request-ownership/mpa-select-customers.png#lightbox)
 1. Select the customer from the list for which you sent the transfer request.
@@ -120,13 +121,13 @@ Azure Marketplace products, which are available for subscriptions that are manag
 
 ### Azure Reservations transfer
 
-Azure Reservations don't automatically move with subscriptions. Either you can keep the Reservation in EAfor other subscriptions or [cancel the Reservation](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations) and partner can repurchase in CSP.
+Azure Reservations don't automatically move with subscriptions. Either you can keep the Reservation in EAfor other subscriptions or [cancel the Reservation](../reservations/exchange-and-refund-azure-reservations.md) and partner can repurchase in CSP.
 
 ### Access to Azure services
 
-Access for existing users, groups, or service principals that was assigned using [Azure RBAC (role-based access control)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new RBAC access to the subscriptions.
+Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition. The partner won’t get any new Azure RBAC access to the subscriptions.
 
-The partners should work with the customer to get access to subscriptions. The partners need to get either [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) or [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/concepts/cloud-solution-provider) access open support tickets.
+The partners should work with the customer to get access to subscriptions. The partners need to get either [Admin on Behalf Of - AOBO](https://channel9.msdn.com/Series/cspdev/Module-11-Admin-On-Behalf-Of-AOBO) or [Azure Lighthouse](../../lighthouse/concepts/cloud-solution-provider.md) access open support tickets.
 
 ### Azure support plan
 
@@ -152,13 +153,13 @@ Some of the customer transition requests may require an additional review proces
 
 The directory of the Azure subscriptions that are transferred must match the directory of the customer that was selected while establishing the CSP relationship.
 
-If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+If these two directories don’t match, the subscriptions couldn't be transferred. You need to either establish a new CSP reseller relationship with the customer by selecting the directory of the Azure subscriptions or change the directory of Azure subscriptions to match with the customer CSP relationship directory. For more information, see [Associate an existing subscription to your Azure AD directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md#to-associate-an-existing-subscription-to-your-azure-ad-directory).
 
 ### EA subscription in the non-orgnization directory
 
 The EA subscriptions from non-organization directories can be transferred as long as the directory has a reseller relationship with the CSP. If the directory doesn’t have a reseller relationship, you need to make sure to have the organization user in the directory as a *Global Administrator* who can accept the partner relationship. The domain name portion of the username must either be the initial default domain name "[domain name]. onmicrosoft.com" or a verified, non-federated custom domain name such as "contoso.com."  
 
-To add new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the AAD directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory).
+To add new user to the directory, see [Quickstart: Add new users to Azure Active Directory to add the new user to the AAD directory](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 ## Check access to a Microsoft Partner Agreement
 
@@ -171,4 +172,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 * The billing ownership of the Azure subscriptions is transferred to you. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
-* Work with the customer to get access to the transferred Azure subscriptions. [Manage access to Azure resources using RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal).
+* Work with the customer to get access to the transferred Azure subscriptions. [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).

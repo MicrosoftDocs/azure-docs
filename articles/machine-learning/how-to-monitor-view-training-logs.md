@@ -15,7 +15,7 @@ ms.custom: how-to
 
 # Monitor and view ML run logs and metrics
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In this article, you learn how to monitor Azure Machine Learning runs and view their logs. Before you can view logs, you have to enable them first. For more information, see [Enable logging in Azure ML training runs](how-to-track-experiments.md).
 
@@ -53,7 +53,7 @@ Once a run completes, it is no longer displayed on this page. To view informatio
 
 ## Monitor runs using the Jupyter notebook widget
 
-When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
+When you use the **ScriptRunConfig** method to submit runs, you can watch the progress of the run using the [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true). Like the run submission, the widget is asynchronous and provides live updates every 10-15 seconds until the job completes.
 
 View the Jupyter widget while waiting for the run to complete.
     
@@ -88,7 +88,7 @@ RunDetails(run).show()
 
 ## Show output upon completion
 
-When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. For more information, see the ScriptRunConfig section of [How to enable logging](how-to-track-experiments.md#scriptrunconfig-logs).
+When you use **ScriptRunConfig**, you can use ```run.wait_for_completion(show_output = True)``` to show when the model training is complete. The ```show_output``` flag gives you verbose output. For more information, see the ScriptRunConfig section of [How to enable logging](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## Query run metrics
@@ -106,8 +106,7 @@ Drill down to a specific run to view its outputs or logs, or download the snapsh
 
 You can also edit the run list table to select multiple runs and display either the last, minimum, or maximum logged value for your runs. Customize your charts to compare the logged metrics values and aggregates across multiple runs.
 
-:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Run details in the Azure Machine Learning studio":::
-
+![Run details in the Azure Machine Learning studio](media/how-to-track-experiments/experimentation-tab.gif)
 
 ### Format charts in the studio
 
@@ -125,7 +124,7 @@ Use the following methods in the logging APIs to influence the studio visualizes
 
 Try these next steps to learn how to use Azure Machine Learning:
 
-* Learn how to [track experiments and enable logs in the Azure Machine Learning designer (preview)](how-to-track-designer-experiments.md).
+* Learn how to [track experiments and enable logs in the Azure Machine Learning designer](how-to-track-designer-experiments.md).
 
 * See an example of how to register the best model and deploy it in the tutorial, [Train an image classification model with Azure Machine Learning](tutorial-train-models-with-aml.md).
 

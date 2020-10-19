@@ -6,10 +6,10 @@ author: msmbaldwin
 services: key-vault
 
 ms.author: mbaldwin
-ms.date: 08/08/2020
-ms.topic: conceptual
+ms.date: 09/04/2020
+ms.topic: how-to
 ms.service: key-vault
-ms.subservice: general
+
 
 ---
 
@@ -17,8 +17,8 @@ ms.subservice: general
 
 > [!NOTE]
 > **Microsoft.Azure.Services.AppAuthentication** is no longer recommended to use with new Key Vault SDK. 
-> It is replaced with new Azure Identity library **DefaultAzureCredentials** available for .NET, Java, TypeScript and Python and should be used for all new development. 
-> More information can be found here: [Authentication and the Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk/).
+> It is replaced with new **Azure Identity client library** available for .NET, Java, TypeScript and Python and should be used for all new development. 
+> More information can be found here: [Authentication to Key Vault in code](https://docs.microsoft.com/azure/key-vault/general/developers-guide#azure-identity-client-libraries).
 
 To authenticate to Azure Key Vault, you need an Azure Active Directory (Azure AD) credential, either a shared secret or a certificate.
 
@@ -53,7 +53,7 @@ For .NET applications, the simplest way to work with a managed identity is throu
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-The `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. So, you no longer have to check the expiration before calling the `GetAccessTokenAsync` method. Just call the method when you want to use the token.
+The thread-safe `AzureServiceTokenProvider` class caches the token in memory and retrieves it from Azure AD just before expiration. That means you never need to check the expiration of the token before calling the `GetAccessTokenAsync` method. 
 
 The `GetAccessTokenAsync` method requires a resource identifier. To learn more about Microsoft Azure services, see [What is managed identities for Azure resources](../../active-directory/msi-overview.md).
 

@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Perception United States (Non-UltiPro) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Perception United States (Non-UltiPro).
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: b4a8f026-cb5f-41eb-9680-68eddc33565e
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Perception United States (Non-UltiPro)
 
@@ -135,7 +129,7 @@ To configure Azure AD single sign-on with Perception United States (Non-UltiPro)
 
 2. In the main toolbar, click **Account Settings**.
 
-    ![Perception United States (Non-UltiPro) user](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Screenshot that shows "Account Settings" selected from the main toolbar.](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
 3. On the **Account Settings** page, perform the following steps:
 

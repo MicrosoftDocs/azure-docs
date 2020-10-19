@@ -31,14 +31,12 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 
 ---
 
-# [Option 1 (default): Create a internal load balancer (Standard SKU)](#tab/option-1-create-internal-load-balancer-standard)
+# [**Standard SKU**](#tab/option-1-create-internal-load-balancer-standard)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. 
-
-You can create a public load balancer or an internal load balancer. 
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
 
@@ -120,7 +118,7 @@ In this section, you'll create a virtual network and subnet.
 
 4. In the **Review + create** tab, select **Create**.   
     
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Create a standard internal load balancer" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-standard-internal-load-balancer.png" alt-text="Create a standard internal load balancer." border="true":::
  
 ## Create load balancer resources
 
@@ -197,7 +195,7 @@ In this section, you'll create a load balancer rule:
 4. Leave the rest of the defaults and then select **OK**.
 
 >[!NOTE]
->The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
+>The virtual machines in the backend pool will not have outbound internet connectivity with this configuration. </br> For more information on providing outbound connectivity, see: </br> **[Outbound connections in Azure](load-balancer-outbound-connections.md)**</br> Options for providing connectivity: </br> **[Outbound-only load balancer configuration](egress-only.md)** </br> **[What is Virtual Network NAT?](https://docs.microsoft.com/azure/virtual-network/nat-overview)**
 
 ## Create backend servers
 
@@ -208,7 +206,7 @@ In this section, you:
 
 ### Create virtual machines
 
-In this section, you'll create two VMs (**myVM1** and **myVM2**) with a standard public IP address in two zones (**Zone 1** and **Zone 2**). 
+In this section, you'll create two VMs (**myVM1** and **myVM2**).
 
 These VMs are added to the backend pool of the load balancer that was created earlier.
 
@@ -243,7 +241,7 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | **Network interface** |  |
     | Virtual network | **myVNet** |
     | Subnet | **myBackendSubnet** |
-    | Public IP | Accept the default of **myVM-ip**. </br> IP will automatically be a standard SKU IP in Zone 1. |
+    | Public IP | Select **None** |
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Select **OK** |
     | **Load balancing**  |
@@ -252,21 +250,12 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Load balancing options | Select **Azure load balancing** |
     | Select a load balancer | Select **myLoadBalancer**  |
     | Select a backend pool | Select **myBackendPool** |
-
-5. Select the **Management** tab, or select **Next** > **Management**.
-
-6. In the **Management** tab, select or enter:
-    
-    | Setting | Value |
-    |-|-|
-    | **Monitoring** |  |
-    | Boot diagnostics | Select **Off** |
    
-7. Select **Review + create**. 
+5. Select **Review + create**. 
   
-8. Review the settings, and then select **Create**.
+6. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create one additional VM with the following values and all the other settings the same as **myVM1**:
+7. Follow the steps 1 to 8 to create one additional VM with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2|
     | ------- | ----- |
@@ -275,14 +264,12 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Network security group | Select the existing **myNSG**|
 
 
-# [Option 2: Create a internal load balancer (Basic SKU)](#tab/option-1-create-internal-load-balancer-basic)
+# [**Basic SKU**](#tab/option-1-create-internal-load-balancer-basic)
 
 >[!NOTE]
 >Standard SKU load balancer is recommended for production workloads.  For more information about skus, see **[Azure Load Balancer SKUs](skus.md)**.
 
 In this section, you create a load balancer that load balances virtual machines. 
-
-You can create a public load balancer or an internal load balancer. 
 
 When you create an internal load balancer, a virtual network is configured as the network for the load balancer. 
 
@@ -363,7 +350,7 @@ In this section, you'll create a virtual network and subnet.
 
 4. In the **Review + create** tab, select **Create**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Create a standard internal load balancer" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/create-basic-internal-load-balancer.png" alt-text="Create a basic internal load balancer." border="true":::
 
 ## Create load balancer resources
 
@@ -456,9 +443,7 @@ In this section, you:
 
 ### Create virtual machines
 
-Public IP SKUs and load balancer SKUs must match. For basic load balancer, use VMs with basic IP addresses in the backend pool. 
-
-In this section, you'll create two VMs (**myVM1**, and **myVM2**) with a basic public IP address.  
+In this section, you'll create two VMs (**myVM1**, and **myVM2**).
 
 The two VMs will be added to an availability set named **myAvailabilitySet**.
 
@@ -500,21 +485,12 @@ These VMs are added to the backend pool of the load balancer that was created ea
     | Configure network security group | Select **Create new**. </br> In the **Create network security group**, enter **myNSG** in **Name**. </br> Select **OK** |
     | **Load balancing**  |
     | Place this virtual machine behind an existing load balancing solution? | Select **No** |
- 
-5. Select the **Management** tab, or select **Next** > **Management**.
 
-6. In the **Management** tab, select or enter:
-    
-    | Setting | Value |
-    |-|-|
-    | **Monitoring** |  |
-    | Boot diagnostics | Select **Off** |
-
-7. Select **Review + create**. 
+5. Select **Review + create**. 
   
-8. Review the settings, and then select **Create**.
+6. Review the settings, and then select **Create**.
 
-9. Follow the steps 1 to 8 to create one additional VM with the following values and all the other settings the same as **myVM1**:
+7. Follow the steps 1 to 8 to create one additional VM with the following values and all the other settings the same as **myVM1**:
 
     | Setting | VM 2 |
     | ------- | ----- |
@@ -578,19 +554,10 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
     | Public IP | Select **None**. |
     | NIC network security group | Select **Advanced**|
     | Configure network security group | Select **MyNSG** created in the previous step.|
-    
-5. Select the **Management** tab, or select **Next** > **Management**.
-
-6. In the **Management** tab, select or enter:
-    
-    | Setting | Value |
-    |-|-|
-    | **Monitoring** |  |
-    | Boot diagnostics | Select **Off** |
-   
-7. Select **Review + create**. 
+       
+5. Select **Review + create**. 
   
-8. Review the settings, and then select **Create**.
+6. Review the settings, and then select **Create**.
 
 ## Install IIS
 
@@ -642,23 +609,22 @@ In this section, you'll create a VM named **myTestVM**.  This VM will be used to
 
 8. Enter the IP address from the previous step into the address bar of the browser. The default page of IIS Web server is displayed on the browser.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Create a standard internal load balancer" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot shows a browser window displaying the default page, as expected." border="true":::
    
-To see the load balancer distribute traffic across all three VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
+To see the load balancer distribute traffic across both VMs, you can customize the default page of each VM's IIS Web server and then force-refresh your web browser from the client machine.
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load Balancer, and all related resources. To do so, select the resource group **myResourceGroupLB** that contains the resources and then select **Delete**.
+When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group **myResourceGroupLB** that contains the resources and then select **Delete**.
 
 ## Next steps
 
 In this quickstart, you:
 
-* Created an Azure Standard or Basic Internal Load Balancer
+* Created an Azure standard or basic internal load balancer
 * Attached 2 VMs to the load balancer.
 * Configured the load balancer traffic rule, health probe, and then tested the load balancer. 
 
-To learn more about Azure Load Balancer, continue to [What is Azure Load Balancer?](load-balancer-overview.md) and [Load Balancer frequently asked questions](load-balancer-faqs.md).
-
-* Learn more about [Load Balancer and Availability zones](load-balancer-standard-availability-zones.md).
-* Learn more about [Azure Bastion](https://docs.microsoft.com/azure/bastion/bastion-overview).
+To learn more about Azure Load Balancer, continue to..
+> [!div class="nextstepaction"]
+> [What is Azure Load Balancer?](load-balancer-overview.md) 

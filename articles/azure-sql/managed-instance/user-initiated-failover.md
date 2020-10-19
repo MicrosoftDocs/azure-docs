@@ -5,11 +5,11 @@ services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: danimir
 ms.author: danil
-ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/12/2020
+ms.reviewer: douglas, sstein
+ms.date: 08/31/2020
 ---
 
 # User-initiated manual failover on SQL Managed Instance
@@ -31,6 +31,15 @@ You might consider executing a [manual failover](../database/high-availability-s
 > Ensuring that your applications are failover resilient prior to deploying to production will help mitigate the risk of application faults in production and will contribute to application availability for your customers.
 
 ## Initiate manual failover on SQL Managed Instance
+
+### RBAC permissions required
+
+User initiating a failover will need to have one of the following RBAC roles:
+
+- Subscription Owner role, or
+- Managed Instance Contributor role, or
+- Custom role with the following permission:
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### Using PowerShell
 
@@ -121,9 +130,12 @@ Before initiating the failover, your output will indicate the current primary re
 
 You will not be able to see the same output with GP service tier as the one above shown for BC. This is because GP service tier is based on a single node only. T-SQL query output for GP service tier will show a single node only before and after the failover. The loss of connectivity from your client during the failover, typically lasting under a minute, will be the indication of the failover execution.
 
+> [!NOTE]
+> Completion of the failover process (not the actual short unavailability) might take several minutes at a time in case of **high-intensity** workloads. This is because the instance engine is taking care of all current transactions on the primary and catch up on the secondary node, prior to being able to failover.
+
 > [!IMPORTANT]
 > Functional limitations of user-initiated manual failover are:
-> - There could be one (1) failover initiated on the same Managed Instance every 30 minutes.
+> - There could be one (1) failover initiated on the same Managed Instance every **30 minutes**.
 > - For BC instances there must exist quorum of replicas for the failover request to be accepted.
 > - For BC instances it is not possible to specify which readable secondary replica to initiate the failover on.
 

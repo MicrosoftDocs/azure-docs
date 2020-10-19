@@ -5,7 +5,7 @@ services: synapse-analytics
 author: azaricstefan 
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice:
+ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: v-stazar 
 ms.reviewer: jrasnick

@@ -15,6 +15,9 @@
     href: fhir-paas-powershell-quickstart.md
   - name: Deploy Azure API for FHIR - CLI
     href: fhir-paas-cli-quickstart.md
+  - name: Deploy Azure API for FHIR - ARM template
+    href: fhir-paas-arm-template-quickstart.md
+    displayName: deploy azure resource manager template
   - name: Deploy FHIR Server for Azure - Portal
     href: fhir-oss-portal-quickstart.md
   - name: Deploy FHIR Server for Azure - PowerShell
@@ -46,11 +49,6 @@
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md
-- name: Samples
-  items:
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: How-to guides
   expanded: false
   items:
@@ -78,14 +76,25 @@
       href: configure-local-rbac.md
     - name: Configure database settings
       href: configure-database.md
+    - name: Configure customer-managed keys
+      href: customer-managed-key.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Export
       href: configure-export-data.md
+  - name: Export data
+    expanded: false
+    items:
+    - name: Export data
+      href: export-data.md
+    - name: De-identified export
+      href: de-identified-export.md
   - name: Find identity object IDs
     href: find-identity-object-ids.md
   - name: Enable Diagnostics Logging in Azure API for FHIR®
     href: enable-diagnostic-logging.md
+  - name: Export Azure IoT Connector for FHIR (preview) metrics through Diagnostic settings
+    href: iot-metrics-diagnostics-export.md
   - name: Get a token for Azure API for FHIR - CLI
     href: get-healthcare-apis-access-token-cli.md
   - name: Troubleshoot failures in Azure IoT Connector for FHIR (preview)
@@ -118,3 +127,6 @@
   items:
   - name: Azure CLI
     href: /cli/azure/ext/healthcareapis/healthcareapis
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md

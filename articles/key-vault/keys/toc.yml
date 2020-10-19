@@ -16,8 +16,10 @@
   - name: Portal
     href: quick-create-portal.md
   - name: Python
-
     href: quick-create-python.md
+  - name: ARM template
+    href: quick-create-template.md
+
 - name: Tutorials 
   items:
   - name: Import HSM-protected keys (overview)
@@ -32,9 +34,6 @@
   items:
   - name: Key Vault Code Samples
     href: https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ../policy-samples.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Reference
   items:
@@ -57,7 +56,9 @@
     displayName: ARM
   - name: Bring your own key specification
     href: byok-specification.md
-
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ../policy-reference.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 
 - name: Resources
   items:

@@ -86,6 +86,21 @@ landingContent:
             url: quickstarts/curl-train-extract.md
           - text: Using the REST API (cURL)
             url: quickstarts/curl-receipts.md
+      - linkListType: concept
+        links:
+          - text: Receipt concepts
+            url: concept-receipts.md?
+
+  - title: Extract data from business cards
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Using the REST API
+            url: quickstarts/python-business-cards.md?
+      - linkListType: concept
+        links:
+          - text: Business card concepts
+            url: concept-business-cards.md?
 
   - title: Get text layout information
     linkLists:
@@ -126,7 +141,13 @@ landingContent:
           - text: Form Recognizer API v2.0
             url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
           - text: .NET SDK
-            url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer
+            url: https://docs.microsoft.com/dotnet/api/overview/azure/ai.formrecognizer-readme
+          - text: Python SDK
+            url: https://docs.microsoft.com/en-us/python/api/azure-ai-formrecognizer/?view=azure-python
+          - text: Java SDK
+            url: https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme
+          - text: JavaScript SDK
+            url: https://docs.microsoft.com/javascript/api/overview/azure/ai-form-recognizer-readme
           - text: Azure PowerShell
             url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)

@@ -33,7 +33,7 @@ To access the Security Center dashboard, in the Azure portal, on the menu, selec
 
 Security Center goes beyond data discovery to provide recommendations for issues that it detects. For example, if a VM was deployed without an attached network security group, Security Center displays a recommendation, with remediation steps you can take. You get automated remediation without leaving the context of Security Center.  
 
-![Recommendations](./media/tutorial-azure-security/recommendations.png)
+![Screenshot shows Recommendations page, which includes a description, resource, state, and severity of recommendations.](./media/tutorial-azure-security/recommendations.png)
 
 ## Set up data collection
 
@@ -63,7 +63,7 @@ To set up a security policy for an entire subscription:
 
 ## View VM configuration health
 
-After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/security-center-virtual-machine-protection.md). 
+After you've turned on data collection and set a security policy, Security Center begins to provide alerts and recommendations. As VMs are deployed, the data collection agent is installed. Security Center is then populated with data for the new VMs. For in-depth information about VM configuration health, see [Protect your VMs in Security Center](../../security-center/asset-inventory.md). 
 
 As data is collected, the resource health for each VM and related Azure resource is aggregated. The information is shown in an easy-to-read chart. 
 

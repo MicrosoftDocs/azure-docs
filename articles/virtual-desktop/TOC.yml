@@ -20,6 +20,8 @@
     href: set-up-service-alerts.md
 - name: How-to
   items:
+  - name: Migrate manually
+    href: manual-migration.md
   - name: Connect to Windows Virtual Desktop resources
     items:
       - name: Connect with the Windows Desktop client
@@ -32,6 +34,12 @@
         href: connect-macos.md
       - name: Connect with the iOS client
         href: connect-ios.md
+      - name: Connect with the Microsoft Store client
+        href: connect-microsoft-store.md
+      - name: Connect with Linux devices
+        href: linux-overview.md
+  - name: Configure device redirections
+    href: configure-device-redirections.md
   - name: Set up the PowerShell module
     href: powershell-module.md
   - name: Create a host pool and session hosts
@@ -94,8 +102,16 @@
     href: configure-automatic-updates.md
   - name: Install language packs
     href: language-packs.md
+  - name: Use Azure Advisor
+    href: azure-advisor.md
+  - name: Resolve recommendations
+    href: azure-advisor-recommendations.md
+  - name: Set up a disaster recovery plan
+    href: disaster-recovery.md
 - name: Concepts
   items:
+  - name: Authentication
+    href: authentication.md
   - name: Safe URL list
     href: safe-url-list.md
   - name: Windows Virtual Desktop environment
@@ -116,6 +132,14 @@
     href: faq.md
   - name: Windows 10 Enterprise multi-session FAQ
     href: windows-10-multisession-faq.md
+  - name: MSIX app attach
+    items:
+      - name: What is MSIX app attach?
+        href: what-is-app-attach.md
+      - name: Glossary
+        href: app-attach-glossary.md
+      - name: FAQ
+        href: app-attach-faq.md
   - name: Data locations
     href: data-locations.md
 - name: Troubleshoot
@@ -150,6 +174,10 @@
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
   - name: Azure command-line interface (CLI)
     href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
+  - name: Azure example scenarios
+    href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
+  - name: Email discovery
+    href: /windows-server/remote/remote-desktop-services/rds-email-discovery
 - name: Resources
   items:
   - name: PowerShell

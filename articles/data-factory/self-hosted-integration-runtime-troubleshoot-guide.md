@@ -5,7 +5,7 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 10/16/2020
 ms.author: abnarain
 ---
 
@@ -518,7 +518,7 @@ This behavior occurs when nodes can't communicate with each other.
 ### Connectivity issue between Self-hosted IR and Data Factory or Self-hosted IR and data source/sink
 
 To troubleshoot the network connectivity issue, you should know 
-how to [collect the network trace](#how-to-collect-netmon-trace), understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
+how to collect the network trace, understand how to use it, and [analyze the netmon trace](#how-to-analyze-netmon-trace) before applying the Netmon Tools in real cases from Self-hosted IR.
 
 #### Symptoms
 
@@ -574,53 +574,12 @@ Take the netmon trace and analyze further.
 
     Therefore, you need to engage the network team to check what the fourth hop is from Self-hosted IR. If it is the firewall as Linux System, then check any logs on why that device resets the package after TCP 3 handshake. However, if you are not sure where to do investigation, try to get the netmon trace from Self-hosted IR and Firewall together during the problematic time to figure out which device may reset this package and cause the disconnection. In this case, you also need to engage your network team to move forward.
 
-### How to collect netmon trace
-
-1.	Download the Netmon Tools from [this website](https://www.microsoft.com/en-sg/download/details.aspx?id=4865), and install it on your Server Machine (whatever server having the issue) and Client (such as Self-hosted IR).
-
-2.	Create a folder, for example, in the following path: *D:\netmon*. Make sure that it has enough space to save the log.
-
-3.	Capture the IP and Port Information. 
-    1. Start a CMD Prompt.
-    2. Select Run as admin and run the following command:
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.	Capture the Netmon Trace (network package).
-    1. Start a CMD Prompt.
-    2. Select Run as admin and run the following command:
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. You can use three different commands to capture the network page:
-        - Option A: RoundRobin File command (This will capture only one file and will overwrite old logs).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Option B: Chained File command (This will create new file if 200 MB is reached).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Option C: Scheduled File command.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.	Press **Ctrl+C** to stop capture the Netmon trace.
- 
-> [!NOTE]
-> If you can only collect the netmon trace on the client machine, please get the server ip address to help you analyze the trace.
-
 ### How to analyze netmon trace
 
-When you try to telnet **8.8.8.8 888** with above netmon trace collected, you are supposed to see below trace:
+> [!NOTE] 
+> Below instruction is applicable to netmon trace. Since netmon trace is currently out of support, you can leverage wireshark as the same.
+
+When you try to telnet **8.8.8.8 888** with netmon trace collected, you are supposed to see below trace:
 
 ![netmon trace 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 
@@ -655,6 +614,37 @@ Below example shows what a good scenario would look like.
 
     ![TCP 4 handshake workflow](media/self-hosted-integration-runtime-troubleshoot-guide/tcp-4-handshake-workflow.png) 
 
+
+### Receiving email to update the network configuration to allow communication with new IP addresses
+
+#### Symptoms
+
+You may receive below email notification, which recommends you to update the network configuration to allow communication with new IP addresses for Azure Data Factory by 8 November 2020:
+
+   ![Email notification](media/self-hosted-integration-runtime-troubleshoot-guide/email-notification.png)
+
+#### Resolution
+
+This notification is for **outbound communications** from your **Integration Runtime** running **on-premise** or inside an **Azure virtual private network** to ADF service. For example, if you have Self-hosted IR or Azure-SQL Server Integration Services (SSIS) IR in Azure VNET, which needs to access ADF service, then you need to review if you need to add this new IP range in your **Network Security Group (NSG)** rules. If your outbound NSG rule uses service tag, there will be no impact.
+
+#### More details
+
+These new IP ranges **only have impact on outbound communications** rules from your **on-premise firewall** or **Azure virtual private network** to ADF service (see [firewall configuration and allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) for reference), for scenarios where you have a Self-hosted IR or SSIS IR in on-premise network or Azure virtual network, which needs to communicate to ADF service.
+
+For existing users using **Azure VPN**:
+
+1. Check any outbound NSG rules in your private network where SSIS or Azure SSIS is configured. If there are no outbound restrictions, then no impact on them.
+1. If you have outbound rule restrictions, check if you use service tag or not. If you use service tag, then no need to change or add anything as the new IP ranges is under existing service tag. 
+  
+    ![Destination check](media/self-hosted-integration-runtime-troubleshoot-guide/destination-check.png)
+
+1. If you use IP addresses directly in your rule setting, then check if you add all IP ranges in [service tags IP range download link](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files). We have already put the new IP ranges in this file. For new users: You just need to follow up relevant Self-hosted IR or SSIS IR configuration in our document to configure NSG rules.
+
+For existing users having SSIS IR or Self-hosted IR **on-premise**:
+
+- Validate with your network infrastructure team and see whether they need to include the new IP range addresses on the communication for outbound rules.
+- For firewall rules based on FQDN names, no updates are required when you use the settings documented on [firewall configuration and the allow list setting up for ip address](data-movement-security-considerations.md#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway). 
+- Some on-premise firewalls support service tags, if you use the updated Azure service tags configuration file, no other changes are needed.
 
 ## Self-hosted IR sharing
 

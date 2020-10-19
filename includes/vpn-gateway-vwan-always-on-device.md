@@ -120,18 +120,18 @@ After you have configured the virtual network gateway and installed the client c
    PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
+   ![Screenshot shows a command prompt window with a command to start the 64-bit version of PowerShell.](./media/vpn-gateway-vwan-always-on-device/powershell.png)
 1. In PowerShell, switch to the folder where **devicecert.ps1** and **VPNProfile.xml** are located, and run the following command:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![Screenshot shows a PowerShell window that has run MachineCertTest by using the devicesert script.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. Run **rasphone**.
 
-   ![rasphone](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![Screenshot shows a Run dialog box with rasphone selected.](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. Look for the **MachineCertTest** entry and click **Connect**.
 
-   ![Connect](./media/vpn-gateway-vwan-always-on-device/connect.png)
+   ![Screenshot shows a Network Connections dialog box with MachineCertTest selected and a Connect button.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. If the connection succeeds, reboot the computer. The tunnel will connect automatically.

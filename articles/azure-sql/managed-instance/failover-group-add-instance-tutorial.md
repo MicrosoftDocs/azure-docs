@@ -5,12 +5,12 @@ description: In this tutorial, learn to create a failover group between a primar
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: high-availability
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, devx-track-azurepowershell
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: tutorial
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: sashan, carlrab
+ms.reviewer: sashan, sstein
 ms.date: 08/27/2019
 ---
 # Tutorial: Add SQL Managed Instance to a failover group
@@ -49,6 +49,8 @@ To complete the tutorial, make sure you have the following items:
 ## Create a resource group and primary managed instance
 
 In this step, you will create the resource group and the primary managed instance for your failover group using the Azure portal or PowerShell. 
+
+Deploy both managed instances to [paired regions](../../best-practices-availability-paired-regions.md) for performance reasons. Managed instances residing in geo-paired regions have much better performance compared to unpaired regions. 
 
 
 # [Portal](#tab/azure-portal) 
@@ -734,6 +736,8 @@ For two managed instances to participate in a failover group, there must be eith
 
 This article provides steps to create the two VPN gateways and connect them, but you can skip ahead to creating the failover group if you have configured ExpressRoute instead. 
 
+> [!NOTE]
+> The SKU of the gateway affects throughput performance. This tutorial deploys a gateway with the most basic SKU (`HwGw1`). Deploy a higher SKU (example: `VpnGw3`) to achieve higher throughput. For all available options, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#benchmark)
 
 # [Portal](#tab/azure-portal)
 

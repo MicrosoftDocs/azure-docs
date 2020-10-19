@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with CylancePROTECT | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and CylancePROTECT.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: ea392d8c-c8aa-4475-99d0-b08524ef0f3a
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with CylancePROTECT
@@ -145,7 +139,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure CylancePROTECT SSO
 
-To configure single sign-on on **CylancePROTECT** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CylancePROTECT support team](https://www.cylance.com/en-us/resources/support/support-overview.html). They set this setting to have the SAML SSO connection set properly on both sides. For more information, use Cylance documentation: [https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4](https://support.cylance.com/s/article/Use-Microsoft-Azure-with-CylancePROTECT4).
+To configure single sign-on on **CylancePROTECT** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [CylancePROTECT support team](https://www.cylance.com/en-us/resources/support/support-overview.html). They set this setting to have the SAML SSO connection set properly on both sides. For more information, use Cylance documentation: [https://support.cylance.com/s/](https://support.cylance.com/s/).
 
 ### Create CylancePROTECT test user
 

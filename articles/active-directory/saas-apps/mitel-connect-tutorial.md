@@ -2,20 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Mitel Connect | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mitel Connect.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: mtillman
-ms.reviewer: barbkess
-
-ms.assetid: 204f540b-09f1-452b-a52f-78143710ef76
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-
 ---
 # Tutorial: Azure Active Directory integration with Mitel MiCloud Connect or CloudLink Platform
 
@@ -111,7 +106,7 @@ To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Az
 
 4. In the Azure portal, select the **Edit** icon in the **Basic SAML Configuration** section.
    
-    ![image](common/edit-urls.png)
+    ![Screenshot shows the Set up Single Sign-On with SAML page with the edit icon selected.](common/edit-urls.png)
 
     The Basic SAML Configuration dialog box appears.
 
@@ -119,7 +114,7 @@ To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Az
 
 6. Copy the URL from the **Reply URL (Assertion Consumer Service URL)** field in the Mitel Account portal and paste it into the **Reply URL (Assertion Consumer Service URL)** field in the Azure portal.
 
-   ![image](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
+   ![Screenshot shows Basic SAML Configuration in the Azure portal and the Set Up Identity Provider section in the Mitel Account portal with lines indicating the relationship between them.](./media/mitel-connect-tutorial/mitel-azure-basic-configuration.png)
 
 7. In the **Sign-on URL** text box, type one of the following URLs:
 
@@ -133,11 +128,11 @@ To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Az
 
 9. In the **SAML Signing Certificate** section on the **SAML-based sign-on** page in the Azure portal, select **Download** next to **Certificate (Base64)** to download the **Signing Certificate** and save it to your computer.
 
-    ![image](./media/mitel-connect-tutorial/azure-signing-certificate.png)
+    ![Screenshot shows the SAML Signing Certificate pane where you can download a certificate.](./media/mitel-connect-tutorial/azure-signing-certificate.png)
 
 10. Open the Signing Certificate file in a text editor, copy all data in the file, and then paste the data in the **Signing Certificate** field in the Mitel Account portal. 
 
-      ![image](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
+      ![Screenshot shows the Signing Certificate field.](./media/mitel-connect-tutorial/mitel-connect-signing-certificate.png)
 
 11. In the **Setup Mitel Connect** section on the **SAML-based sign-on** page of the Azure portal:
 
@@ -145,7 +140,7 @@ To configure MiCloud Connect with SSO for Azure AD, it is easiest to open the Az
 
      1. Copy the URL from the **Azure AD Identifier** field and paste it into the **Entity ID** field in the Mitel Account portal.
          
-         ![image](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
+         ![Screenshot shows the relationship between the SAML-based sign-on page of the Azure portal and the Mitel Account portal.](./media/mitel-connect-tutorial/mitel-azure-set-up-connect.png)
 
 12. Select **Save** on the **Connect Single Sign-On Settings** dialog box in the Mitel Account portal.
 
@@ -240,7 +235,7 @@ To configure CloudLink platform with single sign-on for Azure AD, it is recommen
 	
 	   The **SAML-based Sign-on** page opens, displaying the **Basic SAML Configuration** section.
 
-       ![image](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
+       ![Screenshot shows the SAML-based Sign-on page with Basic SAML Configuration.](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
 
 2. To access the **Azure AD Single Sign On** configuration panel in the CloudLink Accounts portal:
 
@@ -250,33 +245,33 @@ To configure CloudLink platform with single sign-on for Azure AD, it is recommen
 
     1. Select the **3rd party** tab. A list of supported third-party applications is displayed. Select the **Add** button associated with **Azure AD Single Sign On**,  and select **Done**.
 
-       ![image](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
+       ![Screenshot shows the Integrations page where you can add Azure A D Single Sign-On.](./media/mitel-connect-tutorial/mitel-cloudlink-integrations.png)
 
        The **Azure AD Single Sign On** is enabled for the customer account and is added to the **Integrations** section of the **Account Information** page.   
 
    1. Select **Complete Setup**.
     
-      ![image](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
+      ![Screenshot shows the Complete Setup option for Azure A D Single Sign-On.](./media/mitel-connect-tutorial/mitel-cloudlink-complete-setup.png)
       
       The **Azure AD Single Sign On** configuration panel opens.
       
-       ![image](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
+       ![Screenshot shows Azure A D Single Sign-On configuration.](./media/mitel-connect-tutorial/mitel-cloudlink-sso-setup.png)
        
        Mitel recommends that the **Enable Mitel Credentials (Optional)** check box in the **Optional Mitel credentials** section is not selected. Select this check box only if you want the user to sign in to the CloudLink application using the Mitel credentials in addition to the single sign-on option.
 
 3. In the Azure portal, from the **SAML-based Sign-on** page, select the **Edit** icon  in the **Basic SAML Configuration** section. The **Basic SAML Configuration** panel opens.
 
-    ![image](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
+    ![Screenshot shows the Basic SAML Configuration pane with the Edit icon selected.](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
  
  4. Copy the URL from the **Mitel Identifier (Entity ID)** field in the CloudLink Accounts portal and paste it into the **Identifier (Entity ID)** field in the Azure portal.
 
  5. Copy the URL from the **Reply URL (Assertion Consumer Service URL)** field in the CloudLink Accounts portal and paste it into the **Reply URL (Assertion Consumer Service URL)** field in the Azure portal.  
     
-    ![image](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
+    ![Screenshot shows the relation between pages in the CloudLink Accounts portal and the Azure portal.](./media/mitel-connect-tutorial/mitel-cloudlink-saml-mapping.png) 
 
  6. In the **Sign-on URL** text box, type the URL `https://accounts.mitel.io` to use the CloudLink Accounts portal as your default Mitel application.
      
-     ![image](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
+     ![Screenshot shows the Sign on U R L text box.](./media/mitel-connect-tutorial/mitel-cloudlink-sign-on-url.png)
   
      > [!NOTE]
      > The default Mitel application is the application that opens when a user selects the Mitel Connect tile in the Access Panel. This is also the application accessed when the user configures a test setup from Azure AD.
@@ -285,14 +280,14 @@ To configure CloudLink platform with single sign-on for Azure AD, it is recommen
 
 8. In the **SAML Signing Certificate** section on the **SAML-based sign-on** page in the Azure portal, select **Download** beside **Certificate (Base64)** to download the **Signing Certificate**. Save the certificate on your computer.
   
-    ![image](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
+    ![Screenshot shows the SAML Signing Certificate section where you can download a Base64 certificate.](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
 
 9. Open the Signing Certificate file in a text editor, copy all data in the file, and then paste the data into the **Signing Certificate** field in the CloudLink Accounts portal.  
 
     > [!NOTE]
     > If you have more than one certificate, we recommend that you paste them one after the other. 
        
-    ![image](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
+    ![Screenshot shows Step two of the procedure where you fill in values from your Azure A D integration.](./media/mitel-connect-tutorial/mitel-cloudlink-enter-certificate.png)
 
 10. In the **Set up Mitel Connect** section on the **SAML-based sign-on** page of the Azure portal:
 
@@ -300,7 +295,7 @@ To configure CloudLink platform with single sign-on for Azure AD, it is recommen
 
      1. Copy the URL from the **Azure AD Identifier** field and paste it into the **IDP Identifier (Entity ID)** field in the CloudLink Accounts portal.
      
-        ![image](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
+        ![Screenshot shows the source for the values described here in Mintel Connect.](./media/mitel-connect-tutorial/mitel-cloudlink-copy-settings.png)
 
 11. Select **Save** on the **Azure AD Single Sign On** panel in the CloudLink Accounts portal.
 

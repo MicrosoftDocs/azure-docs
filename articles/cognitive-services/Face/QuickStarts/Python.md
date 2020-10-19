@@ -21,7 +21,7 @@ In this quickstart, you'll use the Azure Face REST API with Python to detect hum
 
 ![A man and a woman, each with a rectangle drawn around their faces and age and sex displayed on the image](../images/labelled-faces-python.png)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/cognitive-services/) before you begin. 
 
 
 ## Prerequisites
@@ -50,35 +50,39 @@ Alternately, you can run this quickstart from the command line with the followin
 1. Open a command prompt window.
 1. At the prompt, use the `python` command to run the sample. For example, `python detect-face.py`.
 
-```python
-import requests
-import json
-
-# set to your own subscription key value
-subscription_key = None
-assert subscription_key
-
-# replace <My Endpoint String> with the string from your endpoint URL
-face_api_url = 'https://<My Endpoint String>.com/face/v1.0/detect'
-
-image_url = 'https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg'
-
-headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-
-params = {
-    'returnFaceId': 'true',
-    'returnFaceLandmarks': 'false',
-    'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
-}
-
-response = requests.post(face_api_url, params=params,
-                         headers=headers, json={"url": image_url})
-print(json.dumps(response.json()))
-```
+:::code language="python" source="~/cognitive-services-quickstart-code/python/Face/rest/detect.py" :::
 
 ## Examine the response
 
 A successful response is returned in JSON.
+
+```json
+[
+  {
+    "faceId": "e93e0db1-036e-4819-b5b6-4f39e0f73509",
+    "faceRectangle": {
+      "top": 621,
+      "left": 616,
+      "width": 195,
+      "height": 195
+    }
+  }
+]
+```
+
+## Extract Face Attributes
+ 
+To extract face attributes, use detection model 1 and add the `returnFaceAttributes` query parameter.
+
+```python
+params = {
+	'detectionModel': 'detection_01',
+	'returnFaceAttributes': 'age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise',
+    'returnFaceId': 'true'
+}
+```
+
+The response now includes face attributes. For example:
 
 ```json
 [

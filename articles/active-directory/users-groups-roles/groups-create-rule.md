@@ -36,7 +36,7 @@ Here are some examples of advanced rules or syntax for which we recommend that y
 > [!NOTE]
 > The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
 
-![Add membership rule for a dynamic group](./media/groups-create-rule/update-dynamic-group-rule.png)
+![Screenshot that shows the "Dynamic membership rules" page with the "Add expression" action on the "Configure rules" tab selected.](./media/groups-create-rule/update-dynamic-group-rule.png)
 
 For examples of syntax, supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
 
@@ -50,7 +50,7 @@ For examples of syntax, supported properties, operators, and values for a member
 
 1. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
-   ![Add membership rule for a dynamic group](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Screenshot that shows the "All groups" page with the "New group" action selected.](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 1. To see the custom extension properties available for your membership query:
    1. Select **Get custom extension properties**
@@ -76,7 +76,7 @@ If the rule you entered isn't valid, an explanation of why the rule couldn't be 
 
 ## Turn on or off welcome email
 
-When a new Microsoft 365 group is created, a welcome email notification is sent the users who are added to the group. Later, if any attributes of a user or device change, all dynamic group rules in the organization are processed for membership changes. Users who are added then also receive the welcome notification. You can turn off this behavior in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
+When a new Microsoft 365 group is created, a welcome email notification is sent the users who are added to the group. Later, if any attributes of a user or device change, all dynamic group rules in the organization are processed for membership changes. Users who are added then also receive the welcome notification. You can turn off this behavior in [Exchange PowerShell](/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## Check processing status for a rule
 

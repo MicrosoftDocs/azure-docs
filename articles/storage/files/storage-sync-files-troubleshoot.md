@@ -730,7 +730,7 @@ This error occurs because the cloud endpoint was created with content already ex
 | **Error string** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
 | **Remediation required** | Yes |
 
-In cases where there are many per file sync errors, sync sessions may begin to fail. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
+Sync sessions fail with one of these errors when there are many files that are failing to sync with per-item errors. Perform the steps documented in the [How do I see if there are specific files or folders that are not syncing?](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) section to resolve the per-item errors. For sync error ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED, please open a support case.
 
 > [!NOTE]
 > Azure File Sync creates a temporary VSS snapshot once a day on the server to sync files that have open handles.
@@ -1253,23 +1253,7 @@ If you encounter issues with Azure File Sync on a server, start by completing th
 
 If the issue is not resolved, run the AFSDiag tool and send its .zip file output to the support engineer assigned to your case for further diagnosis.
 
-For Agent Version v11 and Later:
-
-1. Open an elevated PowerShell window, and then run the following commands (press Enter after each command):
-
-    > [!NOTE]
-    >AFSDiag will create the output directory and a temp folder within it prior to collecting logs and will delete the temp folder after execution. Specify an output location which does not contain data.
-    
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
-    ```
-
-2. Reproduce the issue. When you're finished, enter **D**.
-3. A .zip file that contains logs and trace files is saved to the output directory that you specified. 
-
-For Agent Version v10 and Earlier:
+To run AFSDiag, perform the following steps:
 1. Create a directory where the AFSDiag output will be saved (for example, C:\Output).
     > [!NOTE]
     >AFSDiag will delete all content in the output directory prior to collecting logs. Specify an output location which does not contain data.

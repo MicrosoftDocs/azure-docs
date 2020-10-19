@@ -3,6 +3,7 @@ title: Azure Service Bus access control with Shared Access Signatures
 description: Overview of Service Bus access control using Shared Access Signatures overview, details about SAS authorization with Azure Service Bus.
 ms.topic: article
 ms.date: 07/30/2020
+ms.custom: devx-track-csharp
 ---
 
 # Service Bus access control with Shared Access Signatures

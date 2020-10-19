@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 
@@ -19,7 +19,7 @@ ms.collection: M365-identity-device-management
 
 The following are some frequently asked questions (FAQ) for all things related to self-service password reset.
 
-If you have a general question about Azure Active Directory (Azure AD) and self-service password reset (SSPR) that's not answered here, you can ask the community for assistance on the [Microsoft Q&A question page for Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
+If you have a general question about Azure Active Directory (Azure AD) and self-service password reset (SSPR) that's not answered here, you can ask the community for assistance on the [Microsoft Q&A question page for Azure Active Directory](/answers/topics/azure-active-directory.html). Members of the community include engineers, product managers, MVPs, and fellow IT professionals.
 
 This FAQ is split into the following sections:
 
@@ -101,7 +101,7 @@ This FAQ is split into the following sections:
   > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user\@contoso.com*. 
 * **Q:  What languages are supported by password reset?**
 
-  > **A:** The password reset UI, SMS messages, and voice calls are localized in the same languages that are supported in Office 365.
+  > **A:** The password reset UI, SMS messages, and voice calls are localized in the same languages that are supported in Microsoft 365.
   >
   >
 * **Q:  What parts of the password reset experience get branded when I set the organizational branding items in my directory's configure tab?**
@@ -194,7 +194,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can my users be notified in the Office portal when their on-premises password expires?**
 
-  > **A:** Yes, this is possible today if you use Active Directory Federation Services (AD FS). If you use AD FS, follow the instructions in the [Sending password policy claims with AD FS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) article. If you use password hash synchronization, this is not possible today. We don't sync password policies from on-premises directories, so it's not possible for us to post expiration notifications to cloud experiences. In either case, it's also possible to [notify users whose passwords are about to expire through PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  > **A:** Yes, this is possible today if you use Active Directory Federation Services (AD FS). If you use AD FS, follow the instructions in the [Sending password policy claims with AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396) article. If you use password hash synchronization, this is not possible today. We don't sync password policies from on-premises directories, so it's not possible for us to post expiration notifications to cloud experiences. In either case, it's also possible to [notify users whose passwords are about to expire through PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
   >
   >
 * **Q:  Can I block users from changing their password?**
@@ -240,7 +240,7 @@ This FAQ is split into the following sections:
 
 * **Q:  How does password writeback work behind the scenes?**
 
-  > **A:** See the article [How password writeback works](howto-sspr-writeback.md) for an explanation of what happens when you enable password writeback and how data flows through the system back into your on-premises environment.
+  > **A:** See the article [How password writeback works](./tutorial-enable-sspr-writeback.md) for an explanation of what happens when you enable password writeback and how data flows through the system back into your on-premises environment.
   >
   >
 * **Q:  How long does password writeback take to work? Is there a synchronization delay like there is with password hash sync?**
@@ -270,7 +270,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Is password writeback secure?  How can I be sure I won't get hacked?**
 
-  > **A:** Yes, password writeback is secure. To read more about the multiple layers of security implemented by the password writeback service, check out the [Password writeback security](concept-sspr-writeback.md#password-writeback-security) section in the [Password writeback overview](howto-sspr-writeback.md) article.
+  > **A:** Yes, password writeback is secure. To read more about the multiple layers of security implemented by the password writeback service, check out the [Password writeback security](concept-sspr-writeback.md#password-writeback-security) section in the [Password writeback overview](./tutorial-enable-sspr-writeback.md) article.
   >
   >
 
@@ -283,7 +283,7 @@ This FAQ is split into the following sections:
 * [What data is used by SSPR and what data should you populate for your users?](howto-sspr-authenticationdata.md)
 * [What authentication methods are available to users?](concept-sspr-howitworks.md#authentication-methods)
 * [What are the policy options with SSPR?](concept-sspr-policy.md)
-* [What is password writeback and why do I care about it?](howto-sspr-writeback.md)
+* [What is password writeback and why do I care about it?](./tutorial-enable-sspr-writeback.md)
 * [How do I report on activity in SSPR?](howto-sspr-reporting.md)
 * [What are all of the options in SSPR and what do they mean?](concept-sspr-howitworks.md)
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)

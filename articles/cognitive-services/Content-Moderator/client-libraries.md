@@ -10,26 +10,29 @@ zone_pivot_groups: programming-languages-set-eleven
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 04/24/2020
+ms.date: 09/15/2020
 ms.author: pafarley
-ms.custom: devx-track-python
+ms.custom: "devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020"
+keywords: content moderator, azure content moderator, online moderator, content filtering software
+
 ---
+
 # Quickstart: Use the Content Moderator client library
 
 ::: zone pivot="programming-language-csharp"
 
-[!INCLUDE [C# quickstart](includes/quickstarts/content-moderator-client-library-csharp.md)]
+[!INCLUDE [C# quickstart](includes/quickstarts/csharp-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
 
-[!INCLUDE [Java quickstart](includes/quickstarts/content-moderator-client-library-java.md)]
+[!INCLUDE [Java quickstart](includes/quickstarts/java-sdk.md)]
 
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
 
-[!INCLUDE [Python quickstart](includes/quickstarts/content-moderator-client-library-python.md)]
+[!INCLUDE [Python quickstart](includes/quickstarts/python-sdk.md)]
 
 ::: zone-end

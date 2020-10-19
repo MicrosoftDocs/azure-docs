@@ -230,6 +230,7 @@ Error responses will look like:
 | `interaction_required` | Non-standard, as the OIDC specification calls for this only on the `/authorize` endpoint.The request requires user interaction. For example, an additional authentication step is required. | Retry the `/authorize` request with the same scopes. |
 | `temporarily_unavailable` | The server is temporarily too busy to handle the request. | Retry the request after a small delay. The client application might explain to the user that its response is delayed because of a temporary condition. |
 |`consent_required` | The request requires user consent. This error is non-standard, as it's usually only returned on the `/authorize` endpoint per OIDC specifications. Returned when a `scope` parameter was used on the code redemption flow that the client app does not have permission to request.  | The client should send the user back to the `/authorize` endpoint with the correct scope in order to trigger consent. |
+|`invalid_scope` | The scope requested by the app is invalid.  | Update the value of the scope parameter in the authentication request to a valid value. |
 
 > [!NOTE]
 > Single page apps may receive an `invalid_request` error indicating that cross-origin token redemption is permitted only for the 'Single-Page Application' client-type.  This indicates that the redirect URI used to request the token has not been marked as a `spa` redirect URI.  Review the [application registration steps](#redirect-uri-setup-required-for-single-page-apps) on how to enable this flow.

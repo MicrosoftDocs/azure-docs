@@ -4,11 +4,12 @@ description: Learn how to set up your billing account for a Microsoft Customer A
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/20/2020
 ms.author: banders
-
 ---
+
 # Set up your billing account for a Microsoft Customer Agreement
 
 If your Enterprise Agreement enrollment has expired or about to be expired, you can sign a Microsoft Customer Agreement to renew your enrollment. This article describes the changes to your existing billing after the setup and walks you through the setup of your new billing account. The renewal includes the following steps:
@@ -94,7 +95,7 @@ An Azure Active Directory (AD) tenant is selected for the new billing account wh
 
 Your new account only supports users from the tenant that was selected while signing the Microsoft Customer Agreement. If users with administrative permission on your Enterprise Agreement are part of the tenant, they'll get access to the new billing account during the setup. If they're not part of the tenant, they won't be able to access the new billing account unless you invite them.
 
-When you invite the users, they are added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](https://docs.microsoft.com/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
+When you invite the users, they are added to the tenant as guest users and get access to the billing account. To invite the users, guest access must be turned on for the tenant. For more information, see [control guest access in Azure Active Directory](/microsoftteams/teams-dependencies#control-guest-access-in-azure-active-directory). If the guest access is turned off, contact the global administrators of your tenant to turn it on. <!-- Todo - How can they find their global administrator -->
 
 ## View replaced features
 
@@ -126,7 +127,7 @@ Azure services in your subscription keep running without any interruption. We on
 
 ### User access to Azure resources
 
-Access to Azure resources that was set using Azure RBAC (role-based access control) is not affected during the transition.
+Access to Azure resources that was set using Azure role-based access control (Azure RBAC) is not affected during the transition.
 
 ### Azure Reservations
 
@@ -219,7 +220,7 @@ Azure reservations in your Enterprise Agreement enrollment will be moved to your
 
 4. Select **Access control (IAM)** from the left side.
 
-   ![Screenshot that shows access of enterprise administrators post transition](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
+   ![Screenshot that shows access of enterprise administrators listed as billing account owners post transition.](./media/mca-setup-account/mca-ea-admins-ba-access-post-transition.png)
 
 Enterprise administrators are listed as billing account owners while the enterprise administrators with read-only permissions are listed as billing account readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 
@@ -235,7 +236,7 @@ Enterprise administrators are listed as billing account owners while the enterpr
 
 4. Select **Access control (IAM)** from the left side.
 
-   ![Screenshot that shows access of enterprise administrators post transition](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
+   ![Screenshot that shows access of enterprise administrators listed as billing profile owners post transition.](./media/mca-setup-account/mca-ea-admins-bp-access-post-transition.png)
 
 Enterprise administrators are listed as billing profile owners while the enterprise administrators with read-only permissions are listed as billing profile readers. If you believe the access for any enterprise administrators is missing, you can give them access in the Azure portal. For more information, see [manage billing roles in the Azure portal](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
 

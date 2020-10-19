@@ -3,9 +3,10 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/14/2020
+ms.date: 09/18/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
+ms.subservice: enterprise
 ms.reviewer: boalcsva
 ---
 
@@ -156,20 +157,6 @@ Refer to [Azure services](https://azure.microsoft.com/services/) and [Azure pric
 ### Enterprise Agreement units of measure
 
 The units of measure for Enterprise Agreements are often different than seen in our other programs such as the Microsoft Online Services Agreement program (MOSA). This disparity means that, for a number of services, the unit of measure is aggregated to provide the normalized pricing. The unit of measure shown in the Azure Enterprise portal's Usage Summary view is always the Enterprise measure. A full list of current units of measure and conversions for each service is provided in the [Friendly Service Names](https://azurepricing.blob.core.windows.net/supplemental/Friendly_Service_Names.xlsx) Excel file.
-
-### Rounding rules
-
-The Azure Enterprise portal follows the IEEE standard Banker Rounding or Gaussian Rounding logic. This logic rounds numbers to the nearest even digit for half digit values. The more typical Half Round Up rounding logic always rounds half digits up to the next highest digit. This Azure Enterprise portal method actually provides a more accurate total sum over the group when compared to the standard Excel logic.
-
-To illustrate: when the first dropped digit is a 5 and there are no following digits or the following digits are zeros, round off to the nearest even digit. For example: both 2.315 and 2.325 rounded to the nearest 100th become 2.32.
-
-For reference, the following table shows Excel formulas you can use to model the Azure Enterprise portal rules for rounding and conversion:
-
-| Scenario | Banker Logic Formula |
-| --- | --- |
-| Rounding Usage | =MROUND({_source_}, 0.0002) |
-| Rounding Pricing (2 decimals) | =MROUND({_source_}, 0.02) |
-| Rounding Pricing (0 decimals) | =MROUND({_source_}, 2) |
 
 ### Conversion between usage detail report and the usage summary page
 

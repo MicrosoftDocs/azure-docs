@@ -32,7 +32,7 @@ To add an access restriction rule to your app, use the menu to open **Network**>
 
 From the Access Restrictions UI, you can review the list of access restriction rules defined for your app.
 
-![list access restrictions](media/app-service-ip-restrictions/access-restrictions-browse.png)
+![Screenshot of the Access Restrictions screen in Azure portal showing the list of access restriction rules defined for the selected app.](media/app-service-ip-restrictions/access-restrictions-browse.png)
 
 The list will show all of the current restrictions that are on your app. If you have a VNet restriction on your app, the table will show if service endpoints are enabled for Microsoft.Web. When there are no defined restrictions on your app, your app will be accessible from anywhere.  
 
@@ -64,11 +64,11 @@ With service endpoints, you can configure your app with Application Gateways or 
 
 You can click on any row to edit an existing access restriction rule. Edits are effective immediately including changes in priority ordering.
 
-![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
+![Screenshot of the Edit IP Restriction dialog in Azure portal showing the fields for an existing access restriction rule.](media/app-service-ip-restrictions/access-restrictions-ip-edit.png)
 
 When you edit a rule, you cannot change the type between an IP address rule and a Virtual Network rule. 
 
-![edit an access restriction rule](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
+![Screenshot of the Edit IP Restriction dialog in Azure portal showing the settings for a Virtual Network rule.](media/app-service-ip-restrictions/access-restrictions-vnet-edit.png)
 
 To delete a rule, click the **...** on your rule and then click **Remove**.
 
@@ -86,11 +86,11 @@ For the scenario where users want to explicitly block a single IP address or IP 
 
 In addition to being able to control access to your app, you can also restrict access to the scm site used by your app. The scm site is the web deploy endpoint and also the Kudu console. You can separately assign access restrictions to the scm site from the app or use the same set for both the app and the scm site. When you check the box to have the same restrictions as your app, everything is blanked out. If you uncheck the box, whatever settings you had earlier on the scm site are applied. 
 
-![list access restrictions](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
+![Screenshot of the Access Restrictions screen in Azure portal showing that no access restrictions are set for the scm site or the app.](media/app-service-ip-restrictions/access-restrictions-scm-browse.png)
 
 ## Programmatic manipulation of access restriction rules ##
 
-[Azure CLI](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) and [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) has support for editing access restrictions. 
+[Azure CLI](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) and [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) has support for editing access restrictions. 
 Example of adding an access restriction using Azure CLI:
 
 ```azurecli-interactive
@@ -104,7 +104,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName
     -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
 ```
 
-Values can also be set manually with an [Azure REST API](https://docs.microsoft.com/rest/api/azure/) PUT operation on the app configuration in Resource Manager or using an Azure Resource Manager template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
+Values can also be set manually with an [Azure REST API](/rest/api/azure/) PUT operation on the app configuration in Resource Manager or using an Azure Resource Manager template. As an example, you can use resources.azure.com and edit the ipSecurityRestrictions block to add the required JSON.
 
 The location for this information in Resource Manager is:
 
@@ -136,4 +136,4 @@ Access restrictions are also available for function apps with the same functiona
 [Application Gateway integration with service endpoints](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
-[serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[serviceendpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md

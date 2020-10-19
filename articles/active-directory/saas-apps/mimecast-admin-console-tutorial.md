@@ -2,21 +2,15 @@
 title: 'Tutorial: Azure Active Directory integration with Mimecast Admin Console | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Mimecast Admin Console.
 services: active-directory
-documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: barbkess
-
-ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
+manager: CelesteDG
+ms.reviewer: celested
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 05/21/2020
 ms.author: jeedes
-
-ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Azure Active Directory single sign-on (SSO) integration with Mimecast Admin Console
@@ -156,23 +150,23 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **Administration** > **Services** > **Applications**.
 
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/services.png)
+    ![Screenshot shows Mimecast window with Applications selected.](./media/mimecast-admin-console-tutorial/services.png)
 
 1. Click **Authentication Profiles** tab.
     
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
+    ![Screenshot shows the Application tab with Authentication Profiles selected.](./media/mimecast-admin-console-tutorial/authentication-profiles.png)
 
 1. Click **New Authentication Profile** tab.
 
-	![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
+	![Screenshot shows New Authentication Profile selected.](./media/mimecast-admin-console-tutorial/new-authenticatio-profile.png)
 
 1. Provide a valid description in the **Description** textbox and select **Enforce SAML Authentication for Administration Console** checkbox.
 
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
+    ![Screenshot shows where to select Enforce SAML Authentication for Administration Console.](./media/mimecast-admin-console-tutorial/selecting-admin-consle.png)
 
 1. On the **SAML Configuration for Administration Console** page, perform the following steps:
 
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/sso-settings.png)
+    ![Screenshot shows the SAML Configuration for Administration Console page where you can enter the values described.](./media/mimecast-admin-console-tutorial/sso-settings.png)
 
 	a. For **Provider**, select **Azure Active Directory** from the Dropdown.
 
@@ -190,19 +184,19 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Navigate to **Administration** > **Directories** > **Internal Directories**.
 
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/internal-directories.png)
+    ![Screenshot shows Mimecast window with Internal Directories selected.](./media/mimecast-admin-console-tutorial/internal-directories.png)
 
 1. Select on your domain, if the domain is mentioned below, otherwise please create a new domain by clicking on the **New Domain**.
 
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/domain-name.png)
+    ![Screenshot shows the domain selected.](./media/mimecast-admin-console-tutorial/domain-name.png)
 
 1. Click **New Address** tab.
 
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/new-address.png)
+    ![Screenshot shows New Address selected.](./media/mimecast-admin-console-tutorial/new-address.png)
 
 1. Provide the required user information on the following page:
 
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/user-information.png)
+    ![Screenshot shows the page where you can enter the values described.](./media/mimecast-admin-console-tutorial/user-information.png)
 
 	a. In the **Email Address** textbox, enter the email address of the user like `B.Simon@yourdomainname.com`.
 
@@ -216,7 +210,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	f. To assign roles to the user, click on **Role Edit** and assign the required role to user as per your organization requirement.
 
-    ![Mimecast Admin Console Configuration](./media/mimecast-admin-console-tutorial/assign-role.png)
+    ![Screenshot shows Address Settings where you can select Role Edit.](./media/mimecast-admin-console-tutorial/assign-role.png)
 
 ## Test SSO 
 

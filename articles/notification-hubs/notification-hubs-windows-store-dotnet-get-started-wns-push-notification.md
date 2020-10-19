@@ -11,7 +11,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: "mvc, ms.custom: devx-track-csharp"
 ms.date: 12/05/2019
 ms.author: sethm
 ms.reviewer: jowargo

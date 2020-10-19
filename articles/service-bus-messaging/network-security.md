@@ -13,7 +13,7 @@ This article describes how to use the following security features with Azure Ser
 - Service tags
 - IP Firewall rules
 - Network service endpoints
-- Private endpoints (preview)
+- Private endpoints
 
 
 ## Service tags
@@ -78,8 +78,6 @@ For more information, see [What is Azure Private Link?](../private-link/private-
 
 > [!NOTE]
 > This feature is supported with the **premium** tier of Azure Service Bus. For more information about the premium tier, see the [Service Bus Premium and Standard messaging tiers](service-bus-premium-messaging.md) article.
->
-> This feature is currently in **preview**. 
 
 
 For more information, see [How to configure private endpoints for a Service Bus namespace](private-link-service.md)

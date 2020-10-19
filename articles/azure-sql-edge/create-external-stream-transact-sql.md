@@ -1,6 +1,6 @@
 ---
-title: CREATE EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge (Preview)
-description: Learn about the CREATE EXTERNAL STREAM statement in Azure SQL Edge (Preview) 
+title: CREATE EXTERNAL STREAM (Transact-SQL) - Azure SQL Edge
+description: Learn about the CREATE EXTERNAL STREAM statement in Azure SQL Edge 
 keywords: 
 services: sql-edge
 ms.service: sql-edge
@@ -96,7 +96,7 @@ WITH  ( <with_options> )
 
 - **INPUT_OPTIONS**: Specify options as key-value pairs for services such as Kafka, IoT Edge Hub that are inputs to streaming queries
     - PARTITIONS: 
-      Number of partitions defined for a topic
+      Number of partitions defined for a topic. The maximum number of partitions which can be used is limited to 32.
       - Applies to Kafka Input Streams
     - CONSUMER_GROUP:
       Event and IoT Hubs limit the number of readers within one consumer group (to 5). Leaving this field empty will use the '$Default' consumer group.
@@ -143,7 +143,7 @@ WITH  ( <with_options> )
     Maximum number of events sent to the function per call for Azure function - default is 100. For SQL Database, this represents the maximum number of   records sent with every bulk insert transaction - default is 10,000. 
     - Applies to all SQL based outputs 
   - STAGING_AREA: EXTERNAL DATA SOURCE object to Blob Storage 
-    The staging area for high-throughput data ingestion into SQL Data Warehouse 
+    The staging area for high-throughput data ingestion into Azure Synapse Analytics 
     - Reserved for future usage. Does not apply to Azure SQL Edge.
 
 
@@ -249,6 +249,5 @@ WITH
 
 ## See also
 
-- [ALTER EXTERNAL STREAM (Transact-SQL)](alter-external-stream-transact-sql.md) 
 - [DROP EXTERNAL STREAM (Transact-SQL)](drop-external-stream-transact-sql.md) 
 

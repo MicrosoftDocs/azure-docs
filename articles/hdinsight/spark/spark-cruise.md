@@ -54,7 +54,7 @@ The following sample scenario illustrates how to use *SparkCruise* to optimize A
     sudo /opt/peregrine/analyze/peregrine.sh show
     ```
 
-The `analyze` command parses the query plans and creates a tabular representation of the workload. Then, the `views` command identifies common subplan expressions and selects interesting subplan expressions for future materialization and reuse. The output is a feedback file containing annotations for future Spark SQL queries. 
+The `analyze` command parses the query plans and creates a tabular representation of the workload. This workload table can be queried using the *WorkloadInsights* notebook included in the [HDInsight SparkCruise Samples](https://github.com/Azure-Samples/azure-sparkcruise-samples) repository. Then, the `views` command identifies common subplan expressions and selects interesting subplan expressions for future materialization and reuse. The output is a feedback file containing annotations for future Spark SQL queries. 
 
 The `show` command displays an output like the following text:
 
@@ -142,8 +142,9 @@ The feedback files, materialized subplans, and query logs are persisted across S
 sudo /opt/peregrine/analyze/peregrine.sh clean
 ```
 
-## Next Steps
+## Next steps
 
+* [Use the Workload Insights Notebook to Determine the Benefits of SparkCruise](https://github.com/Azure-Samples/azure-sparkcruise-samples/tree/main/SparkCruise)
 * [Improve performance of Apache Spark workloads using Azure HDInsight IO Cache](apache-spark-improve-performance-iocache.md)
 * [Optimize Apache Spark jobs in HDInsight](./apache-spark-perf.md)
 * [SparkCruise: Handsfree Computation Reuse in Spark](https://people.cs.umass.edu/~aroy/sparkcruise-vldb19.pdf)

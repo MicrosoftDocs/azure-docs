@@ -1,8 +1,8 @@
 ---
 title: Logical decoding - Azure Database for PostgreSQL - Single Server
 description: Describes logical decoding and wal2json for change data capture in Azure Database for PostgreSQL - Single Server
-author: rachel-msft
-ms.author: raagyema
+author: sr-msft
+ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/22/2020
@@ -47,11 +47,11 @@ The server needs to be restarted after a change of this parameter. Internally, t
 
 1. Set Azure replication support to **logical**. Select **Save**.
 
-   ![Azure Database for PostgreSQL - Replication - Azure replication support](./media/concepts-logical/replication-support.png)
+   :::image type="content" source="./media/concepts-logical/replication-support.png" alt-text="Azure Database for PostgreSQL - Replication - Azure replication support":::
 
 2. Restart the server to apply the change by selecting **Yes**.
 
-   ![Azure Database for PostgreSQL - Replication - Confirm restart](./media/concepts-logical/confirm-restart.png)
+   :::image type="content" source="./media/concepts-logical/confirm-restart.png" alt-text="Azure Database for PostgreSQL - Replication - Confirm restart":::
 
 
 ## Start logical decoding
