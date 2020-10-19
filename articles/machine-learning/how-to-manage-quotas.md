@@ -179,6 +179,8 @@ To request an allowance for these scenarios, use the following steps:
 
 3. Select __Create__ to create the request.
 
+:::image type="content" source="media/how-to-manage-quotas/quota-increase-private-endpoint.png" alt-text="Screenshot of a private endpoint and private DNS quota increase request":::
+
 ## Next steps
 
 + [Plan & manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
