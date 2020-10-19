@@ -40,7 +40,7 @@
     href: catalog-lineage-user-guide.md
   - name: How scans detect deleted assets
     href: concept-detect-deleted-assets.md
-  - name: Resource Sets
+  - name: Resource sets
     href: concept-resource-sets.md
   - name: Supported stores and classifications
     href: supported-stores-and-classifications.md
