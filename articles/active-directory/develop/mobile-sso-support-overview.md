@@ -50,7 +50,7 @@ For Android applications, we have a [quickstart](quickstart-v2-android.md) that 
 
 A web browser is required for interactive authentication. For mobile apps that use modern authentication libraries other than MSAL (that is, other OpenID Connect or SAML libraries), or if you implement your own authentication code, you should use the system browser as your authentication surface to enable SSO.
 
-Google has guidance for doing this for Android Applications: [Chrome Custom Tabs - Google Chrome](https://developer.chrome.com/multidevice/android/customtabs).
+Google has guidance for doing this in Android Applications: [Chrome Custom Tabs - Google Chrome](https://developer.chrome.com/multidevice/android/customtabs).
 
 Apple has guidance for doing this in iOS applications: [Authenticating a User Through a Web Service | Apple Developer Documentation](https://developer.apple.com/documentation/authenticationservices/authenticating_a_user_through_a_web_service).
 
