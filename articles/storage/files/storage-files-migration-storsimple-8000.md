@@ -315,23 +315,23 @@ The remainder of this section focuses on deployment instructions.
 
 ### Deploy Azure File Sync
 
-> [!IMPORTANT]
-> Azure File Sync should only be deployed once you've completed all migration jobs for an Azure file share.
+It is time to deploy a part of Azure File Sync:
+1. Create the Azure File Sync cloud resource.
+1. Deploy the Azure File Sync agent on your on-prem server.
+1. Register the server with the cloud resource
 
-If you start sync to an Azure file share before or during the migration of files and folders from StorSimple, then it is possible, that your server will be behind, and presents you with an incomplete namespace for some time. Eventually it will catch up but it will make it hard to tell when the time has come Phase 4: User cut-over. So it is always better to start syncing an Azure file share after the migration job(s) have finished and there are no more cloud-side changes to the share.
-
-If you want to get a head-start, you can deploy your Windows Server, its storage, install the Azure File Sync agent, deploy the Storage Sync Service Azure resource, and register the server with it. All of this while or even before you are migrating into your Azure file shares. Just don't set up any share to sync before you finish making changes to the Azure file share.
+Do not yet create any sync groups. Setting up sync with an Azure file share should only occur once your migration jobs to an Azure file share have completed. If you were to begin using File Sync before your migration completes, it will make your migration unnecessarily difficult since you cannot easily tell when it is time to initiate a cut-over.
 
 #### Deploy the Azure File Sync cloud resource
 
 [!INCLUDE [storage-files-migration-deploy-afs-sss](../../../includes/storage-files-migration-deploy-azure-file-sync-storage-sync-service.md)]
 
 > [!TIP]
-> If you need to change the Azure region from the current region your StorSimple data resides in, then you have provisioned the storage accounts for your Azure file shares in the new region. Make sure that you selected that same region when you deploy this Storage Sync Service.
+> If you like to change in which Azure region your data resides in when the migration is done, then deploy the Storage Sync Service in the same region as the target storage accounts for this migration.
 
 #### Deploy an on-premises Windows Server
 
-* Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported. Don't reuse the server you might have fronting the StorSimple 8100 or 8600.
+* Create a Windows Server 2019 - at a minimum 2012R2 - as a virtual machine or physical server. A Windows Server fail-over cluster is also supported. Don't reuse the server fronting the StorSimple 8100 or 8600.
 * Provision or add Direct Attached Storage (DAS as compared to NAS, which is not supported).
 
 It is best practice to give your new Windows Server an equal or larger amount of storage than your StorSimple 8100 or 8600 appliance has locally available for caching. You will use the Windows Server the same way you used the StorSimple appliance, if it has the same amount of storage as the appliance then the caching experience should be similar, if not the same.
@@ -345,13 +345,13 @@ You can add or remove storage from your Windows Server at will. This enables you
 
 Your registered on-premises Windows Server must be ready and connected to the internet for this process.
 
-> [!WARNING]
-> Your StorSimple migration of files and folders into the Azure file share must be complete **before you proceed**. Make sure there are no more changes done to the file share.
+> [!IMPORTANT]
+> Your StorSimple migration of files and folders into the Azure file share must be complete before you proceed. Make sure there are no more changes done to the file share.
 
 [!INCLUDE [storage-files-migration-configure-sync](../../../includes/storage-files-migration-configure-sync.md)]
 
-> [!WARNING]
-> **Be sure to turn on cloud tiering!** Cloud tiering is the AFS feature that allows the local server to have less storage capacity than is stored in the cloud, yet have the full namespace available. Locally interesting data is also cached locally for fast, local access performance. Another reason to turn on cloud tiering at this step is that we do not want to sync file content at this stage, only the namespace should be moving at this time.
+> [!IMPORTANT]
+> Be sure to turn on cloud tiering! Cloud tiering is the Azure File Sync feature that allows the local server to have less storage capacity than is stored in the cloud, yet have the full namespace available. Locally interesting data is also cached locally for fast, local access performance. Another reason to turn on cloud tiering at this step is that we do not want to sync file content at this stage, only the namespace should be moving at this time.
 
 ### Deploy direct-share-access
 
@@ -375,40 +375,39 @@ Your registered on-premises Windows Server must be ready and connected to the in
 :::row-end:::
 
 ### Phase 4 summary
-In this phase you've created and run multiple *Data Transformation Service* (DTS) jobs in your *StorSimple Data Manager*. Those jobs have migrated your files and folders and possibly sorted them into more Azure file shares than you have StorSimple volumes.
-Furthermore, you've decided and deployed either Azure File Sync or prepared your network and storage accounts for direct-share-access.
+In this phase you've created and run multiple *Data Transformation Service* (DTS) jobs in your *StorSimple Data Manager*. Those jobs have migrated your files and folders to Azure file shares. Furthermore, you've deployed either Azure File Sync or prepared your network and storage accounts for direct-share-access.
 
-## 5: User cut-over
+## Phase 5: User cut-over
 This phase is all about wrapping up your migration:
 * Plan your downtime.
-* Catch-up with any changes your users and apps produced on the StorSimple side while the *Data Transformation* (DTS) jobs in Phase 3 have been running. 
+* Catch-up with any changes your users and apps produced on the StorSimple side while the Data Transformation jobs in Phase 3 have been running. 
 * Fail your users over to the new Windows Server with Azure File Sync or the Azure file shares via direct-share-access.
 
 ### Plan your downtime
-This migration approach requires some downtime for your users and apps. Maybe a weekend works for your access patterns. The goal is to keep downtime to a minimum and the following considerations can help:
+This migration approach requires some downtime for your users and apps. The goal is to keep downtime to a minimum and the following considerations can help:
 
-* Keep your StorSimple volumes available while running your DTS migration jobs.
-* When you finished running your DTS job(s) for a share, it's time to remove user access (at least write access) from the StorSimple volumes/shares. A final RoboCopy will catch up your Azure file share, then you can cut-over your users. From where to where you run this RoboCopy depends on what you chose (Azure File Sync / direct-share-access). The upcoming section on RoboCopy covers that.
+* Keep your StorSimple volumes available while running your data transformation jobs.
+* When you finished running your data migration job(s) for a share, it's time to remove user access (at least write access) from the StorSimple volumes/shares. A final RoboCopy will catch up your Azure file share, then you can cut-over your users. Where you run RoboCopy depends on whether you chose to use Azure File Sync or direct-share-access. The upcoming section on RoboCopy covers that.
 * Once you completed the RoboCopy catch-up, you are ready to expose the new location to your users. Either the Azure file share directly or an SMB share on a Windows Server with AFS. Often a DFS-N deployment will help accomplish a cut-over quickly, and efficiently. It will keep your existing share addresses consistent and repoint to a new location, containing your migrated files and folders.
 
 ### Determine when your namespace has fully synced to your server
 
-When you use Azure File Sync for an Azure file share, it is important that you determine your entire namespace has finished downloading to the server **BEFORE** you start any local RoboCopy. The time that takes varies by the number of items in the Azure file share. You can use two different ways to determine that your namespace has fully arrived on the server:
+When you use Azure File Sync for an Azure file share, it is important that you determine your entire namespace has finished downloading to the server BEFORE you start any local RoboCopy. The time it takes to download your namespace depends on the number of items in your Azure file share. There are two methods for determining whether your namespace has fully arrived on the server:
 
 #### Azure portal
-You can tell from the Azure portal, when your namespace has arrived fully on the server, such that you can proceed with a local RoboCopy.
-* Navigate to the Azure portal, identify the sync group and server endpoint and observe the Sync status. 
-* The interesting direction is download: If the server endpoint is newly provisioned, it will show "*Initial sync*" indicating the namespace is still coming down.
+You can use the Azure portal to see when your namespace has fully arrived.
+* Sign in to the Azure portal, navigate to your sync group and check the sync status of your sync group and server endpoint. 
+* The interesting direction is download: If the server endpoint is newly provisioned, it will show **Initial sync** indicating the namespace is still coming down.
 Once that changes to anything but *Initial sync*, your namespace will be fully populated on the server and you are good to proceed with a local RoboCopy.
 
-#### Windows Server log
-You can also tell from a Windows Server, when your namespace has arrived fully on the server, such that you can proceed with a local RoboCopy.
+#### Windows Server Event Viewer
+ou can also use the Event Viewer on your Windows Server to tell when the namespace has fully arrived.
 
-1. Open the *Event Viewer* and navigate to **Applications and Services**.
+1. Open the **Event Viewer** and navigate to **Applications and Services**.
 1. Navigate and open **Microsoft\FileSync\Agent\Telemetry**.
 1. Look for the most recent **event 9102**, which corresponds to a completed sync session.
 1. Select **Details** and confirm that you are looking at an event where the **SyncDirection** value is **Download**.
-1. For the time where your namespace has completed download to the server, there will be a single event with **Scenario**, value **"FullGhostedSync"** and **HResult** = **0**.
+1. For the time where your namespace has completed download to the server, there will be a single event with **Scenario**, value **FullGhostedSync** and **HResult** = **0**.
 1. Should you miss that event, you can also look for other **9102 events** with **SyncDirection** = **Download** and **Scenario** = **"RegularSync"**. Finding one of these events also indicates that the namespace has finished downloading and sync progressed to regular sync sessions, whether there is anything to sync or not, at this time.
 
 ### A final RoboCopy
@@ -416,15 +415,15 @@ At this point, there are differences between your on-premises Windows Server and
 
 1. You need to catch up with the changes that users/apps produced on the StorSimple side while the migration was ongoing.
 1. For cases where you use Azure File Sync: The StorSimple appliance has a populated cache vs. the Windows Server just a namespace with no file content stored locally at this time. So the final RoboCopy can help jump-start your local AFS cache by pulling over locally cached file content as much as is available and can fit on the AFS server.
-1. There may be files that got left behind by the DTS job, due to invalid characters in file names or other reasons. At this point, you want to copy them to the AFS enabled Windows Server and you fix them later. When these files are fixed, they will then start to sync. If you don't use AFS for a particular share, you'd be better off renaming the files with invalid characters on the StorSimple volume and then run the RoboCopy directly against the Azure file share. 
+1. Some files may have been left behind by the data transformation job due to invalid characters. If so, copy them to the Azure File Sync enabled Windows Server. Later on you can adjust them so that they will sync. If you don't use Azure File Sync for a particular share, you'd be better off renaming the files with invalid characters on the StorSimple volume and then run the RoboCopy directly against the Azure file share. 
 
 > [!WARNING]
-> You **must not start the RoboCopy** before the server has the namespace for an Azure file share downloaded fully!
+> You must not start the RoboCopy before the server has the namespace for an Azure file share downloaded fully!
 > Checkout: "[Determine when your namespace has fully downloaded to your server](#determine-when-your-namespace-has-fully-synced-to-your-server)"
 
- The RoboCopy command below contains best-practice parameters. You only want to copy files that were changed after the DTS job last ran and files that haven't moved through the Data Transformation Service jobs before. You can solve the problems why they didn't move later on the server, after the migration is complete. See [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+ You only want to copy files that were changed after the migration job last ran and files that haven't moved through said jobs before. You can solve the problems why they didn't move later on the server, after the migration is complete. See [Azure File Sync troubleshooting](storage-sync-files-troubleshoot.md#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
 
-RoboCopy command:
+RoboCopy has several parameters. The following showcases a finished command and a list of reasons for choosing these parameters:
 
 ```console
 Robocopy /MT:16 /UNILOG:<file name> /TEE /B /MIR /COPYALL /DCOPY:DAT <SourcePath> <Dest.Path>
