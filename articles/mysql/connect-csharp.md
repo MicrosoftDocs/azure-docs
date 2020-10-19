@@ -19,16 +19,15 @@ For this quickstart you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free).
 - Create a Azure Database for MySQL single server using [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
-- Based on you choice of connectivity method, make sure you have completed the ONE of the task below
+- Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
-|Action| How-to |Connectivity method|
-|:--------|:-------- |:-------- |
-| **Configure firewall rules** |[Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|Public access secured by firewall rules|
-| **Configure Service Endpoint** |[Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md) | Public access secured by service endpoints. You can ONLY connect to the server with App Service Web App or Azure Virtual machine or any other resource as long as it is in the **same virtual network**.|
-| **Configure private link** |[Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | Private access| 
+|Action| Connectivity method|How-to guide|
+|:--------- |:--------- |:--------- |
+| **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+| **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
+| **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
-- Install [.NET](https://www.microsoft.com/net/download). Follow the steps in the linked article to install .NET specifically for your platform (Windows, Ubuntu Linux, or macOS). 
-- Install [Visual Studio](https://www.visualstudio.com/downloads/) or [Visual Code](https://code.visualstudio.com/).
+- [Create a database and non-admin user](https://docs.microsoft.com/en-us/azure/mysql/howto-create-users?tabs=single-server)
 
 [Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
@@ -51,7 +50,7 @@ Get the connection information needed to connect to the Azure Database for MySQL
 4. From the server's **Overview** panel, make a note of the **Server name** and **Server admin login name**. If you forget your password, you can also reset the password from this panel.
  :::image type="content" source="./media/connect-csharp/1_server-overview-name-login.png" alt-text="Azure Database for MySQL server name":::
 
-## Step 1:Connect, create table, and insert data
+## Step 1: Connect and insert data
 Use the following code to connect and load the data by using `CREATE TABLE` and  `INSERT INTO` SQL statements. The code uses the methods of the `MySqlConnection` class:
 - [OpenAsync()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.openasync#System_Data_Common_DbConnection_OpenAsync) to establish a connection to MySQL.
 - [CreateCommand()](https://docs.microsoft.com/dotnet/api/system.data.common.dbconnection.createcommand), sets the CommandText property
