@@ -256,6 +256,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/secrets/quick-create-net-v3.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-net-v4",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-backup",
       "redirect_document_id": false
