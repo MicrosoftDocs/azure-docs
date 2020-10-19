@@ -292,9 +292,6 @@ namespace AzureMySqlExample
 }
 ```
 
-
-## Next steps
-
 ## Next steps
 > [!div class="nextstepaction"]
 > [Manage Azure Database for MySQL server using Portal](./howto-create-manage-server-portal.md)<br/>
