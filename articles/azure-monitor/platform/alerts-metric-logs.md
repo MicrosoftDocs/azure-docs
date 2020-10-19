@@ -57,7 +57,7 @@ Before Metric for Logs gathered on Log Analytics data works, the following must 
 
  Metric alerts can be created and managed using the Azure portal, Resource Manager Templates, REST API, PowerShell, and Azure CLI. Since Metric Alerts for Logs, is a variant of metric alerts - once the prerequisites are done, metric alert for logs can be created for specified Log Analytics workspace. All characteristics and functionalities of [metric alerts](./alerts-metric-near-real-time.md) will be applicable to metric alerts for logs, as well; including payload schema, applicable quota limits, and billed price.
 
-For step-by-step details and samples - see [creating and managing metric alerts](https://aka.ms/createmetricalert). Specifically, for Metric Alerts for Logs - follow the instructions for managing metric alerts and ensure the following:
+For step-by-step details and samples - see [creating and managing metric alerts](./alerts-metric.md). Specifically, for Metric Alerts for Logs - follow the instructions for managing metric alerts and ensure the following:
 
 - Target for metric alert is a valid *Log Analytics workspace*
 - Signal chosen for metric alert for selected *Log Analytics workspace* is of type **Metric**
@@ -685,4 +685,3 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 - Learn more about the [metric alerts](alerts-metric.md).
 - Learn about [log alerts in Azure](./alerts-unified-log.md).
 - Learn about [alerts in Azure](alerts-overview.md).
-
