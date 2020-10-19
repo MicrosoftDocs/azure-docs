@@ -10,8 +10,6 @@
     href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
   - name: Assign licenses to users    
     href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/enterprise-users/context/ugr-context
-  - name: Create unlimited app registrations
-    href: roles-quickstart-app-registration-limits.md
   - name: Set groups expiration    
     href: groups-quickstart-expiration.md
   - name: Set groups naming policy    
@@ -40,8 +38,6 @@
       href: users-bulk-add.md    
     - name: Manage user profiles
       href: ../fundamentals/active-directory-users-profile-azure-portal.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
-    - name: My Staff delegation
-      href: my-staff-configure.md
     - name: Download user info
       href: users-bulk-download.md
     - name: Share user accounts

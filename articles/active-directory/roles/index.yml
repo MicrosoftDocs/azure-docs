@@ -26,11 +26,11 @@ landingContent:
       - linkListType: overview
         links:
           - text: Custom roles overview
-            url: roles-custom-overview.md
+            url: custom-overview.md
       - linkListType: concept
         links:
           - text: Delegate administration
-            url: roles-concept-delegation.md
+            url: concept-delegation.md
           - text: Understand administrative units in Azure AD
             url: administrative-units.md
           - text: Use cloud groups to manage role assignments
@@ -50,7 +50,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Delegate roles by task
-            url: roles-delegate-by-task.md
+            url: delegate-by-task.md
           - text: Delegate application management
             url: delegate-app-roles.md
 
@@ -66,7 +66,7 @@ landingContent:
           - text: Assign using PowerShell
             url: custom-assign-powershell.md
           - text: Assign roles using Graph API
-            url: roles-assign-graph.md
+            url: custom-assign-graph.md
 
   # Card
   - title: Assign roles to groups
@@ -74,13 +74,13 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create role-assignable groups
-            url: groups-cre3ate-eligible.md
+            url: groups-create-eligible.md
           - text: Assign a role to a cloud group
             url: groups-assign-role.md
           - text: Make a group eligible for PIM
             url: groups-pim-eligible.md
-          - text: Assign roles using Graph API
-            url: roles-assign-graph.md
+          - text: View assignments for a group
+            url: groups-view-assignments.md
 
   # Card
   - title: Manage scope with administrative units
