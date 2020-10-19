@@ -200,7 +200,7 @@ Network interfaces are the ingress points for all traffic to a Virtual Machine. 
 |Resource | Link|
 |---|---|
 |Create, Change, or Delete a Network Interface | [https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface](../virtual-network/virtual-network-network-interface.md)|
-|Network Interface IP Addressing | [https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#private-ip-addresses](../virtual-network/public-ip-addresses.md#private-ip-addresses)|
+|Network Interface IP Addressing | [https://docs.microsoft.com/azure/virtual-network/private-ip-addresses](../virtual-network/private-ip-addresses.md)|
 |
 
 ### Subnet

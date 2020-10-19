@@ -78,7 +78,7 @@ Go to the Microsoft Download Center and [download the Azure Key Vault BYOK tools
 
 The ACSC requires Commonwealth entities to use the appropriate Azure services to undertake real-time monitoring and reporting on their Azure workloads.
 
-Logging is enabled by enabling the **_"AuditEvent"_** diagnostic setting on Key Values.  Audit events will be logged to the specified storage account.  **_"RetentionInDays"_** period should be set according to the data retention policy.  [Operations](../key-vault/general/logging.md#interpret) on both the management plane and data plane are audited and logged. The [Azure Key Vault solution in Azure Monitor](../azure-monitor/insights/key-vault-insights-overview.md) can be used to review Key Vault AuditEvent logs.  A number of other Azure services can be used to process and distribute Key Vault AuditEvents.
+Logging is enabled by enabling the **_"AuditEvent"_** diagnostic setting on Key Values.  Audit events will be logged to the specified storage account.  **_"RetentionInDays"_** period should be set according to the data retention policy.  [Operations](../key-vault/general/logging.md#interpret-your-key-vault-logs) on both the management plane and data plane are audited and logged. The [Azure Key Vault solution in Azure Monitor](../azure-monitor/insights/key-vault-insights-overview.md) can be used to review Key Vault AuditEvent logs.  A number of other Azure services can be used to process and distribute Key Vault AuditEvents.
 
 ### Key rotation
 
