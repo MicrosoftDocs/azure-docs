@@ -67,7 +67,7 @@ In this tutorial, you learn how to:
 
 1. On the **Message** tab, the **ocp-apim-trace-location** header shows the location of the trace data stored in Azure blob storage. If needed, go to this location to retrieve the trace.
 
-     :::image type="content" source="media/api-management-howto-api-inspector/response-message.png" alt-text="Review response trace":::
+     :::image type="content" source="media/api-management-howto-api-inspector/response-message.png" alt-text="Trace location in Azure Storage":::
 ## Next steps
 
 In this tutorial, you learned how to:
