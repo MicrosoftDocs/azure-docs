@@ -7,7 +7,7 @@ ms.service: postgresql
 ms.custom: "mvc, devcenter, devx-track-csharp"
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 5/6/2019
+ms.date: 10/16/2020
 ---
 
 # Quickstart: Use .NET (C#) to connect and query data in Azure Database for PostgreSQL - Single Server
