@@ -533,7 +533,7 @@ Some data should only be expired if explicitly marked for deletion. You can conf
 
 ### Manage versions
 
-For data that is modified and accessed regularly throughout its lifetime, you can enable Blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier or delete previous versions. The version age is determined by evaluating the version creation time. This policy rule tiers previous versions within container `activedata` that are 90 days or older after snapshot creation to cool tier, and deletes previous versions that are 365 days or older after creation.
+For data that is modified and accessed regularly throughout its lifetime, you can enable Blob storage versioning to automatically maintain previous versions of an object. You can create a policy to tier or delete previous versions. The version age is determined by evaluating the version creation time. This policy rule tiers previous versions within container `activedata` that are 90 days or older after version creation to cool tier, and deletes previous versions that are 365 days or older.
 
 ```json
 {
