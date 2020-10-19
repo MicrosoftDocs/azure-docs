@@ -12,9 +12,10 @@ ms.date: 07/01/2019
 
 This tutorial teaches you how to cable the network connections for an Azure FXT Edge Filer hardware node.
 
-In this tutorial, you will learn: 
+In this tutorial, you will learn:
 
 > [!div class="checklist"]
+
 > * How to choose the type of network cable for your environment
 > * How to connect an Azure FXT Edge Filer node to your datacenter network
 > * How to route cables through the cable management arm (CMA)
@@ -22,34 +23,34 @@ In this tutorial, you will learn:
 
 ## Prerequisites
 
-Before starting this tutorial, the Azure FXT Edge Filer should be installed in a standard equipment rack. The CMA should be installed on the filer node. 
+Before starting this tutorial, the Azure FXT Edge Filer should be installed in a standard equipment rack. The CMA should be installed on the filer node.
 
 ## Identify ports
 
-Identify the various ports on the back of your Azure FXT Edge Filer. 
- 
+Identify the various ports on the back of your Azure FXT Edge Filer.
+
 ![Back of a cabled device](media/fxt-back-annotated.png)
 
 ## Cable the device
 
 * Connect the RJ-45 ports to your data center's network source as described in [Network ports](#network-ports).  
-* Securely connect the [iDRAC port](#idrac-port) to a separate network with a secure DHCP server. 
-* Use the USB ports and the VGA port to connect a keyboard and monitor to the node for initial setup. You must boot the node and [set an initial password](fxt-node-password.md) to activate the node's other ports. Read [Set initial passwords](fxt-node-password.md) for details. 
+* Securely connect the [iDRAC port](#idrac-port) to a separate network with a secure DHCP server.
+* Use the USB ports and the VGA port to connect a keyboard and monitor to the node for initial setup. You must boot the node and [set an initial password](fxt-node-password.md) to activate the node's other ports. Read [Set initial passwords](fxt-node-password.md) for details.
 
-This article also describes how to [connect AC power](#connect-power-cables) for the node. 
+This article also describes how to [connect AC power](#connect-power-cables) for the node.
 
-This article also explains how to connect to the node's [serial port](#serial-port-only-when-necessary), if necessary for specialized troubleshooting. 
+This article also explains how to connect to the node's [serial port](#serial-port-only-when-necessary), if necessary for specialized troubleshooting.
 
-### Network ports 
+### Network ports
 
-Each Azure FXT Edge Filer node includes the following network ports: 
+Each Azure FXT Edge Filer node includes the following network ports:
 
-* Six high-speed 25GbE/10GbE dual rate data ports: 
+* Six high-speed 25GbE/10GbE dual rate data ports:
 
   * Four ports provided by two dual-port plug-in network adapters
-  * Two ports provided by the motherboard mezzanine network adapter 
+  * Two ports provided by the motherboard mezzanine network adapter
 
-* Two 1GbE ports provided by the motherboard mezzanine network adapter 
+* Two 1GbE ports provided by the motherboard mezzanine network adapter
 
 The high-speed 25GbE/10GbE data ports have standard SFP28-compatible cages. To use optical cables, you must install SFP28 optical transceiver modules (not provided).
 
@@ -64,7 +65,7 @@ The type of connections to use for your system depends on your data center envir
   * Optical cable and SFP28 optical transceiver with 25GbE or dual rate 25GbE/10GbE capability
   * SFP28 type 25GbE-capable direct attach twinaxial cable
 
-* If connecting to a 10GbE network, cable each of the high-speed data ports with one of the following: 
+* If connecting to a 10GbE network, cable each of the high-speed data ports with one of the following:
 
   * Optical cable and SFP28 optical transceiver with 10GbE or dual rate 25GbE/10GbE capability.
   * SFP28 type 25GbE-capable direct attach twinaxial cable
@@ -76,10 +77,10 @@ The type of connections to use for your system depends on your data center envir
 
 ### iDRAC port  
 
-The port labeled iDRAC is a 1Gb connection that allows communication with a remote access controller used for hardware management and monitoring. FXT software uses the Intelligent Platform Management Interface (IPMI) with this controller for troubleshooting and recovery. You can use the built-in [iDRAC interface](https://www.dell.com/support/manuals/idrac9-lifecycle-controller-v3.30.30.30/idrac_3.30.30.30_ug/) to monitor hardware through this port. iDRAC and IPMI access are enabled by default. 
+The port labeled iDRAC is a 1Gb connection that allows communication with a remote access controller used for hardware management and monitoring. FXT software uses the Intelligent Platform Management Interface (IPMI) with this controller for troubleshooting and recovery. You can use the built-in [iDRAC interface](https://www.dell.com/support/manuals/idrac9-lifecycle-controller-v3.30.30.30/idrac_3.30.30.30_ug/) to monitor hardware through this port. iDRAC and IPMI access are enabled by default.
 
 > [!Note]
-> The iDRAC port can bypass the operating system and interact directly with hardware on the node. 
+> The iDRAC port can bypass the operating system and interact directly with hardware on the node.
 
 Use these security strategies when connecting and configuring the iDRAC port:
 
@@ -92,7 +93,7 @@ The iDRAC port does not require a high-speed network connection.
   
 ### Serial port (only when necessary)
 
-In some situations, Microsoft Service and Support might tell you to connect a terminal to a node's serial port to diagnose a problem.  
+In some situations, Microsoft Service and Support might tell you to connect a terminal to a node's serial port to diagnose a problem.
 
 To attach the console:
 
@@ -102,62 +103,62 @@ To attach the console:
 
 ## Route cables in the cable management arm (CMA)
 
-Each Azure FXT Edge Filer node comes with an optional cable management arm. The CMA simplifies cable routing and provides easier access to the back of the chassis without needing to disconnect cables. 
+Each Azure FXT Edge Filer node comes with an optional cable management arm. The CMA simplifies cable routing and provides easier access to the back of the chassis without needing to disconnect cables.
 
-Follow these instructions to route the cables through the CMA: 
+Follow these instructions to route the cables through the CMA:
 
 1. Using the tie wraps provided, bundle the cables together as they enter and exit the baskets so that they do not interfere with adjacent systems (1).
 1. With the CMA in the service position, route the cable bundle through the inner and outer baskets (2).
 1. Use the preinstalled hook and loop straps at either end of the baskets to secure the cables (3).
 1. Swing the CMA back into place on the tray (4).
-1. Install the status indicator cable at the back of the system and secure the cable by routing it through the CMA. Attach the other end of the cable to the corner of the outer CMA basket (5). 
+1. Install the status indicator cable at the back of the system and secure the cable by routing it through the CMA. Attach the other end of the cable to the corner of the outer CMA basket (5).
 
    > [!CAUTION]
-   > To avoid potential damage from protruding cables, secure any slack in the status indicator cable after routing this cable through the CMA. 
+   > To avoid potential damage from protruding cables, secure any slack in the status indicator cable after routing this cable through the CMA.
 
 ![Illustration of CMA with cables installed](media/fxt-install/cma-cabling-400.png)
 
 > [!NOTE]
->  If you did not install the CMA, use the two hook and loop straps provided in the rail kit to route the cables at the back of your system.
-> 
+> If you did not install the CMA, use the two hook and loop straps provided in the rail kit to route the cables at the back of your system.
+>
 >  1. Locate the outer CMA brackets on the interior sides of both rack flanges.
 >  2. Bundle the cables gently, pulling them clear of the system connectors to the left and right sides.
 >  3. Thread the hook and loop straps through the tooled slots on the outer CMA brackets on each side of the system to secure the cable bundles.
-> 
+>
 >     ![Cables routed without a CMA](media/fxt-install/fxt-route-cables-no-cma-400.png)
 
 ## About IP address requirements
 
 For hardware nodes in an Azure FXT Edge Filer hybrid storage cache, IP addresses are managed by the cluster software.
 
-Each node requires at least one IP address, but node addresses are assigned when nodes are added to or removed from the cluster. 
+Each node requires at least one IP address, but node addresses are assigned when nodes are added to or removed from the cluster.
 
-The total number of IP addresses required depends on the number of nodes in that make up your cache. 
+The total number of IP addresses required depends on the number of nodes in that make up your cache.
 
 Configure the IP address range by using the Control Panel software after the nodes have been installed. To learn more, read [Gather information for the cluster](fxt-cluster-create.md#gather-information-for-the-cluster).  
 
 ## Connect power cables
 
-Each Azure FXT Edge Filer node uses two power supply units (PSUs). 
+Each Azure FXT Edge Filer node uses two power supply units (PSUs).
 
-> [!TIP] 
-> To take advantage of the two redundant PSUs, attach each AC power cable to a power distribution unit (PDU) on an independent branch circuit.  
-> 
-> You can use a UPS to power the PDUs for extra protection. 
+> [!TIP]
+> To take advantage of the two redundant PSUs, attach each AC power cable to a power distribution unit (PDU) on an independent branch circuit.
+>
+> You can use a UPS to power the PDUs for extra protection.
 
-1. Connect the included power cords to the PSUs in the chassis. Make sure that the cords and PSUs are fully seated. 
-1. Attach the power cords to the power distribution units on the equipment rack. If possible, use two separate power sources for the two cords. 
- 
+1. Connect the included power cords to the PSUs in the chassis. Make sure that the cords and PSUs are fully seated.
+1. Attach the power cords to the power distribution units on the equipment rack. If possible, use two separate power sources for the two cords.
+
 ### Power on an Azure FXT Edge Filer node
 
-To power up the node, press the power button on the front of the system. The button is on the right side control panel. 
+To power up the node, press the power button on the front of the system. The button is on the right side control panel.
 
 ### Power off an Azure FXT Edge Filer node
 
-The power button can be used to shut down the system during testing and before adding it to a cluster. However, after an Azure FXT Edge Filer node is in use as part of a cluster, you should use the cluster control panel software to shut down the hardware. Read [How to safely power off Azure FXT Edge Filer hardware](fxt-power-off.md) for details. 
+The power button can be used to shut down the system during testing and before adding it to a cluster. However, after an Azure FXT Edge Filer node is in use as part of a cluster, you should use the cluster control panel software to shut down the hardware. Read [How to safely power off Azure FXT Edge Filer hardware](fxt-power-off.md) for details.
 
 ## Next steps
 
-After you finish cabling the hardware, power on each of the nodes and initialize them by setting their root passwords. 
+After you finish cabling the hardware, power on each of the nodes and initialize them by setting their root passwords.
 > [!div class="nextstepaction"]
 > [Set initial passwords](fxt-node-password.md)

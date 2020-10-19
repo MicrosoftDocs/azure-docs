@@ -10,16 +10,17 @@ ms.date: 07/01/2019
 
 # Tutorial: Create the Azure FXT Edge Filer cluster
 
-After you install and initialize the Azure FXT Edge Filer hardware nodes for your cache, use the FXT cluster software to create the cache cluster. 
+After you install and initialize the Azure FXT Edge Filer hardware nodes for your cache, use the FXT cluster software to create the cache cluster.
 
-This tutorial walks you through the steps to configure your hardware nodes as a cluster. 
+This tutorial walks you through the steps to configure your hardware nodes as a cluster.
 
-In this tutorial, you will learn: 
+In this tutorial, you will learn:
 
 > [!div class="checklist"]
+
 > * What information is needed before starting to create the cluster
 > * The difference between the cluster's management network, the cluster network, and the client-facing network
-> * How to connect to a cluster node 
+> * How to connect to a cluster node
 > * How to create an initial cluster using one Azure FXT Edge Filer node
 > * How to sign in to the cluster control panel to configure the cluster settings
 
@@ -29,14 +30,14 @@ This procedure takes between 15 and 45 minutes, depending on how much research y
 
 Complete these prerequisites before starting this tutorial:
 
-* Install your Azure FXT Edge Filer hardware systems in your data center 
+* Install your Azure FXT Edge Filer hardware systems in your data center
 
-  You only need one node to create the cluster, but you need to [add at least two more nodes](fxt-add-nodes.md) before you can configure the cluster and get it ready to use. 
+  You only need one node to create the cluster, but you need to [add at least two more nodes](fxt-add-nodes.md) before you can configure the cluster and get it ready to use.
 
 * Connect appropriate power and network cables to the system  
 * Power on at least one Azure FXT Edge Filer node and [set its root password](fxt-node-password.md)
 
-## Gather information for the cluster 
+## Gather information for the cluster
 
 You need the following information to create the Azure FXT Edge Filer cluster:
 
@@ -47,18 +48,18 @@ You need the following information to create the Azure FXT Edge Filer cluster:
 * IP addresses:
 
   * A single IP address for cluster management, and the netmask and router to use for the management network
-  * The first and last IP addresses in a contiguous range of IP addresses for cluster (node to node) communication. See [IP address distribution](#ip-address-distribution), below, for details. 
+  * The first and last IP addresses in a contiguous range of IP addresses for cluster (node to node) communication. See [IP address distribution](#ip-address-distribution), below, for details.
   * (Client-facing IP addresses are set after cluster creation.)
 
 * Network infrastructure information:
 
   * The IP address of a DNS server for the cluster
   * The name of the DNS domain for the cluster
-  * The name or IP address for the cluster NTP servers (either one server or three or more) 
+  * The name or IP address for the cluster NTP servers (either one server or three or more)
   * Whether you want to enable IEEE 802.1AX-2008 link aggregation on the cluster’s interfaces
   * If you enable link aggregation, whether or not to use IEEE 802.3ad (LACP) dynamic aggregation
 
-You can configure these network infrastructure items after you create the cluster, but it is better to do it at creation time. 
+You can configure these network infrastructure items after you create the cluster, but it is better to do it at creation time.
 
 ### IP address distribution
 
@@ -112,11 +113,11 @@ Use the command `ifconfig` to see the addresses assigned to this system.
 
 For example, the command `ifconfig | grep -B5 inet` searches for ports with internet addresses and gives five lines of context to show the port identifier.
 
-Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for iDRAC/IPMI service ports.  
+Write down any IP address shown in the ifconfig report. Addresses listed with port names like e0a or e0b are good options. Do not use any IP addresses listed with e7* names, since those names are only used for iDRAC/IPMI service ports.
 
 ## Load the cluster configuration wizard
 
-Use the browser-based cluster configuration tool to create the cluster. 
+Use the browser-based cluster configuration tool to create the cluster.
 
 Enter the IP address for the node in a web browser. If the browser gives a message about the site being untrusted, proceed to the site anyway. (Individual Azure FXT Edge Filer nodes do not have CA-provided security certificates.)
 
@@ -128,19 +129,19 @@ Leave the **Username** and **Password** fields blank. Click **Login** to load th
 
 ## Create the cluster
 
-The cluster configuration tool guides you through a set of screens to create the Azure FXT Edge Filer cluster. Make sure you have the [required information](#gather-information-for-the-cluster) ready before starting. 
+The cluster configuration tool guides you through a set of screens to create the Azure FXT Edge Filer cluster. Make sure you have the [required information](#gather-information-for-the-cluster) ready before starting.
 
 ### Creation options
 
 The first screen gives three options. Use the manual configuration option unless you have special instructions from support staff.
 
-Click **I will configure the cluster manually** to load the new cluster configuration options screen. 
+Click **I will configure the cluster manually** to load the new cluster configuration options screen.
 
 The other options are rarely used:
 
-* "Update the system image" prompts you to install new OS software before creating the cluster. (The currently installed software version is listed at the top of the screen.) You must provide the software package file - either a URL and username/password, or by uploading a file from your computer. 
+* "Update the system image" prompts you to install new OS software before creating the cluster. (The currently installed software version is listed at the top of the screen.) You must provide the software package file - either a URL and username/password, or by uploading a file from your computer.
 
-* The cluster setup file option is sometimes used by Microsoft Customer Service and Support. 
+* The cluster setup file option is sometimes used by Microsoft Customer Service and Support.
 
 ## Cluster options
 
@@ -152,36 +153,36 @@ The page is divided into two main sections, **Basic Configuration** and **Networ
 
 In the top section, fill in basic information for the new cluster.
 
-![Detail of "Basic configuration" section in browser GUI page. It shows three fields (cluster name, admin password, confirm password)](media/fxt-cluster-create/basic-configuration.png) 
+![Detail of "Basic configuration" section in browser GUI page. It shows three fields (cluster name, admin password, confirm password)](media/fxt-cluster-create/basic-configuration.png)
 
 * **Cluster Name** - Enter a unique name for the cluster.
 
   The cluster name must meet these criteria:
   
   * Length of 1 to 16 characters
-  * Can include letters, numbers, and the dash (-) and underscore (_) characters 
+  * Can include letters, numbers, and the dash (-) and underscore (_) characters
   * Must not include other punctuation or special characters
   
   You can change this name later on the **Cluster** > **General Setup** configuration page. (For more information about cluster settings, read the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), which is not part of this documentation set.)
 
-  > [!NOTE] 
+  > [!NOTE]
   > Your cluster name is used to identify system information uploaded to support for monitoring or troubleshooting, so it's helpful to include your company name.
 
 * **Admin password** - Set the password for the default administrative user, `admin`.
   
   You should set up individual user accounts for each person who administers the cluster, but you cannot remove the user `admin`. Sign in as `admin` if you need to create additional users.
- 
+
   You can change the password for `admin` in the **Administration** > **Users** settings page in the cluster Control Panel. For details, read the **Users** documentation in the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 
 ### Network configuration
 
-The **Networking** section prompts you to specify the network infrastructure that the cluster will use. 
+The **Networking** section prompts you to specify the network infrastructure that the cluster will use.
 
 There are two separate networks to configure:
 
-* The *management network* provides administrator access to the cluster for configuration and monitoring. The IP address specified here is used when connecting to the Control Panel or for SSH access. 
+* The *management network* provides administrator access to the cluster for configuration and monitoring. The IP address specified here is used when connecting to the Control Panel or for SSH access.
 
   Most clusters use only a single management IP address, but if you want to add interfaces you can do so after creating the cluster.
 
@@ -211,9 +212,9 @@ Settings in the **Management** section are for the network that provides adminis
 
 * **MTU** - If necessary, adjust the maximum transmission unit (MTU) for your cluster’s management network.
 
-* **Use 1Gb mgmt network** - Check this box if you want to assign the two 1GbE network ports on your FXT nodes to the management network only. (You must have 25GbE/10GbE ports available for all other traffic.) If you don't check this box, the management network uses the highest speed port available. 
+* **Use 1Gb mgmt network** - Check this box if you want to assign the two 1GbE network ports on your FXT nodes to the management network only. (You must have 25GbE/10GbE ports available for all other traffic.) If you don't check this box, the management network uses the highest speed port available.
 
-### Configure the cluster network 
+### Configure the cluster network
 
 The cluster network settings apply to traffic among the cluster nodes, and between cluster nodes and core filers.
 
@@ -225,11 +226,11 @@ The cluster network settings apply to traffic among the cluster nodes, and betwe
 
   The value in **Number of IPs in Range** is calculated and shown automatically.
 
-* **Non-mgmt netmask (optional)** - Specify the netmask for the cluster network. 
+* **Non-mgmt netmask (optional)** - Specify the netmask for the cluster network.
 
   The system automatically suggests the netmask value that you entered for the management network; change it if needed.
 
-* **Cluster router (optional)** - Specify the default gateway address used by the cluster network. 
+* **Cluster router (optional)** - Specify the default gateway address used by the cluster network.
 
   The system automatically suggests the same gateway address that you supplied for the management network.
 
@@ -237,7 +238,7 @@ The cluster network settings apply to traffic among the cluster nodes, and betwe
 
 * **Non-mgmt MTU (optional)** - If necessary, adjust the maximum transmission unit (MTU) for your cluster network.
 
-### Configure cluster DNS and NTP 
+### Configure cluster DNS and NTP
 
 Below the **Cluster** section there are fields for specifying DNS and NTP servers, and for enabling link aggregation. These settings apply to all networks that the cluster uses.
 
@@ -245,7 +246,7 @@ Below the **Cluster** section there are fields for specifying DNS and NTP server
 
 * **DNS server(s)** - Enter the IP address of one or more domain name system (DNS) servers.
 
-  DNS is recommended for all clusters, and required if you want to use SMB, AD, or Kerberos. 
+  DNS is recommended for all clusters, and required if you want to use SMB, AD, or Kerberos.
   
   For optimal performance, configure the cluster’s DNS server for round-robin load balancing as described in [Configure DNS for the Azure FXT Edge Filer cluster](fxt-configure-network.md#configure-dns-for-load-balancing).
 
@@ -267,13 +268,13 @@ The system displays a message while creating the cluster.
 
 ![cluster configuration status message in browser: "The FXT node is now creating the cluster. This will take several minutes. When the cluster is created, visit this link to complete the configuration." with hyperlink on "visit this link"](media/fxt-cluster-create/creating-message.png)
 
-After a few moments, you can click the link in the message to go to the cluster Control Panel. (This link takes you to the IP address that you specified in **Management IP**.) It takes 15 seconds to one minute for the link to become active after you click the create button. If the web interface does not load, wait several more seconds and then click the link again. 
+After a few moments, you can click the link in the message to go to the cluster Control Panel. (This link takes you to the IP address that you specified in **Management IP**.) It takes 15 seconds to one minute for the link to become active after you click the create button. If the web interface does not load, wait several more seconds and then click the link again.
 
-Cluster creation takes a minute or more, but you can sign in to the Control Panel while the process is going on. It is normal for the control panel's dashboard page to show warnings until the cluster creation process finishes. 
+Cluster creation takes a minute or more, but you can sign in to the Control Panel while the process is going on. It is normal for the control panel's dashboard page to show warnings until the cluster creation process finishes.
 
-## Open the Settings pages 
+## Open the Settings pages
 
-After you create the cluster, you need to customize its configuration for your network and workflow. 
+After you create the cluster, you need to customize its configuration for your network and workflow.
 
 Use the Control Panel web interface to set up your new cluster. Follow the link from your cluster creation status screen, or browse to the management IP address that you set on the cluster.
 
@@ -295,9 +296,9 @@ At this point in the process, your cluster exists, but it has only one node, no 
 
 ### Required configuration
 
-These steps are needed for most or all clusters. 
+These steps are needed for most or all clusters.
 
-* Add nodes to the cluster 
+* Add nodes to the cluster
 
   Three nodes is standard, but many production clusters have more - up to a maximum of 24 nodes.
 
@@ -307,24 +308,24 @@ These steps are needed for most or all clusters.
 
   Add *core filer* definitions for each back-end storage system that the cluster will use. Read [Add back-end storage and configure virtual namespace](fxt-add-storage.md#about-back-end-storage) to learn more.
 
-* Set up client access and the virtual namespace 
+* Set up client access and the virtual namespace
 
   Create at least one virtual server (vserver) and assign it an IP address range for client machines to use. You also must configure the cluster namespace (sometimes called the Global Namespace or GNS), a virtual filesystem feature that lets you map back-end storage exports to virtual paths. The cluster namespace gives clients a consistent and accessible filesystem structure even if you switch back-end storage media. The namespace also can provide a user-friendly virtual storage hierarchy for Azure Blob containers or other supported cloud object storage.
 
   Read [Configure the namespace](fxt-add-storage.md#configure-the-namespace) for details. This step includes:
   * Creating vservers
-  * Setting up junctions between the client network view and back-end storage 
+  * Setting up junctions between the client network view and back-end storage
   * Defining which client IP addresses are served by each vserver
 
-  > [!Note] 
+  > [!Note]
   > Significant planning is recommended before starting to set up the cluster’s GNS. Read the [Using a Global Namespace](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) and [Creating and Working with VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) sections in the Cluster Configuration Guide for help.
 
 * [Adjust network settings](fxt-configure-network.md)
 
   There are several network-related settings that should be verified or customized for a new cluster. Read [Adjust network settings](fxt-configure-network.md) for details about these items:
 
-  * Verifying DNS and NTP configuration 
-  * Configuring directory services, if needed 
+  * Verifying DNS and NTP configuration
+  * Configuring directory services, if needed
   * Setting up VLANs
   * Configuring proxy servers
   * Adding IP addresses to the cluster network
@@ -338,14 +339,14 @@ These steps are needed for most or all clusters.
 
 ### Optional configuration
 
-These steps are not required for all clusters. They are needed for some types of workflows or for certain cluster management styles. 
+These steps are not required for all clusters. They are needed for some types of workflows or for certain cluster management styles.
 
 * Customize node settings
 
   You can set node names and configure node IPMI ports on a cluster-wide level, or individually. If you configure these settings before adding nodes to the cluster, the new nodes can pick up the settings automatically when they join. The options are described in the legacy cluster creation document [Customizing Node Settings](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
 
   > [!TIP]
-  > Some documentation for this product is not yet available on the Microsoft Azure documentation site. Links to the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) and the legacy version of the [Cluster Creation Guide](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) will take you to a separate GitHub-hosted website. 
+  > Some documentation for this product is not yet available on the Microsoft Azure documentation site. Links to the [Cluster Configuration Guide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) and the legacy version of the [Cluster Creation Guide](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) will take you to a separate GitHub-hosted website.
 
 * Configure SMB
 
@@ -359,14 +360,13 @@ These steps are not required for all clusters. They are needed for some types of
 
   If you want to use cloud storage other than Azure Blob, you must install an additional feature license. Contact your Microsoft representative for details about purchasing a FlashCloud<sup>TM</sup> license. Details are explained in [Add back-end storage and configure virtual namespace](fxt-add-storage.md#about-back-end-storage).
 
-
 ### Enable support
 
 The Azure FXT Edge Filer cluster can automatically upload support data about your cluster. These uploads let staff provide the best possible customer service.
 
 Follow these steps to set up support uploads.
 
-1. Navigate to the **Cluster** > **Support** settings page. Accept the privacy policy. 
+1. Navigate to the **Cluster** > **Support** settings page. Accept the privacy policy.
 
    ![Screenshot showing Control Panel and pop-up window with Confirm button to accept the privacy policy](media/fxt-cluster-create/fxt-privacy-policy.png)
 
@@ -386,7 +386,7 @@ Follow these steps to set up support uploads.
 
 ## Next steps
 
-After you have created the basic cluster and accepted the privacy policy, add the rest of the cluster nodes. 
+After you have created the basic cluster and accepted the privacy policy, add the rest of the cluster nodes.
 
 > [!div class="nextstepaction"]
 > [Add cluster nodes](fxt-add-nodes.md)
