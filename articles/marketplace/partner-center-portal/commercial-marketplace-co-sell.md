@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 10/12/2020
+ms.date: 10/19/2020
 ---
 
 # Co-sell option in Partner Center
