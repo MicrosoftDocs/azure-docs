@@ -16,7 +16,7 @@ ms.topic: how-to
 Periodically you can export out usage information for billing purposes, monitoring metrics, and logs and then upload it to Azure.  The export and upload of any of these three types of data will also create and update the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
-During the preview period, there is no cost for using Azure Arc enabled data services.
+> During the preview period, there is no cost for using Azure Arc enabled data services.
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ Follow these commands to create your metrics upload service principal and assign
 To create a service principal, run this command:
 
 > [!NOTE]
-> Creating a service principal requires [certain permissions in Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> Creating a service principal requires [certain permissions in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>

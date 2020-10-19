@@ -92,11 +92,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In left navigation panel, click **Account** and select **Configuration**.
 
-    ![Configure Single Sign-On On App Side](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
+    ![Screenshot shows Configuration selected from Account.](./media/runmyprocess-tutorial/tutorial_runmyprocess_001.png)
 
 1. Go to **Authentication method** section and perform below steps:
 
-    ![Configure Single Sign-On On App Side](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
+    ![Screenshot shows the Authentication method tab where you can enter the values described.](./media/runmyprocess-tutorial/tutorial_runmyprocess_002.png)
 
     a. As **Method**, select **SSO with Samlv2**.
 

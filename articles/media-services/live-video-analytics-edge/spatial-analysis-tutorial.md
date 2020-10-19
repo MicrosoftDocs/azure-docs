@@ -16,7 +16,7 @@ In this tutorial you will:
 > * Examine the code.
 > * Run the sample code.
 > * Monitor events.
-
+ 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Suggested pre-reading
@@ -27,7 +27,7 @@ Read these articles before you begin:
 * [Live Video Analytics on IoT Edge terminology](terminology.md)
 * [Media graph concepts](media-graph-concept.md)
 * [Event-based video recording](event-based-video-recording-concept.md)
-* [Tutorial: Developing an IoT Edge module](https://docs.microsoft.com/azure/iot-edge/tutorial-develop-for-linux)
+* [Tutorial: Developing an IoT Edge module](../../iot-edge/tutorial-develop-for-linux.md)
 * [Deploy Live Video Analytics on Azure Stack Edge](deploy-azure-stack-edge-how-to.md) 
 
 ## Prerequisites
@@ -50,12 +50,12 @@ This diagram shows how the signals flow in this tutorial. An [edge module](https
 
 The MediaGraphCognitiveServicesVisionExtension node plays the role of a proxy. It converts the video frames to the specified image type. Then it relays the image over **shared memory** to another edge module that runs AI operations behind a gRPC endpoint. In this example, that edge module is the spatial-analysis module. The MediaGraphCognitiveServicesVisionExtension processor node does two things:
 
-* It gathers the results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](https://docs.microsoft.com/azure/iot-edge/iot-edge-glossary#iot-edge-hub). 
+* It gathers the results and publishes events to the [IoT Hub sink](media-graph-concept.md#iot-hub-message-sink) node. The node then sends those events to [IoT Edge Hub](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). 
 * It also captures a 30 second video clip from the RTSP source using a [signal gate processor](media-graph-concept.md#signal-gate-processor) and stores it as an Media Services asset.
 
 ## Create the Computer Vision resource
 
-You need to create an Azure resource of type Computer Vision either on [Azure portal](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal) or via Azure CLI. You will be able to create the resource once your request for access to the container has been approved and your Azure Subscription ID has been registered. Go to https://aka.ms/csgate to submit your use case and your Azure Subscription ID.  You need to create the Azure resource using the same Azure subscription that has been provided on the Request for Access form.
+You need to create an Azure resource of type Computer Vision either on [Azure portal](../../iot-edge/how-to-deploy-modules-portal.md) or via Azure CLI. You will be able to create the resource once your request for access to the container has been approved and your Azure Subscription ID has been registered. Go to https://aka.ms/csgate to submit your use case and your Azure Subscription ID.  You need to create the Azure resource using the same Azure subscription that has been provided on the Request for Access form.
 
 ### Gathering required parameters
 
@@ -70,7 +70,7 @@ A key is used to start the spatial-analysis container, and is available on the A
 
 ## Set up Azure Stack Edge
 
-Follow [these steps](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-deploy-prep) to set up the Azure Stack Edge and continue to follow the steps below to deploy the Live Video Analytics and the spatial analysis modules.
+Follow [these steps](../../databox-online/azure-stack-edge-gpu-deploy-prep.md) to set up the Azure Stack Edge and continue to follow the steps below to deploy the Live Video Analytics and the spatial analysis modules.
 
 ## Set up your development environment
 
@@ -131,7 +131,7 @@ There are a few things you need to pay attention to in the deployment template f
 1. `IpcMode` in lvaEdge and spatial analysis module createOptions should be same and set to host.
 1. For the RTSP simulator to work, ensure that you have set up the Volume Bounds. For more information, see [Setup Docker Volume Mounts](deploy-azure-stack-edge-how-to.md#optional-setup-docker-volume-mounts).
 
-    1. [Connect to the SMB share](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-deploy-add-shares#connect-to-an-smb-share) and copy the [sample bulldozer video file](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) to the Local share.
+    1. [Connect to the SMB share](../../databox-online/azure-stack-edge-deploy-add-shares.md#connect-to-an-smb-share) and copy the [sample bulldozer video file](https://lvamedia.blob.core.windows.net/public/bulldozer.mkv) to the Local share.
     1. See that the rtspsim module has the following configuration:
         
         ```json
@@ -195,7 +195,16 @@ Then you can find `lvaEdge`, `rtspsim`, `spatialAnalysis` and `rtspsim` modules 
 
 To see these events, follow these steps:
 
-1. Open the Explorer pane in Visual Studio Code and look for Azure IoT Hub in the lower-left corner.
+1. In Visual Studio Code, open the **Extensions** tab (or press Ctrl+Shift+X) and search for Azure IoT Hub.
+1. Right click and select **Extension Settings**.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/extensions-tab.png" alt-text="Extension Settings":::
+1. Search and enable “Show Verbose Message”.
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Show Verbose Message":::
+1. Open the Explorer pane and look for Azure IoT Hub in the lower-left corner.
 1. Expand the Devices node.
 1. Right-click on your Azure Stack Edge and select Start Monitoring Built-in Event Endpoint.
     

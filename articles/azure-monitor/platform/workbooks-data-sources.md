@@ -3,14 +3,12 @@ title: Azure Monitor workbooks data sources | Microsoft docs
 description: Simplify complex reporting with prebuilt and custom parameterized Azure Monitor Workbooks built from multiple data sources 
 services: azure-monitor
 documentationcenter: ''
-author: mrbullwinkle
 manager: carmonm
 
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.author: mbullwin
 ---
 
 # Azure Monitor workbooks data sources
@@ -108,6 +106,6 @@ To avoid automatically making calls to untrusted hosts when using templates, the
 
 ## Next steps
 
-* [Get started](workbooks-visualizations.md) learning more about workbooks many rich visualizations options.
+* [Get started](./workbooks-overview.md#visualizations) learning more about workbooks many rich visualizations options.
 * [Control](workbooks-access-control.md) and share access to your workbook resources.
 * [Log Analytics query optimization tips](../log-query/query-optimization.md)

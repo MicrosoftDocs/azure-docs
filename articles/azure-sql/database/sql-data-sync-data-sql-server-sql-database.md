@@ -120,7 +120,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 > - Data between hub and member can be lost even though sync does not report any issue.
 > - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
 
-- Snapshot isolation must be enabled. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+- Snapshot isolation must be enabled for both Sync members and hub. For more info, see [Snapshot Isolation in SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### General limitations
 
@@ -130,7 +130,8 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - Be cautious when you use the following data types as a primary key, because the supported precision is only to the second: time, datetime, datetime2, datetimeoffset.
 - The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 - Azure Active Directory authentication isn't supported.
-- Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
+- If there are tables with the same name but different schema (for example, dbo.customers and sales.customers) only one of the tables can be added into sync.
+- A table name can't have characters that have an ASCII value smaller or equal than '-'.
 - Columns with User-Defined Data Types aren't supported
 - Moving servers between different subscriptions isn't supported. 
 

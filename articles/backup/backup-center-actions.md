@@ -64,7 +64,7 @@ Depending on the type of datasource you wish to restore, follow the appropriate 
 ### If you're restoring an Azure Database for PostgreSQL Server
 
 1. Navigate to the Backup Center and select **Restore** at the top of the **Overview** tab.
-2. Select the type of datasource you wish to back up (Azure Database for PostgreSQL Server in this case).
+2. Select the type of datasource you wish to restore (Azure Database for PostgreSQL Server in this case).
 
     ![Select datasource for Azure Database for PostgreSQL Server restore](./media/backup-center-actions/restore-select-datasource-postgresql.png)
 

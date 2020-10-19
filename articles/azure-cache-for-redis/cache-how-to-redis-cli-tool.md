@@ -67,7 +67,7 @@ When using stunnel, run *redis-cli.exe*, and pass only your *port*, and *access 
 redis-cli.exe -p 6380 -a YourAccessKey
 ```
 
-![stunnel with redis-cli](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
+![Screenshot that shows that your connection to the cache is successful.](media/cache-how-to-redis-cli-tool/cache-redis-cli-stunnel.png)
 
 If you're using a test cache with the **unsecure** non-TLS port, run `redis-cli.exe` and pass your *host name*, *port*, and *access key* (primary or secondary) to connect to the test cache.
 
