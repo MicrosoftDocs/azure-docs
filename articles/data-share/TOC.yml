@@ -32,7 +32,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://docs.microsoft.com/samples/browse/?service=data-share/
+    href: /samples/browse/?service=data-share
   - name: Azure PowerShell
     href: samples-powershell.md
 - name: How-to guides
@@ -70,15 +70,15 @@
   - name: .NET
     href: /dotnet/api/overview/azure/datashare
   - name: Azure PowerShell
-    href: https://docs.microsoft.com/powershell/module/az.datashare/?view=azps-2.6.0
+    href: /powershell/module/az.datashare/?view=azps-2.6.0
   - name: REST API
     href: /rest/api/datashare
   - name: Azure CLI
-    href: https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
+    href: /cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest
 - name: Resources
   items:
   - name: Microsoft Q&A question page
-    href: https://docs.microsoft.com/answers/topics/azure-data-share.html
+    href: /answers/topics/azure-data-share.html
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-data-share
   - name: Blog
