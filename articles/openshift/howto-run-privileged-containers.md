@@ -131,7 +131,7 @@ Create a new OpenShift project
 oc new-project twistlock
 ```
 
-Skip the optional section "Push the Prisma Cloud images to a private registry". It won't work on Azure Red Hat Openshift. Use the online registry instead.
+Skip the optional section "Push the Prisma Cloud images to a private registry". It won't work on Azure Red Hat OpenShift. Use the online registry instead.
 
 You can follow the official documentation while applying the corrections described below.
 Start with the "Install Console" section.
