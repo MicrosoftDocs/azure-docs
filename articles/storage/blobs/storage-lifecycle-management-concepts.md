@@ -18,8 +18,8 @@ Data sets have unique lifecycles. Early in the lifecycle, people access some dat
 
 The lifecycle management policy lets you:
 
-- Transistion blobs from cool to hot immediately if accessed to optmized for performance 
-- Transition blobs, blob versions, and blob snapshots to a cooler storage tier (hot to cool, hot to archive, or cool to archive) if not accssed or modified for a period of time to optimize for cost
+- Transition blobs from cool to hot immediately if accessed to optimize for performance 
+- Transition blobs, blob versions, and blob snapshots to a cooler storage tier (hot to cool, hot to archive, or cool to archive) if not accessed or modified for a period of time to optimize for cost
 - Delete blobs, blob versions, and blob snapshots at the end of their lifecycles
 - Define rules to be run once per day at the storage account level
 - Apply rules to containers or a subset of blobs (using name prefixes or [blob index tags](storage-manage-find-blobs.md) as filters)
