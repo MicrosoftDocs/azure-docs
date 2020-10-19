@@ -130,31 +130,29 @@ Follow these steps to add your own certificates including the signing chain.
 
 1. To upload certificate, on the **Certificate** page, select **+ Add certificate**.
 
-    ![Local web UI "Certificates" page 4](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-1.png)
+    ![Local web UI "Certificates" page 4](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/add-certificate-1.png)
 
 2. Upload the signing chain first and select **Validate & add**.
 
-    ![Local web UI "Certificates" page 5](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-2.png)
+    ![Local web UI "Certificates" page 5](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/add-certificate-2.png)
 
 3. Now you can upload other certificates. For example, you can upload the Azure Resource Manager and Blob storage endpoint certificates.
 
-    ![Local web UI "Certificates" page 6](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-3.png)
+    ![Local web UI "Certificates" page 6](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/add-certificate-3.png)
 
     You can also upload the local web UI certificate. After you upload this certificate, you will be required to start your browser and clear the cache. You will then need to connect to the device local web UI.  
 
-    ![Local web UI "Certificates" page 7](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-5.png)
+    ![Local web UI "Certificates" page 7](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/add-certificate-5.png)
 
     You can also upload the node certificate.
 
-    ![Local web UI "Certificates" page 8](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-4.png)
+    ![Local web UI "Certificates" page 8](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/add-certificate-4.png)
 
     At any time, you can select a certificate and view the details to ensure that these match with the certificate that you uploaded.
 
-    ![Local web UI "Certificates" page 9](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-6.png)
-
     The certificate page should update to reflect the newly added certificates.
 
-    ![Local web UI "Certificates" page 10](./media/azure-stack-edge-gpu-deploy-configure-certificates/add-certificate-7.png)  
+    ![Local web UI "Certificates" page 10](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/add-certificate-7.png)  
 
     > [!NOTE]
     > Except for Azure public cloud, signing chain certificates are needed to be brought in before activation for all cloud configurations (Azure Government or Azure Stack).
@@ -165,9 +163,9 @@ Follow these steps to add your own certificates including the signing chain.
 
 1. On the **Security** tile, select **Configure** for VPN.
 
-    ![Local web UI "VPN" page](./media/azure-stack-edge-j-series-deploy-connect-setup-activate/set-up-device-241.png)  
+    ![Local web UI "VPN" page](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/configure-vpn-local-ui-1.png)  
 
-    To configure VPN, you'll first need to ensure that you have all the necessary configuration done in Azure. For details, see [Configure prerequisites](azure-stack-edge-j-series-configure-vpn.md#configure-prerequisites) and [Configure Azure resources for VPN](azure-stack-edge-j-series-configure-vpn.md#vpn-configuration-in-the-cloud). Once this is complete, you can do the configuration in the local UI.
+    To configure VPN, you'll first need to ensure that you have all the necessary configuration done in Azure. For details, see [Configure prerequisites](azure-stack-edge-placeholder.md) and [Configure Azure resources for VPN](azure-stack-edge-placeholder.md). Once this is complete, you can do the configuration in the local UI.
     
     1. On the VPN page, select **Configure**.
     2. In the **Configure VPN** blade:
@@ -183,17 +181,17 @@ Follow these steps to add your own certificates including the signing chain.
     - For **IKE encryption method**, select **AES256**.
     - Select **Apply**.
 
-        ![Configure local UI 2](media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-2.png)
+        ![Configure local UI 2](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/configure-vpn-local-ui-2.png)
 
     3. To upload the VPN route configuration file, select **Upload**. 
     
-        ![Configure local UI 3](media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-3.png)
+        ![Configure local UI 3](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/configure-vpn-local-ui-3.png)
     
         - Browse to the VPN configuration *json* file that you downloaded on your local system in the previous step.
         - Select the region as the Azure region associated with the device, virtual network, and gateways.
         - Select **Apply**.
     
-            ![Configure local UI 4](media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-4.png)
+            ![Configure local UI 4](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/configure-vpn-local-ui-4.png)
     
     4. To add client-specific routes, configure IP address ranges to be accessed using VPN only. 
     
@@ -201,7 +199,7 @@ Follow these steps to add your own certificates including the signing chain.
         - Provide a valid IPv4 range and select **Add**. Repeat the steps to add other ranges.
         - Select **Apply**.
     
-            ![Configure local UI 5](media/azure-stack-edge-j-series-configure-vpn/configure-vpn-local-ui-5.png)
+            ![Configure local UI 5](./media/azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption/configure-vpn-local-ui-5.png)
 
 1. Select **< Back to Get started**.
 
