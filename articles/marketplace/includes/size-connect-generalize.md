@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 10/15/2020
+ms.date: 10/20/2020
 ---
 
 ## Generalize the image
@@ -33,7 +33,7 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
     1. In the Azure portal, select your resource group (RG) and de-allocate the VM.
     2. Your VM is now generalized and you can create a new VM using this VM disk.
 
-## Take a snapshot of the VM disk
+### Take a snapshot of the VM disk
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 2. Starting at the upper-left, select **Create a resource**, then search for and select **Snapshot**.
@@ -44,7 +44,7 @@ The following process generalizes a Linux VM and redeploys it as a separate VM. 
 7. Select the **Account type** to use to store the snapshot. Use **Standard HDD** unless you need it stored on a high performing SSD.
 8. Select **Create**.
 
-## Extract the VHD
+#### Extract the VHD
 
 Use the following script to export the snapshot into a VHD in your storage account.
 
@@ -81,7 +81,7 @@ sas=$(az snapshot grant-access --resource-group $resourceGroupName --name $ snap
 az storage blob copy start --destination-blob $destinationVHDFileName --destination-container $storageContainerName --account-name $storageAccountName --account-key $storageAccountKey --source-uri $sas
 ```
 
-### Script explanation
+#### Script explanation
 
 This script uses following commands to generate the SAS URI for a snapshot and copies the underlying VHD to a storage account using the SAS URI. Each command in the table links to command specific documentation.
 

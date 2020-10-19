@@ -6,27 +6,30 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/19/2020
+ms.date: 10/20/2020
 ---
 
 # How to create a virtual machine using an approved base
 
 This article describes how to use Azure to create a virtual machine (VM) containing a pre-configured, endorsed operating system. If this isn't compatible with your solution, it's possible to [create and configure an on-premises VM](azure-vm-create-using-own-image.md) using an approved operating system, then configure and prepare it for upload as described in [Prepare a Windows VHD or VHDX to upload to Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md).
 
+> [!NOTE]
+> Before you start this procedure, review the [technical requirements](marketplace-virtual-machines.md#technical-requirements) for Azure VM offers, including virtual hard disk (VHD) requirements.
+
 ## Select an approved base Image
 
-Select one of the following Windows or Linux Images as your base.
+Select one of the following Windows or Linux images as your base.
 
 ### Windows
 
 - [Windows Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview)
 - SQL Server [2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [2014](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2014sp3-ws2012r2?tab=Overview), [2012](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2012sp4-ws2012r2?tab=Overview)
 
-- SQL Server 2019 [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Standard](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview), [Web](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftsqlserver.sql2019-ws2019?tab=Overview)
+### Linux
 
-- SQL Server 2014 [Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)
+Azure offers a range of approved Linux distributions. For a current list, see [Linux on distributions endorsed by Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 
-- SQL Server 2012 SP2 [Enterprise](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Standard](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md), [Web](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md)
+## Create VM on the Azure portal
 
 1. Sign in to the [Azure portal](https://ms.portal.azure.com/).
 2. Select **Virtual machines**.
@@ -45,23 +48,24 @@ Select one of the following Windows or Linux Images as your base.
 
 Azure begins provisioning the virtual machine you specified. Track its progress by selecting the **Virtual Machines** tab in the left menu. After it's created, the status of Virtual Machine changes to **Running**.
 
-## Connect to your VM
-
-Connect to your [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/ssh-from-windows.md#connect-to-your-vm) VM.
 
 ## Configure the VM
 
 This section describes how to size, update, and generalize an Azure VM. These steps are necessary to prepare your VM to be deployed on Azure Marketplace.
 
-## Install the most current updates
+### Connect to your VM
+
+Refer to the following documentation to connect to your [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/ssh-from-windows.md#connect-to-your-vm) VM.
+
+### Install the most current updates
 
 [!INCLUDE [Discussion of most current updates](includes/most-current-updates.md)]
 
-## Perform additional security checks
+### Perform additional security checks
 
 [!INCLUDE [Discussion of addition security checks](includes/additional-security-checks.md)]
 
-## Perform custom configuration and scheduled tasks
+### Perform custom configuration and scheduled tasks
 
 [!INCLUDE [Discussion of custom configuration and scheduled tasks](includes/custom-config.md)]
 
