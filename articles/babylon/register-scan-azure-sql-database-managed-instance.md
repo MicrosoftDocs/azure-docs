@@ -28,7 +28,7 @@ The Azure SQL Database Managed Instance data source supports the following funct
 
 1. [Configure public endpoint in Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/managed-instance/public-endpoint-configure)
 
-1. Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](https://docs.microsoft.com/en-us/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Babylon supports today:
+1. Authentication to scan Azure SQL Database Managed Instance. If you need to create new authentication, you need to [authorize database access to SQL Database Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/logins-create-manage). There are three authentication methods that Babylon supports today:
 
     > [!Note]
     > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about 15 minutes after granting permission, the Babylon account should have the appropriate permissions to be able to scan the resource(s).
