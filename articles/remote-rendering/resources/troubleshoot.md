@@ -83,7 +83,7 @@ The video quality can be compromised either by network quality or the missing H2
 
 ## Video recorded with MRC does not reflect the quality of the live experience
 
-A video can be recorded on HoloLens through [Mixed Reality Capture (MRC)](https://docs.microsoft.com/windows/mixed-reality/mixed-reality-capture-for-developers). However the resulting video has worse quality than the live experience for two reasons:
+A video can be recorded on HoloLens through [Mixed Reality Capture (MRC)](/windows/mixed-reality/mixed-reality-capture-for-developers). However the resulting video has worse quality than the live experience for two reasons:
 * The video framerate is capped at 30 Hz as opposed to 60 Hz.
 * The video images do not go through the [late stage reprojection](../overview/features/late-stage-reprojection.md) processing step, so the video appears to be choppier.
 
