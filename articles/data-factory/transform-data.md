@@ -65,12 +65,12 @@ The HDInsight Streaming activity in a Data Factory pipeline executes Hadoop Stre
 ### HDInsight Spark activity
 The HDInsight Spark activity in a Data Factory pipeline executes Spark programs on your own HDInsight cluster. For details, see [Invoke Spark programs from Azure Data Factory](transform-data-using-spark.md). 
 
-### Machine Learning Studio (classic) activities
-Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning Studio (classic) web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in an Azure Data Factory pipeline, you can invoke a Machine Learning Studio (classic) web service to make predictions on the data in batch.
+### Azure Machine Learning Studio (classic) activities
+Azure Data Factory enables you to easily create pipelines that use a published Azure Machine Learning Studio (classic) web service for predictive analytics. Using the [Batch Execution activity](transform-data-using-machine-learning.md) in an Azure Data Factory pipeline, you can invoke a Studio (classic) web service to make predictions on the data in batch.
 
 Over time, the predictive models in the Studio (classic) scoring experiments need to be retrained using new input datasets. After you are done with retraining, you want to update the scoring web service with the retrained machine learning model. You can use the [Update Resource activity](update-machine-learning-models.md) to update the web service with the newly trained model.  
 
-See [Use Machine Learning Studio (classic) activities](transform-data-using-machine-learning.md) for details about these Studio (classic) activities. 
+See [Use Azure Machine Learning Studio (classic) activities](transform-data-using-machine-learning.md) for details about these Studio (classic) activities. 
 
 ### Stored procedure activity
 You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics (formerly SQL Data Warehouse), SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
