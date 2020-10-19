@@ -214,7 +214,7 @@ The simulated device prints a message to the console when it receives a direct m
 
 ![Simulated device receives direct method call](media/tutorial-connectivity/receive-method-call.png)
 
-When the simulated device successfully receives the direct method call, it sends an acknowledgement back to the hub:
+When the simulated device successfully receives the direct method call, it sends an acknowledgment back to the hub:
 
 ![Receive direct method acknowledgement](media/tutorial-connectivity/method-acknowledgement.png)
 

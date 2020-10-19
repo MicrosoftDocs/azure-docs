@@ -107,7 +107,7 @@ You IoT Edge device is now in the **OilPumps** group.
 
 ### Install the Edge runtime
 
-An Edge device requires the Edge runtime to be installed. In this tutorial, you install the Edge runtime in an Azure Linux VM to test the scenario. The following steps use the Azure cloud shell in install and configure the VM:
+An Edge device requires the Edge runtime to be installed. In this tutorial, you install the Edge runtime in an Azure Linux VM to test the scenario. The following steps use the Azure Cloud Shell in install and configure the VM:
 
 1. To create a Linux VM in Azure, run the following commands. You can use a location close to where you are:
 

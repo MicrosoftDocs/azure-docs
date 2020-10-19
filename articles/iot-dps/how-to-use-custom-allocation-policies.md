@@ -126,7 +126,7 @@ In this section, you create an Azure function that implements your custom alloca
 
 7. On the next page, for the **CREATE A FUNCTION** step, select the **Webhook + API** tile, then select **Create**. A function named **HttpTrigger1** is created, and the portal displays the contents of the **run.csx** code file.
 
-8. Reference required Nuget packages. To create the initial device twin, the custom allocation function uses classes that are defined in two Nuget packages that must be loaded into the hosting environment. With Azure Functions, Nuget packages are referenced using a *function.host* file. In this step, you save and upload a *function.host* file.
+8. Reference required NuGet packages. To create the initial device twin, the custom allocation function uses classes that are defined in two NuGet packages that must be loaded into the hosting environment. With Azure Functions, NuGet packages are referenced using a *function.host* file. In this step, you save and upload a *function.host* file.
 
     1. Copy the following lines into your favorite editor and save the file on your computer as *function.host*.
 
