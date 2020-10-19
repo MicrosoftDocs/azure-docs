@@ -91,12 +91,6 @@
       "branch": "master"
     },
     {
-      "path_to_root": "samples-key-vault-dotnet-quickstart",
-      "url": "https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart",
-      "branch": "master",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "samples-mediaservices-integration",
       "url": "https://github.com/Azure-Samples/media-services-dotnet-functions-integration",
       "branch": "master"
