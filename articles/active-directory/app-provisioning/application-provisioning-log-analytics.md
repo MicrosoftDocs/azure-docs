@@ -21,7 +21,7 @@ Provisioning integrates with Azure Monitor logs and Log Analytics. With Azure mo
 
 You should already be familiar with Azure monitoring and Log Analytics. If not, jump over to learn about them and then come back to learn about application provisioning logs. To learn more about Azure monitoring, see [Azure Monitor overview](../../azure-monitor/overview.md). To learn more about Azure Monitor logs and Log Analytics, see [Overview of log queries in Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
 
-Once you've configured on Azure monitoring, you can enable logs for application provisioning. The option is located on the **Diagnostics settings** page.
+Once you've configured Azure monitoring, you can enable logs for application provisioning. The option is located on the **Diagnostics settings** page.
 
 :::image type="content" source="media/application-provisioning-log-analytics/diagnostic-settings.png" alt-text="Access diagnostic settings" lightbox="media/application-provisioning-log-analytics/diagnostic-settings.png":::
 

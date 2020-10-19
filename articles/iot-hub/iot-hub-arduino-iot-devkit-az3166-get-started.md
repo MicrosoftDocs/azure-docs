@@ -26,7 +26,7 @@ You can use the [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-develo
 
 Don't have a DevKit yet? Try the [DevKit simulator](https://azure-samples.github.io/iot-devkit-web-simulator/) or [purchase a DevKit](https://aka.ms/iot-devkit-purchase).
 
-You can find the source code for all DevKit tutorials from [code samples gallery](https://docs.microsoft.com/samples/browse/?term=mxchip).
+You can find the source code for all DevKit tutorials from [code samples gallery](/samples/browse/?term=mxchip).
 
 ## What you need
 
@@ -260,7 +260,7 @@ Instead of provisioning Azure IoT Hub and device from the Azure portal, you can 
 
     ![Select sub](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-subscription.png)
 
-1. Then select or create a new [resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#terminology).
+1. Then select or create a new [resource group](../azure-resource-manager/management/overview.md#terminology).
 
     ![Select resource group](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-resource-group.png)
 
