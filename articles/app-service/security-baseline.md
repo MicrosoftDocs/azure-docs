@@ -749,15 +749,12 @@ Use Azure AD's Identity's Protection and risk detection features to configure au
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4472).
 
-**Guidance**: Implement separate subscriptions and management groups for development, test, and production. Deploy your App Service web app into a Virtual Network.
+**Guidance**: Implement separate subscriptions and management groups for development, test, and production. Deploy your App Service Web App into a Virtual Network and use network security groups, subnets for further application isolation. 
 
-For the multi-tenant App Service, Virtual Network Integration gives your app access to resources in your Virtual network. It does not grant inbound private access to your app from the Virtual network. Private site access refers to making an app accessible only from a private network, such as from within an Azure Virtual network. 
+For the multi-tenant App Service, use Virtual Network Integration for your app's access to resources in your Virtual network. Note that this does not grant inbound private access to your app from the Virtual network. Use private site access to make an app accessible only from a private network, such as one from within an Azure Virtual network. 
 
-Virtual Network Integration is used only to make outbound calls from your app into your Virtual Network. The Virtual Network. Integration feature behaves differently when it's used with Virtual network in the same region and with Virtual network  in other regions. The Virtual network. Integration feature has two variations:
-- Regional Virtual Network Integration: When you connect to Azure Resource Manager virtual networks in the same region, you must have a dedicated subnet in the Virtual network you are integrating with.
-
-- Gateway-required Virtual Network. Integration: When you connect to Virtual Network in other regions or to a classic virtual network in the same region, you need an Azure Virtual Network Gateway provisioned in the target Virtual Network.
-
+Virtual Network Integration is used only to make outbound calls from your app into your Virtual Network. The Virtual Network Integration feature behaves differently when it is used with a virtual network in the same region and with virtual networks in other regions. 
+ 
 - [Networking considerations for an App Service Environment](environment/network-info.md)
 
 - [How to create an external ASE](environment/create-external-ase.md)
@@ -773,7 +770,7 @@ Virtual Network Integration is used only to make outbound calls from your app in
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4473).
 
-**Guidance**: While data identification, classification, and loss prevention features are not yet available for App Service, you can reduce the data exfiltration risk from the virtual network by removing all rules where destination is tag Internet or Azure services. 
+**Guidance**: While data identification, classification, and loss prevention features are not yet available for App Service, you can reduce the data exfiltration risk from the virtual network by removing all rules where destination uses a 'tag' for Internet or Azure services. 
 
 Microsoft manages the underlying infrastructure for App Service and has implemented strict controls to prevent the loss or exposure of customer data.
 
@@ -844,11 +841,12 @@ Microsoft manages the underlying platform and treats all customer content as sen
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4478).
 
-**Guidance**: Web site file content is stored in Azure Storage, which automatically encrypts the content at rest. You may choose to store application secrets in Key Vault and retrieve them at runtime.
+**Guidance**: App Service's web site content, such as files, is stored in Azure Storage which automatically encrypts the content at rest. 
+Choose to store application secrets in Key Vault and retrieve them at runtime.
 
 Customer supplied secrets are encrypted at rest. The secrets are encrypted at rest while stored in App Service configuration databases.
 
-Locally attached disks can optionally be used as temporary storage by websites, (for example, D:\local and %TMP%) but are not encrypted at rest.
+Note that while locally attached disks can optionally be used as temporary storage by websites, (for example, D:\local and %TMP%), they are not encrypted at rest.
 
 - [Understand data protection controls for Azure App Service](app-service-security-controls.md)
 
@@ -863,7 +861,7 @@ Locally attached disks can optionally be used as temporary storage by websites, 
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4479).
 
-**Guidance**: Use Azure Monitor with the Azure Activity log to create alerts for when changes take place to production App Service Web Apps as well as other critical or related resources.
+**Guidance**: Use Azure Monitor with Azure Activity log to create alerts upon changes to production App Service Web Apps as well as other critical or related resources.
 
 - [How to create alerts for Azure Activity Log events](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -882,7 +880,7 @@ Locally attached disks can optionally be used as temporary storage by websites, 
 
 **Guidance**: Adopt a DevSecOps practice to ensure your App Service Web Apps are secure and remain secured throughout the duration of their lifecycle. DevSecOps incorporates your organization's security team and their capabilities into your DevOps practices making security a responsibility of everyone on the team.
 
-Follow recommendations from Security Center to secure your App Service apps.
+Review and follow recommendations from Security Center for securing your App Service apps.
 
 - [How to add continuous security validation to your CI/CD pipeline](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
@@ -930,7 +928,8 @@ Follow recommendations from Security Center to secure your App Service apps.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4484).
 
-**Guidance**: Microsoft performs vulnerability management on the underlying systems that support App Service. However you may use the severity of the recommendations within Security Center as well as the Secure Score to measure risk within your environment. Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
+**Guidance**: Microsoft performs vulnerability management on the underlying systems, which support App Service. 
+You can however use the severity of the recommendations within Security Center as well as the Secure Score to measure risk within your environment. Your Secure Score is based on how many Security Center recommendations you have mitigated. To prioritize the recommendations to resolve first, consider the severity of each.
 
 - [Security recommendations reference guide](../security-center/recommendations-reference.md)
 
@@ -947,7 +946,7 @@ Follow recommendations from Security Center to secure your App Service apps.
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4485).
 
-**Guidance**: Use Azure Resource Graph to query or discover all resources (such as compute, storage, network, ports, protocols, and so on) within your subscriptions.  Ensure appropriate (read) permissions in your tenant and enumerate all Azure subscriptions as well as resources within your subscriptions.
+**Guidance**: Use Azure Resource Graph to query or discover all resources (such as compute, storage, network, ports, protocols, and so on) within your subscriptions.  Ensure appropriate permissions are applied to your tenant and you can enumerate all Azure subscriptions as well as resources within your subscriptions.
 
 Although classic Azure resources may be discovered via Resource Graph, it is highly recommended to create and use Azure Resource Manager resources going forward.
 
@@ -1091,7 +1090,7 @@ Use Azure Resource Graph to query or discover resources within their subscriptio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/4495).
 
-**Guidance**: Configure Azure Conditional Access to limit users' ability to interact with Azure Resource Manager by configuring "Block access" for the "Microsoft Azure Management" App.
+**Guidance**: Configure Azure Conditional Access to limit the ability of users to interact with Azure Resource Manager, by configuring "Block access" for the "Microsoft Azure Management" App.
 
 - [How to configure Conditional Access to block access to Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
