@@ -48,6 +48,10 @@
 
 - name: How-to
   items:
+  - name: AI + Machine Learning
+    items:
+    - name: Machine Learning
+      href: /machine-learning/how-to-configure-private-link.md
   - name: Connect privately to a web app
     href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
