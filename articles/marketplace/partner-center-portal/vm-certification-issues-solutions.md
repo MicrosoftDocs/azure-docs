@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 10/14/2020
+ms.date: 10/16/2020
 ---
 
 # Common issues when certifying virtual machine images for Azure Marketplace
@@ -30,7 +30,7 @@ To fix this issue, retrieve the image from Azure Marketplace and make changes to
 - [Windows images](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base)
 
 > [!Note]
-> If you are using a Linux base image not taken from Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Marketplace.  
+> If you are using a Linux base image not taken from Azure Marketplace, you can offset the first partition by 2048 KB. This allows the unformatted space to be used for adding new billing info and allows Azure to go ahead with publishing your VM to Azure Marketplace.  
 
 ## VM extension failure
 
@@ -82,7 +82,7 @@ If you're trying to install Visual Studio or any Office-licensed product, contac
 
 For more information about selecting an approved base, see [Create your Azure virtual machine technical assets](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## Tool kit test case execution failed 
+## Tool kit test case execution failed
 
 The Microsoft Certification toolkit can help you run test cases and verify that your VHD or image is compatible with the Azure environment.
 
@@ -140,7 +140,7 @@ The following table lists the Windows test cases that the toolkit will run, alon
 |16|Windows Internet Name Service|Windows Internet Name Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 |17|Wireless LAN Service|Wireless LAN Service. This server feature isn't yet supported. The application shouldn't be dependent on this feature.|
 
-If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team. 
+If you come across any failures with the preceding test cases, refer to the **Description** column in the table for the solution. If you require more information, contact the Support team.
 
 ## Data disk size verification
 
@@ -194,8 +194,8 @@ Update the kernel with an approved version, and resubmit the request. You can fi
 
 If your image isn't installed with one of the following kernel versions, update it with the correct patches. Request the necessary approval from the Support team after the image is updated with these required patches:
 
-- CVE-2019-11477 
-- CVE-2019-11478 
+- CVE-2019-11477
+- CVE-2019-11478
 - CVE-2019-11479
 
 |OS family|Version|Kernel|
@@ -256,12 +256,12 @@ If you come across access denied issues while you're running the test cases on t
 Check to see whether proper access is enabled for the account on which the self-test cases are running. If access is not enabled, enable it to run the test cases. If you don't want to enable access, you might share the self-test case results with the Support team.
 
 ## Download failure
-    
+
 Refer to the following table for any issues that arise when you download the VM image by using a shared access signature (SAS) URL.
 
 |Scenario|Error|Reason|Solution|
 |---|---|---|---|
-|1|Blob not found|The VHD might either be deleted or moved from the specified location.|| 
+|1|Blob not found|The VHD might either be deleted or moved from the specified location.||
 |2|Blob in use|The VHD is used by another internal process.|The VHD should be in a used state when you download it by using an SAS URL.|
 |3|Invalid SAS URL|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
 |4|Invalid signature|The associated SAS URL for the VHD is incorrect.|Get the correct SAS URL.|
@@ -312,7 +312,7 @@ For solutions to errors that are related to the data disk, use the following tab
 
 ## Remote access issue
 
-If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error. 
+If the Remote Desktop Protocol (RDP) option isn't enabled for the Windows image, you will receive this error.
 
 Enable RDP access for Windows images before you submit them.
 
@@ -323,19 +323,19 @@ information isn't captured in your bash history file.
 
 Below are the steps to delete the “Bash History”.
 
-Step 1.	Deploy the VM and click on “Run Command” option on Azure portal.
+Step 1. Deploy the VM and click on “Run Command” option on Azure portal.
 ![Run command on Azure portal](./media/vm-certification-issues-solutions-3.png)
 
-Step 2.	Select first option “RunShellScript” and run the below command.
+Step 2. Select first option “RunShellScript” and run the below command.
 
 Command: “cat /dev/null > ~/.bash_history && history -c”
 ![Bash History command on Azure portal](./media/vm-certification-issues-solutions-4.png)
 
-Step 3.	After successful executing the command, Restart the VM.
+Step 3.After successful executing the command, Restart the VM.
 
-Step 4.	Generalize the VM, take the Image VHD and Stop the VM.
+Step 4.Generalize the VM, take the Image VHD and Stop the VM.
 
-Step 5. 	Re-Submit the generalized image.
+Step 5. Re-Submit the generalized image.
 
 ## Requesting exceptions (custom templates) on VM images for selective tests
 
@@ -346,7 +346,7 @@ In the sections below, we will talk about main scenarios where exceptions are re
 
 Scenarios for exception
 
-There are three scenarios/cases where publishers generally request these exceptions. 
+There are three scenarios/cases where publishers generally request these exceptions.
 
 * **Exception for one or more test cases:** Publishers can reach out to [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) request exceptions for test cases. 
 
@@ -354,21 +354,22 @@ There are three scenarios/cases where publishers generally request these excepti
        In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
 
 
-* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs. 
-In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation. 
+* **Custom Templates:** Some publishers publish VM images which require a custom ARM template to deploy the VMs.
+
+In this case, Publishers are requested to provide the custom templates at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) so that same can be used by Certification team for validation.
 
 ### Information to provide for exception scenarios
 
 Publishers must reach out to the support at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport) for requesting exceptions for the above scenario with the additional following information:
 
-   1.	Publisher ID – The publisher ID on Partner Center portal
-   2.	Offer ID/name – The Offer ID/name for which exception is requested 
-   3.	SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
-   4.	 Version – The version of the VM offer for which exception is requested
-   5.	Exception Type –Tests, Locked Down VM, Custom Templates
-   6.	Reason of request – Reason for this exception and information on tests to be exempted 
-   7. Timeline - Date till which this exception has been requested 
-   8.	Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
+   1. Publisher ID – The publisher ID on Partner Center portal
+   1. Offer ID/name – The Offer ID/name for which exception is requested 
+   1. SKU/Plan ID – The plan ID/sku of the VM offer for which exception is requested
+   1. Version – The version of the VM offer for which exception is requested
+   1. Exception Type –Tests, Locked Down VM, Custom Templates
+   1. Reason of request – Reason for this exception and information on tests to be exempted 
+   1. Timeline - Date till which this exception has been requested 
+   1. Attachment - Attach any importance evidence documents. For Locked Down VMs, attach the test report and for custom templates, provide the custom ARM template as attachment. Failure to attach report for Locked Down VMs and custom ARM template for custom templates will result in denial of request
 
 ## How to address a vulnerability or exploit in a VM offer
 
@@ -401,7 +402,7 @@ To complete these steps, you’ll need prepare the technical asset for the VM im
 1. On the **Plan overview** tab, in the **Name** column, select the plan you want to add the VM to.
 1. On the **Technical configuration** tab, under **VM Images**, select **+ Add VM Image**.
    > [!NOTE]
-   > You can add only one VM image to a plan at a time. To add multiple VM images, publish the first one and wait until it reaches the _Publisher signoff_ stage before you add the next VM image.
+   > You can add only one VM image to a plan at a time. To add multiple VM images, publish each one live before you add the next VM image.
 1. In the boxes that appear, provide a new disk version and the virtual machine image.
 1. Select **Save draft**.
 1. Continue to the next section to remove the VM image with the security vulnerability.
@@ -423,6 +424,7 @@ After you’ve removed or replaced the VM image, you need to republish the offer
 1. Select **Review and publish**.
 1. If you need to provide any information to the certification team, add it to the **Notes for certification** box.
 1. Select **Publish**.
+1. When the publishing status reaches the Publish phase, select **Go live**.
 
 For more details about the publishing process, see [How to review and publish an offer to the commercial marketplace](../review-publish-offer.md).
 

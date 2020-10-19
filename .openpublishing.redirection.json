@@ -58182,6 +58182,11 @@
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/batch-testing.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-link/create-private-endpoint-webapp-portal.md",
+      "redirect_url": "/azure/private-link/tutorial-private-endpoint-webapp-portal",
+      "redirect_document_id": false
     }
 
     
