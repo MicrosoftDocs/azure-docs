@@ -64,7 +64,7 @@ With constantly changing data, you need fast and streamlined model training and 
 
 Azure Machine Learning users can use the managed Azure Machine Learning compute cluster, also called AmlCompute. AmlCompute supports a variety of GPU and CPU options. The AmlCompute is internally hosted on behalf of your subscription by Azure Machine Learning. It provides the same enterprise grade security, compliance and governance at Azure IaaS cloud scale.
 
-Because these compute pools are inside of Azure's IaaS infrastructure, you can deploy, scale, and manage your training with the same security and compliance requirements as the rest of your infrastructure.  These deployments occur in your subscription and obey your governance rules. Learn more about [Azure Machine Learning compute](how-to-create-attach-compute-sdk.md#amlcompute).
+Because these compute pools are inside of Azure's IaaS infrastructure, you can deploy, scale, and manage your training with the same security and compliance requirements as the rest of your infrastructure.  These deployments occur in your subscription and obey your governance rules. Learn more about [Azure Machine Learning compute](how-to-create-attach-compute-cluster.md).
 
 ## Configure training clusters for autoscaling
 
@@ -122,4 +122,4 @@ Azure Machine Learning Compute supports reserved instances inherently. If you pu
 Learn more about:
 * [Manage and increase resource quotas](how-to-manage-quotas.md)
 * [Managing costs with cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* Create Azure Machine Learning compute with [SDK](how-to-create-attach-compute-sdk.md#amlcompute) or in [studio](how-to-create-attach-compute-studio.md#amlcompute).
+* Create Azure Machine Learning compute with [SDK](how-to-create-attach-compute-cluster.md) or in [studio](how-to-create-attach-compute-studio.md#amlcompute).

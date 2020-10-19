@@ -4,7 +4,7 @@ description: Learn how to onboard and enable the Security Module for Azure RTOS 
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: rkarlin
 manager: rkarlin
 editor: ''
 
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
+ms.date: 09/24/2020
+ms.author: rkarlin
 ---
 
 # Quickstart: Security Module for Azure RTOS (preview)
@@ -31,7 +31,7 @@ This article provides an explanation of the prerequisites before getting started
 - NXP i.MX RT1060 EVK
 - Microchip SAM E54 Xplained Pro EVK
 
-Download, compile, and run one of the .zip files for the specific board and tool (IAR, semi's IDE or PC) of your choice from the [Security Module for Azure RTOS GitHub resource](hhtps://github.com/azure-rtos/azure-iot-preview/releases).
+Download, compile, and run one of the .zip files for the specific board and tool (IAR, semi's IDE or PC) of your choice from the [Security Module for Azure RTOS GitHub resource](https://github.com/azure-rtos/azure-iot-preview/releases).
 
 ### Azure resources
 

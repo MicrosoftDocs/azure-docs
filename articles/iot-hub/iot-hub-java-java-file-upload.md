@@ -44,7 +44,7 @@ At the end of this tutorial you run two Java console apps:
 
 ## Prerequisites
 
-* [Java SE Development Kit 8](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
+* [Java SE Development Kit 8](/java/azure/jdk/?view=azure-java-stable). Make sure you select **Java 8** under **Long-term support** to get to downloads for JDK 8.
 
 * [Maven 3](https://maven.apache.org/download.cgi)
 
@@ -276,4 +276,4 @@ In this tutorial, you learned how to use the file upload capabilities of IoT Hub
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Simulating a device with IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Simulating a device with IoT Edge](../iot-edge/quickstart-linux.md)

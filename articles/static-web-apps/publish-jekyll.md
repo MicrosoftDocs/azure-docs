@@ -141,12 +141,9 @@ Next, you add configuration settings that the build process uses to build your a
 
 1. Open the Jekyll app in a text editor and open the _.github/workflows/azure-pages-<WORKFLOW_NAME>.yml_ file.
 
-1. Add lines after the block `- uses: actions/checkout@v2` to the following configuration block.
+1. After the line `- uses: actions/checkout@v2` add the following configuration block.
 
     ```yml
-    - uses: actions/checkout@v2
-      with:
-        submodules: true
     - name: Set up Ruby
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:

@@ -22,6 +22,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * An Azure Active directory tenant
 * A GitHub organization created in [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise), which requires the [GitHub Enterprise billing plan](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)
 * A user account in GitHub with Admin permissions to the organization
+* [SAML configured for the GitHub Enterprise Cloud organization](https://docs.microsoft.com/azure/active-directory/saas-apps/github-tutorial)
 * Ensure that OAuth access has been provided for your organization as described [here](https://help.github.com/en/github/setting-up-and-managing-organizations-and-teams/approving-oauth-apps-for-your-organization)
 * SCIM provisioning to a single organization is supported only when SSO is enabled at the organization level
 
@@ -45,9 +46,6 @@ Before configuring and enabling the provisioning service, you need to decide wha
 ## Configuring user provisioning to GitHub
 
 This section guides you through connecting your Azure AD to GitHub's user account provisioning API, and configuring the provisioning service to create, update, and disable assigned user accounts in GitHub based on user and group assignment in Azure AD.
-
-> [!TIP]
-> You may also choose to enabled SAML-based Single Sign-On for GitHub, following the instructions provided in [Azure portal](https://portal.azure.com). Single sign-on can be configured independently of automatic provisioning, though these two features compliment each other.
 
 ### Configure automatic user account provisioning to GitHub in Azure AD
 

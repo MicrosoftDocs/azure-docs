@@ -15,7 +15,7 @@
 - name: Tutorials
   expanded: true
   items: 
-    - name: "Python day 1 get started"
+    - name: "Python get started (Day 1)"
       expanded: true
       items:
         - name: 1. Set up local computer
@@ -89,6 +89,9 @@
     - name: Jupyter Notebooks
       displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
       href: samples-notebooks.md
+    - name: Example repository
+      displayName: example, examples, jupyter, python, notebook, github
+      href: https://github.com/Azure/azureml-examples
     - name: Designer examples & datasets
       displayName: example, examples, studio, pipelines, data sets, modules
       href: samples-designer.md
@@ -152,13 +155,31 @@
       href: concept-onnx.md
     - name: ML pipelines
       href: concept-ml-pipelines.md
-    - name: Enterprise readiness & security
+    - name: Security
       items: 
         - name: Enterprise security overview
           displayName: authorization authentication encryption aad azure active directory
           href: concept-enterprise-security.md
         - name: Security baseline
           href: security-baseline.md
+    - name: Responsible ML
+      items: 
+        - name: Responsible ML overview
+          displayName: responsible,ml
+          href: concept-responsible-ml.md
+        - name: Model interpretability
+          displayName: explainability
+          href: how-to-machine-learning-interpretability.md
+        - name: Fairness in Machine Learning
+          displayName: fairness
+          href: concept-fairness-ml.md
+        - name: Differential Privacy
+          displayName: differential,privacy
+          href: concept-differential-privacy.md
+- name: How-to guides
+  items:
+    - name: Security
+      items:
         - name: Identity & access management
           items:
             - name: Set up authentication
@@ -166,6 +187,8 @@
               href: how-to-setup-authentication.md
             - name: Manage users and roles
               href: how-to-assign-roles.md
+            - name: Use managed identities for access control
+              href: how-to-use-managed-identities.md
             - name: Use Azure AD identity in AKS deployments
               href: how-to-use-azure-ad-identity.md
         - name: Network security
@@ -188,6 +211,8 @@
             - name: Use Private Link
               displayName: private endpoint
               href: how-to-configure-private-link.md
+            - name: Use custom DNS
+              href: how-to-custom-dns.md
             - name: Configure secure web services
               displayName: ssl, tls
               href: how-to-secure-web-service.md
@@ -208,23 +233,6 @@
         - name: Audit and manage compliance
           href: how-to-integrate-azure-policy.md
           displayName: policy
-        
-    - name: Responsible ML
-      items: 
-        - name: Responsible ML overview
-          displayName: responsible,ml
-          href: concept-responsible-ml.md
-        - name: Model interpretability
-          displayName: explainability
-          href: how-to-machine-learning-interpretability.md
-        - name: Fairness in Machine Learning
-          displayName: fairness
-          href: concept-fairness-ml.md
-        - name: Differential Privacy
-          displayName: differential,privacy
-          href: concept-differential-privacy.md
-- name: How-to guides
-  items:
     - name: Create & manage workspaces
       items: 
         - name: Use Azure portal or Python SDK
@@ -236,17 +244,23 @@
         - name: Use Resource Manager template
           displayName: arm
           href: how-to-create-workspace-template.md
-    - name: Create compute resources
+    - name: Create & manage compute resources
       items: 
-        - name: Use studio
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
-          href: how-to-create-attach-compute-studio.md
-        - name: Use Python SDK
-          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority
-          href: how-to-create-attach-compute-sdk.md
+        - name: Compute instance
+          displayName: compute target
+          href: how-to-create-manage-compute-instance.md
+        - name: Compute cluster
+          displayName: compute target, low priority, managed identity
+          href: how-to-create-attach-compute-cluster.md
         - name: Azure Kubernetes Service
           displayName: AKS, inference
           href: how-to-create-attach-kubernetes.md
+        - name: Attach your own
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+          href: how-to-attach-compute-targets.md
+        - name: Use studio
+          displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority, managed identity
+          href: how-to-create-attach-compute-studio.md
     - name: Set up your environment
       items: 
         - name: Set up dev environments
