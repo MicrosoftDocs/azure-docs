@@ -36,7 +36,7 @@ To deploy Azure Stack Edge Pro R, refer to the following tutorials in the prescr
 |  | |
 |**Deployment tutorials** |These tutorials are required to deploy your Azure Stack Edge Pro R device in production. |
 |**[1. Prepare the Azure portal for device](azure-stack-edge-pro-r-deploy-prep.md)** |Create and configure your Azure Stack Edge resource before you install an Azure Stack Box Edge physical device. |
-|**[2. Install the device](azure-stack-edge-mini-r-deploy-install.md)**|Unpack, rack, and cable your physical device.  |
+|**[2. Install the device](azure-stack-edge-pro-r-deploy-install.md)**|Unpack, rack, and cable your physical device.  |
 |**[3. Connect to the device](azure-stack-edge-pro-r-deploy-connect.md)** |Once the device is installed, connect to device local web UI.  |
 |**[4. Configure network settings](azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md)** |Configure network including the compute network and web proxy settings for your device.   |
 |**[5. Configure device settings](azure-stack-edge-pro-r-deploy-set-up-device-update-time.md)** |Assign a device name and DNS domain, configure update server and device time. |
@@ -58,7 +58,7 @@ Following are the configuration prerequisites for your Azure Stack Edge resource
 
 Before you deploy a physical device, make sure that:
 
-- You've reviewed the safety information for this device at: [Safety guidelines for your Azure Stack Edge device](azure-stack-edge-j-series-safety.md).
+- You've reviewed the safety information for this device at: [Safety guidelines for your Azure Stack Edge device](azure-stack-edge-pro-r-safety.md).
 [!INCLUDE [Azure Stack Edge device prerequisites](../../includes/azure-stack-edge-gateway-device-prerequisites.md)] 
 
 
