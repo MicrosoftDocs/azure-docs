@@ -142,13 +142,13 @@ After you're finished, you can export the model to a Docker container by using t
     1. Add the following to the top of the parameters array: `{"name": "inferencingUrl","value": "http://cv:80/image"},`
     1. Change the `rtspUrl` parameter value to `"rtsp://rtspsim:554/media/t2.mkv"`.
 1. Under `GraphTopologyDelete`, ensure `"name": "InferencingWithHttpExtension"`.
-1. Right-click the src/edge/deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
+1. Right-click the src/edge/ deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Screenshot that shows Generate IoT Edge Deployment Manifest.":::
   
     This action should create a manifest file in the src/edge/config folder named deployment.customvision.amd64.json.
-1. Open the src/edge/ deployment.customvision.template.json file, and find the registryCredentials JSON block. In this block, you'll find the address of your Azure container registry along with its username and password.
+1. Open the src/edge/ deployment.customvision.template.json file, and find the `registryCredentials` JSON block. In this block, you'll find the address of your Azure container registry along with its username and password.
 1. Push the local Custom Vision container into your Azure Container Registry instance by following these steps on the command line:
 
     1. Sign in to the registry by executing the following command:
@@ -162,9 +162,9 @@ After you're finished, you can export the model to a Docker container by using t
     1. Tag your image by using this command: <br/>`docker tag cvtruck   <address>/cvtruck`.
     1. Push your image by using this command: <br/>`docker push <address>/cvtruck`.
 
-        If successful, you should see Pushed on the command line along with the SHA for the image.
+        If successful, you should see `Pushed` on the command line along with the SHA for the image.
     1. You can also confirm by checking your Azure Container Registry instance in the Azure portal. Here you'll see the name of the repository along with the tag.
-1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. You can copy the string from the appsettings.json file. (Here's another recommended approach to ensure you have the proper IoT hub configured within Visual Studio Code via the [Select IoT Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub)).
+1. Set the IoT Hub connection string by selecting the **More actions** icon next to the **AZURE IOT HUB** pane in the lower-left corner. You can copy the string from the appsettings.json file. (Here's another recommended approach to ensure you have the proper IoT hub configured within Visual Studio Code via the [Select IoT Hub command](https://github.com/Microsoft/vscode-azure-iot-toolkit/wiki/Select-IoT-Hub).)
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Screenshot that shows Set IoT Hub Connection String.":::
@@ -188,7 +188,7 @@ Right-click the Live Video Analytics device, and select **Start Monitoring Built
 
 ## Run the sample program
 
-If you open the graph topology for this tutorial in a browser, you'll see that the value of inferencingUrl has been set to http://cv:80/image. This setting means the inference server will return results after detecting toy trucks, if any, in the live video.
+If you open the graph topology for this tutorial in a browser, you'll see that the value of `inferencingUrl` has been set to `http://cv:80/image`. This setting means the inference server will return results after detecting toy trucks, if any, in the live video.
 
 1. In Visual Studio Code, open the **Extensions** tab (or select **Ctrl+Shift+X**) and search for Azure IoT Hub.
 1. Right-click and select **Extension Settings**.
