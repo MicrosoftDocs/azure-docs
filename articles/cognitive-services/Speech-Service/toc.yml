@@ -26,10 +26,6 @@
       href: get-started-speech-to-text.md
     - name: How-to guides
       items:
-        - name: Recognize speech stored in blob storage
-          href: quickstarts/from-blob.md
-        - name: Choose speech recognition mode
-          href: how-to-choose-recognition-mode.md
         - name: Change speech recognition source language
           href: how-to-specify-source-language.md
         - name: Improve accuracy with Custom Speech
@@ -37,8 +33,6 @@
         - name: Use compressed audio input formats
           href: how-to-use-codec-compressed-audio-input-streams.md
           displayName: codec,codecs,compression,compressed,mp3,flac,mulaw,alaw,mp4,mp4a,wav,opus,ogg,pcm,silk
-        - name: Improve accuracy with Phrase Lists
-          href: how-to-phrase-lists.md
         - name: Select a specific microphone input device
           href: how-to-select-audio-input-devices.md
         - name: Use automatic source language detection
@@ -47,6 +41,8 @@
           href: batch-transcription.md
     - name: Tutorials
       items:
+        - name: Recognize speech stored in blob storage
+          href: quickstarts/from-blob.md
         - name: Improve accuracy with tenant models
           href: tutorial-tenant-model.md
     - name: Customization
@@ -233,6 +229,8 @@
   items:
     - name: Intent recognition documentation
       href: index-intent-recognition.yml
+    - name: Intent recognition overview
+      href: intent-recognition.md
     - name: Intent recognition quickstart
       href: quickstarts/intent-recognition.md
     - name: How-to guides

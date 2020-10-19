@@ -35,7 +35,11 @@
   - name: Concepts
     items:
     - name: Review requirements
-      href: azure-stack-edge-gpu-system-requirements.md 
+      items:
+      - name: For Azure Stack Edge
+        href: azure-stack-edge-gpu-system-requirements.md
+      - name: For Azure Stack Edge Blob storage
+        href: azure-stack-edge-gpu-system-requirements-rest.md
     - name: Understand limits
       href: azure-stack-edge-limits.md 
     - name: Security overview
@@ -57,7 +61,9 @@
       - name: Kubernetes RBAC
         href: azure-stack-edge-gpu-kubernetes-rbac.md 
       - name: Kubernetes workloads
-        href: azure-stack-edge-gpu-kubernetes-workload-management.md  
+        href: azure-stack-edge-gpu-kubernetes-workload-management.md 
+    - name: View Key Vault integration 
+      href: azure-stack-edge-gpu-activation-key-vault.md
   
   - name: How to
     items:

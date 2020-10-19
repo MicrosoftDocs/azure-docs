@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 09/19/2020
+ms.date: 10/16/2020
 ---
 
 # Secure access and data in Azure Logic Apps
@@ -311,17 +311,14 @@ Along with Shared Access Signature (SAS), you might want to specifically limit t
 
 1. Under **Access control configuration** > **Allowed inbound IP addresses**, select **Specific IP ranges**.
 
-1. Under **IP ranges for triggers**, specify the IP address ranges that the trigger accepts.
+1. When the **IP ranges for triggers** box appears, specify the IP address ranges that the trigger accepts. A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
 
-   A valid IP range uses these formats: *x.x.x.x/x* or *x.x.x.x-x.x.x.x*
+   For example, to make your logic app callable only as a nested logic app through the HTTP action, use the **Specific IP ranges** option (not the **Only other Logic Apps** option), and enter the parent logic app's [outbound IP addresses](../logic-apps/logic-apps-limits-and-config.md#outbound).
 
-If you want your logic app to trigger only as a nested logic app, from the **Allowed inbound IP addresses** list, select **Only other Logic Apps**. This option writes an empty array to your logic app resource. That way, only calls from the Logic Apps service (parent logic apps) can trigger the nested logic app.
+   However, to make your logic app callable only as a nested logic app through the built-in [Azure Logic Apps action](../logic-apps/logic-apps-http-endpoint.md), select the **Only other Logic Apps** option instead. This option writes an empty array to your logic app resource and requires that only calls from other "parent" logic apps can trigger the nested logic app through the built-in **Azure Logic Apps** action.
 
-> [!NOTE]
-> Regardless of IP address, you can still run a logic app that has a request-based trigger by using the
-> [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run)
-> request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md)
-> against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
+   > [!NOTE]
+   > Regardless of any IP addresses that you specify, you can still run a logic app that has a request-based trigger by using the [Logic Apps REST API: Workflow Triggers - Run](/rest/api/logic/workflowtriggers/run) request or by using API Management. However, this scenario still requires [authentication](../active-directory/develop/authentication-vs-authorization.md) against the Azure REST API. All events appear in the Azure Audit Log. Make sure that you set access control policies accordingly.
 
 <a name="restrict-inbound-ip-template"></a>
 

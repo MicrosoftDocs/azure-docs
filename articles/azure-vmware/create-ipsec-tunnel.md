@@ -74,7 +74,7 @@ To create the site-to-site VPN tunnel, you'll need to create a public-facing IP 
    | **Region** | The same region you specified in the previous section.  |
    | **Name** |  |
    | **Device vendor** |  |
-   | **Border Gateway Protocol** | Set to **Enable** to ensure both Azure VMware Solution and the on-premises servers advertise their routes across the tunnel. If disabled, the subnets that need to be advertised must be manually maintained. If subnets are missed, HCX will fail to form the service mesh. For more information, see  [About BGP with Azure VPN Gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-bgp-overview). |
+   | **Border Gateway Protocol** | Set to **Enable** to ensure both Azure VMware Solution and the on-premises servers advertise their routes across the tunnel. If disabled, the subnets that need to be advertised must be manually maintained. If subnets are missed, HCX will fail to form the service mesh. For more information, see  [About BGP with Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-overview.md). |
    | **Private address space**  | Enter the on-premises CIDR block.  It's used to route all traffic bound for on-premises across the tunnel.  The CIDR block is only required if you don't enable BGP. |
    | **Connect to** |   |
 
@@ -128,4 +128,4 @@ This section applies only to policy-based VPNs. Policy-based (or static, route-b
 
     Paste the authorization key into the Authorization key field and the ExpressRoute ID into the **Peer circuit URI** field. Make sure to select **Automatically associate this ExpressRoute circuit with the hub.** Select **Add** to establish the link. 
 
-5. To test your connection, [Create an NSX-T segment](https://docs.microsoft.com/azure/azure-vmware/tutorial-nsx-t-network-segment) and provision a VM on the network. Test by pinging both the on-premise and Azure VMware Solution endpoints. 
+5. To test your connection, [Create an NSX-T segment](./tutorial-nsx-t-network-segment.md) and provision a VM on the network. Test by pinging both the on-premise and Azure VMware Solution endpoints.

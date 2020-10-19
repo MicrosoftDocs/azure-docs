@@ -149,7 +149,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `en-CA` | English  (Canada) | Female | `en-CA-ClaraNeural` | General |
 | `en-GB` | English  (United Kingdom) | Female | `en-GB-LibbyNeural` | General |
 | `en-GB` | English  (United Kingdom) | Female | `en-GB-MiaNeural` | General |
-| `en-GB` <sup>New</sup> | English (United Kingdom) | Male | `En-GB-RyanNeural` | General |
+| `en-GB` <sup>New</sup> | English (United Kingdom) | Male | `en-GB-RyanNeural` | General |
 | `en-IE` <sup>New</sup> | Irish English (Ireland) | Female | `en-IE-EmilyNeural` | General |
 | `en-IN` | English  (India) | Female | `en-IN-NeerjaNeural` | General |
 | `en-US` | English  (United States) | Female | `en-US-AriaNeural` | General, multiple voice styles available |
@@ -165,7 +165,7 @@ For more information about regional availability, see [regions](regions.md#stand
 | `fr-CH` <sup>New</sup> | French (Switzerland) | Female | `fr-CH-ArianeNeural` | General |
 | `fr-FR` | French  (France) | Female | `fr-FR-DeniseNeural` | General |
 | `fr-FR` <sup>New</sup> | French (France) | Male | `fr-FR-HenriNeural` | General |
-| `he-IL` <sup>New</sup> | Hebrew (Isareal) | Female | `he-IL-HilaNeural` | General |
+| `he-IL` <sup>New</sup> | Hebrew (Israel) | Female | `he-IL-HilaNeural` | General |
 | `hi-IN` | Hindi  (India) | Female | `hi-IN-SwaraNeural` | General |
 | `hr-HR` <sup>New</sup> | Croatian (Croatia) | Female | `hr-HR-GabrijelaNeural` | General |
 | `hu-HU` <sup>New</sup> | Hungarian (Hungary) | Female | `hu-HU-NoemiNeural` | General |
