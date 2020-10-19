@@ -1,12 +1,11 @@
 ### YamlMime:Hub
 
 title: Azure Cognitive Services containers
-summary: Azure Cognitive Services offers several containers to use the cloud-based APIs on premises. Using these containers gives you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons.
+summary: Azure Cognitive Services offers several containers to use AI on premises. Containers give you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons.
 brand: azure
-
 metadata:
   title: Azure Cognitive Services containers 
-  description: Azure Cognitive Services provides containers for premises deployment. 
+  description: Azure Cognitive Services offers several containers to use AI on premises. Containers give you the flexibility to bring Cognitive Services closer to your data for compliance, security or other operational reasons.
   ms.service: cognitive-services
   ms.topic: hub-page
   author: aahill
