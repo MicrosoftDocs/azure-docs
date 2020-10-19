@@ -108,7 +108,14 @@ Allow access to the following URLs:
 | URL | How it's used |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Communication between the connector and the Application Proxy cloud service |
-| mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | The connector uses these URLs to verify certificates |
+| http://crl3.digicert.com<br>
+http://crl4.digicert.com<br>
+http://ocsp.digicert.com<br>
+http://www.d-trust.net<br>
+http://root-c3-ca2-2009.ocsp.d-trust.net<br>
+http://crl.microsoft.com<br>
+http://oneocsp.microsoft.com<br>
+http://ocsp.msocsp.com<br> | The connector uses these URLs to verify certificates |
 | login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>*.microsoftonline-p.com<br>*.msauth.net<br>*.msauthimages.net<br>*.msecnd.net<br>*.msftauth.net<br>*.msftauthimages.net<br>*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | The connector uses these URLs during the registration process. |
 
 If your firewall or proxy allows you to configure DNS allow lists, you can allow connections to \*.msappproxy.net and \*.servicebus.windows.net.
