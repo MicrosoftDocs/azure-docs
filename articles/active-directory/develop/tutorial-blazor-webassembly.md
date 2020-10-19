@@ -77,7 +77,7 @@ Before you start, log out of your app since you'll be making changes to the requ
 
 Now you will update your app's registration and code to pull a user's emails and display the messages within the app.
 
-First add the Mail.Read API permission to the app's registration so that Azure AD is aware that the app will request to access its users' email.
+First, add the `Mail.Read` API permission to the app's registration so that Azure AD is aware that the app will request to access its users' email.
 
 1. In the Azure portal, select your app in **App registrations**.
 1. Under **Manage**, select **API permissions**.
