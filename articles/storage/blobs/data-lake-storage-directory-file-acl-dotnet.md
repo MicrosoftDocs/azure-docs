@@ -71,7 +71,7 @@ This example creates a [DataLakeServiceClient](https://docs.microsoft.com/dotnet
 
 ```cs
 public void GetDataLakeServiceClient(ref DataLakeServiceClient dataLakeServiceClient, 
-    String accountName, String clientID, string clientSecret, string tenantID)
+    string accountName, string clientID, string clientSecret, string tenantID)
 {
 
     TokenCredential credential = new ClientSecretCredential(
