@@ -259,16 +259,36 @@
   items:
   - name: .NET
     items:
+    - name: Migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus
+      href: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md
+    - name: Azure.Messaging.ServiceBus (.NET Standard - latest)
+      href: https://docs.microsoft.com/dotnet/api/azure.messaging.servicebus
+    - name: Microsoft.Azure.ServiceBus (.NET Standard - legacy)
+      href: https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus
     - name: Microsoft.ServiceBus.Messaging (.NET Framework)
-      href: /dotnet/api/microsoft.servicebus.messaging
-    - name: Microsoft.Azure.ServiceBus (.NET Standard)
-      href: /dotnet/api/microsoft.azure.servicebus
+      href: https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging
   - name: Java
-    href: /java/api/overview/azure/servicebus
+    items: 
+    - name: azure-messaging-servicebus (latest)
+      href: https://docs.microsoft.com/java/api/overview/azure/servicebus?view=azure-java-preview
+    - name: azure-servicebus  
+      href: https://docs.microsoft.com/java/api/overview/azure/servicebus
   - name: Python
-    href: /python/api/overview/azure/servicebus?view=azure-python
-  - name: Node.js
-    href: /javascript/api/overview/azure/service-bus
+    items: 
+    - name: Migrate from azure-servicebus version 0.50 to version 7
+      href: https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md
+    - name: azure-servicebus version 7
+      href: https://docs.microsoft.com/python/api/overview/azure/servicebus?view=azure-python-preview
+    - name: azure-servicebus version 0.50
+      href: https://docs.microsoft.com/python/api/overview/azure/servicebus
+  - name: JavaScript
+    items:
+    - name: Migrate from version 1 to version 7
+      href: https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md
+    - name: azure/service-bus version 7 
+      href: https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node--preview
+    - name: azure/service-bus version 1 
+      href: https://docs.microsoft.com/javascript/api/overview/azure/service-bus?view=azure-node-latest
   - name: PHP
     href: https://github.com/Azure/azure-sdk-for-php
   - name: Ruby
