@@ -7,7 +7,9 @@ ms.topic: overview
 
 # What is Azure Lighthouse?
 
-Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants. With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. Customers maintain control over who can access their tenant, what resources they can access, and what actions can be taken. This offering can also benefit [enterprise IT organizations](concepts/enterprise.md) managing resources across multiple tenants.
+Azure Lighthouse enables cross- and multi-tenant management, allowing for higher automation, scalability, and enhanced governance across resources and tenants.
+
+With Azure Lighthouse, service providers can deliver managed services using comprehensive and robust management tooling built into the Azure platform. Customers maintain control over who can access their tenant, what resources they can access, and what actions can be taken. This offering can also benefit [enterprise IT organizations](concepts/enterprise.md) managing resources across multiple tenants.
 
 ![Overview diagram of Azure Lighthouse](media/azure-lighthouse-overview.jpg)
 
