@@ -76,6 +76,64 @@
       href: /container-registry/container-registry-private-link
     - name: Kubernetes Service
       href: /aks/private-clusters
+  - name: Databases
+    items:
+    - name: Cache for Redis
+      href: /azure-cache-for-redis/cache-private-link
+    - name: Cosmos DB
+      href: /cosmos-db/how-to-configure-private-endpoints
+    - name: Database for MariaDB
+      href: /mariadb/concepts-data-access-security-private-link
+    - name: Database for MySQL
+      href: /mysql/concepts-data-access-security-private-link
+    - name: Database for PostgreSQL
+      href: /postgresql/concepts-data-access-and-security-private-link
+    - name: SQL
+      href: /azure-sql/database/private-endpoint-overview
+  - name: Developer Tools
+    items: 
+    - name: App Configuration
+      href: /azure-app-configuration/concept-private-endpoint
+    - name: Relay
+      href: /azure/azure-relay/private-link-service
+  - name: Integration
+    items:
+    - name: Event Grid
+      href: /azure/event-grid/network-security
+    - name: Service Bus
+      href: /service-bus-messaging/private-link-service
+  - name: Internet of Things
+    items:
+    - name: IoT Hub
+      href: /azure/iot-hub/virtual-network-support
+  - name: Management and Governance
+    items:
+    - name: Automation
+      href: /azure/automation/how-to/private-link-security
+    - name: Backup
+      href: /azure/backup/private-endpoints
+    - name: Monitor
+      href: /azure-monitor/platform/private-link-security
+  - name: Security
+    items:
+    - name: Key Vault
+      href: /azure/key-vault/general/private-link-service
+  - name: Storage
+    items:
+    - name: Files
+      href: /storage/files/storage-files-networking-endpoints
+    - name: File Sync
+      href: /storage/files/storage-sync-files-networking-endpoints
+    - name: Storage
+      href: /storage/common/storage-private-endpoints
+  - name: Web
+    items: 
+    - name: Cognitive Search
+      href: /search/service-create-private-endpoint
+    - name: SignalR
+      href: /azure-signalr/howto-private-endpoints
+    - name: Web App
+      href: tutorial-private-endpoint-webapp-portal.md
   - name: Connect privately to a web app
     href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
