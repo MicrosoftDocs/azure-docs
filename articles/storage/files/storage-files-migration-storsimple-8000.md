@@ -60,7 +60,9 @@ An alternative to direct access is a [Azure File Sync](https://aka.ms/AFS). Azur
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
 * File synchronization and cloud tiering.
-* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. An Azure file share is comparable to a file share on a Windows Server, that you can natively mount as a network drive. It supports important file fidelity aspects like attributes, permissions, and timestamps. With Azure file shares, there is no longer a need for an application or service to interpret the files and folders stored in the cloud. You can access them natively over familiar protocols and clients like Windows File Explorer. That makes Azure file shares the ideal, and most flexible approach to store general purpose file server data as well as some application data, in the cloud. Backup of an Azure file share is a built-in functionality and can be further enhanced by Azure Backup.
+* File shares as native storage in Azure, that can be accessed over multiple protocols like SMB and file REST. 
+
+Azure file shares retain important file fidelity aspects on stored files like attributes, permissions, and timestamps. With Azure file shares, there is no longer a need for an application or service to interpret the files and folders stored in the cloud. You can access them natively over familiar protocols and clients like Windows File Explorer. Azure file shares allow you to store general-purpose file server data and application data in the cloud. Backup of an Azure file share is a built-in functionality and can be further enhanced by Azure Backup.
 
 This article focuses on the migration steps. If before migrating you'd like to learn more about Azure File Sync, we recommend the following articles:
 
@@ -300,7 +302,7 @@ Sorts multiple source locations into a new directory structure:
 > contents of the "*\System Volume Information*" folder and the "*$Recycle.Bin*" on your StorSimple volume will be not be copied by the transformation job.
 
 ### Phase 3 summary
-At the end of Phase 3, you will have run yourData Transformation job(s) from StorSimple volume(s) into Azure file shares. You can now focus on setting up either Azure File Sync for the share (after the migration jobs for a share have completed) or direct share access for your information workers and apps to the Azure file share.
+At the end of Phase 3, you will have run your data transformation jobs from StorSimple volumes into Azure file shares. You can now focus on setting up either Azure File Sync for the share (after the migration jobs for a share have completed) or direct share access for your information workers and apps to the Azure file share.
 
 ## Phase 4: Accessing your Azure file shares
 
