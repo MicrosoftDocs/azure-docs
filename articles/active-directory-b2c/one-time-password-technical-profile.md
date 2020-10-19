@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/02/2020
+ms.date: 19/10/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -69,13 +69,15 @@ The following settings can be used to configure code generation mode:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| CodeExpirationInSeconds | No | Time in seconds until code expiration. Minimum: `60`; Maximum: `1200`; Default: `600`. |
+| CodeExpirationInSeconds | No | Time in seconds until code expiration. Minimum: `60`; Maximum: `1200`; Default: `600`. Every time a code is provided (same code using ReuseSameCode, or a new code), the code expiration is extended.  |
 | CodeLength | No | Length of the code. The default value is `6`. |
 | CharacterSet | No | The character set for the code, formatted for use in a regular expression. For example, `a-z0-9A-Z`. The default value is `0-9`. The character set must include a minimum of 10 different characters in the set specified. |
 | NumRetryAttempts | No | The number of verification attempts before the code is considered invalid. The default value is `5`. |
 | NumCodeGenerationAttempts | No | The number of maximum code generation attempts per identifier. The default value is 10 if not specified. |
 | Operation | Yes | The operation to be performed. Possible value: `GenerateCode`. |
-| ReuseSameCode | No | Whether a duplicate code should be given rather than generating a new code when given code has not expired and is still valid. The default value is `false`. |
+| ReuseSameCode | No | Whether the same code should be given rather than generating a new code when given code has not expired and is still valid. The default value is `false`.  |
+
+
 
 ### Example
 
