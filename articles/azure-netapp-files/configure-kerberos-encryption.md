@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 9/29/2020
+ms.date: 10/19/2020
 ms.author: b-juche
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
@@ -70,7 +70,7 @@ Configuration of NFSv4.1 Kerberos creates two computer accounts in Active Direct
 * A computer account for SMB shares
 * A computer account for NFSv4.1 -- You can identify this account by way of the prefix `NFS-`. 
 
-After creating the first NFSv4.1 Kerberos volume, set the encryption type or the computer account by using the following PowerShell command:
+After creating the first NFSv4.1 Kerberos volume, set the encryption type for the computer account by using the following PowerShell command:
 
 `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256`
 
@@ -91,11 +91,11 @@ Follow instructions in [Configure an NFS client for Azure NetApp Files](configur
 3. Create the directory (mount point) for the new volume.  
 
 4. Set the default encryption type to AES 256 for the computer account:  
-    `Set-ADComputer $COMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
+    `Set-ADComputer $NFSCOMPUTERACCOUNT -KerberosEncryptionType AES256 -Credential $ANFSERVICEACCOUNT`
 
     * You need to run this command only once for each computer account.
     * You can run this command from a domain controller or from a PC with [RSAT](https://support.microsoft.com/help/2693643/remote-server-administration-tools-rsat-for-windows-operating-systems) installed. 
-    * The `$COMPUTERACCOUNT` variable is the computer account created in Active Directory when you deploy the Kerberos volume. This is the account that is prefixed with `NFS-`. 
+    * The `$NFSCOMPUTERACCOUNT` variable is the computer account created in Active Directory when you deploy the Kerberos volume. This is the account that is prefixed with `NFS-`. 
     * The `$ANFSERVICEACCOUNT` variable is a non-privileged Active Directory user account with delegated controls over the Organizational Unit where the computer account has been created. 
 
 5. Mount the volume on the host: 
