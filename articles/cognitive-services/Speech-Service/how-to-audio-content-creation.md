@@ -128,7 +128,8 @@ If more than 1 user want to use Audio Content Creation. You can either share you
 3. Click **Add** > **Add role assignment** to open the Add role assignment pane. In the Role drop-down list, select the **Cognitive Service User** role. If you want to give the user ownership of this speech resource, you can select the role as Owner.
 4. In the Select list, select a user. If you do not see the user in the list, you can type in the Select box to search the directory for display names and email addresses. If the user is not in this directory, you can input the user’s [Microsoft account](https://account.microsoft.com/account) (which is trusted by Azure active directory). 
 5. Click **Save** to assign the role. After a few moments, the user is assigned the Cognitive Service User role at the speech resource scope.
-6. The users you added will receive an invitation email, click **Accept invitation** > **Accept to join Azure**, then they would be able to use [Audio Content Creation](https://aka.ms/audiocontentcreation).
+    ![The Add role dialog](media/audio-content-creation/add-role-first.png)
+1. The users you added will receive an invitation email, click **Accept invitation** > **Accept to join Azure**, then they would be able to use [Audio Content Creation](https://aka.ms/audiocontentcreation).
    
 Users who are in the same speech resource will see each other’s work in ACC studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, please [create a new speech resource](#step-2---create-a-speech-resource) for each user and give each user the unique access to the speech resource. 
 
