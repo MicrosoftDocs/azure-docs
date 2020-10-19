@@ -28,6 +28,7 @@ For this quickstart you need:
 | **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
 - [Create a database and non-admin user](./howto-create-users.md)
+
 ## Install Python and the MySQL connector
 
 Install Python and the MySQL connector for Python on your computer by using the following steps: 
@@ -49,6 +50,7 @@ Install Python and the MySQL connector for Python on your computer by using the 
    pip install mysql-connector-python
    ```
    
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## Get connection information
 
@@ -64,17 +66,7 @@ Get the connection information you need to connect to Azure Database for MySQL f
    
    :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL server name 2":::
 
-## Run the Python examples
-
-For each code example in this article:
-
-1. Create a new file in a text editor.
-2. Add the code example to the file. In the code, replace the `<mydemoserver>`, `<myadmin>`, `<mypassword>`, and `<mydatabase>` placeholders with the values for your MySQL server and database.
-3. Save the file in a project folder with a *.py* extension, such as *C:\pythonmysql\createtable.py* or */home/username/pythonmysql/createtable.py*.
-4. To run the code, open a command prompt or `bash` shell and change directory into your project folder, for example `cd pythonmysql`. Type the `python` command followed by the file name, for example `python createtable.py`, and press Enter. 
-   
-   > [!NOTE]
-   > On Windows, if *python.exe* is not found, you may need to add the Python path into your PATH environment variable, or provide the full path to *python.exe*, for example `C:\python27\python.exe createtable.py`.
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
 
 ## step 1: Create a table and insert data
 
@@ -85,7 +77,8 @@ Use the following code to connect to the server and database, create a table, an
 - [conn.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-close.html) to close the connection the connection.
 
 > [!IMPORTANT]
-> SSL is enabled by default. You may need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment.
+> - SSL is enabled by default. You may need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment.
+> - Replace the `<mydemoserver>`, `<myadmin>`, `<mypassword>`, and `<mydatabase>` placeholders with the values for your MySQL server and database.
 
 ```python
 import mysql.connector
@@ -138,6 +131,8 @@ else:
   print("Done.")
 ```
 
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
 ## Step2 : Read data
 
 Use the following code to connect and read the data by using a **SELECT** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
@@ -156,6 +151,9 @@ The code reads the data rows using the [fetchall()](https://dev.mysql.com/doc/co
 
 ```
 
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
+
 ## Step 3: Update data
 
 Use the following code to connect and update the data by using an **UPDATE** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
@@ -165,6 +163,9 @@ Use the following code to connect and update the data by using an **UPDATE** SQL
   cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
   print("Updated",cursor.rowcount,"row(s) of data.")
 ```
+
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
 
 ## Step 4: Delete data
 
@@ -177,7 +178,14 @@ Use the following code to connect and remove data by using a **DELETE** SQL stat
   print("Deleted",cursor.rowcount,"row(s) of data.")
 ```
 
+[Having issues? Let us know](https://aka.ms/mysql-doc-feedback)
+
+
 ## Next steps
+> [!div class="nextstepaction"]
+> [Manage Azure Database for MySQL server using Portal](./howto-create-manage-server-portal.md)<br/>
 
 > [!div class="nextstepaction"]
-> [Migrate your database using Export and Import](./concepts-migrate-import-export.md)
+> [Manage Azure Database for MySQL server using CLI](./how-to-manage-single-server-cli.md)
+
+[Cannot find what you are looking for? Let us know.](https://aka.ms/mysql-doc-feedback)
