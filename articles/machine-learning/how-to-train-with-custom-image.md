@@ -29,7 +29,7 @@ Run the code on either of these environments:
   * Create an [Azure container registry](/azure/container-registry) or other Docker registry that's available on the internet.
 
 ## Set up the experiment 
-In this section, you'll set up the training experiment by initializing a workspace, creating an experiment, and uploading the training data and training scripts.
+In this section, you set up the training experiment by initializing a workspace, creating an experiment, and uploading the training data and training scripts.
 
 ### Initialize a workspace
 The [Azure Machine Learning workspace](concept-workspace.md) is the top-level resource for the service. It gives you a centralized place to work with all the artifacts that you create. In the Python SDK, you can access the workspace artifacts by creating a [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) object.
@@ -43,7 +43,7 @@ ws = Workspace.from_config()
 ```
 
 ### Prepare scripts
-For this tutorial, we provide the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
+For this tutorial, use the training script *train.py* on [GitHub](https://github.com/Azure/azureml-examples/blob/main/code/models/fastai/pets-resnet34/train.py). In practice, you can take any custom training script and run it, as is, with Azure Machine Learning.
 
 ### Define your environment
 Create an `Environment` object and enable Docker. 
@@ -57,7 +57,7 @@ fastai_env.docker.enabled = True
 
 The specified base image in the following code supports the fast.ai library, which allows for distributed deep-learning capabilities. For more information, see the [fast.ai Docker Hub repository](https://hub.docker.com/u/fastdotai). 
 
-When you're using your custom Docker image, you might already have your Python environment properly set up. In that case, set the `user_managed_dependencies` flag to `True` to use your custom image's built-in Python environment. By default, Azure Machine Learning will build a Conda environment with dependencies that you specified. The service will run the script in that environment instead of using any Python libraries that you installed on the base image.
+When you're using your custom Docker image, you might already have your Python environment properly set up. In that case, set the `user_managed_dependencies` flag to `True` to use your custom image's built-in Python environment. By default, Azure Machine Learning builds a Conda environment with dependencies that you specified. The service runs the script in that environment instead of using any Python libraries that you installed on the base image.
 
 ```python
 fastai_env.docker.base_image = "fastdotai/fastai2:latest"
@@ -94,11 +94,11 @@ fastai_env.docker.base_dockerfile = "./Dockerfile"
 For more information about creating and managing Azure Machine Learning environments, see [Create and use software environments](how-to-use-environments.md). 
 
 ### Create or attach an AmlCompute resource
-You need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create AmlCompute as your training compute resource.
+You need to create a [compute target](concept-azure-machine-learning-architecture.md#compute-targets) for training your model. In this tutorial, you create `AmlCompute` as your training compute resource.
 
-Creation of AmlCompute takes about five minutes. If the AmlCompute resource is already in your workspace, this code will skip the creation process.
+Creation of `AmlCompute` takes about five minutes. If the `AmlCompute` resource is already in your workspace, this code skips the creation process.
 
-As with other Azure services, there are limits on certain resources (for example, AmlCompute) associated with the Azure Machine Learning service. For more information, see [Default limits and how to request a higher quota](how-to-manage-quotas.md). 
+As with other Azure services, there are limits on certain resources (for example, `AmlCompute`) associated with the Azure Machine Learning service. For more information, see [Default limits and how to request a higher quota](how-to-manage-quotas.md). 
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -125,7 +125,7 @@ print(compute_target.get_status().serialize())
 ```
 
 ### Create a ScriptRunConfig resource
-Create a ScriptRunConfig resource to configure your job for running on the desired [compute target](how-to-set-up-training-targets.md).
+Create a `ScriptRunConfig` resource to configure your job for running on the desired [compute target](how-to-set-up-training-targets.md).
 
 ```python
 from azureml.core import ScriptRunConfig
