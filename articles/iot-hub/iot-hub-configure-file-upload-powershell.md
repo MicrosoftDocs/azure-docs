@@ -22,11 +22,11 @@ To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
-* [Azure PowerShell cmdlets](https://docs.microsoft.com/powershell/azure/install-Az-ps).
+* [Azure PowerShell cmdlets](/powershell/azure/install-Az-ps).
 
-* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](https://docs.microsoft.com/powershell/module/az.iothub/new-aziothub) to create one or use the portal to [Create an IoT hub](iot-hub-create-through-portal.md).
+* An Azure IoT hub. If you don't have an IoT hub, you can use the [New-AzIoTHub cmdlet](/powershell/module/az.iothub/new-aziothub) to create one or use the portal to [Create an IoT hub](iot-hub-create-through-portal.md).
 
-* An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](https://docs.microsoft.com/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-create-storage-account.md)
+* An Azure storage account. If you don't have an Azure storage account, you can use the [Azure Storage PowerShell cmdlets](/powershell/module/az.storage/) to create one or use the portal to [Create a storage account](../storage/common/storage-account-create.md)
 
 ## Sign in and set your Azure account
 
@@ -130,5 +130,5 @@ Follow these links to learn more about managing Azure IoT Hub:
 To further explore the capabilities of IoT Hub, see:
 
 * [IoT Hub developer guide](iot-hub-devguide.md)
-* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Deploying AI to edge devices with Azure IoT Edge](../iot-edge/quickstart-linux.md)
 * [Secure your IoT solution from the ground up](../iot-fundamentals/iot-security-ground-up.md)

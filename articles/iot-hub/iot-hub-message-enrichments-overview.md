@@ -58,8 +58,8 @@ Enrichments can be configured using the the following methods:
 | **Method** | **Command** |
 | ----- | -----| 
 | Portal | [Azure portal](https://portal.azure.com) | See the [message enrichments tutorial](tutorial-message-enrichments.md) | 
-| Azure CLI   | [az iot hub message-enrichment](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
-| Azure PowerShell | [Add-AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment) |
+| Azure CLI   | [az iot hub message-enrichment](/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [Add-AzIotHubMessageEnrichment](/powershell/module/az.iothub/add-aziothubmessageenrichment) |
 
 Adding message enrichments doesn't add latency to the message routing.
 

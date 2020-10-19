@@ -129,7 +129,7 @@ To configure Azure AD single sign-on with Perception United States (Non-UltiPro)
 
 2. In the main toolbar, click **Account Settings**.
 
-    ![Perception United States (Non-UltiPro) user](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
+    ![Screenshot that shows "Account Settings" selected from the main toolbar.](./media/perceptionunitedstates-tutorial/tutorial_perceptionunitedstates_user.png)
 
 3. On the **Account Settings** page, perform the following steps:
 

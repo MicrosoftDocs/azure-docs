@@ -40,7 +40,7 @@ Observe the [**Routes** resource logs](monitor-iot-hub-reference.md#routes) to g
 
 #### The health of the endpoint
 
-Use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints. The *Get Endpoint Health* API also provides information on the last time a message was successfully sent to the endpoint, the [last known error](#last-known-errors-for-iot-hub-routing-endpoints), last known error time and the last time a send attempt was made for this endpoint. Use the possible mitigation provided for the specific [last known error](#last-known-errors-for-iot-hub-routing-endpoints).
+Use the REST API [Get Endpoint Health](/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get [health status](iot-hub-devguide-endpoints.md#custom-endpoints) of the endpoints. The *Get Endpoint Health* API also provides information on the last time a message was successfully sent to the endpoint, the [last known error](#last-known-errors-for-iot-hub-routing-endpoints), last known error time and the last time a send attempt was made for this endpoint. Use the possible mitigation provided for the specific [last known error](#last-known-errors-for-iot-hub-routing-endpoints).
 
 ### I suddenly stopped getting messages at the built-in endpoint
 
@@ -52,9 +52,9 @@ Once a route is created, data stops flowing to the built-in-endpoint, unless a r
 
 #### Was the Fallback route disabled?
 
-The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the [built-in-Event Hubs](iot-hub-devguide-messages-read-builtin.md) (messages/events), that is compatible with [Event Hubs](https://docs.microsoft.com/azure/event-hubs/). If message routing is turned on, you can enable the fallback route capability. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint.
+The fallback route sends all the messages that don't satisfy query conditions on any of the existing routes to the [built-in-Event Hubs](iot-hub-devguide-messages-read-builtin.md) (messages/events), that is compatible with [Event Hubs](../event-hubs/index.yml). If message routing is turned on, you can enable the fallback route capability. If there are no routes to the built-in-endpoint and a fallback route is enabled, only messages that don't match any query conditions on routes will be sent to the built-in-endpoint. Also, if all existing routes are deleted, fallback route must be enabled to receive all data at the built-in-endpoint.
 
-You can enable/disable the fallback route in the Azure portal->Message Routing blade. You can also use Azure Resource Manager for [FallbackRouteProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.
+You can enable/disable the fallback route in the Azure portal->Message Routing blade. You can also use Azure Resource Manager for [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties) to use a custom endpoint for fallback route.
 
 ## Last known errors for IoT Hub routing endpoints
 

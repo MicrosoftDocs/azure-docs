@@ -304,7 +304,7 @@
       - name: VM instance size flexibility
         href: ../reserved-vm-instance-size-flexibility.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Dedicated hosts
-    href: dedicated-hosts.md
+    href: ../dedicated-hosts.md
   - name: Maintenance and updates
     href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
   - name: Disk storage
@@ -555,6 +555,8 @@
       href: client-images.md
     - name: Download existing disk
       href: download-vhd.md
+    - name: Managed disk from image version
+      href: ../managed-disk-from-image-version.md
   - name: Secure VMs
     items:
     - name: Recommendations

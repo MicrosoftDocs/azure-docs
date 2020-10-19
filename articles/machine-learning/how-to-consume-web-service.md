@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 06/17/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: "how-to, devx-track-python, devx-track-csharp"
 
@@ -44,7 +44,9 @@ The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core
 * `scoring_uri` - The REST API address.
 * `swagger_uri` - The address of the OpenAPI specification. This URI is available if you enabled automatic schema generation. For more information, see [Deploy models with Azure Machine Learning](how-to-deploy-and-where.md).
 
-There are a three ways to retrieve this information for deployed web services:
+There are a several ways to retrieve this information for deployed web services:
+
+# [Python](#tab/python)
 
 * When you deploy a model, a `Webservice` object is returned with information about the service:
 
@@ -70,6 +72,30 @@ There are a three ways to retrieve this information for deployed web services:
     print(service.scoring_uri)
     print(service.swagger_uri)
     ```
+
+# [Azure CLI](#tab/azure-cli)
+
+If you know the name of the deployed service, use the [az ml service show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) command:
+
+```azurecli
+az ml service show -n <service-name>
+```
+
+# [Portal](#tab/azure-portal)
+
+From Azure Machine Learning studio, select __Endpoints__, __Real-time endpoints__, and then the endpoint name. In details for the endpoint, the __REST endpoint__ field contains the scoring URI. The __Swagger URI__ contains the swagger URI.
+
+---
+
+The following table shows what these URIs look like:
+
+| URI type | Example |
+| ----- | ----- |
+| Scoring URI | `http://104.214.29.152:80/api/v1/service/<service-name>/score` |
+| Swagger URI | `http://104.214.29.152/api/v1/service/<service-name>/swagger.json` |
+
+> [!TIP]
+> The IP address will be different for your deployment. Each AKS cluster will hve it's own IP address that is shared by deployments to that cluster.
 
 ### Secured web service
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: b-juche
 ---
 # Metrics for Azure NetApp Files
@@ -81,6 +81,9 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
 
 
 ## <a name="replication"></a>Volume replication metrics
+
+> [!NOTE] 
+> Network transfer size (for example, the *Volume replication total transfer* metrics) might differ from the source or destination volumes of a cross-region replication. This behavior is a result of efficient replication engine being used to minimize the network transfer cost.
 
 - *Is volume replication status healthy*   
     The condition of the replication relationship. A healthy state is denoted by `1`. An unhealthy state is denoted by `0`.

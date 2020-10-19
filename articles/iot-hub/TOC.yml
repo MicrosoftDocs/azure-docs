@@ -176,15 +176,15 @@
         - name: Security baseline
           href: security-baseline.md
         - name: Recommendations
-          href: /azure/iot-fundamentals/security-recommendations?context=azure/iot-hub/rc/rc
+          href: ../iot-fundamentals/security-recommendations.md?context=azure%252fiot-hub%252frc%252frc
         - name: Security from the ground up
-          href: /azure/iot-fundamentals/iot-security-ground-up?context=azure/iot-hub/rc/rc
+          href: ../iot-fundamentals/iot-security-ground-up.md?context=azure%252fiot-hub%252frc%252frc
         - name: Security best practices
-          href: /azure/iot-fundamentals/iot-security-best-practices?context=azure/iot-hub/rc/rc
+          href: ../iot-fundamentals/iot-security-best-practices.md?context=azure%252fiot-hub%252frc%252frc
         - name: Security architecture
-          href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
+          href: ../iot-fundamentals/iot-security-architecture.md?context=azure%252fiot-hub%252frc%252frc
         - name: Secure your IoT deployment
-          href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+          href: ../iot-fundamentals/iot-security-deployment.md?context=azure%252fiot-hub%252frc%252frc
         - name: Security controls by Azure Policy
           displayName: regulatory, compliance, standards, domains
           href: ./security-controls-policy.md
@@ -220,6 +220,8 @@
               href: iot-hub-reliability-features-in-sdks.md
             - name: Develop for Android Things platform
               href: iot-hub-how-to-android-things.md
+        - name: Develop without an Azure IoT SDK
+          href: iot-hub-devguide-no-sdk.md
         - name: Query Avro data from a hub route
           href: iot-hub-query-avro-data.md
         - name: Order device connection state events from Event Grid
@@ -437,33 +439,33 @@
     - name: .NET (Service)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET (Management)
-      href: https://docs.microsoft.com/dotnet/api/overview/azure/iot/management
+      href: /dotnet/api/overview/azure/iot/management
     - name: Java (Device)
       href: /java/api/com.microsoft.azure.sdk.iot.device
     - name: Java (Service)
       href: /java/api/com.microsoft.azure.sdk.iot.service
     - name: Node.js (Device)
-      href: https://docs.microsoft.com/javascript/api/azure-iot-device/
+      href: /javascript/api/azure-iot-device/
     - name: Node.js (Service)
-      href: https://docs.microsoft.com/javascript/api/azure-iothub/
+      href: /javascript/api/azure-iothub/
     - name: Node.js (Management)
-      href: https://docs.microsoft.com/javascript/api/overview/azure/iothub/management
+      href: /javascript/api/overview/azure/iothub/management
     - name: Python (Device)
-      href: https://docs.microsoft.com/python/api/azure-iot-device
+      href: /python/api/azure-iot-device
     - name: Python (Service)
-      href: https://docs.microsoft.com/python/api/azure-iot-hub
+      href: /python/api/azure-iot-hub
     - name: Python (Management)
-      href: https://docs.microsoft.com/python/api/azure-mgmt-iothub
+      href: /python/api/azure-mgmt-iothub
     - name: C device SDK
-      href: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
+      href: /azure/iot-hub/iot-c-sdk-ref/
     - name: REST (Device)
-      href: https://docs.microsoft.com/rest/api/iothub/device
+      href: /rest/api/iothub/device
     - name: REST (Service)
-      href: https://docs.microsoft.com/rest/api/iothub/service/configuration
+      href: /rest/api/iothub/service/configuration
     - name: REST (IoT Hub Resource)
-      href: https://docs.microsoft.com/rest/api/iothub/iothubresource
+      href: /rest/api/iothub/iothubresource
     - name: REST (Certificates)
-      href: https://docs.microsoft.com/rest/api/iothub/certificates
+      href: /rest/api/iothub/certificates
     - name: Resource Manager template
       href: /azure/templates/microsoft.devices/iothub-allversions
     - name: Azure Policy built-ins
@@ -480,31 +482,31 @@
 - name: Resources
   items:
     - name: Support and help options
-      href: /azure/iot-fundamentals/iot-support-help
+      href: ../iot-fundamentals/iot-support-help.md
     - name: Azure IoT services
       items:
       - name: IoT Hub
-        href: /azure/iot-hub
+        href: ./index.yml
       - name: IoT Hub Device Provisioning Service
-        href: /azure/iot-dps
+        href: ../iot-dps/index.yml
       - name: IoT Central
-        href: https://docs.microsoft.com/microsoft-iot-central/
+        href: /microsoft-iot-central/
       - name: IoT Edge
-        href: /azure/iot-edge
+        href: ../iot-edge/index.yml
       - name: IoT solution accelerators
-        href: /azure/iot-accelerators
+        href: ../iot-accelerators/index.yml
       - name: IoT Plug and Play
-        href: /azure/iot-pnp
+        href: ../iot-pnp/index.yml
       - name: Azure Maps
-        href: /azure/azure-maps
+        href: ../azure-maps/index.yml
       - name: Time Series Insights
-        href: /azure/time-series-insights
+        href: ../time-series-insights/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+        href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+        href: ./iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
