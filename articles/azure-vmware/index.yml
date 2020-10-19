@@ -105,7 +105,7 @@ landingContent:
           - text: Application Gateway
             url: protect-azure-vmware-solution-with-application-gateway.md
           - text: Traffic Manager
-            ur: deploy-traffic-manager-balance-workloads.md
+            url: deploy-traffic-manager-balance-workloads.md
 
 # card 5
   - title: VMware solutions
