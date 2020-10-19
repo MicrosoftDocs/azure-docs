@@ -137,34 +137,34 @@
           href: https://go.microsoft.com/fwlink/?linkid=2103664
         - name: REST API
           items:
-            name: Overview
-            href: rest-api.md
-            name: Resources
-            items:
-              name: Keys
-              href: ./rest-api-keys.md
-              name: Key-Values
-              href: ./rest-api-kv.md
-              name: Labels
-              href: ./rest-api-labels.md
-              name: Locks
-              href: ./rest-api-locks.md
-              name: Revisions
-              href: ./rest-api-revisions.md
-            name: Protocol
-            items:
-              name: Authentication
-              href: ./rest-api-authentication-index.md
-              name: Authorization
-              href: ./rest-api-authorization-index.md
-              name: Consistency Model
-              href: ./rest-api-consistency.md
-              name: Common Headers
-              href: ./rest-api-headers.md
-              name: Throttling
-              href: ./rest-api-throttling.md
-              name: Versioning
-              href: ./rest-api-versioning.md
+            - name: Overview
+              href: rest-api.md
+            - name: Resources
+              items:
+              - name: Keys
+                href: ./rest-api-keys.md
+              - name: Key-Values
+                href: ./rest-api-kv.md
+              - name: Labels
+                href: ./rest-api-labels.md
+              - name: Locks
+                href: ./rest-api-locks.md
+              - name: Revisions
+                href: ./rest-api-revisions.md
+            - name: Protocol
+              items:
+              - name: Authentication
+                href: ./rest-api-authentication-index.md
+              - name: Authorization
+                href: ./rest-api-authorization-index.md
+              - name: Consistency Model
+                href: ./rest-api-consistency.md
+              - name: Common Headers
+                href: ./rest-api-headers.md
+              - name: Throttling
+                href: ./rest-api-throttling.md
+              - name: Versioning
+                href: ./rest-api-versioning.md
     - name: Feature management
       items:
         - name: .NET Core library
