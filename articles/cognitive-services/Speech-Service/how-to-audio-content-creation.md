@@ -131,6 +131,7 @@ Follow these steps to add a user to a speech resource so they can use Audio Cont
 1. Click **Add** > **Add role assignment** to open the Add role assignment pane. In the Role drop-down list, select the **Cognitive Service User** role. If you want to give the user ownership of this speech resource, you can select the **Owner** role.
 1. In the list, select a user. If you do not see the user in the list, you can type in the Select box to search the directory for display names and email addresses. If the user is not in this directory, you can input the user’s [Microsoft account](https://account.microsoft.com/account) (which is trusted by Azure active directory).
 1. Click **Save** to assign the role. After a few moments, the user is assigned the Cognitive Service User role at the speech resource scope.
+
     :::image source="media/audio-content-creation/add-role-first.png" alt-text="Add role dialog":::
 
 1. The users you add will receive an invitation email. After they click **Accept invitation** > **Accept to join Azure**, then they can use [Audio Content Creation](https://aka.ms/audiocontentcreation).
