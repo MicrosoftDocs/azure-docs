@@ -52,32 +52,6 @@
       href: ./linux/tutorial-load-balancer.md
     - name: 8 - Manage networking
       href: ./linux/tutorial-virtual-network.md
-    - name: 9 - Backup virtual machines
-      href: ./linux/tutorial-backup-vms.md
-    - name: 10 - Manage VMs
-      href: ./linux/tutorial-govern-resources.md
-    - name: 11 - Track and update VMs
-      href: ./linux/tutorial-config-management.md
-    - name: 12 - Monitor VMs
-      href: ./linux/tutorial-monitor.md
-    - name: 13 - Manage VM security
-      href: ./linux/tutorial-azure-security.md
-    - name: 14a - Build with Jenkins
-      href: /azure/developer/jenkins/pipeline-with-github-and-docker
-    - name: 14b - Integrate Jenkins with Azure DevOps
-      href: /azure/developer/jenkins/deploy-to-linux-vm-using-azure-devops-services
-    - name: 15a - Configure Rolling deployment strategy
-      href: ./linux/tutorial-devops-azure-pipelines-classic.md
-    - name: 15b - Configure Canary deployment strategy
-      href: ./linux/tutorial-azure-devops-canary-strategy.md
-    - name: 15c - Configure Blue-Green deployment strategy
-      href: ./linux/tutorial-azure-devops-blue-green-strategy.md
-    - name: 15d - CI/CD with Azure Pipelines(YAML)
-      href: ./linux/tutorial-build-deploy-azure-pipelines.md
-    - name: 16 - Create LAMP stack
-      href: ./linux/tutorial-lamp-stack.md
-    - name: 17 - Secure web server with SSL
-      href: ./linux/tutorial-secure-web-server.md
   - name: Windows
     items:
       - name: 1 - Create / manage a VM
@@ -96,21 +70,6 @@
         href: ./windows/tutorial-load-balancer.md
       - name: 8 - Manage networking
         href: ./windows/tutorial-virtual-network.md
-      - name: 9 - Backup virtual machines
-        href: ./windows/tutorial-backup-vms.md
-      - name: 10 - Manage VMs
-        displayName: scope policy RBAC lock tag
-        href: ./windows/tutorial-govern-resources.md
-      - name: 11 - Track and update VMs
-        href: ./windows/tutorial-config-management.md
-      - name: 12 - Monitor VMs
-        href: ./windows/tutorial-monitor.md
-      - name: 13 - Manage VM security
-        href: ./windows/tutorial-azure-security.md
-      - name: 14 - Install a SQL\IIS\.NET stack
-        href: ./windows/tutorial-iis-sql.md
-      - name: 15 - Secure web server with SSL
-        href: ./windows/tutorial-secure-web-server.md
 - name: Imaging
   items:
   - name: Overview
@@ -285,10 +244,14 @@
     href: co-location.md
   - name: Network performance
     href: ../virtual-network/virtual-network-optimize-network-bandwidth.md
+  - name: States and lifecycle
+    href: ../states-lifecycle.md
 - name: VM types and sizes
   items:
   - name: VM sizes
     href: sizes.md
+  - name: Change the VM size
+    href: change-vm-size.md
   - name: Generation 2 VMs
     href: generation-2.md
   - name: General purpose
@@ -421,6 +384,52 @@
       href: cost-management-billing/reservations/save-compute-costs-reservations.md
     - name: VM instance size flexibility
       href: reserved-vm-instance-size-flexibility.md
+- name: Manage VMs
+  items:
+  - name: VM usage
+    href: vm-usage.md
+  - name: Common CLI tasks
+    href: cli-manage.md
+  - name: Time sync
+    href: time-sync.md
+  - name: Tag a VM
+    href: tag.md
+  - name: Run scripts on a VM
+    href: run-scripts-in-vm.md
+    items:
+    - name: Custom Script Extension
+      href: ../extensions/custom-script-linux.md
+    - name: Run Command
+      href: run-command.md
+  - name: Use Remote Desktop
+    href: use-remote-desktop.md
+  - name: Join VM to Azure Active Directory
+    displayName: Azure AD
+    items:
+    - name: Red Hat Enterprise Linux
+      href: ../../active-directory-domain-services/join-rhel-linux-vm.md
+    - name: CentOS
+      href: ../../active-directory-domain-services/join-centos-linux-vm.md
+    - name: Ubuntu
+      href: ../../active-directory-domain-services/join-ubuntu-linux-vm.md
+  - name: Sign in with Azure Active Directory credentials
+    href: login-using-aad.md
+  - name: Updates and patches
+    items:
+    - name: Red Hat Update Infrastructure
+      href: ../workloads/redhat/redhat-rhui.md
+  - name: Azure VM agent
+    items:
+    - name: Overview
+      href: ../extensions/agent-linux.md
+    - name: Agent update
+      href: ../extensions/update-linux-agent.md
+  - name: Mitigating speculative execution
+    href: mitigate-se.md
+  - name: Monitor metadata
+    href: instance-metadata-service.md
+  - name: Get usage metrics with REST
+    href: metrics-vm-usage-rest.md
 - name: Dedicated hosts
   href: ../dedicated-hosts.md
 - name: Maintenance and updates
@@ -468,21 +477,142 @@
       - name: Disk encryption scenarios for Linux
         href: disk-encryption-linux-aad.md
   - name: Disk Storage reservations
-    href: ../../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+    href: ../cost-management-billing/reservations/understand-disk-reservations.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
   - name: Virtual machine and disk performance
     href: disk-performance-windows.md
   - name: Designing for high performance
-    href: ../premium-storage-performance.md
+    href: premium-storage-performance.md
   - name: Disk bursting
     href: disk-bursting.md
   - name: Scalability targets for disks
     href: disk-scalability-targets.md
   - name: Backup and disaster recovery for disks
-    href: ../backup-and-disaster-recovery-for-azure-iaas-disks.md
+    href: backup-and-disaster-recovery-for-azure-iaas-disks.md
   - name: Shared disks
     href: disks-shared.md
   - name: Ephemeral OS disks
-    href: ../ephemeral-os-disks.md
+    href: ephemeral-os-disks.md
+  - name: Swap the OS disk
+    href: os-disk-swap.md
+  - name: Manage storage
+    items:
+    - name: Add a data disk
+      items:
+      - name: Linux
+        items:
+        - name: Azure CLI
+          href: add-disk.md
+        - name: Azure portal
+          href: attach-disk-portal.md
+      - name: Windows
+        items:
+        - name: Azure PowerShell
+          href: attach-disk-ps.md
+        - name: Azure portal
+          href: attach-managed-disk-portal.md
+    - name: Change disk tier
+      href: disks-performance-tiers.md
+    - name: Detach a disk
+      items:
+      - name: Linux
+        href: ../linux/detach-disk.md
+      - name: Windows
+        href: ../windows/detach-disk.md        
+    - name: Deploy disks with ARM template
+      displayName: Azure Resource Manager
+      href: using-managed-disks-template-deployments.md
+    - name: Enable shared disks
+      href: ../disks-shared-enable.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Upload a vhd to a disk
+      items: 
+      - name: PowerShell
+        href: disks-upload-vhd-to-managed-disk-powershell.md
+      - name: CLI
+        href: disks-upload-vhd-to-managed-disk-cli.md
+    - name: Securely import/export a disk
+      items: 
+      - name: CLI
+        href: disks-export-import-private-links-cli.md
+      - name: Portal
+        href: disks-enable-private-links-for-import-export-portal.md
+    - name: Resize a disk
+      items: 
+      - name: Linux 
+        href: expand-disks.md
+      - name: Windows
+        href: expand-os-disk.md
+    - name: Use Storage Explorer to manage disks
+      href: disks-use-storage-explorer-managed-disks.md
+    - name: Snapshot a disk
+      items:
+      - name: CLI
+        href: ./linux/snapshot-copy-managed-disk.md
+      - name: PowerShell
+        href: ./windows/snapshot-copy-managed-disk.md
+    - name: Reserve Disk Storage
+      href: disks-reserved-capacity.md
+    - name: Create an incremental snapshot 
+      items: 
+      - name: CLI
+        href: ./linux/disks-incremental-snapshots.md
+      - name: PowerShell
+        href: ./windows/disks-incremental-snapshots.md
+      - name: Portal
+        href: ./windows/disks-incremental-snapshots-portal.md
+    - name: Encryption
+      items:
+      - name: Enable encryption at host - PowerShell
+        href: disks-enable-host-based-encryption-powershell.md
+      - name: Enable encryption at host - 
+        items:
+        - name: CLI
+          href: disks-enable-host-based-encryption-cli.md
+        - name: Portal
+          href: disks-enable-host-based-encryption-portal.md
+      - name: Enable customer-managed keys
+        items:  
+        - name: CLI
+          href: disks-enable-customer-managed-keys-cli.md
+        - name: PowerShell
+          href: disks-enable-customer-managed-keys-powershell.md
+        - name: Portal
+          href: disks-enable-customer-managed-keys-portal.md
+      - name: Enable double encryption-at-rest
+        items: 
+      - name: CLI
+        href: disks-enable-double-encryption-at-rest-cli.md
+      - name: PowerShell
+        href: disks-enable-double-encryption-at-rest-powershell.md
+      - name: Enable double encryption at rest - Portal
+        href: disks-enable-double-encryption-at-rest-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+    - name: Migration and conversion
+      items:
+      - name: Convert disk between Standard and Premium
+        href: convert-disk-storage.md
+      - name: Migrate to Premium storage with Azure Site Recovery
+        href: migrate-to-premium-storage-using-azure-site-recovery.md
+      - name: Migrate to Managed Disks
+        href: migrate-to-managed-disks.md
+      - name: Unmanaged VM to Managed Disks
+        href: convert-unmanaged-to-managed-disks.md
+    - name: Performance
+      items:
+      - name: Enable write accelerator
+        href: how-to-enable-write-accelerator.md
+      - name: Using ultra disks
+        href: disks-enable-ultra-ssd.md
+      - name: Benchmark a disk
+        href: disks-benchmarks.md
+    - name: Find unattached disks
+      itesm: 
+      - name: CLI
+        href: find-unattached-disks.md
+      - name: PowerShell
+        href: find-unattached-disks.md
+      - name: Portal
+        href: disks-find-unattached-portal.md
+    - name: Disks FAQs
+      href: faq-for-disks.md
 - name: Networking
   href: ../network-overview.md
 - name: Scale sets
@@ -513,15 +643,18 @@
     - name: Create a Bastion host
       items:
       - name: Portal
-        href: ../bastion/bastion-create-host-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        href: ../bastion/bastion-create-host-portal.md
       - name: PowerShell
-        href: ../bastion/bastion-create-host-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        href: ../bastion/bastion-create-host-powershell.md
       - name: CLI
-        href: ../bastion/create-host-cli.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Use Bastion to connect
-      href: ../bastion/bastion-connect-vm-ssh.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+        href: ../bastion/create-host-cli.md
+      - name: Bastion SSH connection
+        href: ../bastion/bastion-connect-vm-ssh.md
+        items:
+      - name: Bastion RDP connection
+        href: ../bastion/bastion-connect-vm-rdp.md
     - name: Use access controls
-      href: ../role-based-access-control/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+      href: ../role-based-access-control/overview.md
     - name: Use policies
       href: policy.md
     - name: Create a Key Vault
@@ -537,14 +670,38 @@
         href: ssh-keys-portal.md
       - name: Detailed steps
         href: ../linux/create-ssh-keys-detailed.md   
-- name: States and lifecycle
-  href: ../states-lifecycle.md
+
 - name: Monitoring
   href: ../../azure-monitor/insights/monitor-vm-azure.md
 - name: Boot diagnostics
   href: ../../virtual-machines/boot-diagnostics.md
 - name: Backup and recovery
-  href: ../backup-recovery.md
+  items:
+  - name: Overview
+    href: ../backup-recovery.md
+  - name: Disaster recovery
+    href: ../virtual-machines-disaster-recovery-guidance.md
+  - name: Back up VMs
+    href: ../../backup/backup-overview.md
+    items:
+    - name: Back up a single VM
+      href: ../backup/quick-backup-vm-cli.md
+    - name: Back up multiple VMs
+      href: ../backup/tutorial-backup-vm-at-scale.md
+    - name: Restore a disk       
+      href: ../../backup/tutorial-store-disk.md
+    - name: Restore individual files
+      href: ../../backup/torial-restore-files.md
+  - name: Set up disaster covery for VMs
+    items:
+    - name: Overview
+      href: ../../site-recovery/site-recovery-overview.md
+    - name: Enable disaster recovery for a VM
+      href: ../site-recovery/azure-to-azure-tutorial-enable-replication.md
+    - name: Run a disaster recovery drill for a VM
+      href: ../site-recovery/azure-to-azure-tutorial-dr-drill.md
+    - name: Fail over a VM to another region
+      href: ../site-recovery/azure-to-azure-tutorial-failover-failback.md
 - name: Cloud adoption framework
   href: /azure/cloud-adoption-framework/get-started/
 - name: Architecture center
