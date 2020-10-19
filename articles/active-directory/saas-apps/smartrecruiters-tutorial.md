@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with SmartRecruiters, perform the following
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![SmartRecruiters Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
     `https://www.smartrecruiters.com/web-sso/saml/<companyname>`
@@ -103,7 +103,7 @@ To configure Azure AD single sign-on with SmartRecruiters, perform the following
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![SmartRecruiters Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![Screenshot shows Set additional U R Ls where you can enter a Sign on U R L.](common/metadata-upload-additional-signon.png)
 
     In the **Sign-on URL** text box, type a URL using the following pattern:
     `https://www.smartrecruiters.com/web-sso/saml/<companyname>/login`
@@ -131,19 +131,19 @@ To configure Azure AD single sign-on with SmartRecruiters, perform the following
 
 1. Go to **Settings / Admin**.
 
-    ![SmartRecruiters Configuration](./media/smartrecruiters-tutorial/configure.png)
+    ![Screenshot shows Settings / Admin selected from a menu.](./media/smartrecruiters-tutorial/configure.png)
 
 1. In the **Configuration** section, click **Web SSO**.
 
-	![SmartRecruiters Configuration](./media/smartrecruiters-tutorial/configure1.png)
+	![Screenshot shows Web S S O selected from Configuration.](./media/smartrecruiters-tutorial/configure1.png)
 
 1. Toggle **Enable Web SSO**.
 
-	![SmartRecruiters Configuration](./media/smartrecruiters-tutorial/configure2.png)
+	![Screenshot shows the Enable Web S S O control.](./media/smartrecruiters-tutorial/configure2.png)
 
 1. In **Identity Provider Configuration**, perform the following steps:
 
-	![SmartRecruiters Configuration](./media/smartrecruiters-tutorial/configure4.png)
+	![Screenshot shows Identity Provider Configuration where you can enter the values described.](./media/smartrecruiters-tutorial/configure4.png)
 
 	a. In **Identity Provider URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 

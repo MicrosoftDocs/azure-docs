@@ -4,6 +4,7 @@ description: Introduction to Azure Synapse Studio (preview) SQL scripts
 services: synapse-analytics 
 author: pimorano 
 ms.service: synapse-analytics 
+ms.subservice: sql
 ms.topic: conceptual 
 ms.date: 04/15/2020
 ms.author: pimorano 

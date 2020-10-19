@@ -5,7 +5,7 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 10/02/2020
+ms.date: 10/15/2020
 ---
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
 
@@ -271,7 +271,23 @@ When you share data from SQL source, the following mapping are used from SQL Ser
 > 1. For data types that map to the Decimal interim type, currently snapshot supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string. 
 > 1.  If you are sharing data from Azure SQL database to Azure Synapse Analytics, not all data types are supported. Refer to [Table data types in dedicated Synapse SQL pool](https://docs.microsoft.com/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types) for details. 
 
+## SQL Always Encrypted or Dynamic Data Masking
+Currently, Azure Data Share does not support Azure SQL databases with Always Encrypted configured. 
+
+For source SQL tables with dynamic data masking, data will appear masked on the recipient side.
+
+## SQL snapshot performance
+SQL snapshot performance is impacted by a number of factors. It is always recommended to conduct your own performance testing. Below are some example factors impacting performance.
+
+* Hardware configuration (e.g. vCores, memory, DWU) of the source and target SQL data store. 
+* Concurrent access to the source and target data stores. If you are sharing multiple tables and views from the same SQL data store, or receive multiple tables and views into the same SQL data store, performance will be impacted.   
+* Location of source and target data stores. 
+
+## Troubleshoot SQL snapshot failure
+The most common cause of snapshot failure is that Data Share does not have permission to the source or target data store. In order to grant Data Share permission to the source or target SQL data store, you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot additional SQL snapshot failure, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshot-failed).
 
 ## Next steps
-You have learned how to share and receive data from storage account using Azure Data Share service. To learn more about sharing from other data sources, continue to [supported data stores](supported-data-stores.md).
+You have learned how to share and receive data from SQL sources using Azure Data Share service. To learn more about sharing from other data sources, continue to [supported data stores](supported-data-stores.md).
+
+
 

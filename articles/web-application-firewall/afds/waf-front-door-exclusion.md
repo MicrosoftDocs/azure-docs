@@ -4,7 +4,7 @@ description: This article provides information on  exclusion lists configuration
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 02/25/2020
+ms.date: 10/05/2020
 ms.author: victorh
 ms.topic: conceptual
 ---
