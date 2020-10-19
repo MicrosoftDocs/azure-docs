@@ -370,6 +370,23 @@ I/O-bound apps may also benefit from increasing the number of worker processes b
 
 The FUNCTIONS_WORKER_PROCESS_COUNT applies to each host that Functions creates when scaling out your application to meet demand.
 
+##### Setting up max workers within a language worker process
+
+The Python language worker treats functions and [coroutines](https://docs.python.org/3/library/asyncio-task.html#coroutines) differently. A coroutine is run within the same event loop that the language worker runs on. On the other hand, a function invocation is run within a [ThreadPoolExecutor](https://docs.python.org/3/library/concurrent.futures.html#threadpoolexecutor), that is maintained by the language worker, as a thread.
+
+You can set the value of maximum workers allowed for running sync functions using the [PYTHON_THREADPOOL_THREAD_COUNT](functions-app-settings.md#functions_threadpoo_thread_count) application setting. This value sets the `max_worker` argument of the ThreadPoolExecutor object, which lets Python use a pool of at most `max_worker` threads to execute calls asynchronously. The `PYTHON_THREADPOOL_THREAD_COUNT` applies to each worker that Functions host creates, and Python decides when to create a new thread or reuse the existing idle thread. By default, `max_worker` value is set to 1,
+
+For CPU-bound apps, you should keep the setting to a low number, starting from 1 and increasing as you experiment with your workload. This suggestion is to reduce the time spent on context switches and allowing CPU-bound tasks to finish.
+
+For I/O-bound apps, you should see substantial gains by increasing the number of threads working on each invocation. the recommendation is to start with the Python default - the number of cores + 4 and then tweak based on the throughput values you are seeing.
+
+For mix workloads apps, you should balance both `FUNCTIONS_WORKER_PROCESS_COUNT` and `PYTHON_THREADPOOL_THREAD_COUNT` configurations to maximize the throughput. To understand what your function apps spend the most time on, we recommend to profile them and set the values according to the behavior they present.
+
+> [!NOTE]
+>  Please also refer to this [section](#use-multiple-language-worker-processes) to learn about FUNCTIONS_WORKER_PROCESS_COUNT application settings.
+
+> [!NOTE]
+>  Although these recommendations apply to both HTTP and non-HTTP triggered functions, you might need to adjust other trigger specific configurations for non-HTTP triggered functions to get the expected performance from your function apps. 
 
 ## Context
 

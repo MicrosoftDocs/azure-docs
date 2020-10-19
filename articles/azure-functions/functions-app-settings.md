@@ -176,6 +176,14 @@ Specifies the maximum number of language worker processes, with a default value 
 |---|------------|
 |FUNCTIONS\_WORKER\_PROCESS\_COUNT|2|
 
+## PYTHON\_THREADPOOL\_THREAD\_COUNT
+
+Specifies the maximum number of threads that a Python language worker would use to execute asynchronous calls, with a default value of `1`. Note that this setting does not guarantee the number of threads that would be set during executions. The setting allows Python to expand the number of threads to the specified value. The setting only applies to Python functions apps. 
+
+|Key|Sample value|
+|---|------------|
+|PYTHON\_THREADPOOL\_THREAD\_COUNT|2|
+
 
 ## FUNCTIONS\_WORKER\_RUNTIME
 
