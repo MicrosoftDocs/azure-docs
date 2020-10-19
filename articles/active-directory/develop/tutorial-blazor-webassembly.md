@@ -112,7 +112,7 @@ public class GraphAPIAuthorizationMessageHandler : AuthorizationMessageHandler
 }
 ```
 
-Then, replace the `Main` method in *Program.cs* with the following code. This code makes use of the new `GraphAPIAuthorizationMessageHandler` and adds `User.Read` and `Mail.Read` as default scopes the app will request when the user first signs in.
+Then, replace the contents of the `Main` method in *Program.cs* with the following code. This code makes use of the new `GraphAPIAuthorizationMessageHandler` and adds `User.Read` and `Mail.Read` as default scopes the app will request when the user first signs in.
 
 ```csharp
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
