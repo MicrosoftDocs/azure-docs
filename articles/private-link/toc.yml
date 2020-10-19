@@ -134,8 +134,6 @@
       href: /azure-signalr/howto-private-endpoints
     - name: Web App
       href: tutorial-private-endpoint-webapp-portal.md
-  - name: Connect privately to a web app
-    href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md
   - name: Disable network policies for a Private Link Service
