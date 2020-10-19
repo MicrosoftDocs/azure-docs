@@ -10,7 +10,7 @@ ms.author: robinsh
 ms.custom: include file
 ---
 
-You can use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get health status of the endpoints. We recommend using the [IoT Hub routing metrics](../articles/iot-hub/monitor-service-reference.md#routing-metrics) related to routing message latency to identify and debug errors when endpoint health is dead or unhealthy, as we expect latency to be higher when the endpoint is in one of those states. To learn more about using IoT Hub metrics, see [Monitor IoT Hub](../articles/iot-hub/monitor-iot-hub.md).
+You can use the REST API [Get Endpoint Health](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) to get health status of the endpoints. We recommend using the [IoT Hub routing metrics](../articles/iot-hub/monitor-iot-hub-reference.md#routing-metrics) related to routing message latency to identify and debug errors when endpoint health is dead or unhealthy, as we expect latency to be higher when the endpoint is in one of those states. To learn more about using IoT Hub metrics, see [Monitor IoT Hub](../articles/iot-hub/monitor-iot-hub.md).
 
 |Health Status|Description|
 |---|---|
