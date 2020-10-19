@@ -118,7 +118,7 @@ Find and save the following values:
     1. Copy the bearer token value (without quotes), to use in the next step.
 
 1. Select **/v2/types/typedefs**:
-    1. Replace the placeholder in the path with your atlas endpoint value. This value can be obtained by navigating to the catalog instance on Azure Portal and clicking on overview. 
+    1. Replace the placeholder in the path with your atlas endpoint value. This value can be obtained by navigating to the catalog instance on Ibiza portal and clicking on overview. 
 
        The bearer token is set from the first step (or you can copy it in the “Authorization” tab manually).
 
