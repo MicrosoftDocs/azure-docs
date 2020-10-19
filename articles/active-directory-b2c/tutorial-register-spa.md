@@ -89,6 +89,8 @@ Applications using the implicit flow can continue to function if you leave the i
 
 * * *
 
+## Next steps
+
 Next, learn how to create user flows to enable your users to sign up, sign in, and manage their profiles.
 
 > [!div class="nextstepaction"]
