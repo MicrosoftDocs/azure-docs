@@ -109,10 +109,10 @@ You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Mach
 
 Use focus mode to expand your current view so you can focus on your active tabs. Focus mode hides the Notebooks file explorer.
 
-1. In the terminal window toolbar, select **Focus mode** to turn focus mode on. Depending on your window width, this may be located under the **...** menu item in your toolbar.
+1. In the terminal window toolbar, select **Focus mode** to turn on focus mode. Depending on your window width, this may be located under the **...** menu item in your toolbar.
 1. While in focus mode, return to the standard view by selecting **Standard view**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Toggle Focus mode and Standard mode":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Toggle focus mode / standard view":::
 
 
 ### Use IntelliSense
