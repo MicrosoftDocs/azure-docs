@@ -30,9 +30,9 @@ Blob index tags categorize data in your storage account using key-value tag attr
 
 As blob index is in preview, the .NET storage package is released in the preview NuGet feed. This library is subject to change during the preview period.
 
-1. Set up your Visual Studio project to get started with the Azure Blob storage client library v12 for .NET. To learn more, see [.NET Quickstart](storage-quickstart-blobs-dotnet.md)
+1. Set up your Visual Studio project to get started with the Azure Blob Storage client library v12 for .NET. To learn more, see [.NET Quickstart](storage-quickstart-blobs-dotnet.md)
 
-2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.7.0-preview.1** or newer to your project. You can also run the command `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
+2. In the NuGet Package Manager, Find the **Azure.Storage.Blobs** package, and install version **12.7.0-preview.1** or newer to your project. You can also run the PowerShell command: `Install-Package Azure.Storage.Blobs -Version 12.7.0-preview.1`
 
    To learn how, see [Find and install a package](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#find-and-install-a-package).
 
@@ -52,7 +52,7 @@ As blob index is in preview, the .NET storage package is released in the preview
 
 ## Upload a new blob with index tags
 
-Setting blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
+Uploading a new blob with index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
 
 # [Portal](#tab/azure-portal)
 
@@ -110,7 +110,9 @@ static async Task BlobIndexTagsOnCreate()
 
 ## Get, set, and update blob index tags
 
-Getting blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
+Getting blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/read` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
+
+Setting and updating blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
 
 # [Portal](#tab/azure-portal)
 
@@ -187,7 +189,7 @@ static async Task BlobIndexTagsExample()
 
 ## Filter and find data with blob index tags
 
-Searching and filtering by blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner) In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
+Searching and filtering by blob index tags can be performed by the [Storage Blob Data Owner](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner). In addition, users with the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/filter/action` [role-based access control](/azure/role-based-access-control/overview) permission can perform this operation.
 
 # [Portal](#tab/azure-portal)
 
