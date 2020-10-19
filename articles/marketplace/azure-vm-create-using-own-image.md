@@ -6,32 +6,35 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: emuench
 ms.author: krsh
-ms.date: 10/19/2020
+ms.date: 10/20/2020
 ---
 
 # How to create a virtual machine using your own image
 
 This article describes how to create and deploy a user-provided virtual machine (VM) image.
 
-To use an approved base image, follow the instructions in [Create a VM image from an approved base](azure-vm-create-using-approved-base.md).
+> [!NOTE]
+> Before you start this procedure, review the [technical requirements](marketplace-virtual-machines.md#technical-requirements) for Azure VM offers, including virtual hard disk (VHD) requirements.
+
+To use an approved base image instead, follow the instructions in [Create a VM image from an approved base](azure-vm-create-using-approved-base.md).
 
 ## Configure the VM
 
 This section describes how to size, update, and generalize an Azure VM. These steps are necessary to prepare your VM to be deployed on Azure Marketplace.
 
-## Size the VHDs
+### Size the VHDs
 
 [!INCLUDE [Discussion of VHD sizing](includes/vhd-size.md)]
 
-## Install the most current updates
+### Install the most current updates
 
 [!INCLUDE [Discussion of most current updates](includes/most-current-updates.md)]
 
-## Perform additional security checks
+### Perform additional security checks
 
 [!INCLUDE [Discussion of addition security checks](includes/additional-security-checks.md)]
 
-## Perform custom configuration and scheduled tasks
+### Perform custom configuration and scheduled tasks
 
 [!INCLUDE [Discussion of custom configuration and scheduled tasks](includes/custom-config.md)]
 
@@ -43,7 +46,7 @@ Configure and prepare the VM to be uploaded as described in [Prepare a Windows V
 
 If you are using an image building service such as [Packer](https://www.packer.io/), you may need to extract the VHD from the image. There is no direct way to do this. You will have to create a VM and extract the VHD from the VM disk.
 
-### Create VM on the Azure portal
+### Create the VM on the Azure portal
 
 Follow these steps to create the base VM image on the [Azure portal](https://ms.portal.azure.com/).
 
@@ -64,9 +67,9 @@ Follow these steps to create the base VM image on the [Azure portal](https://ms.
 
 Azure begins provisioning the virtual machine you specified. Track its progress by selecting the **Virtual Machines** tab in the left menu. After it's created the status of Virtual Machine changes to **Running**.
 
-## Connect to your VM
+### Connect to your VM
 
-Connect to your [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/ssh-from-windows.md#connect-to-your-vm) VM.
+Refer to the following documentation to connect to your [Windows](../virtual-machines/windows/connect-logon.md) or [Linux](../virtual-machines/linux/ssh-from-windows.md#connect-to-your-vm) VM.
 
 [!INCLUDE [Discussion of addition security checks](includes/size-connect-generalize.md)]
 
