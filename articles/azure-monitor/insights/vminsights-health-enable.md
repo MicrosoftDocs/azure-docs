@@ -130,69 +130,21 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
       "metadata": {
         "description": "Specifies resource id of Azure Monitor Data Collection Rule for virtual machine health data."
       }
-    },
-    "healthExtensionVersion": {
-      "type": "string",
-      "metadata": {
-        "description": "Specifies version of the Virtual Machine health extension to deploy."
-      },
-      "defaultValue": "private-preview",
-      "allowedValues": ["alpha-test", "alpha-scale", "alpha-int", "private-preview"]
     }
   },
   "variables": {
     "healthExtensionProperties": {
       "windows": {
-        "alpha-test": {
-          "publisher": "Microsoft.Azure.WorkloadInsights.TestTest.TEST",
-          "type": "Health.Windows.Test",
-          "typeHandlerVersion": "1.0",
-          "autoUpgradeMinorVersion": true
-        },
-        "alpha-scale": {
-          "publisher": "Microsoft.Azure.WorkloadInsights.TestTest",
-          "type": "Health.Windows.Test",
-          "typeHandlerVersion": "1.0",
-          "autoUpgradeMinorVersion": true
-        },
-        "alpha-int": {
-          "publisher": "Microsoft.Azure.WorkloadInsights.TestTest.INT",
-          "type": "Health.Windows.Test",
-          "typeHandlerVersion": "1.0",
-          "autoUpgradeMinorVersion": true
-        },
-        "private-preview": {
-          "publisher": "Microsoft.Azure.Monitor.VirtualMachines",
-          "type": "GuestHealthWindowsAgent",
-          "typeHandlerVersion": "0.9",
-          "autoUpgradeMinorVersion": true
-        }
+        "publisher": "Microsoft.Azure.Monitor.VirtualMachines.GuestHealth",
+        "type": "GuestHealthWindowsAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true
       },
       "linux": {
-        "alpha-test": {
-          "publisher": "Microsoft.Azure.WorkloadInsights.Linux.Test5.TEST",
-          "type": "Health.Linux5",
-          "typeHandlerVersion": "0.1",
-          "autoUpgradeMinorVersion": true
-        },
-        "alpha-scale": {
-          "publisher": "Microsoft.Azure.WorkloadInsights.Linux.Test5",
-          "type": "Health.Linux5",
-          "typeHandlerVersion": "0.1",
-          "autoUpgradeMinorVersion": true
-        },
-        "alpha-int": {
-          "publisher": "Microsoft.Azure.WorkloadInsights.Linux.Test5.INT",
-          "type": "Health.Linux5",
-          "typeHandlerVersion": "0.1",
-          "autoUpgradeMinorVersion": true
-        },
-        "private-preview": {
-          "publisher": "Microsoft.Azure.Monitor.VirtualMachines",
-          "type": "GuestHealthLinuxAgent",
-          "typeHandlerVersion": "0.9",
-          "autoUpgradeMinorVersion": true
-        }
+        "publisher": "Microsoft.Azure.Monitor.VirtualMachines.GuestHealth",
+        "type": "GuestHealthLinuxAgent",
+        "typeHandlerVersion": "1.0",
+        "autoUpgradeMinorVersion": true
       }
     },
     "azureMonitorAgentExtensionProperties": {
@@ -241,15 +193,16 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(parameters('virtualMachineName'), '/', variables('healthExtensionProperties')[parameters('virtualMachineOsType')][parameters('healthExtensionVersion')].type)]",
+      "name": "[concat(parameters('virtualMachineName'), '/', variables('healthExtensionProperties')[parameters('virtualMachineOsType')].type)]",
       "location": "[parameters('virtualMachineLocation')]",
       "apiVersion": "2018-06-01",
       "dependsOn": [ 
         "[resourceId('Microsoft.Compute/virtualMachines/extensions', parameters('virtualMachineName'), variables('azureMonitorAgentExtensionProperties')[parameters('virtualMachineOsType')].type)]",
         "[resourceId('Microsoft.Compute/virtualMachines/providers/dataCollectionRuleAssociations', parameters('virtualMachineName'), 'Microsoft.Insights', parameters('dataCollectionRuleAssociationName'))]"
       ], 	
-      "properties": "[variables('healthExtensionProperties')[parameters('virtualMachineOsType')][parameters('healthExtensionVersion')]]"
-    }
+      "properties": "[variables('healthExtensionProperties')[parameters('virtualMachineOsType')]]"
+    }				
+  ]
 }
 ```
 

@@ -53,3 +53,6 @@ In the following example, CPU utilization is set to following health states:
 - Warning if its greater than or equal to 80%.
 - Healthy if its under 80%. This is implied since it's the condition where neither of the other conditions apply.
 
+## Next steps
+
+- [Configure monitors at scale using data collection rules.](vminsights-health-configure-template)

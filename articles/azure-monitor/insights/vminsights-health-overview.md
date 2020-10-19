@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor for VMs guest health (preview)
-description: Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. 
+description: Overview of the health feature in Azure Monitor for VMs including how you can view the health of your virtual machines and receive alerts when a virtual machine becomes unhealthy.
 ms.subservice: 
 ms.topic: conceptual
 author: bwren
@@ -10,9 +10,13 @@ ms.date: 09/08/2020
 ---
 
 # Azure Monitor for VMs guest health (preview)
-Azure Monitor for VMs guest health allows you to view the health of a virtual machine as defined by a set of performance measurements that are sampled at regular intervals. This article provides a general overview of the feature and shows you how you can view the health of your virtual machines and receive alerts when a virtual machine becomes unhealthy.
+Azure Monitor for VMs guest health allows you to view the health of virtual machines based on a set of performance measurements that are sampled at regular intervals from the guest operating system. You can drill down on the detailed health of a particular virtual machine or quickly check the health of all virtual machines in a subscription or resource group. 
 
-## Viewing VM health
+## Enable virtual machine health
+See [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) for details on enabling the guest health feature and onboarding virtual machines.
+
+
+## View virtual machine health
 A **Guest VM Health** column in the **Get Started** page gives you a quick view of the health of each virtual machine in a particular subscription or resource group. The current health of each virtual machine is displayed while icons for each group show the number of virtual machines currently in each state in that group.
 
 [![Get started page with guest VM health](media/vminsights-health-overview/get-started-page.png)](media/vminsights-health-overview/get-started-page.png#lightbox)
@@ -22,6 +26,22 @@ A **Guest VM Health** column in the **Get Started** page gives you a quick view 
 Click on a virtual machine's health status to view its detailed health. The overall health of a computer is measured by multiple monitors, which each measures the health of some aspect of a managed object. 
 
 ![Monitors example](media/vminsights-health-overview/monitors.png)
+
+The following table lists the aggregate and unit monitors currently available for each virtual machine. 
+
+| Monitor | Type | Description |
+|:---|:---|:---|
+| CPU utilization | Unit | Percentage utilization of the processor. |
+| File systems | Aggregate | Aggregate health of all file systems on Linux VM. |
+| File system  | Aggregate | Health of each individual file system on Linux VM. The name of the monitor is the name of the file system. |
+| Free space | Unit | Percentage free space on the file system. |
+| Memory | Aggregate | Aggregate health of the memory on the VM. |
+| Available memory | Unit | Available megabytes on the VM. |
+
+## Health states
+Each monitor samples values on the agent every minute and compares sampled values to the criteria for each health state. If the criteria for particular state is true, then the monitor is set to that state. If none of the criteria are true, then the monitor is set to a healthy state. Data is sent from the agent to Azure Monitor every three minutes or immediately if there is a state change.
+
+Each monitor has a lookback window and analyzes any samples collected within that time using a minimum or maximum value. For example, a monitor may have a lookback window of 240 seconds looking for the maximum value among at least 2 sampled values but no more than the last 3. While values are sampled at a regular rate, the number sampled in a particular window may vary slightly if there is any disruption in the agent operation.
 
 Monitors each have the potential health states in the following table and will be in one and only one at any given time. When a monitor is initialized, it starts in a healthy state.
 
@@ -53,20 +73,6 @@ In the following example, the **Free space** monitor is in a critical state whic
 ![Health rollup example](media/vminsights-health-overview/health-rollup-example.png)
 
 
-### Monitors
-The following table lists the aggregate and unit monitors currently available for each VM. 
-
-| Monitor | Type | Description |
-|:---|:---|:---|
-| CPU utilization | Unit | Percentage utilization of the processor. |
-| File systems | Aggregate | Aggregate health of all file systems on Linux VM. |
-| File system  | Aggregate | Health of each individual file system on Linux VM. The name of the monitor is the name of the file system. |
-| Free space | Unit | Percentage free space on the file system. |
-| Memory | Aggregate | Aggregate health of the memory on the VM. |
-| Available memory | Unit | Available megabytes on the VM.
-
-
-
 ## Monitor details
 Select a monitor to view its detail which includes the following tabs.
 
@@ -76,9 +82,6 @@ Select a monitor to view its detail which includes the following tabs.
 
 **History** lists the history of state changes for the monitor. You can expand any of the state changes to view values evaluated to determine the health state. Click **View configuration applied** to view the configuration of the monitor at the time that the health state was changed.
 
-Each monitor samples values on the agent every minute and compares sampled values to the criteria for each health state. If the criteria for particular state is true, then the monitor is set to that state. If none of the criteria are true, then the monitor is set to a healthy state. Data is sent from the agent to Azure Monitor every three minutes or immediately if there is a state change.
-
-Each monitor has a lookback window and analyzes any samples collected within that time using a minimum or maximum value. For example, a monitor may have a lookback window of 240 seconds looking for the maximum value among at least 2 sampled values but no more than the last 3. While values are sampled at a regular rate, the number sampled in a particular window may vary slightly if there is any disruption in the agent operation.
 
 
 [![Monitor details history](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
@@ -97,3 +100,9 @@ Alerts are not created for individual monitors but for the virtual machine itsel
 If an alert is already open when the VM state changes, then a second alert won't be created, but the severity of the alert will be changed to match the severity of the VM. For example, if the VM changes to a Critical state when a Warning alert was already open, that alert will be changed to a Critical State. If the VM changes to a Warning state when a Critical alert was already open, that alert will be changed to a Warning State. 
 
 If the VM changes to a Healthy state, then the alert will be closed.
+
+## Next steps
+
+- [Enable guest health in Azure Monitor for VMs and onboard agents.](vminsights-health-enable.md)
+- [Configure monitors using the Azure portal.](vminsights-health-configure.md)
+- [Configure monitors using data collection rules.](vminsights-health-configure-template.md)
