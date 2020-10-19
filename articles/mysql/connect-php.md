@@ -17,14 +17,15 @@ For this quickstart you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/en-us/free).
 - Create a Azure Database for MySQL single server using [Azure Portal](./quickstart-create-mysql-server-database-using-azure-portal.md) <br/> or [Azure CLI](./quickstart-create-mysql-server-database-using-azure-cli.md) if you do not have one.
-- Based on you choice of connectivity method, make sure you have completed the ONE of the task below
+- Based on whether you are using public or private access, complete **ONE** of the actions below to enable connectivity.
 
-|Action| How-to guide|Connectivity method|
-|:--- |:--- |:---|
-| **Configure firewall rules** | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|Public access secured by firewall rules|
-| **Configure Service Endpoint** | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md) | Public access secured by service endpoints. You can ONLY connect to the server with App Service Web App or Azure Virtual machine or any other resource as long as it is in the **same virtual network**.|
-| **Configure private link** | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | Private access| 
+|Action| Connectivity method|How-to guide|
+|:--------- |:--------- |:--------- |
+| **Configure firewall rules** | Public | [Portal](./howto-manage-firewall-using-portal.md) <br/> [CLI](./howto-manage-firewall-using-cli.md)|
+| **Configure Service Endpoint** | Public | [Portal](./howto-manage-vnet-using-portal.md) <br/> [CLI](./howto-manage-vnet-using-cli.md)| 
+| **Configure private link** | Private | [Portal](./howto-configure-privatelink-portal.md) <br/> [CLI](./howto-configure-privatelink-cli.md) | 
 
+- [Create a database and non-admin user](https://docs.microsoft.com/en-us/azure/mysql/howto-create-users?tabs=single-server)
 - Install latest PHP version  for your operating system
     - [PHP on MacOS](https://secure.php.net/manual/install.macosx.php)
     - [PHP on Linux](https://secure.php.net/manual/install.unix.php)
@@ -47,10 +48,10 @@ You can get the database server connection information from the Azure portal by 
 > - If you forgot your password, you can [reset the password](./howto-create-manage-server-portal.md#update-admin-password).
 > - Replace the **host, username, password,** and **db_name** parameters with your own values**
 
-## Step 1: Connect with MySQLi
-SSL is enabled by default. You many need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment. This code calls:
+## Step 1: Connect to the server
+SSL is enabled by default. You may need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment. This code calls:
 - [mysqli_init](https://secure.php.net/manual/mysqli.init.php) to initialize MySQLi.
-- [mysqli_ssl_set](https://www.php.net/manual/en/mysqli.ssl-set.php) to point to the SSL certificate path. If using  Azure Virtual machines or Azure Web App, 'mysqli-ssl_set()' is not required as the **DigiCertGlobalRootG2** certificate is already installed on the platform. But this is required for you local environment.
+- [mysqli_ssl_set](https://www.php.net/manual/en/mysqli.ssl-set.php) to point to the SSL certificate path. This is required for your local environment but not required for App Service Web App or Azure Virtual machines. 
 - [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) to connect to MySQL.
 - [mysqli_close](https://secure.php.net/manual/mysqli.close.php) to close the connection.
 
