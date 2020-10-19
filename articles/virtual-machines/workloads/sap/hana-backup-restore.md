@@ -12,7 +12,7 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/16/2019
+ms.date: 10/16/2020
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -397,6 +397,540 @@ To restore from a snapshot backup, see [Manual recovery guide for SAP HANA on Az
 
 ### Recover to another point in time
 To restore to a certain point in time, see "Recover the database to the following point in time" in [Manual recovery guide for SAP HANA on Azure from a storage snapshot](https://github.com/Azure/hana-large-instances-self-service-scripts/blob/master/latest/Microsoft%20Snapshot%20Tools%20for%20SAP%20HANA%20on%20Azure%20Guide.md). 
+
+
+
+
+
+## SnapCenter integration in SAP HANA large instances
+
+This section describes how customers can use NetApp SnapCenter software to take a snapshot, backup, and restore SAP HANA databases hosted on Microsoft Azure HANA Large Instances (HLI). 
+
+SnapCenter offers solutions for scenarios including backup/recovery, disaster recovery (DR) with asynchronous storage replication, system replication, and system cloning. Integrated with SAP HANA Large Instances on Azure, customers can now use SnapCenter for backup and recovery operations.
+
+For additional references, see NetApp TR-4614 and TR-4646 on SnapCenter.
+
+- [SAP HANA Backup/Recovery with SnapCenter (TR-4614)](https://www.netapp.com/us/media/tr-4614.pdf)
+- [SAP HANA Disaster Recovery with Storage Replication (TR-4646)](https://www.netapp.com/us/media/tr-4646.pdf)
+- [SAP HANA HSR with SnapCenter (TR-4719)](https://www.netapp.com/us/media/tr-4719.pdf)
+- [SAP Cloning from SnapCenter (TR-4667)](https://www.netapp.com/us/media/tr-4667.pdf)
+
+### System Requirements and Prerequisites
+
+To run SnapCenter on Azure HLI, system requirements include:
+* SnapCenter Server on Azure Windows 2016 or newer with 4-vCPU, 16-GB RAM and a minimum of 650 GB managed premium SSD storage.
+* SAP HANA Large Instances system with 1.5 TB – 24-TB RAM. It's recommended to use two SAP HANA Large Instance systems for cloning operations and tests.
+
+The steps to integrate SnapCenter in SAP HANA are: 
+
+1. Raise a support ticket request to communicate the user-generated public key to the Microsoft Ops team. This is required to set up the SnapCenter user to access the storage system.
+1. Create a VM in your VNET that has access to HLI; this VM is used for SnapCenter. 
+1. Download and install SnapCenter. 
+1. Backup and recovery operations. 
+
+### Create a support ticket for user-role storage setup
+
+1. Open the Azure portal and navigate to the **Subscriptions** page. Once on the “Subscriptions” page, select your SAP HANA subscription, outlined in red below.
+
+   :::image type="content" source="./media/snapcenter/create-support-case-for-user-role-storage-setup.png" alt-text="Create support case for user  storage setup":::
+
+1. On your SAP HANA subscription page, select the **Resource Groups** subpage.
+
+   :::image type="content" source="./media/snapcenter/solution-lab-subscription-resource-groups.png" alt-text="Solution lab subscription resource group" lightbox="./media/snapcenter/solution-lab-subscription-resource-groups.png":::
+
+1. Select an appropriate resource group in a region.
+
+   :::image type="content" source="./media/snapcenter/select-appropriate-resource-group-in-region.png" alt-text="Select appropriate resource group in region" lightbox="./media/snapcenter/select-appropriate-resource-group-in-region.png":::
+
+1. Select a SKU entry corresponding to SAP HANA on Azure storage.
+
+   :::image type="content" source="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png" alt-text="Select SKU entry corresponding to SAP HANA" lightbox="./media/snapcenter/select-sku-entry-corresponding-to-sap-hana.png":::
+
+1. Open a **New support ticket** request, outlined in red.
+
+   :::image type="content" source="./media/snapcenter/open-new-support-ticket-request.png" alt-text="Open new support ticket request":::
+
+1. On the **Basics** tab, provide the following information for the ticket:
+
+   * **Issue type:** Technical
+   * **Subscription:** Your subscription
+   * **Service:** SAP HANA Large Instance
+   * **Resource:** Your resource group
+   * **Summary:** Provide the user-generated public key
+   * **Problem type:** Configuration and Setup
+   * **Problem subtype:** Set up SnapCenter for HLI
+
+
+1. In the **Description** of the support ticket, on the **Details** tab, provide: 
+   
+   * Set up SnapCenter for HLI
+   * Your public key for SnapCenter user (snapcenter.pem) - see the public key create example below
+
+     :::image type="content" source="./media/snapcenter/new-support-request-details.png" alt-text="New support request - Details tab" lightbox="./media/snapcenter/new-support-request-details.png":::
+
+1. Select **Review + create** to review your support ticket. 
+
+1. Generate a certificate for the SnapCenter username on the HANA Large Instance or any Linux server.
+
+   SnapCenter requires a username and password to access the storage virtual machine (SVM) and to create snapshots of the HANA database. Microsoft uses the public key to allow you (the customer) to set the password for accessing the storage system.
+
+   ```bash
+   openssl req -x509 -nodes -days 1095 -newkey rsa:2048 -keyout snapcenter.key -out snapcenter.pem -subj "/C=US/ST=WA/L=BEL/O=NetApp/CN=snapcenter"
+   Generating a 2048 bit RSA private key
+   ................................................................................................................................................+++++
+   ...............................+++++
+   writing new private key to 'snapcenter.key'
+   -----
+
+   sollabsjct31:~ # ls -l cl25*
+   -rw-r--r-- 1 root root 1704 Jul 22 09:59 snapcenter.key
+   -rw-r--r-- 1 root root 1253 Jul 22 09:59 snapcenter.pem
+
+   ```
+
+1. Attach the snapcenter.pem file to the support ticket and then select **Create**
+
+   Once the public key certificate is submitted, Microsoft sets up the SnapCenter username  for your tenant along with SVM IP address.   
+
+1. After you receive the SVM IP, set a password to access SVM, which you control.
+
+   The following is an example of the REST CALL (documentation) from HANA Large Instance or VM in virtual network, which has access to HANA Large Instance environment and will be used to set the password.
+
+   ```bash
+   curl --cert snapcenter.pem --key snapcenter.key -X POST -k "https://10.0.40.11/api/security/authentication/password" -d '{"name":"snapcenter","password":"test1234"}'
+   ```
+
+   Ensure that there is no proxy variable active on the HANA DB system.
+
+   ```bash
+   sollabsjct31:/tmp # unset http_proxy
+   sollabsjct31:/tmp # unset https_proxy
+   ```
+
+### Download and install SnapCenter
+Now that the username is set up for SnapCenter access to the storage system, you'll use the SnapCenter username to configure the SnapCenter once it's installed. 
+
+Before installing SnapCenter, review [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf) to define your backup strategy. 
+
+1. Sign in to [NetApp](https://mysupport.netapp.com) to [download](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fmysupport.netapp.com%2Fsite%2Fproducts%2Fall%2Fdetails%2Fsnapcenter%2Fdownloads-tab&data=02%7C01%7Cmadhukan%40microsoft.com%7Ca53f5e2f245a4e36933008d816efbb54%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637284566603265503&sdata=TOANWNYoAr1q5z1opu70%2FUDPHjluvovqR9AKplYpcpk%3D&reserved=0) the latest version of SnapCenter.
+
+1. Install SnapCenter on the Windows Azure VM.
+
+   The installer checks the prerequisites of the VM. 
+
+   >[!IMPORTANT]
+   >Pay attention to the size of the VM, especially in larger environments.
+
+1. Configure the user credentials for the SnapCenter. By default, it populates the Windows user credentials used for installing the application. 
+
+   :::image type="content" source="media/snapcenter/installation-user-inputs-dialog.png" alt-text="Installation user inputs dialog"::: 
+
+1. When you start the session, save the security exemption and the GUI starts up.
+
+1. Sign into SnapCenter on the VM (https://snapcenter-vm:8146) using the Windows credentials to configure the environment.
+
+
+### Set up the storage system
+
+1. In SnapCenter, select **Storage System**, and then select **+New**. 
+
+   :::image type="content" source="./media/snapcenter/snapcenter-storage-connections-window.png" alt-text="SnapCenter storage connections" lightbox="./media/snapcenter/snapcenter-storage-connections-window.png":::
+
+   The default is one SVM per tenant. If a customer has multiple tenants or HLIs in multiple regions, the recommendation is to configure all SVMs in SnapCenter
+
+1. In Add Storage System, provide the information for the Storage System that you want to add, the SnapCenter username and password, and then select **Submit**.
+
+   :::image type="content" source="./media/snapcenter/new-storage-connection.png" alt-text="New storage connection":::
+
+   >[!NOTE]
+   >The default is one SVM per tenant.  If there are multiple tenants, then the recommendation is to configure all SVMs here in SnapCenter. 
+
+1. In SnapCenter, select **Hosts** and the select **+Add** to set up the HANA plug-in and the HANA DB hosts.  The latest version of SnapCenter detects the HANA database on the host automatically.
+
+   :::image type="content" source="media/snapcenter/managed-hosts-new-host.png" alt-text="In SnapCenter, select Hosts and then select Add." lightbox="media/snapcenter/managed-hosts-new-host.png":::
+
+1. Provide the information for the new host:
+   1. Select the operating system for the host type.
+   1. Enter the SnapCenter VM hostname.
+   1. Provide the credentials you want to use.
+   1. Select the **Microsoft Windows** and **SAP HANA** options and then select **Submit**.
+
+   :::image type="content" source="media/snapcenter/add-new-host-operating-system-credentials.png" alt-text="Information for new host":::
+
+   >[!IMPORTANT]
+   >Before you can install the first node, SnapCenter allows a non-root user to install plug-ins on the database.  For information on how to enable a non-root user, see [Adding a non-root user and configuring sudo privileges](https://library.netapp.com/ecmdocs/ECMLP2590889/html/GUID-A3EEB5FC-242B-4C2C-B407-510E48A8F131.html).
+
+1. Review the host details and select **Submit** to install the plug-in on the SnapCenter server.
+
+1. After the plug-in is installed, in SnapCenter, select **Hosts** and then select **+Add** to add a HANA node.
+
+   :::image type="content" source="media/snapcenter/add-hana-node.png" alt-text="Add a HANA node" lightbox="media/snapcenter/add-hana-node.png":::
+
+1. Provide the information for the HANA node:
+   1. Select the operating system for the host type.
+   1. Enter the HANA DB hostname or IP address.
+   1. Select **+** to add the credentials configured on the HANA DB host operating system and then select **OK**.
+   1. Select **SAP HANA** and then select **Submit**.
+
+   :::image type="content" source="media/snapcenter/add-hana-node-details.png" alt-text="SAP HANA node details":::
+
+1. Confirm the fingerprint and select **Confirm and Submit**.
+
+   :::image type="content" source="media/snapcenter/confirm-submit-fingerprint.png" alt-text="Confirm and submit fingerprint":::
+
+1. On the HANA node, under the system database, select **Security** > **Users** > **SNAPCENTER** to create the SnapCenter user.
+
+   :::image type="content" source="media/snapcenter/create-snapcenter-user-hana-system-db.png" alt-text="Create the SnapCenter user in HANA (system db)":::
+
+
+
+### Auto discovery
+SnapCenter 4.3 enables the auto discovery function by default.  Auto discovery is not supported for HANA instances with HANA System Replication (HSR) configured. You must manually add the instance to the SnapCenter server.
+
+
+### HANA setup (Manual)
+If you configured HSR, you must configure the system manually.  
+
+1. In SnapCenter, select **Resources** and **SAN HANA** (at the top), and then select **+Add SAP HANA Database** (on the right).
+
+   :::image type="content" source="media/snapcenter/manual-hana-setup.png" alt-text="Manual HANA setup" lightbox="media/snapcenter/manual-hana-setup.png":::
+
+1. Specify the resource details of the HANA administrator user configured on the Linux host, or on the host where the plug-ins are installed. The backup will be managed from the plug-in on the Linux system.
+
+   :::image type="content" source="media/snapcenter/provide-resource-details-sap-hana-database.png" alt-text="Specify the resource details of the HANA administrator user configured on the Linux host.":::
+
+1. Select the data volume for which you need to take snapshots, select **Save** and then select **Finish**.
+
+   :::image type="content" source="media/snapcenter/provide-storage-footprint.png" alt-text="Select the data volume for which you need to take snapshots, select Save and then select Finish.":::
+
+### Create a snapshot policy
+
+Before you use SnapCenter to back up SAP HANA database resources, you must create a backup policy for the resource or resource group that you want to back up. During the process of creating a snapshot policy, you'll be given the option to configure pre/post commands and special SSL keys. For information on how to create a snapshot policy, see [Creating backup policies for SAP HANA databases](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
+
+1. In SnapCenter, select **Resources** and then select a database.
+
+   :::image type="content" source="media/snapcenter/select-database-create-policy.png" alt-text="In SnapCenter, select Resources and then select a database.":::
+
+1. Follow the workflow of the configuration wizard to configure the snapshot scheduler.
+
+   :::image type="content" source="media/snapcenter/follow-workflow-configuration-wizard.png" alt-text="Follow the workflow of the configuration wizard to configure the snapshot scheduler." lightbox="media/snapcenter/follow-workflow-configuration-wizard.png":::
+
+1. Provide the options for configuring pre/post commands and special SSL keys.  In this example, we're using no special settings.
+
+   :::image type="content" source="media/snapcenter/configuration-options-pre-post-commands.png" alt-text="Provide the options for configuring pre-post commands and special SSL keys." lightbox="media/snapcenter/configuration-options-pre-post-commands.png":::
+
+1. Select **Add** to create a snapshot policy, which can also be used for other HANA databases. 
+
+   :::image type="content" source="media/snapcenter/select-one-or-more-policies.png" alt-text="Select Add to create a snapshot policy, which can also be used for other HANA databases.":::
+
+1. Enter the policy name and a description.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy.png" alt-text="Enter the policy name and a description.":::
+
+
+1. Select the backup type and frequency.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-settings.png" alt-text="Select the backup type and frequency.":::
+
+1. Configure the **On demand backup retention settings**.  In our example, we're setting the retention to three snapshot copies to keep.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-retention-settings.png" alt-text="Configure the On demand backup retention settings.":::
+
+1. Configure the **Hourly retention settings**. 
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-hourly-retention-settings.png" alt-text="Configure the Hourly retention settings.":::
+
+1. If a SnapMirror setup is configured, select **Update SnapMirror after creating a local SnapShot copy**.
+
+   :::image type="content" source="media/snapcenter/new-sap-hana-backup-policy-snapmirror.png" alt-text="If a SnapMirror is required, select Update SnapMirror after creating a local Snapshot copy.":::
+
+1. Select **Finish** to review the summary of the new backup policy. 
+1. Under **Configure Schedule**, select **Add**.
+
+   :::image type="content" source="media/snapcenter/configure-schedules-for-selected-policies.png" alt-text="Under Configure Schedule, select Add.":::
+
+1. Select the **Start date**, **Expires on** date, and the frequency.
+
+   :::image type="content" source="media/snapcenter/add-schedules-for-policy.png" alt-text="Select the Start date, Expires on date, and the frequency.":::
+
+1. Provide the email details for notifications.
+
+   :::image type="content" source="media/snapcenter/backup-policy-notification-settings.png" alt-text="Provide the email details for notifications.":::
+
+1.  Select **Finish** to create the backup policy.
+
+### Disable EMS message to NetApp Autosupport
+By default, EMS data collection is enabled and runs every seven days after your installation date.  You can disable data collection with the PowerShell cmdlet `Disable-SmDataCollectionEms`.
+
+1. In PowerShell, establish a session with SnapCenter.
+
+   ```powershell
+   Open-SmConnection
+   ```
+
+1. Sign in with your credentials.
+1. Disable the collection of EMS messages.
+
+   ```powershell
+   Disable-SmCollectionEms
+   ```
+
+### Restore database after crash
+You can use SnapCenter to restore the database.  In this section, we'll cover the high-level steps, but for more information, see [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+
+1. Stop the database and delete all the database files.
+
+   ```
+   su - h31adm
+   > sapcontrol -nr 00 -function StopSystem
+   StopSystem
+   OK
+   > sapcontrol -nr 00 -function GetProcessList
+   OK
+   name, description, dispstatus, textstatus, starttime, elapsedtime, pid
+   hdbdaemon, HDB Daemon, GRAY, Stopped, , , 35902
+ 
+   ```
+
+1. Unmount the database volume.
+
+   ```bash
+   unmount /hana/data/H31/mnt00001
+   ```
+
+
+1. Restore the database files via SnapCenter.  Select the database and then select **Restore**.  
+
+   :::image type="content" source="media/snapcenter/restore-database-via-snapcenter.png" alt-text="Select a database and select Restore." lightbox="media/snapcenter/restore-database-via-snapcenter.png":::
+
+1. Select the restore type.  In our example, we're restore the complete resource. 
+
+   :::image type="content" source="media/snapcenter/restore-database-select-restore-type.png" alt-text="Select the restore type.":::
+
+   >[!NOTE]
+   >With a default setup, you don't need to specify commands to do a local restore from the on-disk snapshot. 
+
+   >[!TIP]
+   >If you want to restore a particular LUN inside the volume, select **File Level**.
+
+1. Follow the workflow through the configuration wizard.
+   
+   SnapCenter restores the data to the original location so you can start the restore process in HANA. Also, since SnapCenter isn't able to modify the backup catalog (database is down), a warning is displayed.
+
+   :::image type="content" source="media/snapcenter/restore-database-job-details-warning.png" alt-text="Since SnapCenter isn't able to modify the backup catalog, a warning is displayed. ":::
+
+1. Since all the database files are restored, start the restore process in HANA. In HANA Studio, under **Systems**, right-click the system database and select **Backup and Recovery** > **Recover System Database**.
+
+   :::image type="content" source="media/snapcenter/hana-studio-backup-recovery.png" alt-text="Start the restore process in HANA.":::
+
+1. Select a recovery type.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-recovery-type.png" alt-text="Select the recovery type.":::
+
+1. Select the location of the backup catalog.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-location-backup-catalog.png" alt-text="Select the location of the backup catalog.":::
+
+1. Select a backup to recover the SAP HANA database.
+
+   :::image type="content" source="media/snapcenter/restore-database-select-backup.png" alt-text="Select a backup to recover the SAP HANA database.":::
+
+   Once the database is recovered, a message appears with a **Recovered to Time** and **Recovered to Log Position** stamp.
+
+1. Under **Systems**, right-click the system database and select **Backup and Recovery** > **Recover Tenant Database**.
+1. Follow the workflow of the wizard to complete the recovery of the tenant database. 
+
+For more information on restoring a database, see [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+
+### Non-database backups
+You can restore non-data volumes, for example, a network file share (/hana/shared) or an operating system backup.  For more information on restoring a non-data volume, see [SAP HANA Backup/Recovery with SnapCenter](https://www.netapp.com/us/media/tr-4614.pdf).
+
+### SAP HANA system cloning
+
+Before you can clone, you must have the same HANA version installed as the source database. The SID and ID can be different. 
+
+:::image type="content" source="media/snapcenter/system-cloning-diagram.png" alt-text="SAP HANA system cloning" lightbox="media/snapcenter/system-cloning-diagram.png" border="false":::
+
+1. Create a HANA database user store for the H34 database from /usr/sap/H34/HDB40.
+
+   ```
+   hdbuserstore set H34KEY sollabsjct34:34013 system manager
+   ```
+ 
+1. Disable the firewall.
+
+   ```bash
+   systemctl disable SuSEfirewall2
+   systemctl stop  SuSEfirewall2
+   ```
+
+1. Install the Java SDK.
+
+   ```bash
+   zypper in java-1_8_0-openjdk
+   ```
+
+1. In SnapCenter, add the destination host on which the clone will be mounted. For more information, see [Adding hosts and installing plug-in packages on remote hosts](http://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-sap-hana%2FGUID-246C0810-4F0B-4BF7-9A35-B729AD69954A.html).
+   1. Provide the information for the Run As Credentials you want to add. 
+   1. Select the host operating system and enter the host information.
+   1. Under **Plug-ins to install**, select the version, enter the install path, and select **SAP HANA**.
+   1. Select **Validate** to run the pre-install checks.
+
+1. Stop HANA and unmount the old data volume.  You will mount the clone from SnapCenter.  
+
+   ```bash
+   sapcontrol -nr 40 -function StopSystem
+   umount /hana/data/H34/mnt00001
+
+   ```
+ 1. Create the configuration and shell script files for the target.
+ 
+    ```bash
+    mkdir /NetApp
+    chmod 777 /NetApp
+    cd NetApp
+    chmod 777 sc-system-refresh-H34.cfg
+    chmod 777 sc-system-refresh.sh
+
+    ```
+
+    >[!TIP]
+    >You can copy the scripts from [SAP Cloning from SnapCenter](https://www.netapp.com/us/media/tr-4667.pdf).
+
+1. Modify the configuration file. 
+
+   ```bash
+   vi sc-system-refresh-H34.cfg
+   ```
+
+   * HANA_ARCHITECTURE="MDC_single_tenant"
+   * KEY="H34KEY"
+   * TIME_OUT_START=18
+   * TIME_OUT_STOP=18
+   * INSTANCENO="40"
+   * STORAGE="10.250.101.33"
+
+1. Modify the shell script file.
+
+   ```bash
+   vi sc-system-refresh.sh
+   ```  
+
+   * VERBOSE=NO
+   * MY_NAME="`basename $0`"
+   * BASE_SCRIPT_DIR="`dirname $0`"
+   * MOUNT_OPTIONS="rw,vers=4,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,nolock"
+
+1. Start the clone from a backup process. Select the host to create the clone. 
+
+   >[!NOTE]
+   >For more information, see [Cloning from a backup](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
+
+1. Under **Scripts**, provide the following:
+
+   * **Mount command:** /NetApp/sc-system-refresh.sh mount H34 %hana_data_h31_mnt00001_t250_vol_Clone
+   * **Post clone command:** /NetApp/sc-system-refresh.sh recover H34
+
+1. Disable (lock) the automatic mount in the /etc/fstab since the data volume of the pre-installed database isn't necessary. 
+
+   ```bash
+   vi /etc/fstab
+   ```
+
+### Delete a clone
+
+You can delete a clone if it is no longer necessary. For more information, see [Deleting clones](https://docs.netapp.com/ocsc-43/index.jsp?topic=%2Fcom.netapp.doc.ocsc-dpg-cpi%2FGUID-F6E7FF73-0183-4B9F-8156-8D7DA17A8555.html).
+
+The commands used to execute before clone deletion, are:
+* **Pre clone delete:** /NetApp/sc-system-refresh.sh shut down H34
+* **Unmount:** /NetApp/sc-system-refresh.sh umount H34
+
+These commands allow SnapCenter to showdown the database, unmount the volume, and delete the fstab entry.  After that, the FlexClone is deleted. 
+
+### Cloning database logfile
+
+```   
+20190502025323###sollabsjct34###sc-system-refresh.sh: Adding entry in /etc/fstab.
+20190502025323###sollabsjct34###sc-system-refresh.sh: 10.250.101.31:/Sc21186309-ee57-41a3-8584-8210297f791d /hana/data/H34/mnt00001 nfs rw,vers=4,hard,timeo=600,rsize=1048576,wsize=1048576,intr,noatime,lock 0 0
+20190502025323###sollabsjct34###sc-system-refresh.sh: Mounting data volume.
+20190502025323###sollabsjct34###sc-system-refresh.sh: mount /hana/data/H34/mnt00001
+20190502025323###sollabsjct34###sc-system-refresh.sh: Data volume mounted successfully.
+20190502025323###sollabsjct34###sc-system-refresh.sh: chown -R h34adm:sapsys /hana/data/H34/mnt00001
+20190502025333###sollabsjct34###sc-system-refresh.sh: Recover system database.
+20190502025333###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/HDB40/exe/Python/bin/python /usr/sap/H34/HDB40/exe/python_support/recoverSys.py --command "RECOVER DATA USING SNAPSHOT CLEAR LOG"
+[140278542735104, 0.005] >> starting recoverSys (at Thu May  2 02:53:33 2019)
+[140278542735104, 0.005] args: ()
+[140278542735104, 0.005] keys: {'command': 'RECOVER DATA USING SNAPSHOT CLEAR LOG'}
+recoverSys started: ============2019-05-02 02:53:33 ============
+testing master: sollabsjct34
+sollabsjct34 is master
+shutdown database, timeout is 120
+stop system
+stop system: sollabsjct34
+stopping system: 2019-05-02 02:53:33
+stopped system: 2019-05-02 02:53:33
+creating file recoverInstance.sql
+restart database
+restart master nameserver: 2019-05-02 02:53:38
+start system: sollabsjct34
+2019-05-02T02:53:59-07:00  P010976      16a77f6c8a2 INFO    RECOVERY state of service: nameserver, sollabsjct34:34001, volume: 1, RecoveryPrepared
+recoverSys finished successfully: 2019-05-02 02:54:00
+[140278542735104, 26.490] 0
+[140278542735104, 26.490] << ending recoverSys, rc = 0 (RC_TEST_OK), after 26.485 secs
+20190502025400###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is started ....
+20190502025400###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025410###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025420###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025430###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025440###sollabsjct34###sc-system-refresh.sh: Status:  YELLOW
+20190502025451###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502025451###sollabsjct34###sc-system-refresh.sh: SAP HANA database is started.
+20190502025451###sollabsjct34###sc-system-refresh.sh: Recover tenant database H34.
+20190502025451###sollabsjct34###sc-system-refresh.sh: /usr/sap/H34/SYS/exe/hdb/hdbsql -U H34KEY RECOVER DATA FOR H34 USING SNAPSHOT CLEAR LOG
+0 rows affected (overall time 69.584135 sec; server time 69.582835 sec)
+20190502025600###sollabsjct34###sc-system-refresh.sh: Checking availability of Indexserver for tenant H34.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Recovery of tenant database H34 succesfully finished.
+20190502025601###sollabsjct34###sc-system-refresh.sh: Status: GREEN
+Deleting the DB Clone – Logfile
+20190502030312###sollabsjct34###sc-system-refresh.sh: Stopping HANA database.
+20190502030312###sollabsjct34###sc-system-refresh.sh: sapcontrol -nr 40 -function StopSystem HDB
+
+02.05.2019 03:03:12
+StopSystem
+OK
+20190502030312###sollabsjct34###sc-system-refresh.sh: Wait until SAP HANA database is stopped ....
+20190502030312###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030322###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030332###sollabsjct34###sc-system-refresh.sh: Status:  GREEN
+20190502030342###sollabsjct34###sc-system-refresh.sh: Status:  GRAY
+20190502030342###sollabsjct34###sc-system-refresh.sh: SAP HANA database is stopped.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Unmounting data volume.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Junction path: Sc21186309-ee57-41a3-8584-8210297f791d
+20190502030347###sollabsjct34###sc-system-refresh.sh: umount /hana/data/H34/mnt00001
+20190502030347###sollabsjct34###sc-system-refresh.sh: Deleting /etc/fstab entry.
+20190502030347###sollabsjct34###sc-system-refresh.sh: Data volume unmounted successfully.
+
+```
+
+### Uninstall SnapCenter plug-ins package for Linux
+
+You can uninstall the Linux plug-ins package from the command line. Because the automatic deployment expects a fresh system, it's easy to uninstall the plug-in.  
+
+>[!NOTE]
+>You may need to uninstall an older version of the plug-in manually. 
+
+Uninstall the plug-ins.
+
+```bash
+cd /opt/NetApp/snapcenter/spl/installation/plugins
+./uninstall
+```
+
+You can now install the latest HANA plug-in on the new node by selecting **SUBMIT** in SnapCenter. 
+
+
 
 
 ## Next steps

@@ -82,7 +82,7 @@
     href: Overview/language-support.md
   - name: Limits
     href: limits.md
-  - name: Role-based access control (RBAC)	    
+  - name: Azure role-based access control (Azure RBAC)	    
     href: Concepts/role-based-access-control.md	
   - name: Active learning	
     href: Concepts/active-learning-suggestions.md	

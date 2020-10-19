@@ -125,7 +125,7 @@ To add a simulated device to your application, you use the **MXChip IoT DevKit**
 
 1. To add a new device as an operator choose **Devices** in the left pane. The **Devices** tab shows **All devices** and the **MXChip IoT DevKit** device template. Select **MXChip IoT DevKit**.
 
-1. To add a simulated DevKit device, select **+**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Make sure the **Simulated** toggle is **On** and then select **Create**.
+1. To add a simulated DevKit device, select **+**. Use the suggested **Device ID** or enter your own. A device ID can contain letters, numbers, and the `-` character. You can also enter a name for your new device. Make sure the **Simulated** toggle is **On** and then select **Create**.
 
     ![Simulated device](./media/quick-create-simulated-device/simulated-device.png)
 
