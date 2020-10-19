@@ -37,11 +37,7 @@ Using an Azure Machine Learning workspace with private link is not available in 
 Use one of the following methods to create a workspace with a private endpoint:
 
 > [!TIP]
-> The Azure Resource Manager template can create a new virtual network if needed. The other methods all require an existing virtual network.
-
-# [Resource Manager Template](#tab/azure-resource-manager)
-
-The Azure Resource Manager template at [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) provides an easy way to create a workspace with a private endpoint and virtual network.
+> The Azure Resource Manager template at [https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) provides an easy way to create a workspace with a private endpoint and virtual network. The other methods all require an existing virtual network.
 
 For information on using this template, including private endpoints, see [Use an Azure Resource Manager template to create a workspace for Azure Machine Learning](how-to-create-workspace-template.md).
 
