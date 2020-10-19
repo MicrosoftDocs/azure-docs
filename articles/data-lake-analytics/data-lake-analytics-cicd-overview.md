@@ -113,11 +113,11 @@ Azure Data Lake provides test projects for U-SQL scripts and C# UDO/UDAG/UDF:
 
 ## Deploy a U-SQL job
 
-After you verify code through the build and test process, you can submit U-SQL jobs directly from Azure Pipelines through an Azure PowerShell task. You can also deploy the script to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+After you verify code through the build and test process, you can submit U-SQL jobs directly from Azure Pipelines through an Azure PowerShell task. You can also deploy the script to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](../data-factory/transform-data-using-data-lake-analytics.md).
 
 ### Submit U-SQL jobs through Azure Pipelines
 
-The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Pipelines with the following sample PowerShell script to submit U-SQL jobs directly from Azure Pipelines.
+The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Pipelines with the following sample PowerShell script to submit U-SQL jobs directly from Azure Pipelines.
 
 ```powershell
 <#
@@ -223,14 +223,14 @@ Main
 ```
 
 >[!NOTE]
-> The commands: `Submit-AzDataLakeAnalyticsJob` and `Wait-AzDataLakeAnalyticsJob` are both Azure PowerShell cmdlets for Azure Data Lake Analytics in the Azure Resource Manager framework. You'll neeed a workstation with Azure PowerShell installed. You can refer to the [command list](https://docs.microsoft.com/powershell/module/Az.DataLakeAnalytics/?view=azps-4.3.0) for more commands and examples.
+> The commands: `Submit-AzDataLakeAnalyticsJob` and `Wait-AzDataLakeAnalyticsJob` are both Azure PowerShell cmdlets for Azure Data Lake Analytics in the Azure Resource Manager framework. You'll neeed a workstation with Azure PowerShell installed. You can refer to the [command list](/powershell/module/Az.DataLakeAnalytics/?view=azps-4.3.0) for more commands and examples.
 >
 
 ### Deploy U-SQL jobs through Azure Data Factory
 
-You can submit U-SQL jobs directly from Azure Pipelines. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+You can submit U-SQL jobs directly from Azure Pipelines. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](../data-factory/transform-data-using-data-lake-analytics.md).
 
-Use the [Azure PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure Pipelines with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
+Use the [Azure PowerShell task](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure Pipelines with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
 
 ```powershell
 <#

@@ -143,7 +143,7 @@ Azure Data Lake Tools supports multiple custom codes. For instructions, see [Dev
 
 ## Work with assemblies
 
-For information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md).
+For information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs]().
 
 You can use Data Lake Tools to register custom code assemblies in the Data Lake Analytics catalog.
 

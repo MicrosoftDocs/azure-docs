@@ -26,4 +26,4 @@ Before you begin, follow the steps in this article to register Cognitive Extensi
 ## Next steps
 * [U-SQL/Cognitive Samples](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
+* [Using U-SQL window functions for Azure Data Lake Analytics jobs](./data-lake-analytics-u-sql-get-started.md)

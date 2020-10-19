@@ -20,7 +20,7 @@ Before you begin this tutorial, you must have the following resources:
 
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-* Azure CLI. See [Install and configure Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Azure CLI. See [Install and configure Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
   * Download and install the **pre-release** [Azure CLI tools](https://github.com/MicrosoftBigData/AzureDataLake/releases) in order to complete this demo.
 

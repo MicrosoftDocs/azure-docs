@@ -116,7 +116,7 @@ The following code shows how to reference an assembly:
 REFERENCE ASSEMBLY MyDB.[MyAssembly];
 ```
 
-Consult the [assembly registration instructions](https://blogs.msdn.microsoft.com/azuredatalake/2016/08/26/how-to-register-u-sql-assemblies-in-your-u-sql-catalog/) that covers this topic in greater detail.
+Consult the [assembly registration instructions](/archive/blogs/azuredatalake/how-to-register-u-sql-assemblies-in-your-u-sql-catalog) that covers this topic in greater detail.
 
 
 ### Use assembly versioning

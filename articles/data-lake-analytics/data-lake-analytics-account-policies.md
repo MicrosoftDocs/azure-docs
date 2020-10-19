@@ -78,9 +78,9 @@ There is a default policy set on every account. The default policy applies to al
 2. Click **Limits and policies**.
 3. Under **Job Submission Limits**, find the policy you want to edit.
 4.  To see the **Delete** and **Edit** options, in the rightmost column of the table, click `...`.## Additional resources for job policies
-* [Policy overview blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
-* [Account-level policies blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
-* [Job-level policies blog post](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)## Next steps
+* [Policy overview blog post](/archive/blogs/azuredatalake/managing-your-azure-data-lake-analytics-compute-resources-overview)
+* [Account-level policies blog post](/archive/blogs/azuredatalake/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy)
+* [Job-level policies blog post](/archive/blogs/azuredatalake/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy)## Next steps
 
 * [Overview of Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Get started with Data Lake Analytics by using the Azure portal](data-lake-analytics-get-started-portal.md)
