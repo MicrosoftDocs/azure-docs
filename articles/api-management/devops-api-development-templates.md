@@ -14,7 +14,7 @@ ms.author: apimpm
 
 This article introduces API DevOps with Azure API Management, using Azure Resource Manager templates. With the strategic value of APIs, a continuous integration (CI) and continuous deployment (CD) pipeline has become an important aspect of API development. It allows organizations to automate deployment of API changes without error-prone manual steps, detect issues earlier, and ultimately deliver value to end-users faster. 
 
-For details, tools, and code samples to implement the DevOps approach described in this article, see the open-source [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) in GitHub. Because customers bring a wide range of engineering cultures and existing automation solutions, the approach isn't a one-size-fits-all solution.
+For details, tools, and code samples to implement the DevOps approach described in this article, see the open-source [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) in GitHub. Because customers bring a wide range of engineering cultures and existing automation solutions, the approach isn't a one-size-fits-all solution.
 
 ## The problem
 
@@ -69,8 +69,8 @@ With this approach, the deployment of API changes into API Management instances 
 
 ## Video
 
-> [!VIDEO https://www.youtube.com/watch?v=4Sp2Qvmg6j8]
+> [!VIDEO https://www.youtube.com/embed/4Sp2Qvmg6j8]
 
 ## Next steps
 
-- See the open-source [Azure API Management DevOps Resource Kit](https://aka.ms/apimdevops) for additional information, tools, and sample templates.
+- See the open-source [Azure API Management DevOps Resource Kit](https://github.com/Azure/azure-api-management-devops-resource-kit) for additional information, tools, and sample templates.
