@@ -364,7 +364,7 @@ az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <
 '
 ```
 
-In the Azure portal, invoke the method with the method name `UploadModuleLogs` and the following JSON payload after populating the GUID with your information:
+In the Azure portal, invoke the method with the method name `GetTaskStatus` and the following JSON payload after populating the GUID with your information:
 
 ```json
     {

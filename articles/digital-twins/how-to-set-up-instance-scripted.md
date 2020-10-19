@@ -58,10 +58,10 @@ Here are the steps to run the deployment script in Cloud Shell.
 
     Navigate to the _**deploy.ps1**_ file on your machine (in _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_) and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
 
-4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. (Recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu.)
+4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window with the switch that includes app registration setup. You can copy the command below (recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu).
 
     ```azurecli
-    ./deploy.ps1
+    ./deploy.ps1 -RegisterAadApp
     ```
 
     As the script runs through the automated setup steps, you will be asked to pass in the following values:
