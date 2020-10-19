@@ -80,6 +80,8 @@
         href: self-hosted-gateway-overview.md
       - name: Observability
         href: observability.md
+      - name: CI/CD using ARM templates
+        href: devops-api-development-templates.md
 
 - name: How-to guides
   items:
