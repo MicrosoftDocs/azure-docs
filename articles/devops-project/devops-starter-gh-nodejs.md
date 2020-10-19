@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a CI/CD workflow for Node.js - DevOps Starter for GitHub' 
+title: 'Quickstart: Create a CI/CD workflow for Node.js - DevOps Starter for GitHub to deploy to Azure' 
 description: DevOps Starter makes it easy to get started on Azure using GitHub Actions.
 author: ninallam
 editor: ninallam
@@ -36,11 +36,11 @@ DevOps Starter creates a CI/CD workflow using GitHub actions. DevOps Starter als
 
 1. Click on **Set up DevOps starter with GitHub** on the right side banner.
 
-    ![landing_page](_img/azure-devops-project-nodejs/landing_page.png)
+    ![landing_page](_img/azure-devops-project-nodejs/landing-page.png)
 
 1. Ensure that the CI/CD provider is selected as **GitHub Actions**.
 
-    ![CICD_provider](_img/azure-devops-project-nodejs/provider_selection.png)
+    ![CICD_provider](_img/azure-devops-project-nodejs/provider-selection.png)
 
 1. Select the **Node.js** sample application. The Node.js samples include a choice of several application frameworks.
 
@@ -62,7 +62,7 @@ DevOps Starter creates a CI/CD workflow using GitHub actions. DevOps Starter als
    
    1. Select your Azure subscription and location, choose a name for your application, and then select **Done**.
     
-       ![Enter_GH_details](_img/azure-devops-project-nodejs/gh_details.png)
+       ![Enter_GH_details](_img/azure-devops-project-nodejs/gh-details.png)
 
 
     After a few minutes, the DevOps Starter dashboard is displayed in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a GitHub workflow is triggered, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  GitHub workflow, and your application in Azure.
@@ -71,11 +71,11 @@ DevOps Starter creates a CI/CD workflow using GitHub actions. DevOps Starter als
     
     The dashboard contains details of GitHub workflow and Azure resources. To view the details of GitHub workflow like latest run, commits, and job status you will need to **Authorize to GitHub**.
    
-   ![Authorize_dashboard](_img/azure-devops-project-nodejs/authenticate_dashboard.png)
+   ![Authorize_dashboard](_img/azure-devops-project-nodejs/authenticate-dashboard.png)
 
 DevOps Starter automatically configured a GitHub workflow with build and deploy jobs using GitHub actions. You're now ready to collaborate with a team on a Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
 
-   ![dashooard_view](_img/azure-devops-project-nodejs/full_dashboard.PNG)
+   ![dashooard_view](_img/azure-devops-project-nodejs/full-dashboard.PNG)
 
 ## Commit code changes and execute CI/CD
 
@@ -100,8 +100,8 @@ You should now see a GitHub workflow build job in progress. The changes you made
 In the previous step, DevOps Starter automatically configured a full GitHub workflow. Explore and customize the workflow as needed. Take the following steps to familiarize yourself with the workflow.
 
 1. On the left of the DevOps Starter dashboard, select **GitHub workflow**. This link opens a browser tab and the GitHub workflow for your new project.
-> [!NOTE]
-> Do not rename the workflow file. The name of the workflow file should be **devops-starter-workflow.yml** for the dashboard to reflect the changes
+    > [!NOTE]
+    > Do not rename the workflow file. The name of the workflow file should be **devops-starter-workflow.yml** for the dashboard to reflect the changes
 
 1. The workflow yaml file contains all the GitHub Actions required to build and deploy the application. Click on **edit file** option to customize your workflow file.
 
