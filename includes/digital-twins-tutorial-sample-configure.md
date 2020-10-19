@@ -11,7 +11,7 @@ ms.author: baanders
 
 Next, set up a sample client application that will interact with your Azure Digital Twins instance.
 
-Navigate on your machine to file you downloaded earlier from [*Azure Digital Twins samples*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (and unzip it if you haven't already).
+Navigate on your machine to file you downloaded earlier from [*Azure Digital Twins end-to-end samples*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples) (and unzip it if you haven't already).
 
 Once inside the folder, navigate into _AdtSampleApp_. Open _**AdtE2ESample.sln**_ in Visual Studio 2019. 
 

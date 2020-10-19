@@ -115,11 +115,11 @@ To configure Azure AD single sign-on with Procore SSO, perform the following ste
 
 2. From the toolbox drop down, click on **Admin** to open the SSO settings page.
 
-	![Configure Single Sign-On](./media/procoresso-tutorial/procore_tool_admin.png)
+	![Screenshot shows the Procore company site with Directory selected.](./media/procoresso-tutorial/procore_tool_admin.png)
 
 3. Paste the values in the boxes as described below-
 
-	![Configure Single Sign-On](./media/procoresso-tutorial/procore_setting_admin.png)	
+	![Screenshot shows the Add a Person dialog box.](./media/procoresso-tutorial/procore_setting_admin.png)	
 
 	a. In the **Single Sign On Issuer URL** text box, paste the value of **Azure AD Identifier** which you have copied from the Azure portal.
 
@@ -189,11 +189,11 @@ Please follow the below steps to create a Procore test user on Procore SSO side.
 
 2. From the toolbox drop down, click on **Directory** to open the company directory page.
 
-	![Configure Single Sign-On](./media/procoresso-tutorial/Procore_sso_directory.png)
+	![Screenshot shows the Procore company site with Directory selected from the toolbox.](./media/procoresso-tutorial/Procore_sso_directory.png)
 
 3. Click on **Add a Person** option to open the form and enter perform following options -
 
-	![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_add.png)
+	![Screenshot shows the Add a person to Boylan Construction where you can enter user information.](./media/procoresso-tutorial/Procore_user_add.png)
 
     a. In the **First Name** textbox, type user's first name like **Britta**.
 
@@ -207,11 +207,11 @@ Please follow the below steps to create a Procore test user on Procore SSO side.
 
 4. Check and update the details for the newly added contact.
 
-	![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_check.png)
+	![Screenshot shows an edit page where you can verify the user settings.](./media/procoresso-tutorial/Procore_user_check.png)
 
 5. Click on **Save and Send Invitation** (if an invite through mail is required) or **Save** (Save directly) to complete the user registration.
 	
-	![Configure Single Sign-On](./media/procoresso-tutorial/Procore_user_save.png)
+	![Screenshot shows the Current Project Settings where you can Save and Send Invitation.](./media/procoresso-tutorial/Procore_user_save.png)
 
 ### Test single sign-on 
 

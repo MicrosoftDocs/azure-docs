@@ -30,11 +30,11 @@ This version of this article completes these steps by running an [**automated de
 
 ## Prerequisites: Download the script
 
-The sample script is written in PowerShell. It is part of the [**Azure Digital Twins samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
+The sample script is written in PowerShell. It is part of the [**Azure Digital Twins end-to-end samples**](/samples/azure-samples/digital-twins-samples/digital-twins-samples/), which you can download to your machine by navigating to that sample link and selecting the *Download ZIP* button underneath the title.
 
-This will download the sample project to your machine as _**Azure_Digital_Twins_samples.zip**_. Navigate to the folder on your machine and unzip it to extract the files.
+This will download the sample project to your machine as _**Azure_Digital_Twins_end_to_end_samples.zip**_. Navigate to the folder on your machine and unzip it to extract the files.
 
-In the unzipped folder, the deployment script is located at _Azure_Digital_Twins_samples > scripts > **deploy.ps1**_.
+In the unzipped folder, the deployment script is located at _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -57,12 +57,12 @@ Here are the steps to run the deployment script in Cloud Shell.
 
     :::image type="content" source="media/how-to-set-up-instance/cloud-shell/cloud-shell-upload.png" alt-text="Cloud Shell window showing selection of the Upload icon":::
 
-    Navigate to the _**deploy.ps1**_ file on your machine (in _Azure_Digital_Twins_samples > scripts > **deploy.ps1**_) and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
+    Navigate to the _**deploy.ps1**_ file on your machine (in _Azure_Digital_Twins_end_to_end_samples > scripts > **deploy.ps1**_) and hit "Open." This will upload the file to Cloud Shell so that you can run it in the Cloud Shell window.
 
-4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window. (Recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu.)
+4. Run the script by sending the `./deploy.ps1` command in the Cloud Shell window with the switch that includes app registration setup. You can copy the command below (recall that to paste into Cloud Shell, you can use **Ctrl+Shift+V** on Windows and Linux, or **Cmd+Shift+V** on macOS. You can also use the right-click menu).
 
     ```azurecli
-    ./deploy.ps1
+    ./deploy.ps1 -RegisterAadApp
     ```
 
 

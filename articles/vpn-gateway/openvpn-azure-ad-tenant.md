@@ -6,8 +6,8 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/07/2020
-ms.author: cherylmc
+ms.date: 10/15/2020
+ms.author: alzam
 
 ---
 # Create an Azure Active Directory tenant for P2S OpenVPN protocol connections
@@ -71,6 +71,9 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
     ```
     https://login.chinacloudapi.cn/common/oauth2/authorize?client_id=49f817b6-84ae-4cc0-928c-73f27289b3aa&response_type=code&redirect_uri=https://portal.azure.cn&nonce=1234&prompt=admin_consent
     ```
+> [!NOTE]
+> If you using a global admin account that is not native to the Azure AD tenant to provide consent, please replace “common” with the Azure AD directory id in the URL. You may also have to replace “common” with your directory id in certain other cases as well.
+>
 
 5. Select the **Global Admin** account if prompted.
 

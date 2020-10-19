@@ -43,6 +43,8 @@ To restore a VM (create a new VM), make sure you have the correct Azure role-bas
 
 If you don't have permissions, you can [restore a disk](#restore-disks), and then after the disk is restored, you can [use the template](#use-templates-to-customize-a-restored-vm) that was generated as part of the restore operation to create a new VM.
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 ## Select a restore point
 
 1. In the vault associated with the VM you want to restore, select **Backup items** > **Azure Virtual Machine**.

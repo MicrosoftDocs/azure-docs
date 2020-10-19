@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
-ms.date: 10/07/2020
+ms.date: 10/15/2020
 ms.reviewer:
 ---
 # Service tiers in the DTU-based purchase model
@@ -34,7 +34,7 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |**Uptime SLA**|99.99%|99.99%|99.99%|
 |**Maximum backup retention**|7 days|35 days|35 days|
 |**CPU**|Low|Low, Medium, High|Medium, High|
-|**IOPS (approximate)**\* |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
+|**IOPS (approximate)**\* |1-4 IOPS per DTU| 1-4 IOPS per DTU | 25 IOPS per DTU|
 |**IO latency (approximate)**|5 ms (read), 10 ms (write)|5 ms (read), 10 ms (write)|2 ms (read/write)|
 |**Columnstore indexing** |N/A|S3 and above|Supported|
 |**In-memory OLTP**|N/A|N/A|Supported|
