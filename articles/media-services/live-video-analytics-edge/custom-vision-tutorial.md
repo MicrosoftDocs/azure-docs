@@ -136,13 +136,13 @@ After you're finished, you can export the model to a Docker container by using t
 
 1. In Visual Studio Code, go to src/cloud-to-device-console-app/operations.json.
 
-1. Under **GraphTopologySet**, ensure the following is true:<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
-1. Under GraphInstanceSet, ensure:
+1. Under `GraphTopologySet`, ensure the following is true:<br/>`"topologyUrl" : "https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/httpExtension/topology.json"`
+1. Under `GraphInstanceSet`, ensure:
     1. `"topologyName" : "InferencingWithHttpExtension"`
     1. Add the following to the top of the parameters array: `{"name": "inferencingUrl","value": "http://cv:80/image"},`
-    1. Change the rtspUrl parameter value to `"rtsp://rtspsim:554/media/t2.mkv"`.
-1. Under **GraphTopologyDelete**, ensure `"name": "InferencingWithHttpExtension"`.
-1. Right-click the src/edge/ deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
+    1. Change the `rtspUrl` parameter value to `"rtsp://rtspsim:554/media/t2.mkv"`.
+1. Under `GraphTopologyDelete`, ensure `"name": "InferencingWithHttpExtension"`.
+1. Right-click the src/edge/deployment.customvision.template.json file, and select **Generate IoT Edge Deployment Manifest**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-vision-tutorial/deployment-template-json.png" alt-text="Screenshot that shows Generate IoT Edge Deployment Manifest.":::
@@ -168,7 +168,7 @@ After you're finished, you can export the model to a Docker container by using t
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-vision-tutorial/connection-string.png" alt-text="Screenshot that shows Set IoT Hub Connection String.":::
-1. Next, right-click **src/edge/config/ deployment.customvision.amd64.json**, and select **Create Deployment for Single Device**.
+1. Next, right-click src/edge/config/ deployment.customvision.amd64.json, and select **Create Deployment for Single Device**.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/custom-vision-tutorial/deployment-amd64-json.png" alt-text="Screenshot that shows Create Deployment for Single Device.":::
@@ -200,12 +200,12 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/run-program/show-verbose-message.png" alt-text="Screenshot that shows Show Verbose Message.":::
 1. To start a debugging session, select the **F5** key. You see messages printed in the **TERMINAL** window.
-1. The operations.json code starts off with calls to the direct methods **GraphTopologyList** and **GraphInstanceList**. If you cleaned up resources after you completed previous quickstarts, this process will return empty lists and then pause. To continue, select the **Enter** key.
+1. The operations.json code starts off with calls to the direct methods `GraphTopologyList` and `GraphInstanceList`. If you cleaned up resources after you completed previous quickstarts, this process will return empty lists and then pause. To continue, select the **Enter** key.
     
    The **TERMINAL** window shows the next set of direct method calls:
     
-   * A call to **GraphTopologySet** that uses the preceding **topologyUrl**.
-   * A call to **GraphInstanceSet** that uses the following body:
+   * A call to `GraphTopologySet` that uses the preceding `topologyUrl`.
+   * A call to `GraphInstanceSet` that uses the following body:
         
    ```
         {
@@ -236,28 +236,28 @@ If you open the graph topology for this tutorial in a browser, you'll see that t
         }
    ```
     
-   * A call to **GraphInstanceActivate** that starts the graph instance and the flow of video.
-   * A second call to **GraphInstanceList** that shows that the graph instance is in the running state.
+   * A call to `GraphInstanceActivate` that starts the graph instance and the flow of video.
+   * A second call to `GraphInstanceList` that shows that the graph instance is in the running state.
     
 1. The output in the **TERMINAL** window pauses at a **Press Enter to continue** prompt. Don't select **Enter** yet. Scroll up to see the JSON response payloads for the direct methods you invoked.
 1. Switch to the **OUTPUT** window in Visual Studio Code. You see messages that the Live Video Analytics on IoT Edge module is sending to the IoT hub. The following section of this tutorial discusses these messages.
 1. The media graph continues to run and print results. The RTSP simulator keeps looping the source video. To stop the media graph, return to the **TERMINAL** window and select **Enter**.
 The next series of calls cleans up resources:
     
-   * A call to **GraphInstanceDeactivate** deactivates the graph instance.
-   * A call to **GraphInstanceDelete** deletes the instance.
-   * A call to **GraphTopologyDelete** deletes the topology.
-   * A final call to **GraphTopologyList** shows that the list is empty.
+   * A call to `GraphInstanceDeactivate` deactivates the graph instance.
+   * A call to `GraphInstanceDelete` deletes the instance.
+   * A call to `GraphTopologyDelete` deletes the topology.
+   * A final call to `GraphTopologyList` shows that the list is empty.
     
 ## Interpret the results
 
-When you run the media graph, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an **applicationProperties** section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
+When you run the media graph, the results from the HTTP extension processor node pass through the IoT Hub sink node to the IoT hub. The messages you see in the **OUTPUT** window contain a body section and an `applicationProperties` section. For more information, see [Create and read IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md).
 
 In the following messages, the Live Video Analytics module defines the application properties and the content of the body.
 
 ### MediaSessionEstablished event
 
-When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, the following event is printed. The event type is **Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished**.
+When a media graph is instantiated, the RTSP source node attempts to connect to the RTSP server that runs on the rtspsim-live555 container. If the connection succeeds, the following event is printed. The event type is `Microsoft.Media.MediaGraph.Diagnostics.MediaSessionEstablished`.
 
 ```
 {
@@ -275,9 +275,9 @@ When a media graph is instantiated, the RTSP source node attempts to connect to 
 
 In this message, notice these details:
 
-* The message is a diagnostics event. **MediaSessionEstablished** indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a simulated live feed.
-* In **applicationProperties**, **subject** indicates that the message was generated from the RTSP source node in the media graph.
-* In **applicationProperties**, the event type indicates that this event is a diagnostics event.
+* The message is a diagnostics event. `MediaSessionEstablished` indicates that the RTSP source node (the subject) connected with the RTSP simulator and has begun to receive a simulated live feed.
+* In `applicationProperties`, `subject` indicates that the message was generated from the RTSP source node in the media graph.
+* In `applicationProperties`, the event type indicates that this event is a diagnostics event.
 * The event time indicates the time when the event occurred.
 * The body contains data about the diagnostics event. In this case, the data comprises the [Session Description Protocol (SDP)](https://en.wikipedia.org/wiki/Session_Description_Protocol) details.
 
@@ -372,8 +372,8 @@ The HTTP extension processor node receives inference results from the Custom Vis
 
 Note the following information in the preceding messages:
 
-* The subject in **applicationProperties** references the node in the MediaGraph from which the message was generated. In this case, the message originates from the HTTP extension processor.
-* The event type in **applicationProperties** indicates that this is an analytics inference event.
+* The subject in `applicationProperties` references the node in the MediaGraph from which the message was generated. In this case, the message originates from the HTTP extension processor.
+* The event type in `applicationProperties` indicates that this is an analytics inference event.
 * The event time indicates the time when the event occurred.
 * The body contains data about the analytics event. In this case, the event is an inference event, so the body contains an array of inferences called predictions.
 * The predictions section contains a list of predictions where a toy delivery truck (tag is "delivery truck") is found in the frame. As you recall, "delivery truck" is the custom tag that you provided to your custom trained model for the toy truck. The model inferences and identifies the toy truck in the input video with different probability confidence scores.
