@@ -1,7 +1,7 @@
 ---
 
 title: Add Google as an identity provider for B2B - Azure AD
-description: Federate with Google to enable guest users to sign in to your Azure AD apps with their own Gmail account
+description: Federate with Google to enable guest users to sign in to your Azure AD apps with their own Gmail accounts.
 
 services: active-directory
 ms.service: active-directory
@@ -19,64 +19,64 @@ ms.collection: M365-identity-device-management
 
 # Add Google as an identity provider for B2B guest users
 
-By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts (MSAs). 
+By setting up federation with Google, you can allow invited users to sign in to your shared apps and resources with their own Gmail accounts, without having to create Microsoft accounts. 
 
 > [!NOTE]
-> Google federation is designed specifically for Gmail users. To federate with G Suite domains, use the [direct federation feature](direct-federation.md).
+> Google federation is designed specifically for Gmail users. To federate with G Suite domains, use [direct federation](direct-federation.md).
 
 ## What is the experience for the Google user?
-When you send an invitation to a Google Gmail user, the guest user should access your shared apps or resources using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
-  - If the guest user is not signed in to Google, they're prompted to sign in to Google.
-  - If the guest user is already signed in to Google, they'll be prompted to choose the account they want to use. They must choose the account you used to invite them.
+When you send an invitation to Google Gmail users, the guest users should access your shared apps or resources by using a link that includes the tenant context. Their experience varies depending on whether they're already signed in to Google:
+  - Guest users who are not signed in to Google will be prompted to sign in to Google.
+  - Guest users who are already signed in to Google will be prompted to choose the account they want to use. They must choose the account you used to invite them.
 
-If the guest user sees a "header too long" error, they can try clearing their cookies, or they can open a private or incognito window and try signing in again.
+Guest users who see a "header too long" error can clear their cookies or open a private or incognito window and try to sign in again.
 
-![Screenshot showing the Google sign in page](media/google-federation/google-sign-in.png)
+![Screenshot that shows the Google sign-in page.](media/google-federation/google-sign-in.png)
 
 ## Limitations
 
 Teams fully supports Google guest users on all devices. Google users can sign in to Teams from a common endpoint like `https://teams.microsoft.com`.
 
-Other applications' common endpoints might not support Google users. Google guest users must sign in using a link that includes your tenant information. The following are examples:
+Other applications' common endpoints might not support Google users. Google guest users must sign in by using a link that includes your tenant information. Following are examples:
   * `https://myapps.microsoft.com/?tenantid=<your tenant id>`
   * `https://portal.azure.com/<your tenant id>`
   * `https://myapps.microsoft.com/<your verified domain>.onmicrosoft.com`
 
-   If Google guest users try to use a link such as `https://myapps.microsoft.com` or `https://portal.azure.com`, they'll get an error.
+   If Google guest users try to use a link like `https://myapps.microsoft.com` or `https://portal.azure.com`, they'll get an error.
 
-You can also give Google guest users a direct link to an application or resource, as long as this link includes your tenant information, for example `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
+You can also give Google guest users a direct link to an application or resource, as long as the link includes your tenant information. For example, `https://myapps.microsoft.com/signin/Twitter/<application ID?tenantId=<your tenant ID>`. 
 
 ## Step 1: Configure a Google developer project
-First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure AD. 
+First, create a new project in the Google Developers Console to obtain a client ID and a client secret that you can later add to Azure Active Directory (Azure AD). 
 1. Go to the Google APIs at https://console.developers.google.com, and sign in with your Google account. We recommend that you use a shared team Google account.
-2. Accept the Terms of Service if prompted
-3. Create a new project: On the Dashboard, select **Create Project**, give the project a name (for example "Azure AD B2B") and then select **Create**. 
+2. Accept the terms of service if you're prompted to do so.
+3. Create a new project: On the Dashboard, select **Create Project**, give the project a name (for example, **Azure AD B2B**) and then select **Create**: 
    
-   ![Screenshot showing a New project page for Google](media/google-federation/google-new-project.png)
+   ![Screenshot that shows a New Project page.](media/google-federation/google-new-project.png)
 
-4. On the **APIs & Services** page which is now presented to you, click **View** under your new project.
+4. On the **APIs & Services** page, select **View** under your new project.
 
-5. Click **Go to APIs overview** on the APIs card. Select **OAuth consent screen**.
+5. Select **Go to APIs overview** on the APIs card. Select **OAuth consent screen**.
 
 6. Select **External**, and then select **Create**. 
 
-7. On the **OAuth consent screen**, enter an **Application name**. 
+7. On the **OAuth consent screen**, enter an **Application name**:
 
-   ![Screenshot showing the Google OAuth consent screen option](media/google-federation/google-oauth-consent-screen.png)
+   ![Screenshot that shows the Google OAuth consent screen.](media/google-federation/google-oauth-consent-screen.png)
 
-8. Scroll to the **Authorized domains** section and enter microsoftonline.com.
+8. Scroll to the **Authorized domains** section and enter **microsoftonline.com**:
 
-   ![Screenshot showing the Authorized domains section](media/google-federation/google-oauth-authorized-domains.PNG)
+   ![Screenshot that shows the Authorized domains section.](media/google-federation/google-oauth-authorized-domains.PNG)
 
 9. Select **Save**.
 
-10. Choose **Credentials**. In the **Create credentials** menu, choose **OAuth client ID**.
+10. Select **Credentials**. On the **Create credentials** menu, select **OAuth client ID**:
 
-    ![Screenshot showing the Google APIs create credentials option](media/google-federation/google-api-credentials.png)
+    ![Screenshot that shows the Google APIs Create credentials menu.](media/google-federation/google-api-credentials.png)
 
-11. Under **Application type**, choose **Web application** and give the application a suitable name, for example "Azure AD B2B", and then under **Authorized redirect URIs**, enter the following URIs:
-    - `https://login.microsoftonline.com` 
-    - `https://login.microsoftonline.com/te/<tenant id>/oauth2/authresp` <br>(where `<tenant id>` is your tenant ID)
+11. Under **Application type**, select **Web application**. Give the application a suitable name, like **Azure AD B2B**. Under **Authorized redirect URIs**, enter the following URIs:
+    - **https://login.microsoftonline.com** 
+    - **https://login.microsoftonline.com/te/\<tenant id>/oauth2/authresp** <br>(where `<tenant id>` is your tenant ID)
    
     > [!NOTE]
     > To find your tenant ID, go to https://portal.azure.com, and under **Azure Active Directory**, choose **Properties** and copy the **Tenant ID**.
