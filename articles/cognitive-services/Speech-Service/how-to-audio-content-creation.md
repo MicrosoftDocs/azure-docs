@@ -51,7 +51,8 @@ It takes a few moments to deploy your new Speech resource. Once the deployment i
 
 This diagram shows the steps it takes to fine-tune text-to-speech outputs. Use the links below to learn more about each step.
 
-![A diagram of the steps it takes to fine-tune text-to-speech outputs.](media/audio-content-creation/audio-content-creation-diagram.jpg)
+:::image source="media/audio-content-creation/audio-content-creation-diagram.jpg" alt-text="A diagram of the steps it takes to fine-tune text-to-speech outputs":::
+
 
 1. Choose the speech resource you want to work on.
 2. [Create an audio tuning file](#create-an-audio-tuning-file) using plain text or SSML scripts. Type or upload your content in to Audio Content Creation.
