@@ -218,7 +218,7 @@ To use service principal authentication, follow these steps:
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission in Azure Blob storage. For more information on the roles, see [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Grant the service principal proper permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.
@@ -275,7 +275,7 @@ For general information about Azure Storage authentication, see [Authenticate ac
 
 1. [Retrieve Data Factory managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the managed identity object ID generated along with your factory.
 
-2. Grant the managed identity permission in Azure Blob storage. For more information on the roles, see [Manage access rights to Azure Storage data with RBAC](../storage/common/storage-auth-aad-rbac.md).
+2. Grant the managed identity permission in Azure Blob storage. For more information on the roles, see [Use the Azure portal to assign an Azure role for access to blob and queue data](../storage/common/storage-auth-aad-rbac-portal.md).
 
     - **As source**, in **Access control (IAM)**, grant at least the **Storage Blob Data Reader** role.
     - **As sink**, in **Access control (IAM)**, grant at least the **Storage Blob Data Contributor** role.

@@ -40,6 +40,8 @@
     href: create-certificate.md
   - name: Creating certificate signing request
     href: create-certificate-signing-request.md
+  - name: Certificate access control
+    href: certificate-access-control.md
     
 - name: How-to guides 
   items:
