@@ -168,7 +168,7 @@ Windows Server 2012 R2 and all SPs | Azure provides full support. | Ready for Az
 Windows Server 2012 and all SPs | Azure provides full support. | Ready for Azure.
 Windows Server 2008 R2 with all SPs | Azure provides full support.| Ready for Azure.
 Windows Server 2008 (32-bit and 64-bit) | Azure provides full support. | Ready for Azure.
-Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](/en-in/troubleshoot/azure/virtual-machines/server-software-support) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
+Windows Server 2003 and Windows Server 2003 R2 | These operating systems have passed their end-of-support dates and need a [Custom Support Agreement (CSA)](/troubleshoot/azure/virtual-machines/server-software-support) for support in Azure. | Conditionally ready for Azure. Consider upgrading the OS before migrating to Azure.
 Windows 2000, Windows 98, Windows 95, Windows NT, Windows 3.1, and MS-DOS | These operating systems have passed their end-of-support dates. The machine might start in Azure, but Azure provides no OS support. | Conditionally ready for Azure. We recommend that you upgrade the OS before migrating to Azure.
 Windows 7, Windows 8, and Windows 10 | Azure provides support with a [Visual Studio subscription only.](../virtual-machines/windows/client-images.md) | Conditionally ready for Azure.
 Windows 10 Pro | Azure provides support with [Multitenant Hosting Rights.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Conditionally ready for Azure.
