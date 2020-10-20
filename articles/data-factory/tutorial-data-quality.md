@@ -27,7 +27,7 @@ In this tutorial, you do the following steps:
 * **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * **Azure storage account**. You use ADLS or Blob storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 
-The file that we are using in this tutorial is loans.csv, which can be found on Kaggle [here](https://www.kaggle.com/zhijinzhai/loandata) as a mock-up . To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). The examples will be referencing a container named 'sample-data'.
+The file that we are using in this tutorial is loans.csv, which can be found [here](https://github.com/kromerm/adfdataflowdocs/blob/master/sampledata/loans.csv) as made-up loans sample data. To retrieve the file from GitHub, copy the contents to a text editor of your choice to save locally as a .csv file. To upload the file to your storage account, see [Upload blobs with the Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md). The examples will be referencing a container named 'sample-data'.
 
 ## Create a data factory
 
@@ -83,7 +83,7 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 1. In the data flow canvas, add a source by clicking on the **Add Source** box.
 
     ![Data Flow Canvas](media/tutorial-data-flow/dataflow2.png)
-1. Name your source **MoviesDB**. Click on **New** to create a new source dataset.
+1. Name your source **loans**. Click on **New** to create a new source dataset.
 
     ![Data Flow Canvas](media/tutorial-data-flow/dataflow3.png)
 1. Choose **Azure Data Lake Storage Gen2**. Click Continue.
@@ -92,13 +92,13 @@ Once you create your Data Flow, you'll be automatically sent to the data flow ca
 1. Choose **DelimitedText**. Click Continue.
 
     ![Dataset](media/tutorial-data-flow/dataset2.png)
-1. Name your dataset **MoviesDB**. In the linked service dropdown, choose **New**.
+1. Name your dataset **loans**. In the linked service dropdown, choose **New**.
 
     ![Dataset](media/tutorial-data-flow/dataset3.png)
 1. In the linked service creation screen, name your ADLS gen2 linked service **ADLSGen2** and specify your authentication method. Then enter your connection credentials. In this tutorial, we're using Account key to connect to our storage account. You can click **Test connection** to verify your credentials were entered correctly. Click Create when finished.
 
     ![Linked Service](media/tutorial-data-flow/ls1.png)
-1. Once you're back at the dataset creation screen, enter where your file is located under the **File path** field. In this tutorial, the file moviesDB.csv is located in container sample-data. As the file has headers, check **First row as header**. Select **From connection/store** to import the header schema directly from the file in storage. Click OK when done.
+1. Once you're back at the dataset creation screen, enter where your file is located under the **File path** field. In this tutorial, the file loans.csv is located in container sample-data. As the file has headers, check **First row as header**. Select **From connection/store** to import the header schema directly from the file in storage. Click OK when done.
 
     ![Datasets](media/tutorial-data-flow/dataset4.png)
 1. If your debug cluster has started, go to the **Data Preview** tab of the source transformation and click **Refresh** to get a snapshot of the data. You can use data preview to verify your transformation is configured correctly.
