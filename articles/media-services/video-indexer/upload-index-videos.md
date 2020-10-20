@@ -68,15 +68,15 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 > A name of the video must be no greater than 80 characters.
 
 1. Sign in on the [Video Indexer](https://www.videoindexer.ai/) website.
-2. To upload a video, press the **Upload** button or link.
+1. To upload a video, press the **Upload** button or link.
 
-    ![Upload](./media/video-indexer-get-started/video-indexer-upload.png)
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
+1. Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
 
-    Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
-
-    ![Uploaded](./media/video-indexer-get-started/uploaded.png) 
-
-    Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
+1. Once Video Indexer is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
 ## <a name="apis"></a>Upload and index with API
 

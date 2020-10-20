@@ -42,7 +42,7 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Upload":::
-1. As the video is being uploaded, the Video Indexer starts indexing the video and you see the indexing progress.
+1. Once your video has been uploaded, Video Indexer starts indexing and analyzing the video. You see the progress. 
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Progress of the upload":::
