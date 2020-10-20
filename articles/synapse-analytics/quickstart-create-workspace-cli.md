@@ -35,7 +35,7 @@ In this quickstart, you learn to create a Synapse workspace by using the Azure C
     az login
     ```
 
-- For more information about authentication` with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+- For more information about authentication with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Install Azure Synapse extension for Azure CLI
 

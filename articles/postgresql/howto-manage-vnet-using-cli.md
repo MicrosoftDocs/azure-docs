@@ -25,9 +25,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
     az login
     ```
 
-- To step through this how-to guide, you need:
-    - Install [the Azure CLI](/cli/azure/install-azure-cli) or use the Azure Cloud Shell in the browser.
-    - An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
+- To step through this how-to guide, you need an [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
 
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.

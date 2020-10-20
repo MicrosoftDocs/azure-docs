@@ -31,7 +31,7 @@ The Azure CLI is Azure's command-line experience for managing Azure resources. Y
     az login
     ```
 
-- For more information about authentication` with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
+- For more information about authentication with Azure CLI, see [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Authorize access to Blob storage
 
