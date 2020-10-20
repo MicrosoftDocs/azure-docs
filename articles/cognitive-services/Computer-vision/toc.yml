@@ -199,7 +199,7 @@
 - name: Resources
   items: 
   - name: Support & help options
-    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context-support
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/computer-vision/context/context
   - name: Samples  
     items:  
     - name: Explore an image processing app
