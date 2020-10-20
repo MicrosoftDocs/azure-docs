@@ -22,7 +22,7 @@ You'll learn how to:
 ## Prerequisites
 
 * Complete [Quickstart: Render a model with Unity](render-model.md)
-* Install Azure PowerShell [(documentation)](/powershell/azure/)
+* For the conversion using the powershell script: Install Azure PowerShell [(documentation)](/powershell/azure/)
   * Open a PowerShell with admin rights
   * Run: `Install-Module -Name Az -AllowClobber`
 
@@ -103,6 +103,15 @@ You should now have two blob storage containers:
 
 ## Run the conversion
 
+There are 3 distinct ways to trigger a model conversion:
+
+### 1. Conversion via the ARRT tool
+
+There is a [UI-based tool called ARRT](./../samples/azure-remote-rendering-asset-tool.md) to start conversions and interact with the rendered result.
+![ARRT](./../samples/media/azure-remote-rendering-asset-tool.png "ARRT screenshot")
+
+### 2. Conversion via a powershell script
+
 To make it easier to call the asset conversion service, we provide a utility script. It is located in the *Scripts* folder and is called **Conversion.ps1**.
 
 In particular, this script
@@ -171,6 +180,13 @@ Change to the `azure-remote-rendering\Scripts` directory and run the conversion 
 
 You should see something like this:
 ![Conversion.ps1](./media/successful-conversion.png)
+
+### 3. Conversion via API calls
+
+Both the C# and the C++ API provides an entry point to interact with the service:
+* [C# AzureFrontend.StartAssetConversionAsync()](/dotnet/api/microsoft.azure.remoterendering.azurefrontend.startassetconversionasync)
+* [C++ AzureFrontend::StartAssetConversionAsync()](/cpp/api/remote-rendering/azurefrontend#startassetconversionasync)
+
 
 ## Insert new model into Quickstart Sample App
 
