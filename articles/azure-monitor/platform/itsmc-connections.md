@@ -212,6 +212,8 @@ Ensure the following prerequisites are met:
 > 3. Click on Revoke Access and than on Revoke.
 
 - Install the User App for Microsoft Log Analytics integration (ServiceNow app). [Learn more](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+> [!NOTE]
+> ITSMC supports only the official User App for Microsoft Log Analytics integration that is downloaded from ServiceNow store. ITSMC do not support any code ingestion in ServiceNow side or the application that is not part of the official ServiceNow solution.
 - Create integration user role for the user app installed. Information on how to create the integration user role is [here](#create-integration-user-role-in-servicenow-app).
 
 ### **Connection procedure**
