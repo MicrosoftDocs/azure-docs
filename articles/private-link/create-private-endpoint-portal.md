@@ -46,7 +46,7 @@ The bastion host will be used to connect securely to the virtual machine for tes
     | Resource Group   | Select **CreatePrivateEndpointQS-rg** |
     | **Instance details** |                                                                 |
     | Name             | Enter **myVNet**                                    |
-    | Region           | Select **\<region-web-app>**. </br> Select the region where your web app is deployed.|
+    | Region           | Select **\<your-web-app-region>**. </br> Select the region where your web app is deployed.|
 
 3. Select the **IP Addresses** tab or select the **Next: IP Addresses** button at the bottom of the page.
 
@@ -97,7 +97,7 @@ In this section, you'll create a virtual machine that will be used to test the p
     | Resource Group | Select **CreatePrivateEndpointQS-rg** |
     | **Instance details** |  |
     | Virtual machine name | Enter **myVM** |
-    | Region | Select **\<region-web-app>**. </br> Select the region where your web app is deployed. |
+    | Region | Select **\<your-web-app-region>**. </br> Select the region where your web app is deployed. |
     | Availability Options | Select **No infrastructure redundancy required** |
     | Image | Select **Windows Server 2019 Datacenter - Gen1** |
     | Azure Spot instance | Select **No** |
@@ -128,15 +128,15 @@ In this section, you'll create a virtual machine that will be used to test the p
 
 In this section, you'll create a Private Endpoint for the web app you created in the prerequisites section.
 
-1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Networking** > **Private Link**, or in the search box enter **Private Link**.
+1. On the upper-left side of the screen in the portal, select **Create a resource** > **Networking** > **Private Link**, or in the search box enter **Private Link**.
 
 2. Select **Create**.
 
 3. In **Private Link Center**, select **Private endpoints** in the left-hand menu.
 
-4. In **Private endpoints** select **+ Add**.
+4. In **Private endpoints**, select **+ Add**.
 
-5. In the **Basics** tab of **Create a private endpoint**, enter or select this information:
+5. In the **Basics** tab of **Create a private endpoint**, enter, or select this information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -145,7 +145,7 @@ In this section, you'll create a Private Endpoint for the web app you created in
     | Resource group | Select **CreatePrivateEndpointQS-rg**. You created this resource group in the previous section.|
     | **Instance details** |  |
     | Name  | Enter **myPrivateEndpoint**. |
-    | Region | Select **\<region-web-app>**. </br> Select the region where your web app is deployed. |
+    | Region | Select **\<your-web-app-region>**. </br> Select the region where your web app is deployed. |
 
 6. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page.
     
@@ -196,7 +196,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 7. Open Windows PowerShell on the server after you connect.
 
-8. Enter `nslookup <webapp-name>.azurewebsites.net`. Replace **\<webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
+8. Enter `nslookup <your-webapp-name>.azurewebsites.net`. Replace **\<your-webapp-name>** with the name of the web app you created in the previous steps.  You'll receive a message similar to what is displayed below:
 
     ```powershell
     Server:  UnKnown
@@ -212,7 +212,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 11. In the bastion connection to **myVM**, open Internet Explorer.
 
-12. Enter the url of your web app, **https://\<webapp-name>.azurewebsites.net**.
+12. Enter the url of your web app, **https://\<your-webapp-name>.azurewebsites.net**.
 
 13. You'll receive the default web app page if your application hasn't been deployed:
 
@@ -247,6 +247,6 @@ You used the virtual machine to test connectivity securely to the web app across
 
 
 
-For more information on the services that support a private endpoint:
+For more information on the services that support a private endpoint, see:
 > [!div class="nextstepaction"]
 > [Private Link availability](private-link-overview#availability)
