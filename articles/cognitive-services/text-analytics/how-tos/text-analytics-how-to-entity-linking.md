@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 10/09/2020
+ms.date: 10/16/2020
 ms.author: aahi
 ---
 
@@ -39,7 +39,7 @@ Named Entity Recognition (NER) is the ability to identify different entities in 
 
 See [language support](../language-support.md) for information.
 
-### Entity types
+## Entity types
 
 Named Entity Recognition v3 provides expanded detection across multiple types. Currently, NER v3.0 can recognize entities in the [general entity category](../named-entity-types.md).
 
