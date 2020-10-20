@@ -72,7 +72,7 @@ Recovery Service Vault is a Platform as a Service (PaaS) resource and replicatio
 >[!NOTE]
 > To revise the text in this section, update the [underlying Work Item](https://dev.azure.com/AzureSecurityControlsBenchmark/AzureSecurityControlsBenchmarkContent/_workitems/edit/33683.).
 
-**Guidance**: Microsoft manages the endpoints for Site Recovery endpoints which are used by Infrastructure as a Service (IaaS) Virtual Machine extensions and on-premise components. Customers are responsible for any securing additional endpoints which are deployed by them.
+**Guidance**: Microsoft manages the management endpoints for Site Recovery endpoints which are used by Infrastructure as a Service (IaaS) Virtual Machine extensions and on-premise components. Customers are responsible for any securing additional endpoints which are deployed by them.
 
 **Azure Security Center monitoring**: Not applicable
 
