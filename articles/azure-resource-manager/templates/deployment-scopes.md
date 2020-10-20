@@ -17,67 +17,7 @@ You can target your deployment to a resource group, subscription, management gro
 
 Depending on the scope of the deployment, you use different commands.
 
-* To deploy to a **resource group**, use [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment):
 
-  ```azurepowershell
-  New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -TemplateFile <path-to-template>
-  ```
-
-* To deploy to a **subscription**, use New-AzSubscriptionDeployment:
-
-  ```azurepowershell
-  New-AzSubscriptionDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
-
-  For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
-
-* To deploy to a **management group**, use [New-AzManagementGroupDeployment](/powershell/module/az.resources/New-AzManagementGroupDeployment).
-
-  ```azurepowershell
-  New-AzManagementGroupDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
-
-  For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
-
-* To deploy to a **tenant**, use [New-AzTenantDeployment](/powershell/module/az.resources/new-aztenantdeployment).
-
-  ```azurepowershell
-  New-AzTenantDeployment -Location <location> -TemplateFile <path-to-template>
-  ```
-
-  For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
-
-* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
-
-  ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
-  ```
-
-* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
-
-  ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template>
-  ```
-
-  For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
-
-* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
-
-  ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template>
-  ```
-
-  For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
-
-* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
-
-  ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template>
-  ```
-
-  For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
-
-For every scope, the user deploying the template must have the required permissions to create resources.
 
 ## How functions resolve in scopes
 

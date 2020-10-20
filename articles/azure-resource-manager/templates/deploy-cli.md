@@ -14,20 +14,55 @@ The deployment commands changed in Azure CLI version 2.2.0. The examples in this
 
 If you don't have Azure CLI installed, you can use the Cloud Shell. For more information, see [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md).
 
+## Deployment scope
+
+You can target your deployment to a resource group, subscription, management group, or tenant. Depending on the scope of the deployment, you use different commands.
+
+* To deploy to a **resource group**, use [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create):
+
+  ```azurecli-interactive
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  ```
+
+* To deploy to a **subscription**, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
+
+  ```azurecli-interactive
+  az deployment sub create --location <location> --template-file <path-to-template>
+  ```
+
+  For more information about subscription level deployments, see [Create resource groups and resources at the subscription level](deploy-to-subscription.md).
+
+* To deploy to a **management group**, use [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
+
+  ```azurecli-interactive
+  az deployment mg create --location <location> --template-file <path-to-template>
+  ```
+
+  For more information about management group level deployments, see [Create resources at the management group level](deploy-to-management-group.md).
+
+* To deploy to a **tenant**, use [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
+
+  ```azurecli-interactive
+  az deployment tenant create --location <location> --template-file <path-to-template>
+  ```
+
+  For more information about tenant level deployments, see [Create resources at the tenant level](deploy-to-tenant.md).
+
+For every scope, the user deploying the template must have the required permissions to create resources.
+
 ## Deploy local template
 
-When deploying resources to Azure, you:
+You can deploy a template from your local machine or one that is stored externally. This section describes deploying a local template.
 
-1. Sign in to your Azure account
-2. Create a resource group that serves as the container for the deployed resources. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
-3. Deploy to the resource group the template that defines the resources to create.
-
-A template can include parameters that enable you to customize the deployment. For example, you can provide values that are tailored for a particular environment (such as dev, test, and production). The sample template defines a parameter for the storage account SKU.
-
-The following example creates a resource group, and deploys a template from your local machine:
+If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
+```
+
+To deploy a local template, use the `--template-file` parameter in the deployment command. The following example also shows how to set a parameter value that comes from the template.
+
+```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
@@ -45,10 +80,15 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
-To deploy an external template, use the **template-uri** parameter. Use the URI in the example to deploy the sample template from GitHub.
+If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
+```
+
+To deploy an external template, use the `template-uri` parameter.
+
+```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
@@ -56,7 +96,7 @@ az deployment group create \
   --parameters storageAccountType=Standard_GRS
 ```
 
-The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
+The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you want to manage access to the template, consider using [template specs](#deploy-template-spec).
 
 ## Deployment name
 
