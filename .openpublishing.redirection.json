@@ -1247,6 +1247,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-use-parallel-run-step.md",
+      "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch-ai/cli-samples.md",
       "redirect_url": "/previous-versions/azure/batch-ai/cli-samples",
       "redirect_document_id": false
