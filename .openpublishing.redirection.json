@@ -31815,7 +31815,7 @@
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md",
       "redirect_url": "/azure/marketplace/marketplace-virtual-machines",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/appsource-package-preparation.md",
