@@ -24,11 +24,11 @@ Azure Security Center has two main goals: to help you understand your current se
 
 Security Center continually assesses your resources, subscriptions, and organization for security issues. It then aggregates all the findings into a single score so that you can tell, at a glance, your current security situation: the higher the score, the lower the identified risk level.
 
-The secure score page of Security Center includes:
+The **Recommendations** page shows the outstanding actions necessary to raise your score and includes:
 
 - **The score** - The secure score is shown as a percentage value, but the underlying values are also clear:
 
-    [![Secure score shown as a percentage value with the underlying numbers clear too](media/secure-score-security-controls/secure-score-with-percentage.png)](media/secure-score-security-controls/secure-score-with-percentage.png#lightbox)
+    :::image type="content" source="./media/secure-score-security-controls/single-secure-score-via-ui.png" alt-text="Overall secure score as shown in the portal":::
 
 - **Security controls** - Each control is a logical group of related security recommendations, and reflects your vulnerable attack surfaces. A control is a set of security recommendations, with instructions that help you implement those recommendations. Your score only improves when you remediate *all* of the recommendations for a single resource within a control.
 
@@ -48,9 +48,25 @@ You can find your overall secure score, as well as your score per subscription, 
 
 ### Get your secure score from the portal
 
-Security Center displays your score prominently in the portal: it's the first thing shown in the Overview page. If you click through to the dedicated secure score page, you'll see the score broken down by subscription. Click a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
+Security Center displays your score prominently in the portal: it's the first main tile the Security Center overview page. Selecting this tile, takes you to the dedicated secure score page, where you'll see the score broken down by subscription. Select a single subscription to see the detailed list of prioritized recommendations and the potential impact that remediating them will have on the subscription's score.
 
-![Overall secure score as shown in the portal](media/secure-score-security-controls/single-secure-score-via-ui.png)
+To recap, your secure score is shown in the following locations in Security Center's portal pages.
+
+- In a tile on Security Center's dashboard
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-main-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
+
+- In the dedicated **Secure score** page
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
+
+- At the top of the **Recommendations** page
+
+    :::image type="content" source="./media/secure-score-security-controls/score-on-dedicated-dashboard.png" alt-text="The secure score on Security Center's dashboard":::
+
+
+
+
 
 ### Get your secure score from the REST API
 
