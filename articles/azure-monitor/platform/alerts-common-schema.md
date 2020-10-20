@@ -35,7 +35,7 @@ The common alert schema will primarily manifest itself in your alert notificatio
 
 The new schema will also enable a richer alert consumption experience across both the Azure portal and the Azure mobile app in the immediate future. 
 
-[Learn more about the schema definitions for Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
+[Learn more about the schema definitions for Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](./alerts-common-schema-definitions.md)
 
 > [!NOTE]
 > The following actions do not support the common alert schema: ITSM Connector.
@@ -116,5 +116,5 @@ For example, the following request body made to the [create or update](/rest/api
 
 ## Next steps
 
-- [Common alert schema definitions for Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Learn how to create a logic app that leverages the common alert schema to handle all your alerts.](./alerts-common-schema-integrations.md) 
+- [Common alert schema definitions for Webhooks/Logic Apps/Azure Functions/Automation Runbooks.](./alerts-common-schema-definitions.md)
+- [Learn how to create a logic app that leverages the common alert schema to handle all your alerts.](./alerts-common-schema-integrations.md)

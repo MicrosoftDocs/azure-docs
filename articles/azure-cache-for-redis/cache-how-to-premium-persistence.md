@@ -57,7 +57,7 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
    | **Backup Frequency** | Drop-down and select a backup interval, choices include **15 Minutes**, **30 minutes**, **60 minutes**, **6 hours**, **12 hours**, and **24 hours**. | This interval starts counting down after the previous backup operation successfully completes and when it elapses a new backup is initiated. | 
-   | **Storage Account** | Drop-down and select your storage account. | You must choose a storage account in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput.  | 
+   | **Storage Account** | Drop-down and select your storage account. | You must choose a storage account in the same region and subscription as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput.  | 
    | **Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
     The first backup is initiated once the backup frequency interval elapses.
@@ -66,9 +66,9 @@ Persistence writes Redis data into an Azure Storage account that you own and man
    
    | Setting      | Suggested value  | Description |
    | ------------ |  ------- | -------------------------------------------------- |
-   | **First Storage Account** | Drop-down and select your storage account. | This storage account must be in the same region as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. | 
+   | **First Storage Account** | Drop-down and select your storage account. | This storage account must be in the same region and subscription as the cache, and a **Premium Storage** account is recommended because premium storage has higher throughput. | 
    | **First Storage Key** | Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
-   | **Second Storage Account** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | You can optionally configure an additional storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. | 
+   | **Second Storage Account** | (Optional) Drop-down and select your secondary storage account. | You can optionally configure an additional storage account. If a second storage account is configured, the writes to the replica cache are written to this second storage account. | 
    | **Second Storage Key** | (Optional) Drop-down and choose either the **Primary key** or **Secondary key** to use. | If the storage key for your persistence account is regenerated, you must reconfigure the desired key from the **Storage Key** drop-down. | 
 
     When AOF persistence is enabled, write operations to the cache are saved to the designated storage account (or accounts if you have configured a second storage account). In the event of a catastrophic failure that takes down both the primary and replica cache, the stored AOF log is used to rebuild the cache.

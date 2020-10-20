@@ -143,7 +143,7 @@ You can set the configuration options in one of the following ways:
 
     ![Set configuration options for cloud-to-device messaging in the portal](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
 
-* **Azure CLI**: Use the [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command:
+* **Azure CLI**: Use the [az iot hub update](/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) command:
 
     ```azurecli
     az iot hub update --name {your IoT hub name} \
