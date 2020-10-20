@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 10/20/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure. 
 ---
@@ -132,7 +132,6 @@ To create an Azure Stack Edge resource, take the following steps in the Azure po
 
     ![Create a resource 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-
 8. Select **Next: Shipping address**.
 
     - If you already have a device, select the combo box for **I have a Azure Stack Edge Pro device**.
@@ -162,6 +161,9 @@ After the resource is successfully created and deployed, you're notified. Select
 After the order is placed, Microsoft reviews the order and reaches out to you (via email) with shipping details.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+
+> [!NOTE]
+>If you want to create multiple orders at one time or clone an existing order, you can use scripts in the [azure-stack-edge-order repo in Azure Samples](https://github.com/Azure-Samples/azure-stack-edge-order). For more information, read the README file.
 
 If you run into any issues during the order process, see [Troubleshoot order issues](azure-stack-edge-troubleshoot-ordering.md).
 
