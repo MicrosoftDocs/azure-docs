@@ -73,7 +73,7 @@ You can also view the endpoint that was created back on the *Endpoints* page for
 
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
-Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes).
+Now, the event grid topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create an Event Hubs endpoint
 
@@ -95,7 +95,7 @@ You can verify that the endpoint is successfully created by checking the notific
 
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
-Now, the Event hub is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes).
+Now, the Event hub is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create a Service Bus endpoint
 
@@ -117,7 +117,7 @@ You can verify that the endpoint is successfully created by checking the notific
 
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
-Now, the Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes).
+Now, the Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#create-an-event-route).
 
 ### Create an endpoint with dead-lettering
 
