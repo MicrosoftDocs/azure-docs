@@ -35,7 +35,7 @@ To limit the scope for your Update Management deployment:
 
 6. Select the saved search to view and edit the query used to populate the group. The following image shows the query and its results:
 
-    [ ![Saved searches](./media/update-mgmt-scope-configuration/logsearch.png)](./media/update-mgmt-scope-configuration/logsearch-expanded.png#lightbox)
+    [ ![Saved searches](./media/update-mgmt-scope-configuration/logsearch.png)](./media/scope-configuration/logsearch-expanded.png#lightbox)
 
 ## Next steps
 

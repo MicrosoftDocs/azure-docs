@@ -122,7 +122,7 @@ After your scheduled deployment starts, you can see its status on the **History*
 
 When the deployment is finished, you can select it to see its results.
 
-[ ![Update deployment status dashboard for a specific deployment](./media/update-mgmt-deploy-updates/manageupdates-view-results.png)](./media/update-mgmt-deploy-updates/manageupdates-view-results-expanded.png#lightbox)
+[ ![Update deployment status dashboard for a specific deployment](./media/deploy-updates/manageupdates-view-results.png)](./media/deploy-updates/manageupdates-view-results-expanded.png#lightbox)
 
 Under **Update results**, a summary provides the total number of updates and deployment results on the target VMs. The table on the right shows a detailed breakdown of the updates and the installation results for each.
 

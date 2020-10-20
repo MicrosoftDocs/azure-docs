@@ -316,7 +316,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-    ![Example result when deployment is complete](media/update-mgmt-enable-template/template-output.png)
+    ![Example result when deployment is complete](media/enable-from-template/template-output.png)
 
 ## Review deployed resources
 
