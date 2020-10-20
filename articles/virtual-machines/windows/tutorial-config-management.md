@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Monitor changes and update a Windows virtual machine in Azure
 
-With Azure [Change Tracking](../../automation/change-tracking.md) and [Update Management](../../automation/update-management/update-mgmt-overview.md), you can easily identify changes in your Windows virtual machines in Azure and manage operating system updates for those VMs.
+With Azure [Change Tracking](../../automation/change-tracking/overview.md) and [Update Management](../../automation/update-management/update-mgmt-overview.md), you can easily identify changes in your Windows virtual machines in Azure and manage operating system updates for those VMs.
 
 In this tutorial, you learn how to:
 
