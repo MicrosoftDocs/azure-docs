@@ -325,8 +325,6 @@
           href: iot-hub-security-x509-get-started.md
         - name: Upgrade an IoT hub
           href: iot-hub-upgrade.md
-        - name: Enable message tracing
-          href: iot-hub-distributed-tracing.md
         - name: Configure IP filtering
           href: iot-hub-ip-filtering.md
         - name: Manage public network access
@@ -345,6 +343,8 @@
           href: monitor-iot-hub.md
         - name: Monitoring data reference
           href: monitor-iot-hub-reference.md
+        - name: Enable message tracing
+          href: iot-hub-distributed-tracing.md
         - name: IoT Hub service and resource health
           href: iot-hub-azure-service-health-integration.md
     - name: Use real devices

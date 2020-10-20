@@ -281,13 +281,6 @@ Azure Monitor alerts proactively notify you when important conditions are found 
 
 When creating an alert rule based on platform metrics, be aware that for IoT Hub platform metrics that are collected in units of count, some aggregations may not be available or usable. To learn more, see [Supported aggregations in the Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md#supported-aggregations).
 
-The following table lists common and recommended alert rules for Azure IoT Hub.
-
-| Alert type | Condition | Description  |
-|:---|:---|:---|
-| | | |
-| | | |
-
 ## Next steps
 
 - See [Monitoring Azure IoT Hub data reference](monitor-iot-hub-reference.md) for a reference of the metrics, logs, and other important values created by [service name].
