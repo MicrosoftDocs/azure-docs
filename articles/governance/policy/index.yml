@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/30/2020
+  ms.date: 10/16/2020
 
 landingContent:
   - title: About Azure Policy
@@ -61,8 +61,10 @@ landingContent:
             url: ./tutorials/create-and-manage.md
           - text: Use VS Code extension
             url: ./how-to/extension-for-vscode.md
-          - text: Design Policy as Code workflows
+          - text: Design Azure Policy as Code workflows
             url: ./concepts/policy-as-code.md
+          - text: Implement Azure Policy as Code with GitHub
+            url: ./tutorials/policy-as-code-github.md
       - linkListType: deploy
         links:
           - text: Index of policy samples
@@ -88,9 +90,9 @@ landingContent:
         links:
           - text: Regulatory Compliance
             url: ./concepts/regulatory-compliance.md
-          - text: Policy for Kubernetes
+          - text: Azure Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
-          - text: Policy for VMs
+          - text: Azure Policy for VMs
             url: ./concepts/guest-configuration.md
 
   - title: Review & Remediate resources
@@ -135,6 +137,8 @@ landingContent:
             url: /rest/api/resources/policyassignments
           - text: REST (Definitions)
             url: /rest/api/resources/policydefinitions
+          - text: REST (Exemptions)
+            url: /rest/api/resources/policyexemptions
           - text: REST (Initiatives)
             url: /rest/api/resources/policysetdefinitions
           - text: Resource Manager templates

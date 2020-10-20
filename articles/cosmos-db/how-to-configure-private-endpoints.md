@@ -679,7 +679,7 @@ If you don't clean up the DNS records, unexpected data plane issues might happen
 
 To learn more about Azure Cosmos DB security features, see the following articles:
 
-* To configure a firewall for Azure Cosmos DB, see [Firewall support](firewall-support.md).
+* To configure a firewall for Azure Cosmos DB, see [Firewall support](how-to-configure-firewall.md).
 
 * To learn how to configure a virtual network service endpoint for your Azure Cosmos account, see [Configure access from virtual networks](how-to-configure-vnet-service-endpoint.md).
 
