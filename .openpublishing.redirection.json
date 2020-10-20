@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/virtual-machines/linux/configure-raid.md",
+      "redirect_url": "/previous-versions/azure/virtual-machines/linux/configure-raid",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/healthcare-apis/bring-your-own-key.md",
       "redirect_url": "/azure/healthcare-apis/customer-managed-key",
       "redirect_document_id": false

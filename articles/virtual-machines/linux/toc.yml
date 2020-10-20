@@ -1026,8 +1026,6 @@
         href: disks-benchmarks.md
       - name: Optimizing performance
         href: optimization.md
-      - name: Configure software RAID
-        href: configure-raid.md
       - name: Configure LVM
         href: configure-lvm.md
     - name: Find unattached disks - CLI
