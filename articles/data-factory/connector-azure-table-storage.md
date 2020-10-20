@@ -10,7 +10,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/27/2019
+ms.date: 10/20/2020
 ---
 
 # Copy data to and from Azure Table storage by using Azure Data Factory
@@ -217,7 +217,7 @@ To copy data to and from Azure Table, set the type property of the dataset to **
 
 For schema-free data stores such as Azure Table, Data Factory infers the schema in one of the following ways:
 
-* If you specify the column mapping in copy activity, Data Factory use the source side column list to retrieve data. In this case, if a row doesn't contain a value for a column, a null value is provided for it.
+* If you specify the column mapping in copy activity, Data Factory uses the source side column list to retrieve data. In this case, if a row doesn't contain a value for a column, a null value is provided for it.
 * If you don't specify the column mapping in copy activity, Data Factory infers the schema by using the first row in the data. In this case, if the first row doesn't contain the full schema (e.g. some columns have null value), some columns are missed in the result of the copy operation.
 
 ## Copy activity properties
@@ -231,7 +231,7 @@ To copy data from Azure Table, set the source type in the copy activity to **Azu
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **AzureTableSource**. |Yes |
-| azureTableSourceQuery |Use the custom Table storage query to read data. See examples in the following section. |No |
+| azureTableSourceQuery |Use the custom Table storage query to read data.<br/>The source query is a direct map from the `$filter` query option supported by Azure Table Storage, learn more about the syntax from [this doc](https://docs.microsoft.com/rest/api/storageservices/querying-tables-and-entities#supported-query-options), and see the examples in the following [azureTableSourceQuery examples section](#azuretablesourcequery-examples). |No |
 | azureTableSourceIgnoreTableNotFound |Indicates whether to allow the exception of the table to not exist.<br/>Allowed values are **True** and **False** (default). |No |
 
 ### azureTableSourceQuery examples

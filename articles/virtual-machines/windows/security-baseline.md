@@ -748,7 +748,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 
 * [An introduction to Azure Automation](../../automation/automation-intro.md)
 
-* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking.md)
+* [Track changes in your environment with the Change Tracking solution](../../automation/change-tracking/overview.md)
 
 * [Azure Automation State Configuration Overview](../../automation/automation-dsc-overview.md)
 
