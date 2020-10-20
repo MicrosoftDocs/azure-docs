@@ -1,21 +1,21 @@
 ---
 title: Test an Azure virtual machine image for Azure Marketplace
-description: Learn how to test and submit an Azure virtual machine offer in the Microsoft commercial marketplace.
+description: Learn how to test and submit an Azure virtual machine offer in Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: github-2407
 ms.author: krsh
-ms.date: 08/14/2020
+ms.date: 10/15/2020
 ---
 
-# Test a virtual machine image for Azure Marketplace
+# Test a virtual machine image
 
 This article describes how to test and submit a virtual machine (VM) image in the commercial marketplace to ensure it meets the latest Azure Marketplace publishing requirements.
 
 Complete these steps before submitting your VM offer:
 
-- Deploy an Azure VM using your generalized image. See here for more information on [Generalized images](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset#generalize-the-image).
+- Deploy an Azure VM using your generalized image; see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md).
 - Run validations.
 
 ## Deploy an Azure VM using your generalized image
@@ -595,7 +595,7 @@ The last screen lets you provide more information, such as SSH access informatio
 
 Finally, select Generate Report to download the test results and log files for the executed test cases along with your answers to the questionnaire. 
 > [!Note]
-> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, publishers can download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here, and provide the report at [Marketplace Publisher Support](https://aka.ms/marketplacepublishersupport)
+> Few publishers have scenarios where VMs need to be locked as they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) here and submit the report at Partner Center [support](https://aka.ms/marketplacepublishersupport).
 
 ## How to use PowerShell to consume the Self-Test API
 
@@ -757,6 +757,6 @@ https://isvapp.azure-api.net/selftest-vm -d '{ "DNSName":"XXXX.westus.cloudapp.a
 
 ![JSON results from the CURL call.](media/vm/test-results-json-viewer-3.png)
 
-## Next step
+## Next steps
 
-- Read [Common SAS URI issues and fixes](common-sas-uri-issues.md).
+- [Get SAS URI](azure-vm-get-sas-uri.md)
