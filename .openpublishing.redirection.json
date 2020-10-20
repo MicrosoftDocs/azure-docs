@@ -53312,7 +53312,7 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/go-sdk.md",
