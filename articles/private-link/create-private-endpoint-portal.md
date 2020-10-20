@@ -214,7 +214,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 12. Enter the url of your web app, **https://\<webapp-name>.azurewebsites.net**.
 
-13. Verify you receive the default web app page.
+13. You'll receive the default web app page if your application hasn't been deployed:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Default web app page." border="true":::
 
