@@ -15,7 +15,7 @@ The Azure Babylon public preview is a great opportunity for you to let us know w
 
 You can provide feedback in any of these ways:
 
-* Send email to _BabylonDiscussion@Microsoft.com_. Your message goes directly to the entire Azure Babylon team.
+* Send email to BabylonDiscussion@Microsoft.com. Your message goes directly to the entire Azure Babylon team.
 
 * Use the feedback feature in the Azure Babylon user interface.
 
@@ -34,7 +34,7 @@ The two smiley face options suggest the type of feedback you might want to provi
 
 * Provide specific feedback on something that isn’t working well.
 * Provide additional details about any changes you might suggest. Be sure to prefix your feedback with *SUGGESTION:* .
-* If you’re reporting a bug, it’s helpful to include your email address. You can also email us at _BabylonDiscussion@Microsoft.com_. You can attach any screenshots, provide steps for reproducing the issue, and detail any conditions that might apply. Be sure to prefix your feedback with *BUG:* .
+* If you’re reporting a bug, it’s helpful to include your email address. You can also email us at BabylonDiscussion@Microsoft.com. You can attach any screenshots, provide steps for reproducing the issue, and detail any conditions that might apply. Be sure to prefix your feedback with *BUG:* .
 
 ## Leave feedback
 
