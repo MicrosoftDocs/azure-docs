@@ -87,7 +87,7 @@ After you set that property, the SDK will handle the exchange of the account key
 
 ## Azure AD user authentication
 
-For applications that target Azure Active Directory users, we recommend that you use an Azure AD token for the user. You can obtain this token by using the [MSAL](../../active-directory/develop/msal-overview.md). Follow the steps in the [register an app quickstart](../../active-directory/develop/quickstart-register-app.md), which include:
+For applications that target Azure Active Directory users, we recommend that you use an Azure AD token for the user. You can obtain this token by using the [MSAL](../../active-directory/develop/msal-overview.md). Follow the steps in the [quickstart on registering an app](../../active-directory/develop/quickstart-register-app.md), which include:
 
 **In the Azure portal**
 1.    Register your application in Azure AD as a native application. As part of registering, you'll need to determine whether your application should be multitenant. You'll also need to provide the redirect URLs allowed for your application.
@@ -194,7 +194,7 @@ The Azure AD access token is retrieved via the [MSAL](../../active-directory/dev
 2.    Set the tenant ID to your own Azure AD tenant ID in the **authority** parameter in MSAL.
 3.    On your token request, set the **scope** to **https://sts.mixedreality.azure.com//.default**.
 
-After you complete these steps, your back-end service can retrieve an Azure AD token. It can then exchange it for an MR token that it will return back to the client. Using an Azure AD token to retrieve an MR token is done via a REST call. Here's a sample call:
+After you complete these steps, your back-end service can retrieve an Azure AD token. It can then exchange it for a Mixed Reality token that it will return back to the client. Using an Azure AD token to retrieve a Mixed Reality token is done via a REST call. Here's a sample call:
 
 ```
 GET https://sts.mixedreality.azure.com/Accounts/35d830cb-f062-4062-9792-d6316039df56/token HTTP/1.1
@@ -213,9 +213,9 @@ MS-CV: 05JLqWeKFkWpbdY944yl7A.0
 
 The Authorization header is formatted as follows: `Bearer <Azure_AD_token>`
 
-The response contains the MR token in plain text.
+The response contains the Mixed Reality token in plain text.
 
-That MR token is then returned to the client. Your client app can then set it as its access token in the cloud session configuration:
+That Mixed Reality token is then returned to the client. Your client app can then set it as its access token in the cloud session configuration:
 
 # [C#](#tab/csharp)
 
