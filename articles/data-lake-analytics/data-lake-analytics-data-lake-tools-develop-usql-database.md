@@ -32,9 +32,9 @@ For an assembly object, the tool provides a user-friendly UI editor that helps y
 
 1. Add references to the C# project that include the UDO/UDAG/UDF for the U-SQL database project.
 
-   ![Data Lake Tools for Visual Studio--Add U-SQL database project reference](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-project-reference.png)
+   ![Data Lake Tools for Visual Studio - Add reference](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-project-reference.png)
 
-   ![Data Lake Tools for Visual Studio--Add U-SQL database project reference](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-project-reference-wizard.png)
+   ![Data Lake Tools for Visual Studio - Add U-SQL database project reference](./media/data-lake-analytics-data-lake-tools-develop-usql-database/data-lake-tools-add-project-reference-wizard.png)
 
 2. In the assembly design view, choose the referenced assembly from **Create assembly from reference** drop-down menu.
 
