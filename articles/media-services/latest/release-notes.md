@@ -35,6 +35,11 @@ To stay up-to-date with the most recent developments, this article provides you 
 >
 > For details, see: [the Azure portal limitations for Media Services v3](frequently-asked-questions.md#what-are-the-azure-portal-limitations-for-media-services-v3).
 
+## October 2020
+
+### Basic Audio Analysis
+Audio Analysis is now also available as Basic tier. Basic Audio Analyzer preset provides a low-cost option to extract only speech transcription, and format output captions and subtitles. This mode performs speech-to-text transcription and generation of a VTT subtitle/caption file. The output of this mode includes an Insights JSON file including only the keywords, transcription,and timing information. Automatic language detection and speaker diarization are not included in this mode. See the list of [supported languages.](analyzing-video-audio-files-concept.md#built-in-presets)
+
 ## August 2020
 
 ### Dynamic Encryption
