@@ -6,7 +6,7 @@ author: chriswhilar
 manager: mariusu-msft
 services: azure-communication-services
 
-ms.author: chriswhilar
+ms.author: christopher.whilar
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
