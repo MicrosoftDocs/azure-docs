@@ -322,6 +322,11 @@ OID will be displayed.
 
 When you have the correct OID for the service principal, go to the Storage Explorer **Manage Access** page to add the OID and assign appropriate permissions for the OID. Make sure you select **Save**.
 
+### Can I set the ACL of a container?
+
+A container does not have an ACL. However, you can set the ACL of the container’s root directory. Every container has a root directory, and it shares the same name as the container. For example, if the container is named `my-container`, then the root directory  is named `myContainer/`. 
+
+The Azure Storage REST API does contain an operation named [Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl), but that operation is used to indicate whether blobs in a container [may be accessed publicly](anonymous-read-access-configure.md). The [Set Container ACL](https://docs.microsoft.com/rest/api/storageservices/set-container-acl) operation cannot be used to set the ACL of a container or the root directory of a container. 
 
 ### Where can I learn more about POSIX access control model?
 
