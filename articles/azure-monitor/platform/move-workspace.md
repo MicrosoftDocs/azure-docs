@@ -40,7 +40,7 @@ Solutions that must be removed before you can unlink your automation account:
 > - If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be effective in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
 > 
 > **Alerts**
-> - All alerts needs to recreate after the move. Alerts cache the permissions based on the Azure Resource ID of the workspace and if it moves it invalidates the alerts permissions. 
+> - All alerts needs to re-create after the move, since the permissions are based on the Azure Resource ID of the workspace and it's changes with the workspace move. 
 
 ### Delete solutions in Azure portal
 Use the following procedure to remove the solutions using the Azure portal:
