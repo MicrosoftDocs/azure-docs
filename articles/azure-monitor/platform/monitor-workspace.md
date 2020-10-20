@@ -52,10 +52,11 @@ Ingestion operations are issues that occurred during data ingestion including no
 | Custom log | Error   | Custom fields column limit reached. | [Azure Monitor service limits](service-limits.md#log-analytics-workspaces) |
 | Custom log | Error   | Custom logs ingestion failed. | |
 | Custom log | Error   | Metadata. | |
-| Data | Error   | Data was dropped because the request was created earlier than the number of set days. | || Data Collection | [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#alert-when-daily-cap-reached)| Info    | Collection Machine configuration is detected.| |
-| Data | Info    | Data collection started due to new day. | [Manage usage and costs with Azure Monitor Logs](/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Data | Warning | Data collection stopped due to daily limit reached.| [Manage usage and costs with Azure Monitor Logs](/manage-cost-storage.md#alert-when-daily-cap-reached)|
-| Ingestion rate | Info | Ingestion rate limit approaching 70%. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces)
+| Data | Error   | Data was dropped because the request was created earlier than the number of set days. | [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#alert-when-daily-cap-reached)
+| Data collection | Info    | Collection machine configuration is detected.| |
+| Data collection | Info    | Data collection started due to new day. | [Manage usage and costs with Azure Monitor Logs](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Data collection | Warning | Data collection stopped due to daily limit reached.| [Manage usage and costs with Azure Monitor Logs](/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Ingestion rate | Info | Ingestion rate limit approaching 70%. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Ingestion rate | Warning | Ingestion rate limit approaching the limit. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Ingestion rate | Error   | Rate limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | JSON parsing | Error   | Invalid JSON format. | [Send log data to Azure Monitor with the HTTP Data Collector API (public preview)](data-collector-api.md#request-body) | 
