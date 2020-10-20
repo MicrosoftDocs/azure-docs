@@ -42,6 +42,14 @@ Before you install Azure AD Connect, there are a few things that you need.
 * Using on-premises forests or domains by using "dotted" (name contains a period ".") NetBIOS names *isn't supported*.
 * We recommend that you [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
 
+### PowerShell execution policy
+Azure Active Directory Connect runs signed PowerShell scripts as part of the installation. Ensure that the PowerShell execution policy will allow running of scripts.
+
+The recommended execution policy during installation is "RemoteSigned".
+
+For more information on setting the PowerShell execution policy, see [Set-ExecutionPolicy](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7).
+
+
 ### Azure AD Connect server
 The Azure AD Connect server contains critical identity data. It's important that administrative access to this server is properly secured. Follow the guidelines in [Securing privileged access](/windows-server/identity/securing-privileged-access/securing-privileged-access). 
 
