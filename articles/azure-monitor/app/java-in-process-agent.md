@@ -110,8 +110,8 @@ See details at [3.0 Public Preview: Configuration Options](./java-standalone-con
 ### Logs
 
 * java.util.logging
-* Log4j
-* SLF4J/Logback
+* Log4j (including MDC properties)
+* SLF4J/Logback (including MDC properties)
 
 ### Metrics
 
