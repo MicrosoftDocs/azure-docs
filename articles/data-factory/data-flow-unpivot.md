@@ -43,6 +43,8 @@ For instance, SumCost is the column name that is chosen in the example shared ab
 
 ![Image showing the PO, Vendor, and Fruit columns before and after a unipivot transformation using the Fruit column as the unipivot key.](media/data-flow/unpivot3.png)
 
+Setting the Column Arrangement to "Normal" will group together all of the new unpivoted columns from a single value. Setting the columns arrangement to "Lateral" will group together new unpivoted columns generated from an existing column.
+
 ![Unpivot Transformation](media/data-flow//unpivot7.png "Unpivot options 5")
 
 The final unpivoted data result set shows the column totals now unpivoted into separate row values.
