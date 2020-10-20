@@ -30,7 +30,7 @@ You can provision throughput at a container-level or a database-level in terms o
 | Maximum storage per container | Unlimited |
 | Maximum storage per database | Unlimited |
 | Maximum attachment size per Account (Attachment feature is being deprecated) | 2 GB |
-| Minimum RUs required per 1 GB | 10 RU/s |
+| Minimum RU/s required per 1 GB | 10 RU/s<br>**Note:** if your container or database contains more than 1 TB of data, your account may be eligible to our ["high storage / low throughput" program](set-throughput.md#high-storage-low-throughput-program) |
 
 > [!NOTE]
 > To learn about best practices for managing workloads that have partition keys requiring higher limits for storage or throughput, see [Create a synthetic partition key](synthetic-partition-keys.md).
