@@ -28,7 +28,7 @@ Deploy an Azure Red Hat OpenShift 4 cluster into your subscription, see [Create 
 
 ### Set up Azure storage account
 
-This step will create a resource group outside of the ARO cluster’s resource group. This resource group will contain the Azure Files shares which are created by ARO’s dynamic provisioner.
+This step will create a resource group outside of the ARO cluster’s resource group. This resource group will contain the Azure Files shares that are created by ARO’s dynamic provisioner.
 
 ```bash
 AZURE_FILES_RESOURCE_GROUP=aro_azure_files
@@ -48,7 +48,7 @@ az storage account create \
 ## Set Permissions
 ### Set Resource Group Permissions
 
-The ARO service principal requires 'listKeys' permission on the new Azure storage account resource group in order to dynamically create shares. This can be granted by assigning the ‘Contributor’ role. 
+The ARO service principal requires 'listKeys' permission on the new Azure storage account resource group. Assign the ‘Contributor’ role to achieve this. 
 
 ```bash
 ARO_RESOURCE_GROUP=aro-rg
@@ -60,7 +60,7 @@ az role assignment create –role Contributor –assignee $ARO_SERVICE_PRINCIPAL
 
 ### Set ARO cluster permissions
 
-The persistent volume binder service account on the ARO cluster will require the ability to read secrets. This step will achieve this by creating and assigning an OpenShift clusterrole.
+The OpenShift persistent volume binder service account will require the ability to read secrets. Create and assign an OpenShift clusterrole to achieve this.
 ```bash
 ARO_API_SERVER=$(az aro list –query “[?contains(name,’$CLUSTER’)].[apiserverProfile.url]” -o tsv)
 
@@ -75,7 +75,7 @@ oc adm policy add-cluster-role-to-user azure-secret-reader system:serviceaccount
 
 ## Create StorageClass with Azure Files Provisioner
 
-This step will create a StorageClass with an Azure Files provisioner. Within the StorageClass manifest the details of the storage account are required so that the ARO cluster knows to look at a storage account outside of the current resource group.
+This step will create a StorageClass with an Azure Files provisioner. Within the StorageClass manifest, the details of the storage account are required so that the ARO cluster knows to look at a storage account outside of the current resource group.
 
 ```bash
 cat << EOF >> azure-storageclass-azure-file.yaml
@@ -98,7 +98,7 @@ oc create -f azure-storageclass-azure-file.yaml
 
 # Change the default StorageClass (optional)
 
-The default StorageClass on ARO is called managed-premium and uses the azure-disk provisioner. This can be changed by issuing patch commands against the StorageClass manifests.
+The default StorageClass on ARO is called managed-premium and uses the azure-disk provisioner. Change this by issuing patch commands against the StorageClass manifests.
 
 ```bash
 oc patch storageclass managed-premium -p '{"metadata": {"annotations": {"storageclass.kubernetes.io/": "false"}}}'
@@ -106,9 +106,9 @@ oc patch storageclass managed-premium -p '{"metadata": {"annotations": {"storage
 oc patch storageclass azure-file -p '{"metadata": {"annotations": {"storageclass.kubernetes.io/": "true"}}}'
 ```
 
-# Verify Azure File StorageClass (optional)
+## Verify Azure File StorageClass (optional)
 
-To verify that the AzureFiles StorageClass is working correctly a new application can be created and storage assigned to it.
+Create a new application and assign storage to it.
 
 ```bash
 oc new-project azfiletest
@@ -129,7 +129,7 @@ azure file storage
 ```
 The test.txt file will also be visible via the Storage Explorer in the Azure Portal. 
 
-# Next steps
+## Next steps
 
 In this article, you created dynamic persistent storage using Microsoft Azure Files and Azure Red Hat OpenShift 4. You learned how to:
 
