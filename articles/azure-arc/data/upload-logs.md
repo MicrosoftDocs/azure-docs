@@ -21,10 +21,6 @@ Periodically, you can export logs and then upload them to Azure. Exporting and u
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## Prerequisites
-
-[!INCLUDE [arc-data-upload-prerequisites](includes/arc-data-upload-prerequisites.md)]
-
 ## Before you begin
 
 Before you can upload logs, you need to: 

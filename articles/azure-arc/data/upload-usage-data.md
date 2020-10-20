@@ -22,12 +22,8 @@ Periodically, you can export out usage information. The export and upload of of 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 
-## Prerequisites
-
-[!INCLUDE [arc-data-upload-prerequisites](includes/arc-data-upload-prerequisites.md)]
-
 > [!NOTE]
-> Please wait for at least 24 hours after creating the Azure Arc data controller before uploading usage data.
+> Wait at least 24 hours after creating the Azure Arc data controller before uploading usage data.
 
 ## Create service principal and assign roles
 
