@@ -289,6 +289,38 @@
     items:
     - name: What is Azure Stack Edge Pro R?
       href: azure-stack-edge-j-series-overview.md
+  - name: Concepts
+    items:
+    - name: Ready safety
+      href: azure-stack-edge-pro-r-safety.md
+    - name: Review requirements
+      href: azure-stack-edge-pro-r-system-requirements.md 
+    - name: Understand limits
+      href: azure-stack-edge-pro-r-limits.md 
+    - name: Security overview
+      href: azure-stack-edge-pro-r-security.md 
+    - name: Review specifications
+      href: azure-stack-edge-pro-r-technical-specifications-compliance.md
+  - name: Tutorials
+    items:
+    - name: 0 - Get checklist
+      href: azure-stack-edge-pro-r-deploy-checklist.md     
+    - name: 1 - Order, prepare 
+      href: azure-stack-edge-pro-r-deploy-prep.md
+    - name: 2 - Install
+      href: azure-stack-edge-pro-r-deploy-install.md
+    - name: 3 - Connect
+      href: azure-stack-edge-pro-r-deploy-connect.md
+    - name: 4 - Configure network
+      href: azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md
+    - name: 5 - Configure device 
+      href: azure-stack-edge-pro-r-deploy-set-up-device-update-time.md
+    - name: 6 - Configure security
+      href: azure-stack-edge-pro-r-deploy-configure-certificates-vpn-encryption.md
+    - name: 7 - Activate
+      href: azure-stack-edge-pro-r-deploy-activate.md 
+    - name: 8 - Configure compute
+      href: azure-stack-edge-placeholder.md
 
 - name: Azure Stack Edge Mini R
   items:
@@ -296,6 +328,18 @@
     items:
     - name: What is Azure Stack Edge Mini R?
       href: azure-stack-edge-k-series-overview.md
+  - name: Concepts
+    items:
+    - name: Ready safety
+      href: azure-stack-edge-mini-r-safety.md
+    - name: Review requirements
+      href: azure-stack-edge-mini-r-system-requirements.md 
+    - name: Understand limits
+      href: azure-stack-edge-mini-r-limits.md 
+    - name: Security overview
+      href: azure-stack-edge-pro-r-security.md 
+    - name: Review specifications
+      href: azure-stack-edge-mini-r-technical-specifications-compliance.md
 
 - name: Data Box Gateway
   items:
