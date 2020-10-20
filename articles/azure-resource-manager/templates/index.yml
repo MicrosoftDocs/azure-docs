@@ -60,7 +60,7 @@ landingContent:
             url: template-tutorial-create-first-template.md
           - text: Deployment
             url: deployment-tutorial-local-template.md
-          - text: Template Specs
+          - text: Template specs
             url: template-specs-create-linked.md
           - text: Advanced templates
             url: template-tutorial-use-template-reference.md
