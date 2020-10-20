@@ -404,7 +404,7 @@
         href: machine-learning/quickstart-integrate-azure-machine-learning.md
     - name: Tutorials
       items:
-      - name: Model scoring wizard for SQL pools
+      - name: Model scoring wizard for dedicated SQL pools
         href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
       - name: Run a regression experiment using Azure AutoML
         href: ./spark/apache-spark-azure-machine-learning-tutorial.md
