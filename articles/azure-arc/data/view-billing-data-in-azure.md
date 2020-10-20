@@ -102,6 +102,20 @@ Run the following command to upload the usage.json file to Azure:
 azdata arc dc upload -p usage.json
 ```
 
+## View billing data in Azure portal
+
+Follow these steps to view billing data in the Azure portal:
+
+1. Open the Azure portal using the special URL:  [https://aka.ms/arcdata](https://aka.ms/arcdata).
+1. In the search box at the top of the screen type in **Cost Management** and click on the Cost Management service.
+1. Click on the **Cost analysis** tab on the left.
+1. Click the **Cost by resource** button on the top of the view.
+1. Make sure that your Scope is set to the subscription in which your data service resources were created.
+1. Select **Cost by resource** in the View drop down next to the Scope selector near the top of the view.
+1. Make sure the date filter is set to **This month** or some other time range that makes sense given the timing of when you created your data service resources.
+1. Click **Add filter** to add a filter by **Resource type** = `microsoft.azuredata/<data service type>` if you want to filter down to just one type of Azure Arc enabled data service.
+1. You will now see a list of all the resources that were created and uploaded to Azure. Since the billing meter is $0, you will see that the cost is always $0.
+
 ## Download billing data
 
 You can download billing summary data directly from the Azure portal.
@@ -116,11 +130,11 @@ You can also periodically, automatically export **detailed** usage and billing d
 
 Follow these steps to set up a billing export job:
 
-1. Click Exports on the left.
-1. Click Add.
+1. Click **Exports** on the left.
+1. Click **Add**.
 1. Enter a name and export frequency and click Next.
-1. Choose to either create a new storage account or create a new one and fill out the form to specify the storage account, container, and directory path to export the billing data files to and click Next.
-1. Click Create.
+1. Choose to either create a new storage account or use an existing one and fill out the form to specify the storage account, container, and directory path to export the billing data files to and click Next.
+1. Click **Create**.
 
 The billing data export files will be available in approximately 4 hours and will be exported on the schedule you specified when creating the billing export job.
 
@@ -137,7 +151,7 @@ You can validate the billing data files in the Azure portal.
 5. Click on the container you specified when creating the billing export job above.
 6. Click on the folder you specified when creating the billing export job above.
 7. Drill down into the generated folders and files and click on one of the generated .csv files.
-8. Click the Download button which will save the file to your local Downloads folder.
+8. Click the **Download** button which will save the file to your local Downloads folder.
 9. Open the file using a .csv file viewer such as Excel.
 10. Filter the results to show only the rows with the **Resource Type** = `Microsoft.AzureData/<data service resource type`.
 11. You will see the number of hours the instance was used in the current 24 hour period in the UsageQuantity column.

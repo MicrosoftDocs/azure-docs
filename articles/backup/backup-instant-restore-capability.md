@@ -56,6 +56,8 @@ The incremental snapshots are stored in the VM's storage account, which is used 
 
 ### Using Azure portal
 
+[!INCLUDE [backup-center.md](../../includes/backup-center.md)]
+
 In the Azure portal, you can see a field added in the **VM Backup Policy** pane under the **Instant Restore** section. You can change the snapshot retention duration from the **VM Backup Policy** pane for all the VMs associated with the specific backup policy.
 
 ![Instant Restore Capability](./media/backup-azure-vms/instant-restore-capability.png)

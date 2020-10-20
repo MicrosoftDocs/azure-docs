@@ -18,7 +18,7 @@ When you connect your machine to Azure Arc enabled servers, it enables the abili
 
 - Assign [Azure Policy guest configurations](../../governance/policy/concepts/guest-configuration.md) using the same experience as policy assignment for Azure virtual machines. Today, most Guest Configuration policies do not apply configurations, they only audit settings inside the machine. To understand the cost of using Azure Policy Guest Configuration policies with Arc enabled servers, see Azure Policy [pricing guide](https://azure.microsoft.com/pricing/details/azure-policy/).
 
-- Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking.md).
+- Report on configuration changes about installed software, Microsoft services, Windows registry and files, and Linux daemons on monitored servers using Azure Automation [Change Tracking and Inventory](../../automation/change-tracking/overview.md).
 
 - Monitor your connected machine guest operating system performance, and discover application components to monitor their processes and dependencies with other resources the application communicates using [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md).
 
