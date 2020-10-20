@@ -8,6 +8,7 @@
   - name: Supported data stores
     href: supported-data-stores.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Share data - Azure portal
     href: share-your-data-portal.md
@@ -15,7 +16,6 @@
     displayName: Resource Manager
     href: share-your-data-arm.md
 - name: Tutorials
-  expanded: true
   items:
     - name: Share data
       href: share-your-data.md
@@ -31,8 +31,6 @@
     href: concepts-pricing.md
 - name: Samples
   items:
-  - name: Code samples
-    href: /samples/browse/?service=data-share
   - name: Azure PowerShell
     href: samples-powershell.md
 - name: How-to guides
