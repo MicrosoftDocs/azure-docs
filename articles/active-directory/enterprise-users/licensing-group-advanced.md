@@ -224,4 +224,3 @@ To learn more about other scenarios for license management through group-based l
 * [Identifying and resolving license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
 * [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
-* [PowerShell examples for group-based licensing in Azure Active Directory](../../../licensing-ps-examples.md)

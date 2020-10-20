@@ -43,7 +43,7 @@ If both permissions are assigned, the /create permission will take precedence. T
 
 Create permissions grant access to the **New registration** command.
 
-[These permissions grant access to the New Registration portal command](./media/roles-create-custom/new-custom-role.png)
+[These permissions grant access to the New Registration portal command](./media/custom-available-permissions/new-custom-role.png)
 
 There are two permissions available for granting the ability to delete app registrations:
 

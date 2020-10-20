@@ -28,7 +28,7 @@ landingContent:
           - text: Users, groups, domains, and licenses 
             url: directory-overview-user-model.md
           - text: Custom roles overview
-            url: roles-custom-overview.md
+            url: ../roles/custom-overview.md?context=azure%2factive-directory%2fenterprise-users%2fcontext%2fugr-context
       - linkListType: concept
         links:
           - text: Azure AD organizational independence
