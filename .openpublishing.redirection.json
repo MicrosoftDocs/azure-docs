@@ -5302,6 +5302,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/general/key-vault-security-controls.md",
+      "redirect_url": "/azure/key-vault/general/security-baseline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/key-vault/key-vault-service-limits.md",
       "redirect_url": "/azure/key-vault/general/service-limits.",
       "redirect_document_id": false
