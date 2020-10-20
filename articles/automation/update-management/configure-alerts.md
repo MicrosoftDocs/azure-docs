@@ -43,7 +43,7 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
 6. For a dimension, select a valid value from the list. If the value you want isn't in the list, select **\+** next to the dimension and type in the custom name. Then select the value to look for. If you want to select all values for a dimension, select the **Select \*** button. If you don't choose a value for a dimension, Update Management ignores that dimension.
 
-    ![Configure signal logic](./media/updates-for-vm/signal-logic.png)
+    ![Configure signal logic](./media/manage-updates-for-vm/signal-logic.png)
 
 7. Under **Alert logic**, enter values in the **Time aggregation** and **Threshold** fields, and then select **Done**.
 
