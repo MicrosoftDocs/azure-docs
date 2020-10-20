@@ -32,7 +32,7 @@ Run the code on either of these environments:
 
 ## Set up a training experiment
 
-In this section, you set up your training experiment by initializing a workspace, defining your environment, and configuring compute target.
+In this section, you set up your training experiment by initializing a workspace, defining your environment, and configuring a compute target.
 
 ### Initialize a workspace
 
