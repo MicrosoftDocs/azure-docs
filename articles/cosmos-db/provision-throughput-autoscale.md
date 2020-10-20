@@ -80,6 +80,6 @@ For more detail, see this [documentation](how-to-choose-offer.md) on how to choo
 * Review the [autoscale FAQ](autoscale-faq.md).
 * Learn how to [choose between manual and autoscale throughput](how-to-choose-offer.md).
 * Learn how to [provision autoscale throughput on an Azure Cosmos database or container](how-to-provision-autoscale-throughput.md).
-* Learn more about [partitioning](partition-data.md) in Azure Cosmos DB.
+* Learn more about [partitioning](partitioning-overview.md) in Azure Cosmos DB.
 
 
