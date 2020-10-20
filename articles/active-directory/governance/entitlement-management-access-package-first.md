@@ -40,7 +40,7 @@ For a step-by-step demonstration of the process of deploying Azure Active Direct
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
-You can also create an access package programmatically using Microsoft Graph. For a tutorial that shows how to create an access package programmatically, see [entitlement management API](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta).
+You can also create an access package programmatically using Microsoft Graph. For a tutorial that shows how to create an access package programmatically, see [entitlement management API](/graph/tutorial-access-package-api?view=graph-rest-beta).
 
 ## Prerequisites
 
