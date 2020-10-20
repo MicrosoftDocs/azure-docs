@@ -107,7 +107,7 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 To learn more about SAS tokens, see: [*Grant limited access to Azure Storage resources using shared access signatures (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-To learn how to set up an endpoint with dead-letter handling, see [*How-to: Manage endpoints and routes in Azure Digital Twins (APIs and CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+To learn how to set up an endpoint with dead-lettering, see [*How-to: Manage endpoints and routes in Azure Digital Twins (APIs and CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### Types of event messages
 

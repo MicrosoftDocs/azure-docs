@@ -98,7 +98,7 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-To learn more about dead-lettering, see [*Concepts: Event Routes*](concepts-route-events.md#dead-letter-events).
+To learn more about dead-lettering, see [*Concepts: Event routes*](concepts-route-events.md#dead-letter-events).
 
 #### Configuring the endpoint
 
