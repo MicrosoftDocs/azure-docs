@@ -268,7 +268,7 @@ You can also use private plan for an existing live offer to limit the access to 
 
 ## Get support
 
-Follow the instruction in [Support for the commercial marketplace program in Partner Center](./support.md) to understand publisher support options and open a support ticket with Microsoft.
+Follow the instruction in [Support for the commercial marketplace program in Partner Center](../support.md) to understand publisher support options and open a support ticket with Microsoft.
 
 ## Next steps
 

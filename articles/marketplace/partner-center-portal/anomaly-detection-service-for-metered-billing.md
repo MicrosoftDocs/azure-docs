@@ -69,7 +69,7 @@ To submit a ticket:
     - **Commercial Marketplace** > **Metered Billing** > **Wrong usage sent for SaaS offer**
 3. Under **Next step**, select the **Review solutions** button to be directed to sign in to Partner Center to submit a support ticket.
 
-For more publisher support options, see [Support for the commercial marketplace program in Partner Center](support.md).
+For more publisher support options, see [Support for the commercial marketplace program in Partner Center](../support.md).
 
 ## Next step
 

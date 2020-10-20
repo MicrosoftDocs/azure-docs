@@ -932,7 +932,7 @@
   - name: Release notes
     href: release-notes.md
   - name: Sample code
-    href: https://aka.ms/servicefabricsamples
+    href: /samples/browse/?products=azure
   - name: Support options
     href: service-fabric-support.md
   - name: Service Fabric versions
