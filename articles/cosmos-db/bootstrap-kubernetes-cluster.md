@@ -176,6 +176,6 @@ The Azure Cosmos account’s name will match your specified DNS prefix appended 
 
 ## Next steps
 
-* Learn how to [work with Azure Cosmos database, containers, and items](databases-containers-items.md)
+* Learn how to [work with Azure Cosmos database, containers, and items](account-databases-containers-items.md)
 * Learn how to [optimize provisioned throughput costs](optimize-cost-throughput.md)
 
