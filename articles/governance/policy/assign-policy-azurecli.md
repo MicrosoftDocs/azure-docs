@@ -22,22 +22,18 @@ Azure environment.
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-- This quickstart requires version 2.0.76 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
-
-- This quickstart requires that you run Azure CLI version 2.0.76 or later to install and use the CLI
-  locally. To find the version, run `az --version`. If you need to install or upgrade, see
-  [Install Azure CLI](/cli/azure/install-azure-cli).
+- This article requires version 2.0.76 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 - Register the Azure Policy Insights resource provider using Azure CLI. Registering the resource
   provider makes sure that your subscription works with it. To register a resource provider, you
   must have permission to the register resource provider operation. This operation is included in
   the Contributor and Owner roles. Run the following command to register the resource provider:
 
-  ```azurecli-interactive
-  az provider register --namespace 'Microsoft.PolicyInsights'
-  ```
+    ```azurecli-interactive
+    az provider register --namespace 'Microsoft.PolicyInsights'
+    ```
 
-  For more information about registering and viewing resource providers, see
+    - For more information about registering and viewing resource providers, see
   [Resource Providers and Types](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 - If you haven't already, install the [ARMClient](https://github.com/projectkudu/ARMClient). It's a
