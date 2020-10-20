@@ -23,6 +23,8 @@ The Key Vault VM extension supports below versions of Windows:
 - Windows Server 2016
 - Windows Server 2012
 
+The Key Vault VM extensio is also supported on custom local VM that is uploaded and converted into a specialized image for use in Azure using Windows Server 2019 core install.
+
 ### Supported certificate content types
 
 - PKCS #12
@@ -55,7 +57,7 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
         "secretsManagementSettings": {
           "pollingIntervalInS": <polling interval in seconds, e.g: "3600">,
           "certificateStoreName": <certificate store name, e.g.: "MY">,
-          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment. You can check in IIS manager to view certificate in the binding window.  e.g.: false>,
+          "linkOnRenewal": <Only Windows. This feature ensures s-channel binding when certificate renews, without necessitating a re-deployment.  e.g.: false>,
           "certificateStoreLocation": <certificate store location, currently it works locally only e.g.: "LocalMachine">,
           "requireInitialSync": <initial synchronization of certificates e..g: true>,
           "observedCertificates": <list of KeyVault URIs representing monitored certificates, e.g.: "https://myvault.vault.azure.net/secrets/mycertificate"
