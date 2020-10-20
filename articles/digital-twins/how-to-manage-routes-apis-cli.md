@@ -98,7 +98,7 @@ Before setting the dead-letter location, you must have a storage account with a 
 
 To learn more about SAS tokens, see: [Grant limited access to Azure Storage resources using shared access signatures (SAS)](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-To learn more about dead-lettering, see [Concepts: Event Routes](./concepts-route-events.md#dead-letter-events)
+To learn more about dead-lettering, see [*Concepts: Event Routes*](concepts-route-events.md#dead-letter-events).
 
 #### Configuring the endpoint
 
@@ -126,7 +126,7 @@ Dead-lettered messages will be stored in the following format in your storage ac
 
 Dead-lettered messages will match the schema of the original event that was intended to be delivered to your original endpoint.
 
-Here is an example of a dead-letter message for a [twin create notification](./how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
+Here is an example of a dead-letter message for a [twin create notification](how-to-interpret-event-data.md#digital-twin-life-cycle-notifications):
 
 ```json
 {
