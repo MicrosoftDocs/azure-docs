@@ -39,10 +39,10 @@ After the chunk arrives at the CDN edge, it's cached and immediately served to t
 
 For more information on the byte-range request, see [RFC 7233](https://tools.ietf.org/html/rfc7233).
 
-The CDN caches any chunks as they're received. The entire file doesn't need to be cached on the CDN cache. Subsequent requests for the file or byte ranges are served from the CDN cache. If not all the chunks are cached on the CDN, prefetch is used to request chunks from the origin. This optimization relies on the ability of the origin server to support byte-range requests; if the origin server doesn't support byte-range requests, this optimization isn't effective. 
+The CDN caches any chunks as they're received. The entire file doesn't need to be cached on the CDN cache. Subsequent requests for the file or byte ranges are served from the CDN cache. If not all the chunks are cached on the CDN, prefetch is used to request chunks from the origin. This optimization relies on the ability of the origin server to support byte-range requests; if the origin server doesn't support byte-range requests, requests to download data greater than 8mb size will fail. 
 
 ### Conditions for large file optimization
-Large file optimization features for **Azure CDN Standard from Microsoft** are turned on by default when you use the general web delivery optimization type. There are no limits on maximum file size.
+There are no limits on maximum file size.
 
 
 ## Optimize for delivery of large files with Azure CDN from Verizon
