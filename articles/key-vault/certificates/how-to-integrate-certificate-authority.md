@@ -49,9 +49,9 @@ After gathering above information from DigiCert CertCentral account, you can now
 1.	To add DigiCert certificate authority, navigate to the key vault you want to add DigiCert. 
 2.	On the Key Vault properties pages, select **Certificates**.
 3.	Select **Certificate Authorities** tab.
-![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+![select certificate authorities](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
 4.	Select **Add** option.
- ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
+ ![add certificate authorities](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.	On the **Create a certificate Authority** screen choose the following values:
     - 	**Name**: Add an identifiable Issuer name. Example DigicertCA
     - 	**Provider**: Select DigiCert from the menu.
@@ -123,7 +123,7 @@ Certificate has now been successfully issued by Digicert CA inside specified Key
 
 If the certificate issued is in 'disabled' status in the Azure portal, proceed to view the **Certificate Operation** to review the DigiCert error message for that certificate.
 
- ![Certificate properties](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
+ ![Certificate operation](../media/certificates/how-to-integrate-certificate-authority/certificate-operation-select.png)
 
 For more information, see the [Certificate operations in the Key Vault REST API reference](/rest/api/keyvault). For information on establishing permissions, see [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) and [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy).
 
