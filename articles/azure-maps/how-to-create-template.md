@@ -11,7 +11,7 @@ ms.service: azure-maps
 
 You can create your Azure Maps account using an Azure Resource Manager (ARM) template. After you have an account, you can implement the APIs in your website or mobile application.
 
-[!INCLUDE [About Azure Resource Manager](../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -62,7 +62,7 @@ The Azure portal is used to deploy the template. In addition to the Azure portal
 
 You can use either the Azure portal to check your Azure Maps account and view your keys, or use the following Azure CLI script to list your account keys.
 
-# [CLI](#tab/CLI)
+# [CLI]
 
 ```azurecli-interactive
 az maps account keys list --name MyMapsAccount --resource-group MyResourceGroup
@@ -72,7 +72,7 @@ az maps account keys list --name MyMapsAccount --resource-group MyResourceGroup
 
 When no longer needed, delete the resource group, which deletes the Azure Maps account. To delete the resource group by using Azure CLI:
 
-# [CLI](#tab/CLI)
+# [CLI]
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup
