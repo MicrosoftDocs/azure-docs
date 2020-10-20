@@ -69,4 +69,4 @@ The following table summarizes port requirements for assessment.
 
 ## Next steps
 
-[Prepare for physical server assessment](tutorial-prepare-physical.md).
+[Prepare for physical server assessment](./tutorial-discover-physical.md).

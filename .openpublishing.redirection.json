@@ -1247,6 +1247,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-use-parallel-run-step.md",
+      "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch-ai/cli-samples.md",
       "redirect_url": "/previous-versions/azure/batch-ai/cli-samples",
       "redirect_document_id": false
@@ -3742,6 +3747,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/account-overview.md",
+      "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-backup-and-restore.md",
+      "redirect_url": "/azure/cosmos-db/online-backup-and-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/databases-containers-items.md",
+      "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/partition-data.md",
+      "redirect_url": "/azure/cosmos-db/partitioning-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/gremlin-compatibility.md",
+      "redirect_url": "/azure/cosmos-db/gremlin-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/provision-throughput-autopilot.md",
       "redirect_url": "/azure/cosmos-db/provision-throughput-autoscale",
       "redirect_document_id": true
@@ -3757,9 +3787,19 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/firewall-support.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
       "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/vnet-service-endpoint.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-vnet-service-endpoint",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
@@ -4002,27 +4042,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cosmos-db/powershell-samples-cassandra.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cosmos-db/powershell-samples-sql.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-table.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
@@ -4147,6 +4167,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/manage-cassandra-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-cassandra",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-mongodb-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-gremlin-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-gremlin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-sql-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/manage-with-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/resource-manager-samples.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-sql",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Research.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision",
       "redirect_document_id": false
@@ -4154,7 +4199,12 @@
     {
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scaling-throughput.md",
+      "redirect_url": "/azure/cosmos-db/request-units",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/create-mongodb-golang.md",
@@ -8890,7 +8940,7 @@
     },
     {
       "source_path": "articles/connectors/connectors-create-api-twitter",
-      "redirect_url": "/connectors/twitterconnector/",
+      "redirect_url": "/connectors/twitter/",
       "redirect_document_id": true
     },
     {
@@ -15219,7 +15269,22 @@
     },
     {
       "source_path": "articles/cosmos-db/multi-master-oss-nosql.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels-across-apis",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-choosing.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-across-apis.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-tradeoffs.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
       "redirect_document_id": false
     },
     {
@@ -16478,6 +16543,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-logs.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#enabling-trigger-specific-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-connection-policy.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#configuring-the-connection-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-configure-change-feed-start-time.md",
+      "redirect_url": "/azure/cosmos-db/change-feed-processor#starting-time",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/documentdb/table-powershell.md",
       "redirect_url": "/azure/cosmos-db/table-introduction",
       "redirect_document_id": false
@@ -16805,6 +16885,11 @@
     {
       "source_path": "articles/documentdb/documentdb-regional-failovers.md",
       "redirect_url": "/azure/cosmos-db/regional-failover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/documentdb/regional-presence.md",
+      "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": false
     },
     {
@@ -24264,8 +24349,13 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-debug-saml-sso-issues.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues.md",
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-enable-sso-android.md",
@@ -25534,8 +25624,8 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-saml-debugging.md",
-      "redirect_url": "/azure/active-directory/develop/howto-v1-debug-saml-sso-issues",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-devhowto-appsource-certified.md",
@@ -58237,6 +58327,11 @@
       "source_path": "articles/azure-monitor/asp-net-more.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
+    },
+    {
+    "source_path": "articles/cosmos-db/optimize-cost-queries.md",
+    "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
+    "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/design-language-culture.md",
