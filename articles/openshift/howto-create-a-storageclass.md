@@ -96,7 +96,7 @@ EOF
 oc create -f azure-storageclass-azure-file.yaml
 ```
 
-# Change the default StorageClass (optional)
+## Change the default StorageClass (optional)
 
 The default StorageClass on ARO is called managed-premium and uses the azure-disk provisioner. Change this by issuing patch commands against the StorageClass manifests.
 
