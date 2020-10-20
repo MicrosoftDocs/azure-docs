@@ -51,7 +51,7 @@ This article contains instructions for using Azure Active Directory (Azure AD) P
     ![Find the organization ID in the properties for the Azure AD organization](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true). However, you must replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the Tenant ID for your Azure AD organization as the resourceId parameter.
+> The following sections are simple examples that can help get you up and running. You can find more detailed documentation regarding the following cmdlets at [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true). However, you must replace "azureResources" in the providerID parameter with "aadRoles". You will also need to remember to use the Tenant ID for your Azure AD organization as the resourceId parameter.
 
 ## Retrieving role definitions
 

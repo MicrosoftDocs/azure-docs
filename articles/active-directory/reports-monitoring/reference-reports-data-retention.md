@@ -30,7 +30,7 @@ In this article, you learn about the data retention policies for the different a
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
 | Azure AD Premium P1 <br /> Azure AD Premium P2 | When you sign up for a subscription |
-| Azure AD Free| The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](https://aka.ms/aadreports)  |
+| Azure AD Free| The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](./overview-reports.md)  |
 
 ---
 

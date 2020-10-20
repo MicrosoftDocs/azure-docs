@@ -54,7 +54,7 @@ First, **set up an Azure Digital Twins instance** and the required authenticatio
 * After setting up your Azure Digital Twins instance, you'll need the instance's **_host name_** ([find in portal](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
 To authenticate the ADT Explorer application, you'll also need to set up an **app registration**. Follow the instructions in [*How-to: Create an app registration*](how-to-create-app-registration.md) to set this up. 
-* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find these in the portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id).
+* Once you have an app registration, you'll need the registration's **_Application (client) ID_** and **_Directory (tenant) ID_** ([find these in the portal](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### Set ADT Explorer permissions
 
