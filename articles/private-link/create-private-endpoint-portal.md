@@ -124,7 +124,7 @@ In this section, you'll create a virtual machine that will be used to test the p
   
 6. Review the settings, and then select **Create**.
 
-## Create an Azure SQL server and private endpoint
+## <a name ="create-a-private-endpoint"></a>Create an Azure SQL server and private endpoint
 
 In this section, you'll create a SQL server in Azure. 
 
@@ -218,7 +218,7 @@ In this section, you'll use the virtual machine you created in the previous step
     A private IP address of **10.1.0.5** is returned for the SQL server name.  This address is in the subnet of the virtual network you created previously.
 
 
-9. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) on **myVM**.
+9. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017&preserve-view=true) on **myVM**.
 
 10. Open **SQL Server Management Studio**.
 
