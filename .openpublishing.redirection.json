@@ -1,5 +1,5 @@
 {
-    "redirections": [
+  "redirections": [
         {
             "source_path": " \"articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-develop-views.md\"",
             "redirect_url": " \"/azure/synapse-analytics/sql-data-warehouse/performance-tuning-materialized-views\"",
