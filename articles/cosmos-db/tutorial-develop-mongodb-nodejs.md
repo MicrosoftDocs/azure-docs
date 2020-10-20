@@ -15,7 +15,7 @@ ms.reviewer: sngun
 
 This multi-part tutorial demonstrates how to create a new app written in Node.js with Express and Angular and then connect it to your [Cosmos account configured with Cosmos DB's API for MongoDB](mongodb-introduction.md).
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. It enables you to quickly create and query document, key/value, and graph databases that benefit from the global distribution and horizontal scale capabilities at the core of Cosmos DB. 
+Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. It allows you to develop modern apps with SLA-backed speed and availability, automatic and instant scalability, and open source APIs for many NoSQL engines.
 
 This multi-part tutorial covers the following tasks:
 
