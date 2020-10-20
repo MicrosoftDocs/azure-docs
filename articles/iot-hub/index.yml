@@ -88,7 +88,7 @@ landingContent:
         - text: Using IoT Tools for VS Code
           url: iot-hub-create-use-iot-toolkit.md
         - text: IoT Explorer
-          url: ../iot-pnp/howto-install-iot-explorer.md
+          url: ../iot-pnp/howto-use-iot-explorer.md
  - title: Using IoT Security certificates
    linkLists:
      - linkListType: concept

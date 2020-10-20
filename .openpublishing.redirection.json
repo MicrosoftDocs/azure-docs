@@ -256,6 +256,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/key-vault/secrets/quick-create-net-v3.md",
+      "redirect_url": "/azure/key-vault/secrets/quick-create-net-v4",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-backup.md",
       "redirect_url": "/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-automated-backup",
       "redirect_document_id": false
@@ -1282,48 +1287,98 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/automation/change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking/overview",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-enable-changes-from-browse.md",
+      "redirect_url": "/azure/automation/change-tracking/enable-from-portal",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-enable-changes-from-vm.md",
+      "redirect_url": "/azure/automation/change-tracking/enable-from-vm",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-enable-changes-from-auto-acct.md",
+      "redirect_url": "/azure/automation/change-tracking/enable-from-automation-account",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-enable-changes-from-runbook.md",
+      "redirect_url": "/azure/automation/change-tracking/enable-from-runbook",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/change-tracking-file-contents.md",
+      "redirect_url": "/azure/automation/change-tracking/manage-change-tracking",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-vm-inventory.md",
+      "redirect_url": "/azure/automation/change-tracking/manage-inventory-vms",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-scope-configurations-change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking/manage-scope-configurations.md",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-unlink-workspace-change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking/remove-feature.md",
+      "redirect_document": false
+    },
+    {
+      "source_path": "articles/automation/automation-remove-vms-from-change-tracking.md",
+      "redirect_url": "/azure/automation/change-tracking/remove-vms-from-change-tracking.md",
+      "redirect_document": false
+    },
+    {
       "source_path": "articles/automation/automation-create-account-template.md",
       "redirect_url": "/azure/automation/quickstart-create-automation-account-template",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-update-management.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-overview",
+      "source_path": "articles/automation/update-management/update-mgmt-overview.md",
+      "redirect_url": "/azure/automation/update-management/overview",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-update-management-deploy-template.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-template",
+      "source_path": "articles/automation/update-management/update-mgmt-enable-template.md",
+      "redirect_url": "/azure/automation/update-management/enable-from-template",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-onboard-solutions-from-browse.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-portal",
+      "source_path": "articles/automation/update-management/update-mgmt-enable-portal.md",
+      "redirect_url": "/azure/automation/update-management/enable-from-portal",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-onboard-solutions-from-vm.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-vm",
+      "source_path": "articles/automation/update-management/update-mgmt-enable-vm.md",
+      "redirect_url": "/azure/automation/update-management/enable-from-vm",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-onboard-solutions-from-automation-account.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-automation-account",
+      "source_path": "articles/automation/update-management/update-mgmt-enable-automation-account.md",
+      "redirect_url": "/azure/automation/update-management/enable-from-automation-account",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-onboard-solutions.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-enable-runbook",
+      "source_path": "articles/automation/update-management/update-mgmt-enable-runbook.md",
+      "redirect_url": "/azure/automation/update-management/enable-from-runbook",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-tutorial-update-management.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-manage-updates-for-vm",
+      "source_path": "articles/automation/update-management/update-mgmt-manage-updates-for-vm.md",
+      "redirect_url": "/azure/automation/update-management/manage-updates-for-vm",
       "redirect_document": false
     },
     {
       "source_path": "articles/automation/manage-update-multi.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-manage-updates-for-vm",
+      "redirect_url": "/azure/automation/update-management/manage-updates-for-vm",
       "redirect_document": false
     },
     {
@@ -1332,43 +1387,43 @@
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/pre-post-scripts.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-pre-post-scripts",
+      "source_path": "articles/automation/update-management/update-mgmt-pre-post-scripts.md",
+      "redirect_url": "/azure/automation/update-management/pre-post-scripts",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/updatemgmt-mecmintegration.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-mecmintegration",
+      "source_path": "articles/automation/update-management/update-mgmt-mecmintegration.md",
+      "redirect_url": "/azure/automation/update-management/mecmintegration",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-configure-windows-update.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-configure-wuagent",
+      "source_path": "articles/automation/update-management/update-mgmt-configure-wuagent.md",
+      "redirect_url": "/azure/automation/update-management/configure-wuagent",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-update-management-groups.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-groups",
+      "source_path": "articles/automation/update-management/update-mgmt-groups.md",
+      "redirect_url": "/azure/automation/update-management/configure-groups",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-update-management-query-logs.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-query-logs",
+      "source_path": "articles/automation/update-management/update-mgmt-query-logs.md",
+      "redirect_url": "/azure/automation/update-management/query-logs",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-scope-configurations-update-management.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-scope-configuration",
+      "source_path": "articles/automation/update-management/update-mgmt-scope-configuration.md",
+      "redirect_url": "/azure/automation/update-management/scope-configuration",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-unlink-workspace-update-management.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-remove-feature",
+      "source_path": "articles/automation/update-management/update-mgmt-remove-feature.md",
+      "redirect_url": "/azure/automation/update-management/remove-feature",
       "redirect_document": false
     },
     {
-      "source_path": "articles/automation/automation-remove-vms-from-update-management.md",
-      "redirect_url": "/azure/automation/update-management/update-mgmt-remove-vms",
+      "source_path": "articles/automation/update-management/update-mgmt-remove-vms.md",
+      "redirect_url": "/azure/automation/update-management/remove-vms",
       "redirect_document": false
     },
     {
@@ -3687,6 +3742,31 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cosmos-db/account-overview.md",
+      "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-backup-and-restore.md",
+      "redirect_url": "/azure/cosmos-db/online-backup-and-restore",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/databases-containers-items.md",
+      "redirect_url": "/azure/cosmos-db/account-databases-containers-items",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/partition-data.md",
+      "redirect_url": "/azure/cosmos-db/partitioning-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/gremlin-compatibility.md",
+      "redirect_url": "/azure/cosmos-db/gremlin-support",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/provision-throughput-autopilot.md",
       "redirect_url": "/azure/cosmos-db/provision-throughput-autoscale",
       "redirect_document_id": true
@@ -3702,9 +3782,19 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/firewall-support.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-firewall",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cosmos-db/use-notebook-features-and-commands.md",
       "redirect_url": "/azure/cosmos-db/use-python-notebook-features-and-commands",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cosmos-db/vnet-service-endpoint.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-vnet-service-endpoint",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/how-to-custom-synchronization.md",
@@ -3947,27 +4037,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cosmos-db/powershell-samples-cassandra.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-gremlin.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-mongodb.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/cosmos-db/powershell-samples-sql.md",
-      "redirect_url": "/azure/cosmos-db/powershell-samples",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cosmos-db/powershell-samples-table.md",
       "redirect_url": "/azure/cosmos-db/powershell-samples",
       "redirect_document_id": false
     },
@@ -4092,6 +4162,31 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/manage-cassandra-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-cassandra",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-mongodb-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-mongodb",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-gremlin-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-gremlin",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/manage-sql-with-resource-manager.md",
+      "redirect_url": "/azure/cosmos-db/manage-with-templates",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/resource-manager-samples.md",
+      "redirect_url": "/azure/cosmos-db/templates-samples-sql",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Computer-vision/Research.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision",
       "redirect_document_id": false
@@ -4099,7 +4194,12 @@
     {
       "source_path": "articles/cosmos-db/regional-failover.md",
       "redirect_url": "/azure/cosmos-db/high-availability",
-      "redirect_document_id": true
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/scaling-throughput.md",
+      "redirect_url": "/azure/cosmos-db/request-units",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/create-mongodb-golang.md",
@@ -4239,6 +4339,16 @@
     {
       "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-wpf.md",
       "redirect_url": "/azure/active-directory/develop/guidedsetups/active-directory-windesktop",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/authorization-agents.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/develop/brokered-auth.md",
+      "redirect_url": "/azure/active-directory/develop/msal-android-single-sign-on",
       "redirect_document_id": false
     },
     {
@@ -15154,7 +15264,22 @@
     },
     {
       "source_path": "articles/cosmos-db/multi-master-oss-nosql.md",
-      "redirect_url": "/azure/cosmos-db/consistency-levels-across-apis",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-choosing.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-across-apis.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/consistency-levels-tradeoffs.md",
+      "redirect_url": "/azure/cosmos-db/consistency-levels",
       "redirect_document_id": false
     },
     {
@@ -16413,6 +16538,21 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-logs.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#enabling-trigger-specific-logs",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-configure-cosmos-db-trigger-connection-policy.md",
+      "redirect_url": "/azure/cosmos-db/how-to-configure-cosmos-db-trigger#configuring-the-connection-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cosmos-db/how-to-configure-change-feed-start-time.md",
+      "redirect_url": "/azure/cosmos-db/change-feed-processor#starting-time",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/documentdb/table-powershell.md",
       "redirect_url": "/azure/cosmos-db/table-introduction",
       "redirect_document_id": false
@@ -16740,6 +16880,11 @@
     {
       "source_path": "articles/documentdb/documentdb-regional-failovers.md",
       "redirect_url": "/azure/cosmos-db/regional-failover",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/documentdb/regional-presence.md",
+      "redirect_url": "/azure/cosmos-db/high-availability",
       "redirect_document_id": false
     },
     {
@@ -22003,6 +22148,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/cloud-partner-portal/azure-vm-common-issues-during-vhd-creation.md",
+      "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/cloud-partner-portal/business-applications-isv-program.md",
       "redirect_url": "/azure/marketplace/business-applications-isv-program",
       "redirect_document_id": false
@@ -22010,6 +22160,11 @@
     {
       "source_path": "articles/marketplace/partner-center-portal/test-drive.md",
       "redirect_url": "/azure/marketplace/what-is-test-drive",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/common-sas-uri-issues.md",
+      "redirect_url": "/azure/marketplace/azure-vm-sas-failure-messages",
       "redirect_document_id": false
     },
     {
@@ -22069,7 +22224,7 @@
     },
     {
       "source_path": "articles/marketplace/support-appsource.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/support",
+      "redirect_url": "/azure/marketplace/support",
       "redirect_document_id": true
     },
     {
@@ -24610,6 +24765,11 @@
     {
       "source_path": "articles/active-directory/authentication/howto-registration-mfa-sspr-converged-troubleshoot.md",
       "redirect_url": "/azure/active-directory/authentication/howto-registration-mfa-sspr-combined-troubleshoot",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/conditional-access/best-practices.md",
+      "redirect_url": "/azure/active-directory/conditional-access/overview",
       "redirect_document_id": true
     },
     {
@@ -31654,7 +31814,7 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-automate-offer-publishing.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": true
     },
     {
@@ -31869,7 +32029,7 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-on-premise.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
@@ -31879,22 +32039,22 @@
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-creation-troubleshooting.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/common-issues-during-vhd-creation",
+      "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-post-publishing.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace-publishing/marketplace-publishing-vm-image-test-in-staging.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-publish-virtual-machine.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
@@ -39735,7 +39895,7 @@
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal.md",
       "redirect_url": "/azure/active-directory/conditional-access/overview",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-conditional-access-azure-portal-get-started.md",
@@ -45354,42 +45514,42 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-skus-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-support-tab.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-vhd.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
@@ -45398,88 +45558,108 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/marketplace/partner-center-portal/support.md",
+      "redirect_url": "/azure/marketplace/support",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-vm.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-winrm-over-https.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-configure-winrm-after-vm-creation.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-user-image.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/create-azure-vm-technical-asset",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/create-azure-vm-technical-asset.md",
+      "redirect_url": "/azure/marketplace/azure-vm-create-technical-assets",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/vm-certification-issues-solutions.md",
+      "redirect_url": "/azure/marketplace/azure-vm-create-certification-faq",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-create-key-vault-cert.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-key-vault-deploy-template.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-user-image.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-deploy-vm-marketplace.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-certify-vm.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-selftest-client.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-image-certification",
+      "redirect_url": "/azure/marketplace/azure-vm-image-test",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/common-sas-uri-issues",
+      "redirect_url": "/azure/marketplace/azure-vm-sas-failure-messages",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/common-sas-uri-issues",
+      "redirect_url": "/azure/marketplace/azure-vm-sas-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/marketplace/partner-center-portal/get-sas-uri.md",
+      "redirect_url": "/azure/marketplace/azure-vm-get-sas-uri",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-publish-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
@@ -54189,6 +54369,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-sql/virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure-sql/virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md",
+      "redirect_url": "/azure/azure-sql/virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/jenkins/container-instances-jenkins.md",
       "redirect_url": "/azure/developer/jenkins/azure-container-instances-as-jenkins-build-agent",
       "redirect_document_id": false
@@ -56640,12 +56830,12 @@
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/azure-vm-create-offer",
+      "redirect_url": "/azure/marketplace/azure-vm-create",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/marketplace/cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md",
-      "redirect_url": "/azure/marketplace/partner-center-portal/support",
+      "redirect_url": "/azure/marketplace/support",
       "redirect_document_id": false
     },
     {
@@ -58119,6 +58309,11 @@
       "redirect_document_id": false
     },
     {
+    "source_path": "articles/cosmos-db/optimize-cost-queries.md",
+    "redirect_url": "/azure/cosmos-db/optimize-cost-reads-writes",
+    "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/design-language-culture.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
@@ -58157,8 +58352,29 @@
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/batch-testing.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/index",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/private-link/create-private-endpoint-webapp-portal.md",
+      "redirect_url": "/azure/private-link/tutorial-private-endpoint-webapp-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/fhir-oss-cli-quickstart.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-paas-cli-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/fhir-oss-portal-quickstart.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-paas-portal-quickstart",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/healthcare-apis/fhir-oss-powershell-quickstart.md",
+      "redirect_url": "/azure/healthcare-apis/fhir-paas-powershell-quickstart",
+      "redirect_document_id": false
     }
-
     
+
+
   ]
 }
