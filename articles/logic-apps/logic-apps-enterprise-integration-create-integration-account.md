@@ -34,6 +34,8 @@ This topic shows you how to perform these tasks:
 
 ## Create integration account
 
+### [Portal](#tab/azure-portal)
+
 For this task, you can use either the Azure portal by following the steps in this section, [Azure PowerShell](/powershell/module/Az.LogicApp/New-AzIntegrationAccount), or [Azure CLI](/cli/azure/resource?view=azure-cli-latest#az-resource-create).
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account credentials.
@@ -68,6 +70,74 @@ For this task, you can use either the Azure portal by following the steps in thi
 
 1. Before your logic app can use your integration account, follow the next steps to link your integration account and logic app together.
 
+### [Azure CLI](#tab/azure-cli)
+
+You can create an integration account by using the Azure CLI commands in this section.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az logic integration-account](/cli/azure/ext/logic/logic/integration-account) extension:
+
+```azurecli
+az extension add –name logic
+```
+
+Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
+
+```azurecli
+az group create --name myresourcegroup --location westus
+```
+
+Use the [az logic integration-account list](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_list) command to see the integration accounts for a resource group:
+
+```azurecli
+az logic integration-account list --resource-group myresourcegroup
+```
+
+Run the [az logic integration-account create](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) command to create an integration account:
+
+```azurecli
+az logic integration-account create --resource-group myresourcegroup --name integration_account_01 --location centralus --sku name=Standard
+```
+
+Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
+
+> [!TIP]
+> To create an integration account inside an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), select that ISE as the location. For more information, see [Create integration accounts in an ISE](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment).
+
+Use the [az logic integration-account show](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_show) command to see a specific integration account.
+
+```azurecli
+az logic integration-account show --name integration_account_01 --resource-group myresourcegroup
+```
+
+You can change your SKU, or pricing tier, by using the [az logic integration-account update](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_update) command:
+
+```azurecli
+az logic integration-account update --sku name=Basic --name integration_account_01 --resource-group myresourcegroup
+```
+
+For more information about pricing, see these resources:
+
+* [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts)
+* [Logic Apps limits and configuration](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)
+* [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
+
+Use the [az logic integration-account import](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_import) command to import an integration account by using a JSON file:
+
+```azurecli
+az logic integration-account import --name integration_account_01 --resource-group myresourcegroup --input-path integration.json
+```
+
+You can delete an integration account by using the [az logic integration-account delete](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_delete) command:
+
+```azurecli
+az logic integration-account delete --name integration_account_01 --resource-group myresourcegroup
+```
+
+Before your logic app can use your integration account, link your integration account and logic app together. The next section describes linking.
+
+---
 <a name="link-account"></a>
 
 ## Link to logic app
