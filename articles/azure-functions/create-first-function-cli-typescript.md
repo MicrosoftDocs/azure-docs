@@ -40,27 +40,27 @@ Before you begin, you must have the following:
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
+1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
 
-```console
-func init LocalFunctionProj --typescript
-```
+    ```console
+    func init LocalFunctionProj --typescript
+    ```
 
-Navigate into the project folder:
+1. Navigate into the project folder:
 
-```console
-cd LocalFunctionProj
-```
+    ```console
+    cd LocalFunctionProj
+    ```
+    
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
-This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
 
-Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP).
-
-```console
-func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-``` 
-
-`func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+    ```console
+    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
+    ``` 
+    
+    `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
 ### (Optional) Examine the file contents
 
@@ -84,38 +84,38 @@ Each binding requires a direction, a type, and a unique name. The HTTP trigger h
 
 ## Run the function locally
 
-Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
+1. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
 
-```console
-npm install
-npm start
-```
+    ```console
+    npm install
+    npm start
+    ```
+    
+    Toward the end of the output, the following lines should appear:
+    
+    <pre>
+    ...
+    
+    Now listening on: http://0.0.0.0:7071
+    Application started. Press Ctrl+C to shut down.
+    
+    Http Functions:
+    
+            HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+    ...
+    
+    </pre>
+    
+    >[!NOTE]  
+    > If HttpExample doesn't appear as shown below, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
 
-Toward the end of the output, the following lines should appear:
+1. Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
 
-<pre>
-...
+    ![Result of the function run locally in the browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
+    
+    The terminal in which you started your project also shows log output as you make requests.
 
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-Http Functions:
-
-        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-...
-
-</pre>
-
->[!NOTE]  
-> If HttpExample doesn't appear as shown below, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
-
-Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
-
-![Result of the function run locally in the browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
-
-The terminal in which you started your project also shows log output as you make requests.
-
-When you're ready, use **Ctrl**+**C** and choose `y` to stop the functions host.
+1. When you're ready, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
 [!INCLUDE [functions-create-azure-resources-cli](../../includes/functions-create-azure-resources-cli.md)]
 
@@ -131,38 +131,38 @@ This command creates a function app running in your specified language runtime u
 
 Before you use Core Tools to deploy your project to Azure, you create a production-ready build of JavaScript files from the TypeScript source files.
 
-The following command prepares your TypeScript project for deployment:
+1. Use the following command to prepare your TypeScript project for deployment:
 
-```console
-npm run build:production 
-```
+    ```console
+    npm run build:production 
+    ```
 
-With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
+1. With the necessary resources in place, you're now ready to deploy your local functions project to the function app in Azure by using the [func azure functionapp publish](functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
 
-```console
-func azure functionapp publish <APP_NAME>
-```
-
-If you see the error, "Can't find app with name ...", wait a few seconds and try again, as Azure may not have fully initialized the app after the previous `az functionapp create` command.
-
-The publish command shows results similar to the following output (truncated for simplicity):
-
-<pre>
-...
-
-Getting site publishing info...
-Creating archive for current directory...
-Performing remote build for functions project.
-
-...
-
-Deployment successful.
-Remote build succeeded!
-Syncing triggers...
-Functions in msdocs-azurefunctions-qs:
-    HttpExample - [httpTrigger]
-        Invoke url: https://msdocs-azurefunctions-qs.azurewebsites.net/api/httpexample?code=KYHrydo4GFe9y0000000qRgRJ8NdLFKpkakGJQfC3izYVidzzDN4gQ==
-</pre>
+    ```console
+    func azure functionapp publish <APP_NAME>
+    ```
+    
+    If you see the error, "Can't find app with name ...", wait a few seconds and try again, as Azure may not have fully initialized the app after the previous `az functionapp create` command.
+    
+    The publish command shows results similar to the following output (truncated for simplicity):
+    
+    <pre>
+    ...
+    
+    Getting site publishing info...
+    Creating archive for current directory...
+    Performing remote build for functions project.
+    
+    ...
+    
+    Deployment successful.
+    Remote build succeeded!
+    Syncing triggers...
+    Functions in msdocs-azurefunctions-qs:
+        HttpExample - [httpTrigger]
+            Invoke url: https://msdocs-azurefunctions-qs.azurewebsites.net/api/httpexample?code=KYHrydo4GFe9y0000000qRgRJ8NdLFKpkakGJQfC3izYVidzzDN4gQ==
+    </pre>
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
@@ -173,6 +173,4 @@ Functions in msdocs-azurefunctions-qs:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue]
-
-[Connect to an Azure Storage queue]: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-typescript
+> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-typescript)

@@ -40,27 +40,27 @@ Before you begin, you must have the following:
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
+1. Run the `func init` command, as follows, to create a functions project in a folder named *LocalFunctionProj* with the specified runtime:  
 
-```console
-func init LocalFunctionProj --powershell
-```
+    ```console
+    func init LocalFunctionProj --powershell
+    ```
 
-Navigate into the project folder:
+1. Navigate into the project folder:
 
-```console
-cd LocalFunctionProj
-```
+    ```console
+    cd LocalFunctionProj
+    ```
+    
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    
+1. Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP). 
 
-This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
-
-Add a function to your project by using the following command, where the `--name` argument is the unique name of your function (HttpExample) and the `--template` argument specifies the function's trigger (HTTP). 
-
-```console
-func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
-```   
-
-`func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
+    ```console
+    func new --name HttpExample --template "HTTP trigger" --authlevel "anonymous"
+    ```   
+    
+    `func new` creates a subfolder matching the function name that contains a code file appropriate to the project's chosen language and a configuration file named *function.json*.
 
 ### (Optional) Examine the file contents
 

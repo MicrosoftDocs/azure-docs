@@ -8,7 +8,9 @@ ms.author: glenga
 
 ## Deploy the function project to Azure
 
-After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../articles/azure-functions/functions-run-local.md#project-file-deployment) command. In the following example, replace `<APP_NAME>` with the name of your app.
+After you've successfully created your function app in Azure, you're now ready to deploy your local functions project by using the [func azure functionapp publish](../articles/azure-functions/functions-run-local.md#project-file-deployment) command.  
+
+In the following example, replace `<APP_NAME>` with the name of your app.
 
 ```console
 func azure functionapp publish <APP_NAME>

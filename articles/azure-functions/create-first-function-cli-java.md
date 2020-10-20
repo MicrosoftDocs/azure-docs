@@ -42,49 +42,49 @@ Before you begin, you must have the following:
 
 In Azure Functions, a function project is a container for one or more individual functions that each responds to a specific trigger. All functions in a project share the same local and hosting configurations. In this section, you create a function project that contains a single function.
 
-In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` if you want to run your functions in Azure on Java 11 instead of Java 8. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
+1. In an empty folder, run the following command to generate the Functions project from a [Maven archetype](https://maven.apache.org/guides/introduction/introduction-to-archetypes.html). Use `-DjavaVersion=11` if you want to run your functions in Azure on Java 11 instead of Java 8. To learn more, see [Java versions](functions-reference-java.md#java-versions). 
 
-# [bash](#tab/bash)
+    # [bash](#tab/bash)
+    
+    ```bash
+    mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
+    ```
+    
+    # [PowerShell](#tab/powershell)
+    
+    ```powershell
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" 
+    ```
+    
+    # [Cmd](#tab/cmd)
+    
+    ```cmd
+    mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8"
+    ```
+    
+    ---
 
-```bash
-mvn archetype:generate -DarchetypeGroupId=com.microsoft.azure -DarchetypeArtifactId=azure-functions-archetype -DjavaVersion=8
-```
+1. Maven asks you for values needed to finish generating the project on deployment.   
+    Provide the following values when prompted:
 
-# [PowerShell](#tab/powershell)
+    | Prompt | Value | Description |
+    | ------ | ----- | ----------- |
+    | **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
+    | **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
+    | **version** | `1.0-SNAPSHOT` | Choose the default value. |
+    | **package** | `com.fabrikam` | A value that is the Java package for the generated function code. Use the default. |
 
-```powershell
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8" 
-```
+1. Type `Y` or press Enter to confirm.
 
-# [Cmd](#tab/cmd)
+    Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
 
-```cmd
-mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArtifactId=azure-functions-archetype" "-DjavaVersion=8"
-```
+1. Navigate into the project folder:
 
----
+    ```console
+    cd fabrikam-functions
+    ```
 
-Maven asks you for values needed to finish generating the project on deployment.   
-Provide the following values when prompted:
-
-| Prompt | Value | Description |
-| ------ | ----- | ----------- |
-| **groupId** | `com.fabrikam` | A value that uniquely identifies your project across all projects, following the [package naming rules](https://docs.oracle.com/javase/specs/jls/se6/html/packages.html#7.7) for Java. |
-| **artifactId** | `fabrikam-functions` | A value that is the name of the jar, without a version number. |
-| **version** | `1.0-SNAPSHOT` | Choose the default value. |
-| **package** | `com.fabrikam` | A value that is the Java package for the generated function code. Use the default. |
-
-Type `Y` or press Enter to confirm.
-
-Maven creates the project files in a new folder with a name of _artifactId_, which in this example is `fabrikam-functions`. 
-
-Navigate into the project folder:
-
-```console
-cd fabrikam-functions
-```
-
-This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
+    This folder contains various files for the project, including configurations files named [local.settings.json](functions-run-local.md#local-settings-file) and [host.json](functions-host-json.md). Because *local.settings.json* can contain secrets downloaded from Azure, the file is excluded from source control by default in the *.gitignore* file.
 
 ### (Optional) Examine the file contents
 
@@ -113,38 +113,38 @@ The archetype also generates a unit test for your function. When you change your
 
 ## Run the function locally
 
-Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
+1. Run your function by starting the local Azure Functions runtime host from the *LocalFunctionProj* folder:
 
-```console
-mvn clean package
-mvn azure-functions:run
-```
+    ```console
+    mvn clean package
+    mvn azure-functions:run
+    ```
+    
+    Toward the end of the output, the following lines should appear:
+    
+    <pre>
+    ...
+    
+    Now listening on: http://0.0.0.0:7071
+    Application started. Press Ctrl+C to shut down.
+    
+    Http Functions:
+    
+            HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
+    ...
+    
+    </pre>
+    
+    > [!NOTE]  
+    > If HttpExample doesn't appear as shown below, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
 
-Toward the end of the output, the following lines should appear:
+1. Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
 
-<pre>
-...
+    ![Result of the function run locally in the browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
+    
+    The terminal in which you started your project also shows log output as you make requests.
 
-Now listening on: http://0.0.0.0:7071
-Application started. Press Ctrl+C to shut down.
-
-Http Functions:
-
-        HttpExample: [GET,POST] http://localhost:7071/api/HttpExample
-...
-
-</pre>
-
-> [!NOTE]  
-> If HttpExample doesn't appear as shown below, you likely started the host from outside the root folder of the project. In that case, use **Ctrl**+**C** to stop the host, navigate to the project's root folder, and run the previous command again.
-
-Copy the URL of your `HttpExample` function from this output to a browser and append the query string `?name=<your-name>`, making the full URL like `http://localhost:7071/api/HttpExample?name=Functions`. The browser should display a message like `Hello Functions`:
-
-![Result of the function run locally in the browser](./media/functions-create-first-azure-function-azure-cli/function-test-local-browser.png)
-
-The terminal in which you started your project also shows log output as you make requests.
-
-When you're ready, use **Ctrl**+**C** and choose `y` to stop the functions host.
+1. When you're done, use **Ctrl**+**C** and choose `y` to stop the functions host.
 
 ## Deploy the function project to Azure
 
@@ -153,26 +153,26 @@ A function app and related resources are created in Azure when you first deploy 
 > [!TIP]
 > To create a function app running on Linux instead of Windows, change the `runtime.os` element in the pom.xml file from `windows` to `linux`. Running Linux in a consumption plan is supported in [these regions](https://github.com/Azure/azure-functions-host/wiki/Linux-Consumption-Regions). You can't have apps that run on Linux and apps that run on Windows in the same resource group.
 
-Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
+1. Before you can deploy, use the [az login](/cli/azure/authenticate-azure-cli) Azure CLI command to sign in to your Azure subscription. 
 
-```azurecli
-az login
-```
+    ```azurecli
+    az login
+    ```
 
-Use the following command to deploy your project to a new function app.
+1. Use the following command to deploy your project to a new function app.
 
-```console
-mvn azure-functions:deploy
-```
-
-This creates the following resources in Azure:
-
-+ Resource group. Named as _java-functions-group_.
-+ Storage account. Required by Functions. The name is generated randomly based on Storage account name requirements.
-+ Hosting plan. Serverless hosting for your function app in the _westus_ region. The name is _java-functions-app-service-plan_.
-+ Function app. A function app is the deployment and execution unit for your functions. The name is randomly generated based on your _artifactId_, appended with a randomly generated number.
-
-The deployment packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). The code runs from the deployment package in Azure.
+    ```console
+    mvn azure-functions:deploy
+    ```
+    
+    This creates the following resources in Azure:
+    
+    + Resource group. Named as _java-functions-group_.
+    + Storage account. Required by Functions. The name is generated randomly based on Storage account name requirements.
+    + Hosting plan. Serverless hosting for your function app in the _westus_ region. The name is _java-functions-app-service-plan_.
+    + Function app. A function app is the deployment and execution unit for your functions. The name is randomly generated based on your _artifactId_, appended with a randomly generated number.
+    
+    The deployment packages the project files and deploys them to the new function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). The code runs from the deployment package in Azure.
 
 [!INCLUDE [functions-run-remote-azure-cli](../../includes/functions-run-remote-azure-cli.md)]
 
@@ -180,7 +180,7 @@ The deployment packages the project files and deploys them to the new function a
 
 ## Clean up resources
 
-If you continue to the next step, [Add an Azure Storage queue output binding][Connect to an Azure Storage queue], keep all your resources in place as you'll build on what you've already done.
+If you continue to the [next step](#next-steps) and add an Azure Storage queue output binding, keep all your resources in place as you'll build on what you've already done.
 
 Otherwise, use the following command to delete the resource group and all its contained resources to avoid incurring further costs.
 
@@ -191,6 +191,4 @@ az group delete --name java-functions-group
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md)
-
-[Connect to an Azure Storage queue]: functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java
+> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-cli.md?pivots=programming-language-java)
