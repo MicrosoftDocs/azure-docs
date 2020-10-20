@@ -51,7 +51,7 @@ Run the following command from an Azure CLI prompt:
 ```azurecli
 az vm get-instance-view --resource-group  "SampleRG" --name "Sample-VM"
 ```
-Locate **"AzureNetworkWatcherExtension"** in the output and identify the version number from the “TypeHandlerVersion” field in the output.  
+Locate **"AzureNetworkWatcherExtension"** in the output and identify the version number from the *“TypeHandlerVersion”* field in the output.  
 Please note: Information about the extension appears multiple times in the JSON output. Please look under the "extensions" block and you should see the full version number of the extension. 
 
 You should see something like the below:
@@ -64,7 +64,7 @@ Run the following commands from a PowerShell prompt:
 ```powershell
 Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 ```
-Locate the Azure Network Watcher extension in the output and identify the version number from the “TypeHandlerVersion” field in the output.   
+Locate the Azure Network Watcher extension in the output and identify the version number from the *“TypeHandlerVersion”* field in the output.   
 
 You should see something like the below:
 ![PowerShell Screenshot](./media/network-watcher/powershell-screenshot.png)
