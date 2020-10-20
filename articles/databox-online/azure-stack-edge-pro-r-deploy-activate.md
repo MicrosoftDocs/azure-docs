@@ -31,7 +31,7 @@ Before you configure and set up your Azure Stack Edge Pro R device, make sure th
     
     - You've installed the physical device as detailed in [Install Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-install.md).
     - You've configured the network and compute network settings as detailed in [Configure network, compute network, web proxy](azure-stack-edge-pro-r-deploy-configure-network-compute-web-proxy.md)
-    - You have uploaded your own or generated the device certificates on your device if you changed the device name or the DNS domain via the **Device** page. If you haven't done this step, you will see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates](azure-stack-edge-pro-r-deploy-placeholders.md).
+    - You have uploaded your own or generated the device certificates on your device if you changed the device name or the DNS domain via the **Device** page. If you haven't done this step, you will see an error during the device activation and the activation will be blocked. For more information, go to [Configure certificates](azure-stack-edge-placeholder.md).
     
 * You have the activation key from the Azure Stack Edge service that you created to manage the Azure Stack Edge Pro R device. For more information, go to [Prepare to deploy Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md).
 
