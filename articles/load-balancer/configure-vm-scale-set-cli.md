@@ -20,7 +20,7 @@ In this article, you'll learn how to configure a virtual machine scale set with 
 
  - You need an Azure Virtual Network for the virtual machine scale set.
 
- - This article requires version 2.0.28 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
+ - This article requires version 2.0.28 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 ## Sign in to Azure CLI
 
