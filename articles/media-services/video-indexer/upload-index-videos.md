@@ -74,7 +74,7 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
     Once your video has been uploaded, Video Indexer starts indexing and analyzing the video.
 
-    ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
+    ![Uploaded](./media/video-indexer-get-started/uploaded.png) 
 
     Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
 
