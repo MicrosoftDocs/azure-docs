@@ -149,7 +149,7 @@ To create a data controller on Azure Red Hat OpenShift, you will need to execute
 > [!NOTE]
 >   Use the same namespace here and in the `azdata arc dc create` command below. Example is `arc`.
 
-First, download the custom security context constraint (SCC) from [GitHub](https://raw.githubusercontent.com/microsoft/azure_arc/master/data_services/deployment/yaml/arc-data-scc.yaml) and apply it to your cluster.
+First, download the custom security context constraint (SCC) from [GitHub](https://github.com/microsoft/azure_arc/tree/master/arc_data_services/deploy/yaml) and apply it to your cluster.
 
 You can run the following command to create the data controller:
 > [!NOTE]

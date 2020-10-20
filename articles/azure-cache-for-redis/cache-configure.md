@@ -68,7 +68,7 @@ Click **Activity log** to view actions performed on your cache. You can also use
 
 ### Access control (IAM)
 
-The **Access control (IAM)** section provides support for role-based access control (RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md).
+The **Access control (IAM)** section provides support for Azure role-based access control (Azure RBAC) in the Azure portal. This configuration helps organizations meet their access management requirements simply and precisely. For more information, see [Azure role-based access control in the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
 ### Tags
 
@@ -165,11 +165,11 @@ For more information, see [Redis Keyspace Notifications](https://redis.io/topics
 ## Azure Cache for Redis Advisor
 The **Azure Cache for Redis Advisor** blade displays recommendations for your cache. During normal operations, no recommendations are displayed.
 
-![Recommendations](./media/cache-configure/redis-cache-no-recommendations.png)
+![Screenshot that shows where the recommendations are displayed.](./media/cache-configure/redis-cache-no-recommendations.png)
 
 If any conditions occur during the operations of your cache such as high memory usage, network bandwidth, or server load, an alert is displayed on the **Azure Cache for Redis** blade.
 
-![Recommendations](./media/cache-configure/redis-cache-recommendations-alert.png)
+![Screenshot that shows where alerts are displayed in the Azure Cache for Redis section.](./media/cache-configure/redis-cache-recommendations-alert.png)
 
 Further information can be found on the **Recommendations** blade.
 
@@ -210,7 +210,7 @@ To change the cluster size, use the slider or type a number between 1 and 10 in 
 
 
 ### Redis data persistence
-Click **Data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Cache for Redis offers Redis persistence using either [RDB persistence](cache-how-to-premium-persistence.md#configure-rdb-persistence) or [AOF persistence](cache-how-to-premium-persistence.md#configure-aof-persistence).
+Click **Data persistence** to enable, disable, or configure data persistence for your premium cache. Azure Cache for Redis offers Redis persistence using either RDB persistence or AOF persistence.
 
 For more information, see [How to configure persistence for a Premium Azure Cache for Redis](cache-how-to-premium-persistence.md).
 
@@ -310,7 +310,7 @@ The **Reboot** blade allows you to reboot the nodes of your cache. This reboot c
 
 If you have a premium cache with clustering enabled, you can select which shards of the cache to reboot.
 
-![Reboot](./media/cache-configure/redis-cache-reboot-cluster.png)
+![Screenshot that shows where to select which shards of the cache to reboot.](./media/cache-configure/redis-cache-reboot-cluster.png)
 
 To reboot one or more nodes of your cache, select the desired nodes and click **Reboot**. If you have a premium cache with clustering enabled, select the shard(s) to reboot and then click **Reboot**. After a few minutes, the selected node(s) reboot, and are back online a few minutes later.
 
@@ -470,11 +470,11 @@ You can securely issue commands to your Azure Cache for Redis instances using th
 
 To access the Redis Console, click **Console** from the **Azure Cache for Redis** blade.
 
-![Redis console](./media/cache-configure/redis-console-menu.png)
+![Screenshot that highlights the Console button.](./media/cache-configure/redis-console-menu.png)
 
 To issue commands against your cache instance, type the desired command into the console.
 
-![Redis console](./media/cache-configure/redis-console.png)
+![Screenshot thas shows the Redis Console with the input command and results.](./media/cache-configure/redis-console.png)
 
 
 ### Using the Redis Console with a premium clustered cache

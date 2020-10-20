@@ -23,7 +23,7 @@ The two tabs below show the features of Azure Security Center that are available
 
 ### [**Windows machines**](#tab/features-windows)
 
-|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Azure Defender required**
+|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
 |[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
@@ -37,9 +37,9 @@ The two tabs below show the features of Azure Security Center that are available
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Yes|
-|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
-|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
 |Third-party vulnerability assessment|✔|-|-|No|
 |[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
@@ -47,7 +47,7 @@ The two tabs below show the features of Azure Security Center that are available
 
 ### [**Linux machines**](#tab/features-linux)
 
-|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Azure Defender required**
+|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
 |----|:----:|:----:|:----:|:----:|
 |[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Yes|
 |[Virtual machine behavioral analytics (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
@@ -61,8 +61,8 @@ The two tabs below show the features of Azure Security Center that are available
 |[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
 |[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
 |Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Yes|
-|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
-|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Non-Azure: Yes|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
 |[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
 |Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
 |Third-party vulnerability assessment|✔|-|-|No|
@@ -102,6 +102,6 @@ For information about when recommendations are generated for each of these prote
 
 ## Next steps
 
-- Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md).
+- Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
 - Review the [platforms that support security center](security-center-os-coverage.md).

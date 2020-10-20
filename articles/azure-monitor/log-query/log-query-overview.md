@@ -30,6 +30,7 @@ The best way to get started learning to write log queries using KQL is leveragin
 - [Query samples](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) - Sample queries illustrating a variety of different concepts.
 
 
+
 ## Reference documentation
 [Documentation for KQL](/azure/data-explorer/kusto/query/) including the reference for all commands and operators is available in the Azure Data Explorer documentation. Even as you get proficient using KQL, you'll still regularly use the reference to investigate new commands and scenarios that you haven't used before.
 
@@ -73,6 +74,6 @@ The following operators support specific Azure Monitor features and are not avai
 * [workspace()](workspace-expression.md)
 
 ## Next steps
-
-- Get references to different [resources for writing Azure Monitor log queries](query-language.md).
+- Walk through a [tutorial on writing queries](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor).
 - Access the complete [reference documentation for Kusto query language](/azure/kusto/query/).
+

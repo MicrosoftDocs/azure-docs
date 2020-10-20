@@ -35,13 +35,13 @@ Typically, networks are protected using firewalls and network security groups (N
 >[!IMPORTANT]
 > Using an authenticated proxy to control network connectivity isn't supported by Site Recovery, and replication can't be enabled.
 
+>[!NOTE]
+>- IP address based filtering should not be performed to control outbound connectivity.
+>- Azure Site Recovery IP addresses should not be added in Azure Routing table to control outbound connectivity.
 
 ## Outbound connectivity for URLs
 
 If you are using a URL-based firewall proxy to control outbound connectivity, allow these Site Recovery URLs:
-
->[!NOTE]
-> IP address based filtering should not be performed to control outbound connectivity.
 
 **URL** | **Details**
 --- | ---
@@ -54,7 +54,7 @@ login.microsoftonline.com | Required for authorization and authentication to the
 
 ## Outbound connectivity using Service Tags
 
-If you are using an NSG to control outbound connectivity, these service tags need to be allowed.
+While using NSG to control outbound connectivity, these service tags need to be allowed.
 
 - For the storage accounts in source region:
     - Create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.

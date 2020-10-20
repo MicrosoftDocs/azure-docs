@@ -11,12 +11,11 @@
 
 # Confidential computing nodes on Azure Kubernetes Service (public preview)
 
-[Azure confidential computing](overview.md) allows you to protect your sensitive data while it's in use. The underlying infrastructures protect this data from other applications, administrators, and cloud providers. 
+[Azure confidential computing](overview.md) allows you to protect your sensitive data while it's in use. The underlying infrastructures protect this data from other applications, administrators, and cloud providers with a hardware backed trusted execution container environments.
 
 ## Overview
 
-Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nodes](confidential-computing-enclaves.md) on Intel SGX. These nodes run sensitive workloads within a hardware-based trusted execution environment (TEE) by allowing user-level code to allocate private regions of memory. These private memory regions are called enclaves. Enclaves are designed protect code and data from processes running at higher privilege. The SGX execution model removes the intermediate layers of Guest OS and Hypervisor. This allows you to execute container applications directly on top of the CPU, while keeping the special block of memory encrypted. 
-
+Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nodes](confidential-computing-enclaves.md) powered by Intel SGX. These nodes run can run sensitive workloads within a hardware-based trusted execution environment (TEE) by allowing user-level code to allocate private regions of memory. These private memory regions are called enclaves. Enclaves are designed protect code and data from processes running at higher privilege. The SGX execution model removes the intermediate layers of Guest OS, Host OS and Hypervisor. The *hardware based per container isolated execution* model allows applications to directly execute with the CPU, while keeping the special block of memory encrypted. Confidential computing nodes help with the overall security posture of container applications on AKS and a great addition to defense-in-depth container strategy. 
 
 ![sgx node overview](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
@@ -31,11 +30,11 @@ Azure Kubernetes Service (AKS) supports adding [DCsv2 confidential computing nod
 - Out of proc attestation helper through AKS daemonset
 - Linux Containers support through Ubuntu 18.04 Gen 2 VM worker nodes
 
-## AKS Provided Daemon Sets
+## AKS Provided Daemon Sets (addon)
 
 #### SGX Device Plugin <a id="sgx-plugin"></a>
 
-The SGX Device Plugin implements the Kubernetes device plugin interface for EPC memory. Effectively, this plugin makes EPC memory an additional resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign SGX device driver permissions to confidential workload containers. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/azure-samples/confidential-computing/blob/main/containersamples/helloworld/helloworld.yaml)
+The SGX Device Plugin implements the Kubernetes device plugin interface for EPC memory. Effectively, this plugin makes EPC memory an additional resource type in Kubernetes. Users can specify limits on this resource just as other resources. Apart from the scheduling function, the device plugin helps assign SGX device driver permissions to confidential workload containers. A sample implementation of the EPC memory-based deployment (`kubernetes.azure.com/sgx_epc_mem_in_MiB`) sample is [here](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/helloworld/helm/templates/helloworld.yaml)
 
 #### SGX Quote Helper Service <a id="sgx-quote"></a>
 

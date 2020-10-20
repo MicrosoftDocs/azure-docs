@@ -1,6 +1,8 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, Go - QnA Maker"
 description: This Go REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27

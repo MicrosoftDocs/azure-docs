@@ -63,7 +63,7 @@ All users and operators benefit when using a secure workstation. An attacker who
 * Highly sensitive workstation, such as a SWIFT payment terminal
 * Workstation handling trade secrets
 
-To reduce risk, you should implement elevated security controls for privileged workstations that make use of these accounts. For more information, see the [Azure Active Directory feature deployment guide](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 roadmap](https://aka.ms/o365secroadmap), and [Securing Privileged Access roadmap](https://aka.ms/sparoadmap)).
+To reduce risk, you should implement elevated security controls for privileged workstations that make use of these accounts. For more information, see the [Azure Active Directory feature deployment guide](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 roadmap](/microsoft-365/security/office-365-security/security-roadmap), and [Securing Privileged Access roadmap](/windows-server/identity/securing-privileged-access/securing-privileged-access)).
 
 ## Why use dedicated workstations?
 

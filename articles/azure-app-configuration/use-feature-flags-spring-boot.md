@@ -183,5 +183,5 @@ public String getOldFeature() {
 
 In this tutorial, you learned how to implement feature flags in your Spring Boot application by using the `spring-cloud-azure-feature-management-web` libraries. For more information about feature management support in Spring Boot and App Configuration, see the following resources:
 
-* [Spring Boot feature flag sample code](/azure/azure-app-configuration/quickstart-feature-flag-spring-boot)
+* [Spring Boot feature flag sample code](./quickstart-feature-flag-spring-boot.md)
 * [Manage feature flags](./manage-feature-flags.md)

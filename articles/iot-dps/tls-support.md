@@ -68,14 +68,14 @@ The DPS resource created using this configuration will refuse devices that attem
 DPS instances that are configured to accept only TLS 1.2 will also enforce the use of the following cipher suites:
 
 
-| TLS 1.2 cipher suites |
+| Recommended TLS 1.2 cipher suites |
 | :--- |
 | `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`<br>`TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`<br>`TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256` |
 
 
 ### Legacy cipher suites 
 
-These cipher suites are currently still supported by DPS but will be depreciated. Please use the recommended cipher suites above if possible.
+These cipher suites are currently still supported by DPS but will be depreciated. Use the recommended cipher suites above if possible.
 
 | Option #1 (better security) |
 | :--- |

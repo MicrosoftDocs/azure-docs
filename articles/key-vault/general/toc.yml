@@ -111,6 +111,8 @@
     items:
     - name: Azure Key Vault Developer's Guide
       href: developers-guide.md
+    - name: Use Azure Resource Manager to deploy Key Vault
+      href: vault-create-template.md
     - name: Save Web App secrets
       href: vs-secure-secret-appsettings.md
     - name: Service-to-service authentication with .NET
@@ -166,6 +168,8 @@
     href: client-libraries.md
   - name: REST API error codes - Azure Key Vault
     href: rest-error-codes.md
+  - name: Common error codes - Azure Key Vault
+    href: common-error-codes.md
   - name: Common parameters and headers 
     href: common-parameters-and-headers.md
   - name: Key vault versions 

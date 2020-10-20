@@ -23,7 +23,7 @@ ms.custom: devx-track-dotnet
 
 Get started with the Azure Cosmos DB SQL API client library for .NET. Follow the steps in this doc to install the .NET package, build an app, and try out the example code for basic CRUD operations on the data stored in Azure Cosmos DB. 
 
-Azure Cosmos DB is Microsoft’s globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value, document, and graph databases. Use the Azure Cosmos DB SQL API client library for .NET to:
+Azure Cosmos DB is Microsoft’s fast NoSQL database with open APIs for any scale. You can use Azure Cosmos DB to quickly create and query key/value, document, and graph databases. Use the Azure Cosmos DB SQL API client library for .NET to:
 
 * Create an Azure Cosmos database and a container
 * Add sample data to the container
@@ -159,7 +159,7 @@ Before you start building the application, let's look into the hierarchy of reso
 * Containers 
 * Items
 
-To learn in more about the hierarchy of different entities, see the [working with databases, containers, and items in Azure Cosmos DB](databases-containers-items.md) article. You will use the following .NET classes to interact with these resources:
+To learn in more about the hierarchy of different entities, see the [working with databases, containers, and items in Azure Cosmos DB](account-databases-containers-items.md) article. You will use the following .NET classes to interact with these resources:
 
 * [CosmosClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.cosmosclient?view=azure-dotnet&preserve-view=true) - This class provides a client-side logical representation for the Azure Cosmos DB service. The client object is used to configure and execute requests against the service.
 

@@ -14,7 +14,7 @@ This article explains how you, as a service provider, can onboard a customer to 
 
 You can repeat the onboarding process for multiple customers. When a user with the appropriate permissions signs in to your managing tenant, that user can be authorized across customer tenancy scopes to perform management operations, without having to sign in to every individual customer tenant.
 
-To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources.
+To track your impact across customer engagements and receive recognition, associate your Microsoft Partner Network (MPN) ID with at least one user account that has access to each of your onboarded subscriptions. You'll need to perform this association in your service provider tenant. We recommend creating a service principal account in your tenant that is associated with your MPN ID, then including that service principal every time you onboard a customer. For more info, see [Link your partner ID to enable partner earned credit on delegated resources](partner-earned-credit.md).
 
 > [!NOTE]
 > Customers can also be onboarded to Azure Lighthouse when they purchase a Managed Service offer (public or private) that you [publish to Azure Marketplace](publish-managed-services-offers.md). You can also use the onboarding process described here alongside offers published to Azure Marketplace.
@@ -237,18 +237,18 @@ New-AzSubscriptionDeployment -Name <deploymentName> `
 # Log in first with az login if you're not using Cloud Shell
 
 # Deploy Azure Resource Manager template using template and parameter file locally
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-file <pathToTemplateFile> \
-                     --parameters <parameters/parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-file <pathToTemplateFile> \
+                         --parameters <parameters/parameterFile> \
+                         --verbose
 
 # Deploy external Azure Resource Manager template, with local parameter file
-az deployment create --name <deploymentName> \
-                     --location <AzureRegion> \
-                     --template-uri <templateUri> \
-                     --parameters <parameterFile> \
-                     --verbose
+az deployment sub create --name <deploymentName> \
+                         --location <AzureRegion> \
+                         --template-uri <templateUri> \
+                         --parameters <parameterFile> \
+                         --verbose
 ```
 
 ## Confirm successful onboarding

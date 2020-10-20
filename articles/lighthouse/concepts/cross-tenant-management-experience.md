@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 09/30/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
 ---
 
@@ -30,10 +30,12 @@ You can perform management tasks on delegated resources either directly in the p
 
 The Azure PowerShell [Get-AzSubscription cmdlet](/powershell/module/Az.Accounts/Get-AzSubscription) shows the `HomeTenantId` and `ManagedByTenantIds` attributes for each subscription, allowing you to identify whether a returned subscription belongs to a managed tenant or to your managing tenant.
 
-Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-account-list) show the `homeTenantId` and `managedByTenants` attributes.
+Similarly, Azure CLI commands such as [az account list](/cli/azure/account#az-account-list) show the `homeTenantId` and `managedByTenants` attributes. If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
 
-> [!TIP]
-> If you don't see these values when using Azure CLI, try clearing your cache by running `az account clear` followed by `az login --identity`.
+In the Azure REST API, the [Subscriptions - Get](/rest/api/resources/subscriptions/get) and [Subscriptions - List](/rest/api/resources/subscriptions/list) commands include `ManagedByTenant`.
+
+> [!NOTE]
+> In addition to tenant information related to Azure Lighthouse, tenants shown by these APIs may also reflect partner tenants for Azure Databricks or Azure managed applications.
 
 We also provide APIs that are specific to performing Azure Lighthouse tasks. For more info, see the **Reference** section.
 
@@ -62,6 +64,10 @@ Most tasks and services can be performed on delegated resources across managed t
 - Back up and restore customer data [from on-premises workloads, Azure VMs, Azure file shares, and more](../..//backup/backup-overview.md#what-can-i-back-up)
 - Use the [Backup Explorer](../../backup/monitor-azure-backup-with-backup-explorer.md) to help view operational information of backup items (including Azure resources not yet configured for backup) and monitoring information (jobs and alerts) for delegated subscriptions. The Backup Explorer is currently available only for Azure VM data.
 - Use [Backup Reports](../../backup/configure-reports.md) across delegated subscriptions to track historical trends, analyze backup storage consumption, and audit backups and restores.
+
+[Azure Blueprints](../../governance/blueprints/index.yml):
+
+- Use Azure Blueprints to orchestrate the deployment of resource templates and other artifacts (requires [additional access](https://www.wesleyhaakman.org/preparing-azure-lighthouse-customer-subscriptions-for-azure-blueprints/) to prepare the customer subscription)
 
 [Azure Cost Management + Billing](../../cost-management-billing/index.yml):
 

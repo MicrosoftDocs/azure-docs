@@ -70,7 +70,7 @@ For details about each line item within the bulk operation, select the values un
 
 ## Bulk import service limits
 
-Each bulk activity to import a list of group members can run for up to one hour. This enables importation of a list of at least 40,000 members.
+Each bulk activity to import a list of group members can run for up to one hour. This enables importation of a list of at most 40,000 members.
 
 ## Next steps
 

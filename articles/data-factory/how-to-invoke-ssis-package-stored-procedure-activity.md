@@ -89,7 +89,7 @@ In this step, you use the Data Factory UI to create a pipeline. You add a stored
     7. Test the connection to the database by clicking **Test connection** button.
     8. Save the linked service by clicking the **Save** button. 
 
-        ![Azure SQL Database linked service](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
+        ![Screenshot that shows the process for adding a new linked service.](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. In the properties window, switch to the **Stored Procedure** tab from the **SQL Account** tab, and do the following steps: 
 
     1. Select **Edit**. 
