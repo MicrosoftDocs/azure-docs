@@ -87,7 +87,7 @@ This quickstart uses MSAL Node with the authorization code flow.
 >const config = {
 >    auth: {
 >        clientId: "Enter_the_Application_Id_Here",
->        authority: "Enter_the_Cloud_Instance_Id_Here Enter_the_Tenant_Info_Here",
+>        authority: "Enter_the_Cloud_Instance_Id_HereEnter_the_Tenant_Info_Here",
 >        clientSecret: ""
 >    },
 >    system: {
