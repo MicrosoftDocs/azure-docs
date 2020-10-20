@@ -4,7 +4,7 @@ description: Learn how to configure logging and connection policy used by Azure 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 10/19/2020
 ms.author: maquaran
 ---
 
@@ -20,7 +20,7 @@ The health logs describe how the Azure Functions trigger for Cosmos DB behaves w
 
 ### Enabling logging
 
-To enable logging when using Azure Functions trigger for Cosmos DB, locate the `host.json` file in your Azure Functions project or Azure Functions App and [configure the level of required logging](../azure-functions/functions-monitoring.md#log-configuration-in-hostjson). Enable the traces for  `Host.Triggers.CosmosDB` as shown in the following sample:
+To enable logging when using Azure Functions trigger for Cosmos DB, locate the `host.json` file in your Azure Functions project or Azure Functions App and [configure the level of required logging](../azure-functions/functions-monitoring.md#log-levels-and-categories). Enable the traces for  `Host.Triggers.CosmosDB` as shown in the following sample:
 
 ```js
 {

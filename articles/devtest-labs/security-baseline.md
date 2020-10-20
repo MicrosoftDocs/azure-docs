@@ -489,7 +489,7 @@ In addition to using Change Tracking for monitoring of software applications, ad
 **Guidance:** Azure Automation provides complete control during deployment, operations, and decommissioning of workloads and resources. As a subscription admin, you may use Change Tracking to identify all software installed on VMs hosted in DevTest Labs. You can implement your own process or use Azure Automation State Configuration for removing unauthorized software.
 
 - [An introduction to Azure Automation](../automation/automation-intro.md)
-- [Track changes in your environment with the Change Tracking solution](../automation/change-tracking.md)
+- [Track changes in your environment with the Change Tracking solution](../automation/change-tracking/overview.md)
 - [Azure Automation state configuration overview](../automation/automation-dsc-overview.md)
 
 **Azure Security Center monitoring:** Not Available
