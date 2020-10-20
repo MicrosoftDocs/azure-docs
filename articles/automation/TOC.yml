@@ -243,49 +243,49 @@
     - name: Update Management
       items:
         - name: Overview
-          href: update-management/update-mgmt-overview.md
+          href: update-management/overview.md
         - name: Supported regions for linked Log Analytics workspace
           href: how-to/region-mappings.md
         - name: Enable
           items:
             - name: Enable using Azure Resource Manager template
-              href: update-management/update-mgmt-enable-template.md
+              href: update-management/enable-from-template.md
             - name: Enable from the Azure portal
-              href: update-management/update-mgmt-enable-portal.md
+              href: update-management/enable-from-portal.md
             - name: Enable from an Azure VM
-              href: update-management/update-mgmt-enable-vm.md
+              href: update-management/enable-from-vm.md
             - name: Enable from an Automation account
-              href: update-management/update-mgmt-enable-automation-account.md
+              href: update-management/enable-from-automation-account.md
             - name: Enable from a runbook
-              href: update-management/update-mgmt-enable-runbook.md
+              href: update-management/enable-from-runbook.md
         - name: Manage updates for your VMs
           items:
             - name: Get started
-              href: update-management/update-mgmt-manage-updates-for-vm.md
+              href: update-management/manage-updates-for-vm.md
             - name: Assess compliance
-              href: update-management/update-mgmt-view-update-assessments.md
+              href: update-management/view-update-assessments.md
             - name: Deploy updates and review status
-              href: update-management/update-mgmt-deploy-updates.md
+              href: update-management/deploy-updates.md
             - name: Use pre-scripts and post-scripts
-              href: update-management/update-mgmt-pre-post-scripts.md
+              href: update-management/pre-post-scripts.md
             - name: Configure alerts
-              href: update-management/update-mgmt-configure-alerts.md
+              href: update-management/configure-alerts.md
         - name: Integrate with Configuration Manager
-          href: update-management/update-mgmt-mecmintegration.md
+          href: update-management/mecmintegration.md
         - name: Configure Windows Update client
-          href: update-management/update-mgmt-configure-wuagent.md
+          href: update-management/configure-wuagent.md
         - name: Use dynamic groups
-          href: update-management/update-mgmt-groups.md
+          href: update-management/configure-groups.md
         - name: Query Update Management logs
-          href: update-management/update-mgmt-query-logs.md
+          href: update-management/query-logs.md
         - name: Work with scope configurations
-          href: update-management/update-mgmt-scope-configuration.md
+          href: update-management/scope-configuration.md
         - name: Disable
           items: 
             - name: Remove Update Management
-              href: update-management/update-mgmt-remove-feature.md
+              href: update-management/remove-feature.md
             - name: Remove VMs from Update Management
-              href: update-management/update-mgmt-remove-vms.md
+              href: update-management/remove-vms.md
         - name: Troubleshoot
           items:
             - name: Troubleshoot feature deployment issues
