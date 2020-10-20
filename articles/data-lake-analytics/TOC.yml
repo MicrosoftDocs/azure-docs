@@ -152,7 +152,7 @@
   - name: Node.js
     href: https://www.npmjs.com/package/azure-arm-datalake-analytics
   - name: Python
-    href: /python/api/overview/azure/data-lake-analytics?view=azure-python
+    href: /python/api/overview/azure/data-lake-analytics
   - name: REST
     href: /rest/api/datalakeanalytics/
   - name: Resource Manager template

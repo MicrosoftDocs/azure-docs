@@ -1,10 +1,8 @@
 ---
 title: Manage Azure Data Lake Analytics Account Policies
 description: Learn how to use account policies to control usage of a Data Lake Analytics account, such as maximum AUs and maximum jobs.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 ms.reviewer: jasonh
-ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: how-to
 ms.date: 04/30/2018
 ---

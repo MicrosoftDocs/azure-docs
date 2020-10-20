@@ -6,8 +6,7 @@ summary: Azure Data Lake Analytics allows you to run big data analysis jobs that
 metadata:
   title: Azure Data Lake Analytics # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Data Lake Analytics allows you to run big data analysis jobs that scale to massive data sets. # Required; article description that is displayed in search results. < 160 chars.
-  services: data-lake-analytics
-  ms.service: data-lake-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
+    ms.service: data-lake-analytics #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.topic: landing-page # Required
   ms.collection: collection
   author: hrasheed-msft #Required; your GitHub user alias, with correct capitalization.

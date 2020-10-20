@@ -1,14 +1,11 @@
 ---
 title: How to set up a CI/CD pipeline for Azure Data Lake Analytics
 description: Learn how to set up continuous integration and continuous deployment for Azure Data Lake Analytics.
-services: data-lake-analytics
 author: liudan66
 ms.author: liud
 ms.reviewer: jasonh
-ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
 ms.topic: how-to
-ms.workload: big-data
 ms.date: 09/14/2018
 ---
 # How to set up a CI/CD pipeline for Azure Data Lake Analytics  
@@ -86,11 +83,11 @@ In addition to the command line, you can also use the Visual Studio Build or an 
 
 ![MSBuild task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
-1.	Add a NuGet restore task to get the solution-referenced NuGet package that includes `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
+1.    Add a NuGet restore task to get the solution-referenced NuGet package that includes `Azure.DataLake.USQL.SDK`, so that MSBuild can find the U-SQL language targets. Set **Advanced** > **Destination directory** to `$(Build.SourcesDirectory)/packages` if you want to use the MSBuild arguments sample directly in step 2.
 
     ![NuGet restore task for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.	Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the Azure Pipelines build pipeline.
+2.    Set MSBuild arguments in Visual Studio build tools or in an MSBuild task as shown in the following example. Or you can define variables for these arguments in the Azure Pipelines build pipeline.
 
     ![Define CI/CD MSBuild variables for a U-SQL project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
@@ -117,7 +114,7 @@ After you verify code through the build and test process, you can submit U-SQL j
 
 ### Submit U-SQL jobs through Azure Pipelines
 
-The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Pipelines with the following sample PowerShell script to submit U-SQL jobs directly from Azure Pipelines.
+The build output of the U-SQL project is a zip file called **USQLProjectName.usqlpack**. The zip file includes all U-SQL scripts in the project. You can use the [Azure PowerShell task](/azure/devops/pipelines/tasks/deploy/azure-powershell) in Pipelines with the following sample PowerShell script to submit U-SQL jobs directly from Azure Pipelines.
 
 ```powershell
 <#
@@ -177,7 +174,7 @@ Function SubmitAnalyticsJob()
 
         $jobToSubmit = Submit-AzDataLakeAnalyticsJob -Account $ADLAAccountName -Name $scriptName -ScriptPath $usqlFile -DegreeOfParallelism $DegreeOfParallelism
         
-		LogJobInformation $jobToSubmit
+        LogJobInformation $jobToSubmit
         
         Write-Output "Waiting for job to complete. Job ID:'{$($jobToSubmit.JobId)}', Name: '$($jobToSubmit.Name)' "
         $jobResult = Wait-AzDataLakeAnalyticsJob -Account $ADLAAccountName -JobId $jobToSubmit.JobId  
@@ -200,7 +197,7 @@ Function LogJobInformation($jobInfo)
 Function DefaultIfNull($item)
 {
     if ($item -ne $null)
-	{
+    {
         return $item
     }
     return ""
@@ -208,13 +205,13 @@ Function DefaultIfNull($item)
 
 Function Main()
 {
-	Write-Output ([string]::Format("ADLA account: {0}", $ADLAAccountName))
-	Write-Output ([string]::Format("Root folde for usqlpack: {0}", $ArtifactsRoot))
-	Write-Output ([string]::Format("AU count: {0}", $DegreeOfParallelism))
+    Write-Output ([string]::Format("ADLA account: {0}", $ADLAAccountName))
+    Write-Output ([string]::Format("Root folde for usqlpack: {0}", $ArtifactsRoot))
+    Write-Output ([string]::Format("AU count: {0}", $DegreeOfParallelism))
 
     Write-Output "Starting USQL script deployment..."
     
-	SubmitAnalyticsJob
+    SubmitAnalyticsJob
 
     Write-Output "Finished deployment..."
 }
@@ -223,14 +220,14 @@ Main
 ```
 
 >[!NOTE]
-> The commands: `Submit-AzDataLakeAnalyticsJob` and `Wait-AzDataLakeAnalyticsJob` are both Azure PowerShell cmdlets for Azure Data Lake Analytics in the Azure Resource Manager framework. You'll neeed a workstation with Azure PowerShell installed. You can refer to the [command list](/powershell/module/Az.DataLakeAnalytics/?view=azps-4.3.0) for more commands and examples.
+> The commands: `Submit-AzDataLakeAnalyticsJob` and `Wait-AzDataLakeAnalyticsJob` are both Azure PowerShell cmdlets for Azure Data Lake Analytics in the Azure Resource Manager framework. You'll neeed a workstation with Azure PowerShell installed. You can refer to the [command list](/powershell/module/Az.DataLakeAnalytics) for more commands and examples.
 >
 
 ### Deploy U-SQL jobs through Azure Data Factory
 
 You can submit U-SQL jobs directly from Azure Pipelines. Or you can upload the built scripts to Azure Data Lake Store or Azure Blob storage and [run the scheduled jobs through Azure Data Factory](../data-factory/transform-data-using-data-lake-analytics.md).
 
-Use the [Azure PowerShell task](/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure Pipelines with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
+Use the [Azure PowerShell task](/azure/devops/pipelines/tasks/deploy/azure-powershell) in Azure Pipelines with the following sample PowerShell script to upload the U-SQL scripts to an Azure Data Lake Store account:
 
 ```powershell
 <#
@@ -249,7 +246,7 @@ param(
 
 Function UploadResources()
 {
-	Write-Host "************************************************************************"
+    Write-Host "************************************************************************"
     Write-Host "Uploading files to $ADLSName"
     Write-Host "***********************************************************************"
 
@@ -343,9 +340,9 @@ The build output for a U-SQL database project is a U-SQL database deployment pac
 
 Adding test cases for table-valued functions and stored procedures directly isn't currently supported. As a workaround, you can create a U-SQL project that has U-SQL scripts that call those functions and write test cases for them. Take the following steps to set up test cases for table-valued functions and stored procedures defined in the U-SQL database project:
 
-1.	Create a U-SQL project for test purposes and write U-SQL scripts calling the table-valued functions and stored procedures.
-2.	Add a database reference to the U-SQL project. To get the table-valued function and stored procedure definition, you need to reference the database project that contains the DDL statement. Learn more about [database references](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
-3.	Add test cases for U-SQL scripts that call table-valued functions and stored procedures. Learn how to [add test cases for U-SQL scripts](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
+1.    Create a U-SQL project for test purposes and write U-SQL scripts calling the table-valued functions and stored procedures.
+2.    Add a database reference to the U-SQL project. To get the table-valued function and stored procedure definition, you need to reference the database project that contains the DDL statement. Learn more about [database references](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
+3.    Add test cases for U-SQL scripts that call table-valued functions and stored procedures. Learn how to [add test cases for U-SQL scripts](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
 ## Deploy U-SQL database through Azure Pipelines
 
