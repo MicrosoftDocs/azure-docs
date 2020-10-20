@@ -16,54 +16,85 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-[!IMPORTANT]
-[The Web Calling sample can be found here in Github](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/). Follow the README in the repo to set up and run the Web Calling Tutorial locally on your machine.
+> [!IMPORTANT]
+> [This sample is available on Github.](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
 
-# Overview
-The Web Calling Tutorial project is a front end application client which is a step-by-step walkthrough of the different major calling functionalities provided by the Azure Communication Services Calling SDK for JavaScript. Each section has a "Show code" button which shows the code for the different functionalities.
+The Azure Communication Services **web calling sample** demonstrates how the Communication Services calling client library can be used to build a calling experience with JavaScript.
 
-Upon successfully setting up and running the [Web Calling Tutorial project](https://github.com/Azure-Samples/communication-services-web-calling-tutorial), the main landing web page of the tutorial will look like this:
+In this Sample quickstart, we'll learn how the sample works before we run the sample on your local machine. We'll then deploy the sample to Azure using your own Azure Communication Services resources.
+
+## Overview
+
+The web calling sample is a web application that serves as a step-by-step walkthrough of the various capabilities provided by the Communication Services web calling client library. 
+
+This sample was built for developers and makes it very easy for you to get started with Communication Services. Its user interface is divided into multiple sections, each featuring a "Show code" button that allows you to copy code directly from your browser into your own Communication Services application.
+
+When the [web calling sample](https://github.com/Azure-Samples/communication-services-web-calling-tutorial) is running on your machine, you'll see the following landing page:
+
 ![Page1](./media/web-calling-tutorial-page-1.png)
 ![Page2](./media/web-calling-tutorial-page-2.png)
 
-## User provisioning and SDK Initialization 
-- In order to initialize the Azure Communication Calling SDK for JavaScript, a user token must be passed into the main entry point of the SDK.
-- You can enter your own ACS User Identity in the input box, if nothing is provided then a random user identity will be generated. 
-- Click on the "Provisioning user and initialize SDK" to get a token from the backend service (the backend service is in /project/webpack.config.js) and initialize the Azure Communication Calling SDK for JavaScript. 
-- Click on the "Show code" button to see the sample code to see how to do user provisioning and SDK initialization
-- Upon successfull user provisioning and sdk initialization, you should see the following:
+## User provisioning and SDK initialization 
+
+To begin using the demo, enter the connection string from your [Communication Services resource](../quickstarts/create-communication-resource.md) into `config.json`. This will be used to provision a [user access token](../concepts/authentication.md) so that your calling SDK can be initialized.
+
+Enter your own personal identifier in the User Identity input. If nothing is provided here, then a random user identity will be generated. 
+
+Click on the "Provisioning user and initialize SDK" to initialize your SDK using a token provisioned by the backend token provisioning service. This backend service is in `/project/webpack.config.js`.
+
+Click on the "Show code" button to see the sample code that you can use in your own solution.
+
+You should see the following once your SDK is initialized:
+
 ![UserProvisioning](./media/user-provisioning.png)
 
-You are now ready to start making calls!
+You're now ready to begin placing calls using your Communication Services resource!
 
-## Placing and Receiving calls
-- The Azure Communication Services Calling SDK allows for 1:1, 1:N, and Group calling.
-- For 1:1 or 1:N outgoing calls, you can specify multiple ACS User Identites to call using comma-separated values. You can can also specify PSTN phone numbers to call using comma-separated values. When calling PSTN phone numbers, you must specify your alterante caller Id. Click on the "Place call" button to place an outgoing all
+## Placing and receiving calls
+
+The Communication Services web calling SDK allows for **1:1**, **1:N**, and **group** calling.
+
+For 1:1 or 1:N outgoing calls, you can specify multiple Communication Services User Identities to call using comma-separated values. You can can also specify traditional (PSTN) phone numbers to call using comma-separated values. 
+
+When calling PSTN phone numbers, specify your alternate caller ID. Click on the "Place call" button to place an outgoing call:
+
 ![PlaceACall](./media/place-a-call.png)
-- For joining a group call, enter a GUID format Id and click on the "Join group" button to joing the group call
+
+To join a group call, enter the GUID that identifies the call and click on the "Join group" button:
+
 ![JoinAGroupCall](./media/join-a-group-call.png)
-- Click on the "Show code" button to see the sample code for placing calls, receiving calls, and joining group calls.
-- Example call:
+
+Click on the "Show code" button to see the sample code for placing calls, receiving calls, and joining group calls.
+
+An active call looks like this:
+
 ![GroupCall](./media/group-call.png)
-  - Click on the video icon to turn your video camera on/off
-  - Click on the microphone icon to turn your microphone on/off
-  - Click on the play icon to hold/unhold the call
-  - Click on the screen icon to start/stop share your screen
-  - Click on person icon to add a participant to the call
-  - Click on "Remove participant" in the participant roster to remove a specific participant from the call
 
-## Video, screen-sharing, and local video preview
-- Click on the "Show code" button to see code examples for Video streaming, screen-shring, and local video device preview. 
+This sample also provides code snippets for the following capabilities:
 
-## Mute / Unmute
-- Click on the "Show code" button to see code examples for muting/unmuting microphone device during a call. 
+  - Clicking on the video icon to turn your video camera on/off
+  - Clicking on the microphone icon to turn your microphone on/off
+  - Clicking on the play icon to hold/unhold the call
+  - Clicking on the screen icon to start/stop share your screen
+  - Clicking on person icon to add a participant to the call
+  - Clicking on "Remove participant" in the participant roster to remove a specific participant from the call
 
-## Hold / Unhold
-- Click on the "Show code" button to see code examples for holding/unholding a call. 
 
-## Device Manager
-- Click on the "Show code" button to see code examples for managing media devices. 
+## Next steps
 
-## Resources
-1. Documentation on how to use the ACS Calling SDK for Javascript can be found on https://docs.microsoft.com/en-gb/azure/communication-services/quickstarts/voice-video-calling/calling-client-samples?pivots=platform-web
-2. ACS Calling SDK for Javascript API reference documentation can be found on https://docs.microsoft.com/en-us/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js
+>[!div class="nextstepaction"] 
+>[Download the sample from GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
+
+For more information, see the following articles:
+
+- Familiarize yourself with [using the calling client library](../quickstarts/voice-video-calling/calling-client-samples.md)
+- Learn more about [how calling works](../concepts/voice-video-calling/about-call-types.md)
+- Review the [API Reference docs](https://docs.microsoft.com/javascript/api/azure-communication-services/@azure/communication-calling/?view=azure-communication-services-js)
+
+## Additional reading
+
+- [Azure Communication GitHub](https://github.com/Azure/communication) - Find more examples and information on the official GitHub page
+- [Redux](https://redux.js.org/) - Client-side state management
+- [FluentUI](https://aka.ms/fluent-ui) - Microsoft powered UI library
+- [React](https://reactjs.org/) - Library for building user interfaces
+- [ASP.NET Core](https://docs.microsoft.com/aspnet/core/introduction-to-aspnet-core?view=aspnetcore-3.1&preserve-view=true) - Framework for building web applications
