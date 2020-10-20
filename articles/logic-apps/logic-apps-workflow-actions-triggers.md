@@ -2316,6 +2316,9 @@ This loop action contains actions that run until the specified condition is true
 | <*loop-timeout*> | String | The limit on the longest time that the loop can run. The default `timeout` value is `PT1H`, which is the required [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
 
+> [!NOTE]
+> If the expression depends on the output of any action within the until loop then you have to make sure that you are accounting for any failure
+
 *Example*
 
 This loop action definition sends an HTTP request to the specified URL until one of these conditions is met:
