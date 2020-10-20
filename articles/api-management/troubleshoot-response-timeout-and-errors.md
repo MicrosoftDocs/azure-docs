@@ -16,8 +16,8 @@ This article helps you troubleshoot intermittent connection errors and related l
 
 Clients using your API Management (APIM) product may exhibit one or more of the following symptoms:
 
-* Slow response times on APIM API operations
-* Intermittent 5xx errors
+* Slow response times when calling your APIs
+* Intermittent HTTP 500 errors
 * Timeout error messages
 
 ## Cause
@@ -63,9 +63,6 @@ For details, see [How to use Azure API Management with virtual networks](api-man
 
 TODO more details
 
-### Measuring your SNAT port allocation
-
-Currently SNAT port allocation usage for API Management is not reported in Azure portal. If you wish to review SNAT port usage for your APIM instance, please open a ticket with [Azure Support](https://azure.microsoft.com/support/options/).
 
 ## See also
 
