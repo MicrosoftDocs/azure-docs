@@ -382,7 +382,7 @@ For an example of how to delete all twins at once, download the sample app used 
 
 You can use the runnable code sample below to create a twin, update its details, and delete the twin. 
 
-[!INCLUDE [Azure Digital Twins: sample models](../../includes/digital-twins-manage-twins-model-code.md)]
+[!INCLUDE [Azure Digital Twins: sample models](../../includes/digital-twins-manage-twins-sample-models.md)]
 
 ```csharp
 using System;

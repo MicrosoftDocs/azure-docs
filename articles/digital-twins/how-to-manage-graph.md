@@ -17,7 +17,9 @@ ms.service: digital-twins
 
 # Manage a graph of digital twins using relationships
 
-The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made  of individual digital twins connected via **relationships**. Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
+The heart of Azure Digital Twins is the [twin graph](concepts-twins-graph.md) representing your whole environment. The twin graph is made  of individual digital twins connected via **relationships**. 
+
+Once you have a working [Azure Digital Twins instance](how-to-set-up-instance-portal.md) and have set up [authentication](how-to-authenticate-client.md) code in your client app, you can use the [**DigitalTwins APIs**](how-to-use-apis-sdks.md) to create, modify, and delete digital twins and their relationships in an Azure Digital Twins instance. You can also use the [.NET (C#) SDK](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core), or the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 This article focuses on managing relationships and the graph as a whole; to work with individual digital twins, see [*How-to: Manage digital twins*](how-to-manage-twin.md).
 
@@ -30,10 +32,10 @@ Relationships describe how different digital twins are connected to each other, 
 Relationships are created using the `CreateRelationship` call. 
 
 To create a relationship, you need to specify:
-* The source twin ID (`srcId` in the code sample below)--the ID of the twin where the relationship originates.
-* The target twin ID (`targetId` in the code sample below)--the ID of the twin where the relationship arrives.
-* A relationship name (`relName` in the code sample below)--the generic type of relationship, something like _contains_.
-* A relationship ID (`relId` in the code sample below)--the specific name for this relationship, something like _Relationship1_.
+* The source twin ID (`srcId` in the code sample below): The ID of the twin where the relationship originates.
+* The target twin ID (`targetId` in the code sample below): The ID of the twin where the relationship arrives.
+* A relationship name (`relName` in the code sample below): The generic type of relationship, something like _contains_.
+* A relationship ID (`relId` in the code sample below): The specific name for this relationship, something like _Relationship1_.
 
 The relationship ID must be unique within the given source twin. It doesn't need to be globally unique.
 For example, for the twin *foo*, each specific relationship ID must be unique. However, another twin *bar* can have an outgoing relationship that matches the same ID of a *foo* relationship.
@@ -62,7 +64,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
             
         }
 ```
-In your main method, you can now call the CreateRelationship() function to create a _contains_ relationship like this: 
+In your main method, you can now call the `CreateRelationship()` function to create a _contains_ relationship like this: 
 
 ```csharp
 await CreateRelationship(client, srcId, targetId, "contains");
@@ -75,8 +77,8 @@ For more information on the helper class `BasicRelationship`, see [*How-to: Use 
 
 Relationships can be classified as either: 
 
-* Outgoing relationships--Relationships belonging to this twin that point outward to connect it to other twins. The `GetRelationshipsAsync()` method is used to get outgoing relationships of a twin.
-* Incoming relationships--Relationships belonging to other twins that point towards the source twin to create an "incoming" link. The `GetIncomingRelationshipsAsync()` method is used to get incoming relationships of a twin.
+* Outgoing relationships: Relationships belonging to this twin that point outward to connect it to other twins. The `GetRelationshipsAsync()` method is used to get outgoing relationships of a twin.
+* Incoming relationships: Relationships belonging to other twins that point towards this twin to create an "incoming" link. The `GetIncomingRelationshipsAsync()` method is used to get incoming relationships of a twin.
 
 There is no restriction on the number of relationships that you can have between two twins—you can have as many relationships between twins as you like. 
 
@@ -221,7 +223,7 @@ await DeleteRelationship(client, srcId, $"{targetId}-contains->{srcId}");
 
 The following runnable code snippet uses the relationship operations from this article to create a twin graph out of digital twins and relationships.
 
-[!INCLUDE [Azure Digital Twins: sample models](../../includes/digital-twins-manage-twins-model-code.md)]
+[!INCLUDE [Azure Digital Twins: sample models](../../includes/digital-twins-manage-twins-sample-models.md)]
 
 ```csharp 
 using System;
@@ -403,7 +405,7 @@ Here is the console output of the above program:
 :::image type="content" source="./media/how-to-manage-graph/console-output-twin-graph.png" alt-text="Console output showing the twin details, incoming and outgoing relationships of the twins." lightbox="./media/how-to-manage-graph/console-output-twin-graph.png":::
 
 > [!TIP]
-> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the _Visualization_ section of this article. 
+> The twin graph is a concept of creating relationships between twins. If you want to view the visual representation of the twin graph, see the [*Visualization*](how-to-manage-graph#Visualization) section of this article. 
 
 ### Create a twin graph from a spreadsheet
 
