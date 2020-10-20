@@ -1,8 +1,8 @@
 ---
 title: Firewall rules - Azure Database for PostgreSQL - Single Server
 description: This article describes how to use firewall rules to connect to Azure Database for PostgreSQL - Single Server.
-author: rachel-msft
-ms.author: raagyema
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/17/2020
@@ -18,7 +18,7 @@ To configure your firewall, you create firewall rules that specify ranges of acc
 All database access to your Azure Database for PostgreSQL server is blocked by the firewall by default. To begin using your server from another computer, you need to specify one or more server-level firewall rules to enable access to your server. Use the firewall rules to specify which IP address ranges from the Internet to allow. Access to the Azure portal website itself is not impacted by the firewall rules.
 Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your PostgreSQL Database, as shown in the following diagram:
 
-![Example flow of how the firewall works](media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Example flow of how the firewall works":::
 
 ## Connecting from the Internet
 Server-level firewall rules apply to all databases on the same Azure Database for PostgreSQL server. 
@@ -37,7 +37,7 @@ If a fixed outgoing IP address isn't available for your Azure service, you can c
 > The **Allow access to Azure services** option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
 > 
 
-![Configure Allow access to Azure services in the portal](media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configure Allow access to Azure services in the portal":::
 
 ### Connecting from a VNet
 To connect securely to your Azure Database for PostgreSQL server from a VNet, consider using [VNet service endpoints](./concepts-data-access-and-security-vnet.md). 

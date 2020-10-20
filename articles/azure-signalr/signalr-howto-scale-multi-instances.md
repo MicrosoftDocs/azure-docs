@@ -21,7 +21,7 @@ If the key starts with `Azure:SignalR:ConnectionString:`, it should be in format
 
 You can add multiple instance connection strings using the following `dotnet` commands:
 
-```batch
+```cmd
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-a <ConnectionString1>
 dotnet user-secrets set Azure:SignalR:ConnectionString:east-region-b:primary <ConnectionString2>
 dotnet user-secrets set Azure:SignalR:ConnectionString:backup:secondary <ConnectionString3>

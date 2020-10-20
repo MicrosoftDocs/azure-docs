@@ -1,7 +1,7 @@
 ---
 title: Index of policy samples
 description: Index of built-ins for Azure Policy. Categories Tags, Regulatory Compliance, Key Vault, Kubernetes, Guest Configuration, and more.
-ms.date: 06/10/2020
+ms.date: 10/14/2020
 ms.topic: sample
 ---
 # Azure Policy Samples
@@ -21,7 +21,7 @@ The following are examples of different patterns using the language and operator
 - [Fields](./pattern-fields.md)
 - [Parameters](./pattern-parameters.md)
 - [Effect details](./pattern-effect-details.md)
-- [Using tags](./pattern-effect-details.md)
+- [Using tags](./pattern-tags.md)
 - [Value operator](./pattern-value-operator.md)
 - [Count operator](./pattern-count-operator.md)
 - [Grouping policy definitions in an initiative](./pattern-group-with-initiative.md)
@@ -33,6 +33,7 @@ The following are the [Regulatory Compliance](../concepts/regulatory-compliance.
 
 - [Azure Security Benchmark](./azure-security-benchmark.md)
 - [CIS Microsoft Azure Foundations Benchmark v1.1.0](./cis-azure-1-1-0.md)
+- [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 

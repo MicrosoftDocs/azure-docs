@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Understand how to route events within Azure Digital Twins and to other Azure Services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 3/12/2020
+ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -22,7 +22,7 @@ Azure Digital twins uses **event routes** to send data to consumers outside the 
 During preview, there are two major cases for sending Azure Digital Twins data:
 * Sending data from one twin in the Azure Digital Twins graph to another. For instance, when a property on one digital twin changes, you may want to notify and update another digital twin accordingly.
 * Sending data to downstream data services for additional storage or processing (also known as *data egress*). For instance,
-  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/time-series-insights-update-overview.md), to record time series data of handwashing-related events for bulk analytics.
+  - A hospital may want to send Azure Digital Twins event data to [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md), to record time series data of handwashing-related events for bulk analytics.
   - A business that is already using [Azure Maps](../azure-maps/about-azure-maps.md) may want to use Azure Digital Twins to enhance their solution. They can quickly enable an Azure Map after setting up Azure Digital Twins, bring Azure Map entities into Azure Digital Twins as [digital twins](concepts-twins-graph.md) in the twin graph, or run powerful queries leveraging their Azure Maps and Azure Digital Twins data together.
 
 Event routes are used for both of these scenarios.
@@ -56,7 +56,9 @@ To define an event route, developers first must define endpoints. An **endpoint*
 * Event Hub
 * Service Bus
 
-Endpoints are set up using control plane APIs (supported by the [Azure Digital Twins CLI](how-to-use-cli.md), or via the Azure portal. An endpoint definition gives:
+To create an endpoint, you can use the Azure Digital Twins [**control plane APIs**](how-to-manage-routes-apis-cli.md#create-an-endpoint-for-azure-digital-twins), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins). 
+
+When defining an endpoint, you'll need to provide:
 * The endpoint's name
 * The endpoint type (Event Grid, Event Hub, or Service Bus)
 * The primary connection string and secondary connection string to authenticate 
@@ -70,17 +72,41 @@ The endpoint APIs that are available in control plane are:
 
 ## Create an event route
  
-Event routes are created in a client application with the following [.NET (C#) SDK](how-to-use-apis-sdks.md) call: 
+To create an event route, you can use the Azure Digital Twins [**data plane APIs**](how-to-manage-routes-apis-cli.md#create-an-event-route), [**CLI commands**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli), or the [**Azure portal**](how-to-manage-routes-portal.md#create-an-event-route). 
+
+Here is an example of creating an event route within a client application, using the `CreateEventRoute` [.NET (C#) SDK](how-to-use-apis-sdks.md) call: 
 
 ```csharp
-await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<endpoint-name>"));
+EventRoute er = new EventRoute("endpointName");
+er.Filter("true"); //Filter allows all messages
+await client.CreateEventRoute("routeName", er);
 ```
 
-* The `endpoint-name` identifies an endpoint, such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
+1. First, an `EventRoute` object is created, and the constructor takes the name of an endpoint. This `endpointName` field identifies an endpoint such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-The event route object passed to `EventRoutes.Add` also takes a [**filter** parameter](./how-to-manage-routes-apis-cli.md#filter-events), which can be used to restrict the types of events that follow this route.
+2. The event route object also has a [**Filter**](./how-to-manage-routes-apis-cli.md#filter-events) field, which can be used to restrict the types of events that follow this route. A filter of `true` enables the route with no additional filtering (a filter of `false` disables the route). 
+
+3. This event route object is then passed to `CreateEventRoute`, along with a name for the route.
+
+> [!TIP]
+> All SDK functions come in synchronous and asynchronous versions.
 
 Routes can be also created using the [Azure Digital Twins CLI](how-to-use-cli.md).
+
+## Dead-letter events
+When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Azure Digital Twins will dead-letter an event when **one of the following** conditions is met. 
+
+- Event isn't delivered within the time-to-live period
+- The number of tries to deliver the event has exceeded the limit
+
+If either of the conditions is met, the event is dropped or dead-lettered.  By default, each endpoint **does not** turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the endpoint. You pull events from this storage account to resolve deliveries.
+
+Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
+`https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
+
+To learn more about SAS tokens, see: [*Grant limited access to Azure Storage resources using shared access signatures (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
+
+To learn how to set up a dead-letter see [*How-to: Manage endpoints and routes in Azure Digital Twins (APIs and CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### Types of event messages
 

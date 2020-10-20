@@ -13,12 +13,12 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ms.author: b-juche
 ---
 # Manage snapshots by using Azure NetApp Files
 
-Azure NetApp Files supports creating on-demand snapshots and using snapshot policies to schedule automatic snapshot creation.  You can also restore a snapshot to a new volume.  
+Azure NetApp Files supports creating on-demand snapshots and using snapshot policies to schedule automatic snapshot creation.  You can also restore a snapshot to a new volume or restore a single file by using a client.  
 
 ## Create an on-demand snapshot for a volume
 
@@ -60,7 +60,7 @@ The **snapshot policy** feature is currently in preview. If you are using this f
     ```azurepowershell-interactive
     Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
     ```
-You can also use Azure CLI commands [`az feature register`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-register) and [`az feature show`](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-show) to register the feature and display the registration status. 
+You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ### Create a snapshot policy 
 
@@ -117,7 +117,7 @@ You can modify an existing snapshot policy to change the policy state, snapshot 
  
 1.	From the NetApp Account view, click **Snapshot policy**.
 
-2.	Right click the snapshot policy you want to modify, then select **Edit**.
+2.	Right-click the snapshot policy you want to modify, then select **Edit**.
 
     ![Snapshot policy right-click menu](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
@@ -129,7 +129,7 @@ You can delete a snapshot policy that you no longer want to keep.
 
 1.	From the NetApp Account view, click **Snapshot policy**.
 
-2.	Right click the snapshot policy you want to modify, then select **Delete**.
+2.	Right-click the snapshot policy you want to modify, then select **Delete**.
 
     ![Snapshot policy right-click menu](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
@@ -160,7 +160,62 @@ Currently, you can restore a snapshot only to a new volume.
     The new volume uses the same protocol that the snapshot uses.   
     The new volume to which the snapshot is restored appears in the Volumes blade.
 
+## Restore a file from a snapshot using a client
+
+If you do not want to [restore the entire snapshot to a volume](#restore-a-snapshot-to-a-new-volume), you have the option to restore a file from a snapshot by using a client that has the volume mounted.  
+
+The mounted volume contains a snapshot directory named  `.snapshot` (in NFS clients) or `~snapshot` (in SMB clients) that is accessible to the client. The snapshot directory contains subdirectories corresponding to the snapshots of the volume. Each subdirectory contains the files of the snapshot. If you accidentally delete or overwrite a file, you can restore the file to the parent read-write directory by copying the file from a snapshot subdirectory to the read-write directory. 
+
+If you selected the Hide Snapshot Path checkbox when you created the volume, the snapshot directory is hidden. You can view the Hide Snapshot Path status of the volume by selecting the volume. You can edit the Hide Snapshot Path option by clicking **Edit** on the volume’s page.  
+
+![Edit volume snapshot options](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
+### Restore a file by using a Linux NFS client 
+
+1. Use the `ls` Linux command to list the file that you want to restore from the `.snapshot` directory. 
+
+    For example:
+
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
+
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
+
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
+    `my.txt`
+
+2. Use the `cp` command to copy the file to the parent directory.  
+
+    For example: 
+
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
+
+    `$ ls my.txt`   
+    `my.txt`   
+
+### Restore a file by using a Windows client 
+
+1. If the `~snapshot` directory of the volume is hidden, [show hidden items](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) in the parent directory to display `~snapshot`.
+
+    ![Show hidden items](../media/azure-netapp-files/snapshot-show-hidden.png) 
+
+2. Navigate to the subdirectory within `~snapshot` to find the file you want to restore.  Right-click the file. Select **Copy**.  
+
+    ![Copy file to restore](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+
+3. Return to the parent directory. Right-click in the parent directory and select `Paste` to paste the file to the directory.
+
+    ![Paste file to restore](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+
+4. You can also right-click the parent directory, select **Properties**, click the **Previous Versions** tab to see the list of snapshots, and select **Restore** to restore a file.  
+
+    ![Properties Previous Versions](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
 ## Next steps
 
-* [Understand the storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

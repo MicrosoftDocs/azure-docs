@@ -17,6 +17,8 @@ The table below lists the functional limits of Azure Digital Twins in the curren
 | Digital twins | Number of twins in an Azure Digital Twins instance | 200,000 | Yes |
 | Digital twins | Number of incoming relationships to a single twin | 5,000 | No |
 | Digital twins | Number of outgoing relationships from a single twin | 5,000 | No |
+| Digital twins | Maximum size of a single twin | 32 KB | No |
+| Digital twins API | Maximum request payload size | 32 KB | No | 
 | Routing | Number of endpoints for a single Azure Digital Twins instance | 6 | No |
 | Routing | Number of routes for a single Azure Digital Twins instance | 6 | Yes |
 | Models | Number of models within a single Azure Digital Twins instance | 10,000 | Yes |
@@ -37,7 +39,7 @@ This table reflects the rate limits of different APIs.
 | Models API | Number of requests per second | 100 | Yes |
 | Digital Twins API | Number of requests per second | 1,000 | Yes |
 | Query API | Number of requests per second | 500 | Yes |
-| Query API | Query units per second | 4,000 | Yes |
+| Query API | [Query Units](../articles/digital-twins/concepts-query-units.md) per second | 4,000 | Yes |
 | Event Routes API | Number of requests per second | 100 | Yes |
 
 ### Other limits

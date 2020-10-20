@@ -3,7 +3,7 @@ title: Migrate from Azure Media Services v2 to v3 | Microsoft Docs
 description: This article describes changes that were introduced in Azure Media Services v3 and shows differences between two versions. The article also provides migration guidance for moving from Media Services v2 to v3.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -11,14 +11,16 @@ keywords: azure media services, stream, broadcast, live, offline
 
 ms.service: media-services
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ---
 
 # Migration guidance for moving from Media Services v2 to v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Get notified about when to revisit this page for updates by copying and pasting this URL: `https://docs.microsoft.com/api/search/rss?search=%22Migrate+from+Azure+Media+Services+v2+to+v3%22&locale=en-us` into your RSS feed reader.
 
@@ -38,8 +40,8 @@ If you have a video service developed today on top of the [legacy Media Services
 *  v3 is based on a unified API surface, which exposes both management and operations functionality built on Azure Resource Manager. Azure Resource Manager templates can be used to create and deploy Transforms, Streaming Endpoints, Live Events, and more.
 * [OpenAPI Specification (formerly called Swagger)](https://aka.ms/ams-v3-rest-sdk) document.
     Exposes the schema for all service components, including file-based encoding.
-* SDKs available for [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref), and Ruby.
-* [Azure CLI](https://aka.ms/ams-v3-cli-ref) integration for simple scripting support.
+* SDKs available for [.NET](/dotnet/api/overview/azure/mediaservices/management), .NET Core, [Node.js](/javascript/api/overview/azure/mediaservices/management), [Python](/python/api/overview/azure/mediaservices/management), [Java](/java/api/overview/azure/mediaservices/management), [Go](https://aka.ms/ams-v3-go-ref), and Ruby.
+* [Azure CLI](/cli/azure/ams) integration for simple scripting support.
 
 ### New features
 
@@ -63,7 +65,7 @@ If you have a video service developed today on top of the [legacy Media Services
     * view (not manage) v3 [Assets](assets-concept.md), 
     * [get info about accessing APIs](./access-api-howto.md). 
 
-    For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), [CLI](https://aka.ms/ams-v3-cli-ref), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
+    For all other management tasks (for example, [Transforms and Jobs](transforms-jobs-concept.md) and [Content protection](content-protection-overview.md)), use the [REST API](/rest/api/media/), [CLI](/cli/azure/ams), or one of the supported [SDKs](media-services-apis-overview.md#sdks).
 * You need to provision Media Reserved Units (MRUs) in your account in order to control the concurrency and performance of your Jobs, particularly ones involving Video or Audio Analysis. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). You can manage the MRUs using [CLI 2.0 for Media Services v3](media-reserved-units-cli-how-to.md), using the [Azure portal](../previous/media-services-portal-scale-media-processing.md), or using the [v2 APIs](../previous/media-services-dotnet-encoding-units.md). You need to provision MRUs, whether you are using Media Services v2 or v3 APIs.
 * Media Services entities created with the v3 API cannot be managed by the v2 API.  
 * Not all entities in the V2 API automatically show up in the V3 API.  Following are examples of entities in the two versions that are incompatible:  

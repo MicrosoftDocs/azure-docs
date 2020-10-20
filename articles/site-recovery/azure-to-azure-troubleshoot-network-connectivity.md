@@ -46,16 +46,16 @@ Try to access the DNS server from the virtual machine. If the DNS server isn't a
 ### Issue 2: Site Recovery configuration failed (151196)
 
 > [!NOTE]
-> If the VMs are behind a **Standard** internal load balancer, by default, it wouldn't have access to the Office 365 IPs such as `login.microsoftonline.com`. Either change it to **Basic** internal load balancer type or create outbound access as mentioned in the article [Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
+> If the VMs are behind a **Standard** internal load balancer, by default, it wouldn't have access to the Microsoft 365 IPs such as `login.microsoftonline.com`. Either change it to **Basic** internal load balancer type or create outbound access as mentioned in the article [Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### Possible cause
 
-A connection can't be established to Office 365 authentication and identity IP4 endpoints.
+A connection can't be established to Microsoft 365 authentication and identity IP4 endpoints.
 
 #### Resolution
 
-- Azure Site Recovery requires access to the Office 365 IP ranges for authentication.
-- If you're using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to the Office 365 IP ranges. Create an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule that allows access to all IP addresses corresponding to Azure AD.
+- Azure Site Recovery requires access to the Microsoft 365 IP ranges for authentication.
+- If you're using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to the Microsoft 365 IP ranges. Create an [Azure Active Directory (Azure AD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule that allows access to all IP addresses corresponding to Azure AD.
 - If new addresses are added to Azure AD in the future, you need to create new NSG rules.
 
 ### Example NSG configuration
@@ -69,11 +69,11 @@ This example shows how to configure NSG rules for a VM to replicate.
 
 1. Create an HTTPS outbound security rule for the NSG as shown in the following screenshot. This example uses the **Destination service tag**: _Storage.EastUS_ and **Destination port ranges**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="storage-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/storage-tag.png" alt-text="Screenshot shows an Add outbound security rule pane for a security rule for Storage dot East U S.":::
 
 1. Create an HTTPS outbound security rule for the NSG as shown in the following screenshot. This example uses the **Destination service tag**: _AzureActiveDirectory_ and **Destination port ranges**: _443_.
 
-     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
+     :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="Screenshot shows an Add outbound security rule pane for a security rule for Azure Active Directory.":::
 
 1. Similar to above security rules, create outbound HTTPS (443) security rule for "EventHub.CentralUS" on the NSG that correspond to the target location. This allows access to Site Recovery monitoring.
 1. Create an outbound HTTPS (443) security rule for "AzureSiteRecovery" on the NSG. This allows access to Site Recovery Service in any region.
@@ -103,7 +103,7 @@ A connection can't be established to Azure Site Recovery service endpoints.
 
 #### Resolution
 
-Azure Site Recovery required access to [Site Recovery IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) depending on the region. Make sure that required IP ranges are accessible from the VM.
+If you are using an Azure Network Security Group (NSG) rule/firewall proxy to control outbound network connectivity on the machine, there are several service tags that need to be allowed. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### Issue 4: Azure-to-Azure replication failed when the network traffic goes through on-premises proxy server (151072)
 

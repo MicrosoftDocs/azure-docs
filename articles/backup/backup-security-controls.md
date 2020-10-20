@@ -16,14 +16,15 @@ This article documents the security controls built into Azure Backup.
 |---|---|--|--|
 | Service endpoint support| No |  |  |
 | VNet injection support| No |  |  |
-| Network isolation and firewalling support| Yes | Forced tunneling is supported for VM backup. Forced tunneling isn't supported for workloads running inside VMs. |  |
-| Forced tunneling support| No |  |  |
+| Network isolation and firewalling support| Yes | |  |
+| Forced tunneling support for Azure VMs | Yes  |  |  |
+| Forced tunneling support for applications running inside Azure VMs| No  |  |  |
 
 ## Monitoring & logging
 
 | Security control | Yes/No | Notes| Documentation
 |---|---|--|--|
-| Azure monitoring support (such as Log analytics, App insights)| Yes | Log Analytics is supported via resource logs. For more information, see [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |  |
+| Azure monitoring support (such as Log analytics, App insights)| Yes | Log Analytics is supported via resource logs. For more information, see [Monitor Azure Backup protected workloads using Log Analytics](backup-azure-diagnostics-mode-data-model.md). |  |
 | Control and management plane logging and audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |  |
 | Data plane logging and audit| No | Azure Backup data plane can't be reached directly.  |  |
 
@@ -32,7 +33,7 @@ This article documents the security controls built into Azure Backup.
 | Security control | Yes/No | Notes| Documentation
 |---|---|--|--|
 | Authentication| Yes | Authentication is through Azure Active Directory. |  |
-| Authorization| Yes | Customer created and Azure built-in roles are used. For more information, see [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md). |  |
+| Authorization| Yes | Customer created and Azure built-in roles are used. For more information, see [Use Azure role-based access control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md). |  |
 
 ## Data protection
 

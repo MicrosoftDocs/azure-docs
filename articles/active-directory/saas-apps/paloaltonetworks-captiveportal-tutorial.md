@@ -9,22 +9,17 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 12/25/2018
+ms.date: 09/10/2020
 ms.author: jeedes
 ---
 # Tutorial: Azure Active Directory integration with Palo Alto Networks Captive Portal
 
 In this tutorial, you learn how to integrate Palo Alto Networks Captive Portal with Azure Active Directory (Azure AD).
+Integrating Palo Alto Networks Captive Portal with Azure AD provides you with the following benefits:
 
-You get the following benefits when you integrate Palo Alto Networks Captive Portal with Azure AD:
-
-* In Azure AD, you can control who has access to Palo Alto Networks Captive Portal.
-* You can automatically sign in users in Palo Alto Networks Captive Portal (single sign-on) by using user Azure AD accounts.
-* You can manage your accounts in one, central location, the Azure portal.
-
-To learn more about software as a service (SaaS) app integration with Azure AD, see [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
-
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+* You can control in Azure AD who has access to Palo Alto Networks Captive Portal.
+* You can enable your users to be automatically signed-in to Palo Alto Networks Captive Portal (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
 ## Prerequisites
 
@@ -37,63 +32,45 @@ To integrate Azure AD with Palo Alto Networks Captive Portal, you need the follo
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-Palo Alto Networks Captive Portal supports these scenarios:
+* Palo Alto Networks Captive Portal supports **IDP** initiated SSO
+* Palo Alto Networks Captive Portal supports **Just In Time** user provisioning
 
-* **IDP-initiated single sign-on**
-* **Just-in-time user provisioning**
+## Adding Palo Alto Networks Captive Portal from the gallery
 
-## Add Palo Alto Networks Captive Portal from the gallery
+To configure the integration of Palo Alto Networks Captive Portal into Azure AD, you need to add Palo Alto Networks Captive Portal from the gallery to your list of managed SaaS apps.
 
-To get started, in the gallery, add Palo Alto Networks Captive Portal to your list of managed SaaS apps:
+1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. On the left navigation pane, select the **Azure Active Directory** service.
+1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. To add new application, select **New application**.
+1. In the **Add from the gallery** section, type **Palo Alto Networks Captive Portal** in the search box.
+1. Select **Palo Alto Networks Captive Portal** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-1. In the [Azure portal](https://portal.azure.com), in the left menu, select **Azure Active Directory**.
+## Configure and test Azure AD SSO
 
-	![The Azure Active Directory button](common/select-azuread.png)
+In this section, you configure and test Azure AD single sign-on with Palo Alto Networks Captive Portal based on a test user called **B.Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Palo Alto Networks Captive Portal needs to be established.
 
-2. Select **Enterprise applications** > **All applications**.
+To configure and test Azure AD single sign-on with Palo Alto Networks Captive Portal, perform the following steps:
 
-	![The Enterprise applications option in the menu](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - Enable the user to use this feature.
+    * **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - Test Azure AD single sign-on with the user B.Simon.
+    * **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - Set up B.Simon to use Azure AD single sign-on.
+2. **[Configure Palo Alto Networks Captive Portal SSO](#configure-palo-alto-networks-captive-portal-sso)** - Configure the single sign-on settings in the application.
+    * **[Create a Palo Alto Networks Captive Portal test user](#create-a-palo-alto-networks-captive-portal-test-user)** - to have a counterpart of B.Simon in Palo Alto Networks Captive Portal that is linked to the Azure AD representation of user.
+3. **[Test SSO](#test-sso)** - Verify that the configuration works.
 
-3. Select **New application**.
+## Configure Azure AD SSO
 
-	![The New application button](common/add-new-app.png)
+Follow these steps to enable Azure AD SSO in the Azure portal.
 
-4. In the search box, enter **Palo Alto Networks Captive Portal**. In the search results, select **Palo Alto Networks - Captive Portal**, and then select **Add**.
+1. In the Azure portal, on the **Palo Alto Networks Captive Portal** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
-	 ![Palo Alto Networks - Captive Portal in the results list](common/search-new-app.png)
+   ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-## Configure and test Azure AD single sign-on
-
-You configure and test Azure AD single sign-on with Palo Alto Networks Captive Portal based on a test user named *Britta Simon*. For single sign-on to work, you must establish a relationship between an Azure AD user and the same user in Palo Alto Networks Captive Portal. 
-
-To configure and test Azure AD single sign-on with Palo Alto Networks Captive Portal, complete the following tasks:
-
-1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)**: Enable the user to use this feature.
-2. **[Configure Palo Alto Networks Captive Portal single sign-on](#configure-palo-alto-networks-captive-portal-single-sign-on)**: Configure the single sign-on settings in the application.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)**: Test Azure AD single sign-on with the user *Britta Simon*.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)**: Set up Britta Simon to use Azure AD single sign-on.
-5. **Create a Palo Alto Networks Captive Portal test user**: Create a counterpart user *Britta Simon* in Palo Alto Networks Captive Portal that's linked to the Azure AD user.
-6. **[Test single sign-on](#test-single-sign-on)**: Verify that the configuration works.
-
-### Configure Azure AD single sign-on
-
-First, enable Azure AD single sign-on in the Azure portal:
-
-1. In the [Azure portal](https://portal.azure.com/), on the **Palo Alto Networks - Captive Portal** application integration page, select **Single sign-on**.
-
-    ![Configure single sign-on link](common/select-sso.png)
-
-2. In the **Select a single sign-on method** pane, select **SAML**.
-
-    ![Single sign-on select mode](common/select-saml-option.png)
-
-3. In the **Set up Single Sign-On with SAML** pane, select the pencil **Edit** icon.
-
-	![The penciled Edit icon](common/edit-urls.png)
-
-4. In the **Basic SAML Configuration** pane, complete the following steps:
-
-    ![Palo Alto Networks Captive Portal Basic SAML Configuration pane](common/idp-intiated.png)
+4. In the **Basic SAML Configuration** pane, perform the following steps:
 
    1. For **Identifier**, enter a URL that has the pattern
       `https://<customer_firewall_host_name>/SAML20/SP`.
@@ -108,7 +85,31 @@ First, enable Azure AD single sign-on in the Azure portal:
 
 	![The Federation Metadata XML download link](common/metadataxml.png)
 
-### Configure Palo Alto Networks Captive Portal single sign-on
+### Create an Azure AD test user
+
+In this section, you'll create a test user in the Azure portal called B.Simon.
+
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+   1. In the **Name** field, enter `B.Simon`.  
+   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   1. Click **Create**.
+
+### Assign the Azure AD test user
+
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Palo Alto Networks Captive Portal.
+
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Palo Alto Networks Captive Portal**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
+1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure Palo Alto Networks Captive Portal SSO
 
 Next, set up single-sign on in Palo Alto Networks Captive Portal:
 
@@ -132,56 +133,6 @@ Next, set up single-sign on in Palo Alto Networks Captive Portal:
 	
 	3. Select **OK**.
 
-### Create an Azure AD test user 
-
-Next, create a test user named *Britta Simon* in the Azure portal:
-
-1. In the Azure portal, select **Azure Active Directory** > **Users** > **All users**.
-
-    ![The "Users and groups" and "All users" links](common/users.png)
-
-2. Select **New user**.
-
-    ![The New user button](common/new-user.png)
-
-3. In the **User** pane, complete the following steps:
-
-    ![The User dialog box](common/user-properties.png)
-
-    1. For **Name**, enter **BrittaSimon**.
-  
-    2. For **User name**, enter **BrittaSimon\@\<your_company_domain\>**. For example, **BrittaSimon\@contoso.com**.
-
-    3. For **Password**, enter a password. We recommend that you keep a record of the password you enter. You can select the **Show Password** check box to display the password.
-
-    4. Select **Create**.
-
-### Assign the Azure AD test user
-
-Next, grant access to Palo Alto Networks Captive Portal so Britta Simon can use Azure single sign-on:
-
-1. In the Azure portal, select **Enterprise applications** > **All applications**.
-
-	![The Enterprise applications pane](common/enterprise-applications.png)
-
-2. In the applications list, enter **Palo Alto Networks - Captive Portal**, and then select the application.
-
-	![The Palo Alto Networks - Captive Portal link in the applications list](common/all-applications.png)
-
-3. In the menu, select **Users and groups**.
-
-    ![The "Users and groups" link](common/users-groups-blade.png)
-
-4. Select **Add user**. Then, in the **Add assignment** pane, select **Users and groups**.
-
-    ![The Add assignment pane](common/add-assign-user.png)
-
-5. In the **Users and groups** pane, in the **Users** list, select **Britta Simon**. Select **Select**.
-
-6. To add a role value to the SAML assertion, in the **Select role** pane, select the relevant role for the user. Select **Select**.
-
-7. In the **Add assignment** pane, select **Assign**.
-
 ### Create a Palo Alto Networks Captive Portal test user
 
 Next, create a user named *Britta Simon* in Palo Alto Networks Captive Portal. Palo Alto Networks Captive Portal supports just-in-time user provisioning, which is enabled by default. You don't need to complete any tasks in this section. If a user doesn't already exist in Palo Alto Networks Captive Portal, a new one is created after authentication.
@@ -189,15 +140,14 @@ Next, create a user named *Britta Simon* in Palo Alto Networks Captive Portal. P
 > [!NOTE]
 > If you want to create a user manually, contact the [Palo Alto Networks Captive Portal Client support team](https://support.paloaltonetworks.com/support).
 
-### Test single sign-on 
+## Test SSO 
 
-Palo Alto Networks Captive Portal is installed behind the firewall on a Windows VM. To test single sign-on in Palo Alto Networks Captive Portal, sign in to the Windows VM by using Remote Desktop Protocol (RDP). In the RDP session, open a browser and go to any website. The SSO URL opens and you're prompted to authenticate. When authentication is finished, you can access websites.
+In this section, you test your Azure AD single sign-on configuration with following options.
 
-## Additional resources
+Click on Test this application in Azure portal and you should be automatically signed in to the Palo Alto Networks Captive Portal for which you set up the SSO
 
-To learn more, see these articles:
+You can use Microsoft Access Panel. When you click the Palo Alto Networks Captive Portal tile in the Access Panel, you should be automatically signed in to the Palo Alto Networks Captive Portal for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-- [Tutorials about integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Conditional Access in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+## Next Steps
 
+Once you configure Palo Alto Networks Captive Portal you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

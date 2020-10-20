@@ -71,7 +71,7 @@ For more information, see the [Azure security baselines overview](../security/be
 
 * [How to deploy Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/threat-protection.md)
+* [Understand Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 * [Understand Azure Security Center Adaptive Network Hardening](../security-center/security-center-adaptive-network-hardening.md)
 
@@ -141,7 +141,7 @@ You may also use Application Security Groups to help simplify complex security c
 
 * [Understand and use Service Tags](../virtual-network/service-tags-overview.md) 
 
-* [Understand and use Application Security Groups](../virtual-network/security-overview.md#application-security-groups)
+* [Understand and use Application Security Groups](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 * [Deploy in a virtual network - Azure Container Instances](./container-instances-vnet.md)
 
@@ -157,7 +157,7 @@ You may also use Application Security Groups to help simplify complex security c
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [Azure Policy samples for networking](/azure/governance/policy/samples/#network)
+* [Azure Policy samples for networking](../governance/policy/samples/built-in-policies.md#network)
 
 * [How to create an Azure Blueprint](../governance/blueprints/create-blueprint-portal.md)
 
@@ -496,7 +496,7 @@ Tag and version container images, to assist in tracking images that store or pro
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create management groups](../governance/management-groups/create.md)
+* [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -611,7 +611,7 @@ For the underlying platform which is managed by Microsoft, Microsoft treats all 
 
 * [Security considerations for Azure Container Instances](./container-instances-image-security.md)
 
-* [Azure Container Registry integration with Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration with Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -650,7 +650,7 @@ Use a custom or third party solution to patch container images. If you store con
 
 * [Security considerations for Azure Container Instances](./container-instances-image-security.md)
 
-* [Azure Container Registry integration with Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration with Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -662,7 +662,7 @@ Use a custom or third party solution to patch container images. If you store con
 
 * [Security considerations for Azure Container Instances](./container-instances-image-security.md)
 
-* [Azure Container Registry integration with Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration with Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -705,7 +705,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create Management Groups](../governance/management-groups/create.md)
+* [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 * [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -753,7 +753,7 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 * [How to perform custom queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
 
 * [Security considerations for Azure Container Instances](./container-instances-image-security.md)
-* [Azure Container Registry integration with Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration with Security Center](../security-center/defender-for-container-registries-introduction.md)
 
 
 
@@ -787,7 +787,7 @@ Monitor Azure Container Instances logs for anomalous behavior and regularly revi
 
 * [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-* [How to deny a specific resource type with Azure Policy](/azure/governance/policy/samples/not-allowed-resource-types)
+* [How to deny a specific resource type with Azure Policy](../governance/policy/samples/index.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -823,7 +823,7 @@ Manage and review access to Azure Container Instances resources by using differe
 
 * [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-* [How to create management groups](../governance/management-groups/create.md)
+* [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
 * [Deploy in a virtual network - Azure Container Instances](./container-instances-vnet.md)
 
@@ -898,7 +898,7 @@ Use a custom or third party solution to patch container images. If you store con
 
 * [Container monitoring and scanning security recommendations for Azure Container Instances](./container-instances-image-security.md)
 
-* [Azure Container Registry integration with Security Center](../security-center/azure-container-registry-integration.md)
+* [Azure Container Registry integration with Security Center](../security-center/defender-for-container-registries-introduction.md)
 * [About base image updates for Azure Container Registry tasks](../container-registry/container-registry-tasks-base-images.md)
 
 
@@ -986,7 +986,9 @@ Use Azure Policy to put restrictions on the type of resources that can be create
 
 * [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 * [How to use managed identities with Azure Container Instances](./container-instances-managed-identity.md)
 
@@ -1101,7 +1103,7 @@ Optionally back up container images by importing from one registry to another.
 
 **Guidance**: You may enable Soft-Delete in Azure Key Vault to protect keys against accidental or malicious deletion.
 
-* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+* [How to enable Soft-Delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Currently not available
 

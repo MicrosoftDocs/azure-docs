@@ -85,7 +85,7 @@ The following sections show how to complete different model management operation
 Once models are created, you can upload them to the Azure Digital Twins instance.
 
 > [!TIP]
-> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-parse-models.md) to check your models before you upload them to the service.
+> It's recommended to validate your models offline before uploading them to your Azure Digital Twins instance. You can use the [DTDL client-side parser library](https://nuget.org/packages/Microsoft.Azure.DigitalTwins.Parser/) and [DTDL Validator sample](/samples/azure-samples/dtdl-validator/dtdl-validator) described in [*How-to: Parse and validate models*](how-to-parse-models.md) to check your models before you upload them to the service.
 
 When you're ready to upload a model, you can use the following code snippet:
 
@@ -169,13 +169,15 @@ Models are not necessarily returned in exactly the document form they were uploa
 
 ### Update models
 
-Once a model is uploaded to your instance, the entire model interface is immutable. This means there is no traditional "editing" of models.
+Once a model is uploaded to your Azure Digital Twins instance, the entire model interface is immutable. This means there is no traditional "editing" of models. Azure Digital Twins also does not allow re-upload of the same model.
 
-Instead, if you want to make changes to a model in Azure Digital Twins, the way to do this is to upload a **newer version** of the same model. During preview, advancing a model version will only allow you to remove fields, not add new ones (to add new fields, you should just [create a brand new model](#create-models)).
+Instead, if you want to make changes to a model—such as updating `displayName` or `description`—the way to do this is to upload a **newer version** of the model. 
 
-To create a new version of an existing model, start with the DTDL of the original model. Update the fields you would like to change.
+#### Model versioning
 
-Then, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
+To create a new version of an existing model, start with the DTDL of the original model. Update, add, or remove the fields you would like to change.
+
+Next, mark this as a newer version of the model by updating the `id` field of the model. The last section of the model ID, after the `;`, represents the model number. To indicate that this is now a more-updated version of this model, increment the number at the end of the `id` value to any number greater than the current version number.
 
 For example, if your previous model ID looked like this:
 
@@ -189,7 +191,17 @@ version 2 of this model might look like this:
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-Then, upload the new version of the model to your instance. It will take the place of the old version, and new twins that you create using this model will use the updated version.
+Then, upload the new version of the model to your instance. 
+
+This version of the model will then be available in your instance to use for digital twins. It **does not** overwrite earlier versions of the model, so multiple versions of the model will coexist in your instance until you [remove them](#remove-models).
+
+#### Impact on twins
+
+When you create a new twin, since the new model version and the old model version coexist, the new twin can use either the new version of the model or the older version.
+
+This also means that uploading a new version of a model does not automatically affect existing twins. The existing twins will simply remain instances of the old model version.
+
+You can update these existing twins to the new model version by patching them, as described in the [*Update a digital twin's model*](how-to-manage-twin.md#update-a-digital-twins-model) section of *How-to: Manage digital twins*. Within the same patch, you must update both the **model ID** (to the new version) and **any fields that must be altered on the twin to make it conform to the new model**.
 
 ### Remove models
 
@@ -274,6 +286,8 @@ Azure Digital Twins does not prevent this state, so be careful to patch twins ap
 ## Manage models with CLI
 
 Models can also be managed using the Azure Digital Twins CLI. The commands can be found in [*How-to: Use the Azure Digital Twins CLI*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## Next steps
 

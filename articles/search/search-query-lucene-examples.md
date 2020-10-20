@@ -9,7 +9,7 @@ ms.author: heidist
 tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 10/05/2020
 ---
 
 # Use the "full" Lucene search syntax (advanced queries in Azure Cognitive Search)
@@ -36,13 +36,13 @@ What you do need is Postman or an equivalent tool for issuing HTTP request on GE
 
 After you specify the request header, you can reuse it for all of the queries in this article, swapping out only the **search=** string. 
 
-  ![Postman request header](media/search-query-lucene-examples/postman-header.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-header.png" alt-text="Postman request header set parameters" border="false":::
 
 ### Set the request URL
 
 Request is a GET command paired with a URL containing the Azure Cognitive Search endpoint and search string.
 
-  ![Postman request header](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  :::image type="content" source="media/search-query-lucene-examples/postman-basic-url-request-elements.png" alt-text="Postman request header GET" border="false":::
 
 URL composition has the following elements:
 
@@ -107,7 +107,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Response for this query should look similar to the following screenshot.
 
-  ![Postman sample response](media/search-query-lucene-examples/postman-sample-results.png)
+  ![Postman sample response with scores](media/search-query-lucene-examples/postman-sample-results.png)
 
 You might have noticed the search score in the response. Uniform scores of 1 occur when there is no rank, either because the search was not full text search, or because no criteria was applied. For null search with no criteria, rows come back in arbitrary order. When you include actual search criteria, you will see search scores evolve into meaningful values.
 
@@ -133,7 +133,7 @@ $select=business_title, posting_type&search=business_title:(senior NOT junior) A
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&$select=business_title&search=business_title:(senior NOT junior)
 ```
 
-  ![Postman sample response](media/search-query-lucene-examples/intrafieldfilter.png)
+  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Postman sample response search expression" border="false":::
 
 You can define a fielded search operation with the **fieldName:searchExpression** syntax, where the search expression can be a single word or a phrase, or a more complex expression in parentheses, optionally with Boolean operators. Some examples include the following:
 
@@ -196,7 +196,7 @@ In this query, for jobs with the term "senior analyst" where it is separated by 
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:%22senior%20analyst%22~1
 ```
-  ![Proximity query](media/search-query-lucene-examples/proximity-before.png)
+  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Proximity query" border="false":::
 
 Try it again removing the words between the term "senior analyst". Notice that 8 documents are returned for this query as opposed to 10 for the previous query.
 
@@ -214,7 +214,7 @@ In this "before" query, search for jobs with the term *computer analyst* and not
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:computer%20analyst
 ```
-  ![Term boosting before](media/search-query-lucene-examples/termboostingbefore.png)
+  :::image type="content" source="media/search-query-lucene-examples/termboostingbefore.png" alt-text="Term boosting before" border="false":::
 
 In the "after" query, repeat the search, this time boosting results with the term *analyst* over the term *computer* if both words do not exist. 
 
@@ -223,7 +223,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 ```
 A more human readable version of the above query is `search=business_title:computer analyst^2`. For a workable query, `^2` is encoded as `%5E2`, which is harder to see.
 
-  ![Term boosting after](media/search-query-lucene-examples/termboostingafter.png)
+  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Term boosting after" border="false":::
 
 Term boosting differs from scoring profiles in that scoring profiles boost certain fields, rather than specific terms. The following example helps illustrate the differences.
 
@@ -250,7 +250,7 @@ In this query, search for jobs with either the term Senior or Junior: `search=bu
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:/(Sen|Jun)ior/
 ```
 
-  ![Regex query](media/search-query-lucene-examples/regex.png)
+  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Regex query" border="false":::
 
 > [!Note]
 > Regex queries are not [analyzed](./search-lucene-query-architecture.md#stage-2-lexical-analysis). The only transformation performed on incomplete query terms is lowercasing.
@@ -272,7 +272,7 @@ In this query, search for jobs that contain the prefix 'prog' which would includ
 ```GET
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&queryType=full&$count=true&searchFields=business_title&$select=business_title&search=business_title:prog*
 ```
-  ![Wildcard query](media/search-query-lucene-examples/wildcard.png)
+  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Wildcard query" border="false":::
 
 > [!Note]
 > Wildcard queries are not [analyzed](./search-lucene-query-architecture.md#stage-2-lexical-analysis). The only transformation performed on incomplete query terms is lowercasing.

@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/16/2020
+ms.date: 09/23/2020
 ms.author: curtand
 ms.reviewer: olhaun
 ---
@@ -25,6 +25,7 @@ The Microsoft Authenticator app replaced the Azure Authenticator app, and it's t
 
 | Question | Answer |
 | -------- | ------ |
+| Why I am having issues with Apple Watch on watchOS 7? | There is an issue with approving notifications on watchOS 7, and we’re working with Apple to get this fixed. In the meantime, any notifications that require the Microsoft Authenticator watchOS app should be approved on your phone instead.  |
 | Is registering a device agreeing to give the company or service access to my device? | Registering a device gives your device access to your organization's services and doesn't allow your organization access to your device. |
 | What is App Lock, and how can I use it to help to keep me more secure? | App Lock helps keep your one-time passcodes, app information, and app settings more secure. When App Lock is enabled, you’ll be asked to authenticate using your device PIN or biometric every time you open Authenticator. App Lock also helps ensure that you’re the only one who can approve notifications by prompting for your PIN or biometric any time you approve a sign-in notification. You can turn App Lock on or off on the Authenticator Settings page. By default, App Lock is turned on when you set up a PIN or biometric on your device.<br><br>Unfortunately, there's no guarantee that App Lock will stop someone from accessing Authenticator. That's because device registration can happen in other locations outside of Authenticator, such as in Android account settings or in the Company Portal app. |
 | I have a Windows Mobile device, and the Microsoft Authenticator on Windows Mobile has been deprecated. Can I continue authenticating using the app? | All authentications using the Microsoft Authenticator on Windows Mobile will be retired after July 15, 2020. We strongly recommend that you use an alternate authentication method to avoid being locked out of your accounts.<br>Alternate options for enterprise users include:<br><ul><li>Setting up the Microsoft Authenticator for [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) or [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>[Setting up SMS](multi-factor-authentication-setup-phone-number.md) to receive verification codes.</li><li>Setting up phone number to receive [phone calls to verify their identity](multi-factor-authentication-setup-office-phone.md).</li></ul><br>Alternate options for personal Microsoft account users include:<br><ul><li>Setting up the Microsoft Authenticator for [Android](https://play.google.com/store/apps/details?id=com.azure.authenticator) or [iOS](https://apps.apple.com/app/microsoft-authenticator/id983156458).</li><li>Setting up an alternate sign-in method (SMS or email) by updating your security info from the [Microsoft Account Security page](https://account.microsoft.com/security/).</li></ul> |

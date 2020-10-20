@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: Welcome to the commercial marketplace
-summary: Learn about the commercial marketplace, an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world.
+summary: Learn about the commercial marketplace, an online marketplace for applications and services that let businesses of all sizes offer solutions to customers around the world.
 metadata:
   title: Welcome to the commercial marketplace
-  description: Learn about the commercial marketplace, an online marketplace for applications and services that lets businesses of all sizes offer solutions to customers around the world.
+  description: Learn about the commercial marketplace, an online marketplace for applications and services that let businesses of all sizes offer solutions to customers around the world.
   ms.service: marketplace 
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
   author: keferna
   ms.author: keferna
-  ms.date: 04/02/2020
+  ms.date: 09/02/2020
 
 landingContent:
   - title: Working in the commercial marketplace
@@ -25,8 +25,6 @@ landingContent:
         url: ./policies-terms.md
       - text: Microsoft commercial marketplace FAQs
         url: ./marketplace-faq-publisher-guide.md
-      - text: Release notes
-        url: ./marketplace-roadmap.md
       - text: Microsoft Publisher Agreement
         url: https://go.microsoft.com/fwlink/?LinkID=699560
 
@@ -34,8 +32,6 @@ landingContent:
     linkLists:
     - linkListType: overview
       links:
-      - text: Create a new SaaS offer
-        url: ./partner-center-portal/create-new-saas-offer.md
       - text: Marketing best practices
         url: ./gtm-marketing-best-practices.md  
       - text: Cloud solution providers
@@ -76,12 +72,12 @@ landingContent:
       - text: Ratings and reviews dashboard
         url: ./partner-center-portal/ratings-reviews.md
 
-  - title: Manage your offers
+  - title: Create an offer
     linkLists:
     - linkListType: how-to-guide
       links:
       - text: SaaS offers
-        url: ./partner-center-portal/create-new-saas-offer.md
+        url: plan-saas-offer.md
       - text: Virtual machines offers
         url: ./marketplace-virtual-machines.md
       - text: Azure application offers
@@ -99,14 +95,14 @@ landingContent:
     linkLists:
     - linkListType: concept
       links:
-      - text: Payout reporting
-        url: ./partner-center-portal/payout-summary-overview.md
+      - text: Payout statements
+        url: /partner-center/payout-statement?context=/azure/marketplace/context/context
       - text: Payment thresholds, methods and time frames
-        url: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+        url: /partner-center/payment-thresholds-methods-timeframes?context=/azure/marketplace/context/context
       - text: Set up your payout account and tax forms
-        url: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+        url: /partner-center/set-up-your-payout-account?context=/azure/marketplace/context/context
       - text: Tax details
-        url: ./partner-center-portal/tax-details-paid-transactions.md
+        url: /partner-center/tax-details-marketplace?context=/azure/marketplace/context/context
       - text: Commercial marketplace billing
         url: ./partner-center-portal/billing-details.md
 

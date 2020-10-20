@@ -22,7 +22,7 @@ You'll learn how to:
 ## Prerequisites
 
 * Complete [Quickstart: Render a model with Unity](render-model.md)
-* Install Azure PowerShell [(documentation)](https://docs.microsoft.com/powershell/azure/)
+* Install Azure PowerShell [(documentation)](/powershell/azure/)
   * Open a PowerShell with admin rights
   * Run: `Install-Module -Name Az -AllowClobber`
 
@@ -161,7 +161,7 @@ Connect-AzAccount
 ```
 
 > [!NOTE]
-> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+> In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](/powershell/module/az.accounts/connect-azaccount).
 
 Change to the `azure-remote-rendering\Scripts` directory and run the conversion script:
 
@@ -186,7 +186,7 @@ The SAS URI created by the conversion script will only be valid for 24 hours. Ho
 
 1. Go to the [Azure portal](https://www.portal.azure.com)
 1. Click on your **Storage account** resource:
-![Signature Access](./media/portal-storage-accounts.png)
+![Screenshot that highlights the selected Storage account resource.](./media/portal-storage-accounts.png)
 1. In the following screen, click on **Storage explorer** in the left panel and find your output model (*.arrAsset* file) in the *arroutput* blob storage container. Right-click on the file and select **Get Shared Access Signature** from the context menu:
 ![Signature Access](./media/portal-storage-explorer.png)
 1. A new screen opens where you can select an expiry date. Press **Create**, and copy the URI that is shown in the next dialog. This new URI replaces the temporary URI that the script created.

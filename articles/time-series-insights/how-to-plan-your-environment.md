@@ -8,7 +8,7 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/30/2020
+ms.date: 09/30/2020
 ms.custom: seodec18
 ---
 
@@ -20,7 +20,7 @@ This article describes best practices to plan and get started quickly by using A
 
 Best practices surrounding planning for and preparing your environment are described further in the following articles:
 
-* What you get when you [provision a Azure Time Series Insights Gen2 environment](#the-gen2-environment).
+* What you get when you [provision an Azure Time Series Insights Gen2 environment](#the-gen2-environment).
 * What your [Time Series IDs and Timestamp properties are](#configure-time-series-ids-and-timestamp-properties).
 * What the new [Time Series Model is](#understand-the-time-series-model), and how to build your own.
 * How to [send events efficiently in JSON](#shape-your-events).
@@ -30,8 +30,7 @@ Azure Time Series Insights employs a pay-as-you-go business model. For more info
 
 ## The Gen2 environment
 
-When you provision a Azure Time Series Insights Gen2 environment, you create two Azure resources:
-
+When you provision an Azure Time Series Insights Gen2 environment, you create two Azure resources:
 
 * An Azure Time Series Insights Gen2 environment
 * An Azure Storage account
@@ -64,10 +63,7 @@ You can select up to three keys to uniquely differentiate your resources. For mo
 
 The **Timestamp** property is also important. You can designate this property when you add event sources. Each event source has an optional Timestamp property that's used to track event sources over time. Timestamp values are case sensitive and must be formatted to the individual specification of each event source.
 
-> [!TIP]
-> Verify the formatting and parsing requirements for your event sources.
-
-When left blank, the Event Enqueue Time of an event source is used as the event Timestamp. If you send historical data or batched events, customizing the Timestamp property is more helpful than the default Event Enqueue Time. For more information, read about how to [add event sources in Azure IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub.md).
+When left blank, the time when the event was enqueued into the IoT Hub or Event Hub is used as the event Timestamp. In general, users should opt to customize the Timestamp property and use the time when the sensor or tag generated the reading, rather than the hub enqueued time. For more information and to read about time zone offsets read [Event source timestamp](./concepts-streaming-ingestion-event-sources.md#event-source-timestamp).
 
 ## Understand the Time Series Model
 
@@ -86,14 +82,14 @@ A good rule of thumb:
 * Store metadata in your Time Series Model.
 * Ensure that Time Series Mode, instance fields, and events include only necessary information, such as a Time Series ID or Timestamp property.
 
-For more information, read [Shape events](./time-series-insights-send-events.md#supported-json-shapes).
+For more information and to understand how events will be flattened and stored, read the [JSON flattening and escaping rules](./concepts-json-flattening-escaping-rules.md).
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 
 ## Next steps
 
-- Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-- Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
-- Read more about [data ingestion](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen2.
-- Review the article on [data storage](./concepts-storage.md) in Azure Time Series Insights Gen2.
-- Learn about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.
+* Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
+* Review [Azure Advisor](../advisor/advisor-overview.md) to plan out your business recovery configuration options.
+* Read more about [data ingestion](./concepts-ingestion-overview.md) in Azure Time Series Insights Gen2.
+* Review the article on [data storage](./concepts-storage.md) in Azure Time Series Insights Gen2.
+* Learn about [data modeling](./concepts-model-overview.md) in Azure Time Series Insights Gen2.

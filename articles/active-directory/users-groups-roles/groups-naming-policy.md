@@ -224,9 +224,9 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## Experience across Office 365 apps
+## Experience across Microsoft 365 apps
 
-After you set a group naming policy in Azure AD, when a user creates a group in an Office 365 app, they see:
+After you set a group naming policy in Azure AD, when a user creates a group in a Microsoft 365 app, they see:
 
 - A preview of the name according to your naming policy (with prefixes and suffixes) as soon as the user types in the group name
 - If the user enters blocked words, they'll see an error message so they can remove the blocked words.
@@ -247,7 +247,7 @@ School Data Sync (SDS) | Groups created through SDS comply with naming policy, b
 Outlook Customer Manager (OCM) | Outlook Customer Manager is compliant with the naming policy, which is automatically applied to the group created in Outlook Customer Manager. If a custom blocked word is detected, group creation in OCM is blocked, and the user is blocked from using the OCM app.
 Classroom app | Groups created in Classroom app comply with the naming policy, but the naming policy isn't applied automatically, and the naming policy preview isn't shown to the users while entering a classroom group name. Users must enter the enforced classroom group name with prefixes and suffixes. If not, the classroom group create or edit operation fails with errors.
 Power BI | Power BI workspaces are compliant with the naming policy.    
-Yammer | When a user signed in to Yammer with their Azure Active Directory account creates a group or edits a group name, the group name will comply with naming policy. This applies both to Office 365 connected groups and all other Yammer groups.<br>If an Office 365 connected group was created before the naming policy is in place, the group name will not automatically follow the naming policies. When a user edits the group name, they will be prompted to add the prefix and suffix.
+Yammer | When a user signed in to Yammer with their Azure Active Directory account creates a group or edits a group name, the group name will comply with naming policy. This applies both to Microsoft 365 connected groups and all other Yammer groups.<br>If a Microsoft 365 connected group was created before the naming policy is in place, the group name will not automatically follow the naming policies. When a user edits the group name, they will be prompted to add the prefix and suffix.
 StaffHub  | StaffHub teams do not follow the naming policy, but the underlying Microsoft 365 group does. StaffHub team name does not apply the prefixes and suffixes and does not check for custom blocked words. But StaffHub does apply the prefixes and suffixes and removes blocked words from the underlying Microsoft 365 group.
 Exchange PowerShell | Exchange PowerShell cmdlets are compliant with the naming policy. Users receive appropriate error messages with suggested prefixes and suffixes and for custom blocked words if they don't follow the naming policy in the group name and group alias (mailNickname).
 Azure Active Directory PowerShell cmdlets | Azure Active Directory PowerShell cmdlets are compliant with naming policy. Users receive appropriate error messages with suggested prefixes and suffixes and for custom blocked words if they don't follow the naming convention in group names and group alias.

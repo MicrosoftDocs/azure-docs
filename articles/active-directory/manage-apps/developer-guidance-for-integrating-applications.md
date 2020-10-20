@@ -14,10 +14,10 @@ ms.author: kenwith
 ms.collection: M365-identity-device-management
 ---
 # Develop line-of-business apps for Azure Active Directory
-This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Office 365 global administrators.
+This guide provides an overview of developing line-of-business (LoB) applications for Azure Active Directory (AD).The intended audience is Active Directory/Microsoft 365 global administrators.
 
 ## Overview
-Building applications integrated with Azure AD gives users in your organization single sign-on with Office 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about Conditional Access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](../conditional-access/app-based-mfa.md).
+Building applications integrated with Azure AD gives users in your organization single sign-on with Microsoft 365. Having the application in Azure AD gives you control over the authentication policy for the application. To learn more about Conditional Access and how to protect apps with multi-factor authentication (MFA) see [Configuring access rules](../conditional-access/app-based-mfa.md).
 
 Register your application to use Azure Active Directory. Registering the application means that your developers can use Azure AD to authenticate users and request access to user resources such as email, calendar, and documents.
 

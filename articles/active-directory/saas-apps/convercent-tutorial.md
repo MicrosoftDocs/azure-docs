@@ -93,7 +93,7 @@ To configure Azure AD single sign-on with Convercent, perform the following step
 
 4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following step:
 
-    ![Convercent Domain and URLs single sign-on information](common/both-identifier.png)
+    ![Screenshot that shows the "Basic S A M L Configuration" section with the "Identifier (Entity ID)" field and "Save" button highlighted.](common/both-identifier.png)
 
 	In the **Identifier** text box, type a URL using the following pattern:
     `https://<instancename>.convercent.com/`

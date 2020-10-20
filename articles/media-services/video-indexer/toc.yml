@@ -13,6 +13,8 @@
     href: invite-users.md
 - name: Tutorials
   items:
+  - name: Connect to Azure
+    href: connect-to-azure.md
   - name: Use Video Indexer API
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
@@ -102,6 +104,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Regions
+    displayName: location
     href: regions.md
   - name: FAQs
     href: faq.md    

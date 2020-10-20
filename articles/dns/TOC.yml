@@ -1,4 +1,4 @@
-- name: DNS Documentation
+- name: DNS documentation
   href: index.yml
 - name: Overview
   items:
@@ -17,6 +17,8 @@
       href: dns-getstarted-powershell.md
     - name: Create a public zone - CLI
       href: dns-getstarted-cli.md
+    - name: Create a public zone - ARM Template
+      href: dns-get-started-template.md
   - name: Private DNS
     items:
     - name: Create a private zone - portal

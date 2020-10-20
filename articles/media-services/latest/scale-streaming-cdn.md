@@ -10,12 +10,14 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
-ms.topic: article
-ms.date: 02/13/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: inhenkel
 ---
 
 # Stream content with CDN integration
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Azure Content Delivery Network (CDN) offers developers a global solution for rapidly delivering high-bandwidth content to users by caching their content at strategically placed physical nodes across the world.  
 
@@ -48,7 +50,7 @@ This topic discusses enabling [CDN integration](#enable-azure-cdn-integration). 
 
 After a streaming endpoint is provisioned with CDN enabled, there's a defined wait time on Media Services before DNS update is done to map the streaming endpoint to CDN endpoint.
 
-If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. Once the streaming endpoint is started it could take up to two hours for the Azure CDN integration to be enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint. Once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
+If you later want to disable/enable the CDN, your streaming endpoint must be in the **stopped** state. Once the streaming endpoint is started it could take up to four hours for the Azure CDN integration to be enabled and for the changes to be active across all the CDN POPs. However, you can start your streaming endpoint and stream without interruptions from the streaming endpoint. Once the integration is complete, the stream is delivered from the CDN. During the provisioning period, your streaming endpoint will be in the **starting** state and you might observe degraded performance.
 
 When the Standard streaming endpoint is created, it's configured by default with Standard Verizon. You can configure Premium Verizon or Standard Akamai providers using REST APIs.
 

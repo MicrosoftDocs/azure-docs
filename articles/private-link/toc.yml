@@ -1,4 +1,4 @@
-- name: Azure Private Link Documentation
+- name: Private Link Documentation
   href: index.yml
 - name: Overview
   items:
@@ -24,7 +24,15 @@
   - name: Create a Private Link service - ARM template
     displayName: Resource Manager
     href: create-private-link-service-template.md
-
+  expanded: true
+- name: Tutorials
+  items: 
+  - name: Connect to a storage account
+    href: tutorial-private-endpoint-storage-portal.md
+  - name: Connect to a Cosmos DB account
+    href: tutorial-private-endpoint-cosmosdb-portal.md
+  - name: Connect to a web app
+    href: tutorial-private-endpoint-webapp-portal.md
 - name: Concepts
   items:
   - name: Private Endpoint
@@ -33,14 +41,14 @@
     href: private-link-service-overview.md    
   - name: Private Endpoint DNS integration
     href: private-endpoint-dns.md    
+  - name: Security
+    items:
+    - name: Security baseline
+      href: security-baseline.md
 
-- name: How to
+- name: How-to
   items:
-  - name: Connect privately to a storage account
-    href: create-private-endpoint-storage-portal.md
-  - name: Connect privately to a Cosmos DB account
-    href: create-private-endpoint-cosmosdb-portal.md
-  - name: Connect privately to a Web App
+  - name: Connect privately to a web app
     href: create-private-endpoint-webapp-portal.md
   - name: Disable network policies for a private endpoint
     href: disable-private-endpoint-network-policy.md

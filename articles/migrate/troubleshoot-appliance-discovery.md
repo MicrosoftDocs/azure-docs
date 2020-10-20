@@ -147,7 +147,7 @@ If you wait and the state doesn't change, select **Refresh** on the **Servers** 
 If this doesn't work and you're discovering VMware servers:
 
 - Verify that the vCenter account you specified has permissions set correctly, with access to at least one VM.
-- Azure Migrate can't discovered VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](set-discovery-scope.md) about scoping discovery.
+- Azure Migrate can't discover VMware VMs if the vCenter account has access granted at vCenter VM folder level. [Learn more](set-discovery-scope.md) about scoping discovery.
 
 ## VM data not in portal
 
@@ -230,6 +230,7 @@ Typical app discovery errors are summarized in the table.
 9033: Unable to discover as the VM username contains invalid characters.	 | 	 Invalid characters were detected in the username.	 | 	 Provide the VM credential again ensuring there are no invalid characters.
 9034: Username provided is not in UPN format.	 | 	 Username is not in UPN format.	 | 	 Ensure that the username is in User Principal Name (UPN) format.
 9035: Unable to discover as Powershell language mode is not set to 'Full Language'.	 | 	 Language mode for Powershell in guest VM is not set to full language.	 | 	 Ensure that PowerShell language mode is set to 'Full Language'.
+9037: Data collection paused temporarily as VM response time is too high.	 | 	 The discovered VM is taking too long to respond	 | 	 No action required. A retry will be attempted in 24 hours for application discovery and 3 hours for dependency analysis (agentless).
 10000: Operating system type is not supported.	 | 	 Operating system running on the server is neither Windows nor Linux.	 | 	 Supported operating system types are Windows and Linux only.
 10001: Script for server discovery is not found on the appliance.	 | 	 Discovery is not working as expected.	 | 	 Contact Microsoft Support for a resolution.
 10002: Discovery task has not completed in time.	 | 	 Discovery agent is not working as expected.	 | 	 The issue should automatically resolve in 24 hours. If the issue persists, contact Microsoft Support.

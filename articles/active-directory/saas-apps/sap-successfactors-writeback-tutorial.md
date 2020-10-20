@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.topic: article
 ms.workload: identity
-ms.date: 08/05/2020
+ms.date: 10/14/2020
 ms.author: chmutali
 ---
 # Tutorial: Configure attribute write-back from Azure AD to SAP SuccessFactors
@@ -34,7 +34,7 @@ You can configure the SAP SuccessFactors Writeback app to write specific attribu
 
 This SuccessFactors Writeback user provisioning solution is ideally suited for:
 
-* Organizations using Office 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
+* Organizations using Microsoft 365 that desire to write-back authoritative attributes managed by IT (such as email address, phone, username) back to SuccessFactors Employee Central.
 
 ## Configuring SuccessFactors for the integration
 
@@ -119,68 +119,97 @@ Work with your SuccessFactors admin team or implementation partner to create or 
 
 ## Preparing for SuccessFactors Writeback
 
-The SuccessFactors Writeback provisioning app uses certain *code* values for setting email and phone numbers in Employee Central. These *code* values are set as constant values in the attribute-mapping table and are different for each SuccessFactors instance. This section uses [Postman](https://www.postman.com/downloads/) to fetch the code values. You may use [cURL](https://curl.haxx.se/), [Fiddler](https://www.telerik.com/fiddler) or any other similar tool to send HTTP requests. 
+The SuccessFactors Writeback provisioning app uses certain *code* values for setting email and phone numbers in Employee Central. These *code* values are set as constant values in the attribute-mapping table and are different for each SuccessFactors instance. This section provides steps to capture these *code* values.
 
-### Download and configure Postman with your SuccessFactors tenant
+   > [!NOTE]
+   > Please involve your SuccessFactors Admin to complete the steps in this section. 
 
-1. Download [Postman](https://www.postman.com/downloads/)
-1. Create a "New Collection" in the Postman app. Call it "SuccessFactors". 
+### Identify Email and Phone Number picklist names 
+
+In SAP SuccessFactors, a *picklist* is a configurable set of options from which a user can make a selection. The different types of email and phone number (e.g. business, personal, other) are represented using a picklist. In this step, we will identify the picklists configured in your SuccessFactors tenant to store email and phone number values. 
+ 
+1. In SuccessFactors Admin Center, search for *Manage business configuration*. 
 
    > [!div class="mx-imgBorder"]
-   > ![New Postman collection](./media/sap-successfactors-inbound-provisioning/new-postman-collection.png)
+   > ![Manage business configuration](./media/sap-successfactors-inbound-provisioning/manage-business-config.png)
 
-1. In the "Authorization" tab, enter credentials of the API user configured in the previous section. Configure type as "Basic Auth". 
+1. Under **HRIS Elements**, select **emailInfo** and click on the *Details* for the **email-type** field.
 
    > [!div class="mx-imgBorder"]
-   > ![Postman authorization](./media/sap-successfactors-inbound-provisioning/postman-authorization.png)
+   > ![Get email info](./media/sap-successfactors-inbound-provisioning/get-email-info.png)
 
-1. Save the configuration. 
+1. On the **email-type** details page, note down the name of the picklist associated with this field. By default, it is **ecEmailType**. However it may be different in your tenant. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Identify email picklist](./media/sap-successfactors-inbound-provisioning/identify-email-picklist.png)
+
+1. Under **HRIS Elements**, select **phoneInfo** and click on the *Details* for the **phone-type** field.
+
+   > [!div class="mx-imgBorder"]
+   > ![Get phone info](./media/sap-successfactors-inbound-provisioning/get-phone-info.png)
+
+1. On the **phone-type** details page, note down the name of the picklist associated with this field. By default, it is **ecPhoneType**. However it may be different in your tenant. 
+
+   > [!div class="mx-imgBorder"]
+   > ![Identify phone picklist](./media/sap-successfactors-inbound-provisioning/identify-phone-picklist.png)
 
 ### Retrieve constant value for emailType
 
-1. In Postman, click on the ellipsis (...) associated with the SuccessFactors collection and add a "New Request" called "Get Email Types" as shown below. 
+1. In SuccessFactors Admin Center, search and open *Picklist Center*. 
+1. Use the name of the email picklist captured from the previous section (e.g. ecEmailType) to find the email picklist. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman email request ](./media/sap-successfactors-inbound-provisioning/postman-email-request.png)
+   > ![Find email type picklist](./media/sap-successfactors-inbound-provisioning/find-email-type-picklist.png)
 
-1. Open the "Get Email Type" request panel. 
-1. In the GET URL, add the following URL, replacing `successFactorsAPITenantName` with the API tenant for your SuccessFactors instance. 
-   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecEmailType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. Open the active email picklist. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman get email type](./media/sap-successfactors-inbound-provisioning/postman-get-email-type.png)
+   > ![Open active email type picklist](./media/sap-successfactors-inbound-provisioning/open-active-email-type-picklist.png)
 
-1. The "Authorization" tab will inherit the auth configured for the collection. 
-1. Click on "Send" to invoke the API call. 
-1. In the Response body, view the JSON result set and look for the ID corresponding to the `externalCode = B`. 
+1. On the email type picklist page, select the *Business* email type.
 
    > [!div class="mx-imgBorder"]
-   > ![Postman email type response](./media/sap-successfactors-inbound-provisioning/postman-email-type-response.png)
+   > ![Select business email type](./media/sap-successfactors-inbound-provisioning/select-business-email-type.png)
 
-1. Note down this value as the constant to use with *emailType* in the attribute-mapping table.
+1. Note down the **Option ID** associated with the *Business* email. This is the code that we will use with *emailType* in the attribute-mapping table.
+
+   > [!div class="mx-imgBorder"]
+   > ![Get email type code](./media/sap-successfactors-inbound-provisioning/get-email-type-code.png)
+
+   > [!NOTE]
+   > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *8,448*, then set the *emailType* in Azure AD to the constant number *8448* (without the comma character). 
 
 ### Retrieve constant value for phoneType
 
-1. In Postman, click on the ellipsis (...) associated with the SuccessFactors collection and add a "New Request" called "Get Phone Types" as shown below. 
+1. In SuccessFactors Admin Center, search and open *Picklist Center*. 
+1. Use the name of the phone picklist captured from the previous section to find the phone picklist. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman phone request](./media/sap-successfactors-inbound-provisioning/postman-phone-request.png)
+   > ![Find phone type picklist](./media/sap-successfactors-inbound-provisioning/find-phone-type-picklist.png)
 
-1. Open the "Get Phone Type" request panel. 
-1. In the GET URL, add the following URL, replacing `successFactorsAPITenantName` with the API tenant for your SuccessFactors instance. 
-   `https://<successfactorsAPITenantName>/odata/v2/Picklist('ecPhoneType')?$expand=picklistOptions&$select=picklistOptions/id,picklistOptions/externalCode&$format=json`
+1. Open the active phone picklist. 
 
    > [!div class="mx-imgBorder"]
-   > ![Postman get phone type](./media/sap-successfactors-inbound-provisioning/postman-get-phone-type.png)
+   > ![Open active phone type picklist](./media/sap-successfactors-inbound-provisioning/open-active-phone-type-picklist.png)
 
-1. The "Authorization" tab will inherit the auth configured for the collection. 
-1. Click on "Send" to invoke the API call. 
-1. In the Response body, view the JSON result set and look for the *id* corresponding to the `externalCode = B` and `externalCode = C`. 
+1. On the phone type picklist page, review the different phone types listed under **Picklist Values**.
 
    > [!div class="mx-imgBorder"]
-   > ![Postman-Phone](./media/sap-successfactors-inbound-provisioning/postman-phone-type-response.png)
+   > ![Review phone types](./media/sap-successfactors-inbound-provisioning/review-phone-types.png)
 
-1. Note down these values as the constants to use with *businessPhoneType* and *cellPhoneType* in the attribute-mapping table.
+1. Note down the **Option ID** associated with the *Business* phone. This is the code that we will use with *businessPhoneType* in the attribute-mapping table.
+
+   > [!div class="mx-imgBorder"]
+   > ![Get business phone code](./media/sap-successfactors-inbound-provisioning/get-business-phone-code.png)
+
+1. Note down the **Option ID** associated with the *Cell* phone. This is the code that we will use with *cellPhoneType* in the attribute-mapping table.
+
+   > [!div class="mx-imgBorder"]
+   > ![Get cell phone code](./media/sap-successfactors-inbound-provisioning/get-cell-phone-code.png)
+
+   > [!NOTE]
+   > Drop the comma character when you copy over the value. For e.g. if the **Option ID** value is *10,606*, then set the *cellPhoneType* in Azure AD to the constant number *10606* (without the comma character). 
+
 
 ## Configuring SuccessFactors Writeback App
 
@@ -289,13 +318,23 @@ Once the SuccessFactors provisioning app configurations have been completed, you
 
 1. In the **Provisioning** tab, set the **Provisioning Status** to **On**.
 
-2. Click **Save**.
+1. Select **Scope**. You can select from one of the following options: 
+   * **Sync all users and groups**: Select this option if you plan to write back mapped attributes of all users from Azure AD to SuccessFactors, subject to the scoping rules defined under **Mappings** -> **Source Object Scope**. 
+   * **Sync only assigned users and groups**: Select this option if you plan to write back mapped attributes of only users that you have assigned to this application in the **Application** -> **Manage** -> **Users and groups** menu option. These users are also subject to the scoping rules defined under **Mappings** -> **Source Object Scope**.
 
-3. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the SuccessFactors tenant. You can check the progress bar to the track the progress of the sync cycle. 
+   > [!div class="mx-imgBorder"]
+   > ![Select Writeback scope](./media/sap-successfactors-inbound-provisioning/select-writeback-scope.png)
 
-4. At any time, check the **Audit logs** tab in the Azure portal to see what actions the provisioning service has performed. The audit logs lists all individual sync events performed by the provisioning service, such as which users are being read from Employee Central and then subsequently added or updated to Active Directory. 
+   > [!NOTE]
+   > The SuccessFactors Writeback provisioning app does not support "group assignment". Only "user assignment" is supported. 
 
-5. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
+1. Click **Save**.
+
+1. This operation will start the initial sync, which can take a variable number of hours depending on how many users are in the Azure AD tenant and the scope defined for the operation. You can check the progress bar to the track the progress of the sync cycle. 
+
+1. At any time, check the **Provisioning logs** tab in the Azure portal to see what actions the provisioning service has performed. The provisioning logs lists all individual sync events performed by the provisioning service. 
+
+1. Once the initial sync is completed, it will write an audit summary report in the **Provisioning** tab, as shown below.
 
    > [!div class="mx-imgBorder"]
    > ![Provisioning progress bar](./media/sap-successfactors-inbound-provisioning/prov-progress-bar-stats.png)

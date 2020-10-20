@@ -248,9 +248,9 @@ You can also onboard a Log Analytics workspace to Azure Sentinel as it provides 
 
 Supporting documentation:
 
-- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Azure Security Center monitoring**: Yes
 
@@ -435,7 +435,7 @@ Supporting documentation:
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -485,7 +485,7 @@ Azure Backup provides three built-in roles to control backup management operatio
 
 - [How to configure Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
-- [Use Role-Based Access Control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
+- [Use Azure role-based access control to manage Azure Backup recovery points](./backup-rbac-rs-vault.md)
 
 **Azure Security Center monitoring**: Currently not available
 
@@ -613,7 +613,7 @@ Allowed resource types
 
 - [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create Management Groups](../governance/management-groups/create.md)
+- [How to create Management Groups](../governance/management-groups/create-management-group-portal.md)
 
 - [How to create and use Tags](../azure-resource-manager/management/tag-resources.md)
 
@@ -763,9 +763,9 @@ Allowed resource types
 
 **Guidance**: If using custom Azure Policy definitions, use Azure DevOps or Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
-- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -821,7 +821,9 @@ Allowed resource types
 
 - [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](../key-vault/general/managed-identity.md)
+* [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+* [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -869,7 +871,7 @@ Use Azure Security Center's Threat detection for data services to detect malware
 
 - [Understand Microsoft Antimalware for Azure Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md)
 
-- [Understand Azure Security Center's Threat detection for data services](../security-center/threat-protection.md)
+- [Understand Azure Security Center's Threat detection for data services](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -915,7 +917,7 @@ Backup customer managed keys within Azure Key Vault.
 
 **Guidance**: Test restoration of backed up customer managed keys.
 
-- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [How to restore key vault keys in Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -925,7 +927,7 @@ Backup customer managed keys within Azure Key Vault.
 
 **Guidance**: For on-premises backup, encryption-at-rest is provided using the passphrase you provide when backing up to Azure. For Azure VMs, data is encrypted-at-rest using Storage Service Encryption (SSE). You may enable soft-delete in Key Vault to protect keys against accidental or malicious deletion.
 
-- [How to enable soft-delete in Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
+- [How to enable soft-delete in Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Azure Security Center monitoring**: Yes
 

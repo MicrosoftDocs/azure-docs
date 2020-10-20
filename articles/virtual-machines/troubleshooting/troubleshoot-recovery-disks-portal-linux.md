@@ -27,7 +27,7 @@ The troubleshooting process is as follows:
 1. Stop the affected VM.
 1. Take a snapshot for the OS disk of the VM.
 1. Create a virtual hard disk from the snapshot.
-1. Attach and mount the virtual hard disk to another Windows VM for troubleshooting purposes.
+1. Attach and mount the virtual hard disk to another Linux VM for troubleshooting purposes.
 1. Connect to the troubleshooting VM. Edit files or run any tools to fix issues on the original virtual hard disk.
 1. Unmount and detach the virtual hard disk from the troubleshooting VM.
 1. Swap the OS disk for the VM.

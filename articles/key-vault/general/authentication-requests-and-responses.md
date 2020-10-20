@@ -2,19 +2,37 @@
 title: Authentication, requests and responses
 description: Learn how Azure Key Vault uses JSON-formatted requests and responses and about required authentication for using a key vault.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
+ms.date: 09/15/2020
+ms.author: ambapat
 
 ---
 
 # Authentication, requests and responses
+
+Azure Key Vault provides two types of containers to store and manage secrets for your cloud applications:
+
+|Container type|Supported object types|Data-plane endpoint|
+|--|--|--|
+| **Vaults**|<ul><li>Software-protected keys</li><li>HSM-protected keys (with Premium SKU)</li><li>Certificates</li><li>Storage account keys</li></ul> | https://{vault-name}.vault.azure.net
+|**Managed HSM** |<ul><li>HSM-protected keys</li></ul> | https://{hsm-name}.managedhsm.azure.net
+
+Here are the URL suffixes used to access each type of object
+
+|Object type|URL suffix|
+|--|--|
+|Software-protected keys| /keys |
+|HSM-protected keys| /keys |
+|Secrets|/secrets|
+|Certificates| /certificates|
+|Storage account keys|/storageaccounts
+||
 
 Azure Key Vault supports JSON formatted requests and responses. Requests to the Azure Key Vault are directed to a valid Azure Key Vault URL using HTTPS with some URL parameters and JSON encoded request and response bodies.
 
@@ -33,7 +51,9 @@ This topic covers specifics for the Azure Key Vault service. For general informa
 
 - To SIGN a digest using a key called TESTKEY in a Key Vault use - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  The authority for a request to a Key Vault is always as follows,  `https://{keyvault-name}.vault.azure.net/`  
+- The authority for a request to a Key Vault is always as follows,
+  - For vaults: `https://{keyvault-name}.vault.azure.net/`
+  - For Managed HSMs: `https://{HSM-name}.managedhsm.azure.net/`
 
   Keys are always stored under the /keys path, Secrets are always stored under the /secrets path.  
 

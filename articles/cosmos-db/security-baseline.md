@@ -286,7 +286,7 @@ Azure Cosmos DB provides built-in RBAC for common management scenarios in Azure 
 
 You can also use the Azure AD PowerShell module to perform adhoc queries to discover accounts that are members of administrative groups. 
 
-Additionally, some actions in Azure Cosmos DB can be controlled with Azure Active Directory and account-specific master keys.  Use the 'disableKeyBasedMetadataWriteAccess' account setting to control key access.
+Additionally, some actions in Azure Cosmos DB can be controlled with Azure Active Directory and account-specific primary keys.  Use the 'disableKeyBasedMetadataWriteAccess' account setting to control key access.
 
 Understand role-based access control in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/role-based-access-control
 
@@ -294,9 +294,9 @@ Build your own custom roles using Azure Cosmos DB Actions (Microsoft.DocumentDB 
 
 Create a new role in Azure Active Directory: https://docs.microsoft.com/azure/role-based-access-control/custom-roles
 
-How to get a directory role in Azure Active Directory with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+How to get a directory role in Azure Active Directory with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&preserve-view=true
 
-How to get members of a directory role in Azure Active Directory with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+How to get members of a directory role in Azure Active Directory with PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&preserve-view=true
 
 Restrict user access to data operations only: https://docs.microsoft.com/azure/cosmos-db/how-to-restrict-user-data
 
@@ -306,7 +306,7 @@ Restrict user access to data operations only: https://docs.microsoft.com/azure/c
 
 ### 3.2: Change default passwords where applicable
 
-**Guidance**: The concept of default or blank passwords does not exist in relation to Azure AD or Azure Cosmos DB. Instead, Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources; master keys and resource tokens. The keys can be regenerated at any time.
+**Guidance**: The concept of default or blank passwords does not exist in relation to Azure AD or Azure Cosmos DB. Instead, Azure Cosmos DB uses two types of keys to authenticate users and provide access to its data and resources; primary keys and resource tokens. The keys can be regenerated at any time.
 
 Understanding secure access to data in Azure Cosmos DB: https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data
 
@@ -636,7 +636,7 @@ Although classic Azure resources may be discovered via Resource Graph, it is hig
 
 How to create queries with Azure Resource Graph: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
-How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+How to view your Azure Subscriptions: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0&preserve-view=true
 
 Understanding Azure role-based access control: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -788,7 +788,7 @@ How to configure Conditional Access to block access to Azure Resource Manager: h
 
 - Cosmos DB should use a virtual network service endpoint
 
-How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+How to view available Azure Policy aliases: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0&preserve-view=true
 
 How to configure and manage Azure Policy: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -830,8 +830,8 @@ Understand Azure Policy Effects: https://docs.microsoft.com/azure/governance/pol
 
 **Guidance**: If using custom Azure Policy definitions for your Cosmos DB or related resources, use Azure Repos to securely store and manage your code.
 
-Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
-https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+Azure Repos Documentation: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops&preserve-view=true
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true
 
 **Azure Security Center monitoring**: Not applicable
 
@@ -887,9 +887,11 @@ How to configure and manage Azure Policy: https://docs.microsoft.com/azure/gover
 
 How to integrate with Azure Managed Identities: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+How to create a Key Vault: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-How to provide Key Vault authentication with a managed identity: https://docs.microsoft.com/azure/key-vault/managed-identity
+How to authenticate to Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+How to assign a Key Vault access policy: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Azure Security Center monitoring**: Yes
 
@@ -998,7 +1000,7 @@ https://docs.microsoft.com/azure/cosmos-db/how-to-backup-and-restore
 
 How to restore Azure Key Vault Secrets:
 
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0&preserve-view=true
 
 **Azure Security Center monitoring**: Not applicable
 

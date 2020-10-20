@@ -16,15 +16,16 @@ ms.reviewer: jroth
 ms.custom: "seo-lt-2019"
 
 ---
-# Configure an availability group for SQL Server on Azure VM (Azure portal - Preview)
+# Use Azure portal to configure an availability group (Preview) for SQL Server on Azure VM 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 This article describes how to use the [Azure portal](https://portal.azure.com) to configure an availability group for SQL Server on Azure VMs. 
 
 Use the Azure portal to create a new cluster or onboard an existing cluster, and then create the availability group, listener, and internal load balancer. 
 
-   > [!NOTE]
-   > This feature is currently in preview and being deployed so if your desired region is unavailable, check back soon. 
+This feature is currently in preview. 
+
+While this article uses the Azure portal to configure the availability group environment, it is also possible to do so using [PowerShell or the Azure CLI](availability-group-az-commandline-configure.md), [Azure Quickstart templates](availability-group-quickstart-template-configure.md), or [Manually](availability-group-manually-configure-tutorial.md) as well. 
 
 
 ## Prerequisites
@@ -70,9 +71,14 @@ If you do not already have an existing cluster, create it by using the Azure por
    :::image type="content" source="media/availability-group-az-portal-configure/configure-new-cluster-2.png" alt-text="Provide credentials for the SQL Service account, cluster operator account and cluster bootstrap account":::
 
 1. Select the SQL Server VMs you want to add to the cluster. Note whether or not a restart is required, and proceed with caution. Only VMs that are registered with the SQL VM resource provider in full manageability mode, and are in the same location, domain, and on the same virtual network as the primary SQL Server VM will be visible. 
-1. Select **Apply** to create the cluster. 
+1. Select **Apply** to create the cluster. You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
+1. For a failover cluster to be supported by Microsoft, it must pass cluster validation. Connect to the VM using your preferred method (such as Remote Desktop Protocol (RDP)) and validate that your cluster passes validation before proceeding further. Failure to do so leaves your cluster in an unsupported state. You can validate the cluster using Failover Cluster Manager (FCM) or the following PowerShell command:
 
-You can check the status of your deployment in the **Activity log** which is accessible from the bell icon in the top navigation bar. 
+    ```powershell
+    Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+    ```
+    
+
 
 ### Onboard existing cluster
 
@@ -89,6 +95,8 @@ To do so, follow these steps:
 
 1. Review the settings for your cluster. 
 1. Select **Apply** to onboard your cluster and then select **Yes** at the prompt to proceed.
+
+
 
 
 ## Create availability group
@@ -173,7 +181,7 @@ You can **Add more replicas** to the availability group, **Configure the Listene
 
 ## Remove cluster
 
-Remove all of the SQL Server VMs from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the latest version of the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) or PowerShell. 
+Remove all of the SQL Server VMs from the cluster to destroy it, and then remove the cluster metadata from the SQL VM resource provider. You can do so by using the latest version of the [Azure CLI](/cli/azure/install-azure-cli) or PowerShell. 
 
 # [Azure CLI](#tab/azure-cli)
 

@@ -1,6 +1,6 @@
 ---
-title: Deploy Kubernetes stateless application on Azure Stack Edge GPU device using kubectl| Microsoft Docs
-description: Describes how to create and manage a Kubernetes stateless application deployment using kubectl on a Microsoft Azure Stack Edge device.
+title: Deploy Kubernetes stateless application on Azure Stack Edge Pro GPU device using kubectl| Microsoft Docs
+description: Describes how to create and manage a Kubernetes stateless application deployment using kubectl on a Microsoft Azure Stack Edge Pro device.
 services: databox
 author: alkohli
 
@@ -11,7 +11,7 @@ ms.date: 08/28/2020
 ms.author: alkohli
 ---
 
-# Deploy a Kubernetes stateless application via kubectl on your Azure Stack Edge GPU device
+# Deploy a Kubernetes stateless application via kubectl on your Azure Stack Edge Pro GPU device
 
 This article describes how to deploy a stateless application using kubectl commands on an existing Kubernetes cluster. This article also walks you through the process of creating and setting up pods in your stateless application.
 
@@ -19,13 +19,13 @@ This article describes how to deploy a stateless application using kubectl comma
 
 Before you can create a Kubernetes cluster and use the `kubectl` command-line tool, you need to ensure that:
 
-- You have sign-in credentials to a 1-node Azure Stack Edge device.
+- You have sign-in credentials to a 1-node Azure Stack Edge Pro device.
 
-- Windows PowerShell 5.0 or later is installed on a Windows client system to access the Azure Stack Edge device. You can have any other client with a Supported operating system as well. This article describes the procedure when using a Windows client. To download the latest version of Windows PowerShell, go to [Installing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Windows PowerShell 5.0 or later is installed on a Windows client system to access the Azure Stack Edge Pro device. You can have any other client with a Supported operating system as well. This article describes the procedure when using a Windows client. To download the latest version of Windows PowerShell, go to [Installing Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- Compute is enabled on the Azure Stack Edge device. To enable compute, go to the **Compute** page in the local UI of the device. Then select a network interface that you want to enable for compute. Select **Enable**. Enabling compute results in the creation of a virtual switch on your device on that network interface. For more information, see [Enable compute network on your Azure Stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Compute is enabled on the Azure Stack Edge Pro device. To enable compute, go to the **Compute** page in the local UI of the device. Then select a network interface that you want to enable for compute. Select **Enable**. Enabling compute results in the creation of a virtual switch on your device on that network interface. For more information, see [Enable compute network on your Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
-- Your Azure Stack Edge device has a Kubernetes cluster server running that is version v1.9 or later. For more information, see [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- Your Azure Stack Edge Pro device has a Kubernetes cluster server running that is version v1.9 or later. For more information, see [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - You have installed `kubectl`.
 
@@ -39,7 +39,7 @@ Before we begin, you should have:
 4. Saved the user configuration to `C:\Users\<username>\.kube`.
 5. Installed `kubectl`.
 
-Now you can begin running and managing stateless application deployments on an Azure Stack Edge device. Before you start using `kubectl`, you need to verify that you have the correct version of `kubectl`.
+Now you can begin running and managing stateless application deployments on an Azure Stack Edge Pro device. Before you start using `kubectl`, you need to verify that you have the correct version of `kubectl`.
 
 ### Verify you have the correct version of kubectl and set up configuration
 
@@ -105,7 +105,7 @@ A pod is the basic execution unit of a Kubernetes application, the smallest and 
 
 The type of stateless application that you create is an nginx web server deployment.
 
-All kubectl commands you use to create and manage stateless application deployments need to specify the namespace associated with the configuration. You created the namespace while connected to the cluster on the Azure Stack Edge device in the [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md) tutorial with `New-HcsKubernetesNamespace`.
+All kubectl commands you use to create and manage stateless application deployments need to specify the namespace associated with the configuration. You created the namespace while connected to the cluster on the Azure Stack Edge Pro device in the [Create and manage a Kubernetes cluster on Microsoft Azure Stack Edge Pro device](azure-stack-edge-gpu-create-kubernetes-cluster.md) tutorial with `New-HcsKubernetesNamespace`.
 
 To specify the namespace in a kubectl command, use `kubectl <command> -n <namespace-string>`.
 

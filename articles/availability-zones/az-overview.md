@@ -32,7 +32,7 @@ To better understand regions and Availability Zones in Azure, it helps to unders
 
 ## Regions
 
-A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. Azure gives you the flexibility to deploy applications where you need to, including across multiple regions to deliver cross-region resiliency. For more information, see [Overview of the resiliency pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview).
+A region is a set of datacenters deployed within a latency-defined perimeter and connected through a dedicated regional low-latency network. Azure gives you the flexibility to deploy applications where you need to, including across multiple regions to deliver cross-region resiliency. For more information, see [Overview of the resiliency pillar](/azure/architecture/framework/resiliency/overview).
 
 ## Availability Zones
 
@@ -108,7 +108,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Service Fabric | Azure HPC Cache | Data Catalog |
 > | Virtual Machine Scale Sets | Azure IoT Hub | Data Factory : Data Factory V1 |
 > | Virtual Machines | Azure Kubernetes Service (AKS) | Data Lake Analytics |
-> | Virtual Machines: Av2-Series | Azure Machine Learning | Machine Learning Studio |
+> | Virtual Machines: Av2-Series | Azure Machine Learning | Azure Machine Learning Studio (classic)|
 > | Virtual Machines: Bs-Series | Azure Private Link | Microsoft Genomics |
 > | Virtual Machines: DSv2-Series | Azure Red Hat OpenShift | Remote Rendering |
 > | Virtual Machines: DSv3-Series | Azure SignalR Service | Spatial Anchors |
@@ -165,9 +165,9 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 - [Create a virtual machine](../virtual-machines/windows/create-portal-availability-zone.md)
 - [Add a Managed Disk using PowerShell](../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine)
 - [Create a zone redundant virtual machine scale set](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
-- [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
-- [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Zone-redundant storage](../storage/common/storage-redundancy-zrs.md)
+- [Load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](../load-balancer/quickstart-load-balancer-standard-public-cli.md)
+- [Zone-redundant storage](../storage/common/storage-redundancy.md)
 - [SQL Database](../azure-sql/database/high-availability-sla.md#zone-redundant-configuration)
 - [Event Hubs geo-disaster recovery](../event-hubs/event-hubs-geo-dr.md#availability-zones)
 - [Service Bus geo-disaster recovery](../service-bus-messaging/service-bus-geo-dr.md#availability-zones)

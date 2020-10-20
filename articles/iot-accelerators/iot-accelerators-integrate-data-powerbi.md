@@ -40,7 +40,7 @@ This tutorial will walk you through how to plug in your Remote Monitoring soluti
    - URI
    - Primary Key
 
-     ![keys](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![Screenshot shows an Azure Cosmos D B Account with the Keys item selected.](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## Setting up the Stream in Power BI
   
@@ -89,9 +89,9 @@ Once the stream has been connected, you are ready to create your personalized da
 
 ## Publishing the dashboard and refreshing the data
 
-After you have successfully created your dashboards, we recommend that you [publish your Power BI dashboards](https://docs.microsoft.com/power-bi/desktop-upload-desktop-files) to share with others.
+After you have successfully created your dashboards, we recommend that you [publish your Power BI dashboards](/power-bi/desktop-upload-desktop-files) to share with others.
 
-You'll also want to [refresh the data](https://docs.microsoft.com/power-bi/refresh-data) on the published dashboard to make sure that you have the latest data set.
+You'll also want to [refresh the data](/power-bi/refresh-data) on the published dashboard to make sure that you have the latest data set.
 
 ## Next steps
 
@@ -102,4 +102,3 @@ For more information about customizing the Remote Monitoring solution, see:
 * [Customizing the Remote Monitoring Solution UI](iot-accelerators-remote-monitoring-customize.md)
 * [Developer Reference Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
 * [Developer Troubleshooting Guide](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Troubleshooting-Guide)
-

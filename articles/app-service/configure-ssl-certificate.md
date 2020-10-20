@@ -140,7 +140,7 @@ In the **Key Vault Status** page, click **Key Vault Repository** to create a new
 | Resource group | As a recommendation, select the same resource group as your App Service certificate. |
 | Location | Select the same location as your App Service app. |
 | Pricing tier | For information, see [Azure Key Vault pricing details](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Grant several applications access to a key vault](../key-vault/general/group-permissions-for-apps.md). |
+| Access policies| Defines the applications and the allowed access to the vault resources. You can configure it later, following the steps at [Assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md). |
 | Virtual Network Access | Restrict vault access to certain Azure virtual networks. You can configure it later, following the steps at [Configure Azure Key Vault Firewalls and Virtual Networks](../key-vault/general/network-security.md) |
 
 Once you've selected the vault, close the **Key Vault Repository** page. The **Step 1: Store** option should show a green check mark for success. Keep the page open for the next step.
@@ -183,6 +183,13 @@ When the operation completes, you see the certificate in the **Private Key Certi
 
 If you use Azure Key Vault to manage your certificates, you can import a PKCS12 certificate from Key Vault into App Service as long as it [satisfies the requirements](#private-certificate-requirements).
 
+### Authorize App Service to read from the vault
+By default, the App Service resource provider doesn’t have access to the Key Vault. In order to use a Key Vault for a certificate deployment, you need to [authorize the resource provider read access to the KeyVault](../key-vault/general/assign-access-policy-cli.md). 
+
+`abfa0a7c-a6b6-4736-8310-5855508787cd`  is the resource provider service principal name for App Service, and it's the same for all Azure subscriptions. For Azure Government cloud environment, use `6a02c803-dafd-4136-b4c3-5a6f318b4714` instead as the resource provider service principal name.
+
+### Import a certificate from your vault to your app
+
 In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>, from the left menu, select **App Services** > **\<app-name>**.
 
 From the left navigation of your app, select **TLS/SSL settings** > **Private Key Certificates (.pfx)** > **Import Key Vault Certificate**.
@@ -200,6 +207,9 @@ Use the following table to help you select the certificate.
 When the operation completes, you see the certificate in the **Private Key Certificates** list. If the import fails with an error, the certificate doesn't meet the [requirements for App Service](#private-certificate-requirements).
 
 ![Import Key Vault certificate finished](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+
+> [!NOTE]
+> If you update your certificate in Key Vault with a new certificate, App Service automatically syncs your certificate within 48 hours.
 
 > [!IMPORTANT] 
 > To secure a custom domain with this certificate, you still need to create a certificate binding. Follow the steps in [Create binding](configure-ssl-bindings.md#create-binding).

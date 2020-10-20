@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/01/2020
+ms.date: 10/14/2020
 ms.author: mimart
 ms.subservice: B2C
 ---
@@ -43,7 +43,7 @@ The following example shows a Conditional Access technical profile:
 
 ## Conditional Access evaluation
 
-For every sign-in, Azure AD B2C evaluates all policies and ensures all requirements are met before granting the user access. "Block access" overrides all other configuration settings. The **Evaluation** mode of the Conditional Access technical profile evaluates the signals collected by Azure AD B2C during the sign-in with a local account. The outcome of the Conditional Access technical profile is a set of claims that result from Conditional Access evaluation. The Azure AD B2C policy uses these claims in a next orchestration step to take an action, such as block the user or challenge the use with multi-factor authentication. The following options can be configured for this mode.
+For every sign-in, Azure AD B2C evaluates all policies and ensures all requirements are met before granting the user access. "Block access" overrides all other configuration settings. The **Evaluation** mode of the Conditional Access technical profile evaluates the signals collected by Azure AD B2C during the sign-in with a local account. The outcome of the Conditional Access technical profile is a set of claims that result from Conditional Access evaluation. The Azure AD B2C policy uses these claims in a next orchestration step to take an action, such as block the user or challenge the user with multi-factor authentication. The following options can be configured for this mode.
 
 ### Metadata
 
@@ -88,7 +88,7 @@ The following example shows a Conditional Access technical profile that is used 
     <Item Key="OperationType">Evaluation</Item>
   </Metadata>
   <InputClaimsTransformations>
-    <InputClaimsTransformation ReferenceId="IsMfaRegistered" />
+    <InputClaimsTransformation ReferenceId="IsMfaRegisteredCT" />
   </InputClaimsTransformations>
   <InputClaims>
     <InputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="UserId" />
@@ -363,6 +363,7 @@ In your TrustFrameworkPolicy element, add these SubJourneys as shown in the foll
         </OrchestrationStep>
       </OrchestrationSteps>
     </SubJourney>
+  </SubJourneys>
 
 ```
 
@@ -372,7 +373,7 @@ Add a user journey that uses the new claims, as shown in the following example:
   <UserJourneys>
     <UserJourney Id="SignUpOrSignInWithCA">
       <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninsam">
+        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">
           <ClaimsProviderSelections>
             <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
 
@@ -408,20 +409,14 @@ Add a user journey that uses the new claims, as shown in the following example:
           </ClaimsExchanges>
         </OrchestrationStep>
 
-        <OrchestrationStep Order="4" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="UserJourneyContext" TechnicalProfileReferenceId="SimpleUJContext" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-
-        <OrchestrationStep Order="5" Type="InvokeSubJourney">
+        <OrchestrationStep Order="4" Type="InvokeSubJourney">
           <JourneyList>
             <Candidate SubJourneyReferenceId="ConditionalAccess_Evaluation" />
           </JourneyList>
         </OrchestrationStep>
 
         <!--MFA based on Conditional Access-->
-        <OrchestrationStep Order="6" Type="ClaimsExchange">
+        <OrchestrationStep Order="5" Type="ClaimsExchange">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>CAChallengeIsMfa</Value>
@@ -439,7 +434,7 @@ Add a user journey that uses the new claims, as shown in the following example:
         </OrchestrationStep>
 
         <!--Save MFA phone number: The precondition verifies whether the user provided a new number in the previous step. If so, the phone number is stored in the directory for future authentication requests.-->
-        <OrchestrationStep Order="7" Type="ClaimsExchange">
+        <OrchestrationStep Order="6" Type="ClaimsExchange">
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>newPhoneNumberEntered</Value>
@@ -451,7 +446,7 @@ Add a user journey that uses the new claims, as shown in the following example:
           </ClaimsExchanges>
         </OrchestrationStep>
 
-        <OrchestrationStep Order="8" Type="ClaimsExchange" >
+        <OrchestrationStep Order="7" Type="ClaimsExchange" >
           <Preconditions>
             <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
               <Value>CAChallengeIsBlock</Value>
@@ -470,12 +465,12 @@ Add a user journey that uses the new claims, as shown in the following example:
 
         <!--If a user has reached this point, this means a remediation was applied-->
         <!--  You can add a precondition here to call remediation only if a Conditional Access challenge was issued-->
-        <OrchestrationStep Order="9" Type="InvokeSubJourney">
+        <OrchestrationStep Order="8" Type="InvokeSubJourney">
           <JourneyList>
             <Candidate SubJourneyReferenceId="ConditionalAccess_Remediation" />
           </JourneyList>
         </OrchestrationStep>
-        <OrchestrationStep Order="10" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        <OrchestrationStep Order="9" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
       </OrchestrationSteps>
       <ClientDefinition ReferenceId="DefaultWeb" />
     </UserJourney>
@@ -522,3 +517,7 @@ The following is an example of a relying party file that references this UserJou
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+## Next steps
+
+- You can find an example of a conditional access policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).

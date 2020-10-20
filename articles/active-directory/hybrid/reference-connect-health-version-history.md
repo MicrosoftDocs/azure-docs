@@ -26,7 +26,7 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 > Connect Health agents are updated automatically when new version is released. Please ensure the auto-upgrade settings is enabled from Azure portal.
 >
 
-Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history)
+Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
 For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
 
 ## April 2020
@@ -257,4 +257,4 @@ For feature feedback, vote at [Connect Health User Voice channel](https://feedba
 * Simpler Agent Deployment using Azure AD Global Admin credentials.  
 
 ## Next steps
-Learn more about [Monitor your on-premises identity infrastructure and synchronization services in the cloud](whatis-hybrid-identity-health.md).
+Learn more about [Monitor your on-premises identity infrastructure and synchronization services in the cloud](./whatis-azure-ad-connect.md).

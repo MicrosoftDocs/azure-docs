@@ -1,23 +1,23 @@
 ---
-title: Create Azure Virtual Machine technical assets 
+title: Create technical assets for an Azure Marketplace virtual machine offer
 description: Learn how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace.  
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
 ---
 
-# Create Azure Virtual Machine technical assets
+# Create technical assets for an Azure Marketplace virtual machine offer
 
 When publishing your virtual machine (VM) images to Azure Marketplace, the Azure team validates the VM image to ensure its bootability, security, and Azure compatibility. If any of the high-quality tests fail, the publishing will fail with a message containing the error and possible [rectification steps](https://docs.microsoft.com/azure/marketplace/partner-center-portal/vm-certification-issues-solutions).
 
 This article describes how to create and configure technical assets for a virtual machine (VM) offer for Azure Marketplace. A VM contains two components: the operating system virtual hard disk (VHD) and optional associated data disks VHDs:
 
-1. **Operating system VHD** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-based, Windows-based, or a custom- based VM.
+- **Operating system VHD**: Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-based, Windows-based, or a custom- based VM.
 
-2. **Data disk VHDs** – Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information.
+- **Data disk VHDs**: Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information.
 
 A VM image contains one operating system disk and up to 16 data disks. Use one VHD per data disk, even if the disk is blank.
 
@@ -141,7 +141,7 @@ This article details how to use the built-in Windows RDP support to connect to y
 
 ### Connect to a Linux-based VM
 
-To connect to a Linux-based VM, you need a secure shell protocol (SSH) client. The following steps use the free [PuTTY](https://www.ssh.com/ssh/putty/) SHH terminal.
+To connect to a Linux-based VM, you need a secure shell protocol (SSH) client. The following steps use the free [PuTTY](https://www.ssh.com/ssh/putty/) SSH terminal.
 
 1. Go to the [Azure portal](https://ms.portal.azure.com/).
 2. Search for and select Virtual machines.

@@ -35,12 +35,12 @@ The following table provides a summary of the permissions required on AD objects
 | Password hash sync |<li>Replicate Directory Changes</li>  <li>Replicate Directory Changes All |
 | Exchange hybrid deployment |Read and Write permissions to the attributes documented in [Exchange hybrid writeback](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) for users, groups, and contacts. |
 | Exchange Mail Public Folder |Read permissions to the attributes documented in [Exchange Mail Public Folder](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) for public folders. | 
-| Password writeback |Read and Write permissions to the attributes documented in [Getting started with password management](../authentication/howto-sspr-writeback.md) for users. |
+| Password writeback |Read and Write permissions to the attributes documented in [Getting started with password management](../authentication/tutorial-enable-sspr-writeback.md) for users. |
 | Device writeback |Read and Write permissions to device objects and containers documented in [device writeback](how-to-connect-device-writeback.md). |
 | Group writeback |Read, Create, Update, and Delete group objects for synchronized **Office 365 groups**.|
 
 ## Using the ADSyncConfig PowerShell Module 
-The ADSyncConfig module requires the [Remote Server Administration Tools (RSAT) for AD DS](https://docs.microsoft.com/windows-server/remote/remote-server-administration-tools) since it depends on the AD DS PowerShell module and tools. To install RSAT for AD DS, open a Windows PowerShell window with ‘Run As Administrator’ and execute: 
+The ADSyncConfig module requires the [Remote Server Administration Tools (RSAT) for AD DS](/windows-server/remote/remote-server-administration-tools) since it depends on the AD DS PowerShell module and tools. To install RSAT for AD DS, open a Windows PowerShell window with ‘Run As Administrator’ and execute: 
 
 ``` powershell
 Install-WindowsFeature RSAT-AD-Tools 
@@ -307,4 +307,3 @@ This cmdlet will set the following permissions:
 - [Express Installation](how-to-connect-install-express.md)
 - [Custom Installation](how-to-connect-install-custom.md)
 - [ADSyncConfig Reference](reference-connect-adsyncconfig.md)
-

@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 
 ---
@@ -25,7 +25,7 @@ In order to figure out how many route tables will be needed, you can build a con
 | **Red VNets**  |   &#8594;|              |       X       |       X      |
 | **Branches**   |   &#8594;|     X        |       X       |       X      |
 
-Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow.
+Each of the cells in the previous table describes whether a Virtual WAN connection (the "From" side of the flow, the row headers in the table) learns a destination prefix (the "To" side of the flow, the column headers in italics in the table) for a specific traffic flow, where an "X" means that connectivity is provided by Virtual WAN.
 
 The number of different row patterns will be the number of route tables we will need in this scenario. In this case, three route route tables that we will call **RT_BLUE** and **RT_RED** for the virtual networks, and **Default** for the branches. Remember, the branches always have to be associated to the Default routing table.
 

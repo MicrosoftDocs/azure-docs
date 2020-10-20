@@ -18,10 +18,8 @@
 | Maximum number of routes advertised from Azure private peering from the VNet address space for an ExpressRoute connection |200 |
 | Maximum number of routes advertised to Microsoft peering with ExpressRoute Standard |200 |
 | Maximum number of routes advertised to Microsoft peering with ExpressRoute Premium add-on |200 |
-| Maxinum number of ExpressRoute circuits linked to a Standard Performance/ErGw1AZ gateway |4 | 
-| Maxinum number of ExpressRoute circuits linked to a High Performance/ErGw2AZ gateway |8 | 
-| Maxinum number of ExpressRoute circuits linked to a Ultra Performance/ErGw3AZ gateway |16 | 
-| Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations (all skus) |4 |
+| Maximum number of ExpressRoute circuits linked to the same virtual network in the same peering location |4 |
+| Maximum number of ExpressRoute circuits linked to the same virtual network in different peering locations |4 |
 | Number of virtual network links allowed per ExpressRoute circuit |See the [Number of virtual networks per ExpressRoute circuit](#vnetpercircuit) table.  |
 
 #### <a name="vnetpercircuit"></a> Number of virtual networks per ExpressRoute circuit

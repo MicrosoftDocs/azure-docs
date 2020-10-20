@@ -5,8 +5,9 @@
   - name: About Microsoft Azure Attestation
     href: overview.md
 - name: Quickstarts
-  items: 
+  items:
   - name: ARM template
+    displayName: Resource Manager
     href: quickstart-template.md
   - name: PowerShell
     href: quickstart-powershell.md
@@ -15,7 +16,7 @@
   - name: Authoring and signing an attestation policy
     href: author-sign-policy.md
   - name: SGX attestation code samples
-    href: https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation
+    href: /samples/browse/?expanded=azure&terms=attestation
 - name: Examples
   items:
     - name: Attestation policy
@@ -39,12 +40,12 @@
   - name: FAQ
     href: faq.md
   - name: REST
-    href: /rest/api/attestation/ 
+    href: /rest/api/attestation/
   - name: Azure PowerShell
     href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
   - name: Azure DCAP library for Windows
     href: https://www.nuget.org/packages/Microsoft.Azure.DCAP/
   - name: Azure DCAP library for Linux
     href: https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/
-
-  
+  - name: VBS attestation protocol
+    href: virtualization-based-security-protocol.md

@@ -26,7 +26,7 @@ IoT Hub also provides its own metrics that you can use to understand the state o
 
 Azure Monitor provides diagnostics information for Azure resources, which means that you can monitor operations that take place within your IoT hub.
 
-To learn more about the specific metrics and events that Azure Monitor watches, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md) and [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/platform/diagnostic-logs-schema.md).
+To learn more about the specific metrics and events that Azure Monitor watches, see [Supported metrics with Azure Monitor](../azure-monitor/platform/metrics-supported.md) and [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/platform/resource-logs-schema.md).
 
 [!INCLUDE [iot-hub-diagnostics-settings](../../includes/iot-hub-diagnostics-settings.md)]
 
@@ -51,7 +51,7 @@ The connections category tracks device connect and disconnect events from an IoT
             "operationName": "deviceConnect",
             "category": "Connections",
             "level": "Information",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
             "location": "Resource location"
         }
     ]
@@ -112,7 +112,7 @@ The device identity operations category tracks errors that occur when you attemp
 
 #### Routes
 
-The [message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c) category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as:
+The [message routing](./iot-hub-devguide-messages-d2c.md) category tracks errors that occur during message route evaluation and endpoint health as perceived by IoT Hub. This category includes events such as:
 
 * A rule evaluates to "undefined",
 * IoT Hub marks an endpoint as dead, or
@@ -416,7 +416,7 @@ In the `properties` section, this log contains additional information about mess
 
 #### Configurations
 
-IoT Hub configuration logs tracks events and error for the Automatic Device Management feature set.
+IoT Hub configuration logs track events and error for the Automatic Device Management feature set.
 
 ```json
 {
@@ -460,6 +460,42 @@ The device streams category tracks request-response interactions sent to individ
          }
     ]
 }
+```
+
+### SDK version
+
+Some operations return an `sdkVersion` property in their `properties` object. For these operations, when a device or backend app is using one of the Azure IoT SDKs, this property contains information about the SDK being used, the SDK version, and the platform on which the SDK is running. The following example shows the `sdkVersion` property emitted for a `deviceConnect` operation when using the Node.js device SDK: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"`. Here's an example of the value emitted for the .NET (C#) SDK: `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"`.
+
+The following table shows the SDK name used for different Azure IoT SDKs:
+
+| SDK name in sdkVersion property | Language |
+|----------|----------|
+| .NET | .NET (C#) |
+| microsoft.azure.devices | .NET (C#) service SDK |
+| microsoft.azure.devices.client | .NET (C#) device SDK |
+| iothubclient | C or Python v1 (deprecated) device SDK |
+| iothubserviceclient | C or Python v1 (deprecated) service SDK |
+| azure-iot-device-iothub-py | Python device SDK |
+| azure-iot-device | Node.js device SDK |
+| azure-iothub | Node.js service SDK |
+| com.microsoft.azure.iothub-java-client | Java device SDK |
+| com.microsoft.azure.iothub.service.sdk | Java service SDK |
+| com.microsoft.azure.sdk.iot.iot-device-client | Java device SDK |
+| com.microsoft.azure.sdk.iot.iot-service-client | Java service SDK |
+| C | Embedded C |
+| C + (OSSimplified = Azure RTOS) | Azure RTOS |
+
+You can extract the SDK version property when you perform queries against diagnostic logs. The following query extracts the SDK version property (and device ID) from the properties returned by Connections events. These two properties are written to the results along with the time of the event and the resource ID of the IoT hub that the device is connecting to.
+
+```kusto
+// SDK version of devices
+// List of devices and their SDK versions that connect to IoT Hub
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s) 
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
 ```
 
 ### Read logs from Azure Event Hubs

@@ -23,6 +23,8 @@
           href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
+        - name: Python
+          href: quickstart-python.md
         - name: ARM template
           href: quickstart-resource-manager.md
           displayName: ARM, azure resource manager template
@@ -32,6 +34,8 @@
           href: quickstart-feature-flag-aspnet-core.md
         - name: .NET Framework
           href: quickstart-feature-flag-dotnet.md
+        - name: Azure Functions in .NET Core 
+          href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutorials
@@ -76,9 +80,6 @@
   items:
     - name: Azure CLI
       href: cli-samples.md
-    - name: Azure Policy built-ins
-      displayName: samples, policies, definitions
-      href: ./policy-samples.md
 - name: Concepts
   items:
     - name: Keys and values
@@ -124,9 +125,9 @@
     - name: Configuration
       items:
         - name: Azure CLI
-          href: https://docs.microsoft.com/cli/azure/appconfig?view=azure-cli-latest
+          href: /cli/azure/appconfig?view=azure-cli-latest
         - name: .NET Core provider
-          href: https://go.microsoft.com/fwlink/?linkid=2074664
+          href: /dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration
         - name: .NET Framework builder
           href: https://go.microsoft.com/fwlink/?linkid=2074663
         - name: Azure SDK for .NET
@@ -144,13 +145,20 @@
     - name: Feature management
       items:
         - name: .NET Core library
-          href: https://go.microsoft.com/fwlink/?linkid=2091700
+          href: /dotnet/api/microsoft.featuremanagement
         - name: .NET Core filter library
-          href: https://go.microsoft.com/fwlink/?linkid=2091601
+          href: /dotnet/api/microsoft.featuremanagement.featurefilters
     - name: Config store management
       items:
         - name: REST API
-          href: https://docs.microsoft.com/rest/api/appconfiguration/
+          href: /rest/api/appconfiguration/
+        - name: PowerShell
+          href: /powershell/module/az.appconfiguration/
+        - name: Terraform
+          href: https://www.terraform.io/docs/providers/azurerm/r/app_configuration.html
+    - name: Azure Policy built-ins
+      displayName: samples, policies, definitions
+      href: ./policy-reference.md
 - name: Resources
   items:
     - name: Pricing
@@ -165,7 +173,7 @@
           href: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210
         - name: Azure App Configuration on Cloud Native Show
           href: https://www.youtube.com/watch?v=DJqmA5PcfzE
-        - name: Feature filtering at Azure Friday 
-          url: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553 
+        - name: Rolling out new features
+          href: https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553 
     - name: Provide product feedback
       href: https://github.com/Azure/AppConfiguration/issues

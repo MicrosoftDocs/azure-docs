@@ -45,26 +45,26 @@ Continuous access evaluation is implemented by enabling services, like Exchange 
 - Administrator explicitly revokes all refresh tokens for a user
 - Elevated user risk detected by Azure AD Identity Protection
 
-This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from O365 client apps within mins after one of these critical events. 
+This process enables the scenario where users lose access to organizational SharePoint Online files, email, calendar, or tasks, and Teams from Microsoft 365 client apps within mins after one of these critical events. 
 
 ### Conditional Access policy evaluation (preview)
 
 Exchange and SharePoint are able to synchronize key Conditional Access policies so they can be evaluated within the service itself.
 
-This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from O365 client apps or SharePoint Online immediately after network location changes.
+This process enables the scenario where users lose access to organizational files, email, calendar, or tasks from Microsoft 365 client apps or SharePoint Online immediately after network location changes.
 
 > [!NOTE]
 > Not all app and resource provider combination are supported. See table below. Office refers to Word, Excel, and PowerPoint
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Supported | Supported | Not Supported | Not Supported | Supported |
-| Exchange Online | Supported | Supported | Supported | Supported | Supported |
+| **SharePoint Online** | Supported | Supported | Not Supported | Not Supported | Supported |
+| **Exchange Online** | Supported | Supported | Supported | Supported | Supported |
 
 | | Office web apps | Office Win32 apps | Office for iOS | Office for Android | Office for Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Supported | Supported | Not Supported | Supported | Supported |
-| Exchange Online | Supported | Supported | Not Supported | Supported | Supported |
+| **SharePoint Online** | Not Supported | Supported | Supported | Supported | Supported |
+| **Exchange Online** | Not Supported | Supported | Supported | Supported | Supported |
 
 ### Client-side claim challenge
 
@@ -100,12 +100,12 @@ If you are not using CAE-capable clients, your default access token lifetime wil
 
 1. A CAE-capable client presents credentials or a refresh token to Azure AD asking for an access token for some resource.
 1. An access token is returned along with other artifacts to the client.
-1. An Administrator explicitly [revokes all refresh tokens for the user](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A revocation event will be sent to the resource provider from Azure AD.
+1. An Administrator explicitly [revokes all refresh tokens for the user](/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). A revocation event will be sent to the resource provider from Azure AD.
 1. An access token is presented to the resource provider. The resource provider evaluates the validity of the token and checks whether there is any revocation event for the user. The resource provider uses this information to decide to grant access to the resource or not.
 1. In this case, the resource provider denies access, and sends a 401+ claim challenge back to the client.
 1. The CAE-capable client understands the 401+ claim challenge. It bypasses the caches and goes back to step 1, sending its refresh token along with the claim challenge back to Azure AD. Azure AD will then reevaluate all the conditions and prompt the user to reauthenticate in this case.
 
-### User condition change flow (public preview):
+### User condition change flow (Preview):
 
 In the following example, a Conditional Access administrator has configured a location based Conditional Access policy to only allow access from specific IP ranges:
 
@@ -132,6 +132,13 @@ From this page, you can optionally limit the users and groups that will be subje
 
 ## Troubleshooting
 
+### Supported location policies
+
+For CAE, we only have insights into named IP-based named locations. We have no insights into other location settings like [MFA trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips) or country-based locations. When user comes from an MFA trusted IP or trusted locations that include MFA Trusted IPs or country location, CAE will not be enforced after user move to a different location. In those cases, we will issue a 1-hour CAE token without instant IP enforcement check.
+
+> [!IMPORTANT]
+> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md#preview-features) and configure all IP addresses, **including both IPv4 and IPv6**, that can be seen by your identity provider and resources provider. Do not use country location conditions or the trusted ips feature that is available in Azure Multi-Factor Authentication's service settings page.
+
 ### IP address configuration
 
 Your identity provider and resource providers may see different IP addresses. This mismatch may happen due to network proxy implementations in your organization or incorrect IPv4/IPv6 configurations between your identity provider and resource provider. For example:
@@ -142,9 +149,6 @@ Your identity provider and resource providers may see different IP addresses. Th
 
 If this scenario exists in your environment to avoid infinite loops, Azure AD will issue a one hour CAE token and will not enforce client location change. Even in this case, security is improved compared to traditional one hour tokens since we are still evaluating the [other events](#critical-event-evaluation) besides client location change events.
 
-> [!IMPORTANT]
-> When configuring locations for continuous access evaluation, use only the [IP based Conditional Access location condition](../conditional-access/location-condition.md). Do not use country location conditions or the trusted ips feature that is available in Azure Multi-Factor Authentication's service settings page.
-
 ### Office and Web Account Manager settings
 
 | Office update channel | DisableADALatopWAMOverride | DisableAADWAM |
@@ -152,7 +156,7 @@ If this scenario exists in your environment to avoid infinite loops, Azure AD wi
 | Semi-Annual Enterprise Channel | If set to enabled or 1, CAE is not be supported. | If set to enabled or 1, CAE is not be supported. |
 | Current Channel <br> or <br> Monthly Enterprise Channel | CAE is supported regardless of the setting | CAE is supported regardless of the setting |
 
-For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](https://docs.microsoft.com/deployoffice/overview-update-channels). It is recommended that organizations do not disable Web Account Manager (WAM).
+For an explanation of the office update channels, see [Overview of update channels for Microsoft 365 Apps](/deployoffice/overview-update-channels). It is recommended that organizations do not disable Web Account Manager (WAM).
 
 ### Policy change timing
 

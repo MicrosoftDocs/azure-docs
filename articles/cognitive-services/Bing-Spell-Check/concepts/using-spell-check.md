@@ -1,7 +1,7 @@
 ---
 title: Using the Bing Spell Check API
 titleSuffix: Azure Cognitive Services
-description: Learn about the Bing Spell Check modes, settings, and other information relating to the API.
+description: Learn about the Bing Spell Check modes, settings, and other information related to the API.
 services: cognitive-services
 author: aahill
 manager: nitinme

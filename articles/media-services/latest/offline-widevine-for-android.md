@@ -1,6 +1,6 @@
 ---
 title: Stream Widevine Android Offline with Azure Media Services v3
-description: This topic shows how to configure your Azure Media Services account for offline streaming of Widevine protected content.
+description: This topic shows how to configure your Azure Media Services v3 account for offline streaming of Widevine protected content.
 services: media-services
 keywords: DASH, DRM, Widevine Offline Mode, ExoPlayer, Android
 documentationcenter: ''
@@ -12,8 +12,8 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/07/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
 
@@ -21,10 +21,14 @@ ms.custom: devx-track-csharp
 
 # Offline Widevine streaming for Android with Media Services v3
 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
 In addition to protecting content for online streaming, media content subscription and rental services offer downloadable content that works when you are not connected to the internet. You might need to download content onto your phone or tablet for playback in airplane mode when flying disconnected from the network. Additional scenarios, in which you might want to download content:
 
 - Some content providers may disallow DRM license delivery beyond a country/region's border. If a user wants to watch content while traveling abroad, offline download is needed.
 - In some countries/regions, Internet availability and/or bandwidth is limited. Users may choose to download content to be able to watch it in high enough resolution for satisfactory viewing experience.
+
+[!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 This article discusses how to implement offline mode playback for DASH content protected by Widevine on Android devices. Offline DRM allows you to provide subscription, rental, and purchase models for your content, enabling customers of your services to easily take content with them when disconnected from the internet.
 
