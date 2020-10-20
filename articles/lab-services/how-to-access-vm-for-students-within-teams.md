@@ -14,6 +14,8 @@ If the lab is yet to be published or a sync is yet to be triggered after they ar
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-access-vm-for-students-within-teams/not-published-lab.png" alt-text="Not published Azure Lab Services lab":::
 
+## Next steps
+
 For more information, see the following articles:
 
 - [Use Azure Lab Services within Teams overview](lab-services-within-teams-overview.md)
