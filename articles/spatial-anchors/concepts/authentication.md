@@ -159,7 +159,7 @@ configuration.AuthenticationToken(LR"(MyAuthenticationToken)");
 
 ## Azure AD service authentication
 
-To deploy apps that use Azure spatial anchors to production, we recommend that you use a back-end service that will broker authentication requests. Here's an overview of the process:
+To deploy apps that use Azure Spatial Anchors to production, we recommend that you use a back-end service that will broker authentication requests. Here's an overview of the process:
 
 ![Diagram that provides an overview of authentication to Azure Spatial Anchors.](./media/spatial-anchors-aad-authentication.png)
 
