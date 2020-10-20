@@ -55,7 +55,7 @@ Before you start:
 * Make sure the [bootloader on your IoT DevKit  device is at version 1.4.0 or higher](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/).
 * Make sure the IoT DevKit SDK is at the same version as the bootloader. You can update the IoT DevKit SDK using the Azure IoT Workbench in VS Code. Open the command palette and enter **Arduino: Board Manager**. For more information, see [Prepare the development environment](../iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md#prepare-the-development-environment).
 
-You also need to connect at least one IoT DevKit device to your Remote Monitoring solution accelerator. If you haven't connected an IoT DevKit device, see [Connect MXChip IoT DevKit AZ3166 to the IoT Remote Monitoring solution accelerator](iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringV2.md).
+You also need to connect at least one IoT DevKit device to your Remote Monitoring solution accelerator. If you haven't connected an IoT DevKit device, see [Connect MXChip IoT DevKit AZ3166 to the IoT Remote Monitoring solution accelerator](./iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md).
 
 ## Navigate to the dashboard
 
@@ -143,7 +143,7 @@ Use your Azure storage account to host your new firmware file in the cloud.
 
 1. When the upload finishes, the IoT DevKit device reboots. When the reboot is complete, the screen of IoT DevKit shows **FW version: 1.0.0**, and that it's checking for new firmware:
 
-    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
+    ![Photograph shows the I o T DevKit device with its screen displaying the firmware version and checking for new firmware.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## Create a device configuration
 
@@ -244,23 +244,23 @@ In this section, you create and execute a deployment that applies the device con
 
 After a few minutes, the IoT DevKit retrieves the new firmware information and starts downloading it to the device:
 
-![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
+![Photograph shows the I o T DevKit device with its screen displaying the new firmware version downloading.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 Depending on the speed of your network, the download may take up to a couple of minutes. After the firmware is downloaded, the device verifies the file size and CRC value. The screen on the MXChip displays **passed** if verification is successful.
 
-![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
+![Photograph shows the I o T DevKit device with its screen displaying the firmware version and passed for verification success.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 If the check is successful, the device reboots. You see a countdown from **5** to **0** before the reboot happens.
 
-![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
+![Photograph shows the I o T DevKit device preparing to reboot.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 After the reboot, the IoT DevKit bootloader upgrades the firmware to the new version. The upgrade may take several seconds. During this stage, the RGB LED in the device is red and the screen is blank.
 
-![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
+![Photograph shows the I o T DevKit device performing the upgrade. There is no display but there is an R G B L E D glowing red.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 When the reboot is finished, your IoT DevKit device is now running version 1.0.1 of the firmware.
 
-![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
+![Photograph shows the I o T DevKit device with its screen displaying the new firmware version.](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 On the **Deployments** page, click on a deployment to see the status of your devices as they update. You can see the status of each device in your device group and the custom metrics you defined.
 
@@ -270,4 +270,4 @@ On the **Deployments** page, click on a deployment to see the status of your dev
 
 ## Next steps
 
-This tutorial showed you how to update the firmware of a group of devices connected to your solution. To update the devices, your solution uses automatic device management. To learn more about the automatic device management feature in your solution's underlying IoT hub, see [Configure and monitor IoT devices at scale using the Azure portal](../iot-hub/iot-hub-auto-device-config.md).
+This tutorial showed you how to update the firmware of a group of devices connected to your solution. To update the devices, your solution uses automatic device management. To learn more about the automatic device management feature in your solution's underlying IoT hub, see [Configure and monitor IoT devices at scale using the Azure portal](../iot-hub/iot-hub-automatic-device-management.md).

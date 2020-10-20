@@ -3,7 +3,7 @@ title: Create a commercial marketplace account in Partner Center
 description: Learn how to create a Microsoft commercial marketplace account in Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 ms.date: 07/01/2020
 author: parthpandyaMSFT
 ms.author: parthp
@@ -75,7 +75,7 @@ Your publisher profile includes your company name and MPN ID. If you haven't yet
     
 1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
 
-You've now created a commercial marketplace account in Partner Center. For more information, see [Commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+You've now created a commercial marketplace account in Partner Center. For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## Create an account by using existing Microsoft Partner Center enrollments
 
@@ -124,7 +124,7 @@ After you sign in, finish setting up your account by doing the following:
     
 1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
 
-You've now created a commercial marketplace account in Partner Center. For more information, see [Commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+You've now created a commercial marketplace account in Partner Center. For help with adding publishers, see [Add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ### What if I'm already enrolled in a developer program?
 
@@ -152,7 +152,7 @@ After you sign in to Partner Center, finish setting up your account by doing the
     
 1. To verify that the commercial marketplace account is listed as registered,  select **Settings** > **Partner Settings** > **Programs**.
 
-You've now created a commercial marketplace account in Partner Center. For more information, see [Commercial marketplace overview](./commercial-marketplace-overview.md). For help with adding publishers, see [add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
+You've now created a commercial marketplace account in Partner Center. For help with adding publishers, see [add new publishers to the commercial marketplace](#add-new-publishers-to-the-commercial-marketplace-program).
 
 ## For publishers who moved from the Cloud Partner Portal
 
@@ -185,4 +185,5 @@ After this process is complete, you can manage the newly created publisher by go
 
 ## Next steps
 
+- [What is the Microsoft commercial marketplace?](../overview.md)
 - [Manage your commercial marketplace account in Partner Center](./manage-account.md)

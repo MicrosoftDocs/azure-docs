@@ -15,10 +15,10 @@ ms.author: JenCook
 Start running your application in Azure confidential computing using [Fortanix Enclave Manager](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.enclave_manager?tab=Overview) and [Fortanix Node Agent](https://azuremarketplace.microsoft.com/marketplace/apps/fortanix.rte_node_agent) from [Fortanix](https://www.fortanix.com/).
 
 
-Fortanix is a 3rd party software vendor with products and services built on top of Azure infrastructure. There are other third party providers offering similar confidential computing services on Azure, such as [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).  
+Fortanix is a 3rd party software vendor with products and services built on top of Azure infrastructure. There are other third party providers offering similar confidential computing services on Azure.
 
 > [!Note] 
- > THE PRODUCTS REFERENCED IN THIS DOCUMENT ARE NOT UNDER THE CONTROL OF MICROSOFT. MICROSOFT IS PROVIDING THIS INFORMATION TO YOU ONLY AS A CONVENIENCE, AND THE REFERENCE TO THESE NON-MICROSOFT PRODUCTS DO NOT IMPLY ENDORSEMENT BY MICROSOFT.
+ > The products referenced in this document are not under the control of Microsoft. Microsoft is providing this information to you only as a convenience, and the reference to these non-Microsoft products do not imply endorsement by Microsoft.
 
 
 
@@ -37,7 +37,7 @@ This tutorial shows you how to convert your application image to a confidential 
 > Free trial accounts do not have access to the virtual machines used in this tutorial. Please upgrade to a Pay-As-You-Go subscription.
 
 ## Add an application to Fortanix Enclave Manager
-1. Sign in to [Fortanix EM](https://fortanix.com)
+1. Sign in to [Fortanix Enclave Manager (Fortanix EM)](https://em.fortanix.com)
 1. Navigate to the **Accounts** page and select **ADD ACCOUNT** to create a new account. 
     
 ![Create an account](media/how-to-fortanix-enclave-manager/create-account.png)
@@ -114,7 +114,7 @@ Creating a Fortanix Node Agent will deploy a virtual machine, network interface,
 1. On this page, you'll be entering information to deploy a virtual machine. Specifically, this VM is a DCsv2-Series Intel SGX-enabled virtual machine from Azure with Fortanix Node Agent software installed. The Node Agent will allow your converted image to run securely on Intel SGX nodes in Azure.  Select the **subscription** and **resource group** where you want to deploy the virtual machine and associated resources. 
  
     > [!NOTE]
-    > There are constraints when deploying DCsv2-Series virtual machines in Azure. You may need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solution) for more information. 
+    > There are constraints when deploying DCsv2-Series virtual machines in Azure. You may need to request quota for additional cores. Read about [confidential computing solutions on Azure VMs](https://docs.microsoft.com/azure/confidential-computing/virtual-machine-solutions) for more information. 
 
 1. Select an available region.
 1. Enter a name for your virtual machine in the **Node Name** field. 
@@ -156,7 +156,7 @@ where,
 
 When no longer needed, you can delete the resource group, virtual machine, and associated resources. Deleting the resource group will unenroll the nodes associated with your converted image. 
 
-Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.\
+Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
 To delete the Fortanix Enclave Manager Account you created, go the [Accounts Page](https://em.fortanix.com/accounts) in the Enclave Manager. Hover over the account you wish to delete. Select the vertical black dots in the upper right-hand corner and select **Delete Account**.
 
@@ -168,3 +168,4 @@ In this quickstart, you used Fortanix tooling to convert your application image 
 
 To learn more about Azure's confidential computing offerings, see [Azure confidential computing Overview](overview.md)
 
+ Learn how to complete similar tasks using other third-party offerings on Azure, like [Anjuna](https://azuremarketplace.microsoft.com/marketplace/apps/anjuna-5229812.aee-az-v1) and [Scone](https://sconedocs.github.io).  

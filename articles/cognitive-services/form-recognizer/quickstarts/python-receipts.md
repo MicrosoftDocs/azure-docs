@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
@@ -24,10 +24,10 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 To complete this quickstart, you must have:
 - [Python](https://www.python.org/downloads/) installed (if you want to run the sample locally).
-- A URL for an image of a receipt. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
+- An image of a receipt. You can use a [sample image](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/contoso-allinone.jpg) for this quickstart.
 
 > [!NOTE]
-> This quickstart uses a remote receipt accessed by URL. To use local files instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
+> This quickstart uses a local file. To use a receipt image accessed by URL instead, see the [reference documentation](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync).
 
 ## Create a Form Recognizer resource
 
@@ -38,7 +38,7 @@ To complete this quickstart, you must have:
 To start analyzing a receipt, you call the **[Analyze Receipt](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeReceiptAsync)** API using the Python script below. Before you run the script, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained with your Form Recognizer subscription.
-1. Replace `<your receipt URL>` with the URL address of a receipt image.
+1. Replace `<path to your receipt>` with the path to your local form document.
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
 
 # [v2.0](#tab/v2-0)

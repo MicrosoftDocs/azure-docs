@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 08/18/2020
+ms.date: 09/22/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -130,7 +130,7 @@ If you have pre-existing routes in Routing section for the hub in the Azure port
 
 [!INCLUDE [Virtual WAN FAQ](../../includes/virtual-wan-faq-include.md)]
 
-## <a name="new"></a>View the latest feature updates
+## <a name="new"></a>What's new?
 
 Subscribe to the RSS feed and view the latest Virtual WAN feature updates on the [Azure Updates](https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN) page.
 

@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 11/21/2019
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 
@@ -107,7 +107,7 @@ We recommend that organizations use Conditional Access to define their network u
 Administrators can choose the [authentication methods](../authentication/concept-authentication-methods.md) that they want to make available for users. It is important to allow more than a single authentication method so that users have a backup method available in case their primary method is unavailable. The following methods are available for administrators to enable:
 
 > [!TIP]
-> Microsoft recommends using the mobile app as the primary method for Azure Multi-Factor Authentication for the best security and user experience.
+> Microsoft recommends using the Microsoft Authenticator (mobile app) as the primary method for Azure Multi-Factor Authentication for a more secure and improved user experience. The Microsoft Authenticator app also [meets](https://azure.microsoft.com/resources/microsoft-nist/) the National Institute of Standards and Technology Authenticator Assurance Levels. 
 
 ### Notification through mobile app
 

@@ -6,7 +6,7 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
+ms.custom: subject-security-benchmark
 
 # Important: This content is machine generated; do not modify this topic directly. Contact mbaldwin for more information.
 
@@ -18,7 +18,7 @@ The Azure Security Baseline for Microsoft Azure Event Grid contains recommendati
 
 ## Network security
 
-*For more information, see the [Azure Security Benchmark: Network security](/azure/security/benchmarks/security-control-network-security).*
+*For more information, see the [Azure Security Benchmark: Network security](../security/benchmarks/security-control-network-security.md).*
 
 ### 1.1: Protect Azure resources within virtual networks
 
@@ -38,7 +38,7 @@ authentication mechanisms supported by Event Grid.
 
 - [Azure Private Link Overview](../private-link/private-link-overview.md)
 
-- [Azure Network Security Group](../virtual-network/security-overview.md)
+- [Azure Network Security Group](../virtual-network/network-security-groups-overview.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -87,7 +87,7 @@ addresses. For more information, see the following articles:
 
 - [How to configure DDoS protection](../virtual-network/manage-ddos-protection.md)
 
-- [For more information about the Azure Security Center Integrated Threat Intelligence](/azure/security-center/security-center-alerts-service-layer)
+- [For more information about the Azure Security Center Integrated Threat Intelligence](../security-center/azure-defender.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -167,7 +167,7 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 **Guidance**: Use tags for network resources associated with your Azure Event Grid resources in order to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -177,7 +177,7 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 **Guidance**: Use Azure Activity Log to monitor network resource configurations and detect changes for network resources related to Azure Event Grid. Create alerts within Azure Monitor that will trigger when changes to critical network resources take place.
 
-- [How to view and retrieve Azure Activity Log events](/azure/azure-monitor/platform/activity-log-view)
+- [How to view and retrieve Azure Activity Log events](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 - [How to create alerts in Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
@@ -187,7 +187,7 @@ related to Azure Event Grid, such as:- Azure Event Grid domains should use priva
 
 ## Logging and monitoring
 
-*For more information, see the [Azure Security Benchmark: Logging and monitoring](/azure/security/benchmarks/security-control-logging-monitoring).*
+*For more information, see the [Azure Security Benchmark: Logging and monitoring](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### 2.2: Configure central security log management
 
@@ -299,7 +299,7 @@ Additionally, you can onboard your Log Analytics workspace to Azure Sentinel as 
 
 ## Identity and access control
 
-*For more information, see the [Azure Security Benchmark: Identity and access control](/azure/security/benchmarks/security-control-identity-access-control).*
+*For more information, see the [Azure Security Benchmark: Identity and access control](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### 3.1: Maintain an inventory of administrative accounts
 
@@ -309,9 +309,9 @@ Azure role-based access control (RBAC) allows you to manage access to Azure reso
 
 - [Authorizing access to Event Grid resources](security-authorization.md)
 
-- [How to get a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [How to get a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [How to get members of a directory role in Azure AD with PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [How to get members of a directory role in Azure AD with PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Azure Security Center monitoring**: Yes
 
@@ -337,7 +337,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 - [Authenticate publishing clients (Azure Event Grid)](security-authenticate-publishing-clients.md)
 
-- [Learn more about Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Learn more about Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Azure Security Center monitoring**: Yes
 
@@ -371,7 +371,7 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
 
 **Guidance**: Use Azure Active Directory security reports and monitoring to detect when suspicious or unsafe activity occurs in the environment. Use Azure Security Center to monitor identity and access activity.
 
-- [How to identify Azure AD users flagged for risky activity](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [How to identify Azure AD users flagged for risky activity](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to monitor users' identity and access activity in Azure Security Center](../security-center/security-center-identity-access.md)
 
@@ -409,11 +409,11 @@ Event Grid can enable a managed service identity for Azure event grid topics or 
  
 Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generation of logs and alerts when suspicious or unsafe activity occurs in the environment.
 
-- [Understand Azure AD reporting](/azure/active-directory/reports-monitoring)
+- [Understand Azure AD reporting](../active-directory/reports-monitoring/index.yml)
 
 - [How to use Azure AD identity and access reviews](../active-directory/governance/access-reviews-overview.md)
 
-- [Deploy Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Deploy Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -425,7 +425,7 @@ Use Azure Active Directory (AD) Privileged Identity Management (PIM) for generat
 
 You can streamline this process by creating diagnostic settings for Azure AD user accounts and sending the audit logs and sign-in logs to a Log Analytics workspace. You can configure desired alerts within Log Analytics workspace.
 
-- [How to integrate Azure activity logs with Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [How to integrate Azure activity logs with Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -437,7 +437,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
  
  
  
-- [How to view Azure AD risky sign-ins](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [How to view Azure AD risky sign-ins](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [How to configure and enable Identity Protection risk policies](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -457,7 +457,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 ## Data protection
 
-*For more information, see the [Azure Security Benchmark: Data protection](/azure/security/benchmarks/security-control-data-protection).*
+*For more information, see the [Azure Security Benchmark: Data protection](../security/benchmarks/security-control-data-protection.md).*
 
 ### 4.1: Maintain an inventory of sensitive Information
 
@@ -465,7 +465,7 @@ You can streamline this process by creating diagnostic settings for Azure AD use
  
  
  
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -475,11 +475,11 @@ You can streamline this process by creating diagnostic settings for Azure AD use
 
 **Guidance**: Implement isolation using separate subscriptions and management groups for individual security domains such as environment type and data sensitivity level. You can restrict the level of access to your Azure resources that your applications and enterprise environments demand. You can control access to Azure resources via Azure Active Directory RBAC.
 
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](../governance/management-groups/create.md)
+- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -542,7 +542,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ## Vulnerability management
 
-*For more information, see the [Azure Security Benchmark: Vulnerability management](/azure/security/benchmarks/security-control-vulnerability-management).*
+*For more information, see the [Azure Security Benchmark: Vulnerability management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### 5.3: Deploy an automated patch management solution for third-party software titles
 
@@ -570,7 +570,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 ## Inventory and asset management
 
-*For more information, see the [Azure Security Benchmark: Inventory and asset management](/azure/security/benchmarks/security-control-inventory-asset-management).*
+*For more information, see the [Azure Security Benchmark: Inventory and asset management](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### 6.1: Use automated asset discovery solution
 
@@ -584,7 +584,7 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
 
 **Guidance**: Apply tags to Azure resources giving metadata to logically organize them into a taxonomy.
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -596,11 +596,11 @@ For the underlying platform, which is managed by Microsoft, Microsoft treats all
  
  
  
-- [How to create additional Azure subscriptions](/azure/billing/billing-create-subscription)
+- [How to create additional Azure subscriptions](../cost-management-billing/manage/create-subscription.md)
 
-- [How to create management groups](../governance/management-groups/create.md)
+- [How to create management groups](../governance/management-groups/create-management-group-portal.md)
 
-- [How to create and use tags](/azure/azure-resource-manager/resource-group-using-tags)
+- [How to create and use tags](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -709,7 +709,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 ## Secure configuration
 
-*For more information, see the [Azure Security Benchmark: Secure configuration](/azure/security/benchmarks/security-control-secure-configuration).*
+*For more information, see the [Azure Security Benchmark: Secure configuration](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### 7.1: Establish secure configurations for all Azure resources
 
@@ -717,7 +717,7 @@ In addition, use the Azure Resource Graph to query/discover resources within the
 
 Azure Resource Manager has the ability to export the template in JavaScript Object Notation (JSON), which should be reviewed to ensure that the configurations meet the security requirements for your organization before deployments.
 
-- [How to view available Azure Policy aliases](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [How to view available Azure Policy aliases](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
 - [How to configure and manage Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -759,9 +759,9 @@ Azure Resource Manager has the ability to export the template in JavaScript Obje
 
 **Guidance**: If using custom Azure Policy definitions for your Event Grid or related resources, use Azure Repos to securely store and manage your code.
 
-- [How to store code in Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [How to store code in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Azure Repos Documentation](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Azure Repos Documentation](/azure/devops/repos/index?view=azure-devops)
 
 **Azure Security Center monitoring**: Not Applicable
 
@@ -823,9 +823,11 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 - [How to use managed identities for Azure resources](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [How to create a Key Vault](/azure/key-vault/quick-create-portal)
+- [How to create a Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [How to provide Key Vault authentication with a managed identity](/azure/key-vault/managed-identity)
+- [How to authenticate to Key Vault](../key-vault/general/authentication.md)
+
+- [How to assign a Key Vault access policy](../key-vault/general/assign-access-policy-portal.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -853,7 +855,7 @@ Use managed identities in conjunction with Azure Key Vault to simplify secret ma
 
 ## Malware defense
 
-*For more information, see the [Azure Security Benchmark: Malware defense](/azure/security/benchmarks/security-control-malware-defense).*
+*For more information, see the [Azure Security Benchmark: Malware defense](../security/benchmarks/security-control-malware-defense.md).*
 
 ### 8.2: Pre-scan files to be uploaded to non-compute Azure resources
 
@@ -867,7 +869,7 @@ It is your responsibility to pre-scan any content being uploaded to non-compute 
 
 ## Data recovery
 
-*For more information, see the [Azure Security Benchmark: Data recovery](/azure/security/benchmarks/security-control-data-recovery).*
+*For more information, see the [Azure Security Benchmark: Data recovery](../security/benchmarks/security-control-data-recovery.md).*
 
 ### 9.1: Ensure regular automated back ups
 
@@ -921,7 +923,7 @@ keys.
 
 ## Incident response
 
-*For more information, see the [Azure Security Benchmark: Incident response](/azure/security/benchmarks/security-control-incident-response).*
+*For more information, see the [Azure Security Benchmark: Incident response](../security/benchmarks/security-control-incident-response.md).*
 
 ### 10.1: Create an incident response guide
 
@@ -948,7 +950,7 @@ keys.
 
 - [Security alerts in Azure Security Center](../security-center/security-center-alerts-overview.md)
 
-- [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags)
+- [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md)
 
 **Azure Security Center monitoring**: Yes
 
@@ -1002,7 +1004,7 @@ keys.
 
 ## Penetration tests and red team exercises
 
-*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*For more information, see the [Azure Security Benchmark: Penetration tests and red team exercises](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### 11.1: Conduct regular penetration testing of your Azure resources and ensure remediation of all critical security findings
 
@@ -1018,5 +1020,5 @@ keys.
 
 ## Next steps
 
-- See the [Azure security benchmark](/azure/security/benchmarks/overview)
-- Learn more about [Azure security baselines](/azure/security/benchmarks/security-baselines-overview)
+- See the [Azure security benchmark](../security/benchmarks/overview.md)
+- Learn more about [Azure security baselines](../security/benchmarks/security-baselines-overview.md)

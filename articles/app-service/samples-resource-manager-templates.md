@@ -5,7 +5,7 @@ author: tfitzmac
 tags: azure-service-management
 
 ms.topic: sample
-ms.date: 01/04/2019
+ms.date: 08/26/2020
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit
 ---
@@ -39,6 +39,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 | [App with a database in Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-sql-database)| Deploys an App Service app and a database in Azure SQL Database at the Basic service level. |
 | [App with a Blob storage connection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-blob-connection)| Deploys an App Service app with an Azure Blob storage connection string. You can then use Blob storage from the app. |
 | [App with an Azure Cache for Redis](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-with-redis-cache)| Deploys an App Service app with an Azure Cache for Redis. |
+| [App connected to a backend webapp](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-privateendpoint-vnet-injection)| Deploys two web apps (frontend and backend) securely connected together with VNet injection and Private Endpoint. |
 |**App Service Environment**| **Description** |
 | [Create an App Service environment v2](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-create) | Creates an App Service environment v2 in your virtual network. |
 | [Create an App Service environment v2 with an ILB address](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-asev2-ilb-create/) | Creates an App Service environment v2 in your virtual network with a private internal load balancer address. |

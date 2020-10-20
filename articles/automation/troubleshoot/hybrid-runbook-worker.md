@@ -228,11 +228,11 @@ Logs are stored locally on each hybrid worker at C:\ProgramData\Microsoft\System
 
 Hybrid workers send [Runbook output and messages](../automation-runbook-output-and-messages.md) to Azure Automation in the same way that runbook jobs running in the cloud send output and messages. You can enable the Verbose and Progress streams just as you do for runbooks.
 
-### <a name="no-orchestrator-sandbox-connect-O365"></a>Scenario: Orchestrator.Sandbox.exe can't connect to Office 365 through proxy
+### Scenario: Orchestrator.Sandbox.exe can't connect to Microsoft 365 through proxy
 
 #### Issue
 
-A script running on a Windows Hybrid Runbook Worker can't connect as expected to Office 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
+A script running on a Windows Hybrid Runbook Worker can't connect as expected to Microsoft 365 on an Orchestrator sandbox. The script is using [Connect-MsolService](/powershell/module/msonline/connect-msolservice?view=azureadps-1.0) for connection. 
 
 If you adjust **Orchestrator.Sandbox.exe.config** to set the proxy and the bypass list, the sandbox still doesn't connect properly. A **Powershell_ise.exe.config** file with the same proxy and bypass list settings seems to work as you expect. Service Management Automation (SMA) logs and PowerShell logs don't provide any information regarding proxy.​
 

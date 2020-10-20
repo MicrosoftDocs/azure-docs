@@ -34,7 +34,7 @@ This article discusses the following:
 
 - This feature is currently configurable from the Azure portal only.
 
-If you have not created and configured your Recovery Services vault, you can [read how to do so here](backup-create-rs-vault.md).
+If you haven't created and configured your Recovery Services vault, you can [read how to do so here](backup-create-rs-vault.md).
 
 ## Configuring a vault to encrypt using customer-managed keys
 
@@ -55,13 +55,13 @@ It's necessary that all these steps are followed in the order mentioned above to
 Azure Backup uses system assigned managed identity to authenticate the Recovery Services vault to access encryption keys stored in the Azure Key Vault. To enable managed identity for your Recovery Services vault, follow the steps mentioned below.
 
 >[!NOTE]
->Once enabled, the managed identity must NOT be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
+>Once enabled, the managed identity must **not** be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
 
 1. Go to your Recovery Services vault -> **Identity**
 
     ![Identity settings](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Change the **Status** to **On** and click **Save**.
+1. Change the **Status** to **On** and select **Save**.
 
 1. An Object ID is generated, which is the system-assigned managed identity of the vault.
 
@@ -77,13 +77,13 @@ You now need to permit the Recovery Services vault to access the Azure Key Vault
 
     ![Assign key permissions](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Go to **Select Principal** and search for your vault in the search box using its name or managed identity. Once it shows up, select the vault and click **Select** at the bottom of the pane.
+1. Go to **Select Principal** and search for your vault in the search box using its name or managed identity. Once it shows up, select the vault and choose **Select** at the bottom of the pane.
 
     ![Select principal](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. Once done, click **Add** to add the new access policy.
+1. Once done, select **Add** to add the new access policy.
 
-1. Click **Save** to save changes made to the access policy of the Azure Key Vault.
+1. Select **Save** to save changes made to the access policy of the Azure Key Vault.
 
 ### Enable soft-delete and purge protection on the Azure Key Vault
 
@@ -133,7 +133,7 @@ You can also enable soft delete and purge protection through PowerShell using th
 > - All the steps mentioned above have been completed successfully:
 >   - The Recovery Services vault’s managed identity has been enabled, and has been assigned required permissions
 >   - The Azure Key Vault has soft-delete and purge-protection enabled
-> - The Recovery Services vault for which you want to enable CMK encryption DOES NOT have any items protected or registered to it
+> - The Recovery Services vault for which you want to enable CMK encryption **does not** have any items protected or registered to it
 
 Once the above are ensured, continue with selecting the encryption key for your vault.
 
@@ -143,7 +143,7 @@ To assign the key:
 
     ![Encryption settings](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Click **Update** under **Encryption Settings**.
+1. Select **Update** under **Encryption Settings**.
 
 1. In the Encryption Settings pane, select **Use your own key** and continue to specify the key using one of the following ways. **Ensure that the key you want to use is an RSA 2048 key, which is in an enabled state.**
 
@@ -155,7 +155,7 @@ To assign the key:
 
         ![Select key from key vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Click **Save**.
+1. Select **Save**.
 
 1. **Tracking progress of encryption key update:** You can track the progress of the key assignment using the **Activity Log** in the Recovery Services vault. The status should soon change to **Succeeded**. Your vault will now encrypt all the data with the specified key as KEK.
 
@@ -164,7 +164,7 @@ To assign the key:
     ![Status succeeded](./media/encryption-at-rest-with-cmk/status-succeeded.png)
 
 >[!NOTE]
-> This process remains the same when you wish to update/change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that is being currently used), make sure that:
+> This process remains the same when you wish to update/change the encryption key. If you wish to update and use a key from another Key Vault (different from the one that's being currently used), make sure that:
 >
 > - The Key Vault is located in the same region as the Recovery Services vault
 >
@@ -215,7 +215,7 @@ The Disk Encryption Set is specified under Encryption Settings in the restore pa
 1. From the dropdown, select the DES you wish to use for the restored disk(s). **Ensure you have access to the DES.**
 
 >[!NOTE]
->The ability to choose a DES while restoring is not available if you are restoring a VM that uses Azure Disk Encryption.
+>The ability to choose a DES while restoring isn't available if you're restoring a VM that uses Azure Disk Encryption.
 
 ![Encrypt disk using your key](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
 
@@ -235,9 +235,9 @@ No, CMK encryption can be enabled for new vaults only. So the vault must never h
 
 ### I tried to protect an item to my vault, but it failed, and the vault still doesn't contain any items protected to it. Can I enable CMK encryption for this vault?
 
-No, the vault must not have had any attempts to protect any items to it in the past.
+No, the vault must have not had any attempts to protect any items to it in the past.
 
-### I have a vault that is using CMK encryption. Can I later revert to encryption using platform-managed keys even if I have backup items protected to the vault?
+### I have a vault that's using CMK encryption. Can I later revert to encryption using platform-managed keys even if I have backup items protected to the vault?
 
 No, once you've enabled CMK encryption, it can't be reverted to use platform-managed keys. You can change the keys used according to your requirements.
 
@@ -247,7 +247,7 @@ No, this article discusses encryption of Backup data only. For Azure Site Recove
 
 ### I missed one of the steps in this article and went on to protect my data source. Can I still use CMK encryption?
 
-Not following the steps in the article and continuing to protect items may lead to the vault not being able to use encryption using customer-managed keys. It's therefore recommended you refer to [this checklist](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) before proceeding to protect items.
+Not following the steps in the article and continuing to protect items may lead to the vault being unable to use encryption using customer-managed keys. It's therefore recommended you refer to [this checklist](#backing-up-to-a-vault-encrypted-with-customer-managed-keys) before proceeding to protect items.
 
 ### Does using CMK-encryption add to the cost of my backups?
 

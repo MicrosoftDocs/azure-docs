@@ -59,7 +59,7 @@ In this step, you will install the Azure AD PowerShell module. This module is re
    Set-AzContext $context 
    ```
 
-1. Install and import the [AzureAD](/powershell/module/azuread/?view=azureadps-2.0) module
+1. Install and import the [AzureAD](/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) module
 
    ```powershell
    Install-Module AzureAD
@@ -144,7 +144,7 @@ In this step, you will sign into Azure by using the application and the certific
       -Type "Keys"
    ```
 
-The previous command will display the primary and secondary master keys of your Azure Cosmos account. You can view the Activity log of your Azure Cosmos account to validate that the get keys request succeeded and the event is initiated by the "sampleApp" application.
+The previous command will display the primary and secondary primary keys of your Azure Cosmos account. You can view the Activity log of your Azure Cosmos account to validate that the get keys request succeeded and the event is initiated by the "sampleApp" application.
 
 :::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Validate the get keys call in the Azure AD":::
 
@@ -232,7 +232,7 @@ namespace TodoListDaemonWithCert
 }
 ```
 
-This script outputs the primary and secondary master keys as shown in the following screenshot:
+This script outputs the primary and secondary primary keys as shown in the following screenshot:
 
 :::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="csharp application output":::
 

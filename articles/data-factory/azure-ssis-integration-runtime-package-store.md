@@ -11,12 +11,12 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/20/2020
+ms.date: 09/29/2020
 ---
 
 # Manage packages with Azure-SSIS Integration Runtime package store
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
 To lift & shift your on-premises SQL Server Integration Services (SSIS) workloads to the cloud, you can provision Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). For more information, see [Provision an Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure). An Azure-SSIS IR supports:
 
@@ -52,7 +52,7 @@ After you connect to your Azure-SSIS IR on SSMS, you can right-click on any pack
       > [!NOTE]
       > Importing SSIS packages into Azure-SSIS IR package stores can only be done one-by-one and will simply copy them into the underlying MSDB/file system/Azure Files while preserving their SQL Server/SSIS version. 
       >
-      > Since Azure-SSIS IR currently has a default compatibility level of 140, which is equal to **SQL Server 2017**, executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time. Executing higher-version packages is unsupported.
+      > Since Azure-SSIS IR is currently based on **SQL Server 2017**, executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time. Executing higher-version packages is unsupported.
       >
       > Additionally, since legacy SSIS package stores are bound to specific SQL Server version and accessible only on SSMS for that version, lower-version packages in legacy SSIS package stores need to be exported into file system first using the designated SSMS version before they can be imported into Azure-SSIS IR package stores using SSMS 2019 or later versions.
       >
@@ -67,7 +67,7 @@ After you connect to your Azure-SSIS IR on SSMS, you can right-click on any pack
       > [!NOTE]
       > Exporting SSIS packages from Azure-SSIS IR package stores can only be done one-by-one and doing so without switching their protection level will simply copy them while preserving their SQL Server/SSIS version, otherwise it will upgrade them into SSIS 2019 or later-version packages.
       >
-      > Since Azure-SSIS IR currently has a default compatibility level of 140, which is equal to **SQL Server 2017**, executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time. Executing higher-version packages is unsupported.
+      > Since Azure-SSIS IR is currently based on **SQL Server 2017**, executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time. Executing higher-version packages is unsupported.
       >
       > Alternatively, to export multiple SSIS packages from Azure-SSIS IR package stores while switching their protection level, you can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) command line utility, see [Deploying multiple packages with dtutil](#deploying-multiple-packages-with-dtutil).
 
@@ -119,7 +119,7 @@ To lift & shift your on-premises SSIS workloads onto SSIS in ADF while maintaini
 
 You can use [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) command line utility that comes with SQL Server/SSIS installation to deploy multiple packages in batches. It's bound to specific SSIS version, so if you use it to deploy lower-version packages without switching their protection level, it will simply copy them while preserving their SSIS version. If you use it to deploy them and switch their protection level at the same time, it will upgrade them into its SSIS version.
 
- Since Azure-SSIS IR currently has a default compatibility level of 140, which is equal to **SQL Server 2017**, executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time. Executing higher-version packages is unsupported.
+ Since Azure-SSIS IR is currently based on **SQL Server 2017**, executing lower-version packages on it will upgrade them into SSIS 2017 packages at run-time. Executing higher-version packages is unsupported.
 
 Consequently, to avoid run-time upgrades, deploying packages to run on Azure-SSIS IR in Package Deployment Model should use dtutil 2017 that comes with SQL Server/SSIS 2017 installation. You can download and install the free [SQL Server/SSIS 2017 Developer Edition](https://go.microsoft.com/fwlink/?linkid=853016) for this purpose. Once installed, you can find dtutil 2017 on this folder: `YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn`.
 

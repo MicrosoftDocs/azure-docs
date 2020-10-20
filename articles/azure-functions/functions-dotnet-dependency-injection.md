@@ -87,7 +87,7 @@ namespace MyNamespace
         private readonly HttpClient _client;
         private readonly IMyService _service;
 
-        public MyHttpTrigger(HttpClient httpClient, MyService service)
+        public MyHttpTrigger(HttpClient httpClient, IMyService service)
         {
             this._client = httpClient;
             this._service = service;
@@ -126,8 +126,8 @@ If you need your own logging provider, register a custom type as an instance of 
 Application Insights is added by Azure Functions automatically.
 
 > [!WARNING]
-> - Do not add `AddApplicationInsightsTelemetry()` to the services collection as it registers services that conflict with services provided by the environment.
-> - Do not register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Monitor Azure Functions](./functions-monitoring.md#version-2x-and-later-2).
+> - Don't add `AddApplicationInsightsTelemetry()` to the services collection, which registers services that conflict with services provided by the environment.
+> - Don't register your own `TelemetryConfiguration` or `TelemetryClient` if you are using the built-in Application Insights functionality. If you need to configure your own `TelemetryClient` instance, create one via the injected `TelemetryConfiguration` as shown in [Log custom telemetry in C# functions](functions-dotnet-class-library.md?tabs=v2%2Ccmd#log-custom-telemetry-in-c-functions).
 
 ### ILogger<T> and ILoggerFactory
 
@@ -165,9 +165,9 @@ The following example `host.json` file adds the log filter.
     "version": "2.0",
     "logging": {
         "applicationInsights": {
-            "samplingExcludedTypes": "Request",
             "samplingSettings": {
-                "isEnabled": true
+                "isEnabled": true,
+                "excludedTypes": "Request"
             }
         },
         "logLevel": {
@@ -248,7 +248,7 @@ public class HttpTrigger
 
 Refer to [Options pattern in ASP.NET Core](/aspnet/core/fundamentals/configuration/options) for more details regarding working with options.
 
-### Customizing configuration sources
+## Customizing configuration sources
 
 > [!NOTE]
 > Configuration source customization is available beginning in Azure Functions host versions 2.0.14192.0 and 3.0.14191.0.
@@ -275,13 +275,14 @@ namespace MyNamespace
 
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "appsettings.json"), optional: true, reloadOnChange: false)
-                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false);
+                .AddJsonFile(Path.Combine(context.ApplicationRootPath, $"appsettings.{context.EnvironmentName}.json"), optional: true, reloadOnChange: false)
+                .AddEnvironmentVariables();
         }
     }
 }
 ```
 
-Add configuration providers to the `ConfigurationBuilder` property of `IFunctionsConfigurationBuilder`. For more information on using configuration providers, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-3.1#configuration-providers).
+Add configuration providers to the `ConfigurationBuilder` property of `IFunctionsConfigurationBuilder`. For more information on using configuration providers, see [Configuration in ASP.NET Core](/aspnet/core/fundamentals/configuration/#configuration-providers).
 
 A `FunctionsHostBuilderContext` is obtained from `IFunctionsConfigurationBuilder.GetContext()`. Use this context to retrieve the current environment name and resolve the location of configuration files in your function app folder.
 

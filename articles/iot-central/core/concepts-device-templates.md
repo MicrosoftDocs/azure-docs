@@ -1,12 +1,13 @@
 ---
 title: What are device templates in Azure IoT Central | Microsoft Docs
-description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application.
+description: Azure IoT Central device templates let you specify the behavior of the devices connected to your application. A device template specifies the telemetry, properties, and commands the device must implement. A device template also defines the UI for the device in IoT Central such as the forms and dashboards an operator uses.
 author: dominicbetts
 ms.author: dobett
 ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
+ms.custom: device-developer
 ---
 
 # What are device templates?
@@ -20,12 +21,10 @@ A solution builder adds device templates to an IoT Central application. A device
 A device template includes the following sections:
 
 - _A device capability model (DCM)_. This part of the device template defines how the device interacts with your application. A device developer implements the behaviors defined in the DCM.
+    - _Interfaces_. A DCM contains one or more interfaces that define the telemetry, properties, and commands the device must implement.
 - _Cloud properties_. This part of the device template lets the solution developer specify any device metadata to store. Cloud properties are never synchronized with devices and only exist in the application. Cloud properties don't affect the code that a device developer writes to implement the DCM.
 - _Customizations_. This part of the device template lets the solution developer override some of the definitions in the DCM. Customizations are useful if the solution developer wants to refine how the application handles a value, such as changing the display name for a property or the color used to display a telemetry value. Customizations don't affect the code that a device developer writes to implement the DCM.
 - _Views_. This part of the device template lets the solution developer define visualizations to view data from the device, and forms to manage and control a device. The views use the DCM, cloud properties, and customizations. Views don't affect the code that a device developer writes to implement the DCM.
-
-> [!NOTE]
-> The [IoT Plug and Play public preview refresh release](../../iot-pnp/overview-iot-plug-and-play.md) targets device developers and OEMs to begin building devices they can certify for IoT Plug and Play ahead of the GA launch.
 
 ## Device capability models
 
@@ -102,11 +101,11 @@ An interface has some required fields:
 
 There are some optional fields you can use to add more details to the capability model, such as display name and description.
 
-### Interface
+## Interfaces
 
 The DTDL lets you describe the capabilities of your device. Related capabilities are grouped into interfaces. Interfaces describe the properties, telemetry, and commands a part of your device implements:
 
-- `Properties`. Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a coolant pump. Properties can also represent basic device properties, such as the firmware version of the device. You can declare properties as read-only or writable.
+- `Properties`. Properties are data fields that represent the state of your device. Use properties to represent the durable state of the device, such as the on-off state of a coolant pump. Properties can also represent basic device properties, such as the firmware version of the device. You can declare properties as read-only or writable. Only devices can update the value of a read-only property. An operator can set the value of a writable property to send to a device.
 - `Telemetry`. Telemetry fields represent measurements from sensors. Whenever your device takes a sensor measurement, it should send a telemetry event containing the sensor data.
 - `Commands`. Commands represent methods that users of your device can execute on the device. For example, a reset command or a command to switch a fan on or off.
 
@@ -153,7 +152,7 @@ The following example shows the environmental sensor interface definition:
 }
 ```
 
-This example shows two properties, a telemetry type, and two commands. A minimal field description has a:
+This example shows two properties (one read-only and one writable), a telemetry type, and two commands. A minimal field description has a:
 
 - `@type` to specify the type of capability: `Telemetry`, `Property`, or `Command`.  In some cases, the type includes a semantic type to enable IoT Central to make some assumptions about how to handle the value.
 - `name` for the telemetry value.
@@ -162,7 +161,7 @@ This example shows two properties, a telemetry type, and two commands. A minimal
 
 Optional fields, such as display name and description, let you add more details to the interface and capabilities.
 
-### Properties
+## Properties
 
 By default, properties are read-only. Read-only properties mean that the device reports property value updates to your IoT Central application. Your IoT Central application can't set the value of a read-only property.
 
@@ -174,13 +173,13 @@ Don't use properties to send telemetry from your device. For example, a readonly
 
 For writable properties, the device application returns a desired state status code, version, and description to indicate whether it received and applied the property value.
 
-### Telemetry
+## Telemetry
 
 IoT Central lets you view telemetry on dashboards and charts, and use rules to trigger actions when thresholds are reached. IoT Central uses the information in the DCM, such as data types, units and display names, to determine how to display telemetry values.
 
 You can use the IoT Central data export feature to stream telemetry to other destinations such as storage or Event Hubs.
 
-### Commands
+## Commands
 
 Commands are either synchronous or asynchronous. A synchronous command must execute within 30 seconds by default, and the device must be connected when the command arrives. If the device does respond in time, or the device isn't connected, then the command fails.
 

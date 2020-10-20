@@ -2,22 +2,23 @@
 title: Anomaly Detector .NET client library quickstart
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: aahill
+author: mrbullwinkle
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/30/2020
-ms.author: aahi
+ms.date: 09/22/2020
+ms.author: mbullwin
 ---
 
-Get started with the Anomaly Detector client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
+Get started with the Anomaly Detector client library for .NET. Follow these steps to install the package start using the algorithms provided by the service. The Anomaly Detector service enables you to find abnormalities in your time series data by automatically using the best-fitting models on it, regardless of industry, scenario, or data volume.
 
 Use the Anomaly Detector client library for .NET to:
 
-* Detect anomalies throughout your time series dataset, as a batch request
+* Detect anomalies throughout your time series data set, as a batch request
 * Detect the anomaly status of the latest data point in your time series
+* Detect trend change points in your data set.
 
-[Library reference documentation](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [Find the code on GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
+[Library reference documentation](https://aka.ms/anomaly-detector-dotnet-ref) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [Package (NuGet)](https://www.nuget.org/packages/Azure.AI.AnomalyDetector/3.0.0-preview.2) | [Find the code on GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)
 
 ## Prerequisites
 
@@ -60,7 +61,7 @@ Build succeeded.
 Within the application directory, install the Anomaly Detector client library for .NET with the following command:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
+dotnet add package Azure.AI.AnomalyDetector --version 3.0.0-preview.2
 ```
 
 From the project directory, open the *program.cs* file and add the following using `directives`:
@@ -73,11 +74,11 @@ In the application's `main()` method, create variables for your resource's Azure
 
 ## Object model
 
-The Anomaly Detector client is a [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) object that authenticates to Azure using [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), which contains your key. The client provides two methods of anomaly detection: On an entire dataset using [EntireDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync), and on the latest data point using [LastDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync).
+The Anomaly Detector client is a [AnomalyDetectorClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclient) object that authenticates to Azure using [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.apikeyserviceclientcredentials), which contains your key. The client can do anomaly detection on an entire dataset using [EntireDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.entiredetectasync), or on the latest data point using [LastDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync). The [ChangePointDetectAsync](https://aka.ms/anomaly-detector-dotnet-ref) method detects points that mark changes in a trend.
 
 Time series data is sent as a series of [Points](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.series?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_Series) in a [Request](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request) object. The `Request` object contains properties to describe the data ([Granularity](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.request.granularity) for example), and parameters for the anomaly detection.
 
-The Anomaly Detector response is either an [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse) or [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse) object, depending on the method used.
+The Anomaly Detector response is either an [EntireDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.entiredetectresponse), [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse), or [changePointDetectResponse](https://aka.ms/anomaly-detector-dotnet-ref) object, depending on the method used.
 
 ## Code examples
 
@@ -87,6 +88,7 @@ These code snippets show you how to do the following with the Anomaly Detector c
 * [Load a time series data set from a file](#load-time-series-data-from-a-file)
 * [Detect anomalies in the entire data set](#detect-anomalies-in-the-entire-data-set)
 * [Detect the anomaly status of the latest data point](#detect-the-anomaly-status-of-the-latest-data-point)
+* [Detect the change points in the data set](#detect-change-points-in-the-data-set)
 
 ## Authenticate the client
 
@@ -120,6 +122,12 @@ Create a method to call the client's [EntireDetectAsync()](https://docs.microsof
 Create a method to call the client's [LastDetectAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.anomalydetectorclientextensions.lastdetectasync?view=azure-dotnet-preview#Microsoft_Azure_CognitiveServices_AnomalyDetector_AnomalyDetectorClientExtensions_LastDetectAsync_Microsoft_Azure_CognitiveServices_AnomalyDetector_IAnomalyDetectorClient_Microsoft_Azure_CognitiveServices_AnomalyDetector_Models_Request_System_Threading_CancellationToken_) method with the `Request` object and await the response as a [LastDetectResponse](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse?view=azure-dotnet-preview) object. Check the response's [IsAnomaly](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.lastdetectresponse.isanomaly?view=azure-dotnet-preview) attribute to determine if the latest data point sent was an anomaly or not.
 
 [!code-csharp[LastDetectSampleAsync() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=latestPointExample)]
+
+## Detect change points in the data set
+
+Create a method to call the client's [DetectChangePointAsync](https://aka.ms/anomaly-detector-dotnet-ref) method with the `Request` object and await the response as a [ChangePointDetectResponse](https://aka.ms/anomaly-detector-dotnet-ref) object. Check the response's IsChangePoint values and print any that are `true`. These values correspond to trend change points, if any were found.
+
+[!code-csharp[DetectChangePoint() function](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=changePointExample)]
 
 ## Run the application
 

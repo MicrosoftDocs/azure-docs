@@ -11,9 +11,9 @@ This article describes how to update backup related configurations in Azure Reco
 
 ## Soft delete state
 
-Deleting backups of a protected item is a significant operation that has to be monitored. To protect against accidental deletions, Azure Recovery Services vault has a soft-delete capability. This capability allows customers to restore deleted backups, if necessary, within a time period after the deletion.
+Deleting backups of a protected item is a significant operation that has to be monitored. To protect against accidental deletions, Azure Recovery Services vault has a soft-delete capability. This capability allows you to restore deleted backups, if necessary, within a time period after the deletion.
 
-But there are scenarios in which this capability is not required. An Azure Recovery Services vault cannot be deleted if there are backup items within it, even soft-deleted ones. This may pose a problem if the vault needs to be immediately deleted. For for example: deployment operations often clean up the created resources in the same workflow. A deployment can create a vault, configure backups for an item, do a test restore and then proceed to delete the backup items and the vault. If the vault deletion fails, the entire deployment might fail. Disabling soft-delete is the only way to guarantee immediate deletion.
+But there are scenarios in which this capability isn't required. An Azure Recovery Services vault can't be deleted if there are backup items within it, even soft-deleted ones. This may pose a problem if the vault needs to be immediately deleted. For for example: deployment operations often clean up the created resources in the same workflow. A deployment can create a vault, configure backups for an item, do a test restore and then proceed to delete the backup items and the vault. If the vault deletion fails, the entire deployment might fail. Disabling soft-delete is the only way to guarantee immediate deletion.
 
 So you need to carefully choose whether or not to disable soft-delete for a particular vault depending on the scenario. For more information, see the [soft-delete article](backup-azure-security-feature-cloud.md).
 
@@ -24,13 +24,13 @@ By default, the soft-delete state will be enabled for any newly created Recovery
 To fetch the current state of soft-delete for a vault, use the following *GET* operation
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-The GET URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters. In this example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there is no need for a separate request body.
+The GET URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters. In this example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there's no need for a separate request body.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### Responses
@@ -59,16 +59,16 @@ Once the 'GET' request is submitted, a 200 (successful) response is returned.
 
 ### Update soft delete state using REST API
 
-To update the soft-delete state of the Recovery Services vault using REST API, use the following *PATCH* operation
+To update the soft-delete state of the Recovery Services vault using REST API, use the following *PUT* operation
 
 ```http
-PATCH https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
-The PATCH URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters. In this example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". If we replace the URI with the values above, then the URI will look like this.
+The PUT URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}` parameters. In this example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". If we replace the URI with the values above, then the URI will look like this.
 
 ```http
-PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-05-13
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupconfig/vaultconfig?api-version=2019-06-15
 ```
 
 #### Create the request body

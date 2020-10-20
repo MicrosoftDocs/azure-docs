@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
+ms.custom: devx-track-csharp
 ---
 
 # Install and run Form Recognizer containers (Preview)

@@ -16,7 +16,7 @@ ms.date: 04/09/2020
 ---
 
 # Tutorial: Create a labeling project for multi-class image classification 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 This tutorial shows you how to manage the process of labeling (also referred to as tagging) images to be used as data for building machine learning models. Data labeling in Azure Machine Learning is in public preview.
 
@@ -128,7 +128,7 @@ Select **Next** to continue.
 
 1. Select **Next**.
 
-1. If you are using an Enterprise workspace, you will see a **ML assisted labeling** section.  Leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
+1. In the **ML assisted labeling** section, leave the checkbox unchecked. ML assisted labeling requires more data than you'll be using in this tutorial.
 
 1. Select **Create project**.
 

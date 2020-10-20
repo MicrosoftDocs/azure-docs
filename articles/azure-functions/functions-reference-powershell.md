@@ -3,7 +3,7 @@ title: PowerShell developer reference for Azure Functions
 description: Understand how to develop functions by using PowerShell.
 author: eamonoreilly
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
 
 # Customer intent: As a PowerShell developer, I want to understand Azure Functions so that I can leverage the full power of the platform.
@@ -141,7 +141,7 @@ The following common parameters are also supported:
 * `PipelineVariable`
 * `OutVariable` 
 
-For more information, see [About CommonParameters](https://go.microsoft.com/fwlink/?LinkID=113216).
+For more information, see [About CommonParameters](/powershell/module/microsoft.powershell.core/about/about_commonparameters).
 
 #### Push-OutputBinding example: HTTP responses
 
@@ -384,14 +384,60 @@ and contains:
 
 ## PowerShell versions
 
-The following table shows the PowerShell versions supported by each major version of the Functions runtime, and the .NET version required:
+The following table shows the PowerShell versions available to each major version of the Functions runtime, and the .NET version required:
 
 | Functions version | PowerShell version                               | .NET version  | 
 |-------------------|--------------------------------------------------|---------------|
-| 3.x (recommended) | PowerShell 7 (recommended)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 3.1 |
+| 3.x (recommended) | PowerShell 7 (recommended)<br/>PowerShell Core 6 | .NET Core 3.1<br/>.NET Core 2.1 |
 | 2.x               | PowerShell Core 6                                | .NET Core 2.2 |
 
 You can see the current version by printing `$PSVersionTable` from any function.
+
+### Running local on a specific version
+
+When running locally the Azure Functions runtime defaults to using PowerShell Core 6. To instead use PowerShell 7 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7, your local.settings.json file looks like the following example: 
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "powershell",
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "~7"
+  }
+}
+```
+
+### Changing the PowerShell version
+
+Your function app must be running on version 3.x to be able to upgrade from PowerShell Core 6 to PowerShell 7. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
+Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
+
+# [Portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), browse to your function app.
+
+1. Under **Settings**, choose **Configuration**. In the **General settings** tab, locate the **PowerShell version**. 
+
+    :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Choose the PowerShell version used by the function app"::: 
+
+1. Choose your desired **PowerShell Core version** and select **Save**. When warned about the pending restart choose **Continue**. The function app restarts on the chosen PowerShell version. 
+
+# [PowerShell](#tab/powershell)
+
+Run the following script to change the PowerShell version: 
+
+```powershell
+Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<FUNCTION_APP>/config/web" -Properties @{  powerShellVersion  = '<VERSION>' } -Force -UsePatchSemantics
+
+```
+
+Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively.  Also, replace `<VERSION>` with either `~6` or `~7`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
+
+---
+
+The function app restarts after the change is made to the configuration.
 
 ## Dependency management
 
@@ -514,7 +560,7 @@ There are a few concurrency models that you could explore depending on the type 
 
 You set these environment variables in the [app settings](functions-app-settings.md) of your function app.
 
-Depending on your use case, Durable Functions may significantly improve scalability. To learn more, see [Durable Functions application patterns](/azure/azure-functions/durable/durable-functions-overview?tabs=powershell#application-patterns).
+Depending on your use case, Durable Functions may significantly improve scalability. To learn more, see [Durable Functions application patterns](./durable/durable-functions-overview.md?tabs=powershell#application-patterns).
 
 >[!NOTE]
 > You might get "requests are being queued due to no available runspaces" warnings, please note that this is not an error. The message is telling you that requests are being queued and they will be handled when the previous requests are completed.

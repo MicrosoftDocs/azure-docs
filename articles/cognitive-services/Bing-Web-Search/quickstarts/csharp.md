@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 05/22/2020
+ms.date: 10/19/2020
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: "seodec2018, devx-track-csharp"
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#.
 ---
 
@@ -25,14 +25,14 @@ This example program in this quickstart uses only .NET Core classes.
 Here are a few things that you'll need before running this quickstart:
 
 * Windows: [Visual Studio 2017 or later](https://www.visualstudio.com/downloads/)
-* Linux/macOS: [Mono](https://www.mono-project.com/)  
-* A subscription key
+* Linux/macOS: [Visual Studio Code](https://code.visualstudio.com/) and [.NET Core](https://dotnet.microsoft.com/download)
+* [A free Azure subscription](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## Create a project and declare dependencies
 
-Create a new project in Visual Studio or Mono. Use the following code to import the required namespaces and types:
+Create a console project in Visual Studio or VS Code. Use the following code to import the required namespaces and types:
 
 ```csharp
 using System;

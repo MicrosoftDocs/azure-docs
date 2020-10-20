@@ -62,7 +62,7 @@ For example, the code would be stored in an Azure DevOps, GitHub, or GitLab repo
 The data engineers work with the Python notebook source code either locally in an IDE (for example, [Visual Studio Code](https://code.visualstudio.com)) or directly in the Databricks workspace. Once the code changes are complete, they are merged to the repository following a branching policy.
 
 > [!TIP] 
-> We recommended storing the code in `.py` files rather than in `.ipynb` Jupyter notebook format. It improves the code readability and enables automatic code quality checks in the CI process.
+> We recommended storing the code in `.py` files rather than in `.ipynb` Jupyter Notebook format. It improves the code readability and enables automatic code quality checks in the CI process.
 
 ### Azure Data Factory Source Code
 
@@ -167,11 +167,11 @@ labels = np.array(data['target'])
 
 This name is different for ***Dev***, ***QA***, ***UAT***, and ***PROD*** environments. In a complex pipeline with multiple activities, there can be several custom properties. It's good practice to collect all those values in one place and define them as pipeline ***variables***:
 
-![adf-variables](media/how-to-cicd-data-ingestion/adf-variables.png)
+![Screenshot shows a Notebook called PrepareData and M L Execute Pipeline called M L Execute Pipeline at the top with the Variables tab selected below with the option to add new variables, each with a name, type, and default value.](media/how-to-cicd-data-ingestion/adf-variables.png)
 
 The pipeline activities may refer to the pipeline variables while actually using them:
 
-![adf-notebook-parameters](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
+![Screenshot shows a Notebook called PrepareData and M L Execute Pipeline called M L Execute Pipeline at the top with the Settings tab selected below.](media/how-to-cicd-data-ingestion/adf-notebook-parameters.png)
 
 The Azure Data Factory workspace ***doesn't*** expose pipeline variables as Azure Resource Manager templates parameters by default. The workspace uses the [Default Parameterization Template](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) dictating what pipeline properties should be exposed as Azure Resource Manager template parameters. To add pipeline variables to the list, update the `"Microsoft.DataFactory/factories/pipelines"` section of the [Default Parameterization Template](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#default-parameterization-template) with the following snippet and place the result json file in the root of the source folder:
 

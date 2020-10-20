@@ -17,7 +17,10 @@ ms.date: 03/19/2019
 ms.author: juliako
 
 ---
-# Publish content in the Azure portal  
+# Publish content in the Azure portal
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-publish.md)
 > * [.NET](media-services-deliver-streaming-content.md)
@@ -59,7 +62,7 @@ For more information, see the [delivering content overview](media-services-deliv
 > 
 > 
 
-To update an expiration date on a locator, use can use a [REST API](/rest/api/media/operations/locator#update_a_locator) or a [.NET API](https://go.microsoft.com/fwlink/?LinkID=533259). 
+To update an expiration date on a locator, use can use a [REST API](/rest/api/media/operations/locator#update_a_locator) or a [.NET API](/dotnet/api/microsoft.windowsazure.mediaservices.client.ilocator). 
 
 > [!NOTE]
 > When you update the expiration date of a shared access signature locator, the URL changes.

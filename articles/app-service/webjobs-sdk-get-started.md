@@ -181,7 +181,7 @@ Starting with version 3.x, you must explicitly install the Storage binding exten
 
    The `QueueTrigger` attribute tells the runtime to call this function when a new message is written on an Azure Storage queue called `queue`. The contents of the queue message are provided to the method code in the `message` parameter. The body of the method is where you process the trigger data. In this example, the code just logs the message.
 
-   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
+   The `message` parameter doesn't have to be a string. You can also bind to a JSON object, a byte array, or a [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) object. [See Queue trigger usage](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). Each binding type (such as queues, blobs, or tables) has a different set of parameter types that you can bind to.
 
 ## Create a storage account
 
@@ -261,13 +261,13 @@ In this section, you build and run the project locally and trigger the function 
 
 1. Enter *queue* as the name for the queue, and then select **OK**.
 
-   ![Create queue](./media/webjobs-sdk-get-started/create-queue.png)
+   ![Screenshot that shows where you create the queue and name it "queue". ](./media/webjobs-sdk-get-started/create-queue.png)
 
 1. Right-click the node for the new queue, and then select **View Queue**.
 
 1. Select the **Add Message** icon.
 
-   ![Create queue](./media/webjobs-sdk-get-started/create-queue-message.png)
+   ![Screenshot that highlights the Add Message icon.](./media/webjobs-sdk-get-started/create-queue-message.png)
 
 1. In the **Add Message** dialog, enter *Hello World!* as the **Message text**, and then select **OK**. There is now a message in the queue.
 
@@ -277,7 +277,7 @@ In this section, you build and run the project locally and trigger the function 
 
    Because you used the `QueueTrigger` attribute in the `ProcessQueueMessage` function, the WeJobs SDK runtime listens for queue messages when it starts up. It finds a new queue message in the queue named *queue* and calls the function.
 
-   Due to [queue polling exponential backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
+   Due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm), it might take as long as 2 minutes for the runtime to find the message and invoke the function. This wait time can be reduced by running in [development mode](webjobs-sdk-how-to.md#host-development-settings).
 
    The console output looks like this:
 
@@ -441,7 +441,7 @@ During deployment, you create an app service instance in which to run your funct
 1. Refresh the **Queue** page, and the new message disappears because it has been processed by the function running in Azure.
 
    > [!TIP]
-   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#host-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
+   > When you're testing in Azure, use [development mode](webjobs-sdk-how-to.md#host-development-settings) to ensure that a queue trigger function is invoked right away and avoid delays due to [queue polling exponential backoff](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm).
 
 ### View logs in Application Insights
 

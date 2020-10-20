@@ -35,6 +35,14 @@ The methods for defining data collection for the existing agents are distinctly 
 
 Azure Monitor agent uses [Data Collection Rules (DCR)](data-collection-rule-overview.md) to configure data to collect from each agent. Data collection rules enable manageability of collection settings at scale while still enabling unique, scoped configurations for subsets of machines. They are independent of the workspace and independent of the virtual machine, which allows them to be defined once and reused across machines and environments. See [Configure data collection for the Azure Monitor agent (preview)](data-collection-rule-azure-monitor-agent.md).
 
+## Should I switch to Azure Monitor agent?
+Azure Monitor agent coexists with the [generally available agents for Azure Monitor](agents-overview.md), but you may consider transitioning your VMs off the current agents during the Azure Monitor agent public preview period. Consider the following factors when making this determination.
+
+- **Environment requirements.** Azure Monitor agent has a more limited set of supported operating systems, environments, and networking requirements than the current agents. Future environment support such as new operating system versions and types of networking requirements will most likely be provided only in Azure Monitor agent. You should assess whether your environment is supported by Azure Monitor agent. If not, then you will need to stay with the current agent. If Azure Monitor agent supports your current environment, then you should consider transitioning to it.
+- **Public preview risk tolerance.** While Azure Monitor agent has been thoroughly tested for the currently supported scenarios, the agent is still in public preview. Version updates and functionality improvements will occur frequently and may introduce bugs. You should assess your risk of a bug in the agent on your VMs that could stop data collection. If a gap in data collection isn’t going to have a significant impact on your services, then proceed with Azure Monitor agent. If you have a low tolerance for any instability, then you should stay with the generally available agents until Azure Monitor agent reaches this status.
+- **Current and new feature requirements.** Azure Monitor agent introduces several new capabilities such as filtering, scoping, and multi-homing, but it isn’t at parity yet with the current agents for other functionality such as custom log collection and integration with solutions. Most new capabilities in Azure Monitor will only be made available with Azure Monitor agent, so over time more functionality will only be available in the new agent. You should consider whether Azure Monitor agent has the features you require and if there are some features that you can temporarily do without to get other important features in the new agent. If Azure Monitor agent has all the core capabilities you require then consider transitioning to it. If there are critical features that you require then continue with the current agent until Azure Monitor agent reaches parity.
+- **Tolerance for rework.** If you're setting up a new environment with resources such as deployment scripts and onboarding templates, you should consider whether you will be able to rework them when Azure Monitor agent becomes generally available. If the effort for this rework will be minimal, then stay with the current agents for now. If it will take a significant amount of work, then consider setting up your new environment with the new agent. The Azure Monitor agent is expected to become generally available and a deprecation date published for the Log Analytics agents in 2021. The current agents will be supported for several years once deprecation begins.
+
 
 
 ## Current limitations
@@ -72,29 +80,15 @@ The Azure Monitor agent sends data to Azure Monitor Metrics or a Log Analytics w
 
 
 ## Supported operating systems
-The following operating systems are currently supported by the Azure Monitor agent.
+See [Supported operating systems](agents-overview.md#supported-operating-systems) for a list of the Windows and Linux operating system versions that are currently supported by the Azure Monitor agent.
 
-### Windows 
-  - Windows Server 2019
-  - Windows Server 2016
-  - Windows Server 2012
-  - Windows Server 2012 R2
-
-### Linux
-  - CentOS 6<sup>1</sup>, 7
-  - Debian 9, 10
-  - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7, 8
-  - SLES 11, 12, 15
-  - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
-
-> [!IMPORTANT]
-> <sup>1</sup>For these distributions to send Syslog data, you must remove rsyslog and install syslog-ng.
 
 
 ## Security
 The Azure Monitor agent doesn't require any keys but instead requires a [system-assigned managed identity](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). You must have a system-assigned managed identity enabled on each virtual machine before deploying the agent.
 
+## Networking
+The Azure Monitor agent supports Azure service tags (both AzureMonitor and AzureResourceManager tags are required) but does not yet work with Azure Monitor Private Link Scopes or direct proxies.
 
 ## Install the Azure Monitor agent
 The Azure Monitor Agent is implemented as an [Azure VM extension](../../virtual-machines/extensions/overview.md) with the details in the following table. 

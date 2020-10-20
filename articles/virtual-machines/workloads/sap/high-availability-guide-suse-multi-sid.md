@@ -15,7 +15,7 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/04/2020
+ms.date: 10/16/2020
 ms.author: radeltch
 
 ---
@@ -145,6 +145,8 @@ The following list shows the configuration of the (A)SCS and ERS load balancer f
 * Backend configuration
   * Connected to primary network interfaces of all virtual machines that should be part of the (A)SCS/ERS cluster
 
+> [!IMPORTANT]
+> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](https://docs.microsoft.com/azure/load-balancer/load-balancer-multivip-overview#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
 > [!Note]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -915,17 +917,20 @@ The tests that are presented are in a two node, multi-SID cluster with three SAP
 
    Use the following commands to start Pacemaker on the killed node, clean the SBD messages, and clean the failed resources.
 
-   ```# run as root
+   ```bash
+   # run as root
    # list the SBD device(s)
-   slesmsscl2:~ # cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+   cat /etc/sysconfig/sbd | grep SBD_DEVICE=
+
+   # output is like:
    # SBD_DEVICE="/dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116;/dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1;/dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3"
    
-   slesmsscl2:~ # sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message slesmsscl2 clear
+   sbd -d /dev/disk/by-id/scsi-36001405772fe8401e6240c985857e116 -d /dev/disk/by-id/scsi-36001405034a84428af24ddd8c3a3e9e1 -d /dev/disk/by-id/scsi-36001405cdd5ac8d40e548449318510c3 message slesmsscl2 clear
    
-   slesmsscl2:~ # systemctl start pacemaker
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW1_ERS02
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW2_ERS12
-   slesmsscl2:~ # crm resource cleanup rsc_sap_NW3_ERS22
+   systemctl start pacemaker
+   crm resource cleanup rsc_sap_NW1_ERS02
+   crm resource cleanup rsc_sap_NW2_ERS12
+   crm resource cleanup rsc_sap_NW3_ERS22
    ```
 
    Resource state after the test:

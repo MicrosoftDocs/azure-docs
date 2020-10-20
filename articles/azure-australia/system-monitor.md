@@ -36,7 +36,7 @@ Azure Security Center provides Azure customers with the following features:
 
 The scope of resources monitored by Azure Security Center can be expanded to include supported on-premises resources in a hybrid-cloud environment. This includes on-premises resources currently being monitored by a supported version of System Center Operations Manager.
 
-The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application whitelisting and restriction of administrative privilege via just-in-time access.
+The Security Center "Standard" tier also provides cloud-based security controls required by the [ASD Essential 8](https://acsc.gov.au/publications/protect/essential-eight-explained.htm). These include application filtering and restriction of administrative privilege via just-in-time access.
 
 ### Azure Monitor
 
@@ -65,7 +65,7 @@ The information gathered by Azure Advisor provides administrators with:
 
 ### Azure Policy
 
-[Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from role-based access control (RBAC); Azure Policy is used to restrict resources and their configuration, RBAC is used to restrict privileged access to Azure users.
+[Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview) provides the ability to apply rules that govern the types of Azure resources and their allowed configuration. Policy can be used to control resource creation and configuration, or it can be used to audit configuration settings across an environment. These audit results can be used to form the basis of remediation activities. Azure Policy differs from Azure role-based access control (Azure RBAC); Azure Policy is used to restrict resources and their configuration, Azure RBAC is used to restrict privileged access to Azure users.
 
 Whether the specific policy is being enforced or the effect of the policy is being audited, policy compliance is continually monitored, and overall and resource-specific compliance information is provided to administrators. Azure Policy compliance data is provided to Azure Security Center and forms part of the Secure Score.
 

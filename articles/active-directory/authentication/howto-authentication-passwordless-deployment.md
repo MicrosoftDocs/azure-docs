@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 
 ms.author: baselden
-author: iainfoulds
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 
@@ -158,7 +158,7 @@ You must enable **Compatible FIDO2 security keys**. Microsoft announced [key par
 -    Windows 10 version 1809 supports FIDO2 sign-in and may require software from the FIDO2 key manufacturer to be deployed. We recommend you use version 1903 or later. 
 
 **For Hybrid Azure Active Directory Domain Joined devices**: 
--    Windows 10 Insider build 18945 or later
+-    Windows 10 version 2004 or later
 -    Fully patched domain servers running Windows Server 2016 or 2019.
 -    Latest version of Azure AD Connect
 

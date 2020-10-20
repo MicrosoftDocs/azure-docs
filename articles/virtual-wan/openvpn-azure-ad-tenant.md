@@ -3,11 +3,11 @@ title: 'Azure AD tenant for User VPN connections: Azure AD authentication'
 description: You can use Azure Virtual WAN User VPN (point-to-site) to connect to your VNet using Azure AD authentication
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: kumudD
+author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/22/2020
 ms.author: alzam
 
 ---
@@ -72,7 +72,7 @@ Use the steps in [this article](../active-directory/fundamentals/add-users-azure
 
 4. Select **Accept** when prompted.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![Screenshot shows dialog box with the message Permissions requested Accept for your organization and additional information.](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 5. Under your Azure AD, in **Enterprise applications**, you should now see **Azure VPN** listed.
 

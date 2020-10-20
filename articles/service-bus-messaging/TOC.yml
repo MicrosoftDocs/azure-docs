@@ -72,9 +72,6 @@
   items:
   - name: Service Bus samples
     href: service-bus-samples.md
-  - name: Azure Policy built-ins
-    displayName: samples, policies, definitions
-    href: ./policy-samples.md
 - name: Concepts
   items:
   - name: Premium messaging
@@ -93,6 +90,8 @@
     href: service-bus-throttling.md
   - name: Security
     items:
+    - name: Security baseline
+      href: security-baseline.md
     - name: Authentication and authorization
       href: service-bus-authentication-and-authorization.md
       items:
@@ -117,6 +116,8 @@
       href: network-security.md
 - name: How-to guides
   items:
+  - name: Move across regions
+    href: move-across-regions.md
   - name: Migrate from Azure Service Manager (classic) APIs to Resource Manager APIs
     href: deprecate-service-bus-management.md
   - name: Create a namespace
@@ -270,6 +271,9 @@
     href: service-bus-messaging-sql-filter.md
   - name: SQLRuleAction syntax
     href: service-bus-messaging-sql-rule-action.md
+  - name: Azure Policy built-ins
+    displayName: samples, policies, definitions
+    href: ./policy-reference.md
 - name: Resources
   items:
   - name: FAQ

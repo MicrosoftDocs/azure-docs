@@ -36,10 +36,10 @@ The following steps lead you through creating a Recovery Services vault. A Recov
     New-AzRecoveryServicesVault -Name "testvault" -ResourceGroupName " test-rg" -Location "WestUS"
     ```
 
-4. Specify the type of storage redundancy to use; you can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md) or [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md). The following example shows the **-BackupStorageRedundancy** option for *testVault* is set to **GeoRedundant**.
+4. Specify the type of storage redundancy to use. You can use [Locally Redundant Storage (LRS)](../storage/common/storage-redundancy.md#locally-redundant-storage), [Geo-redundant Storage (GRS)](../storage/common/storage-redundancy.md#geo-redundant-storage) or [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage). The following example shows the **-BackupStorageRedundancy** option for *testVault* set to **GeoRedundant**.
 
    > [!TIP]
-   > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it is convenient to store the Backup Recovery Services vault object in a variable.
+   > Many Azure Backup cmdlets require the Recovery Services vault object as an input. For this reason, it's convenient to store the Backup Recovery Services vault object in a variable.
    >
    >
 
@@ -171,7 +171,7 @@ Machine registration succeeded.
 ```
 
 > [!IMPORTANT]
-> Do not use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
+> Don't use relative paths to specify the vault credentials file. You must provide an absolute path as an input to the cmdlet.
 >
 >
 
@@ -220,7 +220,7 @@ Server properties updated successfully
 ```
 
 > [!IMPORTANT]
-> Keep the passphrase information safe and secure once it is set. You can't restore data from Azure without this passphrase.
+> Keep the passphrase information safe and secure once it's set. You can't restore data from Azure without this passphrase.
 >
 >
 

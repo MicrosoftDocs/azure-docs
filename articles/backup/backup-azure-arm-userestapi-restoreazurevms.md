@@ -14,7 +14,7 @@ For any restore operation, one has to identify the relevant recovery point first
 
 ## Select Recovery point
 
-The available recovery points of a backup item can be listed using the [list recovery point REST API](/rest/api/backup/recoverypoints/list). It is a simple *GET* operation with all the relevant values.
+The available recovery points of a backup item can be listed using the [list recovery point REST API](/rest/api/backup/recoverypoints/list). It's a simple *GET* operation with all the relevant values.
 
 ```http
 GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}/recoveryPoints?api-version=2019-05-13
@@ -22,7 +22,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 The `{containerName}` and `{protectedItemName}` are as constructed [here](backup-azure-arm-userestapi-backupazurevms.md#example-responses-to-get-operation). `{fabricName}` is "Azure".
 
-The *GET* URI has all the required parameters. There is no need for an additional request body
+The *GET* URI has all the required parameters. There's no need for an additional request body.
 
 ### Responses
 
@@ -117,7 +117,7 @@ After selecting the [relevant restore point](#select-recovery-point), proceed to
 ***All restore operations on the backup item are performed with the same *POST* API. Only the request body changes with the restore scenarios.***
 
 > [!IMPORTANT]
-> All details about various restore options and their dependencies are mentioned [here](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-options). Please review before proceeding to triggering these operations.
+> All details about various restore options and their dependencies are mentioned [here](./backup-azure-arm-restore-vms.md#restore-options). Please review before proceeding to triggering these operations.
 
 Triggering restore operations is a *POST* request. To know more about the API, refer to the ["trigger restore" REST API](/rest/api/backup/restores/trigger).
 
@@ -205,7 +205,7 @@ Since the restore job is a long running operation, it should be tracked as expla
 
 ### Restore disks
 
-If there is a need to customize the creation of a VM from the backup data, one can just restore disks into a chosen storage account and create a VM from those disks according to their requirements. The storage account should be in the same region as the Recovery Services vault and should not be zone redundant. The disks as well as the configuration of the backed-up VM ("vmconfig.json") will be stored in the given storage account. As explained [above](#restore-operations), the relevant request body for restore disks is provided below.
+If there's a need to customize the creation of a VM from the backup data, you can just restore disks into a chosen storage account and create a VM from those disks according to their requirements. The storage account should be in the same region as the Recovery Services vault and shouldn't be zone redundant. The disks, as well as the configuration of the backed-up VM ("vmconfig.json"), will be stored in the given storage account. As explained [above](#restore-operations), the relevant request body for restore disks is provided below.
 
 #### Create request body
 
@@ -237,6 +237,30 @@ The following request body defines properties required to trigger a disk restore
     }
   }
 }
+```
+
+### Restore disks selectively
+
+If you are [selectively backing up disks](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup), then the current backed-up disk list is provided in the [recovery point summary](#select-recovery-point) and [detailed response](/rest/api/backup/recoverypoints/get). You can also selectively restore disks and more details are provided [here](selective-disk-backup-restore.md#selective-disk-restore). To selectively restore a disk among the list of backed up disks, find the LUN of the disk from the recovery point response and add the **restoreDiskLunList** property to the [request body above](#example-request) as shown below.
+
+```json
+{
+    "properties": {
+        "objectType": "IaasVMRestoreRequest",
+        "recoveryPointId": "20982486783671",
+        "recoveryType": "RestoreDisks",
+        "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+        "storageAccountId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Storage/storageAccounts/testAccount",
+        "region": "westus",
+        "createNewCloudService": false,
+        "originalStorageAccountOption": false,
+        "encryptionDetails": {
+          "encryptionEnabled": false
+        },
+        "restoreDiskLunList" : [0]
+    }
+}
+
 ```
 
 Once you track the response as explained [above](#responses), and the long running job is complete, the disks and the configuration of the backed up virtual machine ("VMConfig.json") will be present in the given storage account.

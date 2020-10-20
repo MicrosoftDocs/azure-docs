@@ -1,8 +1,8 @@
 ---
 title: Enable replication for on-premises machines with private endpoints 
 description: This article describes how to configure replication for on-premises machines by using private endpoints in Site Recovery. 
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
@@ -11,11 +11,8 @@ ms.date: 07/14/2020
 
 Azure Site Recovery allows you to use
 [Azure Private Link](../private-link/private-endpoint-overview.md) private endpoints to replicate
-your on-premises machines to a virtual network in Azure. Support for private endpoint
-access to a recovery vault is supported in these regions:
-
-- Azure commercial: South Central US, West US 2, East US
-- Azure Government: US Gov Virginia, US Gov Arizona, US Gov Texas, US DoD East, US DoD Central
+your on-premises machines to a virtual network in Azure. Private endpoint access to
+a recovery vault is supported in all Azure Commercial & Government regions.
 
 This article describes how to complete the following steps:
 

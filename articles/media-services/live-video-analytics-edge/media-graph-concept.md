@@ -16,7 +16,8 @@ ms.date: 05/01/2020
 
 A media graph lets you define where media should be captured from, how it should be processed, and where the results should be delivered. You accomplish this by connecting components, or nodes, in the desired manner. The diagram below provides a graphical representation of a media graph.  
 
-![A graphical representation of a media graph](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Media graph":::
 
 Live Video Analytics on IoT Edge supports different types of sources, processors, and sinks.
 
@@ -32,19 +33,29 @@ The values for the parameters in the topology are specified when you create grap
 
 ## Media graph states  
 
-A media graph can be in one of the following states:
+The lifecycle of graph topologies and graph instances is shown in the following state diagram.
 
-* Inactive –  represents the state where a media graph is configured but not active.
-* Activating – the state when a media graph is being instantiated (that is, the transition state between inactive and active).
-* Active – the state when a media graph is active. 
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Graph topology and graph instance lifecycle":::
 
-    > [!NOTE]
-    >  Media graph can be active without data flowing through it (for example, the input video source goes offline).
-* Deactivating – This is the state when a media graph is transitioning from active to inactive.
+You begin with [creating a graph topology](direct-methods.md#graphtopologyset). Then, for each live video feed that you want to process with this topology, you [create a graph instance](direct-methods.md#graphinstanceset). 
 
-The diagram below illustrates the media graph state machine.
+The graph instance will be in the `Inactive` (idle) state.
 
-![Media graph state machine](./media/media-graph/media-graph-state-machine.png)
+When you are ready to send the live video feed into the graph instance, you [activate](direct-methods.md#graphinstanceactivate) it. The graph instance will briefly go through a transitionary `Activating` state, and if successful, go into an `Active` state. In the `Active` state, media will be processed (if the graph instance receives input data).
+
+> [!NOTE]
+>  A graph instance can be active without data flowing through it (for example, the camera goes offline).
+>  Your Azure subscription will be billed when the graph instance is in the active state.
+
+You can repeat the process of creating and activating other graph instances for the same topology, if you have other live video feeds to process.
+
+When you are done processing the live video feed, you can [deactivate](direct-methods.md#graphinstancedeactivate) the graph instance. The graph instance will briefly go through a transitionary `Deactivating` state, flush any data that it has, and then return to the `Inactive` state.
+
+You can only [delete](direct-methods.md#graphinstancedelete) a graph instance when it is in the `Inactive` state.
+
+After all graph instances that refer to a specific graph topology have been deleted, you can [delete the graph topology](direct-methods.md#graphtopologydelete).
+
 
 ## Sources, processors, and sinks  
 
@@ -54,7 +65,7 @@ Live Video Analytics on IoT Edge supports the following types of nodes within a 
 
 #### RTSP source 
 
-An RTSP source node enables you to ingest media from a [RTSP](https://tools.ietf.org/html/rfc2326 server. Surveillance and IP-based cameras transmit their data in a protocol called RTSP (real-time-streaming-protocol) which is different than other types of devices like phones and video cameras. This protocol is used for establishing and controlling the media sessions between a server (the camera) and a client. The RTSP source node in a media graph acts as a client and can establish a session with an RTSP server. Many devices such as most [IP cameras](https://en.wikipedia.org/wiki/IP_camera) have a built-in RTSP server. [ONVIF](https://www.onvif.org/) mandates RTSP to be supported in its definition of [Profiles G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) compliant devices. The RTSP source node requires you to specify an RTSP URL, along with credentials to enable an authenticated connection.
+An RTSP source node enables you to ingest media from a [RTSP](https://tools.ietf.org/html/rfc2326 server). Surveillance and IP-based cameras transmit their data in a protocol called RTSP (real-time-streaming-protocol) which is different than other types of devices like phones and video cameras. This protocol is used for establishing and controlling the media sessions between a server (the camera) and a client. The RTSP source node in a media graph acts as a client and can establish a session with an RTSP server. Many devices such as most [IP cameras](https://en.wikipedia.org/wiki/IP_camera) have a built-in RTSP server. [ONVIF](https://www.onvif.org/) mandates RTSP to be supported in its definition of [Profiles G, S & T](https://www.onvif.org/wp-content/uploads/2019/12/ONVIF_Profile_Feature_overview_v2-3.pdf) compliant devices. The RTSP source node requires you to specify an RTSP URL, along with credentials to enable an authenticated connection.
 
 #### IoT Hub message source 
 
@@ -74,11 +85,11 @@ The frame rate filter processor node enables you to sample frames from the incom
 
 #### HTTP extension processor
 
-The HTTP extension processor node enables you to connect your own IoT Edge module to a media graph. This node takes decoded video frames as the input, and relays such frames to a HTTP REST endpoint exposed by your module. This node has the ability to authenticate with the REST endpoint if required. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the REST endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports JPEG, PNG, or BMP formats.
+The HTTP extension processor node enables you to connect your own IoT Edge module to a media graph. This node takes decoded video frames as the input, and relays such frames to a HTTP REST endpoint exposed by your module. This node has the ability to authenticate with the REST endpoint if required. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the REST endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports JPEG, PNG, or BMP formats. Learn more about the processor [here](media-graph-extension-concept.md#http-extension-processor).
 
 #### gRPC extension processor
 
-The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by your module. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats.
+The gRPC extension processor node takes decoded video frames as the input, and relays such frames to a [gRPC](terminology.md#grpc) endpoint exposed by your module. The node supports transferring of data using [shared memory](https://en.wikipedia.org/wiki/Shared_memory) or directly embedding the content into the body of gRPC messages. Additionally, the node has a built-in image formatter for scaling and encoding of video frames before they are relayed to the gRPC endpoint. The scaler has options for the image aspect ratio to be preserved, padded or stretched. The image encoder supports jpeg, png, or bmp formats. Learn more about the processor [here](media-graph-extension-concept.md#grpc-extension-processor).
 
 #### Signal gate processor  
 

@@ -50,7 +50,7 @@ For more information about certificate-related access policies, see [About Azure
 
 ### How can I resolve "Error type: Conflict when creating a certificate"?
 	
-Each certificate name must be unique. A certificate with the same name as another might be in a soft-deleted state. Also, according to the [composition of a certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) in Azure Key Vault, if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
+Each certificate name must be unique. A certificate with the same name might be in a soft-deleted state. Also, according to the [composition of a certificate](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), when new certificate is created, it creates an addressable secret with the same name so if there's another key or secret in the key vault with the same name as the one you're trying to specify for your certificate, the certificate creation will fail and you'll need to either remove that key or secret or use a different name for your certificate. 
 
 For more information, see [Get Deleted Certificate operation](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 

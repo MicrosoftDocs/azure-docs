@@ -34,7 +34,7 @@ Classification is a common machine learning task. Classification is a type of su
 
 The main goal of classification models is to predict which categories new data will fall into based on learnings from its training data. Common classification examples include fraud detection, handwriting recognition, and object detection. Learn more and see an example at [Create a classification model with automated ML](tutorial-first-experiment-automated-ml.md).
 
-See examples of classification and automated machine learning in these Python notebooks: [Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb), and [Newsgroup Data Classification](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)
+See examples of classification and automated machine learning in these Python notebooks: [Fraud Detection](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb), [Marketing Prediction](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb), and [Newsgroup Data Classification](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b)
 
 ### Regression
 
@@ -74,8 +74,6 @@ Using **Azure Machine Learning**, you can design and run your automated ML train
 
    * For limited or no code experience, try the Azure Machine Learning studio web experience at [https://ml.azure.com](https://ml.azure.com/)  
    * For Python developers, check out the [Azure Machine Learning Python SDK](how-to-configure-auto-train.md) 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **Specify the source and format of the labeled training data**: Numpy arrays or Pandas dataframe
 
@@ -171,25 +169,25 @@ Consider these pros and cons when choosing to use local vs. remote.
 
 ### Feature availability 
 
- More features are available when you use the remote compute, as shown in the table below. Some of these features are available only in an Enterprise workspace.
+ More features are available when you use the remote compute, as shown in the table below. 
 
-| Feature                                                    | Remote | Local | Requires <br>Enterprise workspace |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| Data streaming (Large data support, up to 100 GB)          | ✓      |       | ✓                             |
-| DNN-BERT-based text featurization and training             | ✓      |       | ✓                             |
-| Out-of-the-box GPU support (training and inference)        | ✓      |       | ✓                             |
-| Image Classification and Labeling support                  | ✓      |       | ✓                             |
-| Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | ✓                             |
-| Multiple runs/iterations in parallel                       | ✓      |       | ✓                             |
-| Create models with interpretability in AutoML studio web experience UI      | ✓      |       | ✓                             |
-| Feature engineering customization in studio web experience UI                        | ✓      |       | ✓                              |
-| Azure ML hyperparameter tuning                             | ✓      |       |                               |
-| Azure ML Pipeline workflow support                         | ✓      |       |                               |
-| Continue a run                                             | ✓      |       |                               |
-| Forecasting                                                | ✓      | ✓     | ✓                             |
-| Create and run experiments in notebooks                    | ✓      | ✓     |                               |
-| Register and visualize experiment's info and metrics in UI | ✓      | ✓     |                               |
-| Data guardrails                                            | ✓      | ✓     |                               |
+| Feature                                                    | Remote | Local | 
+|------------------------------------------------------------|--------|-------|
+| Data streaming (Large data support, up to 100 GB)          | ✓      |       | 
+| DNN-BERT-based text featurization and training             | ✓      |       |
+| Out-of-the-box GPU support (training and inference)        | ✓      |       |
+| Image Classification and Labeling support                  | ✓      |       |
+| Auto-ARIMA, Prophet and ForecastTCN models for forecasting | ✓      |       | 
+| Multiple runs/iterations in parallel                       | ✓      |       |
+| Create models with interpretability in AutoML studio web experience UI      | ✓      |       |
+| Feature engineering customization in studio web experience UI| ✓      |       |
+| Azure ML hyperparameter tuning                             | ✓      |       |
+| Azure ML Pipeline workflow support                         | ✓      |       |
+| Continue a run                                             | ✓      |       |
+| Forecasting                                                | ✓      | ✓     |
+| Create and run experiments in notebooks                    | ✓      | ✓     |
+| Register and visualize experiment's info and metrics in UI | ✓      | ✓     |
+| Data guardrails                                            | ✓      | ✓     |
 
 ## Many models 
 
@@ -203,9 +201,9 @@ For example, building a model __for each instance or individual__ in the followi
 
 ## AutoML in Azure Machine Learning
 
-Azure Machine Learning offers two experiences for working with automated ML
+Azure Machine Learning offers two experiences for working with automated ML:
 
-* For code experienced customers, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 
+* For code experienced customers, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
 
 * For limited/no code experience customers, Azure Machine Learning studio at [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -288,9 +286,9 @@ How to articles provide additional detail into what functionality AutoML offers.
 
 Review detailed code examples and use cases in the [GitHub notebook repository for automated machine learning samples](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
-### Python SDK reference 
+### Python SDK reference
 
-Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py). 
+Deepen your expertise of SDK design patterns and class specifications with the [AutoML class reference documentation](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). 
 
 > [!Note]
 > Automated machine learning capabilities are also available in other Microsoft solutions such as, 

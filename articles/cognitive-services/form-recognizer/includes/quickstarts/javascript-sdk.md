@@ -1,14 +1,15 @@
 ---
 title: "Quickstart: Form Recognizer client library for JavaScript"
-description: In this quickstart, get started with the Form Recognizer client library for JavaScript.
+description: Use the Form Recognizer client library for JavaScript to create a forms processing app that extracts key/value pairs and table data from your custom documents.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: include
-ms.date: 08/21/2020
+ms.date: 09/21/2020
 ms.author: pafarley
+ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
 > [!IMPORTANT]
@@ -20,7 +21,7 @@ ms.author: pafarley
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
-* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451).
+* An Azure Storage blob that contains a set of training data. See [Build a training data set for a custom model](../../build-training-data-set.md) for tips and options for putting together your training data set. For this quickstart, you can use the files under the **Train** folder of the [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) (download and extract *sample_data.zip*).
 * The current version of [Node.js](https://nodejs.org/)
 * Once you have your Azure subscription, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="Create a Form Recognizer resource"  target="_blank">create a Form Recognizer resource <span class="docon docon-navigate-external x-hidden-focus"></span></a> in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart.
@@ -61,6 +62,8 @@ Your app's `package.json` file will be updated with the dependencies.
 
 ## Object model 
 
+With Form Recognizer, you can create two different client types. The first, `FormRecognizerClient` is used to query the service to recognized form fields and content. The second, `FormTrainingClient` is use to create and manage custom models that you can use to improve recognition. 
+
 ### FormRecognizerClient
 `FormRecognizerClient` provides operations for:
 
@@ -71,12 +74,14 @@ Your app's `package.json` file will be updated with the dependencies.
 ### FormTrainingClient
 `FormTrainingClient` provides operations for:
 
-* Training custom models to recognize all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model will recognize, and the fields it will extract for each form type. See the [service's documentation on unlabeled model training][fr-train-without-labels] for a more detailed explanation of creating a training data set.
-* Training custom models to recognize specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model will extract, as well as the estimated accuracy for each field. See the [service's documentation on labeled model training][fr-train-with-labels] for a more detailed explanation of applying labels to a training data set.
+* Training custom models to recognize all fields and values found in your custom forms. A `CustomFormModel` is returned indicating the form types the model will recognize, and the fields it will extract for each form type. See the [service's documentation on unlabeled model training](#train-a-model-without-labels) for a more detailed explanation of creating a training data set.
+* Training custom models to recognize specific fields and values you specify by labeling your custom forms. A `CustomFormModel` is returned indicating the fields the model will extract, as well as the estimated accuracy for each field. See the [service's documentation on labeled model training](#train-a-model-with-labels) for a more detailed explanation of applying labels to a training data set.
 * Managing models created in your account.
 * Copying a custom model from one Form Recognizer resource to another.
 
-Please note that models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool][https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool].
+> [!NOTE]
+> Models can also be trained using a graphical user interface such as the [Form Recognizer Labeling Tool](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool).
+
 
 ## Code examples
 
@@ -106,7 +111,7 @@ const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(a
 const client = new FormRecognizerClient(endpoint, new AzureKeyCredential(apiKey));
 ```
 
-## Assets for testing
+## Get assets for testing
 
 The code snippets in this guide use remote forms accessed by URLs. If you want to process local form documents instead, see the related methods in the [reference documentation](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) and [samples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
 
@@ -251,7 +256,7 @@ The following function trains a model on a given set of documents and prints the
 ```javascript
 async function trainModel() {
 
-    const containerSasUrl = "https://formtraningiron.blob.core.windows.net/form-training-data";
+    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
     const poller = await trainingClient.beginTraining(containerSasUrl, false, {
@@ -337,7 +342,7 @@ You can also train custom models by manually labeling the training documents. Tr
 ```javascript
 async function trainModelLabels() {
 
-    const containerSasUrl = "https://formtraningiron.blob.core.windows.net/form-training-data";
+    const containerSasUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
     const trainingClient = new FormTrainingClient(endpoint, new AzureKeyCredential(apiKey));
 
     const poller = await trainingClient.beginTraining(containerSasUrl, true, {

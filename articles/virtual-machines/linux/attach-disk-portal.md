@@ -4,7 +4,7 @@ description: Use the portal to attach new or existing data disk to a Linux VM.
 author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: how-to
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: cynthn
 ms.subservice: disks
 
@@ -15,7 +15,7 @@ This article shows you how to attach both new and existing disks to a Linux virt
 Before you attach disks to your VM, review these tips:
 
 * The size of the virtual machine controls how many data disks you can attach. For details, see [Sizes for virtual machines](../sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see our [Introduction to managed disks](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* Disks attached to virtual machines are actually .vhd files stored in Azure. For details, see our [Introduction to managed disks](../managed-disks-overview.md?toc=%252fazure%252fvirtual-machines%252flinux%252ftoc.json).
 * After attaching the disk, you need to [connect to the Linux VM to mount the new disk](#connect-to-the-linux-vm-to-mount-the-new-disk).
 
 
@@ -133,15 +133,17 @@ sudo mount /dev/sdc1 /datadrive
 To ensure that the drive is remounted automatically after a reboot, it must be added to the */etc/fstab* file. It is also highly recommended that the UUID (Universally Unique Identifier) is used in */etc/fstab* to refer to the drive rather than just the device name (such as, */dev/sdc1*). If the OS detects a disk error during boot, using the UUID avoids the incorrect disk being mounted to a given location. Remaining data disks would then be assigned those same device IDs. To find the UUID of the new drive, use the `blkid` utility:
 
 ```bash
-sudo -i blkid
+sudo blkid
 ```
 
 The output looks similar to the following example:
 
 ```bash
-/dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
-/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
-/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+/dev/sda1: LABEL="cloudimg-rootfs" UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4" PARTUUID="1a1b1c1d-11aa-1234-1a1a1a1a1a1a"
+/dev/sda15: LABEL="UEFI" UUID="BCD7-96A6" TYPE="vfat" PARTUUID="1e1g1cg1h-11aa-1234-1u1u1a1a1u1u"
+/dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4" TYPE="ext4" PARTUUID="1a2b3c4d-01"
+/dev/sda14: PARTUUID="2e2g2cg2h-11aa-1234-1u1u1a1a1u1u"
+/dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="c1c2c3c4-1234-cdef-asdf3456ghjk"
 ```
 
 > [!NOTE]
@@ -156,7 +158,7 @@ sudo nano /etc/fstab
 In this example, use the UUID value for the `/dev/sdc1` device that was created in the previous steps, and the mountpoint of `/datadrive`. Add the following line to the end of the `/etc/fstab` file:
 
 ```bash
-UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
+UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,nofail   1   2
 ```
 
 We used the nano editor, so when you are done editing the file, use `Ctrl+O` to write the file and `Ctrl+X` to exit the editor.
@@ -199,7 +201,7 @@ There are two ways to enable TRIM support in your Linux VM. As usual, consult yo
 * Use the `discard` mount option in */etc/fstab*, for example:
 
     ```bash
-    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   xfs   defaults,discard   1   2
     ```
 * In some cases, the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
   

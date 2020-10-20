@@ -18,31 +18,29 @@ Azure App Configuration maintains a record of changes made to key-values. This r
 
 You can use Azure portal or CLI to retrieve past key-values. In Azure CLI, use `az appconfig revision list`, adding appropriate parameters to retrieve the required values.  Specify the Azure App Configuration instance by providing either the store name (`--name <app-config-store-name>`) or by using a connection string (`--connection-string <your-connection-string>`). Restrict the output by specifying a specific point in time (`--datetime`) and by specifying the maximum number of items to return (`--top`).
 
-If you don't have Azure CLI installed locally, you can optionally use Azure Cloud Shell.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+If you don't have Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md).
 
 Retrieve all recorded changes to your key-values.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name>.
 ```
 
 Retrieve all recorded changes for the key `environment` and the labels `test` and `prod`.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment --label test,prod
 ```
 
 Retrieve all recorded changes in the hierarchical key space `environment:prod`.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --name <your-app-config-store-name> --key environment:prod:* 
 ```
 
 Retrieve all recorded changes for the key `color` at a specific point-in-time.
 
-```azurecli-interactive
+```azurecli
 az appconfig revision list --connection-string <your-app-config-connection-string> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 
@@ -55,4 +53,4 @@ az appconfig revision list --name <your-app-config-store-name> --top 10 --fields
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)  
+> [Create an ASP.NET Core web app](./quickstart-aspnet-core-app.md)

@@ -171,6 +171,10 @@ Please confirm your service principal has not expired.  Please see: [AKS service
 
 Please confirm your service principal has not expired.  Please see: [AKS service principal](./kubernetes-service-principal.md)  and [AKS update credentials](./update-credentials.md).
 
+## Can I scale my AKS cluster to zero?
+You can completely [stop a running AKS cluster](start-stop-cluster.md), saving on the respective compute costs. Additionally, you may also choose to [scale or auto-scale all or specific `User` node pools](scale-cluster.md#scale-user-node-pools-to-0) to 0, maintaining only the necessary cluster configuration.
+You cannot directly scale [system node pools](use-system-pools.md) to 0.
+
 ## Can I use the virtual machine scale set APIs to scale manually?
 
 No, scale operations by using the virtual machine scale set APIs aren't supported. Use the AKS APIs (`az aks scale`).
@@ -185,7 +189,7 @@ While AKS has resilience mechanisms to withstand such a config and recover from 
 
 ## Can I use custom VM extensions?
 
-No AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
+No, AKS is a managed service, and manipulation of the IaaS resources is not supported. To install custom components, etc. please leverage the Kubernetes APIs and mechanisms. For example, leverage DaemonSets to install required components.
 
 ## Does AKS store any customer data outside of the cluster's region?
 
@@ -204,7 +208,7 @@ The feature to enable storing customer data in a single region is currently only
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [aks-windows-cli]: windows-container-cli.md
-[aks-windows-limitations]: windows-node-limitations.md
+[aks-windows-limitations]: ./windows-faq.md
 [reservation-discounts]:../cost-management-billing/reservations/save-compute-costs-reservations.md
 [api-server-authorized-ip-ranges]: ./api-server-authorized-ip-ranges.md
 [multi-node-pools]: ./use-multiple-node-pools.md

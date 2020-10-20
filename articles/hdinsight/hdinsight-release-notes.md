@@ -7,7 +7,7 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 10/07/2020
 ---
 # Azure HDInsight release notes
 
@@ -17,56 +17,32 @@ This article provides information about the **most recent** Azure HDInsight rele
 
 Azure HDInsight is one of the most popular services among enterprise customers for open-source analytics on Azure.
 
-## Release date: 08/09/2020
+## Release date: 10/08/2020
 
-This release applies only for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
+This release applies for both HDInsight 3.6 and HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region in several days.
 
 ## New features
-### Support for SparkCruise
-SparkCruise is an automatic computation reuse system for Spark. It selects common subexpressions to materialize based on the past query workload. SparkCruise materializes these subexpressions as part of query processing and computation reuse is automatically applied in the background. You can benefit from SparkCruise without any modification to the Spark code.
- 
-### Support Hive View for HDInsight 4.0
-Apache Ambari Hive View is designed to help you author, optimize, and execute Hive queries from your web browser. Hive View is supported natively for HDInsight 4.0 clusters starting from this release. It doesn't apply to existing clusters. You need drop and recreate the cluster to get the built-in Hive View.
- 
-### Support Tez View for HDInsight 4.0
-Apache Tez View is used to track and debug the execution of Hive Tez job. Tez View is supported natively for HDInsight 4.0 starting from this release. It doesn't apply to existing clusters. You need to drop and recreate the cluster to get the built-in Tez View.
+### HDInsight private clusters with no public IP and Private link (Preview)
+HDInsight now supports creating clusters with no public IP and private link access to the clusters in preview. Customers can use the new advanced networking settings to create a fully isolated cluster with no public IP and use their own private endpoints to access the cluster. 
+
+### Moving to Azure virtual machine scale sets
+HDInsight now uses Azure virtual machines to provision the cluster. Starting from this release, the service will gradually migrate to [Azure virtual machine scale sets](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview). The entire process may take months. After your regions and subscriptions are migrated, newly created HDInsight clusters will run on virtual machine scale sets without customer actions. No breaking change is expected.
 
 ## Deprecation
-### Deprecation of Spark 2.1 and 2.2 in HDInsight 3.6 Spark cluster
-Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.1 and 2.2 on HDInsight 3.6. Existing clusters will run as is without the support from Microsoft. Consider to move to Spark 2.3 on HDInsight 3.6 by June 30 2020 to avoid potential system/support interruption.
- 
-### Deprecation of Spark 2.3 in HDInsight 4.0 Spark cluster
-Starting from July 1 2020, customers cannot create new Spark clusters with Spark 2.3 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Spark 2.4 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
- 
-### Deprecation of Kafka 1.1 in HDInsight 4.0 Kafka cluster
-Starting from July 1 2020, customers will not be able to create new Kafka clusters with Kafka 1.1 on HDInsight 4.0. Existing clusters will run as is without the support from Microsoft. Consider moving to Kafka 2.1 on HDInsight 4.0 by June 30 2020 to avoid potential system/support interruption.
+#### Deprecation of HDInsight 3.6 ML Services cluster
+HDInsight 3.6 ML Services cluster type will be end of support by Dec 31 2020. Customers won't create new 3.6 ML Services clusters after that. Existing clusters will run as is without the support from Microsoft. Check the support expiration for HDInsight versions and cluster types [here](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#available-versions).
 
 ## Behavior changes
-### Ambari stack version change
-From this release, the Ambari version is changed from 2.x.x.x to 4.1. You can get the Ambari version from Ambari UI > About.
+No behavior change for this release.
 
 ## Upcoming changes
-No upcoming breaking changes that you need to pay attention to.
+The following changes will happen in upcoming releases.
+
+### Ability to select different Zookeeper virtual machine sizes for Spark, Hadoop, and ML Services
+HDInsight today doesn't support customizing Zookeeper node size for Spark, Hadoop, and ML Services cluster types. It defaults to A2_v2/A2 virtual machine sizes, which are provided free of charge. In the upcoming release, you can select a Zookeeper virtual machine size that is most appropriate for your scenario. Zookeeper nodes with virtual machine size other than A2_v2/A2 will be charged. A2_v2 and A2 virtual machines are still provided free of charge.
 
 ## Bug fixes
 HDInsight continues to make cluster reliability and performance improvements. 
 
-Below JIRAs are back ported for Hive:
-* [HIVE-23619](https://issues.apache.org/jira/browse/HIVE-23619)
-* [HIVE-21223](https://issues.apache.org/jira/browse/HIVE-21223)
-* [HIVE-22599](https://issues.apache.org/jira/browse/HIVE-22599)
-* [HIVE-22121](https://issues.apache.org/jira/browse/HIVE-22121)
-* [HIVE-22136](https://issues.apache.org/jira/browse/HIVE-22136)
-* [HIVE-18786](https://issues.apache.org/jira/browse/HIVE-18786)
-
-Below JIRAs are back ported for HBase:
-* [HBASE-21458](https://issues.apache.org/jira/browse/HBASE-21458)
-* [HBASE-24208](https://issues.apache.org/jira/browse/HBASE-24208)
-* [HBASE-24205](https://issues.apache.org/jira/browse/HBASE-24205)
-
 ## Component version change
 No component version change for this release. You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#apache-hadoop-components-available-with-different-hdinsight-versions).
-
-## Known issues
-
-When trying to create an Azure HDInsight cluster from the Azure portal and using an SSH authentication type of public key, users are experiencing an error when they click **Review + Create**. The error in the portal is "Must not contain any three consecutive characters from SSH username." This issue is being addressed; however, if you experience this error, the workaround is create a cluster with an ARM template. 

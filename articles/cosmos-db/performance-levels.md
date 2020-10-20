@@ -6,6 +6,7 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
+ms.custom: devx-track-csharp
 
 ---
 # Retiring the S1, S2, and S3 performance levels

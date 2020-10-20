@@ -6,14 +6,15 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/05/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell
 ---
 # Pre-populate user authentication contact information for Azure Active Directory self-service password reset (SSPR)
 
@@ -44,16 +45,14 @@ After a user verifies their mobile phone number, the *Phone* field under **Authe
 
 ## Authentication contact info
 
-On the **Authentication methods** page for an Azure AD user in the Azure portal, a Global Administrator can manually set the authentication contact information, as shown in the following example screenshot:
+On the **Authentication methods** page for an Azure AD user in the Azure portal, a Global Administrator can manually set the authentication contact information. You can review existing methods under the *Usable authentication methods* section, or **+Add authentication methods**, as shown in the following example screenshot:
 
-![Authentication contact info on a user in Azure AD][Contact]
+:::image type="content" source="media/howto-sspr-authenticationdata/user-authentication-contact-info.png" alt-text="Manage authentication methods from the Azure portal":::
 
 The following considerations apply for this authentication contact info:
 
 * If the *Phone* field is populated and *Mobile phone* is enabled in the SSPR policy, the user sees that number on the password reset registration page and during the password reset workflow.
-* The *Alternate phone* field isn't used for password reset.
 * If the *Email* field is populated and *Email* is enabled in the SSPR policy, the user sees that email on the password reset registration page and during the password reset workflow.
-* If the *Alternate email* field is populated and *Email* is enabled in the SSPR policy, the user won't see that email on the password reset registration page, but they see it during the password reset workflow.
 
 ## Security questions and answers
 
@@ -165,5 +164,3 @@ Once authentication contact information is pre-populated for users, complete the
 
 > [!div class="nextstepaction"]
 > [Enable Azure AD self-service password reset](tutorial-enable-sspr.md)
-
-[Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "Global administrators can modify a user's authentication contact info"

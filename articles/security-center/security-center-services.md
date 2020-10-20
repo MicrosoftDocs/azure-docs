@@ -8,7 +8,7 @@ manager: rkarlin
 ms.assetid: 870ebc8d-1fad-435b-9bf9-c477f472ab17
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2020
@@ -23,56 +23,56 @@ The two tabs below show the features of Azure Security Center that are available
 
 ### [**Windows machines**](#tab/features-windows)
 
-|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
+|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
-|[Virtual Machine Behavioral Analytics (and security alerts)](threat-protection.md)|✔|✔|✔|Standard|
-|[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
-|[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
-|[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Standard|
-|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
-|Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
-|Disk encryption assessment|✔|✔|-|Free|
-|Third-party vulnerability assessment|✔|-|-|Free|
-|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
+|[Microsoft Defender ATP integration](security-center-wdatp.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
+|[Virtual machine behavioral analytics (and security alerts)](alerts-reference.md)|✔|✔|✔|Yes|
+|[Fileless security alerts](alerts-reference.md#alerts-windows)|✔|✔|✔|Yes|
+|[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
+|[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Yes|
+|[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
+|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Yes|
+|[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
+|[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
+|[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
+|Recommendations and threat protection on Docker-hosted IaaS containers|-|-|-|Yes|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Third-party vulnerability assessment|✔|-|-|No|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
 
 
 ### [**Linux machines**](#tab/features-linux)
 
-|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Non-Azure Machines**|**Pricing**
+|**Feature**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Azure Arc enabled machines**|**Azure Defender required**
 |----|:----:|:----:|:----:|:----:|
-|[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Standard|
-|[Virtual Machine Behavioral Analytics  (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Standard|
-|[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[Network-based security alerts](threat-protection.md#network-layer)|✔|✔|-|Standard|
-|[Just-In-Time VM access](security-center-just-in-time.md)|✔|-|-|Standard|
-|[Native vulnerability assessment](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
-|[File Integrity Monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
-|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Standard|
-|[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Standard|
-|[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
-|[Regulatory Compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Standard|
-|Missing OS patches assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
-|Security misconfigurations assessment|✔|✔|✔|Azure: Free<br><br>Non-Azure: Standard|
-|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Free|
-|Disk encryption assessment|✔|✔|-|Free|
-|Third-party vulnerability assessment|✔|-|-|Free|
-|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|Free|
+|[Microsoft Defender ATP integration](security-center-wdatp.md)|-|-|-|Yes|
+|[Virtual machine behavioral analytics (and security alerts)](security-center-alerts-iaas.md)|✔</br>(on supported versions)|✔</br>(on supported versions)|✔|Yes|
+|[Fileless security alerts](alerts-reference.md#alerts-windows)|-|-|-|Yes|
+|[Network-based security alerts](other-threat-protections.md#network-layer)|✔|✔|-|Yes|
+|[Just-in-time VM access](security-center-just-in-time.md)|✔|-|-|Yes|
+|[Native vulnerability assessment](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner)|✔|-|-|Yes|
+|[File integrity monitoring](security-center-file-integrity-monitoring.md)|✔|✔|✔|Yes|
+|[Adaptive application controls](security-center-adaptive-application.md)|✔|-|✔|Yes|
+|[Network map](security-center-network-recommendations.md#network-map)|✔|✔|-|Yes|
+|[Adaptive network hardening](security-center-adaptive-network-hardening.md)|✔|-|-|Yes|
+|[Regulatory compliance dashboard & reports](security-center-compliance-dashboard.md)|✔|✔|✔|Yes|
+|Recommendations and threat protection on Docker-hosted IaaS containers|✔|✔|✔|Yes|
+|Missing OS patches assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|Security misconfigurations assessment|✔|✔|✔|Azure: No<br><br>Arc-enabled: Yes|
+|[Endpoint protection assessment](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|No|
+|Disk encryption assessment|✔</br>(for [supported scenarios](../virtual-machines/windows/disk-encryption-windows.md#unsupported-scenarios))|✔|-|No|
+|Third-party vulnerability assessment|✔|-|-|No|
+|[Network security assessment](security-center-network-recommendations.md)|✔|✔|-|No|
 
 --- 
 
 
 > [!TIP]
->To experiment with features that are only available on the standard pricing tier, free tier users can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+>To experiment with features that are only available with Azure Defender, you can enroll in a 30-day trial. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 
 ## Supported endpoint protection solutions <a name="endpoint-supported"></a>
@@ -102,6 +102,6 @@ For information about when recommendations are generated for each of these prote
 
 ## Next steps
 
-- Learn how [Security Center collects data and the Log Analytics Agent](security-center-enable-data-collection.md).
+- Learn how [Security Center collects data using the Log Analytics Agent](security-center-enable-data-collection.md).
 - Learn how [Security Center manages and safeguards data](security-center-data-security.md).
 - Review the [platforms that support security center](security-center-os-coverage.md).

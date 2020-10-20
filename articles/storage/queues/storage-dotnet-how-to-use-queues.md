@@ -4,14 +4,17 @@ description: Azure Queues provide reliable, asynchronous messaging between appli
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 05/08/2020
+ms.date: 10/08/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
+ms.custom: devx-track-csharp
 ---
 
 # Get started with Azure Queue storage using .NET
+
+[!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 ## Overview
 
@@ -26,9 +29,6 @@ This tutorial shows how to write .NET code for some common scenarios using Azure
 ### Prerequisites
 
 - [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-- [Azure Storage common client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
-- [Azure Storage Queue client library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/)
-- [Azure Configuration Manager for .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
 - An [Azure storage account](../common/storage-account-create.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -88,11 +88,6 @@ You can use NuGet to obtain these packages. Follow these steps:
 1. Search online for "Microsoft.Azure.ConfigurationManager", and select **Install** to install the Azure Configuration Manager.
 
 ---
-
-> [!NOTE]
-> The Storage client libraries packages are also included in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/). However, we recommend that you also install the Storage client libraries from NuGet to ensure that you always have the latest versions.
->
-> The ODataLib dependencies in the Storage client libraries for .NET are resolved by the ODataLib packages available on NuGet, not from WCF Data Services. The ODataLib libraries can be downloaded directly, or referenced by your code project through NuGet. The specific ODataLib packages used by the Storage client libraries are [OData](https://nuget.org/packages/Microsoft.Data.OData/), [Edm](https://nuget.org/packages/Microsoft.Data.Edm/), and [Spatial](https://nuget.org/packages/System.Spatial/). While these libraries are used by the Azure Table storage classes, they are required dependencies for programming with the Storage client libraries.
 
 ### Determine your target environment
 
@@ -178,7 +173,7 @@ The [QueueClient](/dotnet/api/azure.storage.queues.queueclient) class enables yo
 
 # [\.NET v11](#tab/dotnetv11)
 
-The [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
+The [CloudQueueClient](/dotnet/api/microsoft.azure.storage.queue.cloudqueueclient?view=azure-dotnet-legacy&preserve-view=true) class enables you to retrieve queues stored in Queue storage. Here's one way to create the service client:
 
 ```csharp
 // Retrieve storage account from connection string
@@ -230,7 +225,7 @@ To insert a message into an existing queue, call the [SendMessage](/dotnet/api/a
 
 # [\.NET v11](#tab/dotnetv11)
 
-To insert a message into an existing queue, first create a new [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy). Next, call the [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy) method. A `CloudQueueMessage` can be created from either a `string` (in UTF-8 format) or a `byte` array. Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World":
+To insert a message into an existing queue, first create a new [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage?view=azure-dotnet-legacy&preserve-view=true). Next, call the [AddMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.addmessage?view=azure-dotnet-legacy&preserve-view=true) method. A `CloudQueueMessage` can be created from either a `string` (in UTF-8 format) or a `byte` array. Here is code which creates a queue (if it doesn't exist) and inserts the message "Hello, World":
 
 ```csharp
 // Retrieve storage account from connection string
@@ -263,7 +258,7 @@ You can peek at the messages in the queue without removing them from the queue b
 
 # [\.NET v11](#tab/dotnetv11)
 
-You can peek at the message in the front of a queue without removing it from the queue by calling the [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy) method.
+You can peek at the message in the front of a queue without removing it from the queue by calling the [PeekMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.peekmessage?view=azure-dotnet-legacy&preserve-view=true) method.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -326,7 +321,7 @@ De-queue a message from a queue in two steps. When you call [ReceiveMessages](/d
 
 # [\.NET v11](#tab/dotnetv11)
 
-Your code de-queues a message from a queue in two steps. When you call [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy), you get the next message in a queue. A message returned from `GetMessage` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy). This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `DeleteMessage` right after the message has been processed.
+Your code de-queues a message from a queue in two steps. When you call [GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage?view=azure-dotnet-legacy&preserve-view=true), you get the next message in a queue. A message returned from `GetMessage` becomes invisible to any other code reading messages from this queue. By default, this message stays invisible for 30 seconds. To finish removing the message from the queue, you must also call [DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage?view=azure-dotnet-legacy&preserve-view=true). This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls `DeleteMessage` right after the message has been processed.
 
 ```csharp
 // Retrieve storage account from connection string
@@ -399,7 +394,7 @@ The following code example uses the [ReceiveMessages](/dotnet/api/azure.storage.
 
 # [\.NET v11](#tab/dotnetv11)
 
-The following code example uses the [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since
+The following code example uses the [GetMessages](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessages?view=azure-dotnet-legacy&preserve-view=true) method to get 20 messages in one call. Then it processes each message using a `foreach` loop. It also sets the invisibility timeout to five minutes for each message. Note that the 5 minutes starts for all messages at the same time, so after 5 minutes have passed since
 the call to `GetMessages`, any messages which have not been deleted will become visible again.
 
 ```csharp
@@ -432,7 +427,7 @@ You can get an estimate of the number of messages in a queue. The [GetProperties
 
 # [\.NET v11](#tab/dotnetv11)
 
-You can get an estimate of the number of messages in a queue. The [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy) method asks the Queue service to retrieve the queue attributes, including the message count. The [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy) property returns the last value retrieved by the `FetchAttributes` method, without calling the Queue service.
+You can get an estimate of the number of messages in a queue. The [FetchAttributes](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.fetchattributes?view=azure-dotnet-legacy&preserve-view=true) method asks the Queue service to retrieve the queue attributes, including the message count. The [ApproximateMessageCount](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.approximatemessagecount?view=azure-dotnet-legacy&preserve-view=true) property returns the last value retrieved by the `FetchAttributes` method, without calling the Queue service.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -467,7 +462,7 @@ To delete a queue and all the messages contained in it, call the [Delete](/dotne
 
 # [\.NET v11](#tab/dotnetv11)
 
-To delete a queue and all the messages contained in it, call the [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy) method on the queue object.
+To delete a queue and all the messages contained in it, call the [Delete](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.delete?view=azure-dotnet-legacy&preserve-view=true) method on the queue object.
 
 ```csharp
 // Retrieve storage account from connection string.
@@ -488,22 +483,13 @@ queue.Delete();
 
 ## Next steps
 
-Now that you've learned the basics of Queue storage, follow these links
-to learn about more complex storage tasks.
+Now that you've learned the basics of Queue storage, follow these links to learn about more complex storage tasks.
 
 - View the Queue service reference documentation for complete details about available APIs:
   - [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
   - [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
-- Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 - View more feature guides to learn about additional options for storing data in Azure.
   - [Get started with Azure Table storage using .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) to store structured data.
   - [Get started with Azure Blob storage using .NET](../blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.
   - [Connect to SQL Database by using .NET (C#)](../../azure-sql/database/connect-query-dotnet-core.md) to store relational data.
-
-[Download and install the Azure SDK for .NET]: /develop/net/
-[.NET client library reference]: https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409
-[Creating an Azure Project in Visual Studio]: https://msdn.microsoft.com/library/azure/ee405487.aspx
-[Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/
-[OData]: https://nuget.org/packages/Microsoft.Data.OData/5.0.2
-[Edm]: https://nuget.org/packages/Microsoft.Data.Edm/5.0.2
-[Spatial]: https://nuget.org/packages/System.Spatial/5.0.2
+- Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).

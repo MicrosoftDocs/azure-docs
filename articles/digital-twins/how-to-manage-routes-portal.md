@@ -28,7 +28,7 @@ You can also manage endpoints and routes with the [EventRoutes APIs](how-to-use-
 ## Prerequisites
 
 * You'll need an **Azure account** (you can set one up for free [here](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
-* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-scripted.md). Have the following values from setup handy to use later in this article:
+* You'll need an **Azure Digital Twins instance** in your Azure subscription. If you don't have an instance already, you can create one using the steps in [*How-to: Set up an instance and authentication*](how-to-set-up-instance-portal.md). Have the following values from setup handy to use later in this article:
     - Instance name
     - Resource group
 
@@ -118,6 +118,14 @@ You can verify that the endpoint is successfully created by checking the notific
 If the endpoint creation fails, observe the error message and retry after a few minutes.
 
 Now, the Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes).
+
+### Create an endpoint with dead-lettering
+
+When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
+
+In order to create an endpoint with dead-lettering enabled, you must use the [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+
+For instructions on how to do this with the APIs, see the [*APIs and CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
 
 ## Event routes
 

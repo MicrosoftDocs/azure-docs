@@ -8,6 +8,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
+ms.custom: devx-track-dotnet
 
 
 ---
@@ -34,7 +35,7 @@ ms.author: anfeldma
 | |  |
 |---|---|
 |**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
-|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet&preserve-view=true)|
 |**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
 |**Get started**|[Get started with the Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
 |**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|

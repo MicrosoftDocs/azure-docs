@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/14/2020
+ms.date: 08/19/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
@@ -93,7 +93,7 @@ OAuth 2.0 is an [industry-standard](https://oauth.net/2/) protocol for authoriza
 
 ### SAML 2.0 or WS-Fed
 
-SAML is a mature, and widely adopted, single sign-on standard for web applications. To learn more about how Azure uses SAML, see [How Azure uses the SAML protocol](active-directory-saml-protocol-reference.md). 
+SAML is a mature, and widely adopted, [single sign-on standard](https://www.oasis-open.org/standards#samlv2.0) for web applications. To learn more about how Azure uses SAML, see [How Azure uses the SAML protocol](active-directory-saml-protocol-reference.md). 
 
 Web Services Federation (WS-Fed) is an [industry standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .NET platform.
 
@@ -235,7 +235,7 @@ If you want to add your application to list in the gallery by using **SAML 2.0**
 
 ![Listing a SAML 2.0 or WS-Fed application in the gallery](./media/howto-app-gallery-listing/saml.png)
 
-If you want to add your application to list in the gallery by using password SSO, select **Password SSO** as shown.
+If you want to add your application to list in the gallery by using password SSO, select **Password SSO(UserName & Password)** as shown.
 
 ![Listing a password SSO application in the gallery](./media/howto-app-gallery-listing/passwordsso.png)
 
@@ -273,5 +273,5 @@ The Microsoft Partner Network provides instant access to exclusive resources, pr
 
 
 ## Next steps
-
-For more information on building applications that support Azure AD sign-ins, see [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md).
+* [Build a SCIM endpoint and configure user provisioning](../app-provisioning/use-scim-to-provision-users-and-groups.md)
+* [Authentication scenarios for Azure AD](authentication-flows-app-scenarios.md)

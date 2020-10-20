@@ -7,7 +7,7 @@ ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom:  [mvc, amqp, mqtt, devx-track-javascript]
+ms.custom:  [mvc, amqp, mqtt, devx-track-js]
 ---
 
 # Quickstart: Create and provision a simulated TPM device using Node.js device SDK for IoT Hub Device Provisioning Service
@@ -18,7 +18,7 @@ In this quickstart, you create a simulated IoT device on a Windows computer. The
 
 ## Prerequisites
 
-- Review of [Auto-provisioning concepts](concepts-auto-provisioning.md).
+- Familiar with [provisioning](about-iot-dps.md#provisioning-process) concepts.
 - Completion of [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 - [Node.js v4.0+](https://nodejs.org).

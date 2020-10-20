@@ -1,5 +1,5 @@
 ---
-title: Pause and resume compute in Synapse SQL pool via the Azure portal
+title: 'Quickstart: Pause and resume compute in Synapse SQL pool via the Azure portal'
 description: Use the Azure portal to pause compute for SQL pool to save costs. Resume compute when you are ready to use the data warehouse.
 services: synapse-analytics
 author: kevinvngo
@@ -44,7 +44,7 @@ Follow these steps to pause a SQL pool:
 5. A confirmation question appears asking if you want to continue. Click **Yes**.
 6. Wait a few moments, and then notice the **Status** is **Pausing**.
 
-    ![Pausing](./media/pause-and-resume-compute-portal/pausing.png)
+    ![Screenshot shows the Azure portal for a sample data warehouse with a Status value of Pausing.](./media/pause-and-resume-compute-portal/pausing.png)
 
 7. When the pause operation is complete, the status is **Paused** and the option button is **Resume**.
 8. The compute resources for the SQL pool are now offline. You won't be charged for compute until you resume the service.
@@ -66,7 +66,7 @@ Follow these steps to resume SQL pool.
 5. A confirmation question appears asking if you want to start. Click **Yes**.
 6. Notice the **Status** is **Resuming**.
 
-    ![Resuming](./media/pause-and-resume-compute-portal/resuming.png)
+    ![Screenshot shows the Azure portal for a sample data warehouse with the Start button selected and a Status value of Resuming.](./media/pause-and-resume-compute-portal/resuming.png)
 
 7. When the SQL pool is back online, the status is **Online** and the option button is **Pause**.
 8. The compute resources for SQL pool are now online and you can use the service. Charges for compute have resumed.

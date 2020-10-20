@@ -3,19 +3,21 @@ title: Encode custom transform using Media Services v3 Azure CLI | Microsoft Doc
 description: This topic shows how to use Azure Media Services v3 to encode a custom transform using Azure CLI.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 05/14/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 
 ---
 
 # How to encode with a custom transform - Azure CLI
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 When encoding with Azure Media Services, you can get started quickly with one of the recommended built-in presets, based on industry best practices, as demonstrated in the [Streaming files](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) quickstart. You can also build a custom preset to target your specific scenario or device requirements.
 

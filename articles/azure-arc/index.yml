@@ -12,7 +12,7 @@ metadata:
   ms.topic: hub-page
   author: MGoedtel
   ms.author: magoedte
-  ms.date: 08/21/2020
+  ms.date: 09/23/2020
 
 # highlightedContent section (optional)
 # Maximum of 8 items
@@ -20,7 +20,11 @@ highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
     # Card
-    - title: Azure Arc enabled servers (preview)
+    - title: About Azure Arc
+      itemType: overview
+      url:  overview.md
+    # Card
+    - title: Azure Arc enabled servers
       itemType: overview
       url: ./servers/overview.md
     # Card
@@ -28,9 +32,13 @@ highlightedContent:
       itemType: overview
       url: ./kubernetes/overview.md
     # Card
-    - title: About Azure Arc
+    - title: Azure Arc enabled data services (preview)
       itemType: overview
-      url:  https://azure.microsoft.com/en-us/services/azure-arc #https://aka.ms/Azure-Arc-Info
+      url: ./data/overview.md
+    # Card
+    - title: Azure Arc enabled SQL Server (preview)
+      itemType: overview
+      url: /sql/sql-server/azure-arc/overview
 
 # productDirectory section (optional)
 productDirectory:
@@ -51,14 +59,34 @@ productDirectory:
         - url: ./servers/index.yml
           text: See more...
     # Card
-    - title: Azure Arc enabled Kubernetes
-      imageSrc: ./media/containers-101-kubernetes-services.svg
+    - title: Azure Arc enabled Kubernetes (preview)
+      imageSrc: ./media/01088-icon-arc-kubernetes-menu.svg
       links:
         - url: ./kubernetes/connect-cluster.md
           text: Connect cluster
         - url: ./kubernetes/use-gitops-connected-cluster.md
           text: Deploy configurations using GitOps
         - url: ./kubernetes/index.yml
+          text: See more...
+    # Card
+    - title: Azure Arc enabled data services (preview)
+      imageSrc: ./media/manage-756-azure-arc.svg
+      links:
+        - url: ./data/install-client-tools.md
+          text: Install tools
+        - url: ./data/create-sql-managed-instance.md
+          text: Create SQL Managed Instance
+        - url: ./data/create-postgresql-hyperscale-server-group.md
+          text: Create PostgreSQL Hyperscale
+        - url: ./data/index.yml
+          text: See more...
+    # Card
+    - title: Azure Arc enabled SQL Server (preview)
+      imageSrc: ./media/01850-icon-arc-sql-server-menu.svg
+      links:
+        - url: /sql/sql-server/azure-arc/assess
+          text: Assess your SQL instances
+        - url: /sql/sql-server/azure-arc/overview
           text: See more...
 
 # conceptualContent section (optional)
@@ -68,7 +96,7 @@ conceptualContent:
   # summary: # < 160 chars (optional)
   items:
     # Card
-    - title: Azure Arc enabled servers (preview)
+    - title: Azure Arc enabled servers
       links:
         - url: ./servers/learn/quick-enable-hybrid-vm.md
           itemType: get-started
@@ -76,7 +104,7 @@ conceptualContent:
         - url: ./servers/learn/tutorial-enable-vm-insights.md
           itemType: tutorial
           text: Monitor a hybrid machine with Azure Monitor for VMs
-        - url: ./servers/policy-samples.md
+        - url: ./servers/policy-reference.md
           itemType: learn
           text: Admission control policies using Azure Policy
         - url: ./servers/manage-vm-extensions.md

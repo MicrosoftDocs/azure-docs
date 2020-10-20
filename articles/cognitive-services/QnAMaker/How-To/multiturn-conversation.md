@@ -1,6 +1,8 @@
 ---
 title: Multi-turn conversations - QnA Maker
 description: Use prompts and context to manage the multiple turns, known as multi-turn, for your bot from one question to another. Multi-turn is the ability to have a back-and-forth conversation where the previous question's context influences the next question and answer.
+ms.service: cognitive-services
+ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/13/2020
 ---
@@ -47,7 +49,7 @@ When you select this option, QnA Maker extracts the hierarchy present in the doc
 
 Multi-turn structure can be inferred only from URLs, PDF files, or DOCX files. For an example of structure, view an image of a [Microsoft Surface user manual PDF file](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf).
 
-![![Example of structure in a user manual](../media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
+:::image type="content" source="../media/conversational-context/import-file-with-conversational-structure.png" alt-text="Screenshot shows an example of the structure in a user manual." lightbox="../media/conversational-context/import-file-with-conversational-structure.png":::
 
 ### Building your own multi-turn document
 
@@ -87,7 +89,7 @@ Select **View options**, and then select **Show context**. The list displays que
 
 The multi-turn context is displayed in the first column.
 
-![![The "Context (PREVIEW)" column](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png)](../media/conversational-context/surface-manual-pdf-follow-up-prompt.png#lightbox)
+:::image type="content" source="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png" alt-text="Screenshot shows the Context section highlighted." lightbox="../media/conversational-context/surface-manual-pdf-follow-up-prompt.png":::
 
 In the preceding image, **#1** indicates bold text in the column, which signifies the current question. The parent question is the top item in the row. Any questions below it are the linked question-and-answer pairs. These items are selectable, so that you can immediately go to the other context items.
 
@@ -162,7 +164,7 @@ When you add a new question-and-answer pair to the knowledge base, each pair sho
 
     The parent question displays a new question as one of its choices.
 
-    ![![The Context column, for both questions, indicates a follow-up prompt relationship](../media/conversational-context/child-prompt-created.png)](../media/conversational-context/child-prompt-created.png#lightbox)
+    :::image type="content" source="../media/conversational-context/child-prompt-created.png" alt-text="Screenshot shows the Context column, for both questions, indicates a follow-up prompt relationship." lightbox="../media/conversational-context/child-prompt-created.png":::
 
 1. After you've added the follow-up prompt, select **Save and train** in the top navigation bar.
 

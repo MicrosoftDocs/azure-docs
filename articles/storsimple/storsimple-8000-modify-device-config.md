@@ -57,7 +57,7 @@ A device description usually helps identify the owner and the physical location 
 
 Your device must synchronize time in order to authenticate with your cloud storage service provider. Use the **General settings** blade on your device to modify the device time settings.
 
-![Device description in General settings](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
+![Device description in General settings 2](./media/storsimple-8000-modify-device-config/modify-general-settings2.png)
 
  Select your time zone from the drop-down list. You can specify up to two Network Time Protocol (NTP) servers:
 

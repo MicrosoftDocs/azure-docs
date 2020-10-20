@@ -47,7 +47,7 @@ Conditionally ready Internet Protocol | Only applicable to Azure VMware Solution
 
 ## Suggested migration tool in import-based AVS assessment marked as unknown
 
-For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/hybrid-cloud-extension-installation.md).
+For machines imported via a CSV file, the default migration tool in and AVS assessment is unknown. Though, for VMware machines, its is recommended to use the VMware Hybrid Cloud Extension (HCX) solution. [Learn More](../azure-vmware/tutorial-deploy-vmware-hcx.md).
 
 ## Linux VMs are "conditionally ready" in an Azure VM assessment
 
@@ -142,7 +142,8 @@ This can happen if the physical server has Hyper-V virtualization enabled. On th
 
 ## Dependency visualization in Azure Government
 
-Azure Migrate depends on Service Map for the dependency visualization functionality. Because Service Map is currently unavailable in Azure Government, this functionality is not available in Azure Government.
+Agent-based dependency analysis is not supported in Azure Government. Please use agentless dependency analysis.
+
 
 ## Dependencies don't show after agent install
 
@@ -155,11 +156,11 @@ For Windows VMs:
 
     ![MMA status](./media/troubleshoot-assessment/mma-properties.png)
 
-For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded.
+For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance [here](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
 
 ## Supported operating systems
 
-- **MMS agent**: Review the supported [Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems), and [Linux](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) operating systems.
+- **MMS agent**: Review the supported [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems), and [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) operating systems.
 - **Dependency agent**: the supported [Windows and Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) operating systems.
 
 ## Visualize dependencies for > hour
@@ -176,7 +177,6 @@ In Azure Migrate Server Assessment, with agent-based dependency analysis, you ca
 ## Machines show "Install agent"
 
 After migrating machines with dependency visualization enabled to Azure, machines might show "Install agent" action instead of "View dependencies" due to the following behavior:
-
 
 - After migration to Azure, on-premises machines are turned off and equivalent VMs are spun up in Azure. These machines acquire a different MAC address.
 - Machines might also have a different IP address, based on whether you've retained the on-premises IP address or not.

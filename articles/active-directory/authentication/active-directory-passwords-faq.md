@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: how-to
 ms.date: 07/20/2020
 
-ms.author: iainfou
-author: iainfoulds
+ms.author: joflore
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 
@@ -101,7 +101,7 @@ This FAQ is split into the following sections:
   > * Check that the authentication data in the directory is correctly formatted, for example, +1 4255551234 or *user\@contoso.com*. 
 * **Q:  What languages are supported by password reset?**
 
-  > **A:** The password reset UI, SMS messages, and voice calls are localized in the same languages that are supported in Office 365.
+  > **A:** The password reset UI, SMS messages, and voice calls are localized in the same languages that are supported in Microsoft 365.
   >
   >
 * **Q:  What parts of the password reset experience get branded when I set the organizational branding items in my directory's configure tab?**

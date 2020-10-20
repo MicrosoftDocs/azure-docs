@@ -58,8 +58,8 @@ During this phase, you plan the migration of your SAP workload to the Azure plat
 	- Using multi-SID cluster configurations for SAP Central Services is supported on Windows, SLES and RHEL guest operating systems on Azure. Keep in mind that the blast radius can increase the more ASCS/SCS you place on such a multi-SID cluster. You can find documentation for the respective guest OS scenario in these articles:
 		- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and shared disk on Azure](./sap-ascs-ha-multi-sid-wsfc-shared-disk.md)
 		- [SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure](./sap-ascs-ha-multi-sid-wsfc-file-share.md)
-		- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
-		- [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID guide](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
+		- [High availability for SAP NetWeaver on Azure VMs on SUSE Linux Enterprise Server for SAP applications multi-SID guide](./high-availability-guide-suse-multi-sid.md)
+		- [High availability for SAP NetWeaver on Azure VMs on Red Hat Enterprise Linux for SAP applications multi-SID guide](./high-availability-guide-rhel-multi-sid.md)
 	- High availability and disaster recovery architecture.
 		- Based on RTO and RPO, define what the high availability and disaster recovery architecture needs to look like.
 		- For high availability within a zone, check what the desired DBMS has to offer in Azure. Most DBMS packages offer synchronous methods of a synchronous hot standby, which we recommend for production systems. Also check the SAP-related documentation for different databases, starting with [Considerations for Azure Virtual Machines DBMS deployment for SAP workloads](./dbms_guide_general.md) and related documents.
@@ -107,7 +107,7 @@ We recommend that you set up and validate a full HADR solution and security desi
            -  [Sizes for Windows virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
            -  [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). It's important to consider the *max uncached disk throughput* for sizing.
    2. Storage.
-        - Check the document [Azure Storage types for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide-storage)
+        - Check the document [Azure Storage types for SAP workload](./planning-guide-storage.md)
         - At a minimum, use [Azure Standard SSD storage](../../disks-types.md#standard-ssd) for VMs that represent SAP application layers and for deployment of DBMSs that aren't performance sensitive.
         - In general, we don't recommend the use of [Azure Standard HDD disks](../../disks-types.md#standard-hdd).
         - Use [Azure Premium Storage](../../disks-types.md#premium-ssd) for any DBMS VMs that are remotely performance sensitive.
@@ -125,7 +125,7 @@ We recommend that you set up and validate a full HADR solution and security desi
         - Evaluate and test the data path between the SAP application layer and the SAP DBMS layer.
             -  Placement of [Azure network virtual appliances](https://azure.microsoft.com/solutions/network-appliances/) in the communication path between the SAP application and the DBMS layer of SAP systems based on SAP NetWeaver, Hybris, or S/4HANA isn't supported.
             -  Placement of the SAP application layer and SAP DBMS in different Azure virtual networks that aren't peered isn't supported.
-            -  You can use [application security group and network security group rules](../../../virtual-network/security-overview.md) to define routes between the SAP application layer and the SAP DBMS layer.
+            -  You can use [application security group and network security group rules](../../../virtual-network/network-security-groups-overview.md) to define routes between the SAP application layer and the SAP DBMS layer.
         - Make sure that [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/) is enabled on the VMs used in the SAP application layer and the SAP DBMS layer. Keep in mind that different OS levels are needed to support Accelerated Networking in Azure:
             - Windows Server 2012 R2 or later.
             - SUSE Linux 12 SP3 or later.
@@ -136,7 +136,7 @@ We recommend that you set up and validate a full HADR solution and security desi
         - If you're using Azure Load Balancer together with Linux guest operating systems, check that the Linux network parameter **net.ipv4.tcp_timestamps** is set to **0**. This recommendation conflicts with recommendations in older versions of [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421). The SAP note is now updated to state that this parameter needs to be set to **0** to work with Azure load balancers.
         - Consider using [Azure proximity placement groups](../../linux/co-location.md) to get optimal network latency. For more information, see [Azure proximity placement groups for optimal network latency with SAP applications](sap-proximity-placement-scenarios.md).
    4. High availability and disaster recovery deployments.
-        - If you deploy the SAP application layer without defining a specific Azure Availability Zone, make sure that all VMs that run SAP dialog instances or middleware instances of a single SAP system are deployed in an [availability set](../../windows/manage-availability.md).
+        - If you deploy the SAP application layer without defining a specific Azure Availability Zone, make sure that all VMs that run SAP dialog instances or middleware instances of a single SAP system are deployed in an [availability set](../../manage-availability.md).
         - If you don't need high availability for SAP Central Services and the DBMS, you can deploy these VMs into the same availability set as the SAP application layer.
         - If you protect SAP Central Services and the DBMS layer for high availability by using passive replication, place the two nodes for SAP Central Services in one separate availability set and the two DBMS nodes in another availability set.
         - If you deploy into Azure Availability Zones, you can't use availability sets. But you do need to make sure you deploy the active and passive Central Services nodes into two different Availability Zones. Use Availability Zones that have the lowest latency between them.
@@ -177,7 +177,7 @@ We recommend that you set up and validate a full HADR solution and security desi
    4. Test cross-region DR functionality and architecture.
 1. Security checks.
    1. Test the validity of your Azure role-based access control (Azure RBAC) architecture. The goal is to separate and limit the access and permissions of different teams. For example, SAP Basis team members should be able to deploy VMs and assign disks from Azure Storage into a given Azure virtual network. But the SAP Basis team shouldn't be able to create its own virtual networks or change the settings of existing virtual networks. Members of the network team shouldn't be able to deploy VMs into virtual networks in which SAP application and DBMS VMs are running. Nor should members of this team be able to change attributes of VMs or even delete VMs or disks.  
-   1.  Verify that [network security group and ASC](../../../virtual-network/security-overview.md) rules work as expected and shield the protected resources.
+   1.  Verify that [network security group and ASC](../../../virtual-network/network-security-groups-overview.md) rules work as expected and shield the protected resources.
    1.  Make sure that all resources that need to be encrypted are encrypted. Define and implement processes to back up certificates, store and access those certificates, and restore the encrypted entities.
    1.  Use [Azure Disk Encryption](../../../security/fundamentals/azure-disk-encryption-vms-vmss.md) for OS disks where possible from an OS-support point of view.
    1.  Be sure that you're not using too many layers of encryption. In some cases, it does make sense to use Azure Disk Encryption together with one of the DBMS Transparent Data Encryption methods to protect different disks or components on the same server.  For example, on an SAP DBMS server, the Azure Disk Encryption (ADE) can be enabled on the operating system boot disk (if the OS supports ADE) and those data disk(s) not used by the DBMS data persistence files.  An example is to use ADE on the disk holding the DBMS TDE encryption keys.
@@ -211,7 +211,7 @@ During this phase, you usually deploy development systems, unit testing systems,
 12.	As the workload applies, record the resource consumption of the systems in Azure. Compare this consumption with records from your old platform. Adjust VM sizing of future deployments if you see that you have large differences. Keep in mind that when you downsize, storage, and network bandwidths of VMs will be reduced as well.
 	- [Sizes for Windows virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 	- [Sizes for Linux virtual machines in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
-13.	Experiment with system copy functionality and processes. The goal is to make it easy for you to copy a development system or a test system, so project teams can get new systems quickly. Consider using [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) for these tasks.
+13.	Experiment with system copy functionality and processes. The goal is to make it easy for you to copy a development system or a test system, so project teams can get new systems quickly. 
 14.	Optimize and hone your team's Azure role-based access, permissions, and processes to make sure you have separation of duties. At the same time, make sure all teams can perform their tasks in the Azure infrastructure.
 15.	Exercise, test, and document high-availability and disaster recovery procedures to enable your staff to execute these tasks. Identify shortcomings and adapt new Azure functionality that you're integrating into your deployments.
 

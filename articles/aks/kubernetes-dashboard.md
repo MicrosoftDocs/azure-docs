@@ -31,7 +31,7 @@ You also need the Azure CLI version 2.6.0 or later installed and configured. Run
 
 The kube-dashboard addon is **enabled by default on clusters older than K8s 1.18**. The addon can be disabled by running the following command.
 
-``` azure-cli
+``` azurecli
 az aks disable-addons -g myRG -n myAKScluster -a kube-dashboard
 ```
 

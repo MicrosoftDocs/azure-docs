@@ -11,7 +11,7 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18
+ms.custom: "seodec18, devx-track-csharp"
 ---
 # Quickstart: Analyze a local image using the Computer Vision REST API and C#
 
@@ -57,7 +57,7 @@ namespace CSHttpClientSample
         static string endpoint = Environment.GetEnvironmentVariable("COMPUTER_VISION_ENDPOINT");
         
         // the Analyze method endpoint
-        static string uriBase = endpoint + "vision/v3.0/analyze";
+        static string uriBase = endpoint + "vision/v3.1/analyze";
 
         // Image you want analyzed (add to your bin/debug/netcoreappX.X folder)
         // For sample images, download one from here (png or jpg):

@@ -18,13 +18,13 @@ Let's assume you want to protect a VM "testVM" under a resource group "testRG" t
 
 ### Discover unprotected Azure VMs
 
-First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It is an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
+First, the vault should be able to identify the Azure VM. This is triggered using the [refresh operation](/rest/api/backup/protectioncontainers/refresh). It's an asynchronous *POST*  operation that makes sure the vault gets the latest list of all unprotected VM in the current subscription and 'caches' them. Once the VM is 'cached', Recovery services will be able to access the VM and protect it.
 
 ```http
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parameters. The `{fabricName}` is "Azure". According to our example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there is no need for a separate request body.
+The POST URI has `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}` parameters. The `{fabricName}` is "Azure". According to our example, `{vaultName}` is "testVault" and `{vaultresourceGroupName}` is "testVaultRG". As all the required parameters are given in the URI, there's no need for a separate request body.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
@@ -269,6 +269,35 @@ Once the operation completes, it returns 200 (OK) with the protected item conten
 
 This confirms that protection is enabled for the VM and the first backup will be triggered according to the policy schedule.
 
+### Excluding disks in Azure VM backup
+
+Azure Backup also provides a way to selectively backup a subset of disks in Azure VM. More details are provided [here](selective-disk-backup-restore.md). If you want to selectively backup few disks during enabling protection, the following code snippet should be the [request body during enabling protection](#example-request-body).
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+In the request body above, the list of disks to be backed up are provided in the extended properties section.
+
+|Property  |Value  |
+|---------|---------|
+|diskLunList     | The disk LUN list is a list of *LUNs of data disks*. **OS disk is always backed up and doesn't need to be mentioned**.        |
+|IsInclusionList     | Should be **true** for the LUNs to be included during backup. If it is **false**, the aforementioned LUNs will be excluded.         |
+
+So, if the requirement is to backup only the OS disk, then _all_ data disks should be excluded. An easier way is to say that no data disks should be included. So the disk LUN list will be empty and the **IsInclusionList** will be **true**. Similarly, think of what is the easier way of selecting a subset: A few disks should be always excluded or a few disks should always be included. Choose the LUN list and the boolean variable value accordingly.
+
 ## Trigger an on-demand backup for a protected Azure VM
 
 Once an Azure VM is configured for backup, backups happen according to the policy schedule. You can wait for the first scheduled backup or trigger an on-demand backup anytime. Retention for on-demand backups is separate from backup policy's retention and can be specified to a particular date-time. If not specified, it's assumed to be 30 days from the day of the trigger of on-demand backup.
@@ -297,7 +326,7 @@ For the complete list of definitions of the request body and other details, refe
 
 #### Example request body for on-demand backup
 
-The following request body defines properties required to trigger a backup for a protected item. If the retention is not specified, it will be retained for 30 days from the time of trigger of the backup job.
+The following request body defines properties required to trigger a backup for a protected item. If the retention isn't specified, it will be retained for 30 days from the time of trigger of the backup job.
 
 ```json
 {
@@ -384,7 +413,7 @@ Since the backup job is a long running operation, it needs to be tracked as expl
 
 To change the policy with which VM is protected, you can use the same format as [enabling protection](#enabling-protection-for-the-azure-vm). Just provide the new policy ID in [the request body](#example-request-body) and submit the request. For example: To change the policy of testVM from 'DefaultPolicy' to 'ProdPolicy', provide the 'ProdPolicy' ID in the request body.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -395,6 +424,15 @@ To change the policy with which VM is protected, you can use the same format as 
 ```
 
 The response will follow the same format as mentioned [for enabling protection](#responses-to-create-protected-item-operation)
+
+#### Excluding disks during Azure VM protection
+
+If the Azure VM is already backed up, you can specify the list of disks to be backed up or excluded by changing the policy of protection. Just prepare the request in the same format as [excluding disks during enabling protection](#excluding-disks-in-azure-vm-backup)
+
+> [!IMPORTANT]
+> The request body above is always the final copy of data disks to be excluded or included. This doesn't *add* to the previous configuration. For example: If you first update the protection as "exclude data disk 1" and then repeat with "exclude data disk 2", *only data disk 2 is excluded* in the subsequent backups and data disk 1 will be included. This is always the final list which will be included/excluded in the subsequent backups.
+
+To get the current list of disks which are excluded or included, get the protected item information as mentioned [here](/rest/api/backup/protecteditems/get). The response will provide the list of data disk LUNs and indicates whether they are included or excluded.
 
 ### Stop protection but retain existing data
 
@@ -440,7 +478,7 @@ It returns two responses: 202 (Accepted) when another operation is created and t
 |202 Accepted     |         |     Accepted    |
 
 > [!IMPORTANT]
-> In order to protect against accidental delete scenarios, there is a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation will NOT immediately delete the data. It will be kept for 14 days and then permanently purged. Customer is not charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
+> In order to protect against accidental delete scenarios, there's a [soft-delete feature available](use-restapi-update-vault-properties.md#soft-delete-state) for Recovery Services vault. If the soft-delete state of the vault is set to enabled, then the delete operation won't immediately delete the data. It will be kept for 14 days and then permanently purged. You aren't charged for storage for this 14 days period. To undo the deletion operation, refer to the [undo-delete section](#undo-the-deletion).
 
 ### Undo the deletion
 

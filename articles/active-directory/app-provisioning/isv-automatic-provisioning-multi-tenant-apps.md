@@ -59,7 +59,7 @@ To help determine which integration option to use for your application, refer to
 |---|---|---|---|
 | User and group management in Azure AD| √| √| User only |
 | Manage users and groups synced from on-premises Active Directory| √*| √*| User only* |
-| Access data beyond users and groups during provisioning Access to O365 data (Teams, SharePoint, Email, Calendar, Documents, etc.)| X+| √| X |
+| Access data beyond users and groups during provisioning Access to Microsoft 365 data (Teams, SharePoint, Email, Calendar, Documents, etc.)| X+| √| X |
 | Create, read, and update users based on business rules| √| √| √ |
 | Delete users based on business rules| √| √| X |
 | Manage automatic user provisioning for all applications from the Azure portal| √| X| √ |
@@ -86,7 +86,7 @@ For more information on how the Azure AD Provisioning Service users SCIM, see:
 
 When you use Microsoft Graph for provisioning, you have access to all the rich user data available in Graph. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](/graph/api/overview?view=graph-rest-1.0). 
 
-More than 15 million organizations, and 90% of fortune 500 companies use Azure AD while subscribing to Microsoft cloud services like Office 365, Microsoft Azure, Enterprise Mobility Suite, or Microsoft 365. You can use Microsoft Graph to integrate your app with administrative workflows, such as employee onboarding (and termination), profile maintenance, and more. 
+More than 15 million organizations, and 90% of fortune 500 companies use Azure AD while subscribing to Microsoft cloud services like Microsoft 365, Microsoft Azure, or Enterprise Mobility Suite. You can use Microsoft Graph to integrate your app with administrative workflows, such as employee onboarding (and termination), profile maintenance, and more. 
 
 Learn more about using Microsoft Graph for provisioning:
 
@@ -106,7 +106,7 @@ SAML JIT uses the claims information in the SAML token to create and update user
 
 ## Next Steps
 
-* [Enable Single Sign-on for your application](../manage-apps/isv-sso-content.md)
+* [Enable Single Sign-on for your application](../develop/v2-howto-app-gallery-listing.md)
 
 * [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 
