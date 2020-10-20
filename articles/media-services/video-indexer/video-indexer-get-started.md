@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 03/17/2020
+ms.date: 10/19/2020
 ms.author: juliako
 ---
 
@@ -46,13 +46,13 @@ See the [input container/file formats](../latest/media-encoder-standard-formats.
 
     ![Uploaded](./media/video-indexer-get-started/video-indexer-uploaded.png) 
 
-    Once Video Indexer is done analyzing, you will get a notification with a link to your video and a short description of what was found in your video. For example: people, topics, OCRs.
+    Once Video Indexer is done analyzing, you will get an email with a link to your video and a short description of what was found in your video. For example: people, spoken and written words, topics, and named entities.
 
 ## See also
 
 See [Upload and index videos](upload-index-videos.md) for more details.
 
-After you upload and index a video, you can start using [Video Indexer](video-indexer-view-edit.md) website or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
+After you upload and index a video, you can start using [Video Indexer website](video-indexer-view-edit.md) or [Video Indexer Developer Portal](video-indexer-use-apis.md) to see the insights of the video. 
 
 [Start using APIs](video-indexer-use-apis.md)
 
