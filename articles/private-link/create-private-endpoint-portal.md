@@ -16,7 +16,7 @@ ms.author: allensu
 
 Get started with Azure Private Link by using a Private Endpoint to connect securely to an Azure SQL server. 
 
-In this quickstart you'll create a private endpoint for an Azure SQL server.  
+In this quickstart, you'll create a private endpoint for an Azure SQL server.  
 
 You'll deploy a virtual machine to test the private connection.
 
@@ -124,29 +124,29 @@ In this section, you'll create a virtual machine that will be used to test the p
   
 6. Review the settings, and then select **Create**.
 
-## Create a Azure SQL server and private endpoint
+## Create an Azure SQL server and private endpoint
 
-In this section, you will create a SQL server in Azure. 
+In this section, you'll create a SQL server in Azure. 
 
 1. On the upper-left side of the screen in the Azure portal, select **Create a resource** > **Databases** > **SQL database**.
 
-1. In the **Basics** tab of **Create SQL database**, enter or select this information:
+1. In the **Basics** tab of **Create SQL database**, enter, or select this information:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** | |
     | Subscription | Select your subscription. |
-    | Resource group | Select **CreatePrivateEndpointQS-rg**. You created this in the previous section.|
+    | Resource group | Select **CreatePrivateEndpointQS-rg**. You created this resource group in the previous section.|
     | **Database details** |  |
-    | Database name  | Enter **mydatabase**. If this name is taken, create a unique name. |
+    | Database name  | Enter **mysqldatabase**. If this name is taken, create a unique name. |
     | Server | Select **Create new**. |
 
 6. In **New server**, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    |Server name  | Enter **mysqlserver**. If this name is taken, create a unique name.|
-    | Server admin login| Enter an administrator name of your choosing. |
+    | Server name  | Enter **mysqlserver**. If this name is taken, create a unique name.|
+    | Server admin login | Enter an administrator name of your choosing. |
     | Password | Enter a password of your choosing. The password must be at least 8 characters long and meet the defined requirements. |
     | Location | Select **East US** |
     
@@ -235,7 +235,7 @@ In this section, you'll use the virtual machine you created in the previous step
 
 1. Select **Connect**.
 2. Browse databases from left menu.
-3. (Optionally) Create or query information from **mydatabase**.
+3. (Optionally) Create or query information from **mysqldatabase**.
 4. Close the remote desktop connection to **myVM**. 
 
 ## Clean up resources 
