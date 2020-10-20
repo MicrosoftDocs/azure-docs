@@ -102,22 +102,10 @@ In this section, you create a function app and related resources in your Azure s
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 
-## Clean up resources
-
-When you continue to the next step, [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md), you'll need to keep all your resources in place to build on what you've already done.
-
-Otherwise, you can use the following steps to delete the function app and its related resources to avoid incurring any further costs.
-
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
-To learn more about Functions costs, see [Estimating Consumption plan costs](functions-consumption-costs.md).
+[!INCLUDE [functions-next-steps-vs-code](../../includes/functions-next-steps-vs-code.md)]
 
-## Next steps
-
-You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue.
-
-> [!div class="nextstepaction"]
-> [Add an Azure Storage queue binding to your function](functions-add-output-binding-storage-queue-vs-code.md)
-
+[connect-storage-queue]: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
