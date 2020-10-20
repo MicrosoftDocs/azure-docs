@@ -6,7 +6,7 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: manage-apps
+ms.subservice: app-mgmt
 ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
