@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.author: memildin
 
 ---
@@ -42,6 +42,7 @@ Your Secure Score is based on the number of Security Center recommendations you'
 |**IP forwarding on your virtual machine should be disabled**|Disable IP forwarding. When IP forwarding is enabled on a virtual machine's NIC, the machine can receive traffic addressed to other destinations. IP forwarding is rarely required (for example, when using the VM as a network virtual appliance), and therefore, this should be reviewed by the network security team.<br>(Related policy: [Preview]: IP Forwarding on your virtual machine should be disabled)|Medium|N|Virtual machine|
 |**Management ports of virtual machines should be protected with just-in-time network access control**|Apply just-in-time (JIT) virtual machine (VM) access control to permanently lock down access to selected ports, and enable authorized users to open them, via JIT, for a limited amount of time only.<br>(Related policy: Management ports of virtual machines should be protected with just-in-time network access control)|High|N|Virtual machine|
 |**Management ports should be closed on your virtual machines**|Harden the network security group of your virtual machines to restrict access to management ports.<br>(Related policy: Management ports should be closed on your virtual machines)|High|N|Virtual machine|
+|**Virtual networks should be protected by Azure Firewall**|Some of your virtual networks aren't protected with a firewall. Use Azure Firewall to restrict access to your virtual networks and prevent potential threats.<br>[Learn more about Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).<br>(Related policy: Virtual networks should be protected by Azure Firewall)|Low|N|Virtual network|
 |**Secure transfer to storage accounts should be enabled**|Enable secure transfer to storage accounts. Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks, such as man-in-the-middle, eavesdropping, and session-hijacking.<br>(Related policy: Secure transfer to storage accounts should be enabled)|High|**Y**|Storage account|
 |**Subnets should be associated with a Network Security Group**|Enable network security groups to control network access of resources deployed in your subnets.<br>(Related policy: Subnets should be associated with a Network Security Group.<br>This policy is disabled by default)|High/ Medium|N|Subnet|
 |**Web Application should only be accessible over HTTPS**|Enable "HTTPS only" access for web applications. Use of HTTPS ensures server/service authentication and protects data in transit from network layer eavesdropping attacks.<br>(Related policy: Web Application should only be accessible over HTTPS)|Medium|**Y**|Web application|

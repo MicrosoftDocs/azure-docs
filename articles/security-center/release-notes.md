@@ -27,10 +27,11 @@ This page is updated frequently, so revisit it often.
 
 ## October 2020
 
-- [Vulnerability assessment for on-premise and multi-cloud machines (Preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Vulnerability assessment for on-premise and multi-cloud machines (preview)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Azure Firewall recommendation added (preview)](#azure-firewall-recommendation-added-preview)
 - [Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
 
-### Vulnerability assessment for on-premise and multi-cloud machines (Preview)
+### Vulnerability assessment for on-premise and multi-cloud machines (preview)
 
 [Azure Defender for servers](defender-for-servers-introduction.md)' integrated vulnerability assessment scanner (powered by Qualys) now scans Azure Arc enabled servers.
 
@@ -48,6 +49,15 @@ Main capabilities:
 [Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Learn more about Azure Arc enabled servers](https://docs.microsoft.com/azure/azure-arc/servers/).
+
+
+### Azure Firewall recommendation added (preview)
+
+A new recommendation has been added to protect all your virtual networks with Azure Firewall.
+
+The recommendation, **Virtual networks should be protected by Azure Firewall** advises you to restrict access to your virtual networks and prevent potential threats by using Azure Firewall.
+
+Learn more about [Azure Firewall](https://azure.microsoft.com/services/azure-firewall/).
 
 
 ### Microsoft.Security/securityStatuses table removed from Azure Resource Graph (ARG)
