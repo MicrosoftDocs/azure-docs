@@ -24,8 +24,6 @@ In this quickstart, you create a key vault in Azure Key Vault with Azure CLI. Az
 
  - This quickstart requires version 2.0.4 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 
-For more information on login options via the CLI take a look at [sign in with Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
-
 ## Create a resource group
 
 A resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *ContosoResourceGroup* in the *eastus* location.
