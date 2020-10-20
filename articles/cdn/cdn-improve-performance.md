@@ -109,6 +109,8 @@ If the request supports more than one compression type, brotli compression takes
 
 When a request for an asset specifies gzip compression and the request results in a cache miss, Azure CDN performs gzip compression of the asset directly on the POP server. Afterward, the compressed file is served  from the cache.
 
+If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the CDN POP, then response sizes greater than 8MB are not supported. 
+
 ### Azure CDN from Verizon profiles
 
 For **Azure CDN Standard from Verizon** and **Azure CDN Premium from Verizon** profiles, only eligible files are compressed. To be eligible for compression, a file must:
