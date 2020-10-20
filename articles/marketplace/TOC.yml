@@ -105,7 +105,7 @@
         href: partner-center-portal/create-azure-container-technical-assets.md
       - name: Create an Azure Container offer
         href: partner-center-portal/create-azure-container-offer.md
-  - name: Azure virtual machine offer
+  - name: Azure virtual machine offers
     items:
     - name: Plan a VM offer
       href: marketplace-virtual-machines.md
