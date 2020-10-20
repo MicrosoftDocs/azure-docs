@@ -21,8 +21,6 @@ Data Lake Storage capabilities are supported in the following types of storage a
 - General-purpose v2
 - BlockBlobStorage
 
-> [!NOTE] To get the premium tier for Azure Data Lake Storage Gen2, choose the BlockBlobStorage account.
-
 For information about how to choose between them, see [storage account overview](../common/storage-account-overview.md).
 
 ## Create a storage account with a hierarchical namespace

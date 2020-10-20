@@ -18,12 +18,12 @@ This table lists the Blob storage features that you can use with Azure Data Lake
 
 ## Supported Blob storage features
 
-> [!NOTE]
-> Support level refers only to how the feature is supported with Data Lake Storage Gen2. 
->
-> [Premium-performance BlockBlobStorage accounts](storage-blob-create-account-block-blob.md) for Data Lake Storage Gen2 is generally available. Support-levels for these types of accounts appear in the **BlockBlobStorage (Premium)** column.
+The following table shows how each Blob storage feature is supported with Data Lake Storage Gen2. There's a column for standard and premium performance tiers. 
 
-|Blob Storage feature |General-purpose V2 |BlockBlobStorage (Premium) |Related articles |
+> [!NOTE] 
+> [Premium tier for Data Lake Storage](premium-tier-for-data-lake-storage.md) is generally available. 
+
+|Blob Storage feature |Standard performance tier |Premium performance tier |Related articles |
 |---------------|-------------------|---|
 |Hot access tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
 |Cool access tier|Generally available|Not supported|[Azure Blob storage: hot, cool, and archive access tiers](storage-blob-storage-tiers.md)|
