@@ -278,6 +278,8 @@
       items:
       - name: Server-level IP firewall rules
         href: database/firewall-create-server-level-portal-quickstart.md
+    - name: GitHub Actions
+      href: database/connect-github-actions-sql-db.md
 
   - name: Tutorials
     items:
