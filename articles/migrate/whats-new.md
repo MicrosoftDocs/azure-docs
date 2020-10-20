@@ -12,7 +12,7 @@ ms.custom: mvc
 
 ## Update (September 2020)
 - Migration of servers to Availability Zones is now supported.
-- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported
+- Migration of UEFI-based VMs and physical servers to Azure generation 2 VMs is now supported. With this release, Azure Migrate: Server Migration tool will not perform the conversion from Gen 2 VM to Gen 1 VM during migration.
 - A new Azure Migrate Power BI assessment dashboard is available to help you compare costs across different assessment settings. The dashboard comes with a PowerShell utility that automatically creates the assessments that plug into the Power BI dashboard. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/assessment-utility)
 - Dependency analysis (agentless) can now be run concurrently on a 1000 VMs.
 - Dependency analysis (agentless) can now be enabled or disabled at scale using PowerShell scripts. [Learn more.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
@@ -31,7 +31,7 @@ ms.custom: mvc
 
 ## Update (June 2020)
 
-- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](https://go.microsoft.com/fwlink/?linkid=2132637) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
+- Assessments for migrating on-premises VMware VMs to [Azure VMware Solution (AVS)](./concepts-azure-vmware-solution-assessment-calculation.md) is now supported. [Learn more](how-to-create-azure-vmware-solution-assessment.md)
 - Support for multiple credentials on appliance for physical server discovery.
 - Support to allow Azure login from appliance for tenant where tenant restriction has been configured.
 
@@ -99,4 +99,4 @@ If you're using the previous version of Azure Migrate (only assessment of on-pre
 
 - [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about Azure Migrate pricing.
 - [Review frequently asked questions](resources-faq.md) about Azure Migrate.
-- Try out our tutorials to assess [VMware VMs](tutorial-assess-vmware.md) and [Hyper-V VMs](tutorial-assess-hyper-v.md).
+- Try out our tutorials to assess [VMware VMs](./tutorial-assess-vmware-azure-vm.md) and [Hyper-V VMs](tutorial-assess-hyper-v.md).

@@ -20,7 +20,7 @@ There are a few exceptions and limitations to choosing a VM size:
 
 ### Pools in Virtual Machine configuration
 
-Batch pools in the Virtual Machine configuration support almost all VM sizes ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md)). See the following table to learn more about supported sizes and restrictions.
+Batch pools in the Virtual Machine configuration support almost all VM sizes ([Linux](../virtual-machines/sizes.md), [Windows](../virtual-machines/sizes.md)). See the following table to learn more about supported sizes and restrictions.
 
 | VM series  | Supported sizes |
 |------------|---------|

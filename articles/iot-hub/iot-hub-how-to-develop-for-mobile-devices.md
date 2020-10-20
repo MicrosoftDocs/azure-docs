@@ -11,7 +11,7 @@ ms.author: robinsh
 
 # Develop for mobile devices using Azure IoT SDKs
 
-Things in the Internet of Things may refer to a wide range of devices with varying capability: sensors, microcontrollers, smart devices, industrial gateways, and even mobile devices.  A mobile device can be an IoT device, where it is sending device-to-cloud telemetry and managed by the cloud.  It can also be the device running a back-end service application, which manages other IoT devices.  In both cases, [Azure IoT Hub SDKs](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks) can be used to develop applications that work for mobile devices.  
+Things in the Internet of Things may refer to a wide range of devices with varying capability: sensors, microcontrollers, smart devices, industrial gateways, and even mobile devices.  A mobile device can be an IoT device, where it is sending device-to-cloud telemetry and managed by the cloud.  It can also be the device running a back-end service application, which manages other IoT devices.  In both cases, [Azure IoT Hub SDKs](./iot-hub-devguide-sdks.md) can be used to develop applications that work for mobile devices.  
 
 ## Develop for native iOS platform
 
@@ -47,5 +47,5 @@ These documentations walk through how to develop a device application or service
 
 ## Next steps
 
-* [IoT Hub REST API reference](https://docs.microsoft.com/rest/api/iothub/)
+* [IoT Hub REST API reference](/rest/api/iothub/)
 * [Azure IoT C SDK source code](https://github.com/Azure/azure-iot-sdk-c)

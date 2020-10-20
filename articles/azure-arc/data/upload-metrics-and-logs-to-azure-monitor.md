@@ -20,7 +20,7 @@ Periodically you can export out usage information for billing purposes, monitori
 
 ## Prerequisites
 
-You will need the Azure CLI (az) and the Azure Data CLI (azdata) installed.  [Install tools](./install-client-tools.md).
+You will need the Azure CLI (az) and the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] installed.  [Install tools](./install-client-tools.md).
 
 Prior to uploading data to Azure, you need to ensure that your Azure subscription has the Microsoft.AzureData resource provider registered.
 
@@ -40,7 +40,7 @@ az provider register -n Microsoft.AzureData --wait
 
 Usage information such as inventory and resource usage can be uploaded to Azure in the following two-step way:
 
-1. Export the usage data using ```azdata export``` command, as follows:
+1. Export the usage data using `azdata export` command, as follows:
 
    ```console
    #login to the data controller and enter the values at the prompt
@@ -51,7 +51,7 @@ Usage information such as inventory and resource usage can be uploaded to Azure 
    ```
    This command creates a `usage.json` file with all the Azure Arc enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
 
-2. Upload the usage data using ```azdata upload``` command
+2. Upload the usage data using `azdata upload` command
 
    > [!NOTE]
    > Please wait for at least 24 hours after creating the Azure Arc data controller before running the upload
@@ -90,7 +90,7 @@ Follow these commands to create your metrics upload service principal and assign
 To create a service principal, run this command:
 
 > [!NOTE]
-> Creating a service principal requires [certain permissions in Azure](/azure/active-directory/develop/howto-create-service-principal-portal#permissions-required-for-registering-an-app).
+> Creating a service principal requires [certain permissions in Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 ```console
 az ad sp create-for-rbac --name <a name you choose>

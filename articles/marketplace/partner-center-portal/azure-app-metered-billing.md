@@ -112,7 +112,7 @@ If you have one of the following issues, you can open a support ticket.
 * An issue that needs to be escalated because of an error or bug on your side (ex. wrong usage event).
 * Any other issues related to metered billing.
 
-Follow the instruction in [Support for the commercial marketplace program in Partner Center](./support.md) to understand publisher support options and open support ticket with Microsoft.
+Follow the instruction in [Support for the commercial marketplace program in Partner Center](../support.md) to understand publisher support options and open support ticket with Microsoft.
 
 ## Next steps
 
