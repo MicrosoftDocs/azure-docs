@@ -1,12 +1,12 @@
 ---
-title: Manage user settings for Azure Multi-Factor Authentication - Azure Active Directory
+title: Manage authentication methods for Azure Multi-Factor Authentication - Azure Active Directory
 description: Learn how you can configure Azure Active Directory user settings for Azure Multi-Factor Authentication
 
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 10/19/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,9 +15,52 @@ ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
 ---
-# Manage user settings for Azure Multi-Factor Authentication
+# Manage user authentication methods for Azure Multi-Factor Authentication
 
-To help manage the users of Azure Multi-Factor Authentication, you can require users to reset their password, re-register for MFA, or revoke existing MFA sessions. For users that have defined app passwords, you can also choose to delete these passwords, causing legacy authentication to fail in those applications. These actions may be necessary if you need to provide assistance to a user, or want to reset their security status.
+Users in Azure AD have two distinct sets of contact information:  
+
+- Public profile contact information, which is managed in the user profile and visible to members of your organization. For users synced from on-premises Active Directory, this information is managed in on-premises Windows Server Active Directory Domain Services.
+- Authentication methods, which are always kept private and only used for authentication, including multi-factor authentication (MFA). Administrators can manage these methods in a user's authentication method blade and users can manage their methods in Security Info page of MyAccount.
+
+When managing Azure Multi-Factor Authentication methods for your users, Authentication administrators can: 
+
+1. Add authentication methods for a specific user, including phone numbers used for MFA.
+1. Reset a user's password.
+1. Require a user to re-register for MFA.
+1. Revoke existing MFA sessions.
+1. Delete a user's existing app passwords  
+
+## Add authentication methods for a user 
+
+You can add authentication methods for a user via the Azure Portal or Microsoft Graph.  
+
+> [!NOTE]
+> For security reasons, public user contact information fields should not be used to perform MFA. Instead, users should populate their authentication method numbers to be used for MFA.  
+
+To add authentication methods for a user via the Azure Portal:  
+
+1. Sign into the **Azure Portal**. 
+1. Browse to **Azure Active Directory** > **Users** > **All users**. 
+1. Choose the user for whom you wish to add an authentication method and select **Authentication methods**.  
+1. At the top of the window, select **+ Add authentication method**.
+   1. Select a method (phone number or email). Email may be used for self-password reset but not authentication. When adding a phone number, select a phone type and enter phone number with valid format (e.g. +1 4255551234).
+   1. Select **Add**.
+
+### Example invoking Microsoft Graph requests from PowerShell:  
+
+In a PowerShell window execute the following commands.
+
+1. Install-Module Microsoft.Graph.Authentication
+1. Install-Module Microsoft.Graph.Identity.Signins
+1. Connect-MgGraph
+1. Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+1. Invoke-MgGraphRequest -Method GET -URI /beta/users/$UserId/authentication/phoneMethods | % value
+   1. Copy the phone method $Id that you want to update
+   1. Formulate the body of your request, including phone number and phone type (e.g. mobile, alternateMobile, office).
+1. $phoneNumber = “+1 1112223333”
+1. $phoneType = “office”
+1. $JSON = @{"phoneNumber" = $phoneNumber; "phoneType" = $phoneType} | ConvertTo-Json
+1. Invoke-MgGraphRequest –Method PUT –URI /beta/users/$UserId/authentication/phoneMethods/$Id  -Body $JSON –ContentType “application/json”
 
 ## Manage user authentication options
 
@@ -38,7 +81,7 @@ If you're assigned the *Authentication Administrator* role, you can require user
 
 ## Delete users existing app passwords
 
-If needed, you can delete all of the app passwords that a user has created. Non-browser apps that were associated with these app passwords stop working until a new app password is created. *Global administrator* permissions are required to perform this action.
+For users that have defined app passwords, administrators can also choose to delete these passwords, causing legacy authentication to fail in those applications. These actions may be necessary if you need to provide assistance to a user, or need to reset their authentication methods. Non-browser apps that were associated with these app passwords will stop working until a new app password is created. 
 
 To delete a user's app passwords, complete the following steps:
 
