@@ -125,7 +125,7 @@ resource group:
 az policy state trigger-scan --resource-group "MyRG"
 ```
 
-You can chose not to wait for the asynchronous process to complete before continuing with the
+You can choose not to wait for the asynchronous process to complete before continuing with the
 **no-wait** parameter.
 
 #### On-demand evaluation scan - Azure PowerShell
