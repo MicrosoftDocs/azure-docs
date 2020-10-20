@@ -42,6 +42,14 @@ npm install @azure/communication-common --save
 npm install @azure/communication-calling --save
 ```
 
+The following versions of webpack are recommended for this quickstart:
+
+```console
+"webpack": "^4.42.0",
+"webpack-cli": "^3.3.11",
+"webpack-dev-server": "^3.10.3"
+```
+
 The `--save` option lists the library as a dependency in your **package.json** file.
 
 ### Set up the app framework
