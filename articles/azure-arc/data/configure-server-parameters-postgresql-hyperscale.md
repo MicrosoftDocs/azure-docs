@@ -73,7 +73,7 @@ engine": {
 
 Follow the below steps.
 
- 1. Retrieve the kind of custom resource definition for your server group
+1. Retrieve the kind of custom resource definition for your server group
 
    Run:
 
@@ -98,9 +98,9 @@ Follow the below steps.
        >"generation": 1,
        >"name": "postgres01",
        >"namespace": "arc",  
-    ```
+   ```
 
-   In there, look for the field `kind` and set aside the value, for example: `postgresql-12`.
+   In the output results, look for the field `kind` and set aside the value, for example: `postgresql-12`.
 
 2. Describe the Kubernetes custom resource corresponding to your server group 
 
