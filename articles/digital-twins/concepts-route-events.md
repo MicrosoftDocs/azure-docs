@@ -84,7 +84,7 @@ await client.CreateEventRoute("routeName", er);
 
 1. First, an `EventRoute` object is created, and the constructor takes the name of an endpoint. This `endpointName` field identifies an endpoint such as an Event Hub, Event Grid, or Service Bus. These endpoints must be created in your subscription and attached to Azure Digital Twins using control plane APIs before making this registration call.
 
-2. The event route object also has a [**Filter**](./how-to-manage-routes-apis-cli.md#filter-events) field, which can be used to restrict the types of events that follow this route. A filter of `true` enables the route with no additional filtering (a filter of `false` disables the route). 
+2. The event route object also has a [**Filter**](how-to-manage-routes-apis-cli.md#filter-events) field, which can be used to restrict the types of events that follow this route. A filter of `true` enables the route with no additional filtering (a filter of `false` disables the route). 
 
 3. This event route object is then passed to `CreateEventRoute`, along with a name for the route.
 
@@ -94,19 +94,20 @@ await client.CreateEventRoute("routeName", er);
 Routes can be also created using the [Azure Digital Twins CLI](how-to-use-cli.md).
 
 ## Dead-letter events
+
 When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**. Azure Digital Twins will dead-letter an event when **one of the following** conditions is met. 
 
-- Event isn't delivered within the time-to-live period
-- The number of tries to deliver the event has exceeded the limit
+* Event isn't delivered within the time-to-live period
+* The number of tries to deliver the event has exceeded the limit
 
-If either of the conditions is met, the event is dropped or dead-lettered.  By default, each endpoint **does not** turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the endpoint. You pull events from this storage account to resolve deliveries.
+If either of the conditions is met, the event is dropped or dead-lettered. By default, each endpoint **does not** turn on dead-lettering. To enable it, you must specify a storage account to hold undelivered events when creating the endpoint. You can then pull events from this storage account to resolve deliveries.
 
 Before setting the dead-letter location, you must have a storage account with a container. You provide the URL for this container when creating the endpoint. The dead-letter is provided as a container URL with a SAS token. That token needs only `write` permission for the destination container within the storage account. The fully formed URL will be in the format of:
 `https://<storageAccountname>.blob.core.windows.net/<containerName>?<SASToken>`
 
 To learn more about SAS tokens, see: [*Grant limited access to Azure Storage resources using shared access signatures (SAS)*](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 
-To learn how to set up a dead-letter see [*How-to: Manage endpoints and routes in Azure Digital Twins (APIs and CLI)*](./how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
+To learn how to set up an endpoint with dead-lettering, see [*How-to: Manage endpoints and routes in Azure Digital Twins (APIs and CLI)*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering).
 
 ### Types of event messages
 
