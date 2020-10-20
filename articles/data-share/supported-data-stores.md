@@ -22,8 +22,8 @@ The below table details the supported data sources for Azure Data Share.
 | Azure Blob storage |✓ | |
 | Azure Data Lake Storage Gen1 |✓ | |
 | Azure Data Lake Storage Gen2 |✓ ||
-| Azure SQL Database |Public preview | |
-| Azure Synapse Analytics (formerly Azure SQL DW) |Public preview | |
+| Azure SQL Database |✓ | |
+| Azure Synapse Analytics (formerly Azure SQL DW) |✓ | |
 | Azure Data Explorer | |✓ |
 
 ## Data store support matrix
