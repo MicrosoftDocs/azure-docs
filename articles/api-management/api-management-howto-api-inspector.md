@@ -30,9 +30,12 @@ In this tutorial, you learn how to:
 + Learn the [Azure API Management terminology](api-management-terminology.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Complete the following tutorial: [Import and publish your first API](import-and-publish.md).
-* The **Allow tracing** setting for the subscription key used for your API must be enabled. To verify in the portal, navigate to your API Management instance and select **Subscriptions**.
 
-   :::image type="content" source="media/api-management-howto-api-inspector/allowtracing.png" alt-text="Allow tracing for subscription":::
+## Verify allow tracing setting 
+
+The **Allow tracing** setting for the subscription used for your API must be enabled. If you're using the built-in all-access subscription, it's enabled by default. To verify in the portal, navigate to your API Management instance and select **Subscriptions**.
+
+   :::image type="content" source="media/api-management-howto-api-inspector/allow-tracing.png" alt-text="Allow tracing for subscription":::
 
 ## Trace a call
 
@@ -41,13 +44,13 @@ In this tutorial, you learn how to:
 1. Select  **Demo Conference API** from your API list.
 1. Select the **Test** tab.
 1. Select the **GetSpeakers** operation.
-1. Confirm that the HTTP request header includes **Ocp-Admin-Trace: True** and a valid value for **Ocp-Admin-Subscription-Key**.
+1. Confirm that the HTTP request header includes **Ocp-Admin-Trace: True** and a valid value for **Ocp-Admin-Subscription-Key**. If it isn't, select **+ Header** to add the header.
 1. Select **Send** to make an API call.
 
   :::image type="content" source="media/api-management-howto-api-inspector/06-debug-your-apis-01-trace-call.png" alt-text="Configure API tracing":::
 
 > [!TIP]
-> If **Ocp-Apim-Subscription-Key** isn't automatically populated in the HTTP request, you can retrieve it by going to the [developer portal](api-management-howto-developer-portal.md) and show the keys on the Profile page. Then, add a key to the header.
+> If **Ocp-Apim-Subscription-Key** isn't automatically populated in the HTTP request, you can retrieve it in the portal. Select **Subscriptions**, and open the context menu (**...**) for your suscription. Select **Show/hide keys**. You can also regenerate keys if needed. Then, add a key to the header.
 
 ## Review trace information
 
