@@ -12,13 +12,13 @@ ms.date: 03/26/2020
 
 In this article, you'll learn how to configure a virtual machine scale set with an existing Azure Load Balancer.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## Prerequisites
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+- An Azure subscription.
+- An existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
+- An Azure Virtual Network for the virtual machine scale set.
 
-- You need an existing standard sku load balancer in the subscription where the virtual machine scale set will be deployed.
-
-- You need an Azure Virtual Network for the virtual machine scale set.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
