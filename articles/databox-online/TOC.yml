@@ -304,7 +304,7 @@
     - name: 7 - Activate
       href: azure-stack-edge-pro-r-deploy-activate.md 
     - name: 8 - Configure compute
-      href: azure-stack-edge-pro-r-deploy-configure-compute.md
+      href: azure-stack-edge-placeholder.md
 
 - name: Azure Stack Edge Mini R
   items:
