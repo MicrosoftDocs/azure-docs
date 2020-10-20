@@ -45,6 +45,8 @@
         href: manage-solution-names.md
       - name: Create or update client IDs and secrets
         href: create-or-update-client-ids-and-secrets.md
+      - name: Find Office product GUID
+        href: find-office-guid.md  
   - name: Submit SharePoint Add-ins for Office 365 operated by 21Vianet in China
     href: submit-sharepoint-add-ins-for-office-365-operated-by-21vianet-in-china.md
   - name: Promote your solution
