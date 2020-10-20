@@ -3,7 +3,7 @@
 title: 'Quickstart - Create a Private Endpoint using the Azure portal'
 description: Use this quickstart to learn how to create a Private Endpoint using the Azure portal.
 services: private-link
-author: malopMSFT
+author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: private-link
 ms.topic: quickstart
