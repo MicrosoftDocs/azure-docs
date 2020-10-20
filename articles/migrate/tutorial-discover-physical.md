@@ -205,7 +205,7 @@ Set up the appliance for the first time.
    
    Sign-in with a PIN isn't supported.
 3. After you successfully logged in, go back to the web app. 
-4. If the Azure user account used for logging has the right [permissions](tutorial-prepare-physical.md) on the Azure resources created during key generation, the appliance registration will be initiated.
+4. If the Azure user account used for logging has the right [permissions]() on the Azure resources created during key generation, the appliance registration will be initiated.
 1. After appliance is successfully registered, you can see the registration details by clicking on **View details**.
 
 
@@ -242,5 +242,3 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 - [Assess physical servers](tutorial-assess-physical.md) for migration to Azure VMs.
 - [Review the data](migrate-appliance.md#collected-data---physical) that the appliance collects during discovery.
-
-
