@@ -152,7 +152,7 @@ Here is an example of a dead-letter message for a [twin create notification](how
 }
 ```
 
-## Event routes (with APIs and the C# SDK)
+## Create an event route
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. Azure Digital Twins **EventRoutes APIs** let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
 
@@ -165,7 +165,7 @@ The samples in this section use the [.NET (C#) SDK](https://www.nuget.org/packag
 >
 > If you are scripting this flow, you may want to account for this by building in 2-3 minutes of wait time for the endpoint service to finish deploying before moving on to route setup.
 
-### Create an event route
+### Creation code with APIs and the C# SDK
 
 Event routes are defined using [data plane APIs](how-to-use-apis-sdks.md#overview-data-plane-apis). 
 
@@ -221,7 +221,7 @@ catch (RequestFailedException e)
 }
 ```
 
-### Filter events
+## Filter events
 
 Without filtering, endpoints receive a variety of events from Azure Digital Twins:
 * Telemetry fired by [digital twins](concepts-twins-graph.md) using the Azure Digital Twins service API
