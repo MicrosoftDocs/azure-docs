@@ -1028,8 +1028,6 @@
         href: optimization.md
       - name: Configure software RAID
         href: configure-raid.md
-      - name: Configure LVM
-        href: configure-lvm.md
     - name: Find unattached disks - CLI
       href: find-unattached-disks.md
     - name: Find unattached disks - Portal
