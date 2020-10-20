@@ -159,10 +159,10 @@ If you have some JMX metrics that you are interested in capturing:
 }
 ```
 
-You can also set the JMX metrics using the environment variable `APPLICATIONINSIGHTS_JMX_METRICS`.
+Numeric and boolean JMX metric values are supported. Boolean JMX metrics are mapped to `0` for false, and `1` for true.
 
-This environment variable content must be json data matching the above structure, e.g.
-`[{"objectName": "java.lang:type=Runtime", "attribute": "Uptime", "display": "JVM uptime (millis)"}, {"objectName": "java.lang:type=MemoryPool,name=Metaspace", "attribute": "Usage.used", "display": "MetaSpace Used"}]`
+[//]: # "NOTE: Not documenting APPLICATIONINSIGHTS_JMX_METRICS here"
+[//]: # "json embedded in env var is messy, and should be documented only for codeless attach scenario"
 
 ## Micrometer (including metrics from Spring Boot Actuator)
 
