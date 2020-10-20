@@ -27,27 +27,14 @@ Periodically, you can export logs and then upload them to Azure. Exporting and u
 
 ## Before you begin
 
-There are a few one-time setup steps required to enable the logs and metrics upload scenarios:
+Before you can upload logs, you need to: 
 
-1. [Create a service principal](#create-a-service-principal) (Azure Active Directory application) including creating a client access secret.
-1. [Assign the service principal to the `Monitoring Metrics Publisher` role](#assign-role-to-service-principal) on the subscription(s) where your database instance resources are located.
-1. [Create a log analytics workspace](#create-a-log-analytics-workspace) and get the keys and set the information in environment variables.
-
-The first item is required to upload metrics and the second one is required to upload logs.
-
-Follow these commands to create your metrics upload service principal and assign it to the 'Monitoring Metrics Publisher' and 'Contributor' roles so that the service principal can upload metrics and perform create and upload operations.
-
-## Create a service principal
-
-[!INCLUDE [arc-data-create-service-principal](includes/arc-data-create-service-principal.md)]
-
-## Assign role to service principal 
-
-[!INCLUDE [arc-data-assign-roles-to-service-principal](includes/arc-data-assign-roles-to-service-principal.md)]
+1. [Create a log analytics workspace](#create-a-log-analytics-workspace)
+1. [Assign ID and shared key to environment variables](#assign-id-and-shared-key-to-environment-variables)
 
 ## Create a log analytics workspace
 
-Next, execute these commands to create a Log Analytics Workspace and set the access information into environment variables.
+To create a log analytics workspace, execute these commands to create a Log Analytics Workspace and set the access information into environment variables.
 
 > [!NOTE]
 > Skip this step if you already have a workspace.
@@ -228,7 +215,7 @@ With the environment variables set, you can upload logs to the log workspace.
 
  To upload logs for your Azure Arc enabled SQL managed instances and AzureArc enabled PostgreSQL Hyperscale server groups run the following CLI commands-
 
-1. Log in to to the Azure Arc data controller with `azdata`.
+1. Log in to to the Azure Arc data controller with [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
 
    ```console
    azdata login

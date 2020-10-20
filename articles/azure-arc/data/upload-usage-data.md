@@ -31,7 +31,9 @@ Periodically, you can export out usage information. The export and upload of of 
 
 ## Create service principal and assign roles
 
-[!INCLUDE [arc-data-create-service-principal](includes/arc-data-create-service-principal.md)]
+Before you proceed, make sure you have created the required service principal and assigned it to an appropriate role. For details, see:
+* [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
+* [Assign roles to the service principal](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
 
 ## Upload usage data
 

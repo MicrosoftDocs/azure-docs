@@ -23,11 +23,9 @@ Periodically, you can export monitoring metrics and then upload them to Azure. T
 
 ## Prerequisites
 
-[!INCLUDE [arc-data-upload-prerequisites](includes/arc-data-upload-prerequisites.md)]
-
-## Create service principal
-
-[!INCLUDE [arc-data-create-service-principal](includes/arc-data-create-service-principal.md)]
+Before you proceed, make sure you have created the required service principal and assigned it to an appropriate role. For details, see:
+* [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
+* [Assign roles to the service principal](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
 
 ## Upload metrics
 
@@ -36,22 +34,6 @@ With Azure Arc data services, you can optionally upload your metrics to Azure Mo
 Sending your data to Azure Monitor also allows you to store metrics data off-site and at huge scale, enabling long-term storage of the data for advanced analytics.
 
 If you have multiple sites that have Azure Arc data services, you can use Azure Monitor as a central location to collect all of your logs and metrics across your sites.
-
-### Before you begin
-
-The first time you upload metrics, you need to [Create a service principal](#create-a-service-principal) (Azure Active Directory application) including creating a client access secret.
-
-The service principal is required to upload metrics.
-
-Follow these commands to create your metrics upload service principal and assign it to the 'Monitoring Metrics Publisher' and 'Contributor' roles so that the service principal can upload metrics and perform create and upload operations.
-
-## Create a service principal
-
-[!INCLUDE [arc-data-create-service-principal](includes/arc-data-create-service-principal.md)]
-
-## Assign roles to the service principal
-
-[!INCLUDE [arc-data-assign-roles-to-service-principal](includes/arc-data-assign-roles-to-service-principal.md)]
 
 ## Set final environment variables and confirm
 
