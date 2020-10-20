@@ -54,7 +54,7 @@ For every scope, the user deploying the template must have the required permissi
 
 You can deploy a template from your local machine or one that is stored externally. This section describes deploying a local template.
 
-If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
+If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -66,7 +66,7 @@ To deploy a local template, use the `--template-file` parameter in the deploymen
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file storage.json \
+  --template-file azuredeploy.json \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -80,7 +80,7 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
-If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
+If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 
 ```azurecli-interactive
 az group create --name ExampleGroup --location "Central US"
@@ -130,7 +130,7 @@ Instead of deploying a local or remote template, you can create a [template spec
 
 The following examples show how to create and deploy a template spec. These commands are only available if you've [signed up for the preview](https://aka.ms/templateSpecOnboarding).
 
-First, you create the template spec by providing the ARM template.
+First, create the template spec by providing the ARM template.
 
 ```azurecli
 az ts create \
@@ -141,7 +141,7 @@ az ts create \
   --template-file "./mainTemplate.json"
 ```
 
-Then, you get the ID for template spec and deploy it.
+Then, get the ID for template spec and deploy it.
 
 ```azurecli
 id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
@@ -260,4 +260,3 @@ To deploy a template with multi-line strings or comments using Azure CLI with ve
 - To specify how to handle resources that exist in the resource group but aren't defined in the template, see [Azure Resource Manager deployment modes](deployment-modes.md).
 - To understand how to define parameters in your template, see [Understand the structure and syntax of ARM templates](template-syntax.md).
 - For tips on resolving common deployment errors, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](common-deployment-errors.md).
-- For information about deploying a template that requires a SAS token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).

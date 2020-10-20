@@ -2,19 +2,19 @@
 title: Deploy resources with Azure portal
 description: Use Azure portal and Azure Resource Manage to deploy your resources to a resource group in your subscription.
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 10/20/2020
 ---
 
 # Deploy resources with ARM templates and Azure portal
 
-Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager (ARM) templates](overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources by using the Azure portal](../management/manage-resources-portal.md).
+Learn how to use the [Azure portal](https://portal.azure.com) with [Azure Resource Manager templates (ARM templates)](overview.md) to deploy your Azure resources. To learn about managing your resources, see [Manage Azure resources by using the Azure portal](../management/manage-resources-portal.md).
 
 Deploying Azure resources by using the Azure portal usually involves two steps:
 
 - Create a resource group.
 - Deploy resources to the resource group.
 
-In addition, you can also deploy an ARM template to create Azure resources.
+Also, you can create a customized ARM template to deploy Azure resources.
 
 This article shows both methods.
 
@@ -32,12 +32,12 @@ This article shows both methods.
 
     - **Subscription**: Select an Azure subscription.
     - **Resource group**: Give the resource group a name.
-    - **Region**: Specify an Azure location. This is where the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will reside. Using the same location can simplify your template.
+    - **Region**: Specify an Azure location. This location is where the resource group stores metadata about the resources. For compliance reasons, you may want to specify where that metadata is stored. In general, we recommend that you specify a location where most of your resources will be. Using the same location can simplify your template.
 
    ![Set group values](./media/deploy-portal/set-group-properties.png)
 
 1. Select **Review + create**.
-1. review the values, and then select **Create**.
+1. Review the values, and then select **Create**.
 1. Select **Refresh** before you can see the new resource group in the list.
 
 ## Deploy resources to a resource group
@@ -56,7 +56,7 @@ After you create a resource group, you can deploy resources to the group from th
 
    ![Create resource group](./media/deploy-portal/select-existing-group.png)
 
-   Alternatively, you can decide to create a resource group when deploying your resources. Select **Create new** and give the resource group a name.
+   You can decide to create a resource group when deploying your resources. Select **Create new** and give the resource group a name.
 
 1. Your deployment begins. The deployment could take several minutes. Some resources take longer time than other resources. When the deployment has finished, you see a notification. Select **Go to resource** to open
 
@@ -65,6 +65,8 @@ After you create a resource group, you can deploy resources to the group from th
 1. After deploying your resources, you can add more resources to the resource group by selecting **Add**.
 
    ![Add resource](./media/deploy-portal/add-resource.png)
+
+Although you didn't see it, the portal used an ARM template to deploy the resources you selected. You can find the template from the deployment history. For more information, see [Export template after deployment](export-template-portal.md#export-template-after-deployment).
 
 ## Deploy resources from custom template
 
@@ -80,9 +82,9 @@ If you want to execute a deployment but not use any of the templates in the Mark
 1. Select **Create**.
 1. You see several options for creating a template:
 
-    - **Build your own template in editor**: create a template using the portal template editor.  The editor is capable to add a resource template schema.
-    - **Common templates**: There are four common templates for creating a Linux virtual machine, Windows virtual machine, a web application, and a database in Azure SQL Database.
-    - **Load a GitHub quickstart template**: use an existing [quickstart templates](https://azure.microsoft.com/resources/templates/).
+    - **Build your own template in editor**: Create your own template in the portal template editor.
+    - **Common templates**: Select from common solutions.
+    - **Load a GitHub quickstart template**: Select from [quickstart templates](https://azure.microsoft.com/resources/templates/).
 
    ![View options](./media/deploy-portal/see-options.png)
 

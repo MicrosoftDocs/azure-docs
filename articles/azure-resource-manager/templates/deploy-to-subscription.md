@@ -2,7 +2,7 @@
 title: Deploy resources to subscription
 description: Describes how to create a resource group in an Azure Resource Manager template. It also shows how to deploy resources at the Azure subscription scope.
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 10/20/2020
 ---
 
 # Create resource groups and resources at the subscription level
@@ -75,23 +75,11 @@ The schema for a parameter file is the same for all deployment scopes. For param
 https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#
 ```
 
-## Deployment scopes
-
-When deploying to a subscription, you can target one subscription and any resource groups within the subscription. You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
-
-Resources defined within the resources section of the template are applied to the subscription.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
-
-To target a resource group within the subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `rg2`.
-
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
-
-In this article, you can find templates that show how to deploy resources to different scopes. For a template that creates a resource group and deploys a storage account to it, see [Create resource group and resources](#create-resource-group-and-resources). For a template that creates a resource group, applies a lock to it, and assigns a role for the resource group, see [Access control](#access-control).
-
 ## Deployment commands
 
 The commands for subscription-level deployments are different than the commands for resource group deployments.
+
+# [Azure CLI](#tab/azure-cli)
 
 For Azure CLI, use [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). The following example deploys a template to create a resource group:
 
@@ -102,6 +90,8 @@ az deployment sub create \
   --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json" \
   --parameters rgName=demoResourceGroup rgLocation=centralus
 ```
+
+# [PowerShell](#tab/azure-powershell)
 
 For the PowerShell deployment command, use [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) or **New-AzSubscriptionDeployment**. The following example deploys a template to create a resource group:
 
@@ -114,7 +104,41 @@ New-AzSubscriptionDeployment `
   -rgLocation centralus
 ```
 
+---
+
 For REST API, use [Deployments - Create At Subscription Scope](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+
+## Deployment scopes
+
+When deploying to a subscription, you can deploy resources to:
+
+* the target subscription from the operation
+* resource groups within the subscription
+* the tenant for the subscription
+
+You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
+
+### Deploy to subscription
+
+To deploy resources to the target subscription, add those resources to the resources section of the template.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/default-sub.json" highlight="5":::
+
+For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
+
+### Deploy to resource group
+
+To deploy resources to a resource group within the subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `rg2`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-resource-group.json" highlight="9,13":::
+
+For an example of deploying to a resource group, see [Create resource group and resources](#create-resource-group-and-resources).
+
+### Deploy to tenant
+
+You can create resources at the tenant by adding a nested deployment with the `scope` set to `/`. In the following example, the nested deployment is scoped to `/`.
+
+:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/scope/sub-to-tenant.json" highlight="9,13":::
 
 ## Deployment location and name
 

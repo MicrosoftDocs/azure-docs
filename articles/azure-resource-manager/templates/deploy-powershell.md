@@ -59,7 +59,7 @@ For every scope, the user deploying the template must have the required permissi
 
 You can deploy a template from your local machine or one that is stored externally. This section describes deploying a local template.
 
-If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
+If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 
 ```azurepowershell
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
@@ -80,7 +80,7 @@ The deployment can take a few minutes to complete.
 
 Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
 
-If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
+If you're deploying to a resource group that doesn't exist, create the resource group. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. The name can't end in a period.
 
 ```azurepowershell
 New-AzResourceGroup -Name ExampleGroup -Location "Central US"
@@ -99,7 +99,7 @@ The preceding example requires a publicly accessible URI for the template, which
 
 ## Deployment name
 
-In the preceding example, you named the deployment `ExampleDeployment`. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.json` and don't specify a deployment name, the deployment is named `azuredeploy`.
+When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.json` and don't specify a deployment name, the deployment is named `azuredeploy`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
@@ -131,7 +131,7 @@ Instead of deploying a local or remote template, you can create a [template spec
 
 The following examples show how to create and deploy a template spec. These commands are only available if you've [signed up for the preview](https://aka.ms/templateSpecOnboarding).
 
-First, you create the template spec by providing the ARM template.
+First, create the template spec by providing the ARM template.
 
 ```azurepowershell
 New-AzTemplateSpec `
@@ -142,7 +142,7 @@ New-AzTemplateSpec `
   -TemplateJsonFile ./mainTemplate.json
 ```
 
-Then, you get the ID for template spec and deploy it.
+Then, get the ID for template spec and deploy it.
 
 ```azurepowershell
 $id = (Get-AzTemplateSpec -Name storageSpec -ResourceGroupName templateSpecsRg -Version 1.0).Version.Id

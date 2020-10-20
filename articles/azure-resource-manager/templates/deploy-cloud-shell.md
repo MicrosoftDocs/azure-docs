@@ -82,6 +82,8 @@ To deploy a local template, you must first upload your template to the storage a
 
    :::image type="content" source="./media/deploy-cloud-shell/open-cloud-shell.png" alt-text="Open Cloud Shell":::
 
+1. Navigate to the **clouddrive** directory. Navigate to the directory you added for holding the templates.
+
 1. To deploy the template, use the following commands:
 
    # [Azure CLI](#tab/azure-cli)
