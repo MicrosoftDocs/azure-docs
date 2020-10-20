@@ -49,20 +49,25 @@ You can check your extension version by using the Azure portal, the Azure CLI, o
 Run the following command from an Azure CLI prompt:
 
 ```azurecli
-az vm extension list --resource-group  <ResourceGroupName> --vm-name <VMName>
+az vm get-instance-view --resource-group  "SampleRG" --name "Sample-VM"
 ```
+Locate **"AzureNetworkWatcherExtension"** in the output and identify the version number from the “TypeHandlerVersion” field in the output.  
+Please note: Information about the extension appears multiple times in the JSON output. Please look under the "extensions" block and you should see the full version number of the extension. 
 
-Locate the AzureNetworkWatcher extension in the output. Identify the version number in the "TypeHandlerVersion" field in the output.  
+You should see something like the below:
+![Azure CLI Screenshot](./media/network-watcher/CLI_Screenshot.png)
 
 #### Use PowerShell
 
 Run the following commands from a PowerShell prompt:
 
 ```powershell
-Get-AzVMExtension -ResourceGroupName <ResourceGroupName> -VMName <VMName>  
+Get-AzVM -ResourceGroupName "SampleRG" -Name "Sample-VM" -Status
 ```
+Locate the Azure Network Watcher extension in the output and identify the version number from the “TypeHandlerVersion” field in the output.   
 
-Locate the AzureNetworkWatcher extension in the output. Identify the version number in the "TypeHandlerVersion" field in the output.
+You should see something like the below:
+![PowerShell Screenshot](./media/network-watcher/PS_screenshot.png)
 
 ### Update your extension
 
@@ -78,6 +83,25 @@ Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS"
 
 #Windows command
 Set-AzVMExtension `  -ResourceGroupName "myResourceGroup1" `  -Location "WestUS" `  -VMName "myVM1" `  -Name "AzureNetworkWatcherExtension" `  -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows"   
+```
+
+If that doesn't work. Remove and install the extension again, using the steps below. This will automatically add the latest version.
+
+Removing the extension 
+
+```powershell
+#Same command for Linux and Windows
+Remove-AzVMExtension -ResourceGroupName "SampleRG" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension"
+``` 
+
+Installing the extension again
+
+```powershell
+#Linux command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentLinux" -typeHandlerVersion "1.4"
+
+#Windows command
+Set-AzVMExtension -ResourceGroupName "SampleRG" -Location "centralus" -VMName "Sample-VM" -Name "AzureNetworkWatcherExtension" -Publisher "Microsoft.Azure.NetworkWatcher" -Type "NetworkWatcherAgentWindows" -typeHandlerVersion "1.4"
 ```
 
 #### Option 2: Use the Azure CLI
