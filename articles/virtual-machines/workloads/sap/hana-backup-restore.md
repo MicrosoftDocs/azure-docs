@@ -17,7 +17,7 @@ ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
 ---
-# Backup and restore on SAP HANA on Azure
+# Backup and restore of SAP HANA on HANA Large Instances
 
 >[!IMPORTANT]
 >This article isn't a replacement for the SAP HANA administration documentation or SAP Notes. We expect that you have a solid understanding of and expertise in SAP HANA administration and operations, especially for backup, restore, high availability, and disaster recovery. In this article, screenshots from SAP HANA Studio are shown. Content, structure, and the nature of the screens of SAP administration tools and the tools themselves might change from SAP HANA release to release.
