@@ -160,8 +160,18 @@
               items:
               - name: Authentication
                 href: ./rest-api-authentication-index.md
+                items:
+                  - name: Azure Active Directory Authentication
+                    href: rest-api-authentication-aad.md
+                  - name: HMAC Authentication
+                    href: rest-api-authentication-hmac.md   
               - name: Authorization
                 href: ./rest-api-authorization-index.md
+                items:
+                  - name: Azure Active Directory Authorization
+                    href: rest-api-authorization-aad.md
+                  - name: HMAC Authorization
+                    href: rest-api-authorization-hmac.md
               - name: Consistency Model
                 href: ./rest-api-consistency.md
               - name: Common Headers

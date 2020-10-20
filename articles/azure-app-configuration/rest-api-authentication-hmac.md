@@ -17,7 +17,7 @@ HTTP requests may be authenticated using the **HMAC-SHA256** authentication sche
 - **Credential** - \<Access Key ID\>
 - **Secret** - base64 decoded Access Key Value. ``base64_decode(<Access Key Value>)``
 
-The values for credential (also called 'id') and secret (also called 'value') must be obtained from the Azure App Configuration instance. This can be done using the [Azure Portal](https://portal.azure.com) or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+The values for credential (also called 'id') and secret (also called 'value') must be obtained from the Azure App Configuration instance. This can be done using the [Azure Portal](https://portal.azure.com) or the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest&preserve-view=true).
 
 Provide each request with all HTTP headers required for Authentication. The minimum required are:
 

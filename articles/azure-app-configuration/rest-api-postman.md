@@ -13,7 +13,7 @@ ms.date: 08/17/2020
 To test the REST API using [Postman](https://www.getpostman.com/), you'll need to include the HTTP headers required for [authentication](./rest-api-authentication-hmac.md) in your requests. Here's how to configure Postman for testing the REST API, generating the authentication headers automatically:
 
 1. Create a new [request](https://learning.getpostman.com/docs/postman/sending_api_requests/requests/)
-1. Add the `signRequest` function from the [JavaScript authentication sample](./rest-api-authentication-hmac.md#JavaScript) to the [pre-request script](https://learning.getpostman.com/docs/postman/scripts/pre_request_scripts/) for the request
+1. Add the `signRequest` function from the [JavaScript authentication sample](./rest-api-authentication-hmac.md#javascript) to the [pre-request script](https://learning.getpostman.com/docs/postman/scripts/pre_request_scripts/) for the request
 1. Add the following code to the end of the pre-request script. Update the access key as indicated by the TODO comment
 
     ```js
