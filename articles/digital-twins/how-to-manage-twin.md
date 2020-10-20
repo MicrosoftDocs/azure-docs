@@ -385,6 +385,17 @@ Twins can also be managed using the Azure Digital Twins CLI. The commands can be
 
 [!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
+## View all digital twins
+
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](how-to-use-apis-sdks.md) or the [CLI commands](how-to-use-cli.md).
+
+Here is the body of the basic query that will return a list of all digital twins in the instance:
+
+```sql
+SELECT *
+FROM DIGITALTWINS
+``` 
+
 ## Next steps
 
 See how to create and manage relationships between your digital twins:

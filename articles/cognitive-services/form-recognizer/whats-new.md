@@ -35,7 +35,8 @@ The Form Recognizer service is updated on an ongoing basis. Use this article to 
 
 
 **v2.0** includes the following update:
--	The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
+
+- The [client libraries](quickstarts/client-library.md) for NET, Python, Java, and JavaScript have entered General Availability. 
 
 
 **New samples** are available on GitHub. 
@@ -173,4 +174,8 @@ The JSON responses for all API calls have new formats. Some keys and values have
 
 ## Next steps
 
-Complete a [quickstart](quickstarts/curl-train-extract.md) to get started with the [Form Recognizer APIs](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm).
+Complete a [client library quickstart](quickstarts/client-library.md) to get started writing a forms processing app with Form Recognizer in the language of your choice.
+
+## See also
+
+* [What is Form Recognizer?](./overview.md)

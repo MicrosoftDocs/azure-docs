@@ -59,11 +59,7 @@ When using *azureuser*, all requests to *serviceA* will be routed to the updated
 
 ## Next steps
 
-To see some examples of how Azure Dev Spaces uses routing to provide rapid iteration and development, see [How Local Process with Kubernetes works][how-it-works-local-process-kubernetes], [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging], and [GitHub Actions & Azure Kubernetes Service][pr-flow].
+To see an example of how Azure Dev Spaces uses routing to provide rapid iteration and development, see [How remote debugging your code with Azure Dev Spaces works][how-it-works-remote-debugging].
 
 
-[helm-upgrade]: https://helm.sh/docs/intro/using_helm/#helm-upgrade-and-helm-rollback-upgrading-a-release-and-recovering-on-failure
-[how-it-works-local-process-kubernetes]: /visualstudio/containers/overview-local-process-kubernetes
 [how-it-works-remote-debugging]: how-dev-spaces-works-remote-debugging.md
-[pr-flow]: how-to/github-actions.md
-[troubleshooting]: troubleshooting.md

@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ---
@@ -509,7 +509,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               }
             ]
           },
-		  ...
+          ...
             ]
           }
         ] 
@@ -542,7 +542,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
                   "#/readResults/0/lines/14/words/1"
                 ]
               },
-			  ...
+              ...
             ]
           },
         ]
@@ -576,7 +576,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "#/readResults/0/lines/3/words/3"
             ]
           },
-		  ...
+          ...
         }
       }
     ],
@@ -643,7 +643,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               }
             ]
           },
-		  ...
+          ...
         ], 
         "selectionMarks": [
           {
@@ -657,7 +657,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               3.9737,
               3.9428
             ],
-			...
+            ...
         ] 
       }
     ],
@@ -688,7 +688,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
                   "#/readResults/0/lines/12/words/1"
                 ]
               },
-			  ...
+              ...
             ]
           }
         ] 
@@ -723,7 +723,7 @@ When the process is completed, you'll receive a `202 (Success)` response with JS
               "#/readResults/0/lines/8/words/1"
             ]
           },
-		  ...
+          ...
         },
         "docTypeConfidence": 1
       }

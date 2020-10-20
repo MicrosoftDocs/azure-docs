@@ -9,7 +9,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/09/2020
+ms.date: 10/05/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
@@ -248,6 +248,9 @@ Your final relying party policy file should look like the following:
   </RelyingParty>
 </TrustFrameworkPolicy>
 ```
+
+> [!NOTE]
+> When implementing other types of user flows (for example sign-in, password reset, or profile editing), the process is essentially the same as described in this section. In step 4 above, you'll change the last step of the user journey from `JWTIssuer` to `Saml2AssertionIssuer`. And in step 6 above, in the relying party section, you'll change the **Protocol** from `OpenIdConnect` to `SAML2`.
 
 ### 3.2 Upload and test your policy metadata
 

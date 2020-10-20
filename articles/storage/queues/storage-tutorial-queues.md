@@ -225,6 +225,8 @@ Create a new method to retrieve a message from the queue. Once the message is su
 
    This method receives a message from the queue by calling [ReceiveMessagesAsync](/dotnet/api/azure.storage.queues.queueclient.receivemessagesasync), passing 1 in the first parameter to retrieve only the next message in the queue. After the message is received, delete it from the queue by calling [DeleteMessageAsync](/dotnet/api/azure.storage.queues.queueclient.deletemessageasync).
 
+   When a message is sent to the queue with a version of the SDK prior to v12, it is automatically Base64-encoded. Starting with v12 that functionality was removed. When you retrieve a message by using the v12 SDK, it is not automatically Base64-decoded. You must explicitly [Base64-decode](/dotnet/api/system.convert.frombase64string) the contents yourself.
+
    :::code language="csharp" source="~/azure-storage-snippets/queues/tutorial/dotnet/dotnet-v12/QueueApp/Initial.cs" id="snippet_InitialRetrieveMessage":::
 
    # [\.NET v11](#tab/dotnetv11)

@@ -86,7 +86,7 @@ There are two built-in Group Policy Objects (GPOs) in a managed domain - one for
 
 1. The Group Policy Management Editor tool opens to let you customize the GPO, such as *Account Policies*:
 
-    ![Customize GPO to configure settings as required](./media/active-directory-domain-services-admin-guide/gp-editor.png)
+    ![Screenshot of the Group Policy Management Editor.](./media/active-directory-domain-services-admin-guide/gp-editor.png)
 
     When done, choose **File > Save** to save the policy. Computers refresh Group Policy by default every 90 minutes and apply the changes you made.
 

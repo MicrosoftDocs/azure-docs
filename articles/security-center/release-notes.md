@@ -7,10 +7,10 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/12/2020
+ms.date: 09/22/2020
 ms.author: memildin
 
 ---
@@ -29,7 +29,16 @@ This page is updated regularly, so revisit it often. If you're looking for items
 ## September 2020
 
 Updates in September include:
-
+- [Security Center gets a new look!](#security-center-gets-a-new-look)
+- [Azure Defender released](#azure-defender-released)
+- [Azure Defender for Key Vault is generally available](#azure-defender-for-key-vault-is-generally-available)
+- [Azure Defender for Storage protection for Files and ADLS Gen2 is generally available](#azure-defender-for-storage-protection-for-files-and-adls-gen2-is-generally-available)
+- [Asset inventory tools are now generally available](#asset-inventory-tools-are-now-generally-available)
+- [Disable a specific vulnerability finding for scans of container registries and virtual machines](#disable-a-specific-vulnerability-finding-for-scans-of-container-registries-and-virtual-machines)
+- [Exempt a resource from a recommendation](#exempt-a-resource-from-a-recommendation)
+- [AWS and GCP connectors in Security Center bring a multi-cloud experience](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
+- [Kubernetes workload protection recommendation bundle](#kubernetes-workload-protection-recommendation-bundle)
+- [IoT threat protection enhancements in Azure Defender for IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Vulnerability assessment findings are now available in continuous export](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Prevent security misconfigurations by enforcing recommendations when creating new resources](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Network security group recommendations improved](#network-security-group-recommendations-improved)
@@ -38,9 +47,130 @@ Updates in September include:
 - [Secure score doesn't include preview recommendations](#secure-score-doesnt-include-preview-recommendations)
 - [Recommendations now include a severity indicator and the freshness interval](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
 
+
+### Security Center gets a new look!
+
+We've released a refreshed UI for Security Center's portal pages. The new pages include a new overview page as well as dashboards for secure score, asset inventory, and Azure Defender.
+
+The redesigned overview page now has a tile for accessing the secure score, asset inventory, and Azure Defender dashboards. It also has a tile linking to the regulatory compliance dashboard.
+
+Learn more about the [overview page](overview-page.md).
+
+
+### Azure Defender released
+
+**Azure Defender** is the cloud workload protection platform (CWPP) integrated within Security Center for advanced, intelligent, protection of your Azure and hybrid workloads. It replaces Security Center's standard pricing tier option. 
+
+When you enable Azure Defender from the **Pricing and settings** area of Azure Security Center, the following Defender plans are all enabled simultaneously and provide comprehensive defenses for the compute, data, and service layers of your environment:
+
+- [Azure Defender for servers](defender-for-servers-introduction.md)
+- [Azure Defender for App Service](defender-for-app-service-introduction.md)
+- [Azure Defender for Storage](defender-for-storage-introduction.md)
+- [Azure Defender for SQL](defender-for-sql-introduction.md)
+- [Azure Defender for IoT](defender-for-iot-introduction.md)
+- [Azure Defender for Key Vault](defender-for-key-vault-introduction.md)
+- [Azure Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+- [Azure Defender for container registries](defender-for-container-registries-introduction.md)
+
+Each of these plans is explained separately in the Security Center documentation.
+
+With its dedicated dashboard, Azure Defender provides security alerts and advanced threat protection for virtual machines, SQL databases, containers, web applications, your network, and more.
+
+[Learn more about Azure Defender](azure-defender.md)
+
+### Azure Defender for Key Vault is generally available
+
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets like certificates, connection strings, and passwords. 
+
+**Azure Defender for Key Vault** provides Azure-native, advanced threat protection for Azure Key Vault, providing an additional layer of security intelligence. By extension, Azure Defender for Key Vault is consequently protecting many of the resources dependent upon your Key Vault accounts.
+
+The optional plan is now GA. This feature was in preview as "advanced threat protection for Azure Key Vault".
+
+Also, the Key Vault pages in the Azure portal now include a dedicated **Security** page for **Security Center** recommendations and alerts.
+
+Learn more in [Azure Defender for Key Vault](defender-for-key-vault-introduction.md).
+
+
+### Azure Defender for Storage protection for Files and ADLS Gen2 is generally available 
+
+**Azure Defender for Storage** detects potentially harmful activity on your Azure Storage accounts. Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
+
+Support for [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) is now generally available.
+
+From 1st October 2020, we'll begin charging for protecting resources on these services.
+
+Learn more in [Azure Defender for Storage](defender-for-storage-introduction.md).
+
+
+### Asset inventory tools are now generally available
+
+The asset inventory page of Azure Security Center provides a single page for viewing the security posture of the resources you've connected to Security Center.
+
+Security Center periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to remediate those vulnerabilities.
+
+When any resource has outstanding recommendations, they'll appear in the inventory.
+
+Learn more in [Explore and manage your resources with asset inventory and management tools](asset-inventory.md).
+
+
+
+### Disable a specific vulnerability finding for scans of container registries and virtual machines
+
+Azure Defender includes vulnerability scanners to scan images in your Azure Container Registry and your virtual machines.
+
+If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
+
+When a finding matches the criteria you've defined in your disable rules, it won't appear in the list of findings.
+
+This option is available from the recommendations details pages for:
+
+- **Vulnerabilities in Azure Container Registry images should be remediated**
+- **Vulnerabilities in your virtual machines should be remediated**
+
+Learn more in [Disable specific findings for your container images](defender-for-container-registries-usage.md#disable-specific-findings-preview) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings-preview).
+
+
+### Exempt a resource from a recommendation
+
+Occasionally, a resource will be listed as unhealthy regarding a specific recommendation (and therefore lowering your secure score) even though you feel it shouldn't be. It might have been remediated by a process not tracked by Security Center. Or perhaps your organization has decided to accept the risk for that specific resource. 
+
+In such cases, you can create an exemption rule and ensure that resource isn't listed amongst the unhealthy resources in the future. These rules can include documented justifications as described below.
+
+Learn more in [Exempt a resource from recommendations and secure score](exempt-resource.md).
+
+
+### AWS and GCP connectors in Security Center bring a multi-cloud experience
+
+With cloud workloads commonly spanning multiple cloud platforms, cloud security services must do the same.
+
+Azure Security Center now protects workloads in Azure, Amazon Web Services (AWS), and Google Cloud Platform (GCP).
+
+Onboarding your AWS and GCP accounts into Security Center, integrates AWS Security Hub, GCP Security Command and Azure Security Center. 
+
+Learn more in [Connect your AWS accounts to Azure Security Center](quickstart-onboard-aws.md) and [Connect your GCP accounts to Azure Security Center](quickstart-onboard-gcp.md).
+
+
+### Kubernetes workload protection recommendation bundle
+
+To ensure that Kubernetes workloads are secure by default, Security Center is adding Kubernetes level hardening recommendations, including enforcement options with Kubernetes admission control.
+
+When you've installed the Azure Policy add-on for Kubernetes on your AKS cluster, every request to the Kubernetes API server will be monitored against the predefined set of best practices before being persisted to the cluster. You can then configure to enforce the best practices and mandate them for future workloads.
+
+For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
+
+Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+
+
+### IoT threat protection enhancements in Azure Defender for IoT
+
+Azure Defender for IoT brings more threat protection capabilities thanks to the inclusion of CyberX Agentless Technology. This brings security protections for unmanaged brownfield devices used in Operational Technology (OT) environments such as manufacturing, building management systems (BMS), life sciences, energy and water utilities, oil & gas, and logistics.
+
+Learn more in [Introduction to Azure Defender for IoT](defender-for-iot-introduction.md).
+
+
 ### Vulnerability assessment findings are now available in continuous export
 
-Use continuous export to stream your alerts and recommendations in real-time to Azure Event Hubs, Log Analytics workspaces, or Azure Monitor. From there, you can integrate this data with SIEMs (such as Azure Sentinel, Power BI, Azure Data Explorer, and more.
+Use continuous export to stream your alerts and recommendations in real time to Azure Event Hubs, Log Analytics workspaces, or Azure Monitor. From there, you can integrate this data with SIEMs (such as Azure Sentinel, Power BI, Azure Data Explorer, and more.
 
 Security Center's integrated vulnerability assessment tools return findings about your resources as actionable recommendations within a 'parent' recommendation such as "Vulnerabilities in your virtual machines should be remediated". 
 
@@ -51,7 +181,7 @@ The security findings are now available for export through continuous export whe
 Related pages:
 
 - [Security Center's integrated vulnerability assessment solution for Azure virtual machines](deploy-vulnerability-assessment-vm.md)
-- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](monitor-container-security.md)
+- [Security Center's integrated vulnerability assessment solution for Azure Container Registry images](defender-for-container-registries-usage.md)
 - [Continuous export](continuous-export.md)
 
 ### Prevent security misconfigurations by enforcing recommendations when creating new resources
@@ -154,7 +284,7 @@ Security defaults provide preconfigured identity security settings to defend you
 
 Security Center now provides a security recommendation whenever it identifies an Azure subscription without security defaults enabled. Until now, Security Center recommended enabling multi-factor authentication using conditional access, which is part of the Azure Active Directory (AD) premium license. For customers using Azure AD free, we now recommend enabling security defaults. 
 
-Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to your [secure score](https://docs.microsoft.com/azure/security-center/secure-score-security-controls).
+Our goal is to encourage more customers to secure their cloud environments with MFA, and mitigate one of the highest risks that is also the most impactful to your [secure score](secure-score-security-controls.md).
 
 Learn more about [security defaults](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
 
@@ -253,20 +383,18 @@ When deploying a vulnerability assessment solution, Security Center previously p
 
 From this update, the check has been removed and you can now deploy vulnerability assessment tools to 'custom' Windows and Linux machines. Custom images are ones that you've modified from the marketplace defaults.
 
-Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploy the integrated vulnerability scanner to standard tier VMs](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms)
+Although you can now deploy the integrated vulnerability assessment extension (powered by Qualys) on many more machines, support is only available if you're using an OS listed in [Deploy the integrated vulnerability scanner to standard tier VMs](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-your-vms)
 
-Learn more about the [integrated vulnerability scanner for virtual machines (standard tier only)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
+Learn more about the [integrated vulnerability scanner for virtual machines (requires Azure Defender)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Learn more about using your own privately licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
+Learn more about using your own privately-licensed vulnerability assessment solution from Qualys or Rapid7 in [Deploying a partner vulnerability scanning solution](deploy-vulnerability-assessment-vm.md).
 
 
 ### Threat protection for Azure Storage expanded to include Azure Files and Azure Data Lake Storage Gen2 (preview)
 
 Threat protection for Azure Storage detects potentially harmful activity on your Azure Storage accounts. Security Center displays alerts when it detects attempts to access or exploit your storage accounts. 
 
-Your data can be protected whether it's stored as blob containers, file shares, or data lakes. 
-
-Learn more about [threat protection for Azure Storage](threat-protection.md#threat-protection-for-azure-storage-).
+Your data can be protected whether it's stored as blob containers, file shares, or data lakes.
 
 
 
@@ -297,7 +425,7 @@ The recommendations also include the quick fix capability.
 
 Learn more about each of these in the [security recommendations reference page](recommendations-reference.md).
 
-Learn more about [threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+Learn more about [threat protection in Azure Security Center](azure-defender.md).
 
 
 
@@ -310,13 +438,13 @@ To improve the clarity and guidance regarding Azure Security Center's container 
 
 Learn more about Security Center's container security in the following articles:
 
-- [Overview of Security Center's container security features](https://docs.microsoft.com/azure/security-center/container-security)
-- [Details of the integration with Azure Container Registry](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration)
-- [Details of the integration with Azure Kubernetes Service](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration)
-- [How-to scan your registries and harden your Docker hosts](https://docs.microsoft.com/azure/security-center/monitor-container-security)
-- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-akscluster)
-- [Security alerts from the threat protection features for Azure Kubernetes Service hosts](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-containerhost)
-- [Security recommendations for containers](https://docs.microsoft.com/azure/security-center/recommendations-reference#recs-containers)
+- [Overview of Security Center's container security features](container-security.md)
+- [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
+- [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
+- [How-to scan your registries and harden your Docker hosts](container-security.md)
+- [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-akscluster)
+- [Security alerts from the threat protection features for Azure Kubernetes Service hosts](alerts-reference.md#alerts-containerhost)
+- [Security recommendations for containers](recommendations-reference.md#recs-containers)
 
 
 
@@ -382,13 +510,13 @@ Azure Security Center's advanced data security for SQL machines now protects SQL
 
 Advanced data security provides vulnerability assessment and advanced threat protection for your SQL machines wherever they're located.
 
-Setup involves two steps:
+Set up involves two steps:
 
 1. Deploying the Log Analytics agent to your SQL Server's host machine to provide the connection to Azure account.
 
 1. Enabling the optional bundle in Security Center's pricing and settings page.
 
-Learn more about [advanced data security for SQL machines](security-center-iaas-advanced-data.md).
+Learn more about [advanced data security for SQL machines](defender-for-sql-usage.md).
 
 
 
@@ -405,10 +533,9 @@ The recommendations also include the Quick fix capability to help speed up the d
 
 Learn more about these two new recommendations in the [Compute and app recommendations](recommendations-reference.md#recs-computeapp) table.
 
-Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](https://docs.microsoft.com/azure/security-center/faq-data-collection-agents#what-is-the-log-analytics-agent).
+Learn more about how Azure Security Center uses the agent in [What is the Log Analytics agent?](faq-data-collection-agents.md#what-is-the-log-analytics-agent).
 
-Learn more about [extensions for Azure Arc machines](https://docs.microsoft.com/azure/azure-arc/servers/manage-vm-extensions#enable-extensions-from-the-portal).
-
+Learn more about [extensions for Azure Arc machines](../azure-arc/servers/manage-vm-extensions.md#enable-extensions-from-the-portal).
 
 
 ### New policies to create continuous export and workflow automation configurations at scale
@@ -465,7 +592,7 @@ The policies can be found in Azure policy:
 | [Advanced threat protection should be enabled on Virtual Machines](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f4da35fc9-c9e7-4960-aec9-797fe7d9051d)           | 4da35fc9-c9e7-4960-aec9-797fe7d9051d |
 |                                                                                                                                                                                                                                                                       |                                      |
 
-Learn more about [Threat protection in Azure Security Center](https://docs.microsoft.com/azure/security-center/threat-protection).
+Learn more about [Threat protection in Azure Security Center](azure-defender.md).
 
 
 
@@ -547,7 +674,7 @@ The security controls - and this toggle - are part of the new secure score exper
 
 Learn more about security controls in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md).
 
-![“Group by controls” toggle for recommendations](\media\secure-score-security-controls\recommendations-group-by-toggle.gif)
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Group by controls toggle for recommendations":::
 
 ### Expanded security control "Implement security best practices" 
 
@@ -589,7 +716,7 @@ Learn more about [enhancing your custom recommendations with detailed informatio
 
 ### Crash dump analysis capabilities migrating to fileless attack detection 
 
-We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](https://docs.microsoft.com/azure/security-center/threat-protection#windows-fileless). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shellcode discovered, and Suspicious code segment detected.
+We are integrating the Windows crash dump analysis (CDA) detection capabilities into [fileless attack detection](defender-for-servers-introduction.md#what-are-the-benefits-of-azure-defender-for-servers). Fileless attack detection analytics brings improved versions of the following security alerts for Windows machines: Code injection discovered, Masquerading Windows Module Detected, Shellcode discovered, and Suspicious code segment detected.
 
 Some of the benefits of this transition:
 

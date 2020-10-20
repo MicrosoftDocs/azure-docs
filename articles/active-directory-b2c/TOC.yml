@@ -180,6 +180,12 @@
       href: basic-age-gating.md
     - name: Define custom attributes
       href: user-flow-custom-attributes.md
+    - name: API connectors
+      items:
+      - name: Overview
+        href: api-connectors-overview.md
+      - name: Add an API connector
+        href: add-api-connector.md
     - name: Pass through external IdP token
       href: idp-pass-through-user-flow.md
   - name: Identity Protection and Conditional Access
@@ -402,12 +408,14 @@
       href: partner-idology.md
     - name: itsme
       href: partner-itsme.md
-    - name: LexisNexis
-      href: partner-lexisnexis.md
     - name: Jumio
       href: partner-jumio.md
+    - name: LexisNexis
+      href: partner-lexisnexis.md
     - name: Onfido
       href: partner-onfido.md
+    - name: Saviynt
+      href: partner-saviynt.md
     - name: Trusona
       href: partner-trusona.md
     - name: Twilio
@@ -472,7 +480,7 @@
     href: error-codes.md
   - name: Extensions app
     href: extensions-app.md
-  - name: IEF release notes
+  - name: Custom policy (IEF) release notes
     href: custom-policy-developer-notes.md
   - name: Microsoft Graph API operations
     href: microsoft-graph-operations.md

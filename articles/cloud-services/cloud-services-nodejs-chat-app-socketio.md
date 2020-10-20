@@ -9,7 +9,7 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: tagore
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 # Build a Node.js chat application with Socket.IO on an Azure Cloud Service

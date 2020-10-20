@@ -1,5 +1,5 @@
 ---
-title: Assign and list roles with administrative unit scope (preview) - Azure Active Directory | Microsoft Docs
+title: Assign and list roles with administrative unit scope - Azure Active Directory | Microsoft Docs
 description: Using administrative units to restrict the scope of role assignments in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 07/10/2020
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -33,6 +33,14 @@ License Administrator  |  Can assign, remove, and update license assignments wit
 Password Administrator  |  Can reset passwords for non-administrators and Password Administrators within the assigned administrative unit only.
 User Administrator  |  Can manage all aspects of users and groups, including resetting passwords for limited admins within the assigned administrative unit only.
 
+## Security principals that can be assigned to a scoped role
+
+The following security principals can be assigned to a role with an administrative unit scope:
+
+* Users
+* Role assignable cloud groups (preview)
+* Service Principal Name (SPN)
+
 ## Assign a scoped role
 
 ### Azure portal
@@ -45,15 +53,19 @@ Select the role to be assigned and then select **Add assignments**. A panel open
 
 ![Select the role to scope and then select Add assignments](./media/roles-admin-units-assign-roles/select-add-assignment.png)
 
+> [!Note]
+>
+> To assign a role on an administrative unit using PIM, follow the steps [here](/active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md#assign-a-role-with-restricted-scope).
+
 ### PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
 $Role = Get-AzureADDirectoryRole | Where-Object -Property DisplayName -EQ -Value "User Account Administrator"
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 $RoleMember = New-Object -TypeName Microsoft.Open.AzureAD.Model.RoleMemberInfo
 $RoleMember.ObjectId = $AdminUser.ObjectId
-Add-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
+Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
 The highlighted section may be changed as required for the specific environment.
@@ -62,7 +74,7 @@ The highlighted section may be changed as required for the specific environment.
 
 ```http
 Http request
-POST /administrativeUnits/{id}/scopedRoleMembers
+POST /directory/administrativeUnits/{id}/scopedRoleMembers
     
 Request body
 {
@@ -82,8 +94,8 @@ All the role assignments done with an administrative unit scope can be viewed in
 ### PowerShell
 
 ```powershell
-$administrativeUnit = Get-AzureADAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
-Get-AzureADScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
+$administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
+Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
 The highlighted section may be changed as required for the specific environment.
@@ -92,7 +104,7 @@ The highlighted section may be changed as required for the specific environment.
 
 ```http
 Http request
-GET /administrativeUnits/{id}/scopedRoleMembers
+GET /directory/administrativeUnits/{id}/scopedRoleMembers
 Request body
 {}
 ```

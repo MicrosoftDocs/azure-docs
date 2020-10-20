@@ -109,11 +109,13 @@ The following sections provide details about how to connect your BMC Helix produ
 Ensure that you've met the following prerequisites:
 
 * Azure AD is registered.
-* You have the supported version of BMC Helix Multi-Cloud Service Management (version 20.02 or later).
+* You have the supported version of BMC Helix Multi-Cloud Service Management (version 19.08 or later).
 
 ### Configure the BMC Helix connection
 
-1. Follow the instructions in [Enabling prebuilt integration with Azure Monitor for version 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+1. Follow the instructions accoring to the version:
+   * [Enabling prebuilt integration with Azure Monitor for version 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
+   * [Enabling prebuilt integration with Azure Monitor for version 19.11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
 
 1. As a part of the configuration of the connection in BMC Helix, go into your integration BMC instance and follow these instructions:
 
@@ -135,4 +137,4 @@ Ensure that you've met the following prerequisites:
 
 ## Next steps
 
-* [Create ITSM work items from Azure alerts](./itsmc-overview.md#create-itsm-work-items-from-azure-alerts)
+* [Create ITSM work items from Azure alerts](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview)

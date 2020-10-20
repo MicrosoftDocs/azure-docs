@@ -13,7 +13,7 @@ ms.date: 02/07/2020
 ---
 
 # Tutorial: Use R to create a machine learning model (preview)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > The Azure Machine Learning R SDK is currently in public preview.

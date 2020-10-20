@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/28/2020
 ms.author: duau
 ---
 
@@ -17,7 +17,7 @@ ms.author: duau
 
 By using Azure Front Door, you can monitor resources in the following ways:
 
-- **Metrics**. Azure Front Door currently has seven metrics to view performance counters.
+- **Metrics**. Azure Front Door currently has eight metrics to view performance counters.
 - **Logs**. Activity and diagnostic logs allow performance, access, and other data to be saved or consumed from a resource for monitoring purposes.
 
 ### Metrics
@@ -47,16 +47,16 @@ Access activity logs in your Front Door or all the logs of your Azure resources 
 1. Select your Front Door instance.
 2. Select **Activity log**.
 
-    ![Activity log](./media/front-door-diagnostics/activity-log.png)
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Activity log":::
 
 3. Choose a filtering scope, and then select **Apply**.
 
 ## <a name="diagnostic-logging"></a>Diagnostic logs
 Diagnostic logs provide rich information about operations and errors that are important for auditing and troubleshooting. Diagnostic logs differ from activity logs.
 
-Activity logs provide insights into the operations done on Azure resources. Diagnostic logs provide insight into operations that your resource performed. For more information, see [Azure Monitor diagnostic logs](../azure-monitor/platform/platform-logs-overview.md).
+Activity logs provide insights into the operations done on Azure resources. Diagnostic logs provide insight into operations that your resource has done. For more information, see [Azure Monitor diagnostic logs](../azure-monitor/platform/platform-logs-overview.md).
 
-![Diagnostic logs](./media/front-door-diagnostics/diagnostic-log.png)
+:::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Diagnostic logs":::
 
 To configure diagnostic logs for your Front Door:
 
@@ -98,7 +98,6 @@ Front Door currently provides diagnostic logs (batched hourly). Diagnostic logs 
 | Routing rule with caching enabled. Cache hit at the edge POP | 1 | Edge POP code | Empty | False | HIT |
 | Routing rule with caching enabled. Cache miss at edge POP but cache hit at parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Empty | 1. True</br>2. False | 1. MISS</br>2. PARTIAL_HIT |
 | Routing rule with caching enabled. Cache miss at both edge and parent cache POP | 2 | 1. Edge POP code</br>2. Parent cache POP code | 1. Parent cache POP hostname</br>2. Backend that helps populate cache | 1. True</br>2. False | 1. MISS</br>2. MISS |
-
 
 ## Next steps
 

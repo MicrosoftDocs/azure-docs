@@ -1,7 +1,7 @@
 ---
 title: Cross-tenant management experiences
 description: Azure delegated resource management enables a cross-tenant management experience.
-ms.date: 09/10/2020
+ms.date: 09/30/2020
 ms.topic: conceptual
 ---
 
@@ -43,7 +43,7 @@ Most tasks and services can be performed on delegated resources across managed t
 
 [Azure Arc](../../azure-arc/index.yml):
 
-- Manage hybrid servers at scale - [Azure Arc enabled servers (preview)](../../azure-arc/servers/overview.md):
+- Manage hybrid servers at scale - [Azure Arc enabled servers](../../azure-arc/servers/overview.md):
   - [Manage Windows Server or Linux machines outside Azure that are connected](../../azure-arc/servers/onboard-portal.md) to delegated subscriptions and/or resource groups in Azure
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of policies are applied across customers' hybrid environments
@@ -115,6 +115,7 @@ Most tasks and services can be performed on delegated resources across managed t
   - Harden network security group configuration with Adaptive Network Hardening
   - Ensure servers are running only the applications and processes they should be with adaptive application controls
   - Monitor changes to important files and registry entries with File Integrity Monitoring (FIM)
+- Note that the entire subscription must be delegated to the managing tenant; Azure Security Center scenarios are not supported with delegated resource groups
 
 [Azure Sentinel](../../sentinel/multiple-tenants-service-providers.md):
 

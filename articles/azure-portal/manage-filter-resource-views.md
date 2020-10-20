@@ -51,7 +51,11 @@ To delete a view:
 
 ## Summarize resources with visuals
 
-The views we've looked at so far have been _list views_, but there are also _summary views_ that include visuals. You can save and use these views just like you can list views. Filters persist between the two types of views. To save and use a summary view:
+The views we've looked at so far have been _list views_, but there are also _summary views_ that include visuals. You can save and use these views just like you can list views. Filters persist between the two types of views. There are standard views, like the **Location** view shown below, as well as views that are relevant to specific services, such as the **Status** view for virtual machines.
+
+:::image type="content" source="media/manage-filter-resource-views/summary-map.png" alt-text="Summary of resources in a map view":::
+
+To save and use a summary view:
 
 1. From the view menu, select **Summary view**.
 

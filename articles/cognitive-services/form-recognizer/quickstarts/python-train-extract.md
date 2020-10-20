@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 #Customer intent: As a developer or data scientist familiar with Python, I want to learn how to use Form Recognizer to extract my form data.
@@ -307,7 +307,7 @@ This sample JSON output has been shortened for simplicity.
               }
             ]
           }, 
-		...
+        ...
         ]
       }
     ],
@@ -334,7 +334,7 @@ This sample JSON output has been shortened for simplicity.
             },
             "confidence": 1
           },
-		 ...
+         ...
         ],
         "tables": [
           {
@@ -365,7 +365,7 @@ This sample JSON output has been shortened for simplicity.
                 "isHeader": true,
                 "isFooter": false
               },
-			  ...
+              ...
             ]
           }
         ], 
@@ -434,7 +434,7 @@ This sample JSON output has been shortened for simplicity.
               }
             ]
           }, 
-		  ...
+          ...
         ] 
       }
     ],
@@ -477,7 +477,7 @@ This sample JSON output has been shortened for simplicity.
             },
             "confidence": 1
           },
-		  ...
+          ...
         ], 
         "tables": [
           {
@@ -508,7 +508,7 @@ This sample JSON output has been shortened for simplicity.
                 "isHeader": true,
                 "isFooter": false
               },
-			  ...
+              ...
             ]
           }
         ], 

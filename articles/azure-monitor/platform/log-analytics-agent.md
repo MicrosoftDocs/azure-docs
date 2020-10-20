@@ -55,7 +55,7 @@ See [Configure agent to report to an Operations Manager management group](agent-
 
 * Windows agents can connect to up to four workspaces, even if they are connected to a System Center Operations Manager management group.
 * The Linux agent does not support multi-homing and can only connect to a single workspace or management group.
-  
+
 
 ## Security limitations
 
@@ -65,6 +65,8 @@ See [Configure agent to report to an Operations Manager management group](agent-
 ## Installation options
 
 There are multiple methods to install the Log Analytics agent and connect your machine to Azure Monitor depending on your requirements. The following sections list the possible methods for different types of virtual machine.
+> [!NOTE]
+> It is not supported to clone a machine with the Log Analytics Agent already configured. If the agent has already been associated with a workspace this will not work for 'golden images'.
 
 ### Azure virtual machine
 

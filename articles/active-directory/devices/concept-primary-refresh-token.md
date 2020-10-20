@@ -197,6 +197,9 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 | E | The native client host will return this PRT cookie to the browser, which will include it as part of the request header called x-ms-RefreshTokenCredential and request tokens from Azure AD. |
 | F | Azure AD validates the Session key signature on the PRT cookie, validates the nonce, verifies that the device is valid in the tenant, and issues an ID token for the web page and an encrypted session cookie for the browser. |
 
+> [!NOTE]
+> The Browser SSO flow described in the steps above does not apply for sessions in private modes such as InPrivate in Microsoft Edge, or Incognito in Google Chrome (when using the Microsoft Accounts extension).
+
 ## Next steps
 
 For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).

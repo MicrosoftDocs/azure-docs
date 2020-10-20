@@ -19,7 +19,7 @@ If you're new to Azure Logic Apps and just want the basic concepts, try the [qui
 
 In this quickstart, you create the same logic app with Visual Studio as the Azure portal quickstart. This logic app monitors a website's RSS feed and sends email for each new item in that feed. Your finished logic app looks like this high-level workflow:
 
-![Finished logic app](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
+![Screenshot that shows the high-level workflow of a finished logic app.](./media/quickstart-create-logic-apps-with-visual-studio/high-level-workflow-overview.png)
 
 <a name="prerequisites"></a>
 

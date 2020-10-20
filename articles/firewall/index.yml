@@ -31,6 +31,11 @@ landingContent:
             url: rule-processing.md
           - text: Frequently asked questions
             url: firewall-faq.md
+      - linkListType: whats-new
+        links:
+          - text: What's new
+            url: https://azure.microsoft.com/updates/?category=networking&query=Firewall
+
        
   # Card
   - title: Deploy an Azure Firewall

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 09/29/2019
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -70,11 +70,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 1. The first step is to authenticate and start a session. Go to **Connect and copy**. Select **SMB** to get the access credentials for the shares associated with your storage account. 
 
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+    ![Get share credentials for SMB shares](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
 2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Select **OK**.
     
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+    ![Get user name and password for a share](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
 3. To access the shares associated with your storage account (*utsac1* in the following example) from your host computer, open a command window. At the command prompt, type:
 
@@ -95,11 +95,11 @@ If using a Windows Server host computer, follow these steps to connect to the Da
 
 4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Select **OK** to open File Explorer.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
+    ![Connect to share via File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
 
     You should now see the shares as folders.
     
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
+    ![Shares shown in File Explorer](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png)
 
     **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. The folder created under block blob and page blob shares represents a container to which data is uploaded as blobs. You cannot copy files directly to *root* folder in the storage account.
     
@@ -114,7 +114,7 @@ sudo mount -t nfs -o vers=2.1 10.126.76.138:/utSAC1_202006051000_BlockBlob /home
 Once you're connected to the Data Box shares, the next step is to copy data. Before you begin the data copy, review the following considerations:
 
 * Make sure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. Copy the VHDs to page blob. If the data format doesn't match the appropriate share type, then at a later step, the data upload to Azure will fail.
-* While copying data, make sure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
+* While copying data, make sure that the data size conforms to the size limits described in the [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 * If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
 * We recommend that:
   * You don't use both SMB and NFS at the same time.
@@ -223,15 +223,15 @@ For more information on Robocopy command, go to [Robocopy and a few examples](ht
 
 During the copy process, if there are any errors, you will see a notification.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
+![A copy error notification in Connect and copy](media/data-box-deploy-copy-data/view-errors-1.png)
 
 Select **Download issue list**.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-2.png)
+![Download and view errors on Connect and copy 2](media/data-box-deploy-copy-data/view-errors-2.png)
 
 Open the list to view the details of the error and select the resolution URL to view the recommended resolution.
 
-![Download and view errors on Connect and copy](media/data-box-deploy-copy-data/view-errors-3.png)
+![Download and view errors on Connect and copy 3](media/data-box-deploy-copy-data/view-errors-3.png)
 
 For more information, see [View error logs during data copy to Data Box](data-box-logs.md#view-error-log-during-data-copy). For a detailed list of errors during data copy, see [Troubleshoot Data Box issues](data-box-troubleshoot.md).
 

@@ -54,6 +54,7 @@
   - name: Usage data for Enterprise customers
     href: understand-reserved-instance-usage-ea.md?toc=/azure/cost-management-billing/reservations/toc.json
 - name: How-to guides
+  expanded: true
   items:
   - name: Determine what to purchase
     items:
@@ -129,3 +130,7 @@
     href: /rest/api/consumption/usagedetails
   - name: Cost Management - Consumption Reservations Details REST API
     href: /rest/api/consumption/reservationsdetails
+- name: Resources
+  items:
+  - name: Save money with reserved instances Learn module
+    href: /learn/modules/save-money-with-azure-reserved-instances

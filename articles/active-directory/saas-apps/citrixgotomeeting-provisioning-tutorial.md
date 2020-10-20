@@ -54,7 +54,7 @@ This section guides you through connecting your Azure AD to GoToMeeting's user a
 
 1. Set the **Provisioning** Mode to **Automatic**. 
 
-    ![provisioning](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
+    ![Screenshot of the Provisioning tab for GoToMeeting in Azure portal. Provisioning Mode is set to Automatic and Admin Username, Password and Test Connection are highlighted.](./media/citrixgotomeeting-provisioning-tutorial/provisioning.png)
 
 1. Under the Admin Credentials section, perform the following steps:
    

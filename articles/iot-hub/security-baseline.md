@@ -69,7 +69,7 @@ Azure DDoS Protection Basic is already enabled and available for no additional c
 
 - [IoT Hub IP filter](iot-hub-ip-filtering.md)
 
-- [Azure Security Center for IoT suspicious IP address communication](../asc-for-iot/concept-security-alerts.md)
+- [Azure Security Center for IoT suspicious IP address communication](../defender-for-iot/concept-security-alerts.md)
 
 - [Manage Azure DDoS Protection Basic](../virtual-network/ddos-protection-overview.md)
 
@@ -232,7 +232,7 @@ Alternatively, you can enable and on-board data to Azure Sentinel or a third-par
 
 - [Monitor Azure IoT Hub health](iot-hub-monitor-resource-health.md)
 - [How to onboard Azure Sentinel](../sentinel/quickstart-onboard.md)
-- [Azure Security Center for IoT alerts](../asc-for-iot/concept-security-alerts.md)
+- [Azure Security Center for IoT alerts](../defender-for-iot/concept-security-alerts.md)
 
 - [How to alert on log analytics log data](../azure-monitor/learn/tutorial-response.md)
 

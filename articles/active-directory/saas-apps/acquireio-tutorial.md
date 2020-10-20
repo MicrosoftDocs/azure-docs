@@ -130,15 +130,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. From the left side of menu, click on **App Store**.
 
-	 ![AcquireIO configuration](./media/acquireio-tutorial/config01.png)
+	 ![Screenshot that highlights App Store.](./media/acquireio-tutorial/config01.png)
 
 1. Scroll down up to **Active Directory** and click on **Install**.
 
-    ![AcquireIO configuration](./media/acquireio-tutorial/config02.png)
+    ![Screenshot that highlights the Active Directory section and the Install button.](./media/acquireio-tutorial/config02.png)
 
 1. On the Active Directory pop-up, perform the following steps:
 
-    ![AcquireIO configuration](./media/acquireio-tutorial/config03.png)
+    ![Screnshot that shows the Active Directory screen.](./media/acquireio-tutorial/config03.png)
 
 	a. Click **Copy** to copy the Reply URL for your instance and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
 
@@ -158,7 +158,7 @@ To enable Azure AD users to sign in to AcquireIO, they must be provisioned into 
 
 1. From the left side of menu, click **Profiles** and navigate to **Add Profile**.
 
-	 ![AcquireIO configuration](./media/acquireio-tutorial/config04.png)
+	 ![Screenshot that highlights Profiles in menu on the left side of the screen as well as the Add Profile option.](./media/acquireio-tutorial/config04.png)
 
 1. On the **Add customer** pop-up, perform the following steps:
 

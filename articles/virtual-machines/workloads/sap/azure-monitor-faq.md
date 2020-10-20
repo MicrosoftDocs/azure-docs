@@ -1,6 +1,6 @@
 ---
 title: FAQ - Azure Monitor for SAP Solutions | Microsoft Docs
-description: This article provides answers to frequently asked questions about Azure monitor for SAP solutions
+description: In this article, learn answers to frequently asked questions (FAQ) about Azure monitor for SAP solutions.
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva

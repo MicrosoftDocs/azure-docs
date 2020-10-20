@@ -23,14 +23,14 @@ For a user to access an application, they must first be assigned to it in some w
     * A group that was synchronized from on-premises
     * A static security group created in the cloud
     * A [dynamic security group](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) created in the cloud
-    * An Office 365 group created in the cloud
+    * A Microsoft 365 group created in the cloud
     * The [All Users](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups) group
 *  An administrator enables [Self-service Application Access](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) to allow a user to add an application using [My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Add App** feature **without business approval**
 *  An administrator enables [Self-service Application Access](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) to allow a user to add an application using [My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Add App** feature, but only **with prior approval from a selected set of business approvers**
 *  An administrator enables [Self-service Group Management](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) to allow a user to join a group that an application is assigned to **without business approval**
 *  An administrator enables [Self-service Group Management](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) to allow a user to join a group that an application is assigned to, but only **with prior approval from a selected set of business approvers**
-*  An administrator assigns a license to a user directly for a first party application, like [Microsoft Office 365](https://products.office.com/)
-*  An administrator assigns a license to a group that the user is a member of to a first party application, like [Microsoft Office 365](https://products.office.com/)
+*  An administrator assigns a license to a user directly for a first party application, like [Microsoft 365](https://products.office.com/)
+*  An administrator assigns a license to a group that the user is a member of to a first party application, like [Microsoft 365](https://products.office.com/)
 *  An [administrator consents to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) to be used by all users and then a user signs in to the application
 * A user [consents to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) themselves by signing in to the application
 

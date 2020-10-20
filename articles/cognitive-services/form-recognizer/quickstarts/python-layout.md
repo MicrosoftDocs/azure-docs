@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 05/27/2020
+ms.date: 10/05/2020
 ms.author: pafarley
 ms.custom: devx-track-python
 ---
@@ -128,7 +128,7 @@ https://cognitiveservice/formrecognizer/v2.1-preview.1/layout/operations/54f0b07
 ```  
 
 ---
-	
+    
 
 
 
@@ -234,7 +234,7 @@ See the following invoice image and its corresponding JSON output. The output ha
                             }
                         ]
                     },
-					...
+                    ...
                 ]
             }
         ],
@@ -265,10 +265,10 @@ See the following invoice image and its corresponding JSON output. The output ha
                                     "#/readResults/0/lines/14/words/1"
                                 ]
                             },
-							...
+                            ...
                         ]
                     },
-					...
+                    ...
                 ]
             }
         ]
@@ -335,7 +335,7 @@ See the following invoice image and its corresponding JSON output. The output ha
                             }
                         ]
                     },
-					...
+                    ...
                         ]
                     }
                 ],
@@ -354,7 +354,7 @@ See the following invoice image and its corresponding JSON output. The output ha
                         "confidence": 0.989,
                         "state": "selected"
                     },
-					...
+                    ...
                 ]
             }
         ],
@@ -385,10 +385,10 @@ See the following invoice image and its corresponding JSON output. The output ha
                                     "#/readResults/0/lines/12/words/1"
                                 ]
                             },
-							...
+                            ...
                         ]
                     },
-					...
+                    ...
                 ]
             }
         ]

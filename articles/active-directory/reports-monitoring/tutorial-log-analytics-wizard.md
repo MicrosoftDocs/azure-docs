@@ -71,7 +71,7 @@ Configuring a log analytics workspace consists of two main steps:
 
 3. On the log analytics workspaces page, click **Add**.
 
-    ![Add](./media/tutorial-log-analytics-wizard/add.png)
+    ![Screenshot shows the Add button in the log analytics workspaces page.](./media/tutorial-log-analytics-wizard/add.png)
 
 4.  On the **Create Log Analytics workspace** page, perform the following steps:
 
@@ -304,7 +304,7 @@ This procedure shows how to create a new workbook using the quickstart template.
 
 3. In the **Monitoring** section, click **Workbooks**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Screenshot shows Monitoring in the Azure portal menu with Workbooks selected.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. In the **Quickstart** section, click **Empty**.
 
@@ -356,7 +356,7 @@ This procedure shows how to add a query to an existing workbook template. The ex
 
 3. In the **Monitoring** section, click **Workbooks**.
 
-    ![Workbooks](./media/tutorial-log-analytics-wizard/workbooks.png)
+    ![Screenshot shows Monitoring in the menu with Workbooks selected.](./media/tutorial-log-analytics-wizard/workbooks.png)
 
 4. In the **conditional access** section, click **Conditional Access Insights and Reporting**.
 

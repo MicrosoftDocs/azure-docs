@@ -11,6 +11,8 @@ ms.custom: devx-track-java
 
 # Tutorial: Provision an Azure Spring Cloud instance with Terraform
 
+**This article applies to:** ✔️ Java ✔️ C#
+
 This tutorial creates an Azure Spring Cloud instance using Terraform. The procedures walk you through creation of the following resources:
 
 > [!div class="checklist"]

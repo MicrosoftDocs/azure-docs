@@ -253,13 +253,13 @@ If you join your Azure-SSIS IR to a VNet, you'll see the **VALIDATE VNET / SUBNE
 
 On the **DIAGNOSE CONNECTIVITY** tile of your Azure-SSIS IR monitoring page, you can select the **Test connection** link to pop up a window, where you can check the connections between your Azure-SSIS IR and relevant package/configuration/data stores, as well as management services, via their fully qualified domain name (FQDN)/IP address and designated port (see [Testing connections from your Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-diagnose-connectivity-faq)).
 
-![Monitor your Azure-SSIS IR - DIAGNOSE tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Screenshot that shows where you can test the connections between your Azure-SSIS IR and relevant package/configuration/data stores.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### STATIC PUBLIC IP ADDRESSES tile
 
 If you bring your own static public IP addresses for Azure-SSIS IR, you'll see the **STATIC PUBLIC IP ADDRESSES** tile on your Azure-SSIS IR monitoring page (see [Bringing your own static public IP addresses for Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network#publicIP)). On this tile, you can select links designating your first/second static public IP addresses for Azure-SSIS IR to pop up a window, where you can copy their resource ID (`/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress`) from a text box. On the pop-up window, you can also select the **See your first/second static public IP address settings** link to manage your first/second static public IP address in Azure portal.
 
-![Monitor your Azure-SSIS IR - DIAGNOSE tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Screenshot that shows where you can designate your first/second static public IP addresses.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### PACKAGE STORES tile
 

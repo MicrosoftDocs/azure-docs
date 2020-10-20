@@ -1,12 +1,16 @@
-- name: Azure Stack Edge and Data Box Gateway Documentation 
+- name: Azure Stack Edge Pro and Data Box Gateway Documentation 
   href: /azure/databox-online/
   expanded: true
-- name: Azure Stack Edge with GPU (Preview)
+- name: Azure Stack Edge Pro - GPU
   items:
   - name: Overview
     items:
-    - name: What is Azure Stack Edge with GPU?
-      href:  azure-stack-edge-gpu-overview.md
+    - name: What is Azure Stack Edge Pro with GPU?
+      href: azure-stack-edge-gpu-overview.md
+  - name: Quickstarts
+    items:
+    - name: Get started
+      href:  azure-stack-edge-gpu-quickstart.md
   - name: Tutorials
     items:
     - name: 0 - Get checklist
@@ -27,10 +31,6 @@
       href: azure-stack-edge-gpu-deploy-activate.md 
     - name: 8 - Configure compute
       href: azure-stack-edge-gpu-deploy-configure-compute.md 
-    - name: 9A - Add, connect to share
-      href: azure-stack-edge-j-series-deploy-add-shares.md 
-    - name: 9B - Add, connect to storage accounts
-      href: azure-stack-edge-j-series-deploy-add-storage-accounts.md 
       
   - name: Concepts
     items:
@@ -46,7 +46,7 @@
         href: azure-stack-edge-gpu-technical-specifications-compliance.md
       - name: Power cord specifications
         href: azure-stack-edge-technical-specifications-power-cords-regional.md
-    - name: Understand Kubernetes
+    - name: Understand Kubernetes (Preview)
       items:
       - name: What is Kubernetes?
         href: azure-stack-edge-gpu-kubernetes-overview.md  
@@ -69,7 +69,7 @@
         href: azure-stack-edge-gpu-deploy-sample-module.md 
       - name: GPU module via Marketplace
         href: azure-stack-edge-gpu-deploy-sample-module-marketplace.md 
-    - name: Deploy Kubernetes workloads
+    - name: Deploy Kubernetes workloads (Preview)
       items:
       - name: Via kubectl
         items: 
@@ -85,13 +85,15 @@
         items:
         - name: Stateless app
           href: azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md 
-      - name: Via Azure Arc
+        - name: Develop C# module
+          href: azure-stack-edge-j-series-create-iot-edge-module.md 
+      - name: Via Azure Arc (Preview)
         items:
         - name: Enable Arc on Kubernetes cluster
           href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md 
         - name: Deploy stateless app via GitOps
           href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md              
-    - name: Configure Azure Resource Manager
+    - name: Configure Azure Resource Manager (Preview)
       items:
       - name: Connect via Azure PowerShell
         href: azure-stack-edge-j-series-connect-resource-manager.md 
@@ -99,7 +101,7 @@
         href: azure-stack-edge-j-series-set-azure-resource-manager-password.md 
       - name: Configure client TLS settings
         href: azure-stack-edge-j-series-configure-tls-settings.md 
-    - name: Deploy VMs 
+    - name: Deploy VMs (Preview)
       items:
       - name: Deploy VMs - Templates
         href: azure-stack-edge-gpu-deploy-virtual-machine-templates.md 
@@ -121,12 +123,14 @@
         href: azure-stack-edge-j-series-create-certificates-tool.md 
       - name: Troubleshoot certificate errors
         href: azure-stack-edge-j-series-certificate-troubleshooting.md 
-    - name: Develop C# module
-      href: azure-stack-edge-j-series-create-iot-edge-module.md 
     - name: Manage Edge compute 
       href: azure-stack-edge-j-series-manage-compute.md 
     - name: Manage storage gateway
       items:
+      - name: Add, connect to share
+        href: azure-stack-edge-j-series-deploy-add-shares.md 
+      - name: Add, connect to storage accounts
+        href: azure-stack-edge-j-series-deploy-add-storage-accounts.md         
       - name: Shares
         href: azure-stack-edge-j-series-manage-shares.md 
       - name: Users
@@ -138,7 +142,7 @@
     - name: Manage device
       items:
       - name: Power, access, connectivity
-        href: azure-stack-edge-manage-access-power-connectivity-mode.md 
+        href: azure-stack-edge-gpu-manage-access-power-connectivity-mode.md 
       - name: Via PowerShell
         href: azure-stack-edge-gpu-connect-powershell-interface.md 
       - name: Apply updates
@@ -146,7 +150,11 @@
       - name: Return device
         href: azure-stack-edge-return-device.md     
       - name: Replace device
-        href: azure-stack-edge-replace-device.md     
+        href: azure-stack-edge-replace-device.md  
+      - name: Prepare for device failure
+        href: azure-stack-edge-gpu-prepare-device-failure.md
+      - name: Recover from device failure
+        href: azure-stack-edge-gpu-recover-device-failure.md   
     - name: Monitor
       items:
       - name: Using metric charts
@@ -164,7 +172,9 @@
   
   - name: Release notes
     items:
-    - name: 2008 - Release notes
+    - name: 2009 - GA
+      href: azure-stack-edge-gpu-2009-release-notes.md 
+    - name: 2008 - Preview
       href: azure-stack-edge-gpu-2008-release-notes.md 
 
   - name: Reference
@@ -176,11 +186,11 @@
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet 
 
-- name: Azure Stack Edge with FPGA
+- name: Azure Stack Edge Pro - FPGA
   items:
   - name: Overview
     items:
-    - name: What is Azure Stack Edge with FPGA?
+    - name: What is Azure Stack Edge Pro with FPGA?
       href: azure-stack-edge-overview.md
   - name: Tutorials
     items:
@@ -265,6 +275,20 @@
     - name: .NET SDK
       href: https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet   
 
+- name: Azure Stack Edge Pro R
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Pro R?
+      href: azure-stack-edge-j-series-overview.md
+
+- name: Azure Stack Edge Mini R
+  items:
+  - name: Overview
+    items:
+    - name: What is Azure Stack Edge Mini R?
+      href: azure-stack-edge-k-series-overview.md
+
 - name: Data Box Gateway
   items:
   - name: Overview
@@ -329,9 +353,9 @@
         href: data-box-gateway-release-notes.md
 - name: Resources
   items:
-  - name: Azure Stack Edge C# module samples (.NET)
+  - name: Azure Stack Edge Pro C# module samples (.NET)
     href: https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/
-  - name: Azure Stack Edge/Data Box Gateway product  
+  - name: Azure Stack Edge Pro/Data Box Gateway product  
     href: https://azure.microsoft.com/services/storage/databox/edge/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/storage/databox/edge/

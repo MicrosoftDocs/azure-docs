@@ -24,11 +24,11 @@ This article explains why the error occurs and how to resolve it.
 
 A mismatched directory error happens when an Azure AD DS managed domain and virtual network belong to two different Azure AD tenants. For example, you may have a managed domain called *aaddscontoso.com* that runs in Contoso's Azure AD tenant. However, the Azure virtual network for managed domain is part of the Fabrikam Azure AD tenant.
 
-Azure uses role-based access control (RBAC) to limit access to resources. When you enable Azure AD DS in an Azure AD tenant, credential hashes are synchronized to the managed domain. This operation requires you to be a tenant admin for the Azure AD directory, and access to the credentials must be controlled.
+Azure role-based access control (Azure RBAC) is used to limit access to resources. When you enable Azure AD DS in an Azure AD tenant, credential hashes are synchronized to the managed domain. This operation requires you to be a tenant admin for the Azure AD directory, and access to the credentials must be controlled.
 
 To deploy resources to an Azure virtual network and control traffic, you must have administrative privileges on the virtual network in which you deploy the managed domain.
 
-For RBAC to work consistently and secure access to all the resources Azure AD DS uses, the managed domain and the virtual network must belong to the same Azure AD tenant.
+For Azure RBAC to work consistently and secure access to all the resources Azure AD DS uses, the managed domain and the virtual network must belong to the same Azure AD tenant.
 
 The following rules apply for deployments:
 

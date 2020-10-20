@@ -28,8 +28,8 @@ the following process:
 
 1.  Sign in to the [Azure portal](https://portal.azure.com/).
    
-   >![NOTE]
-   > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
+    >[!NOTE]
+    > If you're signing in to the US Gov portal, go to [https://portal.azure.us/](https://portal.azure.us/) instead.
 
 2.  Search for and select **Windows Virtual Desktop**.
 

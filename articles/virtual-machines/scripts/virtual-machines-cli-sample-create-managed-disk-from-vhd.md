@@ -1,5 +1,5 @@
 ---
-title: Managed disk from VHD file in same account - CLI sample
+title: Create a managed disk from a VHD file in the same account - CLI sample
 description: Azure CLI Script Sample - Create a managed disk from a VHD file in a storage account in the same subscription
 documentationcenter: storage
 author: ramankumarlive

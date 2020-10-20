@@ -72,7 +72,7 @@ When the consumer deletes the managed application, the managed resource group is
 
 ## Azure Policy
 
-You can apply an [Azure Policy](../../governance/policy/overview.md) to audit your managed application. You apply policy definitions to make sure deployed instances of your managed application fulfill data and security requirements. If your application interacts with sensitive data, make sure you've evaluated how that should be protected. For example, if your application interacts with data from Office 365, apply a policy definition to make sure data encryption is enabled.
+You can apply an [Azure Policy](../../governance/policy/overview.md) to audit your managed application. You apply policy definitions to make sure deployed instances of your managed application fulfill data and security requirements. If your application interacts with sensitive data, make sure you've evaluated how that should be protected. For example, if your application interacts with data from Microsoft 365, apply a policy definition to make sure data encryption is enabled.
 
 ## Next steps
 

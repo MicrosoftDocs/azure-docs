@@ -26,6 +26,8 @@
       href: get-started-visualize-power-bi.md
     - name: 8 Monitor
       href: get-started-monitor.md
+    - name: 9 Explore the Knowledge Center
+      href: get-started-knowledge-center.md
   - name: Cheat sheet 
     href: overview-cheat-sheet.md
   - name: FAQ
@@ -78,8 +80,6 @@
     href: ./sql/tutorial-connect-power-bi-desktop.md
   - name: Data Scientist
     items:
-    - name: Run a regression experiment using Azure AutoML
-      href: ./spark/apache-spark-azure-machine-learning-tutorial.md
     - name: Create a classification model using Apache Spark MLlib
       href: ./spark/apache-spark-machine-learning-mllib-notebook.md 
   - name: Data Analyst
@@ -212,6 +212,8 @@
         href: ../data-factory/concepts-data-flow-expression-builder.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Expression language
         href: ../data-factory/data-flow-expression-functions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+    - name: Differences from Azure Data Factory
+      href: ./data-integration/concepts-data-factory-differences.md
   - name: Spark
     items:
     - name: Overview
@@ -386,6 +388,26 @@
       href: ../cosmos-db/synapse-link-frequently-asked-questions.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Synapse Link use cases
       href: ../cosmos-db/synapse-link-use-cases.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+
+
+  - name: Machine Learning
+    items:
+    - name: Overview
+      items:
+      - name: What is machine learning in Synapse Analytics?
+        href: machine-learning/what-is-machine-learning.md
+    - name: Quickstarts
+      items:
+      - name: Create a new Azure Machine Learning linked service
+        href: machine-learning/quickstart-integrate-azure-machine-learning.md
+    - name: Tutorials
+      items:
+      - name: Model scoring wizard for SQL pools
+        href: machine-learning/tutorial-sql-pool-model-scoring-wizard.md
+      - name: Run a regression experiment using Azure AutoML (Scoring in DW)
+        href: ./spark/apache-spark-azure-machine-learning-tutorial.md
+
+
   - name: Tools integration (AI, ETL, BI)
     items:
     - name: Troubleshoot Synapse Studio
@@ -534,6 +556,8 @@
         href: ../data-factory/data-flow-new-branch.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Pivot
         href: ../data-factory/data-flow-pivot.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      - name: Rank
+        href: ../data-factory/data-flow-rank.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Select
         href: ../data-factory/data-flow-select.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
       - name: Sink

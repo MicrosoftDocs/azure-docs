@@ -44,7 +44,9 @@ See [supported backend resources](https://docs.microsoft.com/azure/application-g
 
 ### In what regions is Application Gateway available?
 
-Application Gateway is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+Application Gateway v1 (Standard and WAF) is available in all regions of global Azure. It's also available in [Azure China 21Vianet](https://www.azure.cn/) and [Azure Government](https://azure.microsoft.com/overview/clouds/government/).
+
+For Application Gateway v2 (Standard_v2 and WAF_v2) availability, see [supported regions for Application Gateway v2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#supported-regions)
 
 ### Is this deployment dedicated for my subscription, or is it shared across customers?
 
@@ -177,11 +179,15 @@ No. But you can deploy other application gateways in the subnet.
 
 ### Are network security groups supported on the application gateway subnet?
 
-See [Network security groups in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet).
+See [Network security groups in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#network-security-groups).
 
 ### Does the application gateway subnet support user-defined routes?
 
 See [User-defined routes supported in the Application Gateway subnet](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#supported-user-defined-routes).
+
+### Are service endpoint policies supported in the Application Gateway subnet?
+
+No. [Service endpoint policies](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview) for storage accounts are not supported in Application Gateway subnet and configuring it will block Azure infrastructure traffic.
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
@@ -217,7 +223,7 @@ The Host field specifies the name to send the probe to when you've configured mu
 
 ### Can I allow Application Gateway access to only a few source IP addresses?
 
-Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-overview#allow-application-gateway-access-to-a-few-source-ips).
+Yes. See [restrict access to specific source IPs](https://docs.microsoft.com/azure/application-gateway/configuration-infrastructure#allow-access-to-a-few-source-ips).
 
 ### Can I use the same port for both public-facing and private-facing listeners?
 

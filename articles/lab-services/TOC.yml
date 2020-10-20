@@ -88,6 +88,8 @@
       href: specify-marketplace-images.md
     - name: Specify support information (lab account owner)
       href: lab-account-owner-support-information.md
+    - name: Upload a custom image to Shared Image Gallery
+      href: upload-custom-image-shared-image-gallery.md
   - name: Create and configure classroom labs (educator)
     items:        
     - name: Create and manage classroom labs

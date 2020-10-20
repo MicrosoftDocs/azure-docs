@@ -98,7 +98,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
         "task": "Image deployment"
     },
 
-    "location": "East US",
+    "build_resource_group_name": "myPackerGroup",
     "vm_size": "Standard_D2_v2"
   }],
   "provisioners": [{

@@ -54,7 +54,7 @@ To access the workbook template for the security overview report, complete the f
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 
-    ![Select the Workbooks menu option in the Azure portal](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
+    ![Screenshot that hightlights where to select the Security Overview Report and the Account Activity Report.](./media/use-azure-monitor-workbooks/select-workbooks-in-azure-portal.png)
 
 1. Choose the **Security Overview Report**.
 1. From the drop-down menus at the top of the workbook, select your Azure subscription and then an Azure Monitor workspace.

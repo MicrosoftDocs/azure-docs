@@ -1,27 +1,68 @@
 - name: Azure confidential computing
-  href: overview.md
+  href: ./index.yml
+- name: Overview 
+  expanded: true
+  items:
+  - name: Welcome to Azure confidential computing 
+    href: overview.md
+  - name: Use cases and scenarios
+    href: use-cases-scenarios.md
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create in the Azure portal
-    href: quick-create-portal.md
-  - name: Create with Marketplace
-    href: quick-create-marketplace.md
+  - name: Virtual machines
+    items:
+    - name: Create in the Azure portal
+      href: quick-create-portal.md
+    - name: Create with Marketplace
+      href: quick-create-marketplace.md
+  - name: Azure Kubernetes Services (AKS)
+    items:
+    - name: AKS Confidential nodes overview
+      href: confidential-nodes-aks-overview.md
+    - name: Confidential nodes with Azure CLI
+      href: confidential-nodes-aks-get-started.md
+    - name: Confidential nodes on AKS FAQ
+      href: confidential-nodes-aks-faq.md
+  
 - name: Concepts
   expanded: true
   items:
-  - name: Solutions on Virtual Machines
-    href: virtual-machine-solutions.md
+  - name: Virtual machines (VMs)
+    items:
+    - name: Enclave-aware virtual machines
+      href: confidential-computing-enclaves.md
+    - name: Solutions on virtual machines
+      href: virtual-machine-solutions.md
+    - name: Confidential computing VM FAQ 
+      href: faq.md
+
+  
+  - name: Container Compute
+    expanded: true
+    items:  
+    - name: Confidential containers (lift & shift)
+      items:
+      - name: Getting started
+        href: confidential-containers.md
+    - name: Enclave-aware containers
+      items:
+        - name: Getting started 
+          href: enclave-aware-containers.md
+  - name: Attestation
+    href: attestation.md
+  - name: Application development
+    href: application-development.md
 - name: How To
-  expanded: true
   items:
   - name: Fortanix Enclave Manager
     href: how-to-fortanix-enclave-manager.md
-- name: Resources
-  expanded: true
+- name: References
   items:
-  - name: FAQ
-    href: faq.md
+  - name: SGX Quote Helper Feature
+    href: confidential-nodes-out-of-proc-attestation.md
+- name: Resources
+  items:
   - name: Confidential computing feedback
     href: https://feedback.azure.com/forums/919792-azure-confidential-compute
   - name: StackOverflow

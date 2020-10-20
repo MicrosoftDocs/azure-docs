@@ -1,10 +1,11 @@
 ---
 author: erhopf
 ms.service: cognitive-services
+ms.subservice: translator-text
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.custom: devx-track-javascript
+ms.custom: devx-track-js
 ---
 
 [!INCLUDE [Prerequisites](prerequisites-nodejs.md)]

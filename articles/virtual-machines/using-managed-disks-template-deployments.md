@@ -1,6 +1,6 @@
 ---
-title: Managed disks - Azure Resource Manager templates
-description: Details how to use managed disks in Azure Resource Manager templates for Azure VMs.
+title: Deploying disks with Azure Resource Manager templates
+description: Details how to use managed and unmanaged disks in Azure Resource Manager templates for Azure VMs.
 documentationcenter:
 author: jboeshart
 manager: 
@@ -12,7 +12,7 @@ ms.author: jaboes
 ms.subservice: disks
 ---
 
-# Using Managed Disks in Azure Resource Manager Templates
+# Using disks in Azure Resource Manager Templates
 
 This document walks through the differences between managed and unmanaged disks when using Azure Resource Manager templates to provision virtual machines. The examples help you to update existing templates that are using unmanaged Disks to managed disks. For reference, we are using the [101-vm-simple-windows](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) template as a guide. You can see the template using both [managed Disks](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows/azuredeploy.json) and a prior version using [unmanaged disks](https://github.com/Azure/azure-quickstart-templates/tree/93b5f72a9857ea9ea43e87d2373bf1b4f724c6aa/101-vm-simple-windows/azuredeploy.json) if you'd like to directly compare them.
 

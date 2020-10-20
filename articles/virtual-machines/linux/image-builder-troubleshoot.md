@@ -3,7 +3,7 @@ title: Troubleshoot Azure Image Builder Service
 description: Troubleshoot common problems and errors when using Azure VM Image Builder Service
 author: cynthn
 ms.author: danis
-ms.date: 09/03/2020
+ms.date: 10/02/2020
 ms.topic: troubleshooting
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -517,7 +517,7 @@ PACKER ERR 2020/03/26 22:11:25 [INFO] RPC endpoint: Communicator ended with: 230
 Image Builder service uses port 22(Linux), or 5986(Windows)to connect to the build VM, this occurs when the service is disconnected from the build VM during an image build. Reasons for disconnection can vary, but enabling or configuring firewalls in script can block the ports above.
 
 #### Solution
-Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more infomation on Image Builder networking, please review the [requirements](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
+Review your scripts for firewall changes/enablement, or changes to SSH or WinRM, and ensure any changes allow for constant connectivity between the service and build VM on the ports above. For more information on Image Builder networking, please review the [requirements](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-networking).
 
 ## DevOps task 
 
@@ -587,6 +587,18 @@ For more information on Azure DevOps capabilities and limitations, see [Microsof
 #### Solution
 
 You can host your own DevOps agents, or look to reduce the time of your build. For example, if you are distributing to the shared image gallery, replicate to one region. If you want to replicate asynchronously. 
+
+### Slow Windows Logon: 'Please wait for the Windows Modules Installer'
+
+#### Error
+After you create a Windows 10 image with Image Builder, then create a VM from the image, you RDP, and have to wait minutes at the first logon seeing a blue screen with the message:
+```text
+Please wait for the Windows Modules Installer
+```
+
+#### Solution
+Firstly in the image build check that there are no outstanding reboots required by adding a Windows Restart customizer as the last customization, and that all software installation is complete. Lastly, add [/mode:vm](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep-command-line-options) option to the default sysprep that AIB uses, see below, 'VMs created from AIB images do not create successfully' > 'Overriding the Commands'  
+
  
 ## VMs created from AIB images do not create successfully
 

@@ -33,7 +33,7 @@ Microsoft Azure native tools allow you to monitor and manage your virtual machin
 
 The following diagram shows the integrated monitoring architecture for Azure VMware Solution VMs.
 
-![Integrated Azure monitoring architecture](media/lifecycle-mgmt-avs-vms/integrated-azure-monitoring-architecture.png)
+![Integrated Azure monitoring architecture](media/lifecycle-management-azure-vmware-solutions-virtual-machines/integrated-azure-monitoring-architecture.png)
 
 ## Integrating and deploying Azure native services
 

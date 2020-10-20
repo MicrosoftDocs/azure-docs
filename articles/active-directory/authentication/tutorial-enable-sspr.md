@@ -115,7 +115,7 @@ If users need additional help with the SSPR process, you can customize the link 
 With SSPR enabled and configured, test the SSPR process with a user that's part of the group you selected in the previous section, such as *Test-SSPR-Group*. In the following example, the *testuser* account is used. Provide your own user account that's part of the group you enabled for SSPR in the first section of this tutorial.
 
 > [!NOTE]
-> When you test the self-service password reset, use a non-administrator account. Admins are always enabled for self-service password reset and are required to use two authentication methods to reset their password.
+> When you test self-service password reset, use a non-administrator account. By default, admins are enabled for self-service password reset and are required to use two authentication methods to reset their password. For more information, see [Administrator reset policy differences](concept-sspr-policy.md#administrator-reset-policy-differences).
 
 1. To see the manual registration process, open a new browser window in InPrivate or incognito mode, and browse to [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup). Users should be directed to this registration portal when they next sign-in.
 1. Sign in with a non-administrator test user, such as *testuser*, and register your authentication methods contact information.

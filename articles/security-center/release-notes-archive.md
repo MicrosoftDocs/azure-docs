@@ -72,7 +72,7 @@ The Security Center defense includes:
 - **Security recommendations** - Actionable recommendations to help you comply with security best-practices for AKS. These recommendations are included in your secure score to ensure they’re viewed as a part of your organization’s security posture. An example of an AKS-related recommendation you might see is "Role-based access control should be used to restrict access to a Kubernetes service cluster".
 - **Threat protection** - Through continuous analysis of your AKS deployment, Security Center alerts you to threats and malicious activity detected at the host and AKS cluster level.
 
-Learn more about [Azure Kubernetes Services' integration with Security Center](azure-kubernetes-service-integration.md).
+Learn more about [Azure Kubernetes Services' integration with Security Center](defender-for-kubernetes-introduction.md).
 
 Learn more about [the container security features in Security Center](container-security.md).
 

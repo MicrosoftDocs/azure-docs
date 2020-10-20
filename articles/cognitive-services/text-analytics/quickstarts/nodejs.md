@@ -11,7 +11,7 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/06/2020
 ms.author: aahi
-ms.custom: seo-javascript-september2019, devx-track-javascript
+ms.custom: seo-javascript-september2019, devx-track-js
 ---
 # Quickstart: Use Node.js to call the Text Analytics Cognitive Service  
 <a name="HOLTop"></a>

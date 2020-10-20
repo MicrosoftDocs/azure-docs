@@ -207,7 +207,7 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [azure-data-lake-analytics-limits](../../../includes/azure-data-lake-analytics-limits.md)]
 
-## Data Lake Store limits
+## Data Lake Storage limits
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
 
@@ -234,10 +234,6 @@ The following table details the features and limits of the Basic, Standard, and 
 
 [!INCLUDE [azure-servicebus-limits](../../../includes/event-hubs-limits.md)]
 
-## Identity Manager limits
-
-[!INCLUDE [automation-limits](~/includes/managed-identity-limits.md)]
-
 ## IoT Central limits
 [!INCLUDE [iot-central-limits](../../../includes/iot-central-limits.md)]
 
@@ -252,6 +248,11 @@ The following table details the features and limits of the Basic, Standard, and 
 ## Key Vault limits
 
 [!INCLUDE [key-vault-limits](../../../includes/key-vault-limits.md)]
+
+## Managed identity limits
+
+[!INCLUDE [Managed-Identity-Limits](../../../includes/managed-identity-limits.md)]
+
 
 ## Media Services limits
 
@@ -322,7 +323,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 [!INCLUDE [notification-hub-limits](../../../includes/notification-hub-limits.md)]
 
-## Role-based access control limits
+## Azure role-based access control limits
 
 [!INCLUDE [role-based-access-control-limits](../../../includes/role-based-access-control-limits.md)]
 
