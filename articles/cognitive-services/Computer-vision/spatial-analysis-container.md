@@ -256,7 +256,7 @@ az iot hub create --name "test-iot-hub-123" --sku S1 --resource-group "test-reso
 az iot hub device-identity create --hub-name "test-iot-hub-123" --device-id "my-edge-device" --edge-enabled
 ```
 
-If the host computer isn't an Azure Stack Edge device, you will need to install [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.8. Follow these steps to download the correct version:
+If the host computer isn't an Azure Stack Edge device, you will need to install [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) version 1.0.9. Follow these steps to download the correct version:
 
 Ubuntu Server 18.04:
 ```bash
@@ -281,10 +281,10 @@ Update the package lists on your device.
 sudo apt-get update
 ```
 
-Install the 1.0.8 release:
+Install the 1.0.9 release:
 
 ```bash
-sudo apt-get install iotedge=1.0.8* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
 ```
 
 Next, register the host computer as an IoT Edge device in your IoT Hub instance, using a [connection string](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
