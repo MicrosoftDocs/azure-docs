@@ -3814,12 +3814,12 @@
     {
       "source_path": "articles/cosmos-db/etcd-api-introduction.md",
       "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/bootstrap-kubernetes-cluster.md",
       "redirect_url": "/azure/cosmos-db/introduction",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cosmos-db/create-table-python.md",
