@@ -348,15 +348,17 @@
       - name: Deploy - GitHub
         href: deploy-to-azure-button.md
       - name: Deploy - Cloud Shell
-        href: deploy-from-cloud-shell.md
-    - name: Resource groups
-      href: deploy-to-resource-group.md
-    - name: Subscription
-      href: deploy-to-subscription.md
-    - name: Management group
-      href: deploy-to-management-group.md
-    - name: Tenant
-      href: deploy-to-tenant.md
+        href: deploy-cloud-shell.md
+    - name: Scopes
+      items:
+      - name: Resource groups
+        href: deploy-to-resource-group.md
+      - name: Subscription
+        href: deploy-to-subscription.md
+      - name: Management group
+        href: deploy-to-management-group.md
+      - name: Tenant
+        href: deploy-to-tenant.md
     - name: What-if deployment
       href: template-deploy-what-if.md
     - name: Redeploy on error

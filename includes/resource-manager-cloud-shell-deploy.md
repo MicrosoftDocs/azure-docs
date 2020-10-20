@@ -2,7 +2,7 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 10/19/2020
+ms.date: 10/20/2020
 ms.author: tomfitz
 ---
 
@@ -28,26 +28,14 @@ ms.author: tomfitz
 
    :::image type="content" source="./media/resource-manager-cloud-shell-deploy/add-directory.png" alt-text="Add directory":::
 
-1. Select the container you created.
-
-   ![Select new container](./media/resource-manager-cloud-shell-deploy/select-container.png)
-
 1. Select **Upload**.
 
-   ![Upload blob](./media/resource-manager-cloud-shell-deploy/upload-blob.png)
+   :::image type="content" source="./media/resource-manager-cloud-shell-deploy/upload-template.png" alt-text="Upload template":::
 
 1. Find and upload your template.
 
-   ![Upload file](./media/resource-manager-cloud-shell-deploy/find-and-upload-template.png)
+   :::image type="content" source="./media/resource-manager-cloud-shell-deploy/select-template.png" alt-text="Select template":::
 
-1. After it has uploaded, select the template.
+1. Open the Cloud Shell prompt.
 
-   ![Select new template](./media/resource-manager-cloud-shell-deploy/select-new-template.png)
-
-1. Copy the URL.
-
-   ![Copy URL](./media/resource-manager-cloud-shell-deploy/copy-url.png)
-
-1. Open the prompt.
-
-   ![Open Cloud Shell](./media/resource-manager-cloud-shell-deploy/start-cloud-shell.png)
+   :::image type="content" source="./media/resource-manager-cloud-shell-deploy/open-cloud-shell.png" alt-text="Open Cloud Shell":::

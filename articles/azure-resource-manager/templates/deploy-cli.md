@@ -2,7 +2,7 @@
 title: Deploy resources with Azure CLI and template
 description: Use Azure Resource Manager and Azure CLI to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 10/20/2020
 ---
 # Deploy resources with ARM templates and Azure CLI
 
@@ -12,7 +12,7 @@ The deployment commands changed in Azure CLI version 2.2.0. The examples in this
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-If you don't have Azure CLI installed, you can use the [Cloud Shell](#deploy-template-from-cloud-shell).
+If you don't have Azure CLI installed, you can use the [Cloud Shell](#deploy-cloud-shell.md).
 
 ## Deploy local template
 
@@ -116,17 +116,6 @@ For more information, see [Azure Resource Manager template specs (Preview)](temp
 ## Preview changes
 
 Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
-
-[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../../includes/resource-manager-cloud-shell-deploy.md)]
-
-In the Cloud Shell, use the following commands:
-
-```azurecli-interactive
-az group create --name examplegroup --location "South Central US"
-az deployment group create --resource-group examplegroup \
-  --template-uri <copied URL> \
-  --parameters storageAccountType=Standard_GRS
-```
 
 ## Parameters
 
