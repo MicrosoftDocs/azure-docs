@@ -200,7 +200,7 @@ You may be asked to sign in with your Azure credentials to connect to the connec
 In the new *DigitalTwinsAdd* box, fill the fields as follows:
 * _id_: Fill the *Twin ID* of the digital twin in your instance that you'd like the Logic App to update.
 * _twin_: This field is where you'll enter the body that the chosen API request requires. For *DigitalTwinsUpdate*, this body is in the form of JSON Patch code. For more about structuring a JSON Patch to update your twin, see the [Update a digital twin](how-to-manage-twin.md#update-a-digital-twin) section of *How-to: Manage digital twins*.
-* _api-version_: The latest API version. In the current release, this value is *2020-10-31*.
+* _api-version_: The latest API version. Currently, this value is *2020-10-31*.
 
 Hit *Save* in the Logic Apps Designer.
 
