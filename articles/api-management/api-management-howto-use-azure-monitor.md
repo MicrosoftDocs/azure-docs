@@ -70,23 +70,22 @@ To configure an example alert rule based on a request metric:
 
 1. Select **+ New alert rule**.
 1. In the **Create alert rule** window, **Select condition**.
-1. In the **Configure signal logic** window
+1. In the **Configure signal logic** window:
     1. In **Signal type**, select **Metrics**.
     1. In **Signal name**, select **Requests**.
-1. In the **Configure signal logic** window:
     1. In **Split by dimensions**, in **Dimension name**, select **Gateway Response Code Category**.
-    1. Select **4xx**, for client errors such as unauthorized or invalid requests.
+    1. In **Dimension values**, select **4xx**, for client errors such as unauthorized or invalid requests.
     1. In **Alert logic**, specify a threshold after which the alert should be triggered and select **Done**.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold.png" alt-text="Screenshot of Configure Signal Logic windows":::
 
-7. Select an existing action group or create a new one. In the following example, a new action group is created. A notification email will be sent to admin@contoso.com. 
+1. Select an existing action group or create a new one. In the following example, a new action group is created. A notification email will be sent to admin@contoso.com. 
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/action-details.png" alt-text="Screenshot of notifications for new action group":::
 
-8. Enter a name and description of the alert rule and select the severity level. 
-9. Select **Create alert rule**.
-10. Now, test the alert rule by calling the Conference API without an API key. For example:
+1. Enter a name and description of the alert rule and select the severity level. 
+1. Select **Create alert rule**.
+1. Now, test the alert rule by calling the Conference API without an API key. For example:
 
     ```bash
     curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
@@ -116,7 +115,7 @@ To view the activity log:
 1. Select **Activity log**.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/api-management-activity-logs-blade.png" alt-text="Screenshot of Activity log item in Monitoring menu":::
-3. Select the desired filtering scope and then **Apply**.
+1. Select the desired filtering scope and then **Apply**.
 
 ## Resource logs
 
