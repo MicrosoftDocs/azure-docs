@@ -41,10 +41,10 @@ It takes a few moments to deploy your new Speech resource. Once the deployment i
  >[!NOTE]
    > If you plan to use Neural voices, make sure that you create your resource in one of the following regions: Australia East, Canada Central, East US, India Central, South Central US, Southeast Asia, UK South, West Europe, and West US 2.
  
-### Step 3 - Log into the ACC studio with your Azure account and Speech resource
+### Step 3 - Log into the Audio Content Creation with your Azure account and Speech resource
 
-1. After getting the Azure account and the Speech resource, you can log into [Audio Content Creation](https://aka.ms/audiocontentcreation).
-2. Select the Speech resource you want to work on. Click **Get started**. You can also create a new Speech resource here.
+1. After getting the Azure account and the Speech resource, you can log into [Audio Content Creation](https://aka.ms/audiocontentcreation) by clicking **Get started**.
+2. The **Speech resource** page will be shown to you. Select the Speech resource you want to work on. Click **Go to Studio** to start your audio creation. You can also create a new Speech resource here by clicking **Creat new**. When you log into the Audio Content Creation tool for the Next time, we will link you directly to the audio work files under the current speech resource. 
 3. You can modify your Speech resource at any time with the **Settings** option, located in the top nav.
 
 ## How to use the tool?
@@ -83,7 +83,7 @@ There are two ways to get your content into the Audio Content Creation tool.
    | File format | Plain text (.txt)<br/> SSML text (.txt)<br/> Zip files aren't supported |
    | Encoding format | UTF-8 |
    | File name | Each file must have a unique name. Duplicates aren't supported. |
-   | Text length | Text files must not exceed 20,000 characters. |
+   | Text length | Character limitation of the text file is 20,000. If your files exceed the limitation, please split the files with the instructions in the tool. |
    | SSML restrictions | Each SSML file can only contain a single piece of SSML. |
 
 **Plain text example**
@@ -137,12 +137,12 @@ Follow these steps to add a user to a speech resource so they can use Audio Cont
 
 1. The users you add will receive an invitation email. After they click **Accept invitation** > **Accept to join Azure**, then they can use [Audio Content Creation](https://aka.ms/audiocontentcreation).
 
-Users who are in the same speech resource will see each other’s work in ACC studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, please [create a new speech resource](#step-2---create-a-speech-resource) for each user and give each user the unique access to the speech resource. 
+Users who are in the same speech resource will see each other’s work in Audio Content Creation studio. If you want each individual user to have a unique and private workplace in Audio Content Creation, please [create a new speech resource](#step-2---create-a-speech-resource) for each user and give each user the unique access to the speech resource. 
 
 ### Remove users from a speech resource
 1. Search for **Cognitive services** in the Azure portal, select the speech resource that you want to remove users from.
 2. Click **Access control (IAM)**. Click the **Role assignments** tab to view all the role assignments for this speech resource.
-3. Select the users you want to remove, click **Remove** > **Yes**.
+3. Select the users you want to remove, click **Remove** > **Ok**.
     :::image source="media/audio-content-creation/remove-user.png" alt-text="Remove button":::
 
 ### Enable users to grant access
