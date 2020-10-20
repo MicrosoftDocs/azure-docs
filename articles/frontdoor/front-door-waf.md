@@ -31,10 +31,10 @@ In this tutorial, you'll learn how to:
 
 ## Prerequisites
 
-- The instructions in this tutorial use the Azure CLI. [View this guide](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true) to get started with the Azure CLI.
+- The instructions in this tutorial use the Azure CLI. [View this guide](/cli/azure/get-started-with-azure-cli?preserve-view=true&view=azure-cli-latest) to get started with the Azure CLI.
 
   > [!TIP] 
-  > An easy and quick way to get started on the Azure CLI is with [Bash in Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart).
+  > An easy and quick way to get started on the Azure CLI is with [Bash in Azure Cloud Shell](../cloud-shell/quickstart.md).
 
 - Ensure that the `front-door` extension is added to the Azure CLI:
 
@@ -43,7 +43,7 @@ In this tutorial, you'll learn how to:
    ```
 
 > [!NOTE] 
-> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest&preserve-view=true).
+> For more information about the commands used in this tutorial, see [Azure CLI reference for Front Door](/cli/azure/ext/front-door/?preserve-view=true&view=azure-cli-latest).
 
 ## Create an Azure Front Door resource
 
@@ -57,7 +57,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 `--name`: The name of your Azure Front Door resource.
 
-`--resource-group`: The resource group you want to place this Azure Front Door resource in. To learn more about resource groups, see [Manage resource groups in Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal).
+`--resource-group`: The resource group you want to place this Azure Front Door resource in. To learn more about resource groups, see [Manage resource groups in Azure](../azure-resource-manager/management/manage-resource-groups-portal.md).
 
 In the response you get when you run this command, look for the key `hostName`. You'll need this value in a later step. The `hostName` is the DNS name of the Azure Front Door resource you created.
 
@@ -125,21 +125,21 @@ az network front-door update --name <> --resource-group <> --set frontendEndpoin
 
 The custom domain name of your web application is the one that customers use to refer to your application. For example, www.contoso.com. Initially, this custom domain name was pointing to the location where it was running before you introduced Azure Front Door. After you add Azure Front Door and WAF to front the application, the DNS entry that corresponds to that custom domain should point to the Azure Front Door resource. You can make this change by remapping the entry in your DNS server to the Azure Front Door `hostName` you noted when you created the Azure Front Door resource.
 
-Specific steps to update your DNS records will depend on your DNS service provider. If you use Azure DNS to host your DNS name, you can refer to the documentation for [steps to update a DNS record](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) and point to the Azure Front Door `hostName`. 
+Specific steps to update your DNS records will depend on your DNS service provider. If you use Azure DNS to host your DNS name, you can refer to the documentation for [steps to update a DNS record](../dns/dns-operations-recordsets-cli.md) and point to the Azure Front Door `hostName`. 
 
-There's one important thing to note if you need your customers to get to your website using the zone apex (for example, contoso.com). In this case, you have to use Azure DNS and its [alias record type](https://docs.microsoft.com/azure/dns/dns-alias) to host your DNS name. 
+There's one important thing to note if you need your customers to get to your website using the zone apex (for example, contoso.com). In this case, you have to use Azure DNS and its [alias record type](../dns/dns-alias.md) to host your DNS name. 
 
-You also need to update your Azure Front Door configuration to [add the custom domain](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) to it so that it's aware of this mapping.
+You also need to update your Azure Front Door configuration to [add the custom domain](./front-door-custom-domain.md) to it so that it's aware of this mapping.
 
-Finally, if you're using a custom domain to reach your web application and want to enable the HTTPS protocol. You need to [setup the certificates for your custom domain in Azure Front Door](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
+Finally, if you're using a custom domain to reach your web application and want to enable the HTTPS protocol. You need to [setup the certificates for your custom domain in Azure Front Door](./front-door-custom-domain-https.md). 
 
 ## Lock down your web application
 
-We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](https://docs.microsoft.com/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
+We recommend you ensure only Azure Front Door edges can communicate with your web application. Doing so will ensure no one can bypass the Azure Front Door protection and access your application directly. To accomplish this lockdown, see [How do I lock down the access to my backend to only Azure Front Door?](./front-door-faq.md#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door).
 
 ## Clean up resources
 
-When you no longer need the resources used in this tutorial, use the [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command to remove the resource group, Front Door, and WAF policy:
+When you no longer need the resources used in this tutorial, use the [az group delete](/cli/azure/group?view=azure-cli-latest#az-group-delete&preserve-view=true) command to remove the resource group, Front Door, and WAF policy:
 
 ```azurecli-interactive
   az group delete \

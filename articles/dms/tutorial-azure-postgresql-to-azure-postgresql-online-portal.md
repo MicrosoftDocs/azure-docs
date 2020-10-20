@@ -253,7 +253,20 @@ After the service is created, locate it within the Azure portal, open it, and th
 
 * Select **Run migration**.
 
-    The migration activity window appears, and the **Status** of the activity should update to show as **Backup in Progress**.
+The migration activity window appears, and the **Status** of the activity should update to show as **Backup in Progress**. You may encounter the following error when upgrading from Azure DB for PostgreSQL 9.5 or 9.6:
+
+**A scenario reported an unknown error. 28000: no pg_hba.conf entry for replication connection from host "40.121.141.121", user "sr"**
+
+This is because the PostgreSQL does not have appropriate privileges to create required logical replication artifacts. To enable required privileges, you can do the following:
+
+1. Open "Connection security" settings for the source Azure DB for PostgreSQL server you are trying to migrate/upgrade from.
+2. Add a new firewall rule with a name ending with "_replrule" and add the IP address from the error message to the start IP and End IP fields. For the above error example -
+> Firewall rule name = sr_replrule;
+> Start IP = 40.121.141.121;
+> End IP = 40.121.141.121
+
+3. Click save and let the change complete. 
+4. Retry DMS activity. 
 
 ## Monitor the migration
 

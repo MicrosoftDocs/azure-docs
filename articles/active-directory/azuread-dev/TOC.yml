@@ -97,8 +97,6 @@
         href: howto-v1-enable-sso-android.md
       - name: Enable SSO on iOS
         href: howto-v1-enable-sso-ios.md
-      - name: Debug SAML-based SSO
-        href: howto-v1-debug-saml-sso-issues.md
     - name: Configure claims
       items:
       - name: Configure role claims
