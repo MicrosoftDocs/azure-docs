@@ -26,7 +26,7 @@ With a Microsoft Customer Agreement, your payment methods are associated with bi
 
 ## Manage credit cards for an Azure subscription
 
-The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](/azure/cost-management-billing/manage/troubleshoot-declined-card).
+The following sections apply to customers who have a Microsoft Online Services Program billing account. Learn how to [check your billing account type](#check-the-type-of-your-account). If your billing account type is Microsoft Online Services Program, payment methods are associated with individual Azure subscriptions. If you get an error after you add the credit card, see [Credit card declined at Azure sign-up](./troubleshoot-declined-card.md).
 
 ### Change credit card for a subscription by adding a new credit card
 
