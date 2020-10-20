@@ -119,6 +119,14 @@ If the endpoint creation fails, observe the error message and retry after a few 
 
 Now, the Service Bus topic is available as an endpoint inside of Azure Digital Twins, under the name specified in the _Name_ field. You will typically use that name as the target of an **event route**, which you'll create [later in this article](#event-routes).
 
+### Create an endpoint with dead-lettering
+
+When an endpoint can't deliver an event within a certain time period or after trying to deliver the event a certain number of times, it can send the undelivered event to a storage account. This process is known as **dead-lettering**.
+
+In order to create an endpoint with dead-lettering enabled, you must use the [ARM APIs](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) to create your endpoint, rather than the Azure portal.
+
+For instructions on how to do this with the APIs, see the [*APIs and CLI*](how-to-manage-routes-apis-cli.md#create-an-endpoint-with-dead-lettering) version of this article.
+
 ## Event routes
 
 To actually send data from Azure Digital Twins to an endpoint, you'll need to define an **event route**. These routes let developers wire up event flow, throughout the system and to downstream services. Read more about event routes in [*Concepts: Routing Azure Digital Twins events*](concepts-route-events.md).
