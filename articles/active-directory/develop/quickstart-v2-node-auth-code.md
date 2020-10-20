@@ -170,4 +170,4 @@ npm install @azure/msal-browser
 ```
 
 > [!div class="nextstepaction"]
-> [Extend a web app to call MS Graph >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/on-behalf-of/web-app/readme.md)
+> [Extend a web app to call MS Graph - GitHub code sample >](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/samples/msal-node-samples/standalone-samples/on-behalf-of/web-app/readme.md)
