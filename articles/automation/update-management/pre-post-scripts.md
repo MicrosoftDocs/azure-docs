@@ -93,7 +93,7 @@ A full example with all properties can be found at: [Get software update configu
 
 To use a pre-script or post-script in an update deployment, start by creating an update deployment. Select **Pre-scripts + Post-Scripts**. This action opens the **Select Pre-scripts + Post-scripts** page.
 
-![Select scripts](./media/update-mgmt-pre-post-scripts/select-scripts.png)
+![Select scripts](./media/pre-post-scripts/select-scripts.png)
 
 Select the script you want to use. In this example, we use the **UpdateManagement-TurnOnVms** runbook. When you select the runbook, the **Configure Script** page opens. Select **Pre-Script**, and then select **OK**.
 
@@ -101,17 +101,17 @@ Repeat this process for the **UpdateManagement-TurnOffVms** script. But when you
 
 The **Selected items** section now shows both your scripts selected. One is a pre-script and the other is a post-script:
 
-![Selected items](./media/update-mgmt-pre-post-scripts/selected-items.png)
+![Selected items](./media/pre-post-scripts/selected-items.png)
 
 Finish configuring your update deployment.
 
 When your update deployment is complete, you can go to **Update deployments** to view the results. As you can see, the status is provided for the pre-script and post-script:
 
-![Update results](./media/update-mgmt-pre-post-scripts/update-results.png)
+![Update results](./media/pre-post-scripts/update-results.png)
 
 By selecting the update deployment run, you're shown additional details of pre-scripts and post-scripts. A link to the script source at the time of the run is provided.
 
-![Deployment run results](./media/update-mgmt-pre-post-scripts/deployment-run.png)
+![Deployment run results](./media/pre-post-scripts/deployment-run.png)
 
 ## Stop a deployment
 
@@ -170,7 +170,7 @@ if (<My custom error logic>)
 
 Samples for pre-scripts and post-scripts can be found in the [Script Center Gallery](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B0%5D.Text=Windows%20Azure&f%5B1%5D.Type=SubCategory&f%5B1%5D.Value=WindowsAzure_automation&f%5B1%5D.Text=Automation&f%5B2%5D.Type=SearchText&f%5B2%5D.Value=update%20management&f%5B3%5D.Type=Tag&f%5B3%5D.Value=Patching&f%5B3%5D.Text=Patching&f%5B4%5D.Type=ProgrammingLanguage&f%5B4%5D.Value=PowerShell&f%5B4%5D.Text=PowerShell) and the [PowerShell Gallery](https://www.powershellgallery.com/packages?q=Tags%3A%22UpdateManagement%22+Tags%3A%22Automation%22), or you can import them through the Azure portal. To do that, in your Automation account, under **Process Automation**, select **Runbooks Gallery**. Use **Update Management** for the filter.
 
-![Gallery list](./media/update-mgmt-pre-post-scripts/runbook-gallery.png)
+![Gallery list](./media/pre-post-scripts/runbook-gallery.png)
 
 Or you can search for them by their script name, as shown in the following list:
 
@@ -241,4 +241,4 @@ $variable = Get-AutomationVariable -Name $runId
 
 ## Next steps
 
-* For details of update management, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+* For details of update management, see [Manage updates and patches for your VMs](manage-updates-for-vm.md).

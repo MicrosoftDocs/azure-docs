@@ -8,7 +8,7 @@ ms.custom: mvc
 ---
 # Enable Update Management from an Automation account
 
-This article describes how you can use your Automation account to enable the [Update Management](update-mgmt-overview.md) feature for VMs in your environment, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md) (preview). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
+This article describes how you can use your Automation account to enable the [Update Management](overview.md) feature for VMs in your environment, including machines or servers registered with [Azure Arc enabled servers](../../azure-arc/servers/overview.md) (preview). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 
 > [!NOTE]
 > When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
@@ -29,7 +29,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 2. Choose the Log Analytics workspace and Automation account and select **Enable** to enable Update Management. The setup takes up to 15 minutes to complete.
 
-    ![Enable Update Management](media/update-mgmt-enable-automation-account/onboardsolutions2.png)
+    ![Enable Update Management](media/enable-from-automation-account/onboardsolutions2.png)
 
 ## Enable Azure VMs
 
@@ -39,7 +39,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 3. Select **Enable** to add the selected VMs to the computer group saved search for the feature.
 
-    ![Enable Azure VMs](media/update-mgmt-enable-automation-account/enable-azure-vms.png)
+    ![Enable Azure VMs](media/enable-from-automation-account/enable-azure-vms.png)
 
 ## Enable non-Azure VMs
 
@@ -57,7 +57,7 @@ Manually installed machines or machines already reporting to your workspace must
 
 2. Select **Manage machines**. The **Manage machines** button might be grayed out if you previously chose the option **Enable on all available and future machines**
 
-    ![Saved searches](media/update-mgmt-enable-automation-account/managemachines.png)
+    ![Saved searches](media/enable-from-automation-account/managemachines.png)
 
 3. To enable Update Management for all available machines reporting to the workspace, select **Enable on all available machines** on the Manage Machines page. This action disables the control to add machines individually and adds all of the machines reporting to the workspace to the computer group saved search query `MicrosoftDefaultComputerGroup`. When selected, this action disables the **Manage Machines** option.
 
@@ -66,14 +66,14 @@ Manually installed machines or machines already reporting to your workspace must
     > [!NOTE]
     > Because this option deletes the saved search and scope configuration within Log Analytics, it's important to remove any deletion locks on the Log Analytics Workspace before you select this option. If you don't, the option will fail to remove the configurations and you must remove them manually.
 
-5. If necessary, you can add the scope configuration back by re-adding the initial saved search query. For more information, see [Limit Update Management deployment scope](update-mgmt-scope-configuration.md).
+5. If necessary, you can add the scope configuration back by re-adding the initial saved search query. For more information, see [Limit Update Management deployment scope](scope-configuration.md).
 
 6. To enable the feature for one or more machines, select **Enable on selected machines** and select **Add** next to each machine. This task adds the selected machine names to the computer group saved search query for the feature.
 
 ## Next steps
 
-* To use Update Management for VMs, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+* To use Update Management for VMs, see [Manage updates and patches for your VMs](manage-updates-for-vm.md).
 
-* When you no longer need to manage VMs or servers with Update Management, see [remove VMs from Update Management](update-mgmt-remove-vms.md).
+* When you no longer need to manage VMs or servers with Update Management, see [remove VMs from Update Management](remove-vms.md).
 
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).

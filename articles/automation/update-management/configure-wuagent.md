@@ -52,8 +52,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 Update Management supports WSUS settings. You can specify sources for scanning and downloading updates using instructions in [Specify intranet Microsoft Update service location](/windows/deployment/update/waas-wu-settings#specify-intranet-microsoft-update-service-location). By default, the Windows Update client is configured to download updates from Windows Update. When you specify a WSUS server as a source for your machines, if the updates aren't approved in WSUS, update deployment fails. 
 
-To restrict machines to the internal update service, set [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations). 
+To restrict machines to the internal update service, set [Do not connect to any Windows Update Internet locations](/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates#do-not-connect-to-any-windows-update-internet-locations).
 
 ## Next steps
 
-Schedule an update deployment by following instructions in [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+Schedule an update deployment by following instructions in [Manage updates and patches for your VMs](manage-updates-for-vm.md).

@@ -8,7 +8,7 @@ ms.custom: mvc
 ---
 # Enable Update Management from a runbook
 
-This article describes how you can use a runbook to enable the [Update Management](update-mgmt-overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM with Update Management.
+This article describes how you can use a runbook to enable the [Update Management](overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM with Update Management.
 
 > [!NOTE]
 > When enabling Update Management, only certain regions are supported for linking a Log Analytics workspace and an Automation account. For a list of the supported mapping pairs, see [Region mapping for Automation account and Log Analytics workspace](../how-to/region-mappings.md).
@@ -42,7 +42,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 3. Select the Log Analytics workspace, then click **Enable**. While Update Management is being enabled, a banner is shown.
 
-    ![Enable Update Management](media/update-mgmt-enable-runbook/enable-update-management.png)
+    ![Enable Update Management](media/enable-from-runbook/enable-update-management.png)
 
 ## Install and update modules
 
@@ -54,7 +54,7 @@ It's required to update to the latest Azure modules and import the [Az.Operation
 
 3. Click **Yes** to update all existing Azure modules to the latest version.
 
-    ![Update modules](media/update-mgmt-enable-runbook/update-modules.png)
+    ![Update modules](media/enable-from-runbook/update-modules.png)
 
 4. Return to **Modules** under **Shared Resources**.
 
@@ -62,7 +62,7 @@ It's required to update to the latest Azure modules and import the [Az.Operation
 
 6. Search for `Az.OperationalInsights` and import this module into your Automation account.
 
-    ![Import OperationalInsights module](media/update-mgmt-enable-runbook/import-operational-insights-module.png)
+    ![Import OperationalInsights module](media/enable-from-runbook/import-operational-insights-module.png)
 
 ## Select Azure VM to manage
 
@@ -74,7 +74,7 @@ With Update Management enabled, you can add an Azure VM to receive updates.
 
 3. Choose the VM from the list and click **Enable** to configure the VM for management.
 
-   ![Enable Update Management for VM](media/update-mgmt-enable-runbook/enable-update-management-vm.png)
+   ![Enable Update Management for VM](media/enable-from-runbook/enable-update-management-vm.png)
 
     > [!NOTE]
     > If you try to enable another feature before setup of Update Management has completed, you receive this message: `Installation of another solution is in progress on this or a different virtual machine. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine.`
@@ -91,7 +91,7 @@ With Update Management enabled, you can add an Azure VM to receive updates.
 
 5. Click **OK** to import the runbook into the Automation account.
 
-   ![Import runbook for setup](media/update-mgmt-enable-runbook/import-from-gallery.png)
+   ![Import runbook for setup](media/enable-from-runbook/import-from-gallery.png)
 
 6. On the **Runbook** page, select the **Enable-MultipleSolution** runbook and then click **Edit**. On the textual editor, select  **Publish**.
 
@@ -103,7 +103,7 @@ You must have enabled Update Management for an Azure VM to start this runbook. I
 
 1. Open the **Enable-MultipleSolution** runbook.
 
-   ![Multiple solution runbook](media/update-mgmt-enable-runbook/runbook-overview.png)
+   ![Multiple solution runbook](media/enable-from-runbook/runbook-overview.png)
 
 2. Click the start button and enter parameter values in the following fields:
 
@@ -114,7 +114,7 @@ You must have enabled Update Management for an Azure VM to start this runbook. I
    * **ALREADYONBOARDEDVMRESOURCEGROUP** - The name of the resource group to which the VM belongs.
    * **SOLUTIONTYPE** - Enter **Updates**.
 
-   ![Enable-MultipleSolution runbook parameters](media/update-mgmt-enable-runbook/runbook-parameters.png)
+   ![Enable-MultipleSolution runbook parameters](media/enable-from-runbook/runbook-parameters.png)
 
 3. Select **OK** to start the runbook job.
 
@@ -122,6 +122,6 @@ You must have enabled Update Management for an Azure VM to start this runbook. I
 
 ## Next steps
 
-* To use Update Management for VMs, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+* To use Update Management for VMs, see [Manage updates and patches for your VMs](manage-updates-for-vm.md).
 
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).
