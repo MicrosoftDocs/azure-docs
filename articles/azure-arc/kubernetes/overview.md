@@ -56,6 +56,21 @@ Azure Arc enabled Kubernetes is currently supported in these regions:
 * East US 
 * West Europe
 
+## Frequently Asked Questions
+
+* What is the difference between Azure Arc enabled Kubernetes and Azure Kubernetes Service (AKS)?
+
+    Azure Kubernetes Service (AKS) is the managed Kubernetes offering by Azure. AKS makes it simple to deploy a managed Kubernetes cluster in Azure. AKS reduces the complexity and operational overhead of managing Kubernetes by offloading much of that responsibility to Azure. The Kubernetes masters are managed by Azure. You only manage and maintain the agent nodes.
+
+    Azure Arc enabled Kubernetes allows you to connect Kubernetes clusters to Azure for extending Azure's management capabilities like Azure Monitor and Azure Policy. The maintenance of the underlying Kubernetes cluster itself is done by you.
+
+* Do I need to connect my Azure Kubernetes Service clusters running on Azure to Azure Arc?
+
+    No. All features of Azure Arc enabled Kubernetes like Azure Monitor, Azure Policy (Gatekeeper) are natively available with AKS, which already has a resource representation in Azure.
+    
+* Should I connect my AKS cluster on Azure Stack HCI to Azure Arc? What about Kubernetes clusters running on Azure Stack Hub or Azure Stack Edge?
+
+    Yes, connecting these clusters to Azure Arc does have benefits. It provides a resource representation for these Kubernetes clusters in Azure Resource Manager. Using this resource representation, capabilities like Cluster Configuration, Azure Monitor, Azure Policy (Gatekeeper) can be extended to these Kubernetes clusters
 
 ## Next steps
 

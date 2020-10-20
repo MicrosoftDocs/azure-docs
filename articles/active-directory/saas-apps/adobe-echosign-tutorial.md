@@ -147,7 +147,7 @@ To configure Azure AD single sign-on with Adobe Sign, perform the following step
 
 1. In the **SAML Settings** section, perform the following steps:
   
-   ![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings")
+   ![Screenshot that highlights the SAML settings, including SAML Mandatory.](./media/adobe-echosign-tutorial/ic789521.png "SAML Settings")
    
    ![Screenshot of SAML Settings](./media/adobe-echosign-tutorial/ic789522.png "SAML Settings")
 

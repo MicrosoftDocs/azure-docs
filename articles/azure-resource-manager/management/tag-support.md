@@ -1534,8 +1534,6 @@ Jump to a resource provider namespace:
 > | workspaces | Yes | Yes |
 > | workspaces / computes | No | No |
 > | workspaces / eventGridFilters | No | No |
-> | workspaces / inferenceEndpoints | Yes | Yes |
-> | workspaces / inferenceEndpoints / deployments | Yes | Yes |
 > | workspaces / linkedServices | No | No |
 
 ## Microsoft.Maintenance

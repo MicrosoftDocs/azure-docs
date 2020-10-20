@@ -1,6 +1,6 @@
 ---
-title: Microsoft identity platform Windows desktop quickstart
-description: Learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
+title: "Quickstart: Sign in users and call Microsoft Graph in a Universal Windows Platform desktop app | Azure"
+description: In this quickstart, learn how a Windows desktop .NET (XAML) application can get an access token and call an API protected by an Microsoft identity platform endpoint
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -20,6 +20,10 @@ ms.custom: aaddev, identityplatformtop40
 In this quickstart, you'll learn how to write a Windows desktop .NET (WPF) application that can sign in personal, work and school accounts, get an access token, and call the Microsoft Graph API. (See [How the sample works](#how-the-sample-works) for an illustration.)
 
 > [!div renderon="docs"]
+> ## Prerequisites
+>
+> * [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) with the [Universal Windows Platform development](/windows/uwp/get-started/get-set-up) workload installed
+>
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
 > * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)

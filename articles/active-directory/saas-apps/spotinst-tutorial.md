@@ -134,7 +134,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 2. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
-	![Spotinst settings](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+	![Screenshot shows Settings selected from the User icon.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 3. Click on the **SECURITY** tab on the top and then select **Identity Providers** and perform the following steps:
 
@@ -156,15 +156,15 @@ The objective of this section is to create a user called Britta Simon in Spotins
 
    b. Click on the **user icon** on the top right side of the screen and click **Settings**.
 
-	![Spotinst settings](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+	![Screenshot shows Settings selected from the User icon.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 	c. Click **Users** and select **ADD USER**.
 
-	![Spotinst settings](./media/spotinst-tutorial/adduser1.png)
+	![Screenshot shows ADD USER selected from Users.](./media/spotinst-tutorial/adduser1.png)
 
 	d. On the add user section, perform the following steps:
 
-	![Spotinst settings](./media/spotinst-tutorial/adduser2.png)
+	![Screenshot shows the Add user section where you can enter the values described.](./media/spotinst-tutorial/adduser2.png)
 
 	* In the **Full Name** textbox, enter the full name of user like **BrittaSimon**.
 

@@ -10,7 +10,7 @@ ms.author: sngun
 
 # How to use Azure Kubernetes with Azure Cosmos DB (preview)
 
-The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes. Azure Cosmos DB implements the etcd wire protocol, which allows the master node’s API servers to use Azure Cosmos DB just like it would access a locally installed etcd. etcd API in Azure Cosmos DB is currently in preview. When you use Azure Cosmos etcd API as the backing store for Kubernetes, you get the following benefits: 
+The etcd API in Azure Cosmos DB allows you to use Azure Cosmos DB as the backend store for Azure Kubernetes. Azure Cosmos DB implements the etcd wire protocol, which allows the primary node’s API servers to use Azure Cosmos DB just like it would access a locally installed etcd. etcd API in Azure Cosmos DB is currently in preview. When you use Azure Cosmos etcd API as the backing store for Kubernetes, you get the following benefits: 
 
 * No need to manually configure and manage etcd.
 * High availability of etcd, guaranteed by Cosmos (99.99% in single region, 99.999% in multiple regions).
@@ -22,7 +22,7 @@ To learn more about etcd API in Azure Cosmos DB, see the [overview](etcd-api-int
 
 ## Prerequisites
 
-1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). You can download Azure CLI specific to your operating system and install.
+1. Install the latest version of [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). You can download Azure CLI specific to your operating system and install.
 
 1. Install the [latest version](https://github.com/Azure/aks-engine/releases) of Azure Kubernetes Engine. The installation instructions for different operating systems are available in [Azure Kubernetes Engine](https://github.com/Azure/aks-engine/blob/master/docs/tutorials/quickstart.md#install-aks-engine) page. You just need the steps from **Install AKS Engine** section of the linked doc. After downloading, extract the zip file.
 
@@ -176,6 +176,6 @@ The Azure Cosmos account’s name will match your specified DNS prefix appended 
 
 ## Next steps
 
-* Learn how to [work with Azure Cosmos database, containers, and items](databases-containers-items.md)
+* Learn how to [work with Azure Cosmos database, containers, and items](account-databases-containers-items.md)
 * Learn how to [optimize provisioned throughput costs](optimize-cost-throughput.md)
 

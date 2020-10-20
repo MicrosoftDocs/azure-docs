@@ -1,7 +1,7 @@
 ---
-title: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure
+title: "Quickstart: Sign in users in JavaScript single-page apps (SPA) with auth code | Azure"
 titleSuffix: Microsoft identity platform
-description: Learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
+description: In this quickstart, learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow.
 services: active-directory
 author: hahamil
 manager: CelesteDG
@@ -21,8 +21,6 @@ ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-j
 In this quickstart, you run a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts by using the authorization code flow. The code sample also demonstrates obtaining an access token to call a web API, in this case the Microsoft Graph API. See [How the sample works](#how-the-sample-works) for an illustration.
 
 This quickstart uses MSAL.js 2.0 with the authorization code flow. For a similar quickstart that uses MSAL.js 1.0 with the implicit flow, see [Quickstart: Sign in users in JavaScript single-page apps](./quickstart-v2-javascript.md).
-
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## Prerequisites
 

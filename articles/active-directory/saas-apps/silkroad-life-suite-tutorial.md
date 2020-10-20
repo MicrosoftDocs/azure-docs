@@ -98,15 +98,15 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 
 	a. Click **Upload metadata file**.
 
-    ![image](common/upload-metadata.png)
+    ![Screenshot shows Basic SAML Configuration with the Upload metadata file link.](common/upload-metadata.png)
 
 	b. Click on **folder logo** to select the metadata file and click **Upload**.
 
-	![image](common/browse-upload-metadata.png)
+	![Screenshot shows a dialog box where you can select and upload a file.](common/browse-upload-metadata.png)
 
 	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Basic SAML Configuration section:
 
-	![image](common/sp-identifier-reply.png)
+	![Screenshot shows the Basic SAML Configuration, where you can enter Identifier, Reply U R L, and select Save.](common/sp-identifier-reply.png)
 
 	> [!Note]
 	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement.
@@ -157,23 +157,23 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 
 1. Go to **Service Provider**, and then click **Federation Details**.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
+    ![Screenshot shows Federation Details selected from Service Provider.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_06.png)
 
 1. Click **Download Federation Metadata**, and then save the metadata file on your computer. Use Downloaded Federation Metadata as a **Service Provider metadata file** in the **Basic SAML Configuration** section in the Azure portal.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
+    ![Screenshot shows the Download Federation Metadata link.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_07.png)
 
 1. In your **SilkRoad** application, click **Authentication Sources**.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
+    ![Screenshot shows Authentication Sources selected.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_08.png) 
 
 1. Click **Add Authentication Source**.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
+    ![Screenshot shows the Add Authentication Source link.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_09.png)
 
 1. In the **Add Authentication Source** section, perform the following steps:
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
+    ![Screenshot shows Add Authentication Source with the Create Identity Provider using File Data button selected.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_10.png)
   
     a. Under **Option 2 - Metadata File**, click **Browse** to upload the downloaded metadata file from Azure portal.
   
@@ -181,11 +181,11 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 
 1. In the **Authentication Sources** section, click **Edit**.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
+    ![Screenshot shows Authentication Sources with the Edit option selected.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_11.png)
 
 1. On the **Edit Authentication Source** dialog, perform the following steps:
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
+    ![Screenshot shows the Edit Authentication Source dialog box where you can enter the values described.](./media/silkroad-life-suite-tutorial/tutorial_silkroad_12.png)
 
     a. As **Enabled**, select **Yes**.
 
@@ -205,7 +205,7 @@ To configure Azure AD single sign-on with SilkRoad Life Suite, perform the follo
 
 1. Disable all other authentication sources.
 
-    ![Azure AD Single Sign-On](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
+    ![Screenshot shows Authentication Sources where you can disable other sources. ](./media/silkroad-life-suite-tutorial/tutorial_silkroad_13.png)
 
 ### Create an Azure AD test user
 

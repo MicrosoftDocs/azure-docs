@@ -41,6 +41,8 @@
       href: database/scale-resources.md
     - name: Read Scale-Out
       href: database/read-scale-out.md
+    - name: Distributed transactions
+      href: database/elastic-transactions-overview.md
     - name: Security
       items:
       - name: Overview
@@ -94,7 +96,7 @@
           href: database/transparent-data-encryption-tde-overview.md
         - name: Bring Your Own Key (BYOK)
           href: database/transparent-data-encryption-byok-overview.md
-        
+
     - name: Business continuity
       displayName: Backup, back up, restore, recovery
       items:
@@ -276,6 +278,8 @@
       items:
       - name: Server-level IP firewall rules
         href: database/firewall-create-server-level-portal-quickstart.md
+    - name: GitHub Actions
+      href: database/connect-github-actions-sql-db.md
 
   - name: Tutorials
     items:
@@ -527,12 +531,9 @@
         href: database/database-copy.md
       - name: Replicate to SQL Database
         href: database/replication-to-sql-database.md
-      - name: SQL Data Sync
-        items: 
-        - name: Replicate schema changes
-          href: database/sql-data-sync-update-sync-schema.md
-        - name: Monitor with OMS
-          href: database/sql-data-sync-monitor-sync.md
+      - name: Replicate schema changes (Data sync)
+        href: database/sql-data-sync-update-sync-schema.md
+
 
     - name: Database sharding
       items:
@@ -756,6 +757,7 @@
         href: managed-instance/management-operations-cancel.md
       - name: API reference
         href: managed-instance/api-references-create-manage-instance.md
+
     - name: Machine Learning Services
       items:
       - name: Overview
@@ -868,6 +870,20 @@
               href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-pandas?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: Insert dataframe into SQL
               href: https://docs.microsoft.com/sql/machine-learning/data-exploration/python-dataframe-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+        - name: Data type conversions
+          items:
+          - name: Python to SQL
+            href: https://docs.microsoft.com/sql/machine-learning/python/python-libraries-and-data-types?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+          - name: R to SQL
+            href: https://docs.microsoft.com/sql/machine-learning/r/r-libraries-and-data-types?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+        - name: Deploy
+          items:
+          - name: Operationalize using stored procedures
+            href: https://docs.microsoft.com/sql/machine-learning/r/operationalizing-your-r-code?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+          - name: Convert R code for SQL Server
+            href: https://docs.microsoft.com/sql/machine-learning/r/converting-r-code-for-use-in-sql-server?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+          - name: Create a stored procedure using sqlrutils
+            href: https://docs.microsoft.com/sql/machine-learning/r/how-to-create-a-stored-procedure-using-sqlrutils?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
         - name: Predictions
           items:
           - name: Native scoring with PREDICT T-SQL
@@ -890,6 +906,24 @@
               href: https://docs.microsoft.com/sql/machine-learning/package-management/create-a-local-package-repository-using-minicran?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
             - name: Tips for using R packages
               href: https://docs.microsoft.com/sql/machine-learning/package-management/tips-for-using-r-packages?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+        - name: Administration
+          items:
+          - name: Monitor
+            items:
+            - name: Monitor using SSMS reports
+              href: https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-custom-reports-management-studio?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Monitor using DMVs
+              href: https://docs.microsoft.com/sql/machine-learning/administration/monitor-sql-server-machine-learning-services-using-dynamic-management-views?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+            - name: Extended events
+              items:
+              - name: Monitor using extended events
+                href: https://docs.microsoft.com/sql/machine-learning/administration/extended-events?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+              - name: Monitor PREDICT T-SQL
+                href: https://docs.microsoft.com/sql/machine-learning/administration/extended-events-predict-tsql?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
+        - name: Security
+          items:
+          - name: Give users permission
+            href: https://docs.microsoft.com/sql/machine-learning/security/user-permission?context=/azure/azure-sql/managed-instance/context/ml-context&view=azuresqldb-mi-current&preserve-view=true
 
     - name: Features
       items:
@@ -905,6 +939,8 @@
         href: managed-instance/public-endpoint-overview.md
       - name: Auditing
         href: managed-instance/auditing-configure.md
+      - name: Server trust groups
+        href: managed-instance/server-trust-group-overview.md
 
   - name: How to
     items:
@@ -987,7 +1023,7 @@
           href: virtual-machines/windows/backup-restore.md
         - name: Azure Storage for backup
           href: virtual-machines/windows/azure-storage-sql-server-backup-restore-use.md
-        - name: Always On availability group
+        - name: Availability group (AG)
           href: virtual-machines/windows/availability-group-overview.md
         - name: Failover cluster instance
           href: virtual-machines/windows/failover-cluster-instance-overview.md
@@ -1039,6 +1075,8 @@
         - name: Register with SQL VM RP
           displayName: resource provider, registration
           items:
+          - name: Automatic registration
+            href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
           - name: Single VM
             href: virtual-machines/windows/sql-vm-resource-provider-register.md
           - name: Bulk register multiple VMs
@@ -1063,33 +1101,46 @@
             href: virtual-machines/windows/automated-backup.md
           - name: Automated backup (SQL 2014)
             href: virtual-machines/windows/automated-backup-sql-2014.md
-        - name: Always On availability group
+        - name: Availability group (AG)
           items:
-          - name: Azure portal
-            href: virtual-machines/windows/availability-group-azure-portal-configure.md
-          - name: PowerShell or Az CLI
-            href: virtual-machines/windows/availability-group-az-commandline-configure.md
-          - name: Azure Quickstart templates
-            href: virtual-machines/windows/availability-group-quickstart-template-configure.md
-          - name: Multiple regions
-            href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
-          - name: Domain-independent (workgroup)
-            href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
-          - name: Configure manually
-            items:
-            - name: Prerequisites
-              href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
-            - name: Tutorial
-              href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
-            - name: Load balancer - Azure portal
-              href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
-            - name: Load balancer - Azure PowerShell
-              href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+          - name: Create AG 
+            items: 
+            - name: Azure portal
+              href: virtual-machines/windows/availability-group-azure-portal-configure.md
+            - name: PowerShell or Az CLI
+              href: virtual-machines/windows/availability-group-az-commandline-configure.md
+            - name: Azure Quickstart templates
+              href: virtual-machines/windows/availability-group-quickstart-template-configure.md
+            - name: Multiple regions
+              href: virtual-machines/windows/availability-group-manually-configure-multiple-regions.md
+            - name: Domain-independent (workgroup)
+              href: virtual-machines/windows/availability-group-clusterless-workgroup-configure.md
+            - name: Configure manually
+              items:
+              - name: Prerequisites
+                href: virtual-machines/windows/availability-group-manually-configure-prerequisites-tutorial.md
+              - name: Tutorial
+                href: virtual-machines/windows/availability-group-manually-configure-tutorial.md
+              - name: Load balancer - Azure portal
+                href: virtual-machines/windows/availability-group-load-balancer-portal-configure.md
+              - name: Load balancer - Azure PowerShell
+                href: virtual-machines/windows/availability-group-listener-powershell-configure.md
+          - name: Configure connectivity
+            items:  
+            - name: VNN listener
+              displayName: virtual network name
+              href: virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md
+            - name: DNN listener
+              displayName: distributed network name
+              href: virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md
+            - name: DNN interoperability
+              href: virtual-machines/windows/availability-group-dnn-interoperability.md
+
         - name: Failover cluster instance (FCI)
           items:
           - name: Prepare VM for FCI 
             href: virtual-machines/windows/failover-cluster-instance-prepare-vm.md
-          - name: Create FCI with
+          - name: Create FCI 
             items: 
             - name: Azure shared disks
               href: virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md
@@ -1097,16 +1148,15 @@
               href: virtual-machines/windows/failover-cluster-instance-storage-spaces-direct-manually-configure.md
             - name: Premium file share (Win2012+)
               href: virtual-machines/windows/failover-cluster-instance-premium-file-share-manually-configure.md
-          - name: Distributed Network Name (DNN)
+          - name: Configure connectivity
             items: 
-            - name: Create DNN for FCI
-              href: virtual-machines/windows/hadr-distributed-network-name-dnn-configure.md
-            - name: FCI DNN & SQL Server features
+            - name: Virtual network name (VNN)
+              href: virtual-machines/windows/failover-cluster-instance-vnn-azure-load-balancer-configure.md
+            - name: Distributed network name (DNN) 
+              href: virtual-machines/windows/failover-cluster-instance-distributed-network-name-dnn-configure.md
+            - name: DNN interoperability
               href: virtual-machines/windows/failover-cluster-instance-dnn-interoperability.md
-        - name: Configure connectivity
-          items:
-          - name: Virtual Network Name (VNN)
-            href: virtual-machines/windows/hadr-vnn-azure-load-balancer-configure.md
+
 
     - name: Reference
       items:

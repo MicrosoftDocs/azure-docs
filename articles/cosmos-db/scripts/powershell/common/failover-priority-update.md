@@ -1,6 +1,6 @@
 ---
-title: PowerShell script to change failover priority for a single-master Azure Cosmos account
-description: Azure PowerShell script sample - Change failover priority or trigger failover for an Azure Cosmos DB single-master account
+title: PowerShell script to change failover priority for an Azure Cosmos account with single write region
+description: Azure PowerShell script sample - Change failover priority or trigger failover for an Azure Cosmos account with single write region
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
@@ -8,7 +8,7 @@ ms.date: 03/18/2020
 ms.author: mjbrown
 ---
 
-# Change failover priority or trigger failover for an Azure Cosmos DB single-master account using PowerShell
+# Change failover priority or trigger failover for an Azure Cosmos account with single write region by using PowerShell
 
 [!INCLUDE [updated-for-az](../../../../../includes/updated-for-az.md)]
 
@@ -47,5 +47,3 @@ This script uses the following commands. Each command in the table links to comm
 ## Next steps
 
 For more information on the Azure PowerShell, see [Azure PowerShell documentation](https://docs.microsoft.com/powershell/).
-
-Additional Azure Cosmos DB PowerShell script samples can be found in the [Azure Cosmos DB PowerShell scripts](../../../powershell-samples.md).

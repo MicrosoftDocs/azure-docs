@@ -70,6 +70,8 @@
     href: ../../backup/security-baseline.md
   - name: Azure Cache for Redis security baseline
     href: ../../azure-cache-for-redis/security-baseline.md
+  - name: Azure Cognitive Search security baseline
+    href: ../../search/security-baseline.md
   - name: Azure Data Box security baseline
     href: ../../databox/security-baseline.md
   - name: Azure Data Explorer security baseline
@@ -96,6 +98,10 @@
     href: ../../azure-functions/security-baseline.md
   - name: Azure IoT Hub security baseline
     href: ../../iot-hub/security-baseline.md
+  - name: Azure Kubernetes Service security baseline
+    href: ../../aks/security-baseline.md
+  - name: Azure Load Balancer security baseline
+    href: ../../load-balancer/security-baseline.md
   - name: Azure Monitor security baseline
     href: ../../azure-monitor/security-baseline.md
   - name: Azure Machine Learning security baseline
@@ -114,8 +120,14 @@
     href: ../../sql-database/security-baseline.md
   - name: Azure Storage security baseline
     href: ../../storage/common/security-baseline.md
+  - name: Azure Traffic Manager security baseline
+    href: ../../traffic-manager/security-baseline.md
+  - name: Azure Web Application Firewall security baseline
+    href: ../../web-application-firewall/security-baseline.md
   - name: Batch security baseline
     href: ../../batch/security-baseline.md
+  - name: Cloud Shell security baseline
+    href: ../../cloud-shell/security-baseline.md
   - name: Cognitive Services security baseline
     href: ../../cognitive-services/security-baseline.md
   - name: Container Instances security baseline
@@ -160,3 +172,7 @@
     href: ../../virtual-machines/linux/security-baseline.md
   - name: Virtual Machines Windows security baseline
     href: ../../virtual-machines/windows/security-baseline.md
+  - name: Virtual Network security baseline
+    href: ../../virtual-network/security-baseline.md
+  - name: VPN Gateway security baseline
+    href: ../../vpn-gateway/security-baseline.md

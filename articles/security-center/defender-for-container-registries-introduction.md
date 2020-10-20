@@ -4,7 +4,7 @@ description: Learn about the benefits and features of Azure Defender for contain
 author: memildin
 ms.author: memildin
 ms.date: 9/22/2020
-ms.topic: conceptual
+ms.topic: overview
 ms.service: security-center
 manager: rkarlin
 
@@ -62,7 +62,7 @@ Security Center filters and classifies findings from the scanner. When an image 
 
 ### Can I get the scan results via REST API?
 Yes. The results are under [Sub-Assessments Rest API](/rest/api/securitycenter/subassessments/list/). Also, you can use Azure Resource Graph (ARG), the Kusto-like API for all of your resources: a query can fetch a specific scan.
- 
+
 ### What registry types are scanned? What types are billed?
 For a list of the types of container registries supported by Azure Defender for container registries, see [Availability](defender-for-container-registries-usage.md#availability).
 

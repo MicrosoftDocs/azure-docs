@@ -9,7 +9,7 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/23/2020
+ms.date: 09/25/2020
 ms.custom: devx-track-js
 ---
 # Quickstart: Create an Azure Cognitive Search index in Node.js using REST APIs
@@ -55,7 +55,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
     Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
+:::image type="content" source="media/search-get-started-nodejs/service-name-and-keys.png" alt-text="Get the service name and admin and query keys" border="false":::
 
 All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -468,7 +468,7 @@ You should see a series of messages describing the actions being taken by the pr
 
 Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following:
 
-![Screenshot of Azure portal, search service Overview, Indexes tab](media/search-get-started-nodejs/create-index-no-data.png)
+:::image type="content" source="media/search-get-started-nodejs/create-index-no-data.png" alt-text="Screenshot of Azure portal, search service Overview, Indexes tab" border="false":::
 
 In the next step, you'll add data to index. 
 

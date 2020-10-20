@@ -57,75 +57,13 @@ Managed identities allow the vault to create and use private endpoints. This sec
     >[!NOTE]
     >Once enabled, the Managed Identity must **not** be disabled (even temporarily). Disabling the managed identity may lead to inconsistent behavior.
 
-## DNS changes
-
-Using private endpoints requires Private DNS Zones to allow the Backup extension to resolve private link FQDNs to private IPs. Altogether, three private DNS zones are required. While two of these zones must be mandatorily created, the third can be either opted to be integrated with the private endpoint (while creating the private endpoint) or can be created separately.
-
-You can also use your custom DNS servers. Refer to [DNS changes for custom DNS servers](#dns-changes-for-custom-dns-servers) for details about using custom DNS servers.
-
-### Creating Mandatory DNS zones
-
-There are two mandatory DNS zones that need to be created:
-
-- `privatelink.blob.core.windows.net` (for backup/restore data)
-- `privatelink.queue.core.windows.net` (for service communication)
-
-1. Search for **Private DNS Zone** in the **All services** search bar and select **Private DNS zone** from the drop-down list.
-
-    ![Select Private DNS zone](./media/private-endpoints/private-dns-zone.png)
-
-1. Once in the **Private DNS zone** pane, select the **+Add** button to start creating a new zone.
-
-1. In the **Create private DNS zone** pane, fill in the details required. The subscription must be the same as where the private endpoint will be created.
-
-    The zones must be named as:
-
-    - `privatelink.blob.core.windows.net`
-    - `privatelink.queue.core.windows.net`
-
-    | **Zone**                           | **Service** | **Subscription and Resource Group (RG) details**                  |
-    | ---------------------------------- | ----------- | ------------------------------------------------------------ |
-    | `privatelink.blob.core.windows.net`  | Blob        | **Subscription**: Same as where private  endpoint needs to be created  **RG**: Either the RG of the VNET or that of the Private Endpoint |
-    | `privatelink.queue.core.windows.net` | Queue       | **RG**: Either the RG of the VNET or that of the Private Endpoint |
-
-    ![Create Private DNS zone](./media/private-endpoints/create-private-dns-zone.png)
-
-1. Once done, proceed to review and create the DNS zone.
-
-### Optional DNS zone
-
-You can choose to integrate your private endpoints with private DNS zones for Azure Backup (discussed in the section [Creating and using Private Endpoints for Backup](#creating-and-using-private-endpoints-for-backup)) for service communication. If you don't wish to integrate with the private DNS zone, you can opt to use your own DNS server or create a private DNS zone separately. This is in addition to the two mandatory private DNS zones discussed in the previous section.
-
-If you wish to create a separate private DNS zone in Azure, you can do the same using the same steps used for creating mandatory DNS zones. The naming and subscription details are shared below:
-
-| **Zone**                                                     | **Service** | **Subscription and Resource Group details**                  |
-| ------------------------------------------------------------ | ----------- | ------------------------------------------------------------ |
-| `privatelink.<geo>.backup.windowsazure.com`  <br><br>   **Note**: *geo* here refers to  the region code. For example, *wcus* and *ne* for West Central US and North Europe respectively. | Backup      | **Subscription**: Same as where the Private Endpoint needs to be created  **RG**: Any RG within the subscription |
-
-Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
-
-For URL naming conventions in national regions:
-
-- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
-- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
-- [US Gov](../azure-government/documentation-government-developer-guide.md)
-
-### Linking private DNS zones with your virtual network
-
-The DNS zones created above must now be linked to the virtual network where your servers to be backed up are located. This needs to be done for all the DNS zones you created.
-
-1. Go to your DNS zone (that you created in the previous step) and navigate to **Virtual network links** on the left bar. Once there, select the **+Add** button
-1. Fill in the required details. The **Subscription** and **Virtual network** fields must be filled with corresponding details of the virtual network where your servers exist. The other fields must be left as is.
-
-    ![Add virtual network link](./media/private-endpoints/add-virtual-network-link.png)
-
 ## Grant permissions to the vault to create required private endpoints
 
 To create the required private endpoints for Azure Backup, the vault (the Managed Identity of the vault) must have permissions to the following resource groups:
 
 - The Resource Group that contains the target VNet
 - The Resource Group where the Private Endpoints are to be created
-- The Resource Group that contains the Private DNS zones
+- The Resource Group that contains the Private DNS zones, as discussed in detail [here](#creating-private-endpoints-for-backup)
 
 We recommend that you grant the **Contributor** role for those three resource groups to the vault (managed identity). The following steps describe how to do this for a particular resource group (this needs to be done for each of the three resource groups):
 
@@ -168,6 +106,8 @@ This section describes the process of creating a private endpoint for your vault
 
         ![Fill in Configuration tab](./media/private-endpoints/configuration-tab.png)
 
+        Refer to [this section](#dns-changes-for-custom-dns-servers) if you want to use your custom DNS servers instead of integrating with Azure Private DNS Zones.  
+
     1. Optionally, you can add **Tags** for your private endpoint.
 
     1. Continue to **Review + create** once done entering details. When the validation completes, select **Create** to create the private endpoint.
@@ -184,51 +124,6 @@ See [Manual approval of private endpoints using the Azure Resource Manager Clien
 
     ![Approve private endpoints](./media/private-endpoints/approve-private-endpoints.png)
 
-## Adding DNS records
-
->[!NOTE]
-> This step isn't required if you're using an integrated DNS zone. However, if you've created your own Azure Private DNS zone or are using a custom private DNS zone, make sure entries are made as described in this section.
-
-Once you've created the optional private DNS zone and the private endpoints for your vault, you'll need to add DNS records to your DNS zone. You can do this either manually or using a PowerShell script. This needs to be done for your Backup DNS zone only, those for Blobs and Queues will automatically be updated.
-
-### Add records manually
-
-This requires you to make entries for each FQDN in your private endpoint into your Private DNS Zone.
-
-1. Go to your **private DNS zone** and navigate to the **Overview** option on the left bar. Once there, select **+Record set** to start adding records.
-
-    ![Select +Record set to add records](./media/private-endpoints/select-record-set.png)
-
-1. In the **Add Record Set** pane that opens, add one entry for each FQDN and private IP as an **A type** record. The list of FQDNs and IPs can be obtained from your Private Endpoint (under **Overview**). As shown in the example below, the first FQDN from the private endpoint is being added to the record set in the private DNS zone.
-
-    ![List of FQDNs and IPs](./media/private-endpoints/list-of-fqdn-and-ip.png)
-
-    ![Add record set](./media/private-endpoints/add-record-set.png)
-
-### Add records using PowerShell script
-
-1. Start the **Cloud Shell** in the Azure portal and select **Upload file** in the PowerShell window.
-
-    ![Select Upload file in PowerShell window](./media/private-endpoints/upload-file-in-powershell.png)
-
-1. Upload this script: [DnsZoneCreation](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/dnszonerecordcreation.ps1)
-
-1. Go to your home folder (for example: `cd /home/user`)
-
-1. Run the following script:
-
-    ```azurepowershell
-    ./dnszonerecordcreation.ps1 -Subscription <SubscriptionId> -VaultPEName <VaultPE Name> -VaultPEResourceGroup <Vault PE RG> -DNSResourceGroup <Private DNS RG> -Privatezone <privatednszone>
-    ```
-
-    These are the parameters:
-
-    - **subscription**: The subscription where the resources (vault's private endpoint and private DNS zone) reside
-    - **vaultPEName**: Name of the private endpoint created for the vault
-    - **vaultPEResourceGroup**: Resource group that contains the vault's private endpoint
-    - **dnsResourceGroup**: Resource group that contains the private DNS zones
-    - **Privatezone**: Name of the private DNS zone
-
 ## Using Private Endpoints for Backup
 
 Once the private endpoints created for the vault in your VNet have been approved, you can start using them for performing your backups and restores.
@@ -238,12 +133,9 @@ Once the private endpoints created for the vault in your VNet have been approved
 >
 >1. Created a (new) Recovery Services vault
 >1. Enabled the vault to use system assigned Managed Identity
->1. Created three Private DNS zones (two if using an integrated DNS zone for Backup)
->1. Linked your Private DNS zones to your Azure Virtual Network
 >1. Assigned relevant permissions to the Managed Identity of the vault
 >1. Created a Private Endpoint for your vault
 >1. Approved the Private Endpoint (if not auto approved)
->1. Added required DNS records to your private DNS zone for Backup (applicable only if not using an integrated private DNS zone)
 
 ### Backup and restore of workloads in Azure VM (SQL, SAP HANA)
 
@@ -503,7 +395,11 @@ You need to create three private DNS zones and link them to your virtual network
 >[!NOTE]
 >In the text above, *geo* refers to  the region code. For example, *wcus* and *ne* for West Central US and North Europe respectively.
 
-Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes.
+Refer to [this list](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx) for region codes. See the following links for URL naming conventions in national regions:
+
+- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+- [US Gov](../azure-government/documentation-government-developer-guide.md)
 
 #### Adding DNS records for custom DNS servers
 

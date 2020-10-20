@@ -282,9 +282,9 @@ dt.exe /s:AzureTable /s.ConnectionString:"DefaultEndpointsProtocol=https;Account
 
 The Amazon DynamoDB source importer option allows you to import from a single Amazon DynamoDB table. It can optionally filter the entities to be imported. Several templates are provided so that setting up an import is as easy as possible.
 
-:::image type="content" source="./media/import-data/dynamodbsource1.png" alt-text="Screenshot of Amazon DynamoDB source options - database migration tools":::
+:::image type="content" source="./media/import-data/dynamodbsource1.png" alt-text="Screenshot of Amazon DynamoDB source options - database migration tools.":::
 
-:::image type="content" source="./media/import-data/dynamodbsource2.png" alt-text="Screenshot of Amazon DynamoDB source options - database migration tools":::
+:::image type="content" source="./media/import-data/dynamodbsource2.png" alt-text="Screenshot of Amazon DynamoDB source options with template - database migration tools.":::
 
 The format of the Amazon DynamoDB connection string is:
 
@@ -365,9 +365,9 @@ dt.exe /s:DocumentDB /s.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;Ac
 
 The HBase source importer option allows you to import data from an HBase table and optionally filter the data. Several templates are provided so that setting up an import is as easy as possible.
 
-:::image type="content" source="./media/import-data/hbasesource1.png" alt-text="Screenshot of HBase source options":::
+:::image type="content" source="./media/import-data/hbasesource1.png" alt-text="Screenshot of HBase source options.":::
 
-:::image type="content" source="./media/import-data/hbasesource2.png" alt-text="Screenshot of HBase source options":::
+:::image type="content" source="./media/import-data/hbasesource2.png" alt-text="Screenshot of HBase source options with the Filter contextual menu expanded.":::
 
 The format of the HBase Stargate connection string is:
 
@@ -384,7 +384,7 @@ dt.exe /s:HBase /s.ConnectionString:ServiceURL=<server-address>;Username=<userna
 
 ## <a id="SQLBulkTarget"></a>Import to the SQL API (Bulk Import)
 
-The Azure Cosmos DB Bulk importer allows you to import from any of the available source options, using an Azure Cosmos DB stored procedure for efficiency. The tool supports import to one single-partitioned Azure Cosmos container. It also supports sharded import whereby data is partitioned across more than one single-partitioned Azure Cosmos container. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md). The tool creates, executes, and then deletes the stored procedure from the target collection(s).  
+The Azure Cosmos DB Bulk importer allows you to import from any of the available source options, using an Azure Cosmos DB stored procedure for efficiency. The tool supports import to one single-partitioned Azure Cosmos container. It also supports sharded import whereby data is partitioned across more than one single-partitioned Azure Cosmos container. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md). The tool creates, executes, and then deletes the stored procedure from the target collection(s).  
 
 :::image type="content" source="./media/import-data/documentdbbulk.png" alt-text="Screenshot of Azure Cosmos DB bulk options":::
 
@@ -447,7 +447,7 @@ The Azure Cosmos DB Bulk importer has the following additional advanced options:
 
 ## <a id="SQLSeqTarget"></a>Import to the SQL API (Sequential Record Import)
 
-The Azure Cosmos DB sequential record importer allows you to import from an available source option on a record-by-record basis. You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures. The tool supports import to a single (both single-partition and multi-partition) Azure Cosmos container. It also supports sharded import whereby data is partitioned across more than one single-partition or multi-partition Azure Cosmos container. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partition-data.md).
+The Azure Cosmos DB sequential record importer allows you to import from an available source option on a record-by-record basis. You might choose this option if you’re importing to an existing collection that has reached its quota of stored procedures. The tool supports import to a single (both single-partition and multi-partition) Azure Cosmos container. It also supports sharded import whereby data is partitioned across more than one single-partition or multi-partition Azure Cosmos container. For more information about partitioning data, see [Partitioning and scaling in Azure Cosmos DB](partitioning-overview.md).
 
 :::image type="content" source="./media/import-data/documentdbsequential.png" alt-text="Screenshot of Azure Cosmos DB sequential record import options":::
 
@@ -507,7 +507,7 @@ The Azure Cosmos DB - Sequential record importer has the following additional ad
 
 When you allow the migration tool to create Azure Cosmos DB SQL API collections during import, you can specify the indexing policy of the collections. In the advanced options section of the Azure Cosmos DB Bulk import and Azure Cosmos DB Sequential record options, navigate to the Indexing Policy section.
 
-:::image type="content" source="./media/import-data/indexingpolicy1.png" alt-text="Screenshot of Azure Cosmos DB Indexing Policy advanced options":::
+:::image type="content" source="./media/import-data/indexingpolicy1.png" alt-text="Screenshot of Azure Cosmos DB Indexing Policy advanced options.":::
 
 Using the Indexing Policy advanced option, you can select an indexing policy file, manually enter an indexing policy, or select from a set of default templates (by right-clicking in the indexing policy textbox).
 
@@ -516,7 +516,7 @@ The policy templates the tool provides are:
 * Default. This policy is best when you perform equality queries against strings. It also works if you use ORDER BY, range, and equality queries for numbers. This policy has a lower index storage overhead than Range.
 * Range. This policy is best when you use ORDER BY, range, and equality queries on both numbers and strings. This policy has a higher index storage overhead than Default or Hash.
 
-:::image type="content" source="./media/import-data/indexingpolicy2.png" alt-text="Screenshot of Azure Cosmos DB Indexing Policy advanced options":::
+:::image type="content" source="./media/import-data/indexingpolicy2.png" alt-text="Screenshot of Azure Cosmos DB Indexing Policy advanced options specifying target information.":::
 
 > [!NOTE]
 > If you don't specify an indexing policy, then the default policy is applied. For more information about indexing policies, see [Azure Cosmos DB indexing policies](index-policy.md).
@@ -590,17 +590,17 @@ In the Advanced configuration screen, specify the location of the log file to wh
 
 1. After you specify the source information, target information, and advanced configuration, review the migration summary and view or copy the resulting migration command if you want. (Copying the command is useful to automate import operations.)
 
-    :::image type="content" source="./media/import-data/summary.png" alt-text="Screenshot of summary screen":::
+    :::image type="content" source="./media/import-data/summary.png" alt-text="Screenshot of summary screen.":::
 
-    :::image type="content" source="./media/import-data/summarycommand.png" alt-text="Screenshot of summary screen":::
+    :::image type="content" source="./media/import-data/summarycommand.png" alt-text="Screenshot of summary screen with Command Line Preview.":::
 
 2. Once you’re satisfied with your source and target options, click **Import**. The elapsed time, transferred count, and failure information (if you didn't provide a file name in the Advanced configuration) update as the import is in process. Once complete, you can export the results (for example, to deal with any import failures).
 
-    :::image type="content" source="./media/import-data/viewresults.png" alt-text="Screenshot of Azure Cosmos DB JSON export option":::
+    :::image type="content" source="./media/import-data/viewresults.png" alt-text="Screenshot of Azure Cosmos DB JSON export option.":::
 
 3. You may also start a new import by either resetting all values or keeping the existing settings. (For example, you may choose to keep connection string information, source and target choice, and more.)
 
-    :::image type="content" source="./media/import-data/newimport.png" alt-text="Screenshot of Azure Cosmos DB JSON export option":::
+    :::image type="content" source="./media/import-data/newimport.png" alt-text="Screenshot of Azure Cosmos DB JSON export option with the New Import confirmation dialog box.":::
 
 ## Next steps
 

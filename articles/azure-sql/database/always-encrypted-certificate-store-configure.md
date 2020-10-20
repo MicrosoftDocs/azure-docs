@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: 
@@ -92,7 +92,7 @@ SSMS provides a wizard to easily configure Always Encrypted by setting up the CM
 1. Expand **Databases** > **Clinic** > **Tables**.
 2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
 
-    ![Encrypt columns](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
+    ![Screenshot that shows the Encrypt Colunns... menu option in the Patients table.](./media/always-encrypted-certificate-store-configure/encrypt-columns.png)
 
 The Always Encrypted wizard includes the following sections: **Column Selection**, **Master Key Configuration** (CMK), **Validation**, and **Summary**.
 
@@ -144,7 +144,7 @@ Now that Always Encrypted is set up, you can build an application that performs 
 1. Open Visual Studio and create a new C# console application. Make sure your project is set to **.NET Framework 4.6** or later.
 2. Name the project **AlwaysEncryptedConsoleApp** and click **OK**.
 
-![New console application](./media/always-encrypted-certificate-store-configure/console-app.png)
+![Screenshot that shows the newly named AlwaysEncryptedConsoleApp project.](./media/always-encrypted-certificate-store-configure/console-app.png)
 
 ## Modify your connection string to enable Always Encrypted
 
@@ -505,7 +505,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 You can see that the encrypted columns do not contain any plaintext data.
 
-   ![New console application](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
+   ![Screenshot that shows encrypted data in the encrypted columns.](./media/always-encrypted-certificate-store-configure/ssms-encrypted.png)
 
 To use SSMS to access the plaintext data, you can add the **Column Encryption Setting=enabled** parameter to the connection.
 
@@ -513,7 +513,7 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
 2. Click **Connect** > **Database Engine** to open the **Connect to Server** window, and then click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
-    ![New console application](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
+    ![Screenshot that shows the Additional Connection Parameters tab with Column Encryption Setting=enabled typed in the box.](./media/always-encrypted-certificate-store-configure/ssms-connection-parameter.png)
 4. Run the following query on the **Clinic** database.
 
     ```tsql

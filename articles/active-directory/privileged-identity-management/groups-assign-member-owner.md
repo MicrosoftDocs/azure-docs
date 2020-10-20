@@ -43,7 +43,7 @@ Follow these steps to make a user eligible to be a member or owner of a privileg
 
 1. Select the members or owners you want to make eligible for the privileged access group.
 
-    ![Select a member or group pane](./media/groups-assign-member-owner/add-assignments.png)
+    ![Screenshot that shows the "Add assignments" page with the "Select a member or group" pane open and the "Select" button highlighted.](./media/groups-assign-member-owner/add-assignments.png)
 
 1. Select **Next** to set the membership or ownership duration.
 

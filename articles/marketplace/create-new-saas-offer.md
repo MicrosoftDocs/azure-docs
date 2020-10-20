@@ -64,7 +64,7 @@ A test drive is a great way to showcase your offer to potential customers by giv
 Connect your customer relationship management (CRM) system with your commercial marketplace offer so you can receive customer contact information when a customer expresses interest or deploys your product. You can modify this connection at any time during or after you create the offer.
 
 > [!NOTE]
-> You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** listing option. For detailed guidance, see [Lead management for the commercial marketplace](lead-management-for-cloud-marketplace.md).
+> You must configure lead management if you’re selling your offer through Microsoft or you selected the **Contact Me** listing option. For detailed guidance, see [Customer leads from your commercial marketplace offer](partner-center-portal/commercial-marketplace-get-customer-leads.md).
 
 #### To configure the connection details in Partner Center
 

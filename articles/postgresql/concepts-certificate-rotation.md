@@ -10,7 +10,10 @@ ms.date: 09/02/2020
 
 # Understanding the changes in the Root CA change for Azure Database for PostgreSQL Single server
 
-Azure Database for PostgreSQL will be changing the root certificate for the client application/driver enabled with SSL, used to [connect to the database server](concepts-connectivity-architecture.md). The root certificate currently available is set to expire October 26, 2020 (10/26/2020) as part of standard maintenance and security best practices. This article gives you more details about the upcoming changes, the resources that will be affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+Azure Database for PostgreSQL will be changing the root certificate for the client application/driver enabled with SSL, used to [connect to the database server](concepts-connectivity-architecture.md). The root certificate currently available is set to expire February 15, 2021 (02/15/2021) as part of standard maintenance and security best practices. This article gives you more details about the upcoming changes, the resources that will be affected, and the steps needed to ensure that your application maintains connectivity to your database server.
+
+>[!NOTE]
+> Based on the feedback from customers we have extended the root certificate deprecation for our existing Baltimore Root CA from October 26th, 2020 till February 15, 2021. We hope this extension provide sufficient lead time for our users to implement the client changes if they are impacted.
 
 ## What update is going to happen?
 
@@ -18,7 +21,7 @@ In some cases, applications use a local certificate file generated from a truste
 
 As per the industry’s compliance requirements, CA vendors began revoking CA certificates for non-compliant CAs, requiring servers to use certificates issued by compliant CAs, and signed by CA certificates from those compliant CAs. Since Azure Database for PostgreSQL currently uses one of these non-compliant certificates, which client applications use to validate their SSL connections, we need to ensure that appropriate actions are taken (described below) to minimize the potential impact to your PostgreSQL servers.
 
-The new certificate will be used starting October 26, 2020 (10/26/2020). If you use either CA validation or full validation of the server certificate when connecting from a PostgreSQL client (sslmode=verify-ca or sslmode=verify-full), you need to update your application configuration before October 26, 2020 (10/26/2020).
+The new certificate will be used starting February 15, 2021 (02/15/2021). If you use either CA validation or full validation of the server certificate when connecting from a PostgreSQL client (sslmode=verify-ca or sslmode=verify-full), you need to update your application configuration before February 15, 2021 (02/15/2021).
 
 ## How do I know if my database is going to be affected?
 
@@ -79,6 +82,9 @@ If you are using the Baltimore CyberTrust Root certificate to verify the SSL con
 *	Invalid certificate/revoked certificate
 *	Connection timed out
 
+> [!NOTE]
+> Please do not drop or alter **Baltimore certificate** until the cert change is made. We will send a communication once the change is done, after which it is safe for them to drop the Baltimore certificate. 
+
 ## Frequently asked questions
 
 ###	1. If I am not using SSL/TLS, do I still need to update the root CA?
@@ -87,13 +93,13 @@ No actions required if you are not using SSL/TLS.
 ### 2. If I am using SSL/TLS, do I need to restart my database server to update the root CA?
 No, you do not need to restart the database server to start using the new certificate. This is a client-side change and the incoming client connections need to use the new certificate to ensure that they can connect to the database server.
 
-### 3. What will happen if I do not update the root certificate before October 26, 2020 (10/26/2020)?
-If you do not update the root certificate before October 26, 2020, your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the PostgreSQL database server and application will experience connectivity issues to your PostgreSQL database server.
+### 3. What will happen if I do not update the root certificate before February 15, 2021 (02/15/2021)?
+If you do not update the root certificate before February 15, 2021 (02/15/2021), your applications that connect via SSL/TLS and does verification for the root certificate will be unable to communicate to the PostgreSQL database server and application will experience connectivity issues to your PostgreSQL database server.
 
 ### 4. What is the impact if using App Service with Azure Database for PostgreSQL?
 For Azure app services, connecting to Azure Database for PostgreSQL, we can have two possible scenarios and it depends on how on you are using SSL with your application.
 *   This new certificate has been added to App Service at platform level. If you are using the SSL certificates included on App Service platform in your application, then no action is needed.
-*   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert.
+*   If you are explicitly including the path to SSL cert file in your code, then you would need to download the new cert and update the code to use the new cert. A good example of this scenario is when you use custom containers in App Service as shared in the [App Service documentation](/app-service/tutorial-multi-container-app#configure-database-variables-in-wordpress.md)
 
 ### 5. What is the impact if using Azure Kubernetes Services (AKS) with Azure Database for PostgreSQL?
 If you are trying to connect to the Azure Database for PostgreSQL using Azure Kubernetes Services (AKS), it is similar to access from a dedicated customers host environment. Refer to the steps [here](../aks/ingress-own-tls.md).
@@ -106,16 +112,16 @@ For connector using Self-hosted Integration Runtime where you explicitly include
 ### 7. Do I need to plan a database server maintenance downtime for this change?
 No. Since the change here is only on the client side to connect to the database server, there is no maintenance downtime needed for the database server for this change.
 
-### 8.  What if I cannot get a scheduled downtime for this change before October 26, 2020 (10/26/2020)?
+### 8.  What if I cannot get a scheduled downtime for this change before February 15, 2021 (02/15/2021)?
 Since the clients used for connecting to the server needs to be updating the certificate information as described in the fix section [here](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), we do not need to a downtime for the server in this case.
 
-### 9. If I create a new server after October 26, 2020, will I be impacted?
-For servers created after October 26, 2020 (10/26/2020), you can use the newly issued certificate for your applications to connect using SSL.
+### 9. If I create a new server after February 15, 2021 (02/15/2021), will I be impacted?
+For servers created after February 15, 2021 (02/15/2021), you can use the newly issued certificate for your applications to connect using SSL.
 
 ###	10. How often does Microsoft update their certificates or what is the expiry policy?
 These certificates used by Azure Database for PostgreSQL are provided by trusted Certificate Authorities (CA). So the support of these certificates on Azure Database for PostgreSQL is tied to the support of these certificates by CA. However, as in this case, there can be unforeseen bugs in these predefined certificates, which need to be fixed at the earliest.
 
-###	11. If I am using read replicas, do I need to perform this update only on master server or the read replicas?
+###	11. If I am using read replicas, do I need to perform this update only on the primary server or the read replicas?
 Since this update is a client-side change, if the client used to read data from the replica server, you will need to apply the changes for those clients as well. 
 
 ### 12. Do we have server-side query to verify if SSL is being used?
@@ -124,5 +130,8 @@ To verify if you are using SSL connection to connect to the server refer [SSL ve
 ### 13. Is there an action needed if I already have the DigiCertGlobalRootG2 in my certificate file?
 No. There is no action needed if your certificate file already has the **DigiCertGlobalRootG2**.
 
-###	14. What if I have further questions?
+### 14. What is you are using docker image of PgBouncer sidecar provided by Microsoft?
+A new docker image which supports both [**Baltimore**](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) and [**DigiCert**](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) is published to below [here](https://hub.docker.com/_/microsoft-azure-oss-db-tools-pgbouncer-sidecar) (Latest tag). You can pull this new image to avoid any interruption in connectivity starting February 15, 2021. 
+
+###	15. What if I have further questions?
 If you have questions, get answers from community experts in [Microsoft Q&A](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). If you have a support plan and you need technical help,  [contact us](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com)

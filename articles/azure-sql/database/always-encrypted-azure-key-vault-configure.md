@@ -7,7 +7,7 @@ ms.service: sql-database
 ms.subservice: security
 ms.custom: sqldbrb=1
 ms.devlang: 
-ms.topic: conceptual
+ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer:
@@ -143,7 +143,7 @@ SSMS provides a wizard that helps you easily configure Always Encrypted by setti
 1. Expand **Databases** > **Clinic** > **Tables**.
 2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
 
-    ![Encrypt columns](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
+    ![Screenshot that highlights the Encrypt Columns... menu option.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
 The Always Encrypted wizard includes the following sections: **Column Selection**, **Master Key Configuration**, **Validation**, and **Summary**.
 
@@ -568,7 +568,7 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
 You can see that the encrypted columns do not contain any plaintext data.
 
-   ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
+   ![Screenshot that shows that the encrypted columns do not contain any plaintext data.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
 To use SSMS to access the plaintext data, you first need to ensure that the user has proper permissions to the Azure Key Vault: *get*, *unwrapKey*, and *verify*. For detailed information, see [Create and Store Column Master Keys (Always Encrypted)](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
@@ -578,7 +578,7 @@ Then add the *Column Encryption Setting=enabled* parameter during your connectio
 2. Click **Connect** > **Database Engine** to open the **Connect to Server** window and click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
 
-    ![New console application](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
+    ![Screenshot that shows the Additional Correction Parameters tab.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 
 4. Run the following query on the Clinic database.
 

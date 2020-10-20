@@ -85,6 +85,11 @@ To access the terminal:
 
 Learn more about [cloning Git repositories into your workspace file system](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
 
+### Copy and Paste in Terminal
+
+> * Windows: `Ctrl-Insert` to copy and use `Ctrl-Shift-v` or `Shift-Insert` to paste.
+> * Mac OS: `Cmd-c` to copy and `Cmd-v` to paste.
+> * FireFox/IE may not support clipboard permissions properly.
 
 ### Share notebooks and other files
 
@@ -99,6 +104,16 @@ You can edit the notebook without connecting to a compute instance.  When you wa
 When a compute instance is running, you can also use code completion, powered by [Intellisense](https://code.visualstudio.com/docs/editor/intellisense), in any Python Notebook.
 
 You can also launch Jupyter or JupyterLab from the Notebook toolbar.  Azure Machine Learning does not provide updates and fix bugs from Jupyter or JupyterLab as they are Open Source products outside of the boundary of Microsoft Support.
+
+### Focus mode
+
+Use focus mode to expand your current view so you can focus on your active tabs. Focus mode hides the Notebooks file explorer.
+
+1. In the terminal window toolbar, select **Focus mode** to turn on focus mode. Depending on your window width, this may be located under the **...** menu item in your toolbar.
+1. While in focus mode, return to the standard view by selecting **Standard view**.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Toggle focus mode / standard view":::
+
 
 ### Use IntelliSense
 
@@ -214,6 +229,9 @@ The Notebook will automatically find all Jupyter kernels installed on the connec
     conda install ipykernel
     python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
     ```
+
+> [!NOTE]
+> For package management within a notebook, use **%pip** or **%conda** magic functions to automatically install packages into the **currently-running kernel**, rather than **!pip** or **!conda** which refers to all packages (including packages outside the currently-running kernel)
 
 Any of the [available Jupyter Kernels](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) can be installed.
 

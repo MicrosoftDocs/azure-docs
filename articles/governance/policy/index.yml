@@ -11,7 +11,7 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 09/24/2020
+  ms.date: 10/16/2020
 
 landingContent:
   - title: About Azure Policy
@@ -45,6 +45,8 @@ landingContent:
             url: ./assign-policy-azurecli.md
           - text: Assign a policy (Azure PowerShell)
             url: ./assign-policy-powershell.md
+          - text: Assign a policy (.NET)
+            url: ./assign-policy-dotnet.md
           - text: Assign a policy (JavaScript)
             url: ./assign-policy-javascript.md
           - text: Assign a policy (Python)
@@ -59,8 +61,10 @@ landingContent:
             url: ./tutorials/create-and-manage.md
           - text: Use VS Code extension
             url: ./how-to/extension-for-vscode.md
-          - text: Design Policy as Code workflows
+          - text: Design Azure Policy as Code workflows
             url: ./concepts/policy-as-code.md
+          - text: Implement Azure Policy as Code with GitHub
+            url: ./tutorials/policy-as-code-github.md
       - linkListType: deploy
         links:
           - text: Index of policy samples
@@ -80,13 +84,15 @@ landingContent:
             url: ./how-to/programmatically-create.md
           - text: Author policies for arrays
             url: ./how-to/author-policies-for-arrays.md
+          - text: Export resources
+            url: ./how-to/export-resources.md
       - linkListType: concept
         links:
           - text: Regulatory Compliance
             url: ./concepts/regulatory-compliance.md
-          - text: Policy for Kubernetes
+          - text: Azure Policy for Kubernetes
             url: ./concepts/policy-for-kubernetes.md
-          - text: Policy for VMs
+          - text: Azure Policy for VMs
             url: ./concepts/guest-configuration.md
 
   - title: Review & Remediate resources
@@ -131,6 +137,8 @@ landingContent:
             url: /rest/api/resources/policyassignments
           - text: REST (Definitions)
             url: /rest/api/resources/policydefinitions
+          - text: REST (Exemptions)
+            url: /rest/api/resources/policyexemptions
           - text: REST (Initiatives)
             url: /rest/api/resources/policysetdefinitions
           - text: Resource Manager templates
