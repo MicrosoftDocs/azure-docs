@@ -45,7 +45,7 @@ If you don't have an Azure subscription, [create a free trial account](https://a
 
 The service principal needs the following permissions to perform the tasks in this tutorial.
 
-![the permissions needed for the service principal](./media/tutorial-byok/service-principal-permissions.png)
+![the permissions needed for the service principal](./media/tutorial-byok/service-principal-permissions1.png)
 
 ### Install Postman
 
