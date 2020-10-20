@@ -44,7 +44,7 @@ For a SQL Database the backup storage redundancy can be configured at the time o
 > Zone-redundant storage is currently only available in [certain regions](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> Configurable Backup Storage Redundancy for Azure SQL Database is currently available in public preview in Southeast Asia Azure region only. This feature is not yet available for Hyperscale tier. 
+> Configurable Backup Storage Redundancy for Azure SQL Database is currently generally available in Southeast Asia Azure region only. This feature is not yet available for Hyperscale tier. 
 
 ### Backup usage
 

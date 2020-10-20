@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Users and groups
 
-A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. 
+A Conditional Access policy must include a user assignment as one of the signals in the decision process. Users can be included or excluded from Conditional Access policies. Azure Active Directory evaluates all policies and ensures that all requirements are met before granting access to the user.
 
 ![User as a signal in the decisions made by Conditional Access](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups.png)
 
@@ -70,6 +70,8 @@ To prevent an administrator from locking themselves out of their directory when 
 By default the policy will provide an option to exclude the current user from the policy, but this default can be overridden by the administrator as shown in the following image. 
 
 ![Warning, don't lock yourself out!](./media/concept-conditional-access-users-groups/conditional-access-users-and-groups-lockout-warning.png)
+
+[What to do if you are locked out of the Azure portal?](troubleshoot-conditional-access.md#what-to-do-if-you-are-locked-out-of-the-azure-portal)
 
 ## Next steps
 
