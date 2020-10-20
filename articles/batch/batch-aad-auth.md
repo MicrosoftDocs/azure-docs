@@ -98,7 +98,7 @@ The **API permissions** section now shows that your Azure AD application has acc
 To authenticate an application that runs unattended, you use a service principal. After you've registered your application, follow these steps in the Azure portal to configure a service principal:
 
 1. Request a secret for your application.
-1. Assign role-based access control (RBAC) to your application.
+1. Assign Azure role-based access control (Azure RBAC) to your application.
 
 ### Request a secret for your application
 
@@ -114,15 +114,15 @@ Follow these steps in the Azure portal:
 
     ![Create a secret key](./media/batch-aad-auth/secret-key.png)
 
-### Assign RBAC to your application
+### Assign Azure RBAC to your application
 
-To authenticate with a service principal, you need to assign RBAC to your application. Follow these steps:
+To authenticate with a service principal, you need to assign Azure RBAC to your application. Follow these steps:
 
 1. In the Azure portal, navigate to the Batch account used by your application.
 1. In the **Settings** section of the Batch account, select **Access Control (IAM)**.
 1. Select the **Role assignments** tab.
 1. Select **Add role assignment**.
-1. From the **Role** drop-down, choose either the *Contributor* or *Reader* role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).
+1. From the **Role** drop-down, choose either the *Contributor* or *Reader* role for your application. For more information on these roles, see [Get started with Azure role-based access control in the Azure portal](../role-based-access-control/overview.md).
 1. In the **Select** field, enter the name of your application. Select your application from the list, and then select **Save**.
 
 Your application should now appear in your access control settings with an Azure role assigned.
@@ -133,7 +133,7 @@ Your application should now appear in your access control settings with an Azure
 
 A custom role grants granular permission to a user for submitting jobs, tasks, and more. This provides the ability to prevent users from performing operations that affect cost, such as creating pools or modifying nodes.
 
-You can use a custom role to grant permissions to an Azure AD user, group, or service principal for the following RBAC operations:
+You can use a custom role to grant permissions to an Azure AD user, group, or service principal for the following Azure RBAC operations:
 
 - Microsoft.Batch/batchAccounts/pools/write
 - Microsoft.Batch/batchAccounts/pools/delete
