@@ -10,10 +10,10 @@ ms.author: baanders
 >[!NOTE]
 >There is currently a **known issue** in Cloud Shell affecting these command groups when run from *https://shell.azure.com*: `az dt route`, `az dt model`, `az dt twin`.
 >
->To resolve, you can:
-> * Run `az login` in Cloud Shell prior to running the command
-> * Open the Cloud Shell pane in the Azure portal and work from there
+>To resolve, you can do any of of the following:
+> * Run `az login` in Cloud Shell prior to running the command.
+> * Open the Cloud Shell pane in the Azure portal and complete your Cloud Shell work from there.
 >  :::image type="content" source="../articles/digital-twins/media/includes/portal-cloud-shell.png" alt-text="View of the Azure portal with the 'Cloud Shell' icon highlighted, and the Cloud Shell appearing at the bottom of the portal window":::
-> * Use the [local CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instead of Cloud Shell
+> * Use the [local CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) instead of Cloud Shell.
 >
->For more detail on this, see [*Troubleshooting: Known issues in Azure Digital Twins*](../articles/digital-twins/troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
+>For more detail on this issue, see [*Troubleshooting: Known issues in Azure Digital Twins*](../articles/digital-twins/troubleshoot-known-issues.md#400-client-error-bad-request-in-cloud-shell).
