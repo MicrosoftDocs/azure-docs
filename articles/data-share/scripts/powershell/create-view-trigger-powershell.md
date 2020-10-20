@@ -1,14 +1,11 @@
 ---
-title: "PowerShell script: Create and view an Azure Data Share snapshot triggers| Microsoft Docs"
+title: "PowerShell script: Create and view an Azure Data Share snapshot triggers"
 description: This PowerShell script creates and gets share snapshot triggers.
-services: data-share
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
-ms.author: joanpo
 ---
 
 # Use PowerShell to create and share snapshot triggers
@@ -42,8 +39,8 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzDataShareTrigger](/powershell/module/az.datashare/new-azdatasharetrigger?view=azps-2.6.0) | Create a share snapshot trigger. |
-| [Get-AzDataShareTrigger](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting?view=azps-2.6.0) | Gets synchronization settings of a share synchronization. |
+| [New-AzDataShareTrigger](/powershell/module/az.datashare/new-azdatasharetrigger) | Create a share snapshot trigger. |
+| [Get-AzDataShareTrigger](/powershell/module/az.datashare/get-azdatasharesynchronizationsetting) | Gets synchronization settings of a share synchronization. |
 |||
 
 ## Next steps
