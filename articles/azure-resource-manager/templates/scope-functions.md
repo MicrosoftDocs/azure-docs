@@ -1,25 +1,59 @@
 ---
-title: Deploy resources across scopes
-description: Shows how to target more than one scope during a deployment. The scope can be a tenant, management groups, subscriptions, and resource groups.
+title: Template functions in scoped deployments
+description: Describes how template functions are resolved in scoped deployments. The scope can be a tenant, management groups, subscriptions, and resource groups.
 ms.topic: conceptual
-ms.date: 10/19/2020
+ms.date: 10/20/2020
 ---
 
-# Deploy Azure resources across scopes
+# ARM template functions in deployment scopes
 
-With Azure Resource Manager templates (ARM templates), you can deploy to more than one scope in a single deployment. The available scopes are a tenant, management groups, subscriptions, and resource groups. For example, you can deploy resources to one resource group, and in the same template deploy resources to another resource group. Or, you can deploy resources to a management group and also deploy resources to a resource group within that management group.
+With Azure Resource Manager templates (ARM templates), you can deploy to resource groups, subscriptions, management groups, or tenants. Generally, ARM template functions work the same for all scopes. This article describes the differences that exist for some functions depending on the scope.
 
-You use [nested or linked templates](linked-templates.md) to specify scopes that are different than the primary scope for the deployment operation.
+## Supported functions
 
-## Available scopes
+For subscription-level deployments, there are some important considerations when using template functions:
 
-You can target your deployment to a resource group, subscription, management group, or tenant. In most cases, you'll target deployment to a resource group. To apply policies and role assignments across a larger scope, use subscription, management group, or tenant deployments. When deploying to a subscription, you can create a resource group and deploy resources to it.
+* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **supported** for only resource group deployments.
+* The [subscription()](template-functions-resource.md#subscription) function is **supported** for resource group and subscription deployments.
+* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are **supported** for all scopes.
+* Use [resourceId()](template-functions-resource.md#resourceid) to get the ID for a resource deployed at the resources group.
+* Use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function to get the ID for a resource deployed at the subscription.
 
-Depending on the scope of the deployment, you use different commands.
+  For example, to get the resource ID for a policy definition that is deployed to a subscription, use:
 
+  ```json
+  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
+  ```
 
+  The returned resource ID has the following format:
 
-## How functions resolve in scopes
+  ```json
+  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
+
+* Use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function for resources that are implemented as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group.
+
+  To get the resource ID for a custom policy definition at the management group level, use:
+  
+  ```json
+  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+  ```
+
+* Use the [tenantResourceId](template-functions-resource.md#tenantresourceid) function to get the ID for a resource deployed at the tenant. Built-in policy definitions are tenant level resources. When assigning a built-in policy at the management group level, use the tenantResourceId function.
+
+  To get the resource ID for a built-in policy definition, use:
+  
+  ```json
+  "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+  ```
+
+  The returned resource ID has the following format:
+
+  ```json
+  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+  ```
+
+## Function resolution in scopes
 
 When you deploy to more than one scope, the [resourceGroup()](template-functions-resource.md#resourcegroup) and [subscription()](template-functions-resource.md#subscription) functions resolve differently based on how you specify the template. When you link to an external template, the functions always resolve to the scope for that template. When you nest a template within a parent template, use the `expressionEvaluationOptions` property to specify whether the functions resolve to the resource group and subscription for the parent template or the nested template. Set the property to `inner` to resolve to the scope for the nested template. Set the property to `outer` to resolve to the scope of the parent template.
 

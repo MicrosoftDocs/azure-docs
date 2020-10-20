@@ -114,31 +114,6 @@ You can provide a name for the deployment, or use the default deployment name. T
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
-## Use template functions
-
-For management group deployments, there are some important considerations when using template functions:
-
-* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
-* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Don't use the [resourceId()](template-functions-resource.md#resourceid) function for resources deployed to the management group.
-
-  Instead, use the [extensionResourceId()](template-functions-resource.md#extensionresourceid) function for resources that are implemented as extensions of the management group. Custom policy definitions that are deployed to the management group are extensions of the management group.
-
-  To get the resource ID for a custom policy definition at the management group level, use:
-  
-  ```json
-  "policyDefinitionId": "[extensionResourceId(variables('mgScope'), 'Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-  ```
-
-  Use the [tenantResourceId](template-functions-resource.md#tenantresourceid) function for tenant resources that are available within the management group. Built-in policy definitions are tenant level resources.
-
-  To get the resource ID for a built-in policy definition, use:
-  
-  ```json
-  "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
-  ```
-
 ## Azure Policy
 
 The following example shows how to [define](../../governance/policy/concepts/definition-structure.md) a policy at the management group level, and assign it.

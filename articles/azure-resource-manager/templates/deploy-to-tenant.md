@@ -117,29 +117,6 @@ You can provide a name for the deployment, or use the default deployment name. T
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
 
-## Use template functions
-
-For tenant deployments, there are some important considerations when using template functions:
-
-* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [subscription()](template-functions-resource.md#subscription) function is **not** supported.
-* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at tenant level.
-
-  Instead, use the [tenantResourceId()](template-functions-resource.md#tenantresourceid) function.
-
-  For example, to get the resource ID for a built-in policy definition, use:
-
-  ```json
-  tenantResourceId('Microsoft.Authorization/policyDefinitions/', parameters('policyDefinition'))
-  ```
-
-  The returned resource ID has the following format:
-
-  ```json
-  /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
-
 ## Create management group
 
 The [following template](https://github.com/Azure/azure-quickstart-templates/tree/master/tenant-deployments/new-mg) creates a management group.

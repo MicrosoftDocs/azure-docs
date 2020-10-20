@@ -118,7 +118,7 @@ When deploying to a subscription, you can deploy resources to:
 
 You can't deploy to a subscription that is different than the target subscription. The user deploying the template must have access to the specified scope.
 
-### Deploy to subscription
+### Scope to subscription
 
 To deploy resources to the target subscription, add those resources to the resources section of the template.
 
@@ -126,7 +126,7 @@ To deploy resources to the target subscription, add those resources to the resou
 
 For examples of deploying to the subscription, see [Create resource groups](#create-resource-groups) and [Assign policy definition](#assign-policy-definition).
 
-### Deploy to resource group
+### Scope to resource group
 
 To deploy resources to a resource group within the subscription, add a nested deployment and include the `resourceGroup` property. In the following example, the nested deployment targets a resource group named `rg2`.
 
@@ -134,7 +134,7 @@ To deploy resources to a resource group within the subscription, add a nested de
 
 For an example of deploying to a resource group, see [Create resource group and resources](#create-resource-group-and-resources).
 
-### Deploy to tenant
+### Scope to tenant
 
 You can create resources at the tenant by adding a nested deployment with the `scope` set to `/`. In the following example, the nested deployment is scoped to `/`.
 
@@ -147,26 +147,6 @@ For subscription level deployments, you must provide a location for the deployme
 You can provide a name for the deployment, or use the default deployment name. The default name is the name of the template file. For example, deploying a template named **azuredeploy.json** creates a default deployment name of **azuredeploy**.
 
 For each deployment name, the location is immutable. You can't create a deployment in one location when there's an existing deployment with the same name in a different location. If you get the error code `InvalidDeploymentLocation`, either use a different name or the same location as the previous deployment for that name.
-
-## Use template functions
-
-For subscription-level deployments, there are some important considerations when using template functions:
-
-* The [resourceGroup()](template-functions-resource.md#resourcegroup) function is **not** supported.
-* The [reference()](template-functions-resource.md#reference) and [list()](template-functions-resource.md#list) functions are supported.
-* Don't use [resourceId()](template-functions-resource.md#resourceid) to get the resource ID for resources that are deployed at subscription level. Instead, use the [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) function.
-
-  For example, to get the resource ID for a policy definition that is deployed to a subscription, use:
-
-  ```json
-  subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
-  ```
-
-  The returned resource ID has the following format:
-
-  ```json
-  /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-  ```
 
 ## Resource groups
 
