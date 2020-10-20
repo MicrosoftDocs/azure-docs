@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
 ---
-# Configure Database settings 
+# Configure database settings 
 
 Azure API for FHIR uses database to store its data. Performance of the underlying database depends on the number of Request Units (RU) selected during service provisioning or in database settings after the service has been provisioned.
 
