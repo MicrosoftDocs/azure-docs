@@ -95,7 +95,7 @@
     href: expressroute-connect-azure-to-public-cloud.md
   - name: Cross-network connectivity
     href: cross-network-connectivity.md
-  - name: Security:
+  - name: Security
     items:
     - name: Security baseline
       href: security-baseline.md
