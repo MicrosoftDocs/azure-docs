@@ -91,7 +91,7 @@ You can combine the two models. Provisioning throughput on both the database and
 
 After you create an Azure Cosmos container or a database, you can update the provisioned throughput. There is no limit on the maximum provisioned throughput that you can configure on the database or the container.
 
-<a id="current-provisioned-throughput"></a> ### Current provisioned throughput
+### <a id="current-provisioned-throughput"></a> Current provisioned throughput
 
 You can retrieve the provisioned throughput of a container or a database in the Azure portal or by using the SDKs:
 
@@ -131,7 +131,7 @@ You can programmatically check the scaling progress by reading the [current prov
 
 You can use [Azure Monitor metrics](monitor-cosmos-db.md#view-operation-level-metrics-for-azure-cosmos-db) to view the history of provisioned throughput (RU/s) and storage on a resource.
 
-<a id="high-storage-low-throughput-program"></a> ## High storage / low throughput program
+## <a id="high-storage-low-throughput-program"></a> High storage / low throughput program
 
 As described in the [Current provisioned throughput](#current-provisioned-throughput) section above, the minimum throughput you can provision on a container or database depends on a number of factors. One of them is the amount of data currently stored, as Azure Cosmos DB enforces a minimum throughput of 10 RU/s per GB of storage.
 
