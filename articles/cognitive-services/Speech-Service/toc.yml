@@ -580,8 +580,8 @@
     href: how-to-migrate-from-translator-speech-api.md
 - name: Resources
   items:
-    - name: Support
-      displayName: support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice
+  - name: Support & help options
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
       href: support.md
     - name: Swagger documentation
       href: swagger-documentation.md
