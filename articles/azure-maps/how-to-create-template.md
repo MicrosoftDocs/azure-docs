@@ -52,7 +52,7 @@ The Azure Maps account resource is defined in this template:
     * **Pricing Tier**: select the appropriate pricing tier, the default value for the template is S0.
 
 3. Select **Review + create**. 
-1. Confirm your settings on the review page and click **Create**. After the key vault has been deployed successfully, you get a notification:
+4. Confirm your settings on the review page and click **Create**. After the key vault has been deployed successfully, you get a notification:
 
     ![ARM template, Key Vault integration, deploy portal notification](./media/how-to-create-template/resource-manager-template-portal-deployment-notification.png)
 
@@ -62,8 +62,6 @@ The Azure portal is used to deploy your template. You can also use the Azure Pow
 
 You can use either the Azure portal to check your Azure Maps account and view your keys. You can also use the following Azure CLI script to list your account keys.
 
-# [CLI]
-
 ```azurecli-interactive
 az maps account keys list --name MyMapsAccount --resource-group MyResourceGroup
 ```
@@ -71,8 +69,6 @@ az maps account keys list --name MyMapsAccount --resource-group MyResourceGroup
 ## Clean up resources
 
 When no longer needed, delete the resource group, which deletes the Azure Maps account. To delete the resource group by using Azure CLI:
-
-# [CLI]
 
 ```azurecli-interactive
 az group delete --name MyResourceGroup
