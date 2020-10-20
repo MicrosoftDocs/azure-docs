@@ -48,7 +48,7 @@ Connecting to an Azure Database for PostgreSQL database requires the fully quali
    :::image type="content" source="./media/connect-python/1-connection-string.png" alt-text="Azure Database for PostgreSQL server name":::
 
 > [!IMPORTANT]
-> Replace:
+>  Replace the following values:
 >   - `<server-name>` and `<admin-username>` with the values you copied from the Azure portal.
 >   - `<admin-password>` with your server password.
 >   - `<database-name>` a default database named *postgres* was automatically created when you created your server. You can rename that database or [create a new database](https://www.postgresql.org/docs/9.0/sql-createdatabase.html) by using SQL commands.
