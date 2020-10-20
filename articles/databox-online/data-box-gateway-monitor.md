@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: how-to
-ms.date: 04/15/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ---
 # Monitor your Azure Data Box Gateway
@@ -24,11 +24,11 @@ In this article, you learn how to:
 
 ## View device events
 
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-device-events.md)]
+[!INCLUDE [data-box-gateway-view-device-events](../../includes/data-box-gateway-view-device-events.md)]
 
 ## View metrics
 
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-view-metrics.md)]
+[!INCLUDE [data-box-gateway-view-metrics](../../includes/data-box-gateway-view-metrics.md)]
 
 ### Metrics on your device
 
@@ -58,7 +58,7 @@ A full list of the metrics is shown in the following table:
 
 ## Manage alerts
 
-[!INCLUDE [Supported OS for clients connected to device](../../includes/data-box-edge-gateway-manage-alerts.md)]
+[!INCLUDE [data-box-gateway-manage-alerts](../../includes/data-box-gateway-manage-alerts.md)]
 
 ## Next steps
 
