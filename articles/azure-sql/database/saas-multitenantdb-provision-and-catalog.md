@@ -144,7 +144,7 @@ The following are key elements of the provisioning workflow you step through:
 - **Add the tenant's name to a catalog extension table**: The venue name is added to the Tenants table in the catalog.  This addition shows how the Catalog database can be extended to support additional application-specific data.
 - **Open Events page for the new tenant**: The *Bushwillow Blues* events page is opened in the browser.
 
-   ![events](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
+   ![Screenshot that shows the Events page for a new tenant.](./media/saas-multitenantdb-provision-and-catalog/bushwillow.png)
 
 #### Debugger steps
 
@@ -157,7 +157,7 @@ To understand how the Wingtip app implements new tenant provisioning in a shared
 
 2. Add a breakpoint by putting your cursor anywhere on line 38, the line that says: *New-Tenant `*, and then press **F9**.
 
-   ![break point](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
+   ![Screenshot that highlights the line that inclues New Tenant.](./media/saas-multitenantdb-provision-and-catalog/breakpoint.png)
 
 3. Run the script by pressing **F5**.
 

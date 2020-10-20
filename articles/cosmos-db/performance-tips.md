@@ -101,7 +101,7 @@ new ConnectionPolicy
 
 Because TCP is supported only in direct mode, if you use gateway mode, the HTTPS protocol is always used to communicate with the gateway and the `Protocol` value in `ConnectionPolicy` is ignored.
 
-:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="The Azure Cosmos DB connection policy" border="false":::
+:::image type="content" source="./media/performance-tips/connection-policy.png" alt-text="Diagram that shows the Azure Cosmos DB connection policy." border="false":::
 
 **Ephemeral port exhaustion**
 
