@@ -48,7 +48,7 @@ An Azure subscription or free Cosmos DB trial account
 > 
 
 ## Database examples
-The [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) method of the sample *DatabaseManagement* project shows how to do the following tasks. To learn about Azure Cosmos databases before you run the following samples, see [Work with databases, containers, and items](databases-containers-items.md). 
+The [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L75-L91) method of the sample *DatabaseManagement* project shows how to do the following tasks. To learn about Azure Cosmos databases before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md). 
 
 | Task | API reference |
 | --- | --- |
@@ -58,7 +58,7 @@ The [RunDatabaseDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/mast
 | [Delete a database](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DatabaseManagement/Program.cs#L89) |[DocumentClient.DeleteDatabaseAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedatabaseasync) |
 
 ## Collection examples
-The [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) method of the sample *CollectionManagement* project shows how to do the following tasks. To learn about Azure Cosmos collections before you run the following samples, see [Work with databases, containers, and items](databases-containers-items.md). 
+The [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L86-L104) method of the sample *CollectionManagement* project shows how to do the following tasks. To learn about Azure Cosmos collections before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md). 
 
 | Task | API reference |
 | --- | --- |
@@ -69,7 +69,7 @@ The [RunCollectionDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/ma
 | [Delete a collection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L228) |[DocumentClient.DeleteDocumentCollectionAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.deletedocumentcollectionasync) |
 
 ## Document examples
-The [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) method of the sample *DocumentManagement* project shows how to do the following tasks. To learn about Azure Cosmos documents before you run the following samples, see [Work with databases, containers, and items](databases-containers-items.md). 
+The [RunDocumentsDemo](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L109-L118) method of the sample *DocumentManagement* project shows how to do the following tasks. To learn about Azure Cosmos documents before you run the following samples, see [Work with databases, containers, and items](account-databases-containers-items.md). 
 
 | Task | API reference |
 | --- | --- |
