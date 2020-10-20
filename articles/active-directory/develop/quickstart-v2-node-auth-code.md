@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Add Authentication to a Node web app with MSAL Node"
+title: "Quickstart: Add Authentication to a Node web app with MSAL Node | Azure"
 titleSuffix: Microsoft identity platform
 description: In this quickstart, you learn how to implement authentication with a Node.js web app and MSAL Node.
 services: active-directory
