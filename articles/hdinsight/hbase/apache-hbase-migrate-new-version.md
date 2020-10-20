@@ -206,11 +206,8 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
    hbase zkcli
    rmr /hbase-unsecure
    quit
-   ```     
-
-   ```bash
    hdfs dfs -rm -r hdfs://mycluster/hbasewal**
-   ```
+   ```
 
 
 1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
