@@ -20,8 +20,6 @@ The [ARR samples repository](https://github.com/Azure/azure-remote-rendering) co
 > [!TIP]
 > There is also a [UI-based tool called ARRT](azure-remote-rendering-asset-tool.md) to interact with the service, which is a convenient alternative to using scripts. ![ARRT](./media/azure-remote-rendering-asset-tool.png "ARRT screenshot")
 
-
-
 > [!CAUTION]
 > Calling REST API functions too frequently will cause the server to throttle and return failure eventually. The http failure code id in this case is 429 ("too many requests"). As a rule of thumb, there should be a delay of **5-10 seconds between subsequent calls**.
 
@@ -46,7 +44,7 @@ To execute the sample scripts, you need a functional setup of [Azure PowerShell]
     > [!NOTE]
     > In case your organization has more than one subscription you might need to specify the SubscriptionId and Tenant arguments. Find details in the [Connect-AzAccount documentation](/powershell/module/az.accounts/connect-azaccount).
 
-1. Download the *Scripts* folder from the [Azure Remote Rendering GithHub repository](https://github.com/Azure/azure-remote-rendering).
+1. Download the *Scripts* folder from the [Azure Remote Rendering GitHub repository](https://github.com/Azure/azure-remote-rendering).
 
 ## Configuration file
 
