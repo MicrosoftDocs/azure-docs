@@ -241,7 +241,7 @@ In this quickstart, you created a:
 
 * Virtual network and bastion host.
 * Virtual machine.
-* Azure Web app with private endpoint.
+* Private endpoint for an Azure Web App.
 
 You used the virtual machine to test connectivity securely to the web app across the private endpoint.
 
