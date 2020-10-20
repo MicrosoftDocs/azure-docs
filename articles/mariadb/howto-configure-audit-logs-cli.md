@@ -17,7 +17,7 @@ You can configure the [Azure Database for MariaDB audit logs](concepts-audit-log
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md)
+ - You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-portal.md).
 
  - This article requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index?#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index?#az_upgrade).
 

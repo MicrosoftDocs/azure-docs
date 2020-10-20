@@ -15,7 +15,7 @@ The server [reaching the storage limit](https://docs.microsoft.com/azure/mariadb
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
- - You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md)
+ - You need an [Azure Database for MariaDB server](quickstart-create-mariadb-server-database-using-azure-cli.md).
 
 
 
