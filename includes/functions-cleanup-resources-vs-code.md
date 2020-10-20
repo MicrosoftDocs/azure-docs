@@ -8,7 +8,7 @@ ms.author: glenga
 
 ## Clean up resources
 
-When you continue to the next step, [Add an Azure Storage queue binding to your function][connect-storage-queue], you'll need to keep all your resources in place to build on what you've already done.
+When you continue to the [next step](#next-steps) and add an Azure Storage queue binding to your function, you'll need to keep all your resources in place to build on what you've already done.
 
 Otherwise, you can use the following steps to delete the function app and its related resources to avoid incurring any further costs.
 

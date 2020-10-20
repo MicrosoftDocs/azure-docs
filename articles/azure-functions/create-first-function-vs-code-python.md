@@ -111,9 +111,12 @@ In this section, you create a function app and related resources in your Azure s
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
-[!INCLUDE [functions-next-steps-vs-code](../../includes/functions-next-steps-vs-code.md)]
+## Next steps
 
-[connect-storage-queue]: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python
+You have used Visual Studio Code to create a function app with a simple HTTP-triggered function. In the next article, you expand that function by adding an output binding. This binding writes the string from the HTTP request to a message in an Azure Queue Storage queue. 
+
+> [!div class="nextstepaction"]
+> [Connect to an Azure Storage queue](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-python)
 
 [Azure Functions Core Tools]: functions-run-local.md
 [Azure Functions extension for Visual Studio Code]: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions
