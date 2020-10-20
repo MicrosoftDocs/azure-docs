@@ -42,9 +42,9 @@ The steps of the Secure Export data flow are:
 
 ![Diagram that shows how the ITSM tool communicates with Azure A D, Azure alerts, and an action group.](media/it-service-management-connector-secure-webhook-connections/secure-export-diagram.png)
 
-## Connection with BMC Helix
+## Benefits of Secure Export
 
-Secure Export supports BMC Helix. Some benefits of the integration are:
+The main benefits of the integration are:
 
 * **Better authentication**: Azure AD provides more secure authentication without the timeouts that commonly occur in ITSMC.
 * **Alerts resolved in the ITSM tool**: Metric alerts implement "fired" and "resolved" states. When the condition is met, the alert state is "fired." When condition is not met anymore, the alert state is "resolved." In ITSMC, alerts can't be resolved automatically. With Secure Export, the resolved state flows to the ITSM tool and so is updated automatically.
@@ -54,7 +54,7 @@ Start using the ITSM Connector tool with these steps:
 
 1. Register your app with Azure AD.
 2. Create a Secure Webhook action group.
-3. Configure your partner environment.
+3. Configure your partner environment. Today we support one vendor which is BMC Helix.
 
 ## Register with Azure Active Directory
 
@@ -74,14 +74,6 @@ After your application is registered with Azure AD, you can create work items in
 Action groups provide a modular and reusable way of triggering actions for Azure alerts. You can use action groups with metric alerts, Activity Log alerts, and Azure Log Analytics alerts in the Azure portal.
 To learn more about action groups, see [Create and manage action groups in the Azure portal](./action-groups.md).
 
-Use the following procedure in the BMC Helix environment:
-
-1. Log in to Integration Studio.
-1. Search for the **Create Incident from Azure Alerts** flow.
-1. Copy the webhook URL.
-   
-   ![Screenshot of the webhook U R L in Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
-
 To add a webhook to an action, follow these instructions for Secure Webhook:
 
 1. In the [Azure portal](https://portal.azure.com/), search for and select **Monitor**. The **Monitor** pane consolidates all your monitoring settings and data in one view.
@@ -91,7 +83,7 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
 1. Select **Secure Webhook**.
 1. Select these details:
    1. Select the object ID of the Azure Active Directory instance that you registered.
-   1. For the URI, paste in the webhook URL that you copied from the BMC Helix environment.
+   1. For the URI, paste in the webhook URL that you copied from the vendor environment.
    1. Set **Enable the common Alert Schema** to **Yes**. 
 
    The following image shows the configuration of a sample Secure Webhook action:
@@ -99,6 +91,10 @@ To add a webhook to an action, follow these instructions for Secure Webhook:
    ![Screenshot that shows a Secure Webhook action.](media/it-service-management-connector-secure-webhook-connections/secure-webhook.png)
 
 ## Configure the partner environment
+
+The configuration contain 2 steps:
+1. Get the URI for the secure export definition.
+2. Definitions according to the flow of the vendor.
 
 ### Connect BMC Helix to Azure Monitor
 
@@ -113,6 +109,13 @@ Ensure that you've met the following prerequisites:
 
 ### Configure the BMC Helix connection
 
+1.Use the following procedure in the BMC Helix environment in order to get the URI for the secure export:
+
+   1. Log in to Integration Studio.
+   1. Search for the **Create Incident from Azure Alerts** flow.
+   1. Copy the webhook URL .
+   
+   ![Screenshot of the webhook U R L in Integration Studio.](media/it-service-management-connector-secure-webhook-connections/bmc-url.png)
 1. Follow the instructions accoring to the version:
    * [Enabling prebuilt integration with Azure Monitor for version 20.02](https://docs.bmc.com/docs/multicloud/enabling-prebuilt-integration-with-azure-monitor-879728195.html).
    * [Enabling prebuilt integration with Azure Monitor for version 19.11](https://docs.bmc.com/docs/multicloudprevious/enabling-prebuilt-integration-with-azure-monitor-904157623.html).
