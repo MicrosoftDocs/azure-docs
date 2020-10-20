@@ -78,4 +78,4 @@ If you need to remove the role assignment from a user, you can also do that from
 - [Add guest users from another directory](../external-identities/what-is-b2b.md)
 
 Other user management tasks you can check out
-are available in [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+are available in [Azure Active Directory user management documentation](../enterprise-users/index.yml).
