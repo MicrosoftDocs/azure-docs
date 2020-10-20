@@ -49,7 +49,7 @@ Ingestion operations are issues that occurred during data ingestion including no
 
 | Operation | Level | Detail | Related article |
 |:---|:---|:---|:---|
-| Custom log | Error   | Custom fields column limit reached. | [Azure Monitor service limits](service-limits.md#log-analytics-workspaces) |
+| Custom log | Error   | Custom fields column limit reached. | [Azure Monitor service limits](../service-limits.md#log-analytics-workspaces) |
 | Custom log | Error   | Custom logs ingestion failed. | |
 | Custom log | Error   | Metadata. | |
 | Data | Error   | Data was dropped because the request was created earlier than the number of set days. | [Manage usage and costs with Azure Monitor Logs](manage-cost-storage.md#alert-when-daily-cap-reached)
