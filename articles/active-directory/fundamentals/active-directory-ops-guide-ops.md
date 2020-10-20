@@ -44,7 +44,7 @@ As you review your list, you may find you need to either assign an owner for tas
 
 #### Owners recommended reading
 
-- [Assigning administrator roles in Azure Active Directory](../roles/directory-assign-admin-roles.md)
+- [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md)
 - [Governance in Azure](../../governance/index.yml)
 
 ## Hybrid management

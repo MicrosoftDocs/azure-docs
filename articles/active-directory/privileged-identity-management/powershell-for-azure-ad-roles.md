@@ -159,8 +159,4 @@ Set-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Id 'ff518d09-47f5-45a
 - [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
 - [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-update-remove.md)
 - [Configure an Azure AD custom role assignment](azure-ad-custom-roles-configure.md)
-<<<<<<< HEAD
 - [Role definitions in Azure AD](../roles/permissions-reference.md)
-=======
-- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
->>>>>>> e541dfd7de113cd2b32b3d63a03f743fb0415251
