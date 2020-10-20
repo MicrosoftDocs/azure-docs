@@ -170,8 +170,8 @@ There are also variants of the members, which aggregate the values over time. Se
 
 ## API documentation
 
-* [C# RemoteManager.QueryServerPerformanceAssessmentAsync()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
-* [C++ RemoteManager::QueryServerPerformanceAssessmentAsync()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
+* [C# RemoteManager.QueryServerPerformanceAssessmentAsync()](/dotnet/api/microsoft.azure.remoterendering.remotemanager.queryserverperformanceassessmentasync)
+* [C++ RemoteManager::QueryServerPerformanceAssessmentAsync()](/cpp/api/remote-rendering/remotemanager#queryserverperformanceassessmentasync)
 
 ## Next steps
 
