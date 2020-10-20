@@ -20,11 +20,11 @@ This article describes the causes and solutions for **404104 DeviceConnectionClo
 
 ### Symptom 1
 
-Devices disconnect at a regular interval (every 65 minutes, for example) and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub diagnostic logs. Sometimes, you also see **401003 IoTHubUnauthorized** and a successful device connection event less than a minute later.
+Devices disconnect at a regular interval (every 65 minutes, for example) and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub resource logs. Sometimes, you also see **401003 IoTHubUnauthorized** and a successful device connection event less than a minute later.
 
 ### Symptom 2
 
-Devices disconnect randomly, and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub diagnostic logs.
+Devices disconnect randomly, and you see **404104 DeviceConnectionClosedRemotely** in IoT Hub resource logs.
 
 ### Symptom 3
 

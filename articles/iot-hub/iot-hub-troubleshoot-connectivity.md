@@ -20,9 +20,9 @@ Connectivity issues for IoT devices can be difficult to troubleshoot because the
 
 Use Azure Monitor to get alerts and write logs when devices disconnect.
 
-### Turn on diagnostic logs
+### Turn on logs
 
-To log device connection events and errors, turn on diagnostics for IoT Hub. We recommend turning on these logs as early as possible, because if diagnostic logs aren't enabled, when device disconnects occur, you won't have any information to troubleshoot the problem with.
+To log device connection events and errors, create a diagnostic setting for [IoT Hub connections resource logs](monitor-iot-hub-reference.md#connections). We recommend creating this setting as early as possible, because these logs aren't collected by default, and, without them, you won't have any information to troubleshoot device disconnects with when they occur.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -64,7 +64,7 @@ To detect *per-device* disconnects, such as when you need to know a factory just
 
 ## Resolve connectivity errors
 
-When you turn on diagnostic logs and alerts for connected devices, you get alerts when errors occur. This section describes how to look for common issues when you receive an alert. The steps below assume you've set up Azure Monitor logs for your diagnostic logs.
+When you turn on logs and alerts for connected devices, you get alerts when errors occur. This section describes how to look for common issues when you receive an alert. The steps below assume you've already created a diagnostic setting to send IoT Hub connections logs to a Log Analytics workspace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
