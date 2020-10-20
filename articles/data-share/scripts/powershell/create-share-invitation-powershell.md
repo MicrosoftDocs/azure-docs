@@ -1,11 +1,8 @@
 ---
-title: "PowerShell script: Create an Azure Data Share invitation| Microsoft Docs"
+title: "PowerShell script: Create an Azure Data Share invitation"
 description: This PowerShell script sends a data share invitation.
-services: data-share
 author: joannapea
 ms.service: data-share
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
@@ -37,7 +34,7 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation?view=azps-2.6.0) | Create a data share invitation. |
+| [New-AzDataShareInvitation](/powershell/module/az.datashare/new-azdatashareinvitation) | Create a data share invitation. |
 |||
 
 ## Next steps
