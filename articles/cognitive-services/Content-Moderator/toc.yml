@@ -99,7 +99,7 @@
 - name: Resources
   items:
   - name: Support & help options
-  href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
+    href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/content-moderator/context/context
   - name: Samples
     items:
     - name: .NET SDK samples
