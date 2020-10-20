@@ -200,16 +200,15 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 	
 1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature, and only in cases where your original cluster was an HBase cluster with Enhanced Writes feature .
 
-   Clean the zookeeper and WAL FS data for this new cluster. Issue below commands in any of the zookeeper nodes or worker nodes 
+   Clean the zookeeper and WAL FS data for this new cluster. Issue the following commands in any of the zookeeper nodes or worker nodes:
 
    ```bash
    hbase zkcli
    rmr /hbase-unsecure
    quit
 
-   hdfs dfs -rm -r hdfs://mycluster/hbasewal\*\*
+   hdfs dfs -rm -r hdfs://mycluster/hbasewal**
    ```
-
 
 1. If you aren't using HBase clusters with the Enhanced Writes feature, skip this step. It's needed only for HBase clusters with Enhanced Writes feature.
    
