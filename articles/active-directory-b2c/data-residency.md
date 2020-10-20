@@ -57,12 +57,24 @@ The following countries/regions are in the process of being added to the list. F
 
 ## Remote profile solution
 
-With Azure AD B2C [custom policy](custom-policy-overview.md) you can integrate with [RESTful APIs services](custom-policy-rest-api-intro.md), which allows you to store and read user profile from a remote database (a marketing database, CRM system, or any line of business application). 
-- During the sign-up and profile editing flow, Azure AD B2C calls a custom REST API to persist the user profile to the remote data source. While the user's credentials are stored in Azure AD B2C directory. 
-- On sign-in, after the credentials validation, with local or social account, Azure AD B2C invokes the REST API, sending the user unique identifier as a user primary key (email address, or user objectId). The REST API reads the data from the remote database and return the user profile. 
+With Azure AD B2C [custom policies](custom-policy-overview.md), you can integrate with [RESTful API services](custom-policy-rest-api-intro.md), which allow you to store and read user profiles from a remote database (such as a marketing database, CRM system, or any line-of-business application).  
+- During the sign-up and profile editing flows, Azure AD B2C calls a custom REST API to persist the user profile to the remote data source. The user's credentials are stored in Azure AD B2C directory. 
+- Upon sign-in, after credentials validation with a local or social account, Azure AD B2C invokes the REST API, which sends the user's unique identifier as a user primary key (email address or user objectId). The REST API reads the data from the remote database and returns the user profile.  
 
-After sign-up, edit profile, or sign-in, is completed Azure AD B2C includes the user profile in the access token that returns back to the application. For more information, see [Azure AD B2C Remote profile GitHub solution](https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile).
+After sign-up, profile editing, or sign-in is complete, Azure AD B2C includes the user profile in the access token that is returned to the application. For more information, see the [Azure AD B2C Remote profile sample solution] (https://github.com/azure-ad-b2c/samples/tree/master/policies/remote-profile) in GitHub.
 
-## Nest steps
+## Preview tenant
 
-- [Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
+If you had created a B2C tenant during Azure AD B2C's preview period, it's likely that your **Tenant type** says **Preview tenant**.
+
+If this is the case, you must use your tenant ONLY for development and testing purposes. DO NOT use a preview tenant for production applications.
+
+**There is no migration path** from a preview B2C tenant to a production-scale B2C tenant. You must create a new B2C tenant for your production applications.
+
+There are known issues when you delete a preview B2C tenant and create a production-scale B2C tenant with the same domain name. *You must create a production-scale B2C tenant with a different domain name*.
+
+![Screenshot of a tenant type, as preview tenant.](./media/data-residency/preview-b2c-tenant.png)
+
+## Next steps
+
+- [Create an Azure AD B2C tenant](tutorial-create-tenant.md).
