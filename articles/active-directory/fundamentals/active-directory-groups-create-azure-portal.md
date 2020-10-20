@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Create a basic group and add members using Azure Active Directory
-You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is added to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+You can create a basic group using the Azure Active Directory (Azure AD) portal. For the purposes of this article, a basic group is added to a single resource by the resource owner (administrator) and includes specific members (employees) that need to access that resource. For more complex scenarios, including dynamic memberships and rule creation, see the [Azure Active Directory user management documentation](../enterprise-users/index.yml).
 
 ## Group and membership types
 There are several group and membership types. The following information explains each group and membership type and why they are used, to help you decide which options to use when you create a group.

@@ -101,4 +101,4 @@ After you've added your users, you can do the following basic processes:
 
 - [Work with dynamic groups and users](../enterprise-users/groups-create-rule.md)
 
-Or you can do other user management tasks, such as [adding guest users from another directory](../external-identities/what-is-b2b.md) or [restoring a deleted user](active-directory-users-restore.md). For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Or you can do other user management tasks, such as [adding guest users from another directory](../external-identities/what-is-b2b.md) or [restoring a deleted user](active-directory-users-restore.md). For more information about other available actions, see [Azure Active Directory user management documentation](../enterprise-users/index.yml).

@@ -86,4 +86,4 @@ After you've restored or deleted your users, you can perform the following basic
 
 - [Add guest users from another organization](../external-identities/what-is-b2b.md)
 
-For more information about other available user management tasks, [Azure AD user management documentation](../users-groups-roles/index.yml).
+For more information about other available user management tasks, [Azure AD user management documentation](../enterprise-users/index.yml).

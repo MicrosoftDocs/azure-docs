@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 As an administrator, you can reset a user's password if the password is forgotten, if the user gets locked out of a device, or if the user never received a password.
 
 >[!Note]
->Unless your Azure AD tenant is the home directory for a user, you won't be able reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.<br><br>If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback.<br><br>If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an adminsitrator in External Azure AD, can reset the password.
+>Unless your Azure AD tenant is the home directory for a user, you won't be able reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.<br><br>If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback.<br><br>If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an administrator in External Azure AD, can reset the password.
 
 >[!Note]
 >If you're not an administrator and are instead looking for instructions about how to reset your own work or school password, see [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md).
@@ -60,4 +60,4 @@ After you've reset your user's password, you can perform the following basic pro
 
 - [Create a basic group and add members](active-directory-groups-create-azure-portal.md)
 
-Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).
+Or you can perform more complex user scenarios, such as assigning delegates, using policies, and sharing user accounts. For more information about other available actions, see [Azure Active Directory user management documentation](../enterprise-users/index.yml).
