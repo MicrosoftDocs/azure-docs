@@ -99,7 +99,8 @@ az logic integration-account list --resource-group myresourcegroup
 Run the [az logic integration-account create](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) command to create an integration account:
 
 ```azurecli
-az logic integration-account create --resource-group myresourcegroup --name integration_account_01 --location westus --sku name=Standard
+az logic integration-account create --resource-group myresourcegroup \
+    --name integration_account_01 --location westus --sku name=Standard
 ```
 
 Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
@@ -116,7 +117,8 @@ az logic integration-account show --name integration_account_01 --resource-group
 You can change your SKU, or pricing tier, by using the [az logic integration-account update](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_update) command:
 
 ```azurecli
-az logic integration-account update --sku name=Basic --name integration_account_01 --resource-group myresourcegroup
+az logic integration-account update --sku name=Basic --name integration_account_01 \
+    --resource-group myresourcegroup
 ```
 
 For more information about pricing, see these resources:
@@ -128,7 +130,8 @@ For more information about pricing, see these resources:
 Use the [az logic integration-account import](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_import) command to import an integration account by using a JSON file:
 
 ```azurecli
-az logic integration-account import --name integration_account_01 --resource-group myresourcegroup --input-path integration.json
+az logic integration-account import --name integration_account_01 \
+    --resource-group myresourcegroup --input-path integration.json
 ```
 
 You can delete an integration account by using the [az logic integration-account delete](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_delete) command:
