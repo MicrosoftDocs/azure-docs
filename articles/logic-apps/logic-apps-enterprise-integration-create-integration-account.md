@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/26/2019
+ms.date: 10/26/2020
 ---
 
 # Create and manage integration accounts for B2B enterprise integrations in Azure Logic Apps
@@ -76,10 +76,12 @@ You can create an integration account by using the Azure CLI commands in this se
 
 [!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
 
+### Create an integration account
+
 Use the [az extension add](/cli/azure/extension#az_extension_add) command to add the [az logic integration-account](/cli/azure/ext/logic/logic/integration-account) extension:
 
 ```azurecli
-az extension add –name logic
+az extension add –-name logic
 ```
 
 Run the [az group create](/cli/azure/group#az_group_create) command to create a resource group or use an existing resource group:
@@ -97,7 +99,7 @@ az logic integration-account list --resource-group myresourcegroup
 Run the [az logic integration-account create](/cli/azure/ext/logic/logic/integration-account#ext_logic_az_logic_integration_account_create) command to create an integration account:
 
 ```azurecli
-az logic integration-account create --resource-group myresourcegroup --name integration_account_01 --location centralus --sku name=Standard
+az logic integration-account create --resource-group myresourcegroup --name integration_account_01 --location westus --sku name=Standard
 ```
 
 Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses ((, )), and periods (.).
