@@ -18,10 +18,7 @@ Before you start, [Create a commercial marketplace account in Partner Center](ht
 
 ### Technical fundamentals
 
-The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of the following Microsoft technologies:
-
-- [Design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/)
-- [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking)
+The process of designing, building, and testing offers takes time and requires expertise in both the Azure platform and the technologies used to build your offer. Your engineering team should have a working knowledge of [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/), [Azure Storage](https://azure.microsoft.com/services/?filter=storage#storage), and [Azure Networking](https://azure.microsoft.com/services/?filter=networking#networking), as well as proficiency with the [design and architecture of Azure applications](https://azure.microsoft.com/solutions/architecture/). See these additional technical resources: 
 
 - Tutorials
   - [Linux VMs](../virtual-machines/linux/tutorial-manage-vm.md)
@@ -35,9 +32,17 @@ The process of designing, building, and testing offers takes time and requires e
 
 ## Technical requirements
 
+VM offers have the following technical requirements:
+
+- You must prepare one operating system virtual hard disk (VHD). Data disk VHDs are optional. This is explained in more detail below.
+- The customer can cancel your offer at any time.
+- You must create at least one plan for your offer. Your plan is priced based on the [licensing option](#licensing-options) you select.
+   > [!IMPORTANT]
+   > Every VM Image in a plan must have the same number of data disks.
+
 A VM contains two components:
 
-- **Operating system virtual hard disk (VHD)** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-, Windows-, or custom-based VM.
+- **Operating VHD** – Contains the operating system and solution that deploys with your offer. The process of preparing the VHD differs depending on whether it is a Linux-, Windows-, or custom-based VM.
 - **Data disk VHDs** (optional) – Dedicated, persistent storage for a VM. Don't use the operating system VHD (for example, the C: drive) to store persistent information. 
     - You can include up to 16 data disks.
     - Use one VHD per data disk, even if the disk is blank.
@@ -45,13 +50,7 @@ A VM contains two components:
     > [!NOTE]
     > Regardless of which operating system you use, add only the minimum number of data disks needed by the solution. Customers cannot remove disks that are part of an image at the time of deployment, but they can always add disks during or after deployment.
 
-VM offers have the following technical requirements:
-
-- You must prepare one operating system virtual hard disk (VHD). Data disk VHDs are optional.
-- The customer can cancel your offer at any time.
-- You must create at least one plan for your offer. Your plan is priced based on the [licensing option](#licensing-options) you select.
-   > [!IMPORTANT]
-   > Every VM Image in a plan must have the same number of data disks.
+For detailed instructions on preparing your technical assets, see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [Create a virtual machine using your own image](azure-vm-create-using-own-image.md).
 
 ## Preview audience
 
@@ -130,5 +129,6 @@ When creating your offer in Partner Center, you will see the **Resell through CS
 
 ## Next steps
 
+- [Create a virtual machine offer on Azure Marketplace](azure-vm-create.md)
 - [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md).
 - [Offer listing best practices](gtm-offer-listing-best-practices.md)

@@ -110,7 +110,17 @@
     - name: Plan a VM offer
       href: marketplace-virtual-machines.md
     - name: Create and publish a VM offer
-      items: 
+      items:
+      - name: Create a VM offer
+        href: azure-vm-create.md
+      - name: Configure VM offer properties
+        href: azure-vm-create-properties.md
+      - name: Configure VM offer listing
+        href: azure-vm-create-listing.md
+      - name: Create VM plans
+        href: azure-vm-create-plans.md
+      - name: Add a preview audience
+        href: azure-vm-create-preview.md
       - name: Create VM technical assets
         items:
         - name: Create VM from an approved base
@@ -127,16 +137,6 @@
           href: azure-vm-create-faq.md
         - name: VM certification troubleshooting
           href: azure-vm-create-certification-faq.md
-      - name: Create a VM offer
-        href: azure-vm-create.md
-      - name: Configure VM offer properties
-        href: azure-vm-create-properties.md
-      - name: Configure VM offer listing
-        href: azure-vm-create-listing.md
-      - name: Create VM plans
-        href: azure-vm-create-plans.md
-      - name: Add a preview audience
-        href: azure-vm-create-preview.md
   - name: Consulting services
     items: 
     - name: Plan a consulting services offer
