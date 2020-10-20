@@ -258,7 +258,6 @@
       href: managed-service-identity.md
     - name: Deliver events to Event Hubs, Service Bus, or Functions privately
       href: deliver-events-secure.md
-      href: managed-service-identity.md      
   - name: Troubleshoot
     items: 
     - name: Enable diagnostic logs
