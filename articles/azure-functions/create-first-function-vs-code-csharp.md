@@ -72,8 +72,6 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
 
-[!INCLUDE [functions-cleanup-resources-vs-code.md](../../includes/functions-cleanup-resources-vs-code.md)]
-
 [!INCLUDE [functions-next-steps-vs-code](../../includes/functions-next-steps-vs-code.md)]
 
 [connect-storage-queue]: functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp
