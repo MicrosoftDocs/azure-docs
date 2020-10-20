@@ -5298,7 +5298,7 @@
     },
     {
       "source_path": "articles/key-vault/key-vault-security-controls.md",
-      "redirect_url": "/azure/key-vault/general/security-controls",
+      "redirect_url": "/azure/key-vault/general/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -32909,7 +32909,12 @@
     },
     {
       "source_path": "articles/api-management/api-management-security-attributes.md",
-      "redirect_url": "/azure/api-management/api-management-security-controls",
+      "redirect_url": "/azure/api-management/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/api-management/api-management-security-controls.md",
+      "redirect_url": "/azure/api-management/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -32924,7 +32929,12 @@
     },
     {
       "source_path": "articles/backup/backup-security-attributes.md",
-      "redirect_url": "/azure/backup/backup-security-controls",
+      "redirect_url": "/azure/backup/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/backup/backup-security-controls.md",
+      "redirect_url": "/azure/backup/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -32934,12 +32944,22 @@
     },
     {
       "source_path": "articles/event-hubs/event-hubs-security-attributes.md",
-      "redirect_url": "/azure/event-hubs/event-hubs-security-controls",
+      "redirect_url": "/azure/event-hubs/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/event-hubs/event-hubs-security-controls.md",
+      "redirect_url": "/azure/event-hubs/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/expressroute/expressroute-security-attributes.md",
-      "redirect_url": "/azure/expressroute/expressroute-security-controls",
+      "redirect_url": "/azure/expressroute/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/expressroute/expressroute-security-controls.md",
+      "redirect_url": "/azure/expressroute/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -32954,7 +32974,12 @@
     },
     {
       "source_path": "articles/service-bus-messaging/service-bus-messaging-security-attributes.md",
-      "redirect_url": "/azure/service-bus-messaging/service-bus-messaging-security-controls",
+      "redirect_url": "/azure/service-bus-messaging/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-bus-messaging/service-bus-messaging-security-controls.md",
+      "redirect_url": "/azure/service-bus-messaging/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -32964,27 +32989,52 @@
     },
     {
       "source_path": "articles/service-fabric/service-fabric-security-attributes.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-security-controls",
+      "redirect_url": "/azure/service-fabric/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/service-fabric/service-fabric-security-controls.md",
+      "redirect_url": "/azure/service-fabric/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/storage/common/storage-security-attributes.md",
-      "redirect_url": "/azure/storage/common/storage-security-controls",
+      "redirect_url": "/azure/storage/common/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storage/common/storage-security-controls.md",
+      "redirect_url": "/azure/storage/common/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/linux/virtual-machines-linux-security-attributes.md",
-      "redirect_url": "/azure/virtual-machines/linux/virtual-machines-linux-security-controls",
+      "redirect_url": "/azure/virtual-machines/linux/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/linux/virtual-machines-linux-security-controls.md",
+      "redirect_url": "/azure/virtual-machines/linux/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machines/windows/virtual-machines-windows-security-attributes.md",
-      "redirect_url": "/azure/virtual-machines/windows/virtual-machines-windows-security-controls",
+      "redirect_url": "/azure/virtual-machines/windows/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machines/windows/virtual-machines-windows-security-controls.md",
+      "redirect_url": "/azure/virtual-machines/windows/security-baseline",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-security-attributes.md",
-      "redirect_url": "/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls",
+      "redirect_url": "/azure/virtual-machine-scale-sets/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/virtual-machine-scale-sets/virtual-machine-scale-sets-security-controls.md",
+      "redirect_url": "/azure/virtual-machine-scale-sets/security-baseline",
       "redirect_document_id": false
     },
     {
@@ -54615,7 +54665,12 @@
     },
     {
       "source_path": "articles/sql-database/sql-database-security-attributes.md",
-      "redirect_url": "/azure/sql-database/sql-database-security-controls",
+      "redirect_url": "/azure/azure-sql/database/security-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-sql/database/security-controls.md",
+      "redirect_url": "/azure/azure-sql/database/security-baseline",
       "redirect_document_id": false
     },
     {
