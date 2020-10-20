@@ -5,14 +5,14 @@ description: Learn about how to create a GitHub Actions workflow to train a mode
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: juliamkm
+author: juliakm
 ms.author: jukullam
 ms.date: 10/19/2020
 ms.topic: conceptual
 ms.custom: github-actions-azure
 ---
 
-# Deploy to App Service using GitHub Actions
+# Use GitHub Actions with Azure Machine Learning
 
 Get started with [GitHub Actions](https://help.github.com/en/articles/about-github-actions) to train a model on Azure Machine Learning. 
 
@@ -20,17 +20,6 @@ Get started with [GitHub Actions](https://help.github.com/en/articles/about-gith
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A GitHub account. If you don't have one, sign up for [free](https://github.com/join).  
-
-## Create repository
-
-Create a new repository off the [ML Ops with GitHub Actions and Azure Machine Learning template](https://github.com/machine-learning-apps/ml-template-azure). 
-
-1. Open the [template](https://github.com/machine-learning-apps/ml-template-azure) on GitHub. 
-2. Select **Use this template**. 
-
-    :::image type="content" source="media/how-to-github-actions-machine-learning/gh-actions-use-template.png" alt-text="Select use this template":::
-3. Create a new repository from the template. Set the repository name to `ml-learning` or a name of your choice. 
-
 
 ## Workflow file overview
 
@@ -44,6 +33,17 @@ The file has four sections:
 |**Connect** | 1. Connect to the machine learning workspace. <br /> 2. Connect to a compute target. |
 |**Run** | 1. Submit a training run. |
 |**Deploy** | 1. Register model in Azure Machine Learning registry. 1. Deploy the model. |
+
+## Create repository
+
+Create a new repository off the [ML Ops with GitHub Actions and Azure Machine Learning template](https://github.com/machine-learning-apps/ml-template-azure). 
+
+1. Open the [template](https://github.com/machine-learning-apps/ml-template-azure) on GitHub. 
+2. Select **Use this template**. 
+
+    :::image type="content" source="media/how-to-github-actions-machine-learning/gh-actions-use-template.png" alt-text="Select use this template":::
+3. Create a new repository from the template. Set the repository name to `ml-learning` or a name of your choice. 
+
 
 ## Generate deployment credentials
 
