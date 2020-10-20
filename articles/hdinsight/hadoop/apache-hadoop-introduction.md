@@ -1,5 +1,5 @@
 ---
-title: What are Apache Hadoop and MapReduce - Azure HDInsight
+title: What is Apache Hadoop and MapReduce - Azure HDInsight
 description: An introduction to HDInsight, and the Apache Hadoop technology stack and components.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -15,7 +15,7 @@ ms.date: 02/27/2020
 
 [Apache Hadoop](https://hadoop.apache.org/) was the original open-source framework for distributed processing and analysis of big data sets on clusters. The Hadoop ecosystem includes related software and utilities, including Apache Hive, Apache HBase, Spark, Kafka, and many others.
 
-Azure HDInsight is a fully managed, full-spectrum, open-source analytics service in the cloud for enterprises. The Apache Hadoop cluster type in Azure HDInsight allows you to use HDFS, YARN resource management, and a simple MapReduce programming model to process and analyze batch data in parallel.
+Azure HDInsight is a fully managed, full-spectrum, open-source analytics service in the cloud for enterprises. The Apache Hadoop cluster type in Azure HDInsight allows you to use HDFS, YARN resource management, and a simple MapReduce programming model to process and analyze batch data in parallel.  Hadoop clusters in HDInsight are compatible with 
 
 To see available Hadoop technology stack components on HDInsight, see [Components and versions available with HDInsight](../hdinsight-component-versioning.md). To read more about Hadoop in HDInsight, see the [Azure features page for HDInsight](https://azure.microsoft.com/services/hdinsight/).
 
@@ -54,4 +54,5 @@ For examples of using Hadoop streaming with HDInsight, see the following documen
 
 ## Next steps
 
-* [Create Apache Hadoop cluster in HDInsight](apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Create Apache Hadoop cluster in HDInsight using the portal](../hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)
+* [Create Apache Hadoop cluster in HDInsight using ARM template](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
