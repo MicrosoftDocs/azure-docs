@@ -245,6 +245,8 @@ In this quickstart, you created a:
 
 You used the virtual machine to test connectivity securely to the web app across the private endpoint.
 
-Learn how to create a Private Link service:
+
+
+For more information on the services that support a private endpoint:
 > [!div class="nextstepaction"]
-> [Create a Private Link service](create-private-link-service-portal.md)
+> [Private Link availability](private-link-overview#availability)
