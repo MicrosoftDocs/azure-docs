@@ -58047,6 +58047,11 @@
       "source_path": "articles/azure-monitor/asp-net-more.md",
       "redirect_url": "/azure/azure-monitor/azure-monitor-app-hub",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/storsimple/storsimple-5000-7000-afs-migration.md",
+      "redirect_url": "/azure/storage/files/storage-files-migration-storsimple-8000",
+      "redirect_document_id": false
     }
   ]
 }
