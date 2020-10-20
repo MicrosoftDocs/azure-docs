@@ -1247,6 +1247,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/how-to-use-parallel-run-step.md",
+      "redirect_url": "/azure/machine-learning/tutorial-pipeline-batch-scoring-classification",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/batch-ai/cli-samples.md",
       "redirect_url": "/previous-versions/azure/batch-ai/cli-samples",
       "redirect_document_id": false
@@ -8945,7 +8950,7 @@
     },
     {
       "source_path": "articles/connectors/connectors-create-api-twitter",
-      "redirect_url": "/connectors/twitterconnector/",
+      "redirect_url": "/connectors/twitter/",
       "redirect_document_id": true
     },
     {
@@ -24354,8 +24359,13 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-debug-saml-sso-issues.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues.md",
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-enable-sso-android.md",
@@ -25624,8 +25634,8 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-saml-debugging.md",
-      "redirect_url": "/azure/active-directory/develop/howto-v1-debug-saml-sso-issues",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-devhowto-appsource-certified.md",
@@ -53312,7 +53322,7 @@
     {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/csharp-sdk.md",
       "redirect_url": "/azure/cognitive-services/Computer-vision/quickstarts-sdk/client-library?pivots=programming-language-csharp",
-      "redirect_document_id": false
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Computer-vision/quickstarts-sdk/go-sdk.md",
