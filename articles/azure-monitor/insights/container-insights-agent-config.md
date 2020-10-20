@@ -24,7 +24,7 @@ A template ConfigMap file is provided that allows you to easily edit it with you
 
 ### Data collection settings
 
-The following are the settings that can be configured to control data collection.
+The following table describes the settings you can configure to control data collection:
 
 | Key | Data type | Value | Description |
 |--|--|--|--|
@@ -40,11 +40,11 @@ The following are the settings that can be configured to control data collection
 
 ### Metric collection settings
 
-The following are the settings that can be configured to control metric collection.
+The following table describes the settings you can configure to control metric collection:
 
 | Key | Data type | Value | Description |
 |--|--|--|--|
-| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | true or false | This setting allows persistent volume (PV) usage metrics to be collected in the kube-system namespace. By default, usage metrics for persistent volumes with persistent volume claims in the kube-system namespace are not collected. When this setting is set to true, PV usage metrics for all namespaces are collected. By default, this is set to false. |
+| `[metric_collection_settings.collect_kube_system_pv_metrics] enabled =` | Boolean | true or false | This setting allows persistent volume (PV) usage metrics to be collected in the kube-system namespace. By default, usage metrics for persistent volumes with persistent volume claims in the kube-system namespace are not collected. When this setting is set to `true`, PV usage metrics for all namespaces are collected. By default, this is set to `false`. |
 
 ConfigMaps is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMaps overruling the collections.
 
@@ -52,10 +52,10 @@ ConfigMaps is a global list and there can be only one ConfigMap applied to the a
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
 
-1. [Download](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml.) the template ConfigMap yaml file and save it as container-azm-ms-agentconfig.yaml. 
+1. Download the [template ConfigMap YAML file](https://github.com/microsoft/Docker-Provider/blob/ci_prod/kubernetes/container-azm-ms-agentconfig.yaml) and save it as container-azm-ms-agentconfig.yaml. 
 
-   >[!NOTE]
-   >This step is not required when working with Azure Red Hat OpenShift since the ConfigMap template already exists on the cluster.
+   > [!NOTE]
+   > This step is not required when working with Azure Red Hat OpenShift because the ConfigMap template already exists on the cluster.
 
 2. Edit the ConfigMap yaml file with your customizations to collect stdout, stderr, and/or environmental variables. If you are editing the ConfigMap yaml file for Azure Red Hat OpenShift, first run the command `oc edit configmaps container-azm-ms-agentconfig -n openshift-azure-logging` to open the file in a text editor.
 
