@@ -1,7 +1,7 @@
 ---
 title:  Managing the Azure Arc enabled servers agent
 description: This article describes the different management tasks that you will typically perform during the lifecycle of the Azure Arc enabled servers Connected Machine agent.
-ms.date: 09/09/2020
+ms.date: 10/20/2020
 ms.topic: conceptual
 ---
 
@@ -143,9 +143,11 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 
 * **Disconnect** - To disconnect the machine from Azure Arc
 
-* **Reconnect** - To reconnect a disconnected machine to Azure Arc
-
 * **Show** - View agent status and its configuration properties (Resource Group name, Subscription ID, version, etc.), which can help when troubleshooting an issue with the agent.
+
+* **Logs** - Creates a .zip file containing logs to assist you while troubleshooting.
+
+* **Version** - Shows the Connected Machine agent version.
 
 * **-h or --help** - Shows available command-line parameters
 
@@ -153,7 +155,7 @@ The Azcmagent tool (Azcmagent.exe) is used to configure the Azure Arc enabled se
 
 * **-v or --verbose** - Enable verbose logging
 
-You can perform a **Connect**, **Disconnect**, and **Reconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
+You can perform a **Connect** and **Disconnect** manually while logged on interactively, or automate using the same service principal you used to onboard multiple agents or with a Microsoft identity platform [access token](../../active-directory/develop/access-tokens.md). If you did not use a service principal to register the machine with Azure Arc enabled servers, see the following [article](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) to create a service principal.
 
 >[!NOTE]
 >You must have *root* access permissions on Linux machines to run **azcmagent**.
@@ -194,27 +196,6 @@ To disconnect using an access token, run the following command:
 To disconnect with your elevated logged-on credentials (interactive), run the following command:
 
 `azcmagent disconnect --tenant-id <tenantID>`
-
-### Reconnect
-
-> [!WARNING]
-> The `reconnect` command is deprecated and should not be used. The command will be removed in a future agent release and existing agents will be unable to complete the reconnect request. Instead, [disconnect](#disconnect) your machine then [connect](#connect) it again.
-
-This parameter reconnects the already registered or connected machine with Azure Arc enabled servers. This may be necessary if the machine has been turned off, at least 45 days, for its certificate to expire. This parameter uses the authentication options provided to retrieve new credentials corresponding to the Azure Resource Manager resource representing this machine.
-
-This command requires higher privileges than the [Azure Connected Machine Onboarding](agent-overview.md#required-permissions) role.
-
-To reconnect using a service principal, run the following command:
-
-`azcmagent reconnect --service-principal-id <serviceprincipalAppID> --service-principal-secret <serviceprincipalPassword> --tenant-id <tenantID>`
-
-To reconnect using an access token, run the following command:
-
-`azcmagent reconnect --access-token <accessToken>`
-
-To reconnect with your elevated logged-on credentials (interactive), run the following command:
-
-`azcmagent reconnect --tenant-id <tenantID>`
 
 ## Remove the agent
 
