@@ -2,7 +2,7 @@
 title: Lock resources to prevent changes
 description: Prevent users from updating or deleting critical Azure resources by applying a lock for all users and roles.
 ms.topic: conceptual
-ms.date: 06/17/2020 
+ms.date: 10/20/2020
 ms.custom: devx-track-azurecli
 ---
 
@@ -61,11 +61,13 @@ To delete everything for the service, including the locked infrastructure resour
 
 ![Delete service](./media/lock-resources/delete-service.png)
 
-## Portal
+## Configure locks
+
+### Portal
 
 [!INCLUDE [resource-manager-lock-resources](../../../includes/resource-manager-lock-resources.md)]
 
-## Template
+### ARM template
 
 When using a Resource Manager template to deploy a lock, you use different values for the name and type depending on the scope of the lock.
 
@@ -138,7 +140,7 @@ The following example shows a template that creates an app service plan, a web s
 
 For an example of setting a lock on a resource group, see [Create a resource group and lock it](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
 
-## PowerShell
+### Azure PowerShell
 
 You lock deployed resources with Azure PowerShell by using the [New-AzResourceLock](/powershell/module/az.resources/new-azresourcelock) command.
 
@@ -179,7 +181,7 @@ $lockId = (Get-AzResourceLock -ResourceGroupName exampleresourcegroup -ResourceN
 Remove-AzResourceLock -LockId $lockId
 ```
 
-## Azure CLI
+### Azure CLI
 
 You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az-lock-create) command.
 
@@ -220,7 +222,7 @@ lockid=$(az lock show --name LockSite --resource-group exampleresourcegroup --re
 az lock delete --ids $lockid
 ```
 
-## REST API
+### REST API
 
 You can lock deployed resources with the [REST API for management locks](/rest/api/resources/managementlocks). The REST API enables you to create and delete locks, and retrieve information about existing locks.
 

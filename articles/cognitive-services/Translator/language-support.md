@@ -51,6 +51,7 @@ Translator supports the following languages for text to text translation.
 |Filipino|	`fil`	|
 |Finnish|	`fi`	|
 |French|	`fr`	|
+|French (Canada)|	`fr-ca`	|
 |German|	`de`	|
 |Greek|	`el`	|
 |Gujarati|	`gu`	|
