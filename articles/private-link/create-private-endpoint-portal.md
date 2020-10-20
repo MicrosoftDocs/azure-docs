@@ -249,4 +249,4 @@ You used the virtual machine to test connectivity securely to the web app across
 
 For more information on the services that support a private endpoint, see:
 > [!div class="nextstepaction"]
-> [Private Link availability](private-link-overview#availability)
+> [Private Link availability](private-link-overview.md#availability)
