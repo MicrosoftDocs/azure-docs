@@ -8,7 +8,7 @@ ms.custom: mvc
 ---
 # Remove VMs from Update Management
 
-When you're finished managing updates on your VMs in your environment, you can stop managing VMs with the [Update Management](update-mgmt-overview.md) feature. To stop managing them, you will edit the saved search query `MicrosoftDefaultComputerGroup` in your Log Analytics workspace that is linked to your Automation account.
+When you're finished managing updates on your VMs in your environment, you can stop managing VMs with the [Update Management](overview.md) feature. To stop managing them, you will edit the saved search query `MicrosoftDefaultComputerGroup` in your Log Analytics workspace that is linked to your Automation account.
 
 ## Sign into the Azure portal
 
@@ -39,4 +39,4 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
-To re-enable managing your virtual machine, see [Enable Update Management by browsing the Azure portal](update-mgmt-enable-portal.md) or [Enable Update Management from an Azure VM](update-mgmt-enable-vm.md).
+To re-enable managing your virtual machine, see [Enable Update Management by browsing the Azure portal](enable-from-portal.md) or [Enable Update Management from an Azure VM](enable-from-vm.md).

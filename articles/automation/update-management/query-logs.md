@@ -406,4 +406,4 @@ Update
 ## Next steps
 
 * For details of Azure Monitor logs, see [Azure Monitor logs](../../azure-monitor/log-query/log-query-overview.md).
-* For help with alerts, see [Configure alerts](update-mgmt-configure-alerts.md).
+* For help with alerts, see [Configure alerts](configure-alerts.md).

@@ -316,7 +316,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
     The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-    ![Example result when deployment is complete](media/update-mgmt-enable-template/template-output.png)
+    ![Example result when deployment is complete](media/enable-from-template/template-output.png)
 
 ## Review deployed resources
 
@@ -334,7 +334,7 @@ If you're new to Azure Automation and Azure Monitor, it's important that you und
 
 5. From the left-pane, select **Update management**. On the **Update management** page, it shows the assessment page without any information as a result of just being enabled, and machines aren't configured for management.
 
-    ![Update Management feature assessment view](./media/update-mgmt-enable-template/update-management-assessment-view.png)
+    ![Update Management feature assessment view](./media/enable-from-template/update-management-assessment-view.png)
 
 ## Clean up resources
 
@@ -342,8 +342,8 @@ When you no longer need them, delete the **Updates** solution in the Log Analyti
 
 ## Next steps
 
-* To use Update Management for VMs, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+* To use Update Management for VMs, see [Manage updates and patches for your VMs](manage-updates-for-vm.md).
 
-* If you no longer want to use Update Management and wish to remove it, see instructions in [Remove Update Management feature](update-mgmt-remove-feature.md).
+* If you no longer want to use Update Management and wish to remove it, see instructions in [Remove Update Management feature](remove-feature.md).
 
-* To delete VMs from Update Management, see [Remove VMs from Update Management](update-mgmt-remove-vms.md).
+* To delete VMs from Update Management, see [Remove VMs from Update Management](remove-vms.md).

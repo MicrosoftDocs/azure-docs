@@ -43,7 +43,7 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
 6. For a dimension, select a valid value from the list. If the value you want isn't in the list, select **\+** next to the dimension and type in the custom name. Then select the value to look for. If you want to select all values for a dimension, select the **Select \*** button. If you don't choose a value for a dimension, Update Management ignores that dimension.
 
-    ![Configure signal logic](./media/update-mgmt-manage-updates-for-vm/signal-logic.png)
+    ![Configure signal logic](./media/manage-updates-for-vm/signal-logic.png)
 
 7. Under **Alert logic**, enter values in the **Time aggregation** and **Threshold** fields, and then select **Done**.
 
@@ -51,7 +51,7 @@ Follow the steps below to set up alerts to let you know the status of an update 
 
 9. Set the **Severity** field to **Informational(Sev 2)** for a successful run or **Informational(Sev 1)** for a failed run.
 
-    ![Screenshot shows the Define alert details section with Alert rule name, Description, and Severity fields highlighted.](./media/update-mgmt-manage-updates-for-vm/define-alert-details.png)
+    ![Screenshot shows the Define alert details section with Alert rule name, Description, and Severity fields highlighted.](./media/manage-updates-for-vm/define-alert-details.png)
 
 10. Select **Yes** to enable the alert rule.
 
@@ -71,7 +71,7 @@ Once you have your alerts configured, you can set up an action group, which is a
 
 6. Fill in the pane for your action type. For example, if using **Email/SMS/Push/Voice**, enter an action name, select the **Email** checkbox, enter a valid email address, and then select **OK**.
 
-    ![Configure an email action group](./media/update-mgmt-manage-updates-for-vm/configure-email-action-group.png)
+    ![Configure an email action group](./media/manage-updates-for-vm/configure-email-action-group.png)
 
 7. In the Add action group pane, select **OK**.
 

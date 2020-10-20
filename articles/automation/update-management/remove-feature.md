@@ -16,7 +16,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Remove management of VMs
 
-Before removing Update Management, you need to first stop managing your VMs. See [Remove VMs from Update Management](update-mgmt-remove-vms.md) to unenroll them from the feature.
+Before removing Update Management, you need to first stop managing your VMs. See [Remove VMs from Update Management](remove-vms.md) to unenroll them from the feature.
 
 ## Remove UpdateManagement solution
 
@@ -40,7 +40,7 @@ Before you can unlink the Automation account from the workspace, you need to fol
 
 3. On the **Unlink workspace** page, select **Unlink workspace** and respond to prompts.
 
-   ![Unlink workspace page](media/update-mgmt-remove-feature/automation-unlink-workspace-blade.png)
+   ![Unlink workspace page](media/remove-feature/automation-unlink-workspace-blade.png)
 
 While it attempts to unlink the Log Analytics workspace, you can track the progress under **Notifications** from the menu.
 
@@ -63,4 +63,4 @@ If Update Management was configured to support earlier versions of Azure SQL mon
 
 ## Next steps
 
-To re-enable this feature, see [Enable Update Management from an Automation account](update-mgmt-enable-automation-account.md), [Enable Update Management by browsing the Azure portal](update-mgmt-enable-portal.md), [Enable Update Management from a runbook](update-mgmt-enable-runbook.md), or [Enable Update Management from an Azure VM](update-mgmt-enable-vm.md).
+To re-enable this feature, see [Enable Update Management from an Automation account](enable-from-automation-account.md), [Enable Update Management by browsing the Azure portal](enable-from-portal.md), [Enable Update Management from a runbook](enable-from-runbook.md), or [Enable Update Management from an Azure VM](enable-from-vm.md).

@@ -8,7 +8,7 @@ ms.custom: mvc
 ---
 # Enable Update Management from the Azure portal
 
-This article describes how you can enable the [Update Management](update-mgmt-overview.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Update Management.
+This article describes how you can enable the [Update Management](overview.md) feature for VMs by browsing the Azure portal. To enable Azure VMs at scale, you must enable an existing VM using Update Management.
 
 The number of resource groups that you can use for managing your VMs is limited by the [Resource Manager deployment limits](../../azure-resource-manager/templates/cross-scope-deployment.md). Resource Manager deployments, not to be confused with Update deployments, are limited to five resource groups per deployment. Two of these resource groups are reserved to configure the Log Analytics workspace, Automation account, and related resources. This leaves you with three resource groups to select for management by Update Management. This limit only applies to simultaneous setup, not the number of resource groups that can be managed by an Automation feature.
 
@@ -31,12 +31,12 @@ Sign in to Azure at https://portal.azure.com.
 
 2. Use the checkboxes to choose the VMs to add to Update Management. You can add machines for up to three different resource groups at a time. Azure VMs can exist in any region, no matter the location of your Automation account.
 
-    ![List of VMs](media/update-mgmt-enable-portal/vmlist.png)
+    ![List of VMs](media/enable-from-portal/vmlist.png)
 
     > [!TIP]
     > Use the filter controls to select VMs from different subscriptions, locations, and resource groups. You can click the top checkbox to select all virtual machines in a list.
 
-    [ ![Enable Update Management](./media/update-mgmt-enable-portal/onboard-feature.png)](./media/update-mgmt-enable-portal/onboard-feature-expanded.png#lightbox)
+    [ ![Enable Update Management](./media/enable-from-portal/onboard-feature.png)](./media/enable-from-portal/onboard-feature-expanded.png#lightbox)
 
 3. Select **Services** and select **Update Management** for the Update Management feature.
 
@@ -44,11 +44,11 @@ Sign in to Azure at https://portal.azure.com.
 
 5. An existing Log Analytics workspace and Automation account are selected by default. If you want to use a different Log Analytics workspace and Automation account, select **CUSTOM** to select them from the Custom Configuration page. When you choose a Log Analytics workspace, a check is made to determine if it is linked with an Automation account. If a linked Automation account is found, you see the following screen. When done, select **OK**.
 
-    [ ![Select workspace and account](./media/update-mgmt-enable-portal/select-workspace-and-account.png)](./media/update-mgmt-enable-portal/select-workspace-and-account-expanded.png#lightbox)
+    [ ![Select workspace and account](./media/enable-from-portal/select-workspace-and-account.png)](./media/enable-from-portal/select-workspace-and-account-expanded.png#lightbox)
 
 6. If the workspace selected is not linked to an Automation account, you see the following screen. Select an Automation account and select **OK** when finished.
 
-    ![No workspace](media/update-mgmt-enable-portal/no-workspace.png)
+    ![No workspace](media/enable-from-portal/no-workspace.png)
 
 7. Deselect any virtual machine that you don't want to enable. VMs that can't be enabled are already deselected.
 
@@ -56,7 +56,7 @@ Sign in to Azure at https://portal.azure.com.
 
 ## Next steps
 
-* To use Update Management for VMs, see [Manage updates and patches for your VMs](update-mgmt-manage-updates-for-vm.md).
+* To use Update Management for VMs, see [Manage updates and patches for your VMs](manage-updates-for-vm.md).
 * To troubleshoot general Update Management errors, see [Troubleshoot Update Management issues](../troubleshoot/update-management.md).
 * To troubleshoot problems with the Windows update agent, see [Troubleshoot Windows update agent issues](../troubleshoot/update-agent-issues.md).
 * To troubleshoot problems with the Linux update agent, see [Troubleshoot Linux update agent issues](../troubleshoot/update-agent-issues-linux.md).

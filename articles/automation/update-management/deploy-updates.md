@@ -49,7 +49,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The operating system is automatically identified.
 
-5. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](update-mgmt-groups.md).
+5. In the **Groups to update (preview)** region, define a query that combines subscription, resource groups, locations, and tags to build a dynamic group of Azure VMs to include in your deployment. To learn more, see [Use dynamic groups with Update Management](configure-groups.md).
 
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
@@ -59,7 +59,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Arc enabled server. The machine is automatically targeted for the scheduled deployment.
 
-7. Use the **Update classifications** region to specify [update classifications](update-mgmt-view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
+7. Use the **Update classifications** region to specify [update classifications](view-update-assessments.md#work-with-update-classifications) for products. For each product, deselect all supported update classifications but the ones to include in your update deployment.
 
     If your deployment is meant to apply only a select set of updates, it is necessary to deselect all the pre-selected update classifications when configuring the **Include/exclude updates** option as described in the next step. This ensures only the updates you have specified to *include* in this deployment are installed on the target machines.
 
@@ -78,7 +78,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 10. Use the **Recurrence** to specify if the deployment occurs once or uses a recurring schedule, then select **OK**.
 
-11. In the **Pre-scripts + Post-scripts (Preview)** region, select the scripts to run before and after your deployment. To learn more, see [Manage pre-scripts and post-scripts](update-mgmt-pre-post-scripts.md).
+11. In the **Pre-scripts + Post-scripts (Preview)** region, select the scripts to run before and after your deployment. To learn more, see [Manage pre-scripts and post-scripts](pre-post-scripts.md).
 
 12. Use the **Maintenance window (minutes)** field to specify the amount of time allowed for updates to install. Consider the following details when specifying a maintenance window:
 
@@ -101,7 +101,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
 
 14. When you're finished configuring the deployment schedule, select **Create**.
 
-    ![Update Schedule Settings pane](./media/update-mgmt-deploy-updates/manageupdates-schedule-win.png)
+    ![Update Schedule Settings pane](./media/deploy-updates/manageupdates-schedule-win.png)
 
     > [!NOTE]
     > When you're finished configuring the deployment schedule for a selected Arc enabled server, select **Review + create**.
@@ -122,7 +122,7 @@ After your scheduled deployment starts, you can see its status on the **History*
 
 When the deployment is finished, you can select it to see its results.
 
-[ ![Update deployment status dashboard for a specific deployment](./media/update-mgmt-deploy-updates/manageupdates-view-results.png)](./media/update-mgmt-deploy-updates/manageupdates-view-results-expanded.png#lightbox)
+[ ![Update deployment status dashboard for a specific deployment](./media/deploy-updates/manageupdates-view-results.png)](./media/deploy-updates/manageupdates-view-results-expanded.png#lightbox)
 
 Under **Update results**, a summary provides the total number of updates and deployment results on the target VMs. The table on the right shows a detailed breakdown of the updates and the installation results for each.
 
@@ -141,4 +141,4 @@ Select **Errors** to see detailed information about any errors from the deployme
 
 ## Next steps
 
-To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](update-mgmt-configure-alerts.md).
+To learn how to create alerts to notify you about update deployment results, see [create alerts for Update Management](configure-alerts.md).
