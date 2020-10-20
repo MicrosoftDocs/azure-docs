@@ -13,7 +13,7 @@ ms.date: 02/28/2018
 # Enable and download server slow query logs of an Azure Database for PostgreSQL server using Azure CLI
 This sample CLI script enables and downloads the slow query logs of a single Azure Database for PostgreSQL server.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
 - This article requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
