@@ -26,8 +26,6 @@ This tutorial shows you how to create a JavaScript single-page application (SPA)
 
 MSAL.js 2.0 improves on MSAL.js 1.0 by supporting the authorization code flow in the browser instead of the implicit grant flow. MSAL.js 2.0 does **NOT** support the implicit flow.
 
-[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
-
 ## Prerequisites
 
 * [Node.js](https://nodejs.org/en/download/) for running a local webserver

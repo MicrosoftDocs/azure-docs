@@ -36,7 +36,7 @@ Monitor.
 > [!NOTE]
 > Change details in Resource Graph are for Resource Manager properties. For tracking changes inside
 > a virtual machine, see Azure Automation's
-> [Change tracking](../../../automation/change-tracking.md) or Azure Policy's
+> [Change tracking](../../../automation/change-tracking/overview.md) or Azure Policy's
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]

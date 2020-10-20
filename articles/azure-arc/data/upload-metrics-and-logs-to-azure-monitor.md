@@ -23,8 +23,9 @@ Periodically, you can export out usage information for billing purposes, monitor
 
 Before you can usage data, metrics, or logs you need to:
 
+1. Install Azure CLI (az) and [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] installed. See [Install tools](./install-client-tools.md).
 1. [Register the `Microsoft.AzureData` resource provider](#register-the-resource-provider) 
-2. [Create the service principal](#create-service-principal)
+1. [Create the service principal](#create-service-principal)
 
 ## Register the resource provider
 

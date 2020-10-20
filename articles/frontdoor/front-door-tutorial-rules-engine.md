@@ -54,7 +54,7 @@ In this tutorial, you learn how to:
 
 ## Configure Rules Engine in Azure CLI
 
-1. If you haven't already, install [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Add “front-door” extension:- az extension add --name front-door. Then, login and switch to your subscription az account set --subscription <name_or_Id>.
+1. If you haven't already, install [Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Add “front-door” extension:- az extension add --name front-door. Then, login and switch to your subscription az account set --subscription <name_or_Id>.
 
 1. Start by creating a Rules Engine - this example shows one rule with one header-based action and one match condition. 
 
@@ -92,7 +92,7 @@ In this tutorial, you learn how to:
     az network front-door routing-rule update -g {rg} -f {front_door} -n {routing_rule_name} --remove rulesEngine # case sensitive word ‘rulesEngine’
     ```
 
-For more information, a full list of AFD Rules Engine commands can be found [here](https://docs.microsoft.com/cli/azure/ext/front-door/network/front-door/rules-engine?view=azure-cli-latest&preserve-view=true).   
+For more information, a full list of AFD Rules Engine commands can be found [here](/cli/azure/ext/front-door/network/front-door/rules-engine?preserve-view=true&view=azure-cli-latest).   
 
 ## Clean up resources
 
