@@ -38,7 +38,7 @@
 - name: Tutorials
   items:
   - name: Deploy to Azure Web App with GitHub Actions
-    href: ./devops-starter-gh-web-app.md
+    href: devops-starter-gh-web-app.md
     maintainContext: true
   - name: BYOC with GitHub
     href: azure-devops-project-github.md
