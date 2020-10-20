@@ -38,7 +38,7 @@ You can create a [service principal](../../active-directory/develop/app-objects-
 Create a resource group if you do not already have one. 
 
 ```azurecli-interactive
-    az group -n {MyResourceGroup}
+    az group create -n {MyResourceGroup}
 ```
 
 Replace the placeholder `myApp` with the name of your application. 
@@ -127,7 +127,7 @@ The workflow file must be stored in the **.github/workflows** folder at the root
         - run: echo ${{ steps.deploy.outputs.containerName }}
     ```
     > [!NOTE]
-    > You can specify a JSON format parameters file instead in the ARM Deploy (example: `.azuredeploy.parameters.json`).  
+    > You can specify a JSON format parameters file instead in the ARM Deploy action (example: `.azuredeploy.parameters.json`).  
 
     The first section of the workflow file includes:
 
