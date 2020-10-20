@@ -45,7 +45,7 @@ Main capabilities:
 - Receiving and analyzing detected vulnerabilities from deployed agents (manually and at-scale)
 - Unified experience for Azure VMs and Azure Arc machines
 
-[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](https://docs.microsoft.com/azure/security-center/deploy-vulnerability-assessment-vm#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+[Learn more about deploying the integrated vulnerability scanner to your hybrid machines](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
 
 [Learn more about Azure Arc enabled servers](https://docs.microsoft.com/azure/azure-arc/servers/).
 
