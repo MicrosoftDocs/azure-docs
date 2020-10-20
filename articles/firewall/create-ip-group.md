@@ -13,7 +13,7 @@ ms.author: victorh
 
 IP Groups allow you to group and manage IP addresses for Azure Firewall rules. They can have a single IP address, multiple IP addresses, or one or more IP address ranges.
 
-## Create an IP Group
+## Create an IP Group - Azure Portal
 
 1. From the Azure portal home page, select **Create a resource**.
 2. Type **IP Groups** in the search text box, then select **IP Groups**.
@@ -36,6 +36,32 @@ IP Groups allow you to group and manage IP addresses for Azure Firewall rules. T
 5. When finished, select **Review + Create**.
 6. Select **Create**.
 
+## Create an IP Group - Azure PowerShell
+
+This example creates an IP Group with a address prefix and an IP address using Azure PowerShell.
+
+```azurepowershell
+$ipGroup = @{
+    Name              = 'ipGroup'
+    ResourceGroupName = 'ipGroupRG'
+    Location          = 'West US'
+    IpAddress         = @('10.0.0.0/24', '192.168.1.10') 
+}
+
+New-AzIpGroup @ipGroup
+```
+
+## Create an IP Group - Azure CLI
+
+This example creates an IP Group with a address prefix and an IP address using Azure CLI
+
+```azurecli-interactive
+az network ip-group create \
+    --name ipGroup \ 
+    --resource-group ipGroupRG \
+    --location westus \
+    --ip-addresses '10.0.0.0/24' '192.168.1.10'
+```
 
 ## Next steps
 
