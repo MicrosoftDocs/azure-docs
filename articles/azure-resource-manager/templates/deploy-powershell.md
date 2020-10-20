@@ -2,7 +2,7 @@
 title: Deploy resources with PowerShell and template
 description: Use Azure Resource Manager and Azure PowerShell to deploy resources to Azure. The resources are defined in a Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 10/20/2020
 ---
 # Deploy resources with ARM templates and Azure PowerShell
 
@@ -12,22 +12,21 @@ This article explains how to use Azure PowerShell with Azure Resource Manager te
 
 You need a template to deploy. If you don't already have one, download and save an [example template](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) from the Azure Quickstart templates repo. The local file name used in this article is **c:\MyTemplates\azuredeploy.json**.
 
-Unless you use the Azure Cloud Shell to deploy templates, you need to install Azure PowerShell and connect to Azure:
+You need to install Azure PowerShell and connect to Azure:
 
 - **Install Azure PowerShell cmdlets on your local computer.** For more information, see [Get started with Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Connect to Azure by using [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. If you have multiple Azure subscriptions, you might also need to run [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). For more information, see [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps).
+
+If you don't have PowerShell installed, you can use the Cloud Shell. For more information, see [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md).
 
 ## Deploy local template
 
 The following example creates a resource group, and deploys a template from your local machine. The name of the resource group can only include alphanumeric characters, periods, underscores, hyphens, and parenthesis. It can be up to 90 characters. It can't end in a period.
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroup -Name ExampleGroup -Location "Central US"
 New-AzResourceGroupDeployment -Name ExampleDeployment `
-  -ResourceGroupName $resourceGroupName `
+  -ResourceGroupName ExampleGroup `
   -TemplateFile c:\MyTemplates\azuredeploy.json
 ```
 
@@ -68,11 +67,8 @@ Instead of storing ARM templates on your local machine, you may prefer to store 
 To deploy an external template, use the **TemplateUri** parameter. Use the URI in the example to deploy the sample template from GitHub.
 
 ```azurepowershell
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
+New-AzResourceGroup -Name ExampleGroup -Location "Central US"
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
@@ -87,7 +83,12 @@ The following examples show how to create and deploy a template spec. These comm
 First, you create the template spec by providing the ARM template.
 
 ```azurepowershell
-New-AzTemplateSpec -Name storageSpec -Version 1.0 -ResourceGroupName templateSpecsRg -Location westus2 -TemplateJsonFile ./mainTemplate.json
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0 `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateJsonFile ./mainTemplate.json
 ```
 
 Then, you get the ID for template spec and deploy it.
@@ -105,23 +106,6 @@ For more information, see [Azure Resource Manager template specs (Preview)](temp
 ## Preview changes
 
 Before deploying your template, you can preview the changes the template will make to your environment. Use the [what-if operation](template-deploy-what-if.md) to verify that the template makes the changes that you expect. What-if also validates the template for errors.
-
-## Deploy from Azure Cloud Shell
-
-You can use the [Azure Cloud Shell](https://shell.azure.com) to deploy your template. To deploy an external template, provide the URI of the template. To deploy a local template, you must first load your template into the storage account for your Cloud Shell. To upload files to the shell, select the **Upload/Download files** menu icon from the shell window.
-
-To open the Cloud Shell, browse to [https://shell.azure.com](https://shell.azure.com), or select **Try-It** from the following code section:
-
-```azurepowershell-interactive
-$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
-New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
-  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
-```
-
-To paste the code into the shell, right-click inside the shell and then select **Paste**.
 
 ## Pass parameter values
 

@@ -12,7 +12,7 @@ The deployment commands changed in Azure CLI version 2.2.0. The examples in this
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
-If you don't have Azure CLI installed, you can use the [Cloud Shell](#deploy-cloud-shell.md).
+If you don't have Azure CLI installed, you can use the Cloud Shell. For more information, see [Deploy ARM templates from Cloud Shell](deploy-cloud-shell.md).
 
 ## Deploy local template
 
@@ -41,9 +41,26 @@ The deployment can take a few minutes to complete. When it finishes, you see a m
 "provisioningState": "Succeeded",
 ```
 
+## Deploy remote template
+
+Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
+
+To deploy an external template, use the **template-uri** parameter. Use the URI in the example to deploy the sample template from GitHub.
+
+```azurecli-interactive
+az group create --name ExampleGroup --location "Central US"
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
+  --parameters storageAccountType=Standard_GRS
+```
+
+The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
+
 ## Deployment name
 
-In the preceding example, you named the deployment `ExampleDeployment`. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.json` and don't specify a deployment name, the deployment is named `azuredeploy`.
+When deploying an ARM template, you can give the deployment a name. This name can help you retrieve the deployment from the deployment history. If you don't provide a name for the deployment, the name of the template file is used. For example, if you deploy a template named `azuredeploy.json` and don't specify a deployment name, the deployment is named `azuredeploy`.
 
 Every time you run a deployment, an entry is added to the resource group's deployment history with the deployment name. If you run another deployment and give it the same name, the earlier entry is replaced with the current deployment. If you want to maintain unique entries in the deployment history, give each deployment a unique name.
 
@@ -66,23 +83,6 @@ However, if you run a deployment named `newStorage` that deploys a storage accou
 When you specify a unique name for each deployment, you can run them concurrently without conflict. If you run a deployment named `newStorage1` that deploys a storage account named `storage1`, and at the same time run another deployment named `newStorage2` that deploys a storage account named `storage2`, then you have two storage accounts and two entries in the deployment history.
 
 To avoid conflicts with concurrent deployments and to ensure unique entries in the deployment history, give each deployment a unique name.
-
-## Deploy remote template
-
-Instead of storing ARM templates on your local machine, you may prefer to store them in an external location. You can store templates in a source control repository (such as GitHub). Or, you can store them in an Azure storage account for shared access in your organization.
-
-To deploy an external template, use the **template-uri** parameter. Use the URI in the example to deploy the sample template from GitHub.
-
-```azurecli-interactive
-az group create --name ExampleGroup --location "Central US"
-az deployment group create \
-  --name ExampleDeployment \
-  --resource-group ExampleGroup \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json" \
-  --parameters storageAccountType=Standard_GRS
-```
-
-The preceding example requires a publicly accessible URI for the template, which works for most scenarios because your template shouldn't include sensitive data. If you need to specify sensitive data (like an admin password), pass that value as a secure parameter. However, if you don't want your template to be publicly accessible, you can protect it by storing it in a private storage container. For information about deploying a template that requires a shared access signature (SAS) token, see [Deploy private template with SAS token](secure-template-with-sas-token.md).
 
 ## Deploy template spec
 
