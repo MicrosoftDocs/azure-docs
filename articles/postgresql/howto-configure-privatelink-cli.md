@@ -16,13 +16,11 @@ A Private Endpoint is the fundamental building block for private link in Azure. 
 > [!NOTE]
 > The private link feature is only available for Azure Database for PostgreSQL servers in the General Purpose or Memory Optimized pricing tiers. Ensure the database server is in one of these pricing tiers.
 
-## Prerequisites
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-To step through this how-to guide, you need:
+- To step through this how-to guide, you need an [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
 
-- An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-cli.md).
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+- This article requires version 2.0.28 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
 If you decide to install and use Azure CLI locally instead, this quickstart requires you to use Azure CLI version 2.0.28 or later. To find your installed version, run `az --version`. See [Install Azure CLI](/cli/azure/install-azure-cli) for install or upgrade info.
 

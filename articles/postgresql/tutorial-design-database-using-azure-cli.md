@@ -21,16 +21,17 @@ In this tutorial, you use Azure CLI (command-line interface) and other utilities
 > * Update data
 > * Restore data
 
-You may use the Azure Cloud Shell in the browser, or [install Azure CLI]( /cli/azure/install-azure-cli) on your own computer to run the commands in this tutorial.
+You may use the Azure Cloud Shell in the browser, or install Azure CLI.
 
-[!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli). 
+- This article requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
-If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account) command.
-```azurecli-interactive
-az account set --subscription 00000000-0000-0000-0000-000000000000
-```
+- If you have multiple subscriptions, choose the appropriate subscription in which the resource exists or is billed for. Select a specific subscription ID under your account using [az account set](/cli/azure/account) command.
+
+    ```azurecli-interactive
+    az account set --subscription 00000000-0000-0000-0000-000000000000
+    ```
 
 ## Create a resource group
 Create an [Azure resource group](../azure-resource-manager/management/overview.md) using the [az group create](/cli/azure/group) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myresourcegroup` in the `westus` location.

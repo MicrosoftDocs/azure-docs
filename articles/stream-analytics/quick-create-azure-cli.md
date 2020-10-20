@@ -18,13 +18,11 @@ In this quickstart, you use the Azure CLI to define a Stream Analytics job that 
 
 ## Before you begin
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-## Prepare your environment
-
-1. Sign in.
+- Sign in.
 
    Sign in using the [az login](/cli/azure/reference-index#az-login) command if you're using a local install of the CLI.
 
@@ -34,7 +32,7 @@ In this quickstart, you use the Azure CLI to define a Stream Analytics job that 
 
     Follow the steps displayed in your terminal to complete the authentication process.
 
-2. Install the Azure CLI extension.
+- Install the Azure CLI extension.
 
    When working with extension references for the Azure CLI, you must first install the extension.  Azure CLI extensions give you access to experimental and pre-release commands that have not yet shipped as part of the core CLI.  To learn more about extensions including updating and uninstalling, see [Use extensions with Azure CLI](/cli/azure/azure-cli-extensions-overview).
 
@@ -50,7 +48,7 @@ In this quickstart, you use the Azure CLI to define a Stream Analytics job that 
     az extension add --name azure-iot
     ```
 
-3. Create a resource group.
+- Create a resource group.
 
    All Azure resources must be deployed into a resource group. Resource groups allow you to organize and manage related Azure resources.
 

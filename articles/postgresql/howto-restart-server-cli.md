@@ -17,14 +17,12 @@ The server restart will be blocked if the service is busy. For example, the serv
 The time required to complete a restart depends on the PostgreSQL recovery process. To decrease the restart time, we recommend you minimize the amount of activity occurring on the server prior to the restart.
 
 ## Prerequisites
-To complete this how-to guide, you need:
-- An [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md)
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-> [!IMPORTANT]
-> This how-to guide requires that you use Azure CLI version 2.0 or later. To confirm the version, at the Azure CLI command prompt, enter `az --version`. To install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
+- This article requires version 2.0 or later of the Azure CLI. Run [az version](/cli/azure/reference-index#az_version) to find the version and dependent libraries that are installed. To upgrade to the latest version, run [az upgrade](/cli/azure/reference-index#az_upgrade).
 
+- To complete this how-to guide, you need an [Azure Database for PostgreSQL server](quickstart-create-server-up-azure-cli.md).
 
 ## Restart the server
 
