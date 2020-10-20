@@ -24344,8 +24344,13 @@
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-debug-saml-sso-issues.md",
-      "redirect_url": "/azure/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory/azuread-dev/howto-v1-debug-saml-sso-issues.md",
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/howto-v1-enable-sso-android.md",
@@ -25614,8 +25619,8 @@
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-saml-debugging.md",
-      "redirect_url": "/azure/active-directory/develop/howto-v1-debug-saml-sso-issues",
-      "redirect_document_id": true
+      "redirect_url": "/azure/active-directory/manage-apps/debug-saml-sso-issues",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/develop/active-directory-devhowto-appsource-certified.md",

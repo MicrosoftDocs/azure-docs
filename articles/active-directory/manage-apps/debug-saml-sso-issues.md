@@ -1,26 +1,21 @@
 ---
-title: Debug SAML-based single sign-on - Azure Active Directory | Microsoft Docs
+title: Debug SAML-based single sign-on - Azure Active Directory
 description: Debug SAML-based single sign-on to applications in Azure Active Directory.
 services: active-directory
-author: rwike77
+ms.author: kenwith
+author: kenwith
 manager: CelesteDG
-
 ms.service: active-directory
-ms.subservice: azuread-dev
-ms.topic: how-to
+ms.subservice: manage-apps
+ms.topic: troubleshooting
 ms.workload: identity
 ms.date: 02/18/2019
-ms.author: ryanwi
-ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
-ROBOTS: NOINDEX
 ---
 
 # Debug SAML-based single sign-on to applications in Azure Active Directory
 
-[!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
-
-Learn how to find and fix [single sign-on](../manage-apps/what-is-single-sign-on.md) issues for applications in Azure Active Directory (Azure AD) that support [Security Assertion Markup Language (SAML) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language). 
+Learn how to find and fix [single sign-on](what-is-single-sign-on.md) issues for applications in Azure Active Directory (Azure AD) that use SAML-based single sign-on. 
 
 ## Before you begin
 
@@ -42,7 +37,7 @@ To test SAML-based single sign-on between Azure AD and a target application:
 1. To open the SAML-based single sign-on testing experience, go to **Test single sign-on** (step 5). If the **Test** button is greyed out, you need to fill out and save the required attributes first in the **Basic SAML Configuration** section.
 1. In the **Test single sign-on** blade, use your corporate credentials to sign in to the target application. You can sign in as the current user or as a different user. If you sign in as a different user, a prompt will ask you to authenticate.
 
-    ![Screenshot showing the test SAML SSO page](./media/howto-v1-debug-saml-sso-issues/test-single-sign-on.png)
+    ![Screenshot showing the test SAML SSO page](./media/debug-saml-sso-issues/test-single-sign-on.png)
 
 If you are successfully signed in, the test has passed. In this case, Azure AD issued a SAML response token to the application. The application used the SAML token to successfully sign you in.
 
@@ -52,7 +47,7 @@ If you have an error on the company sign-in page or the application's page, use 
 
 When you try to sign in, you might see an error on your company sign-in page that's similar to the following example.
 
-![Example showing an error in the company sign-in page](./media/howto-v1-debug-saml-sso-issues/error.png)
+![Example showing an error in the company sign-in page](./media/debug-saml-sso-issues/error.png)
 
 To debug this error, you need the error message and the SAML request. The My Apps Secure Sign-in Extension automatically gathers this information and displays resolution guidance on Azure AD.
 
@@ -95,7 +90,7 @@ To resolve the error, follow these steps, or watch this [short video about how t
 
      For more information on the SAML response, see [Single Sign-on SAML protocol](../develop/single-sign-on-saml-protocol.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 
-1. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](../manage-apps/application-sign-in-problem-application-error.md) for guidance on how to resolve the problem. 
+1. Now that you have reviewed the SAML response, see [Error on an application's page after signing in](application-sign-in-problem-application-error.md) for guidance on how to resolve the problem. 
 1. If you're still not able to sign in successfully, you can ask the application vendor what is missing from the SAML response.
 
 ## Next steps
