@@ -8935,7 +8935,7 @@
     },
     {
       "source_path": "articles/connectors/connectors-create-api-twitter",
-      "redirect_url": "/connectors/twitterconnector/",
+      "redirect_url": "/connectors/twitter/",
       "redirect_document_id": true
     },
     {
